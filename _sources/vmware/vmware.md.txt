@@ -1,0 +1,617 @@
+# VMware User's Guide
+
+## Introduction
+
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of virtual machines running on VMware ESXi servers. This guide introduces how to properly use ADPS to back up and restore VMware virtual machines.
+
+## Features
+
+### VMware
+
+```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
+```
+```{table} VMware Features
+---
+class: longtable
+---
+|Feature |Description|
+|------|------|
+|Backup source|Virtual machine, virtual disk, host, cluster, resource pool, file folder, datastore|
+|Backup type|Full backup: Back up all the data on one or more virtual machines or virtual disks.{{ br }}Incremental backup: Back up the data that has changed since the last backup. {{ br }}Cumulative incremental backup: Back up the data that has changed since the last full backup.|
+|Backup target|Standard storage pool, de-duplication storage pool, object storage service pool, tape library pool|
+|Backup compression |None, fast|
+|Backup channels| A positive integer between 1 and 255 |
+|Backup schedule |Immediate, one-time, minutely, hourly, daily, weekly, monthly|
+|Reconnection time| The default value is 10 minutes. |
+|Restore type|Virtual machine restore, virtual disk restore|
+|Restore location |Original virtual machine, another virtual machine|
+|Restore granularity| Disk or virtual machine |
+|CBT| Enable and reset |
+|Speed limit |The data transfer speed or disk read and write speed can be limited.|
+|Stop jobs|Backup and restore jobs can be stopped.|
+|Backup independent disks in persistent mode| Independent disks in persistent mode can be backed up after the shutdown of the virtual machine. |
+|Backup RDM disks in physical compatibility mode| RDM disks in physical compatibility mode can be backed up after the shutdown of the virtual machine. |
+|Virtual machines per host to be backed up in parallel| 5 virtual machines per host are supported to be backed up in parallel by default. |
+|D2C| Data can be backed up directly to object storage services. |
+|D2T |Data can be backed up directly to tape libraries.|
+|Snapshot |Automatic, Quiesced Snapshot, and Normal Snapshot can be selected. If Automatic is selected, a quiesced snapshot will be created first. If it fails, a normal snapshot will be created.|
+|Retain MAC Address after restoring |It is enabled by default. But addresses may have conflicts.|
+|Restore network adapter| Restoring network adapter is supported |
+|IPv6| Data transfer and management over IPv6 are supported. |
+|Retain the virtual machine BIOS UUID| The BIOS UUID of the virtual machine is retained by default. |
+|Pool replication| D2D2D, D2D2C, D2D2T |
+|Restore from target pools| Data can be restored from target pools. |
+|Backup and restore using VMware least privilege account| VMware least privilege account can be used to implement the backup and restore. |
+|Auto match VDDK version| The VDDK version can be automatically matched according to the VMware version. |
+|Allocated blocks| The backup of allocated blocks in the virtual machine is supported. |
+|Transport mode| NBD: Transport data over the TCP/IP network.{{ br }}NBDSSL: Encrypt and transport data over the TCP/IP network.{{ br }}SAN: Read backup data directly over SAN not LAN. This mode requires the backup server to read the backup data directly through SAN.{{ br }}HotAdd: The backup agent is installed on a virtual machine in the ESXi server that needs to be backed up. The agent can read the backup data directly. |
+|Start virtual machine after restoring| The restored virtual machines can be started after the restore job is completed. |
+|Check the backup and restore state in job details| The state of a virtual machine can be checked in the job details when the job is running. |
+|Add and delete virtual machines and disks when modifying the jobs| Virtual machines or virtual disks can be added or deleted during modifications. |
+|Restore virtual machines between hosts with different ESXi versions| Restoring virtual machines between hosts with different ESXi versions is supported. |
+```
+
+## VMware Platform Version Compatibility
+
+```{table} VMware Platform Version Compatibility
+| Virtual Platform Version | Support |
+| ------------------------ | ------- |
+| ESXi 5.1                 |Yes      |
+| ESXi 5.5                 |Yes      |
+| ESXi 6.0                 |Yes      |
+| ESXi 6.5                 |Yes      |
+| ESXi 7.0                 |Yes      |
+| VMware vCenter 6.5       |Yes      |
+| VMware vCenter 7.0       |Yes      |
+```
+
+## VMware Data Transport
+
+The data transport modes for VMware backup and restore include NBD, NBDSSL, HotAdd, SAN, and Adaptive. Before backup, you need to set the network among the backup server, storage server, backup host, and virtual center. This chapter introduces VMware data transport modes.
+
+### NBD & NBDSSL Transport
+
+During the backup and restore, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of the VMware virtual center with simple deployment, single IP network, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:
+
+- The backup host, backup server, and storage server can be deployed on one device (data protection appliance).
+
+- The backup host can be deployed on a Linux device that has network connectivity with the backup server and storage server. The Linux device can be physical or virtual.
+
+  ![](../image/03-vmware/vmware/vmware_NBD.jpg)
+
+### HotAdd Transport
+
+The backup host is deployed on a virtual machine of the ESXi server that needs to be backed up. During the backup, the SCSI HotAdd feature of ESXi is used to mount the virtual disk to the backup host. Data flows from the backup host to the storage server. The deployment of a backup host has the following requirements:
+
+- The backup host must be installed on a VMware virtual machine with a SCSI controller. This transport mode is not supported for the backup and restore of IDE disks.
+
+- The virtual machine that needs to be backed up and restored should be on the same VMware data center with the backup host. For HotAdd backup, we recommend at least one HotAdd backup host on each ESXi.
+
+- The ESXi Server where the backup host resides must have access to the Datastore of the virtual machine that needs to be backed up.
+
+  ![](../image/03-vmware/vmware/vmware_hotadd.jpg)
+
+### SAN Transport
+
+In SAN transport mode, the backup host is required to read the disk storage of the virtual machine directly through SAN (FC/iSCSI). During the backup, data flows from the backup host to the storage server directly over the LAN network. The LAN-Free backup will be achieved when the backup host and the storage server are on the same host.
+
+1. Applicable scenarios:
+
+   - The datastore of the virtual disk is constructed by LUN and is mounted to the backup host through FC/iSCSI. The backup host collects the backup data directly without going over the LAN.
+
+2. Backup host deployment:
+
+   - You can deploy the backup host and backup storage server on the same host so that the VMware datastore can be mounted to the storage server through FC/iSCSI.
+
+   - Or you can mount the VMware datastore through FC/iSCSI to an independent host as the backup host.
+
+       ![](../image/03-vmware/vmware/vmware_san.jpg)
+
+### Adaptive Transport
+
+The Adaptive transport mode will select the SAN transport mode first according to the configuration of the actual environment. If the conditions of the SAN mode are not met, HotAdd will be selected. If HotAdd is not met, NBDSSL/NBD will be selected for backup.
+
+## Configure Backup Host
+
+This chapter introduces how to download and install the agent and connect it to the backup server before the first backup and restore.
+
+### Environment Compatibility
+
+```{table} Environment Compatibility
+| Operating System | Operating System Bits | Support |
+| ---------------- | --------------------- | ------- |
+| Ubuntu 16.04     | x86_64                |Yes      |
+| Ubuntu 18.04     | x86_64                |Yes      |
+| CentOS 7.4       | x86_64                |Yes      |
+```
+
+1. Open a browser and log in to ADPS as the *admin*.
+
+2. Click **Resource** -> **Install Agent** icon to access the pop-up installation window.
+
+   ![](../image/01-license/vmware/vmware_lincense01.png)
+
+3. Select **Linux** as the operating system and **VMware** as the module. Click the *Replicate* icon to copy installation commands. You can use curl and wget to install the agent.
+
+   ![](../image/01-license/vmware/vmware_lincense04.png)
+
+4. Open the command line of the backup host, paste the command, and press Enter to execute the installation.
+
+   ![](../image/01-license/vmware/vmware_lincense05.png)
+
+### Configure VDDK
+
+For VMware backup and restore, you need to deploy VDDK on the backup host. Add VDDK according to the following steps:
+
+1. Upload vddk.tar.gz to the backup host, and extract it under the /opt/aurreum/adps/ directory. The command is:
+
+   ```shell
+   tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
+   ```
+
+2. The unzipped directory contains VDDK versions. During the backup and restore, the VDDK versions will be automatically selected according to the ESXi version or be specified.
+   - VDDK:
+     - 6.0
+     - 6.5
+     - 6.7
+     - 7.0
+
+### Check Successful Installation
+
+After the agent installation, you can log in to ADPS as the admin and see that the host is on the **Resource** list.
+
+![](../image/01-license/vmware/vmware_lincense06.png)
+
+## Activate and Authorize
+
+You need to activate and authorize the host after deploying the backup software and agent on the backup host. If you have multiple agents, you can install them first and then carry out batch activation and authorization. Please refer to *Batch Register/Activate/Authorize* for more details.
+
+1. Open a browser and log in to ADPS as the admin.
+
+2. Go to **Resource** and find the host that you need to activate. Click the **Register** icon.
+
+    ![](../image/01-license/vmware/vmware_lincense02.png)
+
+3. In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
+
+     ![](../image/01-license/vmware/vmware_lincense07.png)
+
+4. Authorize users to operate the resource in the pop-up **Authorize** window. Click **Submit** to complete the authorization.
+
+     ![](../image/01-license/vmware/vmware_lincense03.png)
+
+## Register VMware Virtual Center
+
+### Enable VMware
+
+1. Open a browser and log in to ADPS as the admin.
+
+2. Select **Settings** -> **Resource** and click **Enable VMware**.
+
+   ![](../image/03-vmware/vmware/vmware_function01.png)
+
+### Register VMware
+
+1. Click **Resource** -> **Add** icon. Select **VMware vCenter or ESXi**.
+
+   ![](../image/03-vmware/vmware/vmware_function04.png)
+
+2. Enter the parameters in the pop-up **Add VMware vCenter or ESXi** window.
+
+   ![](../image/03-vmware/vmware/vmware_function02.png)
+
+   - **Name**: Enter an identifiable name.
+   - **Address**: Enter the IP address of the VMware host and the IP address or domain name of the vCenter Server.
+   - **SSL** / **Port**: SSL secure connection is enabled by default. Use 443 port to register VMware.
+   - **Username**: Enter the username for logging into the VMware server. See *Limitations* for the requirements of user role least privileges.
+   - **Password**: Enter the corresponding password of the user account for logging into the VMware server.
+   - **Agent**: Select the agent that you have activated and authorized.
+
+3. After the VMware data center is added successfully, you can activate the VMware and authorize it to user groups according to *Activate and Authorize*.
+
+
+### Manage VMware
+
+After the VMware data center is added, you can manage it on the **Resource** page.
+
+ ![](../image/03-vmware/vmware/vmware_function05.png)
+
+- **Modify**: To change the name and network of the virtualization platform, click the **Modify** icon to edit the above information in the pop-up **Modify VMware** window.
+- **Settings**: When the registered information of the virtualization platform is changed, you can click the **Settings** icon to update the information in the pop-up **Set Up VMware** window.
+
+- **Unregister**: To discontinue the VMware, click the **Unregister** icon to delete the virtualization platform.
+
+## Before You Begin
+
+### Check Resource
+
+1. Log in to ADPS as the *operator*.
+
+2. Go to **Resource**. You can see the activated and authorized resource is on the list and its state is *Online*. If the resource is not available, please check *Activate and Authorize*.
+
+   ![](../image/03-vmware/vmware/vmware_check01.png)
+
+### Check Storage Pool
+
+1. Log in to ADPS as the *operator*.
+
+2. Go to **Storage Pool** and check whether there are storage pools. If not, please contact the admin to create one and assign the permission to users.
+
+   ![](../image/03-vmware/vmware/vmware_check02.png)
+
+## Create Backup Jobs
+
+This chapter introduces how to back up VMware.
+
+### Prerequisites
+
+1. Open a browser and log in to ADPS as the *operator*.
+2. You have set the data transport network and deployed the corresponding backup host. Please refer to *VMware Data Transport* and *Configure Backup Host*.
+
+3. You have activated and authorized the backup host as well as the registered VMware. For operations, please refer to *Activate and Authorize*.
+
+### Create Full Backup Jobs
+
+1. Click **Backup** and select the VMware resource. Click **Next**.
+
+   ![](../image/03-vmware/vmware/vmware_backup_01.png)
+
+2. Set the backup type and backup source.
+
+   (1) Select **Full Backup** as the backup type.
+
+   ![](../image/03-vmware/vmware/vmware_backup_02.png)
+
+   (2) Click the **Add** icon to access the pop-up **Add Backup Source** window. You can enter the virtual machine name directly in the search box for accurate search (keyword query is supported). Or you can expand the virtualization platform by different granularities including cluster, host, resource pool, or file. Select the virtual machine that needs to be backed up and click **Submit**.
+
+   ![](../image/03-vmware/vmware/vmware_backup_04.png)
+
+   (3) Browse the selected backup source. After confirmation, click **Next**.
+
+   ![](../image/03-vmware/vmware/vmware_backup_05.png)
+
+   > Different granularities can be included in one virtual machine backup job.
+   >
+
+3. Go to **Agent**. Select the corresponding backup host according to *VMware Data Transport*. Click **Next**.
+
+   ![](../image/03-vmware/vmware/vmware_backup_06.png)
+
+4. Select **Backup Target**. You can select standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, encrypted storage pool, etc.
+
+   ![](../image/03-vmware/vmware/vmware_backup_07.png)
+
+5. Select **Backup Schedule** to set the run time of the backup job. We recommend running a full backup on a weekly basis. Six schedule types are supported:
+
+   ```{table} Backup Schedule
+   | Type      | Description                                                  |
+   | --------- | ------------------------------------------------------------ |
+   | Immediate | The job starts immediately after it is submitted.            |
+   | One time  | After the job is submitted, the job will be in an idle state and start to run when the specified run time is reached. |
+   | Hourly    | The job runs after a specified number of hours according to your setting. The value is an integer between 1 and 24. |
+   | Daily     | The job runs after a specified number of days according to your setting. The value is an integer between 1 and 5. |
+   | Weekly    | The job runs after a specified number of weeks according to your setting. You can specify which day of the week to run the job. |
+   | Monthly   | The job runs at the specified weeks/days of the specified months according to your setting. |
+   ```
+
+   Example: Run the job every two weeks on Friday at 18:00.
+
+   ![](../image/03-vmware/vmware/vmware_backup_08.png)
+
+6. Set **Backup Options** including common and advanced options.
+
+   (1) **Common options**:
+
+   ![](../image/03-vmware/vmware/vmware_backup_09.png)
+
+   > - **Compression**: Fast compression is enabled by default. Backup data is compressed at the source side for transmission. It can reduce the backup time, improve backup efficiency, and save backup space.
+   > - **Channels**: The default channel number is 8. It refers to the maximum number of virtual machines that can be backed up at the same time.  We recommend that the channel number is no more than the number of CPU cores. If it exceeds, the efficiency will not be improved obviously.
+   > - **Number of virtual machines per host backup in parallel**: It refers to the number of virtual machines  per host to be backed up at the same time. The number cannot exceed 5 by default.
+   > - **Data transport mode**: It determines how the backup host reads data from the Datastore. Please select the corresponding data transport mode according to the *VMware Data Transport*. Five modes are supported:
+   >   1. **NBD**: The backup host collects data over the LAN network.
+   >   2. **NBDSSL**: An encrypted network transport mode. The data transport process will be encrypted.
+   >   3. **SAN**: The backup host collects data directly over the SAN rather than LAN. This mode requires the backup host to directly read the disk storage of the virtual machine over the SAN (FC/iSCSI).
+   >   4. **HotAdd**: The backup host is installed on a virtual machine of the ESXi server that needs to be backed up so that the host can directly read the backup data in ESXi.
+   >   5. **Adaptive**: The configuration sequence of data transport modes is SAN > HotAdd > NBDSSL > NBD.
+   > - **VDDK version**: During the backup and restore, the virtualization platform will automatically select the VDDK version according to the ESXi version. You can also specify the VDDK version under some circumstances.
+   > - **Enable CBT**: It is enabled by default. You need to enable CBT for virtual machine incremental backups. It supports allocated block backups of a virtualization environment with an old version (such as **ESXi 5.X**). If you are not allowed to enable CBT for special reasons, please disable the option. But it may have some potential risks such as the failure of allocated block backups and incremental backups.
+   > - **Reset CBT**: Reset the CBT of the virtual machine before full backups. If the virtual machine CBT fails, the backup host will be unable to get the data blocks that have changed, which will influence incremental backups. Resetting CBT can solve the above problem.
+   > - **Backup allocated blocks only**: This option only backs up allocated disk blocks during the full backup. If a virtual environment version is too old, it may fail to back up allocated blocks. Under this situation, you can try to enable CBT for backups.
+   > - **Backup independent disks in persistent mode**: This option is enabled by default. It supports the backup of independent disks in persistent mode on virtual machines, but you need to shut down the virtual machines manually or enable the **Shutdown virtual machine during backup** option.
+   > - **Backup RDM disks in physical compatibility mode**: It is enabled by default. It supports the backup of physical/virtual RDM disks on the virtual machine. However, you need to shut down the virtual machine manually or enable the **shutdown virtual machine during backup** option.
+   > - **Shutdown virtual machine during backup**: It is disabled by default. You can enable this option when the virtual machine must be shut down for backups. Otherwise we do not recommend enabling it, which may affect the normal running of virtual machine business.
+
+   > If you select HotAdd and SAN data transport modes, the backup host should be deployed according to the *VMware Data Transport*. When creating a backup job, select the corresponding backup host and data transport mode. Otherwise the job will fail.
+
+   (2) **Advanced options**:
+
+   ![](../image/03-vmware/vmware/vmware_backup_10.png)
+
+   > - **Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. 1-60 minutes are supported. The unit is minute.
+   > - **Speed limit**: The data transfer speed or disk read and write speed during a specific time period can be limited. The unit is MiB/s.
+   > - **NBD(SSL) transport compression algorithm**: You can use zlib, fastlz, or skipz for the NBD or NBDSSL transport mode. Different compression algorithms may lead to different backup efficiency.
+   > - **VDDK read buffer size**: You can set the data block size that VDDK reads each time. The default size is 1 MiB. You can also set 64 K, 128 K, ..., and 64 MiB.
+   > - **VDDK transport log level**: You can set Panic, Error, Warning, Audit, Info, Verbose, Trivia. By default, VDDK transport logs above the Audit level are printed to agent.log.
+   > - **NFC operations log level**: You can set Quiet, Error, Warning, Info, Debug. Under the NBD/NBDSSL transport mode, NFC (network file copy) operations logs above the Error level are printed to agent.log by default.
+   > - **Snapshot**: You can set Automatic, Quiesced Snapshot, and Normal Snapshot. Automatic is selected by default, which will create a quiesced snapshot first to ensure data consistency in file systems. If it fails to create a quiesced snapshot, it will retry to create a normal snapshot.
+
+7. Set **Job Name** and check whether the job information is correct. Click **Submit**.
+
+    ![](../image/03-vmware/vmware/vmware_backup_11.png)
+
+### Create Incremental/Cumulative Incremental Backup Jobs
+
+We recommend running full backup jobs of virtual machines regularly (such as weekly) and alternatively running incremental or cumulative incremental backup jobs at short intervals (such as daily) to ensure at least one recoverable point in time every day. You can create an appropriate backup strategy based on the information such as the amount of data your business creates every day, recovery speed requirements, and storage space.
+
+```{table} Backup Type
+| Backup Type                   | Description                                                  |
+| ----------------------------- | ------------------------------------------------------------ |
+| Incremental backup            | This type only backs up data that has changed since the last full or incremental backup. It helps to save more space and increase the backup speed. However, the restore process takes a long time because it requires a full backup and all corresponding incremental backups. |
+| Cumulative incremental backup | This type only backs up data that has changed since that last full backup. It requires more time and space than the incremental backup. However, the restore speed is faster because it requires only a full backup and the last cumulative incremental backup. |
+```
+
+The steps are the same as creating a full backup. Select **Incremental Backup** or **Cumulative Incremental Backup** as the backup type and choose the virtual machine that needs to be backed up.
+
+![](../image/03-vmware/vmware/vmware_backup_12.png)
+
+> If the virtual machine has not been fully backed up, the first incremental backup will be performed as a full backup by default.
+
+## Create Restore Jobs
+
+This chapter introduces how to restore VMware virtual machines. According to the actual needs of users, ADPS provides various restore types including Virtual Machine Restore and Virtual Disks Restore.
+
+### Prerequisites
+
+1. You have a completed backup job. Please refer to *Create Backup Jobs*.
+
+2. To restore to another virtual center, you need to install the backup host, register, activate, and authorize that virtual center.
+
+> For restoring from one virtual center to another, the original virtual machine hardware version and the default hardware version of the target ESXi/ESX host are supported. If the target ESX host version is not new enough to support the original virtual machine hardware version, the restore may fail. You can disable the **Retain virtual machine version** option to restore the virtual machine through the default hardware version of the ESXi/ESX host.
+
+### Create Virtual Machine Restore Jobs
+
+When a disaster occurs in the virtual machine, you can restore the entire machine through **Virtual Machine Restore**. It supports restoring to another virtual center, another host, the original path, and a new path.
+
+1. Click **Restore** and go to the interface. Select the VMware resource that needs to be restored. Click **Next**.
+
+    ![](../image/03-vmware/vmware/vmware_restore_01.png)
+
+2. Select **Virtual Machine Restore** as the restore type. Expand the restore content by level. Select the virtual machine and point in time to be restored. Click **Next**.
+
+    ![](../image/03-vmware/vmware/vmware_restore_02.png)
+
+3. Select **Restore Target**. The original virtual center is selected by default. You can also select another virtual center.
+
+    ![](../image/03-vmware/vmware/vmware_restore_03.png)
+
+4. Select **Agent**. We recommend you select the corresponding backup host according to *VMware Data Transport*. Click **Next**.
+
+   ![](../image/03-vmware/vmware/vmware_restore_04.png)
+
+5. Set **Restore Schedule**. Only immediate and one-time schedules are supported.
+
+    ![](../image/03-vmware/vmware/vmware_restore_05.png)
+
+6. Go to **Restore Options**. Set **Restore Location**.
+
+   (1) Restore to the original path
+
+   When you choose *Original Path*, the job will use the configuration of the original virtual machine to overwrite and restore. You can go to the next step directly with no need to configure any options.
+
+   ![](../image/03-vmware/vmware/vmware_restore_07.png)
+
+   (2) Restore to a new path
+
+   When you choose *New Path*, the page will jump to the new path setting page. You can create a new virtual machine on the original or another host.
+
+   ![](../image/03-vmware/vmware/vmware_restore_08.png)
+
+   a. Set the host
+
+   - Click **Host** and go to the setting page.
+
+     > **Batch Set Up Host**: You can set the same host for multiple virtual machines.
+
+     ![](../image/03-vmware/vmware/vmware_restore_09.png)
+
+   - Expand the virtualization platform by level and select the target host. Click **Submit** to complete the setting.
+
+       ![](../image/03-vmware/vmware/vmware_restore_10.png)
+
+   b. Set the resource pool/vApp
+
+   - The virtual machine is restored to *Resources* by default. Click **Resources** under the **Resource pool/vApp** to access the pop-up setting interface.
+
+     > **Batch Set Up Resource pool/vApp**: You can set the same resource pool for multiple virtual machines.
+
+     ![](../image/03-vmware/vmware/vmware_restore_11.png)
+
+   - Select the target resource pool. Click **Submit** to complete the changes.
+
+     ![](../image/03-vmware/vmware/vmware_restore_12.png)
+
+   c. Set the virtual machine name and folder
+
+   - By default, the new virtual machine name and folder are the same as the original virtual machine's.
+
+   ![](../image/03-vmware/vmware/vmware_restore_13.png)
+
+   - Rename the new virtual machine
+
+     To rename the virtual machine, click the name under the **New VM Name** to access the pop-up **Rename** page. You can set the New VM Name or use Add Prefix and Add Suffix to change the name. Click **Submit** to complete the settings.
+
+     > Batch Rename: You can add the same prefix/suffix for multiple virtual machines.
+
+      ![](../image/03-vmware/vmware/vmware_restore_14.png)
+
+   - Change the folder where the virtual machine resides
+
+     To change the folder, click the name under the **Folder**. In the pop-up window, expand and select a folder. Click **Submit** to complete the setting.
+
+     > Batch Set Up Folder: You can set the same folder for multiple virtual machines.
+
+     ![](../image/03-vmware/vmware/vmware_restore_15.png)
+
+   d. Set the datastore
+
+   By default, the new VM resides in the same datastore as the original virtual machine.
+
+   ![](../image/03-vmware/vmware/vmware_restore_16.png)
+
+   - Set the **Datastore**
+
+     - To change the datastore, click the value under the **Datastore** to access the setting window. Select a datastore and click **Submit** to complete the setting.
+
+         ![](../image/03-vmware/vmware/vmware_restore_17.png)
+
+       > Batch Set Up Datastore: You can set the same datastore for multiple files or disks.
+
+   - Set the **Disk Provisioning**
+     - To change the disk provisioning, click the value under the **Disk Provisioning** to access the setting window. Select Thin Provision, Thick Provision Lazy Zeroed, or Thick Provision Eager Zeroed. Click **Submit** to complete the setting.
+
+       > Batch Set Up Disk Provisioning: You can set the same disk provisioning for multiple disks.
+
+        ![](../image/03-vmware/vmware/vmware_restore_18.png)
+
+
+   e. Set the network
+
+   - Click the value under the **Target Network** to access the pop-up setting window.
+
+     ![](../image/03-vmware/vmware/vmware_restore_19.png)
+
+   - Select a NIC and click **Submit** to complete the setting.
+
+     > Batch Set Up Network: The same network can support multiple virtual machines.
+
+     ![](../image/03-vmware/vmware/vmware_restore_20.png)
+
+   f. Go back to the **Restore Options** page. You can click the **Modify** icon beside the **New Path** to re-modify the specifications of the target machine.
+
+   ![](../image/03-vmware/vmware/vmware_restore_21.png)
+
+7. Besides the **Restore Location**, you can also set other options.
+
+   (1) **Common options**:
+
+   ![](../image/03-vmware/vmware/vmware_restore_22.png)
+
+   > - **Channels**: It refers to the maximum number of virtual machines that can be restored at the same time. The default channel number is 8. We recommend that the channel number is no more than the number of CPU cores. If it exceeds, the efficiency cannot be improved obviously.
+   > - **Number of virtual machines per host restore in parallel**: It refers to the number of virtual machines per host that can be restored at the same time. The number could not exceed 5 by default.
+   > - **Data transport mode**: You can choose NBD, NBDSSL, SAN, HotAdd, and Adaptive.
+   > - **VDDK version**: 6.0, 6.5, 6.7, and 7.0 are supported.
+   > - **Overwrite existing virtual machines**: If a virtual machine has the same name as the restored virtual machine, you need to enable this option for successful restores. This option is required when you choose to restore to the original path.
+   > - **Retain the virtual machine version**: This option is enabled by default. It will use the original virtual machine hardware version to restore. If you do not enable it, the job will use the default hardware version of the target host to restore the virtual machine. This option is applicable to the target host with an old version that does not support the hardware version of the original virtual machine.
+   > - **Retain the virtual machine BIOS UUID**: You can retain the BIOS UUID of the virtual machine.
+   > - **Restore the network adapter**: You can restore the network adapter of the original virtual machine.
+
+   (2) **Advanced options**:
+
+   ![](../image/03-vmware/vmware/vmware_restore_23.png)
+
+   > - **Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. 1-60 minutes are supported. The unit is minute.
+   > - **Speed limit**: The data transfer speed or disk read and write speed during a specific time period can be limited. The unit is MiB/s.
+   > - **NBD(SSL) transport compression algorithm**: You can use zlib, fastlz, or skipz for the NBD or NBDSSL transport mode. Different compression algorithms may lead to different restore efficiency.
+   > - **VDDK read buffer size**: You can set the data block size that VDDK reads each time. The default size is 1 MiB. You can also set 64 K, 128 K, ..., and 64 MiB.
+   > - **VDDK transport log level**: You can set Panic, Error, Warning, Audit, Info, Verbose, Trivia. By default, VDDK transport logs above the Audit level are printed to agent.log.
+   > - **NFC operations log level**: You can set Quiet, Error, Warning, Info, Debug. By default, under the NBD/NBDSSL transport mode, NFC (network file copy) operations logs above the Error level are printed to agent.log.
+   > - **Restore template to virtual machine**: If the backup source is a virtual machine template and the restore target is vCenter, the template will be restored. If the restore target is ESXI, the template will be automatically restored to a virtual machine because ESXi does not support templates.
+
+8. Set **Job Name** and check whether the job information is correct. Click **Submit**.
+
+    ![](../image/03-vmware/vmware/vmware_restore_24.png)
+
+9. Enter the correct verification code in the pop-up verification window. Click **Submit** to confirm again before the restore.
+
+### Create Virtual Disk Restore Jobs
+
+When a disaster occurs in some disks of the virtual machine, you can use **Virtual Disk Restore** to restore those disks to the target virtual machine. Overwriting the existing disks and creating new disks are supported.
+
+1. Click **Restore** to create a restore job. Select the VMware resource that you want to restore. Click **Next**.
+
+2. Select **Virtual Disk** as the restore type. Expand the restore source by level and select the disk that needs to be restored under the backup point in time. Click **Next**.
+
+   ![](../image/03-vmware/vmware/vmware_restore_25.png)
+
+3. Select **Restore Target**. The original virtual center is selected by default. You can choose to restore to another virtual center.
+
+4. Select **Agent**. We recommend you select the corresponding backup host according to the *VMware Data Transport*. Click **Next**.
+
+5. Set **Restore Schedule**. Only immediate and one-time schedules are supported.
+
+6. Go to **Restore Options**. Set **Restore Location**.
+
+   Click the *Expand* icon to list the information of the selected disks. Set the target virtual machine and recovery mode.
+
+   ![](../image/03-vmware/vmware/vmware_restore_26.png)
+
+   (1) Set the target virtual machine
+
+   - Restore to the original virtual machine: Use the default target virtual machine with no need to reset it.
+
+   - Restore to another virtual machine: Click the **Modify** icon to access the setting window. Choose a target machine and click **Submit** to complete the setting.
+
+     ![](../image/03-vmware/vmware/vmware_restore_27.png)
+
+
+   (2) Set the recovery mode
+
+   - Overwrite: *Overwrite* is selected by default. It is applicable to restore to the original disk and the original machine, or the disk with the same UUID in the target machine.
+
+   - New: If you select *New*, you need to set the file location, disk provisioning, the controller position, and retain the disk UUID. It is applicable to restore to the new disk on the original or another virtual machine.
+
+     ![](../image/03-vmware/vmware/vmware_restore_28.png)
+
+7. Besides **Restore Location**, you can also set other options in **Restore Options**.
+
+8. Set **Job Name** and check whether the job information is correct. Click **Submit**.
+
+9.  Enter the correct verification code in the pop-up verification window. Click **Submit** to confirm again before the restore.
+
+## Manage Jobs
+
+On the Job interface, you can view all the job information of VMware backups and restores. You can also start, modify, clone, and delete the jobs.
+
+![](../image/03-vmware/vmware/vmware_restore_29.png)
+
+- View the job details: Click **Job Name** to view the detailed information about the job.
+- Start: Click ![](../image/03-vmware/vmware/vmware_job03.png) to start the job immediately.
+- Modify: Click ![](../image/03-vmware/vmware/vmware_job04.png) to modify the basic job information, backup/restore schedule, and backup/restore options.
+- Stop: Click ![](../image/03-vmware/vmware/vmware_job06.png) to stop the job.
+- Disable: Click ![](../image/03-vmware/vmware/vmware_job07.png) to disable the periodic time strategy of the job.
+- Delete: Click ![](../image/03-vmware/vmware/vmware_job05.png) to access the confirmation window. Click **OK** to delete the job.
+
+## Limitations
+
+```{tabularcolumns} |\Y{0.15}|\Y{0.85}|
+```
+```{table} Limitations
+---
+class: longtable
+---
+| Function             | Limitations                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| User role privileges | Global: Enable methods, disable methods{{ br }}Guest operations: Guest operation queries, guest operation modifications, guest operation program execution{{ br }}Inventory: Create, register, remove, move {{ br }}Snapshot management: Create snapshot, remove snapshot, revert to snapshot{{ br }}Configuration: Toggle disk change tracking, configure raw device, add or remove device, add existing disk, add new disk, change resource, remove disk, change settings, advanced configuration, set annotation, acquire disk lease{{ br }}Interaction: Power off, configure CD media, configure floppy media, device connection, guest operating system management by VIX API, power on{{ br }}Provisioning: Allow read-only disk access, allow virtual machine download, allow file access, allow disk access, create template from virtual machine, mark as virtual machine, mark as template{{ br }}Datastore: Allocate space, browse datastore, low level file operations, remove file{{ br }}Resource: Assign virtual machine to resource pool{{ br }}vApp: Add virtual machine{{ br }}Network: Assign network |
+| Backup               | Synthetic backup is not supported. {{ br }}VDDK version automatic selection logic: If vSphere version is older than or equal to 6.0, select VDDK 6.0. For other vSphere versions, select the same VDDK version. For example, if vSphere version is 6.5, then VDDK 6.5 will be selected automatically. {{ br }}VDDK does not support ARM architecture.{{ br }}In SAN mode backup, the agent must be able to access the FC or iSCSI SAN where the ESXi virtual machine storage resides. {{ br }}VVol datastore is not supported.{{ br }}HotAdd transport requirements: The virtual machine agent must have a SCSI controller. IDE disks are not supported. The virtual machine agent can access the datastore of the target virtual machine disk and connect to port 902 of ESXi. |
+| Restore              | File-level Restore and Mount Restore of Data are not supported. {{ br }}For versions older than vSphere 5.5, the size of the virtual disk being restored through the SAN transport mode must be an integer multiple of the underlying VMFS block size. |
+```
+
+## Glossary
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.8}|
+```
+```{table} Glossary
+---
+class: longtable
+---
+| Term                                | Description                                                  |
+| ----------------------------------- | ------------------------------------------------------------ |
+| CBT                                 | CBT is the abbreviation of Changed Block Tracking. When CBT is enabled, the backup host can collect the data blocks that have changed since the last backup. |
+| Snapshot type                       | Snapshot types include quiesced snapshot and normal snapshot. {{ br }}Quiesced snapshot: Before the virtual machine takes a snapshot, it will place and write the data from the memory to the disk. And the snapshot will be taken after the file system is quiesced. {{ br }}Normal snapshot: Normal snapshot will also take a snapshot of the memory and create a file to record the content of the memory at the creation time of the snapshot. When Quiesced Snapshot is selected and it fails to create a quiesced snapshot, the snapshot type will automatically change to Normal Snapshot. |
+| Independent disk in persistent mode | Disks in persistent mode behave like regular disks on a physical device. All data written to the disk in persistent mode is written to it permanently. |
+| RDM disk                            | RDM is the abbreviation of Raw Device Mapping. It has two compatibility modes: {{ br }}(1) Physical compatibility mode: In this mode, the LUN of physical storage can be identified and used by virtual machines. Virtual machines can directly read and write the LUN. However, the space cannot be cloned or used as a template. The file name is generally xxxx-rdmp.vdmk{{ br }}(2) Virtual compatibility mode: In this mode, the LUN of physical storage from the view of virtual machines is a virtual disk. It can be used as a snapshot and template. And it can be migrated, etc. |
+| Thin provision                      | Thin disks use thin provisioning to optimize the space usage in the SAN. They only consume the capacity required for running. As guest operating systems allocate more I/O to thin disks, the space required grows over time. For example, if you create an 8 GB thin disk, the disk only consumes 1 GB initially and up to 8 GB as it grows. |
+| Thick provision lazy zeroed         | A thick-provisioned lazy-zeroed disk allocates all its disk space at the time of its creation. Note that thick-provisioned lazy-zeroed disks may contain old data from physical media. It needs to be zeroed out on command before new data can be written to the disk blocks. The delayed-zeroed disk can be created quickly, but its performance typically degrades due to increased IOPS. |
+| Thick provision eager zeroed        | Thick-provisioned zeroed disks create VM disks in the default thick format and allocate the maximum required disk space at the time of their creation. The allocated disk space does not contain any previous data on physical media. Thick Provision Zeroed supports VMware Fault Tolerance. During the creation, the data from physical media will be zeroed out. Therefore, creating this type of disk may take longer than creating other disks. Thick disks use thick provisioning to preallocate physical storage after the disks are created. If you create a 50 GB virtual disk, the disk will consume exactly 50 GB of physical space. Then no other disk or VM can use that disk space. |
+| Virtual machine template            | A template is a primary copy of a virtual machine that can be used to deploy virtual machines in batches. It cannot be powered on or connected to any resource pool. |
+```

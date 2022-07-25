@@ -1,0 +1,2345 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>SQL Server User’s Guide &#8212; ADPS 3.0.35274 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MySQL User’s Guide" href="../mysql/mysql.html" />
+    <link rel="prev" title="Installation Guide" href="../install/install.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en-US">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS 3.0.35274 documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../administrator/administrator.html">
+   Administrator’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../agent_install/agent_install.html">
+   Agent Installation Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../file/file.html">
+   File User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install/install.html">
+   Installation Guide
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   SQL Server User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mysql/mysql.html">
+   MySQL User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oracle/oracle.html">
+   Oracle User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vmware/vmware.html">
+   VMware User’s Guide
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features">
+   Features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-agent">
+   Install and Configure Agent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-compatibility">
+     Verify Compatibility
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compatibility-list">
+       Compatibility List
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#single-host">
+         Single Host
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#hot-standby">
+         Hot Standby
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#always-on-availability-groups">
+         Always On Availability Groups
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#always-on-failover-cluster">
+         Always On Failover Cluster
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-agent-packages">
+     Get Agent Packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-windows-os-agent">
+     Install and Configure Windows OS Agent
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-windows-installation-package">
+       Download Windows Installation Package
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-windows-os-agent">
+       Install Windows OS Agent
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-linux-os-agent">
+     Install and Configure Linux OS Agent
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-successful-installation">
+     Check Successful Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activate-license-and-assign-authorization">
+   Activate License and Assign Authorization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-host">
+     Register Host
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-license">
+     Activate License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assign-authorization">
+     Assign Authorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before You Begin
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-database-state">
+     Check Database State
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows-os">
+       Windows OS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linux-os">
+       Linux OS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-resource">
+     Check Resource
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-storage-pool">
+     Check Storage Pool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#login-instance-for-the-first-time">
+   Login Instance for the First Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-backup-jobs">
+   Create Backup Jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-full-backup-jobs">
+     Create Full Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-cumulative-incremental-backup-jobs">
+     Create Cumulative Incremental Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-log-backup-jobs">
+     Create Log Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-synthetic-backup-jobs">
+     Create Synthetic Backup Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-restore-jobs">
+   Create Restore Jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-media-restore-jobs">
+     Create Media Restore Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-timepoint-restore-jobs">
+     Create Timepoint Restore Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-instant-recovery-jobs">
+     Create Instant Recovery Jobs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-from-restore-menu">
+       Create from Restore Menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-from-cdm-menu">
+       Create from CDM Menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-successful-recovery">
+       Check Successful Recovery
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#detach-copy">
+       Detach Copy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-disaster-recovery-jobs">
+     Create Disaster Recovery Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-recovery-testing-jobs">
+     Create Recovery Testing Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-jobs">
+   Manage Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup-protection-strategy">
+   Backup Protection Strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-schedule-operation">
+     Backup Schedule Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-strategy-advice">
+     Backup Strategy Advice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#channel-number-configuration">
+   Channel Number Configuration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-server-cluster">
+   SQL Server Cluster
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Hot Standby
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cluster-binding">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#backup-and-restore">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Always On Availability Groups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Always On Failover Cluster
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Always On Failover Cluster
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-server-database-replication">
+   SQL Server Database Replication
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites-for-database-replication">
+     Prerequisites for Database Replication
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Compatibility List
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Single Host
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Hot Standby
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-sql-server-database-replication-jobs">
+     Create SQL Server Database Replication Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-replication-operation">
+     Database Replication Operation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restrictions">
+   Restrictions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#glossary">
+   Glossary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SQL Server User’s Guide</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features">
+   Features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-agent">
+   Install and Configure Agent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-compatibility">
+     Verify Compatibility
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compatibility-list">
+       Compatibility List
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#single-host">
+         Single Host
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#hot-standby">
+         Hot Standby
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#always-on-availability-groups">
+         Always On Availability Groups
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#always-on-failover-cluster">
+         Always On Failover Cluster
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-agent-packages">
+     Get Agent Packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-windows-os-agent">
+     Install and Configure Windows OS Agent
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-windows-installation-package">
+       Download Windows Installation Package
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-windows-os-agent">
+       Install Windows OS Agent
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-linux-os-agent">
+     Install and Configure Linux OS Agent
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-successful-installation">
+     Check Successful Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activate-license-and-assign-authorization">
+   Activate License and Assign Authorization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-host">
+     Register Host
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-license">
+     Activate License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assign-authorization">
+     Assign Authorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before You Begin
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-database-state">
+     Check Database State
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows-os">
+       Windows OS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linux-os">
+       Linux OS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-resource">
+     Check Resource
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-storage-pool">
+     Check Storage Pool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#login-instance-for-the-first-time">
+   Login Instance for the First Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-backup-jobs">
+   Create Backup Jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-full-backup-jobs">
+     Create Full Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-cumulative-incremental-backup-jobs">
+     Create Cumulative Incremental Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-log-backup-jobs">
+     Create Log Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-synthetic-backup-jobs">
+     Create Synthetic Backup Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-restore-jobs">
+   Create Restore Jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-media-restore-jobs">
+     Create Media Restore Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-timepoint-restore-jobs">
+     Create Timepoint Restore Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-instant-recovery-jobs">
+     Create Instant Recovery Jobs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-from-restore-menu">
+       Create from Restore Menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-from-cdm-menu">
+       Create from CDM Menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-successful-recovery">
+       Check Successful Recovery
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#detach-copy">
+       Detach Copy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-disaster-recovery-jobs">
+     Create Disaster Recovery Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-recovery-testing-jobs">
+     Create Recovery Testing Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-jobs">
+   Manage Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup-protection-strategy">
+   Backup Protection Strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-schedule-operation">
+     Backup Schedule Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-strategy-advice">
+     Backup Strategy Advice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#channel-number-configuration">
+   Channel Number Configuration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-server-cluster">
+   SQL Server Cluster
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Hot Standby
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cluster-binding">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#backup-and-restore">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Always On Availability Groups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Always On Failover Cluster
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Always On Failover Cluster
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Cluster Binding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Backup and Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-server-database-replication">
+   SQL Server Database Replication
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites-for-database-replication">
+     Prerequisites for Database Replication
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Compatibility List
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Single Host
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Hot Standby
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-sql-server-database-replication-jobs">
+     Create SQL Server Database Replication Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-replication-operation">
+     Database Replication Operation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restrictions">
+   Restrictions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#glossary">
+   Glossary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="sql-server-user-s-guide">
+<h1>SQL Server User’s Guide<a class="headerlink" href="#sql-server-user-s-guide" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of SQL Server databases. This guide introduces how to properly use ADPS to back up and restore SQL Server databases.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id15">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id15" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup source</p></td>
+<td><p>Database (single, multiple)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup type</p></td>
+<td><p>Full backup: Back up all the data of one or more databases and enough logs to restore those data. <br> Cumulative incremental backup: Back up the data that has changed since the last full backup.  <br> Log backup: Back up transaction logs including all log records that have not been backed up by previous log backups. <br> Synthetic backup: Full backup for the first time, followed by permanent incremental backups.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup target</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, database synthetic pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup compression</p></td>
+<td><p>None, fast, tunable</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup channels</p></td>
+<td><p>Physical backup supports 1 to 64 channels. Synthetic backup supports 1 to 255 channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup schedule</p></td>
+<td><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore type</p></td>
+<td><p>Media restore: Restore one or more data files of a database to the latest state. <br> Timepoint restore: Restore a database to a specified point-in-time state. <br> Disaster recovery: Simultaneously restore one or more databases to the latest backup state.  <br> Recovery testing: Periodically restore the latest backup set to another instance. <br> Instant recovery (mount recovery): Mount synthetic backup sets to reduce recovery time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore location</p></td>
+<td><p>Original path, specified path</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore target</p></td>
+<td><p>Overwrite the source database, create a new database</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore granularity</p></td>
+<td><p>Entire database (single, multiple), data file (single, multiple)</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore to different hosts</p></td>
+<td><p>Restoring to a different host with the same version as the source host or from an old version to a new version is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pre/Post action</p></td>
+<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>The data transfer speed or disk read and write speed can be limited.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reconnection time</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes.</p></td>
+</tr>
+<tr class="row-even"><td><p>Stop jobs</p></td>
+<td><p>Backup and restore jobs can be stopped.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage pool replication</p></td>
+<td><p>SQL Server backup sets support storage pool replication.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore from target pool</p></td>
+<td><p>Restoring backup sets from the target storage pool is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2C</p></td>
+<td><p>Data can be backed up directly to object storage services.</p></td>
+</tr>
+<tr class="row-even"><td><p>D2T</p></td>
+<td><p>Data can be backed up directly to tape libraries.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hot standby environment</p></td>
+<td><p>The backup and restore of hot standby clusters are supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Always On availability groups</p></td>
+<td><p>The backup and restore of Always On availability groups are supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Always On failover cluster</p></td>
+<td><p>The backup and restore of Always On failover clusters are supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Modify the backup source and target</p></td>
+<td><p>Modifying a job’s backup source and backup target is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IPv6</p></td>
+<td><p>Data transfer and management over IPv6 network are supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Access Key login</p></td>
+<td><p>Windows SQL Server single host supports login with Access Key.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of SQL Server single host, hot standby, Always On availability groups, and Always On failover cluster. Check whether the operating system (OS) and database version are supported before deploying the agent. Please refer to <em>Compatibility List</em> for details.</p>
+<section id="compatibility-list">
+<h4>Compatibility List<a class="headerlink" href="#compatibility-list" title="Permalink to this heading">#</a></h4>
+<section id="single-host">
+<h5>Single Host<a class="headerlink" href="#single-host" title="Permalink to this heading">#</a></h5>
+<table class="longtable table" id="id16">
+<caption><span class="caption-text">Single Host Compatibility List</span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2000 RTM</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2000 SP3</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2000 SP4</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2000</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2000 SP4</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2000 SP4</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2000 SP4</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2008</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2005</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>2005</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2005</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003 R2 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2005</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2 SP1</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2008</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>2008</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2008</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2008</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2008</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2008</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2 SP1</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2008</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2012</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2012 RC</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 RC</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2 SP1</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2014</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2 SP1</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2014</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 RC</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2016 (RTM)</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2014</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2019</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hot-standby">
+<h5>Hot Standby<a class="headerlink" href="#hot-standby" title="Permalink to this heading">#</a></h5>
+<table class="table" id="id17">
+<caption><span class="caption-text">Hot Standby Compatibility List</span><a class="headerlink" href="#id17" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2005 SP3</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="always-on-availability-groups">
+<h5>Always On Availability Groups<a class="headerlink" href="#always-on-availability-groups" title="Permalink to this heading">#</a></h5>
+<table class="table" id="id18">
+<caption><span class="caption-text">Always On Availability Groups Compatibility List</span><a class="headerlink" href="#id18" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Two nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Three nodes</p></td>
+</tr>
+<tr class="row-even"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Two nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Three nodes</p></td>
+</tr>
+<tr class="row-even"><td><p>2019</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Three nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Two nodes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="always-on-failover-cluster">
+<h5>Always On Failover Cluster<a class="headerlink" href="#always-on-failover-cluster" title="Permalink to this heading">#</a></h5>
+<table class="table" id="id19">
+<caption><span class="caption-text">Always On Availability Groups Compatibility List</span><a class="headerlink" href="#id19" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Three nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Three nodes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="get-agent-packages">
+<h3>Get Agent Packages<a class="headerlink" href="#get-agent-packages" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong>-&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
+<p><img alt="" src="../_images/mssql_agent01.png" /></p>
+</section>
+<section id="install-and-configure-windows-os-agent">
+<h3>Install and Configure Windows OS Agent<a class="headerlink" href="#install-and-configure-windows-os-agent" title="Permalink to this heading">#</a></h3>
+<section id="download-windows-installation-package">
+<h4>Download Windows Installation Package<a class="headerlink" href="#download-windows-installation-package" title="Permalink to this heading">#</a></h4>
+<p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
+<p><img alt="" src="../_images/mssql_agent02.png" /></p>
+</section>
+<section id="install-windows-os-agent">
+<h4>Install Windows OS Agent<a class="headerlink" href="#install-windows-os-agent" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Upload the installation package to the agent.</p></li>
+<li><p>Double-click the package to install it according to the wizard and click <strong>Next</strong>.</p></li>
+<li><p>This installation package chooses the database resources, files, or applications installed on the agent by default. Select the <strong>Microsoft SQL Server</strong> component and click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_agent03.png" /></p>
+</li>
+<li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_agent04.png" /></p>
+</li>
+<li><p>Select <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
+</ol>
+</section>
+</section>
+<section id="install-and-configure-linux-os-agent">
+<h3>Install and Configure Linux OS Agent<a class="headerlink" href="#install-and-configure-linux-os-agent" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select <strong>Linux</strong> and <strong>SQL Server</strong>. Copy an installation command.</p></li>
+</ol>
+<p><img alt="" src="../_images/mssql_agent05.png" /></p>
+<ol class="arabic" start="2">
+<li><p>Paste the command on the command line and press Enter to execute the installation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.20.85:50305/d2/update/script?modules=mssql&amp;location=http%3A%2F%2F192.168.20.85%3A50305&amp;access_key=2042288d749dba47e963d1ab09a6472b&amp;rm=&amp;tool=curl&quot; | sh</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">100</span>  <span class="mi">7905</span>    <span class="mi">0</span>  <span class="mi">7905</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">23844</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">44661</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">1804</span><span class="n">k</span>      <span class="mi">0</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">33</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">33</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">4859</span><span class="n">k</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">6728</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">6728</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">1900</span><span class="n">k</span>      <span class="mi">0</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">03</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">03</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">1874</span><span class="n">k</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">3879</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">3879</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">5703</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">6247</span><span class="n">k</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the successful installation, you can log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/mssql_lincense01.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-assign-authorization">
+<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out activation and authorization in batches. Please refer to <em>Batch Register/Activate/Authorize</em> for more details.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and find the host that you need to activate. Click the <strong>Register</strong> icon.</p>
+<p><img alt="" src="../_images/mssql_lincense02.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/mssql_lincense03.png" /></p>
+</section>
+<section id="assign-authorization">
+<h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
+<p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="" src="../_images/mssql_lincense04.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="check-database-state">
+<h3>Check Database State<a class="headerlink" href="#check-database-state" title="Permalink to this heading">#</a></h3>
+<p>Check the SQL Server service state of the agent. The SQL Server database service should be in the “running” state for the backup and restore.</p>
+<section id="windows-os">
+<h4>Windows OS<a class="headerlink" href="#windows-os" title="Permalink to this heading">#</a></h4>
+<p><img alt="" src="../_images/mssql_database01.png" /></p>
+</section>
+<section id="linux-os">
+<h4>Linux OS<a class="headerlink" href="#linux-os" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@localhost ~]# systemctl status mssql-server
+● mssql-server.service - Microsoft SQL Server Database Engine
+   Loaded: loaded (/usr/lib/systemd/system/mssql-server.service; enabled; vendor preset: disabled)
+   Active: active (running) since Two 2022-05-31 04:55:30 EDT; 5s ago
+     Docs: https://docs.microsoft.com/en-us/sql/linux
+ Main PID: 15804 (sqlservr)
+   CGroup: /system.slice/mssql-server.service
+           └─15804 /opt/mssql/bin/sqlservr
+
+2022-05-31 04:55:30 localhost.localdomain systemd[1]: Started Microsoft SQL Server Database Engine.
+2022-05-31 04:55:30 localhost.localdomain systemd[1]: Starting Microsoft SQL Server Database Engine...
+</pre></div>
+</div>
+</section>
+</section>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource is on the list and its state is “Online”. If the resource is not available, please check <em>Activate License and Assign Authorization</em>.</p>
+<p><img alt="" src="../_images/mssql_login01.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and check whether there is any storage pool. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="" src="../_images/mssql_storaged01.png" /></p>
+</section>
+</section>
+<section id="login-instance-for-the-first-time">
+<h2>Login Instance for the First Time<a class="headerlink" href="#login-instance-for-the-first-time" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Before creating the first SQL Server backup and restore, you need to <strong>Login</strong> to the SQL Server first.</p></li>
+</ol>
+<p><img alt="" src="../_images/mssql_login02.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>SQL Server supports three authentication methods: <strong>Database</strong>, <strong>OS</strong>, and <strong>Access Key</strong>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Database Authentication: Log in with the SQL Server instance user. If the SQL Server password is changed, you need to log in to the instance again. Otherwise, the job will fail.</p></li>
+<li><p>OS Authentication: Log in with the SQL Server software installation user or Administrator. The change of SQL Server password does not affect jobs.</p></li>
+<li><p>Access Key Authentication: Log in with the Access Key of the user who has the authorization of the resource. You can perform a job without a password, which has potential data security risks.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Select <strong>Authentication</strong>, fill in <strong>User</strong> / <strong>Password</strong>, and click <strong>Login</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/mssql_login03.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>To use Access Key Authentication, the admin should enable the <strong>Access Key login instance</strong> option in the <strong>Settings</strong> -&gt; <strong>Security</strong>.</p></li>
+<li><p>To use Database Authentication for the backup and restore, the database user should be assigned the following roles:</p>
+<ul>
+<li><p>Server roles: sysadmin and dbcreator</p></li>
+<li><p>Database roles: db_backupoperator and db_owner</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-backup-jobs">
+<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to back up the SQL Server databases.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You have installed the agent. For installation, please refer to <em>Install and Configure Agent</em>.</p></li>
+<li><p>You have activated the license and assigned the authorization. For details, please see <em>Activate License and Assign Authorization</em>.</p></li>
+<li><p>Log in to ADPS as the <em>operator</em>.</p></li>
+</ul>
+</section>
+<section id="create-full-backup-jobs">
+<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Full backup jobs take database as the backup unit and support the backup of the System databases and User databases.</p>
+<p>(1) Click <strong>Backup</strong>. Select the SQL Server host and instance.</p>
+<p>(2) Select <strong>Full</strong> as the backup type and choose the databases to be backed up.</p>
+<p><img alt="" src="../_images/mssql_backup01.png" /></p>
+<p>(3) Select <strong>Backup Target</strong>.</p>
+<p>(4) Go to <strong>Backup Schedule</strong> and set the execution time of the backup job. For details, please refer to <em>Backup Schedule Operation</em>. We recommend running a full backup on a weekly basis.</p>
+<p>(5) Set <strong>Backup Options</strong> including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_backup02.png" /></p>
+<p><strong>Compression</strong>: Fast compression is enabled by default.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>None: During the backup, the data will not be compressed.</p></li>
+<li><p>Tunable: You can customize the compression level. It requires activating the advanced feature of Advanced Compression.</p></li>
+<li><p>Fast: During the backup, the data will be compressed by fast compression algorithms.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Verify backup files</strong>: Verify the backup sets. If the verification is successful, the backup set is valid.</p>
+<p><strong>Channels</strong>: This option can improve backup efficiency. The default number of channels is 1 and the range is 1 to 64. For details, please refer to <em>Channel Number Configuration</em>.</p>
+<p><strong>Backup new databases</strong>: It is not enabled by default. When enabled, it will check whether the SQL Server instance has new databases before the backup job starts. If so, the new databases will be added to the backup job.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_backup03.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: It can limit data transfer speed or disk read and write speed. The unit is MiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p>(6) Set <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p>
+</section>
+<section id="create-cumulative-incremental-backup-jobs">
+<h3>Create Cumulative Incremental Backup Jobs<a class="headerlink" href="#create-cumulative-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>The cumulative incremental backup is created based on a full backup. It only backs up data that has changed since the last full backup.</p>
+<ul>
+<li><p>Creating a cumulative incremental backup is the same as creating a full backup. Select <strong>Cumulative Incremental Backup</strong> as the backup type and choose databases.</p>
+<p><img alt="" src="../_images/mssql_icr01.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Master database does not support cumulative incremental backup and you cannot select it.</p></li>
+<li><p>If the database has not been fully backed up, or has not been fully backed up after the restore, the first cumulative incremental backup will be performed as a full backup by default.</p></li>
+<li><p>When you switch the backup target of a cumulative incremental backup job to a new storage pool, a full backup should be first performed on the new pool.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="create-log-backup-jobs">
+<h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Based on periodic full backups and cumulative incremental backups, you can also frequently add log backups to back up the transaction logs of the database separately. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. A log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider more frequent log backups. Frequent log backups also increase the frequency of log truncation, resulting in smaller log files.</p>
+<ul>
+<li><p>Creating a log backup is similar to creating a full backup. Select <strong>Log</strong> as the backup type and choose databases.</p>
+<p><img alt="" src="../_images/mssql_log01.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Log backup is not supported for databases with the SIMPLE recovery model.</p></li>
+<li><p>If the database has not been fully backed up, or has not been fully backed up after the restore, you should first run a full backup and then a log backup.</p></li>
+<li><p>When you switch the backup target of a log backup job to a new storage pool, a full backup should be first performed on the new pool.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Backup Options</strong> -&gt; <strong>Common</strong> provides the <strong>Log</strong> option.</p>
+<p><img alt="" src="../_images/mssql_log03.png" /></p>
+<p><strong>Log</strong>: You will see this option only when selecting a periodic backup schedule. This option is not enabled by default. When you enable it, you can set the log space usage threshold.  When the log space usage of the database reaches the threshold, the log backup will start to run. If the log space usages of all databases do not reach the threshold, ADPS will not start the job, generate the job history, or provide the alert.</p>
+</li>
+<li><p><strong>Backup Options</strong> -&gt; <strong>Advanced</strong> provides the <strong>Backup tail-log</strong> option.</p>
+<p><img alt="" src="../_images/mssql_log02.png" /></p>
+</li>
+</ul>
+<p><strong>Backup tail-log</strong>: When the data files in the database are lost or damaged, you can use this option to capture any log records that have not been backed up, avoiding losing your work records and ensuring that the log chain remains intact.</p>
+<ul class="simple">
+<li><p>After the tail-log backup is completed, the database will be in the RESTORING state.</p></li>
+<li><p><strong>Backup new databases</strong> is not compatible with <strong>Backup tail-log</strong>. You cannot enable them at the same time.</p></li>
+</ul>
+<blockquote>
+<div><p>Prerequisites for tail-log backup:</p>
+<ul class="simple">
+<li><p>The instance is running normally and the storage pool has a full backup as the base.</p></li>
+<li><p>The database is in a state that supports tail-log backups (Online, Recovery, Recovery Pending, and Suspect) and does not contain any bulk-logged changes. The states that do not support tail-log backups are Offline, Restoring, and Emergency.</p></li>
+<li><p>The database recovery model is full or bulk-logged.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-synthetic-backup-jobs">
+<h3>Create Synthetic Backup Jobs<a class="headerlink" href="#create-synthetic-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>To restore the above three traditional backups, the backup sets will be re-converted into the source data files of the database, which costs a lot of recovery time. To reduce the time, ADPS also supports <strong>Synthetic Backup</strong>, a more advanced way to back up SQL Server databases.</p>
+<p>Synthetic backup can capture data from the production system through snapshot technology. The first synthetic backup job is a full backup and the subsequent ones are incremental. Each incremental backup is synthesized with the previous backup copy to generate a new one. The copy can be directly mounted to the target database for usage by Instant Recovery without adding physical copies and occupying additional storage space.</p>
+<blockquote>
+<div><p>Prerequisites for creating a synthetic backup:</p>
+<ul class="simple">
+<li><p>The data disk of the storage server requires the ZFS file system. For installation, please refer to <em>Server Requirements</em>.</p></li>
+<li><p>You need to configure iSCSI/FC between the agent and the storage server.</p></li>
+<li><p>Your <strong>License</strong> should have the advanced features of MS SQL Server Synthetic Backup and MS SQL Server Copy Management.</p></li>
+<li><p>The admin has created and assigned a Database Synthetic Pool to operators.</p></li>
+</ul>
+</div></blockquote>
+<p>(1) Creating a synthetic backup is similar to creating a full backup. Select <strong>Synthetic Backup</strong> as the backup type and choose databases.</p>
+<p><img alt="" src="../_images/mssql_merge01.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>The system databases do not support synthetic backup and they cannot be selected.</p></li>
+<li><p>SQL Server synthetic backup supports Windows 2003 and later versions. For databases, it supports SQL Server 2005 and later versions. iSCSI and FC storage types are supported.</p></li>
+</ul>
+</div></blockquote>
+<p>(2) Select <strong>Backup Target</strong>. The backup target can only be a database synthetic pool. If you cannot find a database synthetic pool, please contact the admin to create one.</p>
+<p><img alt="" src="../_images/mssql_merge02.png" /></p>
+<p>(3) Select <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, see <em>Backup Schedule Operation</em>. We recommend running a synthetic backup on a daily basis.</p>
+<p>(4) Set <strong>Backup Options</strong> including common and advanced options. Compared with the traditional backup, the synthetic backup configuration options add <strong>Full backup threshold</strong> and <strong>Shadow copy provider</strong>.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_merge03.png" /></p>
+<p><strong>Channels</strong>: You can enable this option to improve backup efficiency. The default number is 1 and the range is 1 to 255. For details, please refer to <em>Channel Number Configuration</em>.</p>
+<p><strong>Full backup threshold</strong>: The full backup threshold is 50 by default. The range is 5 to 100. When the data page changes of the database reach the full backup threshold, the synthetic backup job will be performed as a full backup.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_merge04.png" /></p>
+<p><strong>Shadow copy provider</strong>: You can select a shadow copy provider in the agent for the synthetic backup job.</p>
+<p>(5) Set <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p>
+</section>
+</section>
+<section id="create-restore-jobs">
+<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to restore SQL Server databases. ADPS provides a variety of restore types for different needs, including media restore, timepoint restore, instant recovery, disaster recovery, and recovery testing.</p>
+<section id="id1">
+<h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You have a completed backup job. See <em>Create Backup Jobs</em>.</p></li>
+<li><p>To restore to another host, install an agent on that host, activate its license and assign the authorization.</p></li>
+</ul>
+</section>
+<section id="create-media-restore-jobs">
+<h3>Create Media Restore Jobs<a class="headerlink" href="#create-media-restore-jobs" title="Permalink to this heading">#</a></h3>
+<p>When a media error occurs in the SQL Server database, such as data file corruption or accidental deletion, you can perform media restore jobs to restore the database or some data files to the latest state.</p>
+<p>(1) Select the SQL Server host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Media</strong> as the restore type and choose the databases or data files to be restored. You can modify the path for restored files. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_restore01.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Media restore can only restore to the source host.</p></li>
+<li><p>Under the simple recovery model, the file must belong to a read-only filegroup for media restore.</p></li>
+</ul>
+</div></blockquote>
+<p>(3) Set <strong>Restore Schedule</strong>. Click <strong>Next</strong>.</p>
+<p>(4) Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_restore02.png" /></p>
+<p>(5) Confirm the job information, click <strong>Submit</strong>, and wait for the job to be executed.</p>
+</section>
+<section id="create-timepoint-restore-jobs">
+<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
+<p>When a logical error or disaster occurs in the SQL Server database, you can use Timepoint Restore to restore the database to a specified point-in-time state.</p>
+<p>(1) Select the SQL Server host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Timepoint Restore</strong> and a database. Then set the database information after restoring. Specify a point in time for the restore by <strong>Restore to point in time</strong>, <strong>Restore to LSN</strong>, or <strong>Restore to backup state</strong>. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_restore03.png" /></p>
+<ul class="simple">
+<li><p>You can specify the restored database name or data file path and name with the <strong>Rename</strong> operation. Click <strong>Submit</strong> to modify the information.</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_restore08.png" /></p>
+<ul class="simple">
+<li><p><strong>Restore to point in time</strong>: You can select a restore branch to get a time, click the time, and drag the slider control to select a specific backup set.</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_restore05.png" /></p>
+<ul class="simple">
+<li><p><strong>Restore to LSN</strong>: You can select a restore branch to get a LSN segment, click the segment, and modify the LSN to get a specific backup set.</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_restore06.png" /></p>
+<ul class="simple">
+<li><p><strong>Restore to backup state</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/mssql_restore07.png" /></p>
+<ul>
+<li><p>You can specify the restored database name or data file path and name through the <strong>Rename</strong> icon. Click <strong>OK</strong> to modify.</p>
+<p><img alt="" src="../_images/mssql_restore08.png" /></p>
+</li>
+</ul>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring to the source or a different host. Click <strong>Next</strong>.</p>
+<p>(4) Set <strong>Restore Schedule</strong>. It only supports immediate and one-time schedule types.</p>
+<p>(5) Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action.</p>
+<p>(6) Confirm whether the information is correct and then submit the job.</p>
+</section>
+<section id="create-instant-recovery-jobs">
+<h3>Create Instant Recovery Jobs<a class="headerlink" href="#create-instant-recovery-jobs" title="Permalink to this heading">#</a></h3>
+<p>Instant recovery is only supported for SQL Server databases with synthetic backups. It can reduce the recovery time by mounting the synthetic backup set at a specified point in time in the database synthetic pool.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the storage pool storing synthetic backup sets is of the iSCSI type, you must install the iSCSI Initiator on the agent where you perform the restore job.</p></li>
+<li><p>If the storage pool storing synthetic backup sets is of the FC type, you must install the HBA API Driver corresponding to the HBA card on the agent where you perform the restore job.</p></li>
+<li><p>After the instant recovery is completed, the data file path of the database will be redirected to the mounted directory.</p></li>
+<li><p>If the restore target is a single instance, the mounted directory is under the path C:\ProgramData\aurreum\adps. If the restore target is hot standby, the mounted directory is under the shared disk.</p></li>
+</ul>
+</div></blockquote>
+<p>ADPS provides the following two portals to create instant recovery jobs: <strong>Restore</strong> and <strong>CDM</strong>.</p>
+<section id="create-from-restore-menu">
+<h4>Create from Restore Menu<a class="headerlink" href="#create-from-restore-menu" title="Permalink to this heading">#</a></h4>
+<p>(1) Enter the <strong>Restore</strong> main menu. Select the SQL Server host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Instant Recovery</strong> as the restore type and choose a database. Instant Recovery supports restoring to a specified point in time, LSN, and backup state. You can specify the restored database name and data file name through the <strong>Rename</strong> icon. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_restore09.png" /></p>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring to the source or a different host. Click <strong>Next</strong>.</p>
+<p>(4) Set <strong>Restore Schedule</strong>. It supports immediate and one-time schedule types. Click <strong>Next</strong>.</p>
+<p>(5) Set <strong>Restore Options</strong> according to your needs including precondition and pre/post action. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_restore10.png" /></p>
+<ul class="simple">
+<li><p>Select storage protocol: You can create a new FC Target or iSCSI Target for the restore. ADPS supports restoring the backup sets from the iSCSI database synthetic pool to the FC and vice versa.</p></li>
+</ul>
+<p>(6) Set <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p>
+</section>
+<section id="create-from-cdm-menu">
+<h4>Create from CDM Menu<a class="headerlink" href="#create-from-cdm-menu" title="Permalink to this heading">#</a></h4>
+<p>On the <strong>CDM</strong> interface, you can view the corresponding data copies on a storage server and create instant recovery jobs to clone copies and meet the needs of using the same data in multiple business situations.</p>
+<p>(1) Enter the <strong>CDM</strong> main menu and filter out the relevant data copies of SQL Server instances. Select the instance and click the <strong>Create Copy</strong> icon.</p>
+<p><img alt="" src="../_images/mssql_cdm01.png" /></p>
+<p>(2) The default restore type is <strong>Instant Recovery</strong>. Select the database to be recovered. Instant Recovery supports restoring to a specified point in time, LSN, and backup state. You can specify the restored database name and data file name through the <strong>Rename</strong> icon. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/mssql_cdm02.png" /></p>
+<p>(3) Other operations such as <strong>Restore Target</strong>, <strong>Restore Schedule</strong>, and <strong>Restore Options</strong> are the same as the previous section.</p>
+</section>
+<section id="check-successful-recovery">
+<h4>Check Successful Recovery<a class="headerlink" href="#check-successful-recovery" title="Permalink to this heading">#</a></h4>
+<p>After the instant recovery is completed, enter the <strong>CDM</strong> menu. You can find a mounted recovery record under the corresponding data copy.</p>
+<p><img alt="" src="../_images/mssql_cdm05.png" /></p>
+</section>
+<section id="detach-copy">
+<h4>Detach Copy<a class="headerlink" href="#detach-copy" title="Permalink to this heading">#</a></h4>
+<p>You can detach the mounted data copies from the agent using the <strong>Detach</strong> icon. However, please note that detaching the copy will lose new data created after mounting and delete the mounted database.</p>
+<ul>
+<li><p>Click the <strong>Detach</strong> icon beside the data copy record.</p>
+<p><img alt="" src="../_images/mssql_cdm03.png" /></p>
+</li>
+<li><p>Pay attention to the warning, fill in the verification code, and click <strong>OK</strong>.</p>
+<p><img alt="" src="../_images/mssql_cdm04.png" /></p>
+</li>
+</ul>
+</section>
+</section>
+<section id="create-disaster-recovery-jobs">
+<h3>Create Disaster Recovery Jobs<a class="headerlink" href="#create-disaster-recovery-jobs" title="Permalink to this heading">#</a></h3>
+<p>When a logical error or disaster occurs in the SQL Server database, you can create a disaster recovery job to restore one or more databases to the latest backup state.</p>
+<p>(1) Select the SQL Server host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Disaster Recovery</strong> and choose databases. You can specify the restored database name through the <strong>Rename</strong> icon.</p>
+<p><img alt="" src="../_images/mssql_restore12.png" /></p>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring to the source or a different host. Click <strong>Next</strong>.</p>
+<p>(4) Set <strong>Restore Schedule</strong>. It supports immediate and one-time schedule types. Click <strong>Next</strong>.</p>
+<p>(5) Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action. Click <strong>Next</strong>.</p>
+<p>(6) Confirm the job information. Click <strong>Submit</strong>.</p>
+</section>
+<section id="create-recovery-testing-jobs">
+<h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
+<p>You can restore the latest backup sets of SQL Server to other instances on the source host or a different host hourly, daily, weekly, or monthly.</p>
+<p>(1) Select the SQL Server host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Recovery Testing</strong> and choose databases. You can specify the restored database name through the <strong>Rename</strong> icon.</p>
+<p><img alt="" src="../_images/mssql_restore11.png" /></p>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring to the source or a different host. Click <strong>Next</strong>.</p>
+<p>(4) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p>
+<p>(5) Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action. Click <strong>Next</strong>.</p>
+<p>(6) Confirm the job information. Click <strong>Submit</strong>.</p>
+<p>(7) Wait for the job to be executed. The job will restore the latest backup sets of the source host.</p>
+</section>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>On the <strong>Job</strong> interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
+<p><img alt="" src="../_images/mssql_job01.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="" src="../_images/mssql_job02.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="" src="../_images/mssql_job03.png" /> to modify the basic job information, backup/restore schedule, and backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="" src="../_images/mssql_job04.png" /> to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="" src="../_images/mssql_job05.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
+<p><img alt="" src="../_images/mssql_time01.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job starts immediately after it is submitted.</p></li>
+<li><p>One time: The job starts to run at a specified time. After the job is submitted, the job will be in an idle state and start to run when the specified execution time is reached.</p></li>
+<li><p>Hourly: The job runs after a specified number of hours according to your setting. The value is an integer between 1 and 24.</p></li>
+<li><p>Daily: The job runs after a specified number of days according to your setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: The job runs after a specified number of weeks according to your setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs at the specified weeks and days of the months according to your setting.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="" src="../_images/mssql_time03.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>The actual execution time is:</strong></p>
+<ul class="simple">
+<li><p>If the current time is Friday 17:00, the execution time is Friday 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday 17:00, the execution time is Friday 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday 17:00, the execution time will be next Friday 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup-strategy-advice">
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<p>There are four SQL Server backup types: full backup, cumulative incremental backup, log backup, and synthetic backup. Full backup, cumulative incremental backup, and log backup can be used together. Synthetic backup and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
+<ol class="arabic simple">
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
+<li><p>After that, you can run a <strong>Cumulative Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
+<li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> every few hours to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.</p></li>
+</ol>
+<blockquote>
+<div><p>Avoid using the strategies of all full backups or a full backup followed by cumulative incremental or log backups.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="channel-number-configuration">
+<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Description of the channel number for backup jobs</p>
+<p>SQL Server physical backups support up to 64 channels and synthetic backup supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
+</li>
+<li><p>Description of the channel number for restore jobs</p>
+<p>The channel number for a restore job is the same as that for the backup job. The <strong>Restore</strong> page does not have the Channel option by default.</p>
+</li>
+</ul>
+</section>
+<section id="sql-server-cluster">
+<h2>SQL Server Cluster<a class="headerlink" href="#sql-server-cluster" title="Permalink to this heading">#</a></h2>
+<p>ADPS supports three types of SQL Server clusters: hot standby, Always On availability groups, and Always On failover clusters. Before the first backup and restore, you must cluster the SQL Server nodes.</p>
+<section id="id2">
+<h3>Hot Standby<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Deploy the environment of each node in the cluster. For details, please refer to <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em>.</p>
+<section id="cluster-binding">
+<h4>Cluster Binding<a class="headerlink" href="#cluster-binding" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click the <strong>Cluster Binding</strong> icon.</p></li>
+</ol>
+<p><img alt="" src="../_images/mssql_cluster01.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Customize the cluster name. Select the active node as the <strong>Primary Node</strong>, Active-Passive as  the <strong>Type</strong>, and the inactive node as the <strong>Node</strong>. Fill in the IP of the <strong>Database Cluster Address</strong>. Click <strong>Submit</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/mssql_cluster02.png" /></p>
+</section>
+<section id="backup-and-restore">
+<h4>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading">#</a></h4>
+<p>The backup and restore types for SQL Server hot standby are the same as those for single instance.</p>
+<ul class="simple">
+<li><p>When creating a backup job, select the SQL Server of the active node as the backup resource. The remaining steps are similar to <em>Create Backup Jobs</em>.</p></li>
+<li><p>If a node switch occurs on the SQL Server hot standby, the new active node will automatically take over the backup job.</p></li>
+<li><p>In the process of creating a restore job, the restore target supports single instance and hot standby.</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h3>Always On Availability Groups<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>SQL Server Always On availability groups are called virtual instances. The virtual instance is named: SQL Server instance name-ag-always on availability group name. Please refer to <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em> to complete the environment deployment of each node. Before activating the virtual instance, log in to the SQL Server instance first.</p>
+<section id="id4">
+<h4>Cluster Binding<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong> and click the <strong>Cluster Binding</strong> icon.</p></li>
+<li><p>Customize the cluster name. Select the virtual instance of the current primary copy as the <strong>Primary Node</strong>, Always On Availability Groups as the <strong>Type</strong>, and the virtual instance of the secondary copy as the <strong>Node</strong>. Click <strong>Submit</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/mssql_cluster03.png" /></p>
+</section>
+<section id="id5">
+<h4>Backup and Restore<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>The backup and restore types of SQL Server Always On availability groups are the same as those for single instance.</p>
+<ul class="simple">
+<li><p>When creating a backup job, select a virtual instance as the backup resource. The remaining steps are similar to those in <em>Create Backup Jobs</em>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id6">
+<h3>Always On Failover Cluster<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<section id="id7">
+<h4>Cluster Binding<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong> and click the <strong>Cluster Binding</strong> icon.</p></li>
+<li><p>Select Active-Passive to bind the SQL Server instance. Then log in to the instance on the <strong>Resource</strong> page.</p></li>
+<li><p>Activate virtual instances. Please refer to <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em>.</p></li>
+<li><p>Select Always On Availability Groups to bind virtual instances. Then log in to the virtual instances on the <strong>Resource</strong> page.</p></li>
+</ol>
+</section>
+<section id="id8">
+<h4>Backup and Restore<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<p>The backup and restore types for SQL Server Always On failover cluster are the same as those for single instance.</p>
+<ul class="simple">
+<li><p>When creating a backup job, select a virtual instance as the backup resource. The remaining steps are similar to those in <em>Create Backup Jobs</em>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id9">
+<h3>Always On Failover Cluster<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<section id="id10">
+<h4>Cluster Binding<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong> and click <strong>Cluster Binding</strong> icon.</p></li>
+<li><p>Select Active-Passive to bind the physical instances. After that, log in to the physical instances on the <strong>Resource</strong> page.</p></li>
+<li><p>Activate virtual instances. Please refer to <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em>.</p></li>
+<li><p>Select Always On Availability Groups to bind virtual instances. After that, log in to the virtual instances on the <strong>Resource</strong> page.</p></li>
+</ol>
+</section>
+<section id="id11">
+<h4>Backup and Restore<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h4>
+<p>The backup and restore types for Always On failover clusters are the same as those for single instance.</p>
+<ul class="simple">
+<li><p>When creating a backup job, select a virtual instance as the backup resource. The remaining steps are basically similar to those in <em>Create Backup Jobs</em>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="sql-server-database-replication">
+<h2>SQL Server Database Replication<a class="headerlink" href="#sql-server-database-replication" title="Permalink to this heading">#</a></h2>
+<section id="prerequisites-for-database-replication">
+<h3>Prerequisites for Database Replication<a class="headerlink" href="#prerequisites-for-database-replication" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The Primary and Standby should have the same major version number. It has no requirement for the minor version number, revision number, and operating system.</p></li>
+<li><p>The operations of SQL Server hot standby are the same as the single instance, but the premise is that you need to bind the nodes into a cluster on the <strong>Cluster</strong> page. All the hosts that participate in database replication jobs should be deployed according to <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em>.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Compatibility List<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<section id="id13">
+<h4>Single Host<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h4>
+<table class="table" id="id20">
+<caption><span class="caption-text">Single Host Compatibility List</span><a class="headerlink" href="#id20" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Patch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2000</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2000</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2005</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>2008</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2008</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2008</p></td>
+<td><p>32</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 RC</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>2014</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2016 (RTM)</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>2017</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h4>Hot Standby<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h4>
+<table class="table" id="id21">
+<caption><span class="caption-text">Single Host Compatibility List</span><a class="headerlink" href="#id21" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Patch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2005</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>SP2</p></td>
+</tr>
+<tr class="row-odd"><td><p>2008 R2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>SP3</p></td>
+</tr>
+<tr class="row-even"><td><p>2012</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 RC</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2014</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>2016 (RTM)</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="create-sql-server-database-replication-jobs">
+<h3>Create SQL Server Database Replication Jobs<a class="headerlink" href="#create-sql-server-database-replication-jobs" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Go to the <strong>Database Replication</strong> interface. Click the “+” icon to create a job.</p>
+<p><img alt="" src="../_images/mssql_replication01.png" /></p>
+</li>
+<li><p>Select the <strong>Primary</strong>.</p>
+<p><img alt="" src="../_images/mssql_replication02.png" /></p>
+</li>
+<li><p>Select the <strong>Standby</strong>.</p>
+<p><img alt="" src="../_images/mssql_replication03.png" /></p>
+</li>
+<li><p>Set the <strong>Database Configuration</strong>.</p>
+<p><img alt="" src="../_images/mssql_replication04.png" /></p>
+<ul class="simple">
+<li><p>Primary/Standby address: It supports the IP address and domain name. For the cluster resource, enter the cluster IP.</p></li>
+<li><p>Storage pool: It supports standard storage pool, de-duplication storage pool, object storage service pool, and tape library pool.</p></li>
+<li><p>Primary/Standby storage dir: The default storage directory is the default path of the data file, log file, and standby file (for read-only access) of the resource. The directory can be customized.</p></li>
+<li><p>Number of parallelism: It refers to the number of database replication jobs running in parallel. The default number is 1. You can customize the number. An integer from 1 to 64 is supported.</p></li>
+<li><p>Replication content: Select at least one database of the Primary for replication.</p></li>
+</ul>
+</li>
+<li><p>Set the <strong>Application Plan</strong>.</p>
+<p><img alt="" src="../_images/mssql_replication05.png" /></p>
+</li>
+<li><p>Set the job name and confirm whether the job information is correct. <strong>Submit</strong> the job after confirmation.</p>
+<p><img alt="" src="../_images/mssql_replication06.png" /></p>
+</li>
+<li><p>Wait for the replication job to complete.</p>
+<p><img alt="" src="../_images/mssql_replication07.png" /></p>
+</li>
+</ol>
+</section>
+<section id="database-replication-operation">
+<h3>Database Replication Operation<a class="headerlink" href="#database-replication-operation" title="Permalink to this heading">#</a></h3>
+<p>The time required to create a database replication job will vary in different environments. When the database replication job is created and the state is Idle, the interface will display all the operation icons of database replications.</p>
+<p><img alt="" src="../_images/mssql_replication08.png" /></p>
+<ul class="simple">
+<li><p>Disable replication: The replication job will be stopped. Even if the set time is reached, the Primary will not be replicated to the Standby.</p></li>
+<li><p>Enable replication: The job will continue to replicate the data from the Primary to the Standby according to the set strategy.</p></li>
+<li><p>Switch: Through the switchover of the Primary and the Standby, you can convert the original Primary to the new Standby and the original Standby to the new Primary. The replication operation and strategy will remain the same.</p></li>
+<li><p>Delete: You can click it to delete the database replication job.</p></li>
+<li><p>Config: You can check the configuration information of the replication job and modify the application plan, number of parallelism, and replication content.</p></li>
+<li><p>Activate: When the Primary fails, you can click Activate to access the confirmation window, click Submit, and change the Standby to the new Primary.</p></li>
+<li><p>Read only: You can execute read-only queries on the Standby.</p></li>
+<li><p>Rebuild: It can be used when the database fails and the primary-standby relationship needs to be rebuilt. After rebuilding the Standby, the original Primary will become the new Standby and the original Standby will become the new Primary.</p></li>
+</ul>
+</section>
+</section>
+<section id="restrictions">
+<h2>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id22">
+<caption><span class="caption-text">Restrictions</span><a class="headerlink" href="#id22" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>Before using ADPS to back up SQL Server, you need to close the backup jobs of SQL Server itself and other third-party backup providers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Synthetic backup</p></td>
+<td><p>You need to install Microsoft iSCSI Software Initiator on the Windows 2003 agent.  <br> Synthetic backup does not support Backup Tail-Log and Verify Backup Files.  <br> Synthetic backup does not support an environment where the system is 64-bit and the SQL Server database is 32-bit. <br> SQL Server synthetic backup does not support Reconnection Time. <br> Neither Always On availability groups nor SQL Server on Linux supports synthetic backup.</p></td>
+</tr>
+<tr class="row-even"><td><p>Media restore</p></td>
+<td><p>SQL Server 2000 only supports offline restore. SQL Server 2005 and later Enterprise Editions support online restore.  <br> You cannot perform media restores on deleted databases. <br> Synthetic backup sets do not support media restore.  <br> Media restore does not support restoring to a different host.  <br> Databases in Restoring and Emergency states do not support media restore.  <br> After the restore of the primary filegroup, run a full backup before running a media restore again.  <br> Log backup is required when the databases with the full and bulk-logged recovery models have read-only filegroups. Otherwise, media restore will fail when files are lost.  <br> Media restore does not support restoring from the target storage pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Instant recovery</p></td>
+<td><p>Instant recovery does not support restoring multiple databases in one job currently.  <br> Instant recovery is only supported for online or offline databases.  <br> Neither Always On availability groups nor SQL Server on Linux supports instant recovery.</p></td>
+</tr>
+<tr class="row-even"><td><p>Always On availability groups</p></td>
+<td><p>The databases in availability groups must be with the full recovery model. Therefore,  when a virtual instance is selected as the restore target, the database with the simple or bulk-logged recovery model cannot be restored to the target. <br> Always On availability groups do not support synthetic backup and instant recovery.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Authentication method</p></td>
+<td><p>Neither Linux SQL Server nor Linux Always On availability groups support OS Authentication.  <br> Only Windows SQL Server single instance supports login with Access Key.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
+<table class="table" id="id23">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id23" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fast compression</p></td>
+<td><p>Compress data during backup using fast compression algorithms.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Log truncation</p></td>
+<td><p>Log truncation can remove inactive virtual log files from the logical transaction logs in a SQL Server database to free up space in the logical logs for reuse by the physical transaction logs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Hot standby</p></td>
+<td><p>Only one host is allowed to mount the shared disk, while the other is closed. When the active node fails, the inactive node will become the active node and mount the shared disk.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Always On availability groups</p></td>
+<td><p>Under synchronous-commit mode, the data of the primary copy is updated to the secondary copy synchronously. Real-time synchronization can be maintained between the primary copy and the secondary copy. When the system detects the failure of the primary copy, the secondary copy will immediately become the new primary.</p></td>
+</tr>
+<tr class="row-even"><td><p>Snapshot</p></td>
+<td><p>A database snapshot is a read-only static view of a SQL Server database (source database).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../install/install.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installation Guide</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../mysql/mysql.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MySQL User’s Guide</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Aurreum<br/>
+  
+      &copy; Copyright Copyright © 2022 Aurreum.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
