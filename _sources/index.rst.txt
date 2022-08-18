@@ -1,3 +1,14 @@
+.. raw:: html
+
+   <div style="visibility: hidden;">
+
+Home
+========
+
+.. raw:: html
+
+   </div>
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents
@@ -7,6 +18,8 @@
    agent_install/agent_install.md
 
    file/file.md
+
+   hyper-v/hyper-v.md
 
    install/install.md
 

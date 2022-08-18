@@ -4,7 +4,7 @@
 
 Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of enterprise operating systems, databases, files, and virtual machines. ADPS provides a storage backup management platform through a Web interface for users to monitor and manage the backup and restore jobs. In addition, it can manage and monitor the backup systems of large enterprises or governments distributed in various places. The offsite disaster recovery and data replication of ADPS also provide enterprises with efficient and cost-effective solutions for high database reliability and availability.
 
-![](../image/install-1.png)
+![](../image/install/install-1.png)
 
 ## ADPS Components
 
@@ -308,15 +308,15 @@ sudo dpkg -i adps-common_version_amd64.deb adps-backupd_version_amd64.deb adps-s
 
 2. Configure adps-storaged and set the IP address of the backup server, e.g., 192.168.88.239
 
-   ![](../image/install-3.png)
+   ![](../image/install/install-3.png)
 
 3. Set the port of the backup server. The default port is 50305, which means that the data is transferred without encryption. You can encrypt the data by modifying the port to 60305.
 
-   ![](../image/install-4.png)
+   ![](../image/install/install-4.png)
 
 4. If you enter 50305 in the previous step, choose "No" to disable the SSL protocol. If you enter 60305, choose "Yes" to enable the SSL protocol.
 
-   ![](../image/install-5.png)
+   ![](../image/install/install-5.png)
 
 4. Wait for the installation to complete. After the installation, symbolic links will be created between the ADPS-related directories and the /infokist under the data disk.
 
@@ -502,7 +502,7 @@ May 17 13:54:37 ubuntu1804 adps-backupd[6064]: Created 'dev_poll' reactor
 
 After the installation, enter the IP or domain name on the browser. If you can access the ADPS Web console, the installation is successful.
 
-![](../image/install-6.png)
+![](../image/install/install-6.png)
 
 You must import a product license to use the Web console. Download the "Request License" file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, please refer to the *Administrator's Guide*.
 

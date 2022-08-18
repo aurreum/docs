@@ -59,7 +59,7 @@ class: longtable
 | Priority of backup jobs | The backup job is first performed on the node that is selected during the job creation. |
 | Reconnection time                   | The default value is 10 minutes.                             |
 | Skip files during backup            | Inaccessible files, offline files, and read-only files can be skipped |
-| Other features                     | Reserve archived logs, channels, custom RMAN command, enable ARCHIVELOG mode, enable BCT, modify archived log backup times |
+| Other features                     | Reserve archive logs, channels, custom RMAN command, enable ARCHIVELOG mode, enable BCT, modify archived log backup times |
 | Restore type                        | Media restore, timepoint restore (database, tablespace/PDB, table), recovery testing, traditional export, Data Pump export, instant recovery, Live Recovery, restore archived logs, Data Pump recovery testing, traditional recovery testing |
 | Restore location                    | Original path, new path                                      |
 | Restore granularity                 | Entire database, data file, tablespace/PDB, table        |
@@ -513,9 +513,9 @@ This chapter introduces how to back up the Oracle databases.
 
 **Reserve archive logs**:
 
-- Delete all archive logs: All backed-up archive logs will be deleted after the backup.
-- Reserve archive logs for N day(s): After the backup, the archive logs will be reserved for N day(s) and then be deleted.
-- Do not delete archive logs: Archive logs will not be deleted after the backup.
+- Delete all archive logs: Delete the backed-up archive logs after the backup.
+- Reserve archive logs for N day(s)/hour(s): After the backup, reserve the backed-up archive logs in the previous N day(s)/hour(s) and delete those that are older than N day(s)/hour(s).
+- Do not delete archive logs: Do not delete the backed-up archive logs after the backup.
 
 **Encryption wallet password**: If you enable encryption wallet, you are required to enter the encryption wallet password when performing database database backups.
 
@@ -649,9 +649,9 @@ The first Oracle synthetic backup job will be a full backup and the subsequent o
 
 **Reserve archive logs**:
 
-- Delete all archive logs: All backed-up archive logs will be deleted after the backup.
-- Reserve archive logs for N day(s): After the backup, the archive logs will be reserved for N days and then be deleted.
-- Do not delete archive logs: Archive logs will not be deleted after the backup.
+- Delete all archive logs: Delete the backed-up archive logs after the backup.
+- Reserve archive logs for N day(s)/hour(s): After the backup, reserve the backed-up archive logs in the previous N day(s)/hour(s) and delete those that are older than N day(s)/hour(s).
+- Do not delete archive logs: Do not delete the backed-up archive logs after the backup.
 
 **Advanced options**:
 

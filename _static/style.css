@@ -1,3 +1,11 @@
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "San Francisco", "Helvetica Neue", Helvetica, Tahoma, Arial, STXihei, "华文细黑", "WenQuanYi Micro Hei", "Microsoft YaHei", "微软雅黑", Heiti, "黑体", sans-serif;
 }
+
+table>caption {
+  display: none;
+}
+
+.footer-content p {
+  margin-bottom: 0;
+}

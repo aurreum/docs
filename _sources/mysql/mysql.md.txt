@@ -518,7 +518,7 @@ The first MySQL synthetic backup is a full backup and each subsequent backup is 
 
  Prerequisites of creating a synthetic backup:
 
-1. The data disk of the storage server requires the ZFS file system. For installation, please refer to the *PBBA Operating System Partition*.
+1. The data disk of the storage server requires the ZFS file system. For installation, please refer to the *Server Requirements* in *Installation Guide*.
 2. Before use, you need to configure the iSCSI/FC link between the agent and the storage server.
 3. The admin has the advanced **License** of MySQL Synthetic Backup and MySQL Copy Data Management.
 4. The admin has created and assigned a database synthetic pool to the operator.

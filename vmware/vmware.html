@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>VMware User’s Guide &#8212; ADPS 3.0.35274 documentation</title>
+    <title>VMware User’s Guide &#8212; ADPS 3.0.35274</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -72,9 +72,14 @@
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274 documentation</h1>
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -101,6 +106,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../file/file.html">
    File User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hyper-v/hyper-v.html">
+   Hyper-V User’s Guide
   </a>
  </li>
  <li class="toctree-l1">
@@ -683,8 +693,8 @@ title="Fullscreen mode"
 <tr class="row-odd"><td><p>Backup and restore using VMware least privilege account</p></td>
 <td><p>VMware least privilege account can be used to implement the backup and restore.</p></td>
 </tr>
-<tr class="row-even"><td><p>Auto match VDDK version</p></td>
-<td><p>The VDDK version can be automatically matched according to the VMware version.</p></td>
+<tr class="row-even"><td><p>Auto VDDK version selection</p></td>
+<td><p>The VDDK version can be automatically selected according to the VMware version.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Allocated blocks</p></td>
 <td><p>The backup of allocated blocks in the virtual machine is supported.</p></td>
@@ -730,10 +740,22 @@ title="Fullscreen mode"
 <tr class="row-odd"><td><p>ESXi 6.5</p></td>
 <td><p>Yes</p></td>
 </tr>
-<tr class="row-even"><td><p>ESXi 7.0</p></td>
+<tr class="row-even"><td><p>ESXi 6.7</p></td>
 <td><p>Yes</p></td>
 </tr>
-<tr class="row-odd"><td><p>VMware vCenter 6.5</p></td>
+<tr class="row-odd"><td><p>ESXi 7.0</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>VMware vCenter 5.5</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>VMware vCenter 6.0</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>VMware vCenter 6.5</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>VMware vCenter 6.7</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>VMware vCenter 7.0</p></td>
@@ -744,13 +766,13 @@ title="Fullscreen mode"
 </section>
 <section id="vmware-data-transport">
 <h2>VMware Data Transport<a class="headerlink" href="#vmware-data-transport" title="Permalink to this heading">#</a></h2>
-<p>The data transport modes for VMware backup and restore include NBD, NBDSSL, HotAdd, SAN, and Adaptive. Before backup, you need to set the network among the backup server, storage server, backup host, and virtual center. This chapter introduces VMware data transport modes.</p>
+<p>The data transport modes for VMware backup and restore include NBD, NBDSSL, HotAdd, SAN, and Adaptive. Before backup, you need to set the network among the backup server, backup storage server, backup host, and virtual center. This chapter introduces VMware data transport modes.</p>
 <section id="nbd-nbdssl-transport">
 <h3>NBD &amp; NBDSSL Transport<a class="headerlink" href="#nbd-nbdssl-transport" title="Permalink to this heading">#</a></h3>
 <p>During the backup and restore, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of the VMware virtual center with simple deployment, single IP network, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:</p>
 <ul>
-<li><p>The backup host, backup server, and storage server can be deployed on one device (data protection appliance).</p></li>
-<li><p>The backup host can be deployed on a Linux device that has network connectivity with the backup server and storage server. The Linux device can be physical or virtual.</p>
+<li><p>The backup host, backup server, and backup storage server can reside on the same host.</p></li>
+<li><p>The backup host can reside on a host (Linux) that has network connectivity with the backup server and backup storage server. The host (Linux) can be physical or virtual.</p>
 <p><img alt="" src="../_images/vmware_NBD.jpg" /></p>
 </li>
 </ul>
@@ -777,7 +799,7 @@ title="Fullscreen mode"
 </li>
 <li><p>Backup host deployment:</p>
 <ul>
-<li><p>You can deploy the backup host and backup storage server on the same host so that the VMware datastore can be mounted to the storage server through FC/iSCSI.</p></li>
+<li><p>The backup host can reside on the same host as the backup storage server so that the VMware datastore can be mounted to the storage server through FC/iSCSI.</p></li>
 <li><p>Or you can mount the VMware datastore through FC/iSCSI to an independent host as the backup host.</p>
 <p><img alt="" src="../_images/vmware_san.jpg" /></p>
 </li>
@@ -816,6 +838,30 @@ title="Fullscreen mode"
 <td><p>x86_64</p></td>
 <td><p>Yes</p></td>
 </tr>
+<tr class="row-odd"><td><p>CentOS 7.6</p></td>
+<td><p>x86_64</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>CentOS 7.9</p></td>
+<td><p>x86_64</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>CentOS 8.5</p></td>
+<td><p>x86_64</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Redhat 7.6</p></td>
+<td><p>x86_64</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Redhat 7.9</p></td>
+<td><p>x86_64</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Redhat 8.2</p></td>
+<td><p>x86_64</p></td>
+<td><p>Yes</p></td>
+</tr>
 </tbody>
 </table>
 <ol class="arabic">
@@ -840,7 +886,7 @@ title="Fullscreen mode"
 </pre></div>
 </div>
 </li>
-<li><p>The unzipped directory contains VDDK versions. During the backup and restore, the VDDK versions will be automatically selected according to the ESXi version or be specified.</p>
+<li><p>The unzipped directory contains VDDK libraries. When creating backup and restore jobs, you can select Automatic or a specified VDDK version. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version. The VDDK versions that you can specify are:</p>
 <ul class="simple">
 <li><p>VDDK:</p>
 <ul>
@@ -1022,7 +1068,7 @@ title="Fullscreen mode"
 <li><p><strong>Adaptive</strong>: The configuration sequence of data transport modes is SAN &gt; HotAdd &gt; NBDSSL &gt; NBD.</p></li>
 </ol>
 </li>
-<li><p><strong>VDDK version</strong>: During the backup and restore, the virtualization platform will automatically select the VDDK version according to the ESXi version. You can also specify the VDDK version under some circumstances.</p></li>
+<li><p><strong>VDDK version</strong>: You can select Automatic or specify a VDDK version. 6.0, 6.5, 6.7, and 7.0 are supported. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version.</p></li>
 <li><p><strong>Enable CBT</strong>: It is enabled by default. You need to enable CBT for virtual machine incremental backups. It supports allocated block backups of a virtualization environment with an old version (such as <strong>ESXi 5.X</strong>). If you are not allowed to enable CBT for special reasons, please disable the option. But it may have some potential risks such as the failure of allocated block backups and incremental backups.</p></li>
 <li><p><strong>Reset CBT</strong>: Reset the CBT of the virtual machine before full backups. If the virtual machine CBT fails, the backup host will be unable to get the data blocks that have changed, which will influence incremental backups. Resetting CBT can solve the above problem.</p></li>
 <li><p><strong>Backup allocated blocks only</strong>: This option only backs up allocated disk blocks during the full backup. If a virtual environment version is too old, it may fail to back up allocated blocks. Under this situation, you can try to enable CBT for backups.</p></li>
@@ -1193,7 +1239,7 @@ title="Fullscreen mode"
 <li><p>Click the value under the <strong>Target Network</strong> to access the pop-up setting window.</p>
 <p><img alt="" src="../_images/vmware_restore_19.png" /></p>
 </li>
-<li><p>Select a NIC and click <strong>Submit</strong> to complete the setting.</p>
+<li><p>Select a network and click <strong>Submit</strong> to complete the setting.</p>
 <blockquote>
 <div><p>Batch Set Up Network: The same network can support multiple virtual machines.</p>
 </div></blockquote>
@@ -1211,7 +1257,7 @@ title="Fullscreen mode"
 <li><p><strong>Channels</strong>: It refers to the maximum number of virtual machines that can be restored at the same time. The default channel number is 8. We recommend that the channel number is no more than the number of CPU cores. If it exceeds, the efficiency cannot be improved obviously.</p></li>
 <li><p><strong>Number of virtual machines per host restore in parallel</strong>: It refers to the number of virtual machines per host that can be restored at the same time. The number could not exceed 5 by default.</p></li>
 <li><p><strong>Data transport mode</strong>: You can choose NBD, NBDSSL, SAN, HotAdd, and Adaptive.</p></li>
-<li><p><strong>VDDK version</strong>: 6.0, 6.5, 6.7, and 7.0 are supported.</p></li>
+<li><p><strong>VDDK version</strong>: You can select Automatic or specify a VDDK version. 6.0, 6.5, 6.7, and 7.0 are supported. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version.</p></li>
 <li><p><strong>Overwrite existing virtual machines</strong>: If a virtual machine has the same name as the restored virtual machine, you need to enable this option for successful restores. This option is required when you choose to restore to the original path.</p></li>
 <li><p><strong>Retain the virtual machine version</strong>: This option is enabled by default. It will use the original virtual machine hardware version to restore. If you do not enable it, the job will use the default hardware version of the target host to restore the virtual machine. This option is applicable to the target host with an old version that does not support the hardware version of the original virtual machine.</p></li>
 <li><p><strong>Retain the virtual machine BIOS UUID</strong>: You can retain the BIOS UUID of the virtual machine.</p></li>
@@ -1300,7 +1346,7 @@ title="Fullscreen mode"
 <td><p>Global: Enable methods, disable methods <br> Guest operations: Guest operation queries, guest operation modifications, guest operation program execution <br> Inventory: Create, register, remove, move  <br> Snapshot management: Create snapshot, remove snapshot, revert to snapshot <br> Configuration: Toggle disk change tracking, configure raw device, add or remove device, add existing disk, add new disk, change resource, remove disk, change settings, advanced configuration, set annotation, acquire disk lease <br> Interaction: Power off, configure CD media, configure floppy media, device connection, guest operating system management by VIX API, power on <br> Provisioning: Allow read-only disk access, allow virtual machine download, allow file access, allow disk access, create template from virtual machine, mark as virtual machine, mark as template <br> Datastore: Allocate space, browse datastore, low level file operations, remove file <br> Resource: Assign virtual machine to resource pool <br> vApp: Add virtual machine <br> Network: Assign network</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup</p></td>
-<td><p>Synthetic backup is not supported.  <br> VDDK version automatic selection logic: If vSphere version is older than or equal to 6.0, select VDDK 6.0. For other vSphere versions, select the same VDDK version. For example, if vSphere version is 6.5, then VDDK 6.5 will be selected automatically.  <br> VDDK does not support ARM architecture. <br> In SAN mode backup, the agent must be able to access the FC or iSCSI SAN where the ESXi virtual machine storage resides.  <br> VVol datastore is not supported. <br> HotAdd transport requirements: The virtual machine agent must have a SCSI controller. IDE disks are not supported. The virtual machine agent can access the datastore of the target virtual machine disk and connect to port 902 of ESXi.</p></td>
+<td><p>Synthetic backup is not supported.  <br> VDDK version automatic selection logic: If the vSphere version is older than or equal to 6.0, VDDK 6.0 will be selected. For other vSphere versions, the same VDDK version will be selected. For example, if the vSphere version is 6.5, then VDDK 6.5 will be selected automatically.  <br> VDDK does not support ARM architecture. <br> In SAN mode backup, the agent must be able to access the FC or iSCSI SAN where the ESXi virtual machine storage resides.  <br> VVol datastore is not supported. <br> HotAdd transport requirements: The virtual machine agent must have a SCSI controller. IDE disks are not supported. The virtual machine agent can access the datastore of the target virtual machine disk and connect to port 902 of ESXi.</p></td>
 </tr>
 <tr class="row-even"><td><p>Restore</p></td>
 <td><p>File-level Restore and Mount Restore of Data are not supported.  <br> For versions older than vSphere 5.5, the size of the virtual disk being restored through the SAN transport mode must be an integer multiple of the underlying VMFS block size.</p></td>
@@ -1371,7 +1417,9 @@ title="Fullscreen mode"
   
     By Aurreum<br/>
   
-      &copy; Copyright Copyright © 2022 Aurreum.<br/>
+    <div class="extra_footer">
+      Copyright © 2022 Aurreum
+    </div>
 </p>
         </footer>
     </div>

@@ -26,7 +26,7 @@ ADPS system components contain Backup Server, Storage Server, and Agent.
 | Backup and restore                   | Files backup and restore{{ br }}Databases backup and restore{{ br }}Virtue machines backup and restore{{ br }}Cloud platforms backup and restore{{ br }}Office software backup and restore{{ br }}Operating systems backup and restore |
 | Disaster recovery                    | Database replication{{ br }}Continuous log protection{{ br }}Remote disaster recovery |
 | Data management                      | Effective data compression{{ br }}Accurate de-duplication{{ br }}Custom backup speed limit within different time periods{{ br }}Synthetic backups of data{{ br }}Multiple copy data management strategies{{ br }}Self-serve BaaS (Backup as a Service){{ br }}Encryption of data transmission and data storage |
-| Operation and maintenance management | Labeled resource control{{ br }}Rich reports and log output{{ br }}Different user roles and access control permissions{{ br }}Data transfer in weak network environment{{ br }}Distributed multi-level management and unified monitoring{{ br }}Periodic disaster recovery testing{{ br }}Multi-factor authentication |
+| Operation and maintenance (O&M) management | Labeled resource control{{ br }}Rich reports and log output{{ br }}Different user roles and access control permissions{{ br }}Data transfer in weak network environment{{ br }}Distributed multi-level management and unified monitoring{{ br }}Periodic disaster recovery testing{{ br }}Multi-factor authentication |
 ```
 ##  User System
 
@@ -155,13 +155,13 @@ Supported retention policies are as the followings :
 
    ![license-02](../image/admin/10-license/license-02.png)
 
-**Trial**: You can try the software for 30 days. After the license expires, you cannot continue using ADPS, and if you want to keep using it, you need to purchase an officially licensed edition.
+**Trial**: You can try the software for 30 days. After the license expires, you cannot continue using ADPS, and if you want to keep using it, you need to purchase the Official License edition.
 
 **Lease**: You can use the software during the lease duration including one year, two years, three years, and five years after you get authorized. You need to renew the lease to continue using it after the lease duration expires. 
 
-**Official**: Officially licensed edition. You can use the software for lifetime after you get the Official license.
+**Official**: Officially licensed version. You can use the software for lifetime after you get the Official license.
 
-**Channel**: Officially licensed edition. You can use the software for lifetime after you get the Channel license.
+**Channel**: Officially licensed version. You can use the software for lifetime after you get the Channel license.
 
 3. Set options for different licenses. 
 
@@ -172,7 +172,7 @@ Supported retention policies are as the followings :
 
 **Trial license renewal**: When the Trial License expires and by applying for a trial license renewal, you can continue using ADPS. When you apply for a trial license renewal, the settings page is loaded with expired resources by default, and you need to bind the license renewal to the resources. If you delete the expired resource records loaded by default and replace them by adding modules, the resource renewal will be invalid.
 
-**Trial days**: The trial period is 30 days by default. After the expiration, you can't continue using the software, and if you want to continue, you can apply for the trial license renewal or purchase an officially licensed edition.
+**Trial days**: The trial period is 30 days by default. After the expiration, you can't continue using the software, and if you want to continue, you can apply for the Trial License Renewal or purchase the Official License edition.
 
 **Number of each module**: You can customize the number of licenses that need to be applied for each resource module.
 
@@ -250,15 +250,15 @@ Supported retention policies are as the followings :
 
 **CD storage**: Used for CD-ROM tower storage pool.
 
-4. You can add modules, customize the number of modules, and choose the OS architectures and resource types of the agent. If you apply for an officially licensed edition and choose to license by storage space, you don't need to add more modules.
+4. You can add modules, customize the number of modules, and choose the OS architectures and resource types of the agent. If you apply for the Official License edition and choose to license by storage space, you don't need to add more modules.
 
 ![license-07](../image/admin/10-license/license-07.png)
 
-5. You can choose the relevant options to enable the corresponding **Advanced** functions according to your need. As the module usage period, when the advanced functions of the Trial License expire, you can apply again after the expiration date. If your edition is the officially licensed one, you don't need to repeat the application when advanced functions are enabled.
+5. You can choose the relevant options to enable the corresponding **Advanced** functions according to your need. As the module usage period, when the advanced functions of the Trial License expire, you can apply again after the expiration date. If your edition is the Official License, you don't need to repeat the application when advanced functions are enabled.
 
 ![license-08](../image/admin/10-license/license-08.png)
 
-**Function of multi-tenant**: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private system of backup and restore is established for multiple tenants in a shared backup environment. You can use **Multi-Tenant** to provide individual services for each tenant on demand, configure independent data storage space to achieve data isolation among tenants via the separate management mechanism.
+**Multi-Tenant**: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private system of backup and restore is established for multiple tenants in a shared backup environment. You can use **Multi-Tenant** to provide individual services for each tenant on demand, configure independent data storage space to achieve data isolation among tenants via the separate management mechanism.
 
 ### Import a License
 
@@ -408,21 +408,21 @@ Set the **Name** of the backup index job, the **Storage Pool** to store data, **
 
 ![catalog-1](../image/admin/03-guide/catalog-1.png)
 
-After completing the above operations, the basic configuration of the system is completed.
+After completing the above operations, the basic configuration of the system is finishing.
 
 ## Dashboard
 
-The **Dashboard** interface helps you understand the overall state of the system operation in real time. The display modules mainly include:
+The **Dashboard** interface helps you understand the overall state of the system operation. The display modules mainly include:
 
-- Real-time O&M statistics
+- O&M statistics
 - Overall storage capacity usage
 - Licensed storage space usage 
 - Storage pool capacity usage
-- Real-time data export
+- Data export
 
 ![dashboard-1](../image/admin/04-dashboard/dashboard-1.png)
 
-### Real-time O&M Statistics
+### O&M Statistics
 
 ![dashboard-2](../image/admin/04-dashboard/dashboard-2.png)
 
@@ -458,7 +458,7 @@ The overall disk storage capacity usage is presented as a pie chart.
 
 ### Licensed Storage Space Usage 
 
-The Licensed Storage Space Usage is for Officially Licensed Editions only. It refers to the activated storage space usage. Users can only use the activated storage space. When the activated storage space is used up, users of the "Operator" role cannot back up data to the storage server. If you want to expand the storage space you need to re-apply for a license.
+The Licensed Storage Space Usage is for Official License Edition only. It refers to the activated storage space usage. Users can only use the activated storage space. When the activated storage space is used up, users of the "Operator" role cannot back up data to the storage server. If you want to expand the storage space you need to re-apply for a license.
 
 ![dashboard-4](../image/admin/04-dashboard/dashboard-4.png)
 
@@ -477,7 +477,7 @@ The usage of each disk storage capacity is displayed as a pie chart, and the usa
 >
 > - If there are tape library pool and object storage service pool existing, the tape library pool and object storage service pool will also show the corresponding usage in bar graphs.
 
-### Real-time Data Export
+### Data Export
 
 You can export data shown on the Dashboard. Click the ![dashboard-6](../image/admin/04-dashboard/dashboard-6.png) icon of the upper-right corner to export the visual data to CSV format.
 
@@ -604,7 +604,7 @@ Click **Storage** -> **Storage Pool** to enter the Storage Pool page where you c
 
 ##### Add Standard Storage Pool
 
-1. Click “ + ” , select **Standard Storage Pool** as the **Type**, and select the **Storage Server** where the storaged module is installed.
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Standard Storage Pool** as the **Type**, and select the **Storage Server** where the storaged module is installed.
 
  ![pool-sta-1](../image/admin/06-storage/pool-sta-1.png)
 
@@ -686,7 +686,7 @@ Click "**+**" on the right side of the specified storage pool to access the Add 
 
 ##### Add De-duplication Storage Pool
 
-1. Click “ + ” , select **De-duplication Storage Pool** as the **Type**, select the storage server where the storaged module is installed, and set **Chuck Size**, which is **Adaptive** by default.
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **De-duplication Storage Pool** as the **Type**, select the storage server where the storaged module is installed, and set **Chuck Size**, which is **Adaptive** by default.
 
  ![pool-dep](../image/admin/06-storage/pool-dep.png)
 
@@ -714,7 +714,7 @@ Click "**+**" on the right side of the specified storage pool to access the Add 
 
 ##### Add Real-time Backup Pool
 
-1. Click “ + ” , select **Real-time Backup Pool** as the **Type**, and select the storage server on which the storaged module is installed. 
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Real-time Backup Pool** as the **Type**, and select the storage server on which the storaged module is installed. 
 
  ![pool-time-1](../image/admin/06-storage/pool-time-1.png)
 
@@ -734,7 +734,7 @@ Click "**+**" on the right side of the specified storage pool to access the Add 
 
 File synthetic pool allows the pool to synthesize the backup sets as the base with subsequent incremental backups. By scanning directories, it recycles the space occupied by the redundant files in the full backup sets. With the Synthetic Backup Sets Retention enabled, the full backups and the incremental backups will be merge automatically.
 
-1. Click “ + ” , select **File Synthetic Pool** as the **Type**, and select the **Storage Server** on which the storaged module is installed. This server requires the nfsd module to be installed as well. 
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **File Synthetic Pool** as the **Type**, and select the **Storage Server** on which the storaged module is installed. This server requires the nfsd module to be installed as well. 
 
  ![pool-file-merge-1](../image/admin/06-storage/pool-file-merge-1.png)
 
@@ -752,7 +752,7 @@ File synthetic pool allows the pool to synthesize the backup sets as the base wi
 
 ##### Add Database Synthetic Pool 
 
-1. Click “ + ” , select **Database Synthetic Pool** as the **Type**, and select the **Storage Server** on which the storaged module is installed. This server requires the storaged- lanfree module to be installed as well. 
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Database Synthetic Pool** as the **Type**, and select the **Storage Server** on which the storaged module is installed. This server requires the storaged- lanfree module to be installed as well. 
 
  ![pool-database](../image/admin/06-storage/pool-database.png)
 
@@ -803,7 +803,7 @@ File synthetic pool allows the pool to synthesize the backup sets as the base wi
 
 #####  Add LAN-Free Pool
 
-1. Click “ + ” , select **LAN-Free Pool** as the type, select the storage server with the storaged module installed. The server needs to install the storaged-lanfree module at the same time.
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **LAN-Free Pool** as the type, select the storage server with the storaged module installed. The server needs to install the storaged-lanfree module at the same time.
 
     ![pool-lanfree](../image/admin/06-storage/pool-lanfree.png)
 
@@ -882,7 +882,7 @@ Tapes are used as a physical storage to hold archived user data. Before creating
 
 ###### Add Tape Library Pool
 
-1. Enter **Storage** - **Storage Pool** page and click “ + ” , select **Type Library Pool** as the type, select the storage server where the storaged module is installed and the tape library is connected.
+1. Enter **Storage** - **Storage Pool** page and click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Type Library Pool** as the type, select the storage server where the storaged module is installed and the tape library is connected.
 
     ![pool-tape-1](../image/admin/06-storage/pool-tape-1.png)
 
@@ -914,7 +914,7 @@ Tapes are used as a physical storage to hold archived user data. Before creating
 
 ##### Add Object Storage Service Pool
 
-1. Click “ + ” and select the **Object Storage Service Pool** as the type.
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) and select the **Object Storage Service Pool** as the type.
 
 2. Select the **Vendor** of the cloud service and configure relevant options. Currently Amazon Web Service (AWS), Microsoft Azure, Backblaze B2 and other S3-compliant cloud vendors are supported. 
 
@@ -974,10 +974,6 @@ By clicking the **"+"** button on the left side of the specific storage pool, th
 **SSL**: Modify to use SSL or not.
 
 **Port**: Modify the port number of the device. The default port is 50306.
-
-**Allocate storage space**: Re-allocate the storage space.
-
-**Block size**: This option is only available in modifying the tape library pool. The default block size is the size that you created the tape library pool.
 
 #### Delete the Storage Pool
 
@@ -1565,13 +1561,9 @@ Log in ADPS as System Admin/the admin, click **Settings** -> **WebHooks** to ent
 
 Click the **Add** icon to enter the Add Webhooks page. On Add Webhooks page, enter the **URL** to receive the Webhooks information, enter the **Secret Token** information, check the corresponding event, and click the **Add Webhook** button at the bottom of the page to add the Webhook.
 
-![](../image/admin/08-setting/webhook-02.png)
-
 ##### More Description 
 
 On top of the URL input box on the Add Webhook page, you can click **More Description** to view more details.
-
-![](../image/admin/08-setting/webhook-02.png)
 
 #### Approval
 
@@ -1998,7 +1990,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 | Standard storage pool       | For the standard storage pool with multi-storage, when the primary device is down, you cannot restore data from other devices. |
 | De-duplication storage pool | Default recycling will free up space. {{ br }}Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation.{{ br }}Supported file system:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　NTFSXFS (since Linux 2.6.38) ext4 (since Linux 3.0) Btrfs (since Linux 3.7) |
 | Real-time backup pool       | Only Oracle and MySQL continuous log backup are supported.   |
-| File synthetic pool         | Only support Linux storage server.{{ br }}Limitations on file system and kernel versions for synthetic backups:{{ br }}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　XFS (since Linux 2.6.38) ext4 (since Linux 3.0)　.{{ br }}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool. |
+| File synthetic pool         | Only support Linux storage server.{{ br }}Limitations on file system and kernel versions for synthetic backups:{{ br }}XFS (since Linux 2.6.38) ext4 (since Linux 3.0)).{{ br }}NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool. |
 | Database synthetic pool     | Only support Ubuntu storage server.{{ br }}Support synthetic backups of Oracle, SQL Server, MySQL with data volume greater than 1T, which needs to be used in 16.04 ZFS file system. {{ br }}only support level-1 pool replication relationship. |
 | LAN-Free storage pool       | Only support Ubuntu storage server. {{ br }}Backups to LAN-Free pools are not supported for data in dual-cluster environments.{{ br }}Oracle RAC does not support the backup to LAN-Free pools.{{ br }}The agent supports Linux (Red Hat 4.0 and later), AIX and Windows 2008 and later platforms.{{ br }}To use iSCSI, you need to install iscsi-initiator-utils on the agent first. |
 ```

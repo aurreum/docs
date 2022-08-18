@@ -42,7 +42,7 @@ class: longtable
 |Pool replication| D2D2D, D2D2C, D2D2T |
 |Restore from target pools| Data can be restored from target pools. |
 |Backup and restore using VMware least privilege account| VMware least privilege account can be used to implement the backup and restore. |
-|Auto match VDDK version| The VDDK version can be automatically matched according to the VMware version. |
+|Auto VDDK version selection| The VDDK version can be automatically selected according to the VMware version. |
 |Allocated blocks| The backup of allocated blocks in the virtual machine is supported. |
 |Transport mode| NBD: Transport data over the TCP/IP network.{{ br }}NBDSSL: Encrypt and transport data over the TCP/IP network.{{ br }}SAN: Read backup data directly over SAN not LAN. This mode requires the backup server to read the backup data directly through SAN.{{ br }}HotAdd: The backup agent is installed on a virtual machine in the ESXi server that needs to be backed up. The agent can read the backup data directly. |
 |Start virtual machine after restoring| The restored virtual machines can be started after the restore job is completed. |
@@ -60,22 +60,26 @@ class: longtable
 | ESXi 5.5                 |Yes      |
 | ESXi 6.0                 |Yes      |
 | ESXi 6.5                 |Yes      |
+| ESXi 6.7                 |Yes      |
 | ESXi 7.0                 |Yes      |
+| VMware vCenter 5.5       |Yes      |
+| VMware vCenter 6.0       |Yes      |
 | VMware vCenter 6.5       |Yes      |
+| VMware vCenter 6.7       |Yes      |
 | VMware vCenter 7.0       |Yes      |
 ```
 
 ## VMware Data Transport
 
-The data transport modes for VMware backup and restore include NBD, NBDSSL, HotAdd, SAN, and Adaptive. Before backup, you need to set the network among the backup server, storage server, backup host, and virtual center. This chapter introduces VMware data transport modes.
+The data transport modes for VMware backup and restore include NBD, NBDSSL, HotAdd, SAN, and Adaptive. Before backup, you need to set the network among the backup server, backup storage server, backup host, and virtual center. This chapter introduces VMware data transport modes.
 
 ### NBD & NBDSSL Transport
 
 During the backup and restore, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of the VMware virtual center with simple deployment, single IP network, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:
 
-- The backup host, backup server, and storage server can be deployed on one device (data protection appliance).
+- The backup host, backup server, and backup storage server can reside on the same host.
 
-- The backup host can be deployed on a Linux device that has network connectivity with the backup server and storage server. The Linux device can be physical or virtual.
+- The backup host can reside on a host (Linux) that has network connectivity with the backup server and backup storage server. The host (Linux) can be physical or virtual.
 
   ![](../image/03-vmware/vmware/vmware_NBD.jpg)
 
@@ -101,7 +105,7 @@ In SAN transport mode, the backup host is required to read the disk storage of t
 
 2. Backup host deployment:
 
-   - You can deploy the backup host and backup storage server on the same host so that the VMware datastore can be mounted to the storage server through FC/iSCSI.
+   - The backup host can reside on the same host as the backup storage server so that the VMware datastore can be mounted to the storage server through FC/iSCSI.
 
    - Or you can mount the VMware datastore through FC/iSCSI to an independent host as the backup host.
 
@@ -123,6 +127,12 @@ This chapter introduces how to download and install the agent and connect it to 
 | Ubuntu 16.04     | x86_64                |Yes      |
 | Ubuntu 18.04     | x86_64                |Yes      |
 | CentOS 7.4       | x86_64                |Yes      |
+| CentOS 7.6       | x86_64                |Yes      |
+| CentOS 7.9       | x86_64                |Yes      |
+| CentOS 8.5       | x86_64                |Yes      |
+| Redhat 7.6       | x86_64                |Yes      |
+| Redhat 7.9       | x86_64                |Yes      |
+| Redhat 8.2       | x86_64                |Yes      |
 ```
 
 1. Open a browser and log in to ADPS as the *admin*.
@@ -149,7 +159,7 @@ For VMware backup and restore, you need to deploy VDDK on the backup host. Add V
    tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
    ```
 
-2. The unzipped directory contains VDDK versions. During the backup and restore, the VDDK versions will be automatically selected according to the ESXi version or be specified.
+2. The unzipped directory contains VDDK libraries. When creating backup and restore jobs, you can select Automatic or a specified VDDK version. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version. The VDDK versions that you can specify are: 
    - VDDK:
      - 6.0
      - 6.5
@@ -313,7 +323,7 @@ This chapter introduces how to back up VMware.
    >   3. **SAN**: The backup host collects data directly over the SAN rather than LAN. This mode requires the backup host to directly read the disk storage of the virtual machine over the SAN (FC/iSCSI).
    >   4. **HotAdd**: The backup host is installed on a virtual machine of the ESXi server that needs to be backed up so that the host can directly read the backup data in ESXi.
    >   5. **Adaptive**: The configuration sequence of data transport modes is SAN > HotAdd > NBDSSL > NBD.
-   > - **VDDK version**: During the backup and restore, the virtualization platform will automatically select the VDDK version according to the ESXi version. You can also specify the VDDK version under some circumstances.
+   > - **VDDK version**: You can select Automatic or specify a VDDK version. 6.0, 6.5, 6.7, and 7.0 are supported. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version.
    > - **Enable CBT**: It is enabled by default. You need to enable CBT for virtual machine incremental backups. It supports allocated block backups of a virtualization environment with an old version (such as **ESXi 5.X**). If you are not allowed to enable CBT for special reasons, please disable the option. But it may have some potential risks such as the failure of allocated block backups and incremental backups.
    > - **Reset CBT**: Reset the CBT of the virtual machine before full backups. If the virtual machine CBT fails, the backup host will be unable to get the data blocks that have changed, which will influence incremental backups. Resetting CBT can solve the above problem.
    > - **Backup allocated blocks only**: This option only backs up allocated disk blocks during the full backup. If a virtual environment version is too old, it may fail to back up allocated blocks. Under this situation, you can try to enable CBT for backups.
@@ -480,7 +490,7 @@ When a disaster occurs in the virtual machine, you can restore the entire machin
 
      ![](../image/03-vmware/vmware/vmware_restore_19.png)
 
-   - Select a NIC and click **Submit** to complete the setting.
+   - Select a network and click **Submit** to complete the setting.
 
      > Batch Set Up Network: The same network can support multiple virtual machines.
 
@@ -499,7 +509,7 @@ When a disaster occurs in the virtual machine, you can restore the entire machin
    > - **Channels**: It refers to the maximum number of virtual machines that can be restored at the same time. The default channel number is 8. We recommend that the channel number is no more than the number of CPU cores. If it exceeds, the efficiency cannot be improved obviously.
    > - **Number of virtual machines per host restore in parallel**: It refers to the number of virtual machines per host that can be restored at the same time. The number could not exceed 5 by default.
    > - **Data transport mode**: You can choose NBD, NBDSSL, SAN, HotAdd, and Adaptive.
-   > - **VDDK version**: 6.0, 6.5, 6.7, and 7.0 are supported.
+   > - **VDDK version**: You can select Automatic or specify a VDDK version. 6.0, 6.5, 6.7, and 7.0 are supported. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version. 
    > - **Overwrite existing virtual machines**: If a virtual machine has the same name as the restored virtual machine, you need to enable this option for successful restores. This option is required when you choose to restore to the original path.
    > - **Retain the virtual machine version**: This option is enabled by default. It will use the original virtual machine hardware version to restore. If you do not enable it, the job will use the default hardware version of the target host to restore the virtual machine. This option is applicable to the target host with an old version that does not support the hardware version of the original virtual machine.
    > - **Retain the virtual machine BIOS UUID**: You can retain the BIOS UUID of the virtual machine.
@@ -592,7 +602,7 @@ class: longtable
 | Function             | Limitations                                                  |
 | -------------------- | ------------------------------------------------------------ |
 | User role privileges | Global: Enable methods, disable methods{{ br }}Guest operations: Guest operation queries, guest operation modifications, guest operation program execution{{ br }}Inventory: Create, register, remove, move {{ br }}Snapshot management: Create snapshot, remove snapshot, revert to snapshot{{ br }}Configuration: Toggle disk change tracking, configure raw device, add or remove device, add existing disk, add new disk, change resource, remove disk, change settings, advanced configuration, set annotation, acquire disk lease{{ br }}Interaction: Power off, configure CD media, configure floppy media, device connection, guest operating system management by VIX API, power on{{ br }}Provisioning: Allow read-only disk access, allow virtual machine download, allow file access, allow disk access, create template from virtual machine, mark as virtual machine, mark as template{{ br }}Datastore: Allocate space, browse datastore, low level file operations, remove file{{ br }}Resource: Assign virtual machine to resource pool{{ br }}vApp: Add virtual machine{{ br }}Network: Assign network |
-| Backup               | Synthetic backup is not supported. {{ br }}VDDK version automatic selection logic: If vSphere version is older than or equal to 6.0, select VDDK 6.0. For other vSphere versions, select the same VDDK version. For example, if vSphere version is 6.5, then VDDK 6.5 will be selected automatically. {{ br }}VDDK does not support ARM architecture.{{ br }}In SAN mode backup, the agent must be able to access the FC or iSCSI SAN where the ESXi virtual machine storage resides. {{ br }}VVol datastore is not supported.{{ br }}HotAdd transport requirements: The virtual machine agent must have a SCSI controller. IDE disks are not supported. The virtual machine agent can access the datastore of the target virtual machine disk and connect to port 902 of ESXi. |
+| Backup               | Synthetic backup is not supported. {{ br }}VDDK version automatic selection logic: If the vSphere version is older than or equal to 6.0, VDDK 6.0 will be selected. For other vSphere versions, the same VDDK version will be selected. For example, if the vSphere version is 6.5, then VDDK 6.5 will be selected automatically. {{ br }}VDDK does not support ARM architecture.{{ br }}In SAN mode backup, the agent must be able to access the FC or iSCSI SAN where the ESXi virtual machine storage resides. {{ br }}VVol datastore is not supported.{{ br }}HotAdd transport requirements: The virtual machine agent must have a SCSI controller. IDE disks are not supported. The virtual machine agent can access the datastore of the target virtual machine disk and connect to port 902 of ESXi. |
 | Restore              | File-level Restore and Mount Restore of Data are not supported. {{ br }}For versions older than vSphere 5.5, the size of the virtual disk being restored through the SAN transport mode must be an integer multiple of the underlying VMFS block size. |
 ```
 

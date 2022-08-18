@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Installation Guide &#8212; ADPS 3.0.35274 documentation</title>
+    <title>Installation Guide &#8212; ADPS 3.0.35274</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="SQL Server User’s Guide" href="../mssql/mssql.html" />
-    <link rel="prev" title="File User’s Guide" href="../file/file.html" />
+    <link rel="prev" title="Hyper-V User’s Guide" href="../hyper-v/hyper-v.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en-US">
     
@@ -73,9 +73,14 @@
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274 documentation</h1>
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -102,6 +107,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../file/file.html">
    File User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hyper-v/hyper-v.html">
+   Hyper-V User’s Guide
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -597,7 +607,7 @@ title="Fullscreen mode"
 <section id="about-adps">
 <h2>About ADPS<a class="headerlink" href="#about-adps" title="Permalink to this heading">#</a></h2>
 <p>Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of enterprise operating systems, databases, files, and virtual machines. ADPS provides a storage backup management platform through a Web interface for users to monitor and manage the backup and restore jobs. In addition, it can manage and monitor the backup systems of large enterprises or governments distributed in various places. The offsite disaster recovery and data replication of ADPS also provide enterprises with efficient and cost-effective solutions for high database reliability and availability.</p>
-<p><img alt="" src="../_images/install-1.png" /></p>
+<p><img alt="" src="image/install/install-1.png" /></p>
 </section>
 <section id="adps-components">
 <h2>ADPS Components<a class="headerlink" href="#adps-components" title="Permalink to this heading">#</a></h2>
@@ -962,13 +972,13 @@ MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILE
 </div>
 <ol class="arabic" start="2">
 <li><p>Configure adps-storaged and set the IP address of the backup server, e.g., 192.168.88.239</p>
-<p><img alt="" src="../_images/install-3.png" /></p>
+<p><img alt="" src="image/install/install-3.png" /></p>
 </li>
 <li><p>Set the port of the backup server. The default port is 50305, which means that the data is transferred without encryption. You can encrypt the data by modifying the port to 60305.</p>
-<p><img alt="" src="../_images/install-4.png" /></p>
+<p><img alt="" src="image/install/install-4.png" /></p>
 </li>
 <li><p>If you enter 50305 in the previous step, choose “No” to disable the SSL protocol. If you enter 60305, choose “Yes” to enable the SSL protocol.</p>
-<p><img alt="" src="../_images/install-5.png" /></p>
+<p><img alt="" src="image/install/install-5.png" /></p>
 </li>
 <li><p>Wait for the installation to complete. After the installation, symbolic links will be created between the ADPS-related directories and the /infokist under the data disk.</p></li>
 </ol>
@@ -1220,7 +1230,7 @@ May 17 13:54:37 ubuntu1804 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 <section id="web-interface">
 <h2>Web Interface<a class="headerlink" href="#web-interface" title="Permalink to this heading">#</a></h2>
 <p>After the installation, enter the IP or domain name on the browser. If you can access the ADPS Web console, the installation is successful.</p>
-<p><img alt="" src="../_images/install-6.png" /></p>
+<p><img alt="" src="image/install/install-6.png" /></p>
 <p>You must import a product license to use the Web console. Download the “Request License” file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, please refer to the <em>Administrator’s Guide</em>.</p>
 </section>
 <section id="appendix">
@@ -1338,11 +1348,11 @@ Do you want to restart adps-storaged? [Y]:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../file/file.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../hyper-v/hyper-v.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">File User’s Guide</p>
+            <p class="prev-next-title">Hyper-V User’s Guide</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../mssql/mssql.html" title="next page">
@@ -1361,7 +1371,9 @@ Do you want to restart adps-storaged? [Y]:
   
     By Aurreum<br/>
   
-      &copy; Copyright Copyright © 2022 Aurreum.<br/>
+    <div class="extra_footer">
+      Copyright © 2022 Aurreum
+    </div>
 </p>
         </footer>
     </div>

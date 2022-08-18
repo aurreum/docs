@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Oracle User’s Guide &#8212; ADPS 3.0.35274 documentation</title>
+    <title>Oracle User’s Guide &#8212; ADPS 3.0.35274</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -73,9 +73,14 @@
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274 documentation</h1>
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -102,6 +107,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../file/file.html">
    File User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hyper-v/hyper-v.html">
+   Hyper-V User’s Guide
   </a>
  </li>
  <li class="toctree-l1">
@@ -1210,7 +1220,7 @@ title="Fullscreen mode"
 <td><p>Inaccessible files, offline files, and read-only files can be skipped</p></td>
 </tr>
 <tr class="row-odd"><td><p>Other features</p></td>
-<td><p>Reserve archived logs, channels, custom RMAN command, enable ARCHIVELOG mode, enable BCT, modify archived log backup times</p></td>
+<td><p>Reserve archive logs, channels, custom RMAN command, enable ARCHIVELOG mode, enable BCT, modify archived log backup times</p></td>
 </tr>
 <tr class="row-even"><td><p>Restore type</p></td>
 <td><p>Media restore, timepoint restore (database, tablespace/PDB, table), recovery testing, traditional export, Data Pump export, instant recovery, Live Recovery, restore archived logs, Data Pump recovery testing, traditional recovery testing</p></td>
@@ -2459,9 +2469,9 @@ title="Fullscreen mode"
 <p><strong>Force logging</strong>: You can enable the force logging mode of the database.</p>
 <p><strong>Reserve archive logs</strong>:</p>
 <ul class="simple">
-<li><p>Delete all archive logs: All backed-up archive logs will be deleted after the backup.</p></li>
-<li><p>Reserve archive logs for N day(s): After the backup, the archive logs will be reserved for N day(s) and then be deleted.</p></li>
-<li><p>Do not delete archive logs: Archive logs will not be deleted after the backup.</p></li>
+<li><p>Delete all archive logs: Delete the backed-up archive logs after the backup.</p></li>
+<li><p>Reserve archive logs for N day(s)/hour(s): After the backup, reserve the backed-up archive logs in the previous N day(s)/hour(s) and delete those that are older than N day(s)/hour(s).</p></li>
+<li><p>Do not delete archive logs: Do not delete the backed-up archive logs after the backup.</p></li>
 </ul>
 <p><strong>Encryption wallet password</strong>: If you enable encryption wallet, you are required to enter the encryption wallet password when performing database database backups.</p>
 <ul>
@@ -2595,9 +2605,9 @@ Note:</p></li>
 </div></blockquote>
 <p><strong>Reserve archive logs</strong>:</p>
 <ul class="simple">
-<li><p>Delete all archive logs: All backed-up archive logs will be deleted after the backup.</p></li>
-<li><p>Reserve archive logs for N day(s): After the backup, the archive logs will be reserved for N days and then be deleted.</p></li>
-<li><p>Do not delete archive logs: Archive logs will not be deleted after the backup.</p></li>
+<li><p>Delete all archive logs: Delete the backed-up archive logs after the backup.</p></li>
+<li><p>Reserve archive logs for N day(s)/hour(s): After the backup, reserve the backed-up archive logs in the previous N day(s)/hour(s) and delete those that are older than N day(s)/hour(s).</p></li>
+<li><p>Do not delete archive logs: Do not delete the backed-up archive logs after the backup.</p></li>
 </ul>
 <p><strong>Advanced options</strong>:</p>
 <p><img alt="" src="../_images/oracle-26.png" /></p>
@@ -3117,7 +3127,9 @@ Note:</p></li>
   
     By Aurreum<br/>
   
-      &copy; Copyright Copyright © 2022 Aurreum.<br/>
+    <div class="extra_footer">
+      Copyright © 2022 Aurreum
+    </div>
 </p>
         </footer>
     </div>

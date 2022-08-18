@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Administrator’s Guide &#8212; ADPS 3.0.35274 documentation</title>
+    <title>Administrator’s Guide &#8212; ADPS 3.0.35274</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Agent Installation Guide" href="../agent_install/agent_install.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../index.html" />
+    <link rel="prev" title="Home" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en-US">
     
@@ -73,9 +73,14 @@
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274 documentation</h1>
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -102,6 +107,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../file/file.html">
    File User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hyper-v/hyper-v.html">
+   Hyper-V User’s Guide
   </a>
  </li>
  <li class="toctree-l1">
@@ -313,8 +323,8 @@ title="Fullscreen mode"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#real-time-o-m-statistics">
-     Real-time O&amp;M Statistics
+    <a class="reference internal nav-link" href="#o-m-statistics">
+     O&amp;M Statistics
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -333,8 +343,8 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#real-time-data-export">
-     Real-time Data Export
+    <a class="reference internal nav-link" href="#data-export">
+     Data Export
     </a>
    </li>
   </ul>
@@ -1035,8 +1045,8 @@ title="Fullscreen mode"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#real-time-o-m-statistics">
-     Real-time O&amp;M Statistics
+    <a class="reference internal nav-link" href="#o-m-statistics">
+     O&amp;M Statistics
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -1055,8 +1065,8 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#real-time-data-export">
-     Real-time Data Export
+    <a class="reference internal nav-link" href="#data-export">
+     Data Export
     </a>
    </li>
   </ul>
@@ -1679,7 +1689,7 @@ title="Fullscreen mode"
 <tr class="row-even"><td><p>Data management</p></td>
 <td><p>Effective data compression <br> Accurate de-duplication <br> Custom backup speed limit within different time periods <br> Synthetic backups of data <br> Multiple copy data management strategies <br> Self-serve BaaS (Backup as a Service) <br> Encryption of data transmission and data storage</p></td>
 </tr>
-<tr class="row-odd"><td><p>Operation and maintenance management</p></td>
+<tr class="row-odd"><td><p>Operation and maintenance (O&amp;M) management</p></td>
 <td><p>Labeled resource control <br> Rich reports and log output <br> Different user roles and access control permissions <br> Data transfer in weak network environment <br> Distributed multi-level management and unified monitoring <br> Periodic disaster recovery testing <br> Multi-factor authentication</p></td>
 </tr>
 </tbody>
@@ -1893,10 +1903,10 @@ title="Fullscreen mode"
 <p><img alt="license-02" src="../_images/license-02.png" /></p>
 </li>
 </ol>
-<p><strong>Trial</strong>: You can try the software for 30 days. After the license expires, you cannot continue using ADPS, and if you want to keep using it, you need to purchase an officially licensed edition.</p>
+<p><strong>Trial</strong>: You can try the software for 30 days. After the license expires, you cannot continue using ADPS, and if you want to keep using it, you need to purchase the Official License edition.</p>
 <p><strong>Lease</strong>: You can use the software during the lease duration including one year, two years, three years, and five years after you get authorized. You need to renew the lease to continue using it after the lease duration expires.</p>
-<p><strong>Official</strong>: Officially licensed edition. You can use the software for lifetime after you get the Official license.</p>
-<p><strong>Channel</strong>: Officially licensed edition. You can use the software for lifetime after you get the Channel license.</p>
+<p><strong>Official</strong>: Officially licensed version. You can use the software for lifetime after you get the Official license.</p>
+<p><strong>Channel</strong>: Officially licensed version. You can use the software for lifetime after you get the Channel license.</p>
 <ol class="arabic simple" start="3">
 <li><p>Set options for different licenses.</p></li>
 </ol>
@@ -1905,7 +1915,7 @@ title="Fullscreen mode"
 </ul>
 <p><img alt="license-03" src="../_images/license-03.png" /></p>
 <p><strong>Trial license renewal</strong>: When the Trial License expires and by applying for a trial license renewal, you can continue using ADPS. When you apply for a trial license renewal, the settings page is loaded with expired resources by default, and you need to bind the license renewal to the resources. If you delete the expired resource records loaded by default and replace them by adding modules, the resource renewal will be invalid.</p>
-<p><strong>Trial days</strong>: The trial period is 30 days by default. After the expiration, you can’t continue using the software, and if you want to continue, you can apply for the trial license renewal or purchase an officially licensed edition.</p>
+<p><strong>Trial days</strong>: The trial period is 30 days by default. After the expiration, you can’t continue using the software, and if you want to continue, you can apply for the Trial License Renewal or purchase the Official License edition.</p>
 <p><strong>Number of each module</strong>: You can customize the number of licenses that need to be applied for each resource module.</p>
 <p><strong>Custom</strong>: You can manually select the platform where the resource is located and the resource type according to your need.</p>
 <p><strong>Unactivated</strong>: After you select this option, the system automatically lists all the resource types associated to the server and the number of unactivated resources.</p>
@@ -1952,14 +1962,14 @@ title="Fullscreen mode"
 <p><strong>Tape storage</strong>: Used for tape storage pool.</p>
 <p><strong>CD storage</strong>: Used for CD-ROM tower storage pool.</p>
 <ol class="arabic simple" start="4">
-<li><p>You can add modules, customize the number of modules, and choose the OS architectures and resource types of the agent. If you apply for an officially licensed edition and choose to license by storage space, you don’t need to add more modules.</p></li>
+<li><p>You can add modules, customize the number of modules, and choose the OS architectures and resource types of the agent. If you apply for the Official License edition and choose to license by storage space, you don’t need to add more modules.</p></li>
 </ol>
 <p><img alt="license-07" src="../_images/license-07.png" /></p>
 <ol class="arabic simple" start="5">
-<li><p>You can choose the relevant options to enable the corresponding <strong>Advanced</strong> functions according to your need. As the module usage period, when the advanced functions of the Trial License expire, you can apply again after the expiration date. If your edition is the officially licensed one, you don’t need to repeat the application when advanced functions are enabled.</p></li>
+<li><p>You can choose the relevant options to enable the corresponding <strong>Advanced</strong> functions according to your need. As the module usage period, when the advanced functions of the Trial License expire, you can apply again after the expiration date. If your edition is the Official License, you don’t need to repeat the application when advanced functions are enabled.</p></li>
 </ol>
 <p><img alt="license-08" src="../_images/license-08.png" /></p>
-<p><strong>Function of multi-tenant</strong>: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private system of backup and restore is established for multiple tenants in a shared backup environment. You can use <strong>Multi-Tenant</strong> to provide individual services for each tenant on demand, configure independent data storage space to achieve data isolation among tenants via the separate management mechanism.</p>
+<p><strong>Multi-Tenant</strong>: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private system of backup and restore is established for multiple tenants in a shared backup environment. You can use <strong>Multi-Tenant</strong> to provide individual services for each tenant on demand, configure independent data storage space to achieve data isolation among tenants via the separate management mechanism.</p>
 </section>
 <section id="import-a-license">
 <h3>Import a License<a class="headerlink" href="#import-a-license" title="Permalink to this heading">#</a></h3>
@@ -2118,23 +2128,23 @@ title="Fullscreen mode"
 </ul>
 </div></blockquote>
 <p><img alt="catalog-1" src="../_images/catalog-1.png" /></p>
-<p>After completing the above operations, the basic configuration of the system is completed.</p>
+<p>After completing the above operations, the basic configuration of the system is finishing.</p>
 </section>
 </section>
 </section>
 <section id="dashboard">
 <h2>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this heading">#</a></h2>
-<p>The <strong>Dashboard</strong> interface helps you understand the overall state of the system operation in real time. The display modules mainly include:</p>
+<p>The <strong>Dashboard</strong> interface helps you understand the overall state of the system operation. The display modules mainly include:</p>
 <ul class="simple">
-<li><p>Real-time O&amp;M statistics</p></li>
+<li><p>O&amp;M statistics</p></li>
 <li><p>Overall storage capacity usage</p></li>
 <li><p>Licensed storage space usage</p></li>
 <li><p>Storage pool capacity usage</p></li>
-<li><p>Real-time data export</p></li>
+<li><p>Data export</p></li>
 </ul>
 <p><img alt="dashboard-1" src="../_images/dashboard-1.png" /></p>
-<section id="real-time-o-m-statistics">
-<h3>Real-time O&amp;M Statistics<a class="headerlink" href="#real-time-o-m-statistics" title="Permalink to this heading">#</a></h3>
+<section id="o-m-statistics">
+<h3>O&amp;M Statistics<a class="headerlink" href="#o-m-statistics" title="Permalink to this heading">#</a></h3>
 <p><img alt="dashboard-2" src="../_images/dashboard-2.png" /></p>
 <p><strong>Hosts</strong>: Count the total number of registered hosts, and the number of online and offline hosts.</p>
 <p><strong>Resources</strong>: Count the total number of resources of registered hosts, and the number of online and offline resources.</p>
@@ -2163,7 +2173,7 @@ title="Fullscreen mode"
 </section>
 <section id="licensed-storage-space-usage">
 <h3>Licensed Storage Space Usage<a class="headerlink" href="#licensed-storage-space-usage" title="Permalink to this heading">#</a></h3>
-<p>The Licensed Storage Space Usage is for Officially Licensed Editions only. It refers to the activated storage space usage. Users can only use the activated storage space. When the activated storage space is used up, users of the “Operator” role cannot back up data to the storage server. If you want to expand the storage space you need to re-apply for a license.</p>
+<p>The Licensed Storage Space Usage is for Official License Edition only. It refers to the activated storage space usage. Users can only use the activated storage space. When the activated storage space is used up, users of the “Operator” role cannot back up data to the storage server. If you want to expand the storage space you need to re-apply for a license.</p>
 <p><img alt="dashboard-4" src="../_images/dashboard-4.png" /></p>
 </section>
 <section id="storage-pool-space-usage">
@@ -2182,8 +2192,8 @@ title="Fullscreen mode"
 </ul>
 </div></blockquote>
 </section>
-<section id="real-time-data-export">
-<h3>Real-time Data Export<a class="headerlink" href="#real-time-data-export" title="Permalink to this heading">#</a></h3>
+<section id="data-export">
+<h3>Data Export<a class="headerlink" href="#data-export" title="Permalink to this heading">#</a></h3>
 <p>You can export data shown on the Dashboard. Click the <img alt="dashboard-6" src="../_images/dashboard-6.png" /> icon of the upper-right corner to export the visual data to CSV format.</p>
 <p><img alt="load-1" src="../_images/load-1.png" /></p>
 <p><strong>Refresh</strong>: Click the <img alt="dashboard-5" src="../_images/dashboard-5.png" /> icon of the upper-right corner to refresh all data of the Dashboard. To avoid frequent refreshing, the refresh icon is locked for 3 seconds during the refreshing process. If you set automatic refresh in <strong>Set Up</strong>,  the refresh icon will rotate slowly and a progress bar at the bottom of the icon will indicate the progress of triggering the next refresh.</p>
@@ -2306,7 +2316,7 @@ title="Fullscreen mode"
 <section id="add-standard-storage-pool">
 <h5>Add Standard Storage Pool<a class="headerlink" href="#add-standard-storage-pool" title="Permalink to this heading">#</a></h5>
 <ol class="arabic simple">
-<li><p>Click “ + ” , select <strong>Standard Storage Pool</strong> as the <strong>Type</strong>, and select the <strong>Storage Server</strong> where the storaged module is installed.</p></li>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>Standard Storage Pool</strong> as the <strong>Type</strong>, and select the <strong>Storage Server</strong> where the storaged module is installed.</p></li>
 </ol>
 <p><img alt="pool-sta-1" src="../_images/pool-sta-1.png" /></p>
 <p><strong>Multi-storage</strong>: You can expand or merge storage capacity by adding multiple storage servers. When adding a storage pool, enable <strong>Multi-storage</strong> and select <strong>Allocate Storage Space</strong>. You cannot modify its configuration after the adding.</p>
@@ -2372,7 +2382,7 @@ title="Fullscreen mode"
 <section id="add-de-duplication-storage-pool">
 <h5>Add De-duplication Storage Pool<a class="headerlink" href="#add-de-duplication-storage-pool" title="Permalink to this heading">#</a></h5>
 <ol class="arabic simple">
-<li><p>Click “ + ” , select <strong>De-duplication Storage Pool</strong> as the <strong>Type</strong>, select the storage server where the storaged module is installed, and set <strong>Chuck Size</strong>, which is <strong>Adaptive</strong> by default.</p></li>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>De-duplication Storage Pool</strong> as the <strong>Type</strong>, select the storage server where the storaged module is installed, and set <strong>Chuck Size</strong>, which is <strong>Adaptive</strong> by default.</p></li>
 </ol>
 <p><img alt="pool-dep" src="../_images/pool-dep.png" /></p>
 <p><img alt="pool-dep-5" src="../_images/pool-dep-5.png" /></p>
@@ -2397,7 +2407,7 @@ title="Fullscreen mode"
 <section id="add-real-time-backup-pool">
 <h5>Add Real-time Backup Pool<a class="headerlink" href="#add-real-time-backup-pool" title="Permalink to this heading">#</a></h5>
 <ol class="arabic simple">
-<li><p>Click “ + ” , select <strong>Real-time Backup Pool</strong> as the <strong>Type</strong>, and select the storage server on which the storaged module is installed.</p></li>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>Real-time Backup Pool</strong> as the <strong>Type</strong>, and select the storage server on which the storaged module is installed.</p></li>
 </ol>
 <p><img alt="pool-time-1" src="../_images/pool-time-1.png" /></p>
 <ol class="arabic" start="2">
@@ -2419,7 +2429,7 @@ title="Fullscreen mode"
 <h5>Add File Synthetic Pool<a class="headerlink" href="#add-file-synthetic-pool" title="Permalink to this heading">#</a></h5>
 <p>File synthetic pool allows the pool to synthesize the backup sets as the base with subsequent incremental backups. By scanning directories, it recycles the space occupied by the redundant files in the full backup sets. With the Synthetic Backup Sets Retention enabled, the full backups and the incremental backups will be merge automatically.</p>
 <ol class="arabic simple">
-<li><p>Click “ + ” , select <strong>File Synthetic Pool</strong> as the <strong>Type</strong>, and select the <strong>Storage Server</strong> on which the storaged module is installed. This server requires the nfsd module to be installed as well.</p></li>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>File Synthetic Pool</strong> as the <strong>Type</strong>, and select the <strong>Storage Server</strong> on which the storaged module is installed. This server requires the nfsd module to be installed as well.</p></li>
 </ol>
 <p><img alt="pool-file-merge-1" src="../_images/pool-file-merge-1.png" /></p>
 <blockquote>
@@ -2441,7 +2451,7 @@ title="Fullscreen mode"
 <section id="add-database-synthetic-pool">
 <h5>Add Database Synthetic Pool<a class="headerlink" href="#add-database-synthetic-pool" title="Permalink to this heading">#</a></h5>
 <ol class="arabic simple">
-<li><p>Click “ + ” , select <strong>Database Synthetic Pool</strong> as the <strong>Type</strong>, and select the <strong>Storage Server</strong> on which the storaged module is installed. This server requires the storaged- lanfree module to be installed as well.</p></li>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>Database Synthetic Pool</strong> as the <strong>Type</strong>, and select the <strong>Storage Server</strong> on which the storaged module is installed. This server requires the storaged- lanfree module to be installed as well.</p></li>
 </ol>
 <p><img alt="pool-database" src="../_images/pool-database.png" /></p>
 <p><strong>As a pool replication target</strong>: When it’s enabled, database synthetic pool can only be used as a pool replication target, not as a backup target, and cannot be modified after the creation.</p>
@@ -2483,7 +2493,7 @@ title="Fullscreen mode"
 <section id="add-lan-free-pool">
 <h5>Add LAN-Free Pool<a class="headerlink" href="#add-lan-free-pool" title="Permalink to this heading">#</a></h5>
 <ol class="arabic">
-<li><p>Click “ + ” , select <strong>LAN-Free Pool</strong> as the type, select the storage server with the storaged module installed. The server needs to install the storaged-lanfree module at the same time.</p>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>LAN-Free Pool</strong> as the type, select the storage server with the storaged module installed. The server needs to install the storaged-lanfree module at the same time.</p>
 <p><img alt="pool-lanfree" src="../_images/pool-lanfree.png" /></p>
 </li>
 <li><p>Set the retention policy and the advanced options</p>
@@ -2550,7 +2560,7 @@ title="Fullscreen mode"
 <section id="id3">
 <h6>Add Tape Library Pool<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h6>
 <ol class="arabic">
-<li><p>Enter <strong>Storage</strong> - <strong>Storage Pool</strong> page and click “ + ” , select <strong>Type Library Pool</strong> as the type, select the storage server where the storaged module is installed and the tape library is connected.</p>
+<li><p>Enter <strong>Storage</strong> - <strong>Storage Pool</strong> page and click <img alt="pool-2" src="../_images/pool-21.png" /> , select <strong>Type Library Pool</strong> as the type, select the storage server where the storaged module is installed and the tape library is connected.</p>
 <p><img alt="pool-tape-1" src="../_images/pool-tape-1.png" /></p>
 </li>
 <li><p>Set <strong>Backup Sets Retention Policy</strong>, and the tape pool only supports <strong>Time Policy</strong>.</p></li>
@@ -2577,7 +2587,7 @@ title="Fullscreen mode"
 <section id="add-object-storage-service-pool">
 <h5>Add Object Storage Service Pool<a class="headerlink" href="#add-object-storage-service-pool" title="Permalink to this heading">#</a></h5>
 <ol class="arabic">
-<li><p>Click “ + ” and select the <strong>Object Storage Service Pool</strong> as the type.</p></li>
+<li><p>Click <img alt="pool-2" src="../_images/pool-21.png" /> and select the <strong>Object Storage Service Pool</strong> as the type.</p></li>
 <li><p>Select the <strong>Vendor</strong> of the cloud service and configure relevant options. Currently Amazon Web Service (AWS), Microsoft Azure, Backblaze B2 and other S3-compliant cloud vendors are supported.</p>
 <p><img alt="pool-cloud-2" src="../_images/pool-cloud-2.png" /></p>
 </li>
@@ -2627,8 +2637,6 @@ title="Fullscreen mode"
 <p><strong>Address</strong>: You need to modify this option when the IP address of the storage server changes. The backup sets of the storage pool are still available after you modify the address. When there is a pool replication relationship, you need to modify the IP address of the source pool first, and then modify the IP address of the target pool.</p>
 <p><strong>SSL</strong>: Modify to use SSL or not.</p>
 <p><strong>Port</strong>: Modify the port number of the device. The default port is 50306.</p>
-<p><strong>Allocate storage space</strong>: Re-allocate the storage space.</p>
-<p><strong>Block size</strong>: This option is only available in modifying the tape library pool. The default block size is the size that you created the tape library pool.</p>
 </section>
 <section id="delete-the-storage-pool">
 <h4>Delete the Storage Pool<a class="headerlink" href="#delete-the-storage-pool" title="Permalink to this heading">#</a></h4>
@@ -3220,12 +3228,10 @@ title="Fullscreen mode"
 <section id="id6">
 <h5>Add<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h5>
 <p>Click the <strong>Add</strong> icon to enter the Add Webhooks page. On Add Webhooks page, enter the <strong>URL</strong> to receive the Webhooks information, enter the <strong>Secret Token</strong> information, check the corresponding event, and click the <strong>Add Webhook</strong> button at the bottom of the page to add the Webhook.</p>
-<p><img alt="" src="../_images/webhook-02.png" /></p>
 </section>
 <section id="more-description">
 <h5>More Description<a class="headerlink" href="#more-description" title="Permalink to this heading">#</a></h5>
 <p>On top of the URL input box on the Add Webhook page, you can click <strong>More Description</strong> to view more details.</p>
-<p><img alt="" src="../_images/webhook-02.png" /></p>
 </section>
 </section>
 <section id="approval">
@@ -3638,7 +3644,7 @@ title="Fullscreen mode"
 <td><p>Only Oracle and MySQL continuous log backup are supported.</p></td>
 </tr>
 <tr class="row-odd"><td><p>File synthetic pool</p></td>
-<td><p>Only support Linux storage server. <br> Limitations on file system and kernel versions for synthetic backups: <br> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　XFS (since Linux 2.6.38) ext4 (since Linux 3.0)　. <br> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool.</p></td>
+<td><p>Only support Linux storage server. <br> Limitations on file system and kernel versions for synthetic backups: <br> XFS (since Linux 2.6.38) ext4 (since Linux 3.0)). <br> NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool.</p></td>
 </tr>
 <tr class="row-even"><td><p>Database synthetic pool</p></td>
 <td><p>Only support Ubuntu storage server. <br> Support synthetic backups of Oracle, SQL Server, MySQL with data volume greater than 1T, which needs to be used in 16.04 ZFS file system.  <br> only support level-1 pool replication relationship.</p></td>
@@ -3887,7 +3893,7 @@ MariaDB [adps]&gt; flush privileges;
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
+            <p class="prev-next-title">Home</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../agent_install/agent_install.html" title="next page">
@@ -3906,7 +3912,9 @@ MariaDB [adps]&gt; flush privileges;
   
     By Aurreum<br/>
   
-      &copy; Copyright Copyright © 2022 Aurreum.<br/>
+    <div class="extra_footer">
+      Copyright © 2022 Aurreum
+    </div>
 </p>
         </footer>
     </div>
