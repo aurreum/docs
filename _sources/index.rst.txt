@@ -29,4 +29,6 @@ Home
 
    oracle/oracle.md
 
+   postgres/postgres.md
+
    vmware/vmware.md

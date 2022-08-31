@@ -79,6 +79,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 | :------------------------- | ------------------------------------------------------------ |
 | adps_version.dbg.exe | Windows OS installation package contains the backup and restore modules for various resources including File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs. |
 ```
+
 ### Linux & AIX Installation Packages
 
 ```{tabularcolumns} |\Y{0.5}|\Y{0.5}|
@@ -104,6 +105,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 | adps-agent-ndmp-version.dbg.architecture.suffix     | For NDMP database backup and restore                      |
 | adps-agent-vmware-version.dbg.architecture.suffix   | For VMware database backup and restore                    |
 ```
+
 ### Solaris Platform Installation Packages
 
 ```{tabularcolumns} |\Y{0.4}|\Y{0.6}|
@@ -113,6 +115,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 | ---------------------------------------- | ------------------------------------------------------------ |
 | adps-version-sol9-sparc64-local.gz | Solaris OS installation package contains the backup and restore modules of various resources such as File and Oracle. You can select the resources and install the corresponding modules according to your needs. |
 ```
+
 ### HP Platform Installation Packages
 
 ```{tabularcolumns} |\Y{0.4}|\Y{0.6}|
@@ -122,6 +125,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 | -------------------------------- | ------------------------------------------------------------ |
 | adps-version-ia64.depot.gz | HP OS installation package integrates the backup and restore modules of various resources such as File and Oracle. You can select the resources and install the corresponding modules according to your needs. |
 ```
+
 ## Install Agent
 
 ### Install on Windows
@@ -134,11 +138,11 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 
    You can select the resource types to install their backup and restore modules. During installation, the database resources, files, or applications installed on the agent are selected by default. Resource types include File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange.
 
-![](../image/install-7.png)
+   ![](../image/agent_install/install-7.png)
 
-4. Configure the IP of the backup server, SSL encryption (optional), and Access Key (applicable to multi-tenant scenarios).
+4. Enter the IP of the backup server, SSL encryption (optional), and Access Key (applicable to multi-tenant scenarios).
 
-![](../image/install-8.png)
+   ![](../image/agent_install/install-8.png)
 
 5. Select Destination Folder.
 
@@ -146,7 +150,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 
 7. After the installation, log in to the backup server as the admin. The host is on the **Resource** list.
 
-![](../image/install-12.png)
+   ![](../image/agent_install/install-12.png)
 
 ### Install on Linux
 
@@ -158,82 +162,82 @@ Upload the installation package to the agent for manual installation and configu
 
 1. Install dependent packages and agent service software packages.
 
-```
-rpm -ivh adps-common-version.x86_64.rpm adps-agent-version_x86_64.rpm
-```
+   ```
+   rpm -ivh adps-common-version.x86_64.rpm adps-agent-version_x86_64.rpm
+   ```
 
 2. Install resource backup and restore packages. Add the corresponding packages in the following command according to your needs. Take File resource as an example:
 
-```
-rpm -ivh adps-agent-file-version_x86_64.rpm
-```
+   ```
+   rpm -ivh adps-agent-file-version_x86_64.rpm
+   ```
 
 3. After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
 
-```
-# /etc/init.d/adps-agent config
-Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
-Please input Aurreum Data Protection Suite Backup Server port[50305]:
-Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
-Please input Aurreum Data Protection Suite Backup Server access key[]:
-Saving adps-agent config                                   [OK]
-Do you want to restart adps-agent? [Y]:
-Stopping adps-agent                                        [OK]
-Starting adps-agent                                        [OK]
-```
+   ```
+   # /etc/init.d/adps-agent config
+   Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
+   Please input Aurreum Data Protection Suite Backup Server port[50305]:
+   Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
+   Please input Aurreum Data Protection Suite Backup Server access key[]:
+   Saving adps-agent config                                   [OK]
+   Do you want to restart adps-agent? [Y]:
+   Stopping adps-agent                                        [OK]
+   Starting adps-agent                                        [OK]
+   ```
 
 4. After the configuration, log in to the backup server as the admin. The host is on the **Resource** list.
 
-![](../image/install-13.png)
+   ![](../image/agent_install/install-13.png)
 
 ##### Ubuntu & Debian
 
 1. Install dependent packages and agent service software packages.
 
-```
-dpkg -i adps-common-version_amd64.deb adps-agent-version_amd64.deb adps-agent-file-version_amd64.deb
-```
+   ```
+   dpkg -i adps-common-version_amd64.deb adps-agent-version_amd64.deb adps-agent-file-version_amd64.deb
+   ```
 
 2. Install resource backup and restore software packages. Add the corresponding package behind the following command according to your needs. Take file resource as an example:
 
-```
-dpkg -i adps-agent-file-version_amd64.deb
-```
+   ```
+   dpkg -i adps-agent-file-version_amd64.deb
+   ```
 
 3. After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
 
-```
-# sudo /etc/init.d/adps-agent config
-Please input Aurreum Data Protection Suite Backup Server host[192.168.18.110]: 192.168.18.110
-Please input Aurreum Data Protection Suite Backup Server port[50305]: 50305
-Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
-Please input Aurreum Data Protection Suite Backup Server access key[]:
-Saving adps-agent config *
+   ```
+   # sudo /etc/init.d/adps-agent config
+   Please input Aurreum Data Protection Suite Backup Server host[192.168.18.110]: 192.168.18.110
+   Please input Aurreum Data Protection Suite Backup Server port[50305]: 50305
+   Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
+   Please input Aurreum Data Protection Suite Backup Server access key[]:
+   Saving adps-agent config *
 
-Do you want to restart adps-agent? [Y]:
-[ ok ] Restarting adps-agent (via systemctl): adps-agent.service.
-```
+   Do you want to restart adps-agent? [Y]:
+   [ ok ] Restarting adps-agent (via systemctl): adps-agent.service.
+   ```
 
 4. After the configuration, log in to the backup server as the admin. The host is on the **Resource** list.
 
-![](../image/install-5.png)
+   ![](../image/agent_install/install-5.png)
 
 #### Online Install
 
 1. Open a browser and log in to the backup server as the admin. Click **Resource** -> **Install Agent** icon. You can select the installation packages according to your needs.
 
-![](../image/install-2.png)
+   ![](../image/agent_install/install-2.png)
 
 2. Select Linux and modules. Copy an installation command.
 
-![](../image/install-3.png)
+   ![](../image/agent_install/install-3.png)
 
 3. Paste the command on the command line and press Enter to execute the installation.
 
-```
-[root@rhel69 ~]# cux1-o-"http://192.168.18.20:50305/d2/update/seript?modules=oracle&location=http83A82F82F192.168.18.20%3A5
-0305&accesskey=22446ab0094d412£84fcc6bf3bd8fele&xm=&tool=curl" | sh
-```
+   ```
+   [root@rhel69 ~]# cux1-o-"http://192.168.18.20:50305/d2/update/seript?modules=oracle&location=http83A82F82F192.168.18.20%3A5
+   0305&accesskey=22446ab0094d412£84fcc6bf3bd8fele&xm=&tool=curl" | sh
+   ```
 
 #### Optional Configuration
 
@@ -269,9 +273,9 @@ Execute the following commands:
 
 1. To back up and restore VMware, the backup host should configure VDDK. Add VDDK as follows:
 
-```
-tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
-```
+   ```
+   tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
+   ```
 
 2. The unzipped directory contains the VDDK version. During the backup and restore, the VDDK version is automatically selected according to the ESXi version. You can also specify the VDDK version.
 
@@ -299,7 +303,6 @@ tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
    sudo apt-get install openjdk-11-jre-headless
    ```
 
-
 > Note: Fill in the JRE installation directory and version. The default directory is under /usr/lib/jvm/
 
 2. Install and configure Hadoop backup agent.
@@ -325,96 +328,96 @@ tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
 
 1. Install dependent packages and agent service software packages.
 
-```
-rpm -ivh --nodeps --ignorearch adps-common--version_pcc64.rpm adps-agent-version_pcc64.rpm adps-agent-file-version_pcc64.rpm
-```
+   ```
+   rpm -ivh --nodeps --ignorearch adps-common--version_pcc64.rpm adps-agent-version_pcc64.rpm adps-agent-file-version_pcc64.rpm
+   ```
 
 2. Install resource backup and restore packages. Add the corresponding package in the following command according to your needs. Take File resource as an example:
 
-```
-rpm -ivh --nodeps --ignorearch adps-agent-file-version_pcc64.rpm
-```
+   ```
+   rpm -ivh --nodeps --ignorearch adps-agent-file-version_pcc64.rpm
+   ```
 
 3. After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
 
-```
-#/etc/init.d/adps-agent config
-Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
-Please input Aurreum Data Protection Suite Backup Server port[50305]:
-Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
-Please input Aurreum Data Protection Suite Backup Server access key[]:
-Saving adps-agent config
-Do you want to restart adps-agent? [Y]:
-Stopping adps-agent
-0513-044 The adps-agent Subsystem was requested to stop.
-Waiting for adps-agent to stop.
-Starting adps-agent
-0513-059 The adps-agent Subsystem has been started. Subsystem PID is 18284820.
-```
+   ```
+   #/etc/init.d/adps-agent config
+   Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
+   Please input Aurreum Data Protection Suite Backup Server port[50305]:
+   Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
+   Please input Aurreum Data Protection Suite Backup Server access key[]:
+   Saving adps-agent config
+   Do you want to restart adps-agent? [Y]:
+   Stopping adps-agent
+   0513-044 The adps-agent Subsystem was requested to stop.
+   Waiting for adps-agent to stop.
+   Starting adps-agent
+   0513-059 The adps-agent Subsystem has been started. Subsystem PID is 18284820.
+   ```
 
 4. After the configuration, log in to the backup server as the admin. The host is on the **Resource** list.
 
-![](../image/install-14.png)
+   ![](../image/agent_install/install-14.png)
 
 ### Install on HP-UX
 
 1. To unzip adps--version-ia64.depot.gz, execute the following command with root privileges:
 
-```
-sudo gunzip /tmp/adps-version-ia64.depot.gz
-```
+   ```
+   sudo gunzip /tmp/adps-version-ia64.depot.gz
+   ```
 
-2. Enter the full path of the unzipped file (eg: /tmp/) followed by the software name (eg: adps.agent-oracle), install the Oracle module, and execute the command with root privileges:
+2. Install the agent and modules. For example, the absolute path of the unzipped package is /tmp/adps-version-ia64.depot. Install the Oracle module. Execute the command with root privileges as follows:
 
-```
-swinstall -s /tmp/adps-version-ia64.depot  adps.agent-oracle
-```
+   ```
+   swinstall -s /tmp/adps-version-ia64.depot  adps.agent-oracle
+   ```
 
 3. After the installation (or to change the current backup server), execute the configuration command:
 
-```
-sudo /sbin/init.d/adps-agent config
-```
+   ```
+   sudo /sbin/init.d/adps-agent config
+   ```
 
 4. After the configuration, log in to the backup server as the admin. The host is on the **Resource** list.
 
-![](../image/install-15.png)
+   ![](../image/agent_install/install-15.png)
 
 ### Install on Solaris
 
-1. Select the corresponding installation package according to the Solaris system, bits, and resource. Take the 64-bit system of Solaris 10 SPARC as an example. Unzip the package first and then install it. Execute the unzip command with root privileges:
+1. Select the corresponding installation package according to the Solaris system, bits, and resource. Take the Solaris 9 SPARC 64-bit as an example. Execute the unzip command with root privileges:
 
-```
-sudo gunzip adps-version-sol9-sparc64-local.gz
-```
+   ```
+   sudo gunzip adps-version-sol9-sparc64-local.gz
+   ```
 
 2. Execute the following installation command:
 
-```
-sudo pkgadd -d /tmp/adps-version-sol9-sparc64-local
-```
+   ```
+   sudo pkgadd -d /tmp/adps-version-sol9-sparc64-local
+   ```
 
 3. Select the modules that you want to install, eg: AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle
 
-4. During the installation process, enter y or press Enter to the next step following the prompts until the installation is complete.
+4. Enter y or press Enter to the next step according to the prompts.
 
-5. After the installation is complete, execute the following configuration command:
+5. After the installation is completed, execute the following configuration command:
 
-```
-sudo /etc/init.d/adps-agent config
-```
+   ```
+   sudo /etc/init.d/adps-agent config
+   ```
 
-Follow the prompts to configure the settings, including the IP address and port of the ADPS Backup Server.
+   Follow the prompts to enter the IP address and port of the Backup Server.
 
 6. Take the Oracle resource as an example. Configure Oracle Home directory:
 
-```
-sudo /etc/init.d/adps-agent config oracle
-```
+   ```
+   sudo /etc/init.d/adps-agent config oracle
+   ```
 
 7. After the configuration, log in to the backup server as the admin. The host is on the **Resource** list.
 
-![](../image/install-16.png)
+   ![](../image/agent_install/install-16.png)
 
 ## Uninstall Agent
 
@@ -430,12 +433,11 @@ This method is applicable to uninstall the agent on Linux with the APT package m
 
 - Execute the command with root privileges to uninstall all ADPS components.
 
-   >  Note: This command will completely remove the software packages and the configuration files.
+   > Note: This command will completely remove the software packages and the configuration files.
 
    ```
    sudo apt-get purge adps-common
    ```
-
 
 ### CentOS & Red Hat
 
@@ -470,8 +472,8 @@ This method is applicable to uninstall the agent on Linux with the PRM package m
 
 ### Solaris
 
-Execute the command with root privileges to uninstall the modules. For example, uninstall SCTHadps-agent and SCTHadps-common.
+Execute the command with root privileges to uninstall the modules. For example, uninstall AURREUMadps-agent and AURREUMadps-common.
 
 ```
-pkgrm SCTHadps-agent SCTHadps-common
+pkgrm AURREUMadps-agent AURREUMadps-common
 ```

@@ -16,12 +16,12 @@ class: longtable
 ---
 | Feature | Description                                            |
 |------|------|
-| Backup source | Database, tablespace, data file, archived log |
+| Backup source | Database, tablespace, datafile, archived log |
 | Backup type | Full backup, incremental backup, cumulative incremental backup, continuous log backup, synthetic backup |
 | Logical backup | Traditional export, Data Pump export |
 | Backup target | Standard storage pool, de-duplication storage pool, database synthetic pool, local storage pool, real-time backup pool, tape library pool, object storage service pool, LAN-Free pool |
 | Backup compression | None, fast, tunable          |
-| Backup strategy | Immediate, one-time, minutely, hourly, daily, weekly, monthly |
+| Backup strategy | Immediate, one-time, hourly, daily, weekly, monthly |
 | Backup authentication | OS authentication (Linux and UNIX), database authentication |
 | Reconnection time | The default value is 10 minutes.  |
 | Stop jobs   | Backup and restore jobs can be stopped.              |
@@ -29,7 +29,7 @@ class: longtable
 | Other features | Reserve archive logs, channels, encryption wallet, custom RMAN command, enable ARCHIVELOG mode, enable BCT, continuous log backup, synthetic backup, instant recovery, Live Recovery, modify archived log backup times |
 | Restore type | Media restore, timepoint restore (database, tablespace/PDB, table), recovery testing, traditional export, Data Pump export, instant recovery, Live Recovery, restore archived logs, Data Pump recovery testing, traditional recovery testing |
 | Restore location | Original path, new path                |
-| Restore granularity | Entire database, data file, tablespace/PDB, table |
+| Restore granularity | Entire database, datafile, tablespace/PDB, table |
 | Restore to different hosts | Restoring to a different host is supported. The operating system type and Oracle major version number of that host should be the same as the source host's. |
 | Storage pool replication | Oracle backup sets support storage pool replication.  |
 | Restore from target pools | Restoring from target storage pools is supported.  |
@@ -50,7 +50,7 @@ class: longtable
 ```{table} Oracle RAC Features
 | Feature      | Description                                              |
 | ------------------ | ------------------------------------------------------------ |
-| Backup source | Database, tablespace, data file, archived log |
+| Backup source | Database, tablespace, datafile, archived log |
 | Backup type                         | Full backup, differential incremental backup, cumulative incremental backup, continuous log backup, synthetic backup |
 | Logical backup                      | Traditional export, Data Pump export                         |
 | Backup target | Standard storage pool, de-duplication storage pool, database synthetic pool, local storage pool, real-time backup pool, tape library pool, object storage service pool, LAN-Free pool |
@@ -62,7 +62,7 @@ class: longtable
 | Other features                     | Reserve archive logs, channels, custom RMAN command, enable ARCHIVELOG mode, enable BCT, modify archived log backup times |
 | Restore type                        | Media restore, timepoint restore (database, tablespace/PDB, table), recovery testing, traditional export, Data Pump export, instant recovery, Live Recovery, restore archived logs, Data Pump recovery testing, traditional recovery testing |
 | Restore location                    | Original path, new path                                      |
-| Restore granularity                 | Entire database, data file, tablespace/PDB, table        |
+| Restore granularity                 | Entire database, datafile, tablespace/PDB, table        |
 | Restore to different hosts | Restoring to a different host is supported. The operating system type and Oracle major version number of that host should be the same as the source host's. |
 | Storage pool replication            | Oracle backup sets support storage pool replication. |
 | Restore from target pool            | Restoring from target storage pools is supported             |
@@ -76,12 +76,6 @@ class: longtable
 | Access Key login | Access Key login is supported.                        |
 ```
 
-> When running Oracle RAC synthetic backup, please note that:
->
-> - The Target will be mounted to the active node during the backup and the backup job will be performed on the active node. Jobs cannot be performed on the inactive node.
-> - During the instant recovery, the disk will be mounted to the active node and then ADPS will recover the disk's data according to the single instance instant recovery. After the recovery, only the active node is available while others are not.
-> - During the synthetic backup, please do not run tablespace restores and single table restores. Otherwise, the subsequent instant recovery will fail.
-
 ### Oracle Database Replication
 
 ```{tabularcolumns} |\Y{0.4}|\Y{0.6}|
@@ -90,12 +84,12 @@ class: longtable
 | Feature                                                      | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Backup source                                                | Database                                                     |
-| Backup type                                                  | Real time replication, scheduled replication                 |
+| Backup type                                                  | Real-time replication, scheduled replication                 |
 | Backup schedule                                              | Minutely, hourly                                             |
 | Replication authentication                                   | Operating system authentication (Linux and UNIX), database authentication |
 | Backup target                                                | Real-time backup pool                                        |
 | Switch the primary and standby, rebuild the standby, activate the standby | It is supported to switch the primary and standby, rebuild the standby, and activate the standby. |
-| Read only standby, enable/disable replication                | Read only standby and Enable/Disable replication are supported. |
+| Read-Only Standby, Enable/Disable Replication                | Read-Only Standby and Enable/Disable Replication are supported. |
 | Replication location                                         | Original path, new path                                      |
 | Replication granularity                                      | Entire database                                              |
 | Hot standby                                                  | Hot standby environment supports database replication.       |
@@ -105,7 +99,7 @@ class: longtable
 
 ### Verify Compatibility
 
-ADPS supports the backup and restore of Oracle database single instance, hot standby, RAC cluster, Active Data Guard, and Oracle XE. You should check whether the operating system (OS) and database version are supported before deploying the agent. Please refer to *Compatibility List* for details.
+ADPS supports the backup and restore of Oracle database single instance, hot standby, RAC cluster, Active Data Guard, and Oracle XE. You need to verify your operating system (OS) and database versions are supported before deploying the agent. Please refer to *Compatibility List* for details.
 
 #### Compatibility List
 
@@ -265,19 +259,19 @@ Select **Windows** and click **Download Windows agent**.
 
 #### Install Windows OS Agent
 
- 1. Upload the installation package to the agent.
+1. Upload the installation package to the target host.
 
- 2. Double-click the package to install it according to the setup wizard and click **Next**.
+2. Double-click the agent package to install it according to the setup wizard and click **Next**.
 
- 3. This installation package chooses the database resources, files, or applications installed on the agent by default. Select the **Oracle** component and click **Next**.
+3. The package chooses the database resources, files, or applications installed on the host by default. Select the **Oracle** component and click **Next**.
 
    ![](../image/01-agent/oracle/oracle-03.png)
 
- 4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
+4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
 
    ![](../image/01-agent/oracle/oracle-04.png)
 
- 5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
+5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
 ### Install and Configure Linux OS Agent
 
@@ -287,25 +281,25 @@ Select **Windows** and click **Download Windows agent**.
 
 2. Paste the command on the command line and press Enter to execute the installation.
 
-```
-[root@rhel69 ~]# curl -o- "http://192.168.18.60:50305/d2/update/script?modules=oracle&location=http%3A%2F%2F192.168.18.60%3A50305&access_key=0daed99203711fe2c50555c8a8334904&rm=&tool=curl" | sh
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-101  7898    0  7898    0     0   815k      0 --:--:-- --:--:-- --:--:-- 1285k
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 57.1M  100 57.1M    0     0  40.0M      0  0:00:01  0:00:01 --:--:-- 36.9M
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 6151k  100 6151k    0     0  28.5M      0 --:--:-- --:--:-- --:--:-- 28.5M
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 12.2M  100 12.2M    0     0  54.6M      0 --:--:-- --:--:-- --:--:-- 54.6M
-```
+   ```
+   [root@rhel69 ~]# curl -o- "http://192.168.18.60:50305/d2/update/script?modules=oracle&location=http%3A%2F%2F192.168.18.60%3A50305&access_key=0daed99203711fe2c50555c8a8334904&rm=&tool=curl" | sh
+   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+   101  7898    0  7898    0     0   815k      0 --:--:-- --:--:-- --:--:-- 1285k
+   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+   100 57.1M  100 57.1M    0     0  40.0M      0  0:00:01  0:00:01 --:--:-- 36.9M
+   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+   100 6151k  100 6151k    0     0  28.5M      0 --:--:-- --:--:-- --:--:-- 28.5M
+   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+   100 12.2M  100 12.2M    0     0  54.6M      0 --:--:-- --:--:-- --:--:-- 54.6M
+   ```
 
 ### Install and Configure Solaris OS Agent
 
-1. Select the corresponding installation package according to the Solaris system, bits and Oracle version. Take the 64-bit system of Solaris 9 SPARC as an example. Unzip it first and then install it. Execute the unzip command with root privileges:
+1. Select the corresponding installation package according to the Solaris system, bit and Oracle version. Take the Solaris 9 SPARC 64-bit as an example. Execute the unzip command with root privileges:
 
    ```
    sudo gunzip adps-version-sol9-sparc64-local.gz
@@ -317,20 +311,17 @@ Select **Windows** and click **Download Windows agent**.
    sudo pkgadd -d /tmp/adps-version-sol9-sparc64-local
    ```
 
-3. Enter the module to be installed such as: AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle.
+3. Select and enter the module to be installed such as: AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle.
 
-4. During the installation process, please enter y or press Enter to go to the next step following the prompts until the installation is complete.
+4. Enter y or press Enter to go to the next step according to the prompts.
 
-5. After the installation is complete, execute the following configuration command:
+5. After the installation is completed, execute the following configuration command:
 
    ```
    sudo /etc/init.d/adps-agent config
    ```
 
-   Follow the prompts to configure the Backup Server, including:
-
-   - IP address of the Backup Server
-   - Port of the Backup Server
+   Follow the prompts to enter the IP address and port of the Backup Server.
 
 6. Configure Oracle Home directory:
 
@@ -346,13 +337,13 @@ Select **Windows** and click **Download Windows agent**.
    sudo gunzip /tmp/adps-version-ia64.depot.gz
    ```
 
-2. Enter the full path of the unzipped file (eg: /tmp/) followed by the software name (eg: adps.agent-oracle), install the Oracle modules as you want, and execute the command with root privileges as follows:
+2. Install the agent and Oracle module. For example, the absolute path of the unzipped package is /tmp/adps-version-ia64.depot. Execute the command with root privileges as follows:
 
    ```
    swinstall -s /tmp/adps-version-ia64.depot  adps.agent-oracle
    ```
 
-3. After the installation is complete (or when the current backup server needs to be changed), execute the following configuration command:
+3. After the installation is completed (or when the current backup server needs to be changed), execute the following configuration command:
 
    ```
    sudo /sbin/init.d/adps-agent config
@@ -382,19 +373,19 @@ This chapter is applicable to the operation of a single agent. If you have multi
 
 Log in to ADPS as the admin and go to **Resource**. Select the host that you need to activate and click the **Register** icon.
 
-   ![](../image/01-agent/oracle/oracle-08.png)
+![](../image/01-agent/oracle/oracle-08.png)
 
 ### Activate License
 
 In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
 
-   ![](../image/01-agent/oracle/oracle-09.png)
+![](../image/01-agent/oracle/oracle-09.png)
 
 ### Assign Authorization
 
 After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window.
 
-   ![](../image/01-agent/oracle/oracle-10.png)
+![](../image/01-agent/oracle/oracle-10.png)
 
 ## Before You Begin
 
@@ -402,7 +393,7 @@ After the successful activation, you can authorize users to operate the resource
 
 Check the Oracle instance state on the agent. The Oracle instance should be in the "OPEN" or "mount" state for the backup and restore.
 
-   ![](../image/01-agent/oracle/oracle-11.png)
+![](../image/01-agent/oracle/oracle-11.png)
 
 ### Check Resource
 
@@ -412,21 +403,21 @@ Log in to ADPS as the operator and go to **Resource**. You can see that the acti
 
 ### Check Storage Pool
 
-Log in to ADPS as the operator, go to **Storage Pool**, and check whether there is any storage pool. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.
+Log in to ADPS as the operator, go to **Storage Pool**, and verify a storage pool is available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.
 
 ![](../image/01-agent/oracle/oracle-13.png)
 
-## Login Instance for the First Time
+## First Time Login
 
-1. Before creating the first backup and restore, you need to **Login** to the Oracle first.
+1. Before creating the first backup and restore, click **Login** beside the resource to log in to Oracle first.
 
    ![](../image/01-agent/oracle/oracle-14.png)
 
 2. Oracle supports three authentication methods: **Database**, **OS**, and **Access Key**.
 
 - Database authentication: The login account should have the SYSDBA privilege and the roles of RESOURCE and CONNECT. You can log in to Oracle 12c and higher versions as users with the SYSBACKUP privilege.
-- OS authentication: You can use root or Oracle installation user to log in the databases. OS authentication is not supported for Oracle databases on Windows. Logical import/export and table restore are not supported when you use OS authentication. If you use root to log in to the server, it will automatically log in to all the database instances on that server. If you use the Oracle installation user, it will only log in to the instances that the user installs.
-- Access Key authentication: You can use the Access Key of the user who has been assigned the resource. The job can be performed without a password, which has potential data security risks.
+- OS authentication: You can use root or Oracle installation user to log in to the databases. OS authentication is not supported for Oracle databases on Windows. Logical import/export and table restore are not supported when you use OS authentication. If you use root to log in to the server, it will automatically log in to all the database instances on that server. If you use the Oracle installation user, it will only log in to the instances that the user installs.
+- Access Key authentication: You can use the Access Key of the user who has been assigned the resource to log in to the databases. Jobs can be performed without a password, which has potential data security risks.
 
 3. Select **Authentication**. Enter **User** and **Password**. Click **Login**.
 
@@ -434,41 +425,40 @@ Log in to ADPS as the operator, go to **Storage Pool**, and check whether there 
 
 ### Oracle XE
 
-To log in to Oracle XE, please refer to the *Login Instance for the First Time*.
+To log in to Oracle XE, please refer to the *First Time Login*.
 
 ### Oracle RAC
 
-After the Oracle RAC resource is activated, you should use the admin to bind the Oracle RAC nodes into a cluster on the **Cluster** page and log in to the Oracle resources of all nodes. You can log in to all of the resources on the same host, or log in to the resources one by one on the **Backup** page.
+After the Oracle RAC resource is activated, use the admin to bind the Oracle RAC nodes into a cluster on the **Cluster** page and log in to the Oracle resources on all nodes. You can log in to all of the resources on the same host, or log in to the resources one by one on the **Backup** page.
 
 ### Oracle Hot Standby
 
-After the Oracle hot standby is activated, you should use the admin to bind the nodes into a hot standby cluster on the **Cluster** page and log in to the Oracle resources of all nodes. To log in to Oracle hot standby, please refer to the *Login Instance for the First Time*.
+After the Oracle hot standby is activated, use the admin to bind the nodes into a hot standby cluster on the **Cluster** page and log in to the Oracle resources on all nodes. To log in to Oracle hot standby, please refer to the *First Time Login*.
 
 ### Oracle One Node
 
-After the Oracle One Node is activated, you should use the admin to bind the nodes into a cluster on the **Cluster** page and log in to the Oracle resources of all nodes. To log in to Oracle One Node, please refer to the *Login Instance for the First Time*.
+After the Oracle One Node is activated, use the admin to bind the nodes into a cluster on the **Cluster** page and log in to the Oracle resources of all nodes. To log in to Oracle One Node, please refer to the *First Time Login*.
 
 ### Oracle Data Guard
 
-Only the backup and restore of the primary database of Oracle Data Guard are supported. To log in to Oracle Data Guard, please refer to the *Login Instance for the First Time*.
+Only the backup and restore of the primary database of Oracle Data Guard are supported. To log in to Oracle Data Guard, please refer to the *First Time Login*.
 
 ### Oracle Active Data Guard
 
-The backup and restore of the primary and standby databases of Oracle Active Data Guard are supported. To log in to Oracle Active Data Guard, please refer to the *Login Instance for the First Time*.
+The backup and restore of the primary and standby databases of Oracle Active Data Guard are supported. To log in to Oracle Active Data Guard, please refer to the *First Time Login*.
 
-> Note:
->
-> - To use Access Key authentication, the admin should enable the **Access Key login instance** option in the **Settings** -> **Security**.
-
+> Note: To use Access Key authentication, the admin should enable the **Access Key login instance** option in the **Settings** -> **Security**.
 
 ## Create Backup Jobs
 
 This chapter introduces how to back up the Oracle databases.
 
+> Note: The same database's full backups, cumulative incremental backups, and log backups cannot be stored in different storage pools.
+
 ### Prerequisites
 
-- You have installed the agent. For installation, please refer to *Install and Configure Agent*.
-- You have activated the license and assigned the authorization. For details, see *Activate License and Assign Authorization*.
+- The agent has been installed. For installation, please refer to *Install and Configure Agent*.
+- The license has been activated and the authorization has been assigned. For details, see *Activate License and Assign Authorization*.
 - Log in to ADPS as the *operator*.
 
 ### Create Full Backup Jobs
@@ -477,67 +467,71 @@ This chapter introduces how to back up the Oracle databases.
 
 2. Select **Full** as the backup type and choose the databases to be backed up.
 
-![](../image/01-agent/oracle/oracle-16.png)
+   ![](../image/01-agent/oracle/oracle-16.png)
 
 3. Select **Backup Target**. You can choose standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool.
-
->  Note: The same database's full backups, cumulative incremental backups, and log backups cannot be stored in different storage pools.
 
 4. Go to **Backup Schedule** and set the execution time of the backup job. For details, please refer to *Backup Schedule Operation*. We recommend running a full backup on a weekly basis.
 
 5. Set **Backup Options** including common and advanced options.
 
-- **Common options**:
+   - **Common options**:
 
-  ![](../image/01-agent/oracle/oracle-17.png)
+   ![](../image/01-agent/oracle/oracle-17.png)
 
-**Compression**: Fast is enabled by default.
+   **Compression**:  The **Fast** option is enabled by default.
 
-**Channels**: This option can improve backup efficiency. The default number is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
+   > - None: During the backup, the data will not be compressed.
+   >
+   > - Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.
+   >
+   > - Fast: During the backup, the data will be compressed by fast compression algorithms.
 
-> Note:
-> - When Oracle is backed up to a tape library pool, the channel number will be given a default value based on the number of drives in the tape library, the number of tapes, and whether the backup source is a RAC. If the maximum number that can be filled is bigger than 4, the default value will be 4. Otherwise, the default value is the maximum number that can be filled.
-> - Restoring Oracle from a tape library pool only supports one channel and the number cannot be modified.
+   **Channels**: This option can improve backup efficiency. The default number is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
 
-**When the database is in NOARCHIVELOG mode**:
+   > Note:
+   > - When Oracle is backed up to a tape library pool, the **Channels** option will provide a default value based on the number of drives in the tape library, the number of tapes, and whether the backup source is a RAC. The default value is the maximum number that can be entered.
+   > - Restoring Oracle from a tape library pool only supports one channel and the number cannot be modified.
 
-- Send an alert message and cancel the job: When the database is in NOARCHIVELOG mode, ADPS will cancel the backup job and send an alert message.
-- Allow offline backup:  When the database is in NOARCHIVELOG mode, ADPS will send an alert message and perform the backup job offline.
-- Enable ARCHIVELOG:  When the database is in NOARCHIVELOG mode, ADPS will enable the ARCHIVELOG mode according to the customized archive log directory or the database default directory, send an alert message, and then perform the backup job.
+   **When the database is in NOARCHIVELOG mode**:
 
-**BCT**: BCT (Block Change Tracking) is a feature introduced in Oracle 10g. It mainly serves the RMAN incremental backups. You can enable BCT to improve the incremental backup performance. After enabling BCT, you can customize the BCT directory or use the database default BCT directory.
+   - Send an alert message and cancel the job: When the database is in NOARCHIVELOG mode, ADPS will cancel the backup job and send an alert message.
+   - Allow offline backup:  When the database is in NOARCHIVELOG mode, ADPS will send an alert message and perform the backup job offline.
+   - Enable ARCHIVELOG:  When the database is in NOARCHIVELOG mode, ADPS will enable the ARCHIVELOG mode according to the customized archive log directory or the database default directory, send an alert message, and then perform the backup job.
 
-**Minimal supplemental logging**: The log files generated after this option is enabled can be used for LogMiner. This operation is a one-time operation.
+   **BCT**: BCT (Block Change Tracking) is a feature introduced in Oracle 10g. It mainly serves the RMAN incremental backups. You can enable BCT to improve the incremental backup performance. After enabling BCT, you can customize the BCT directory or use the database default BCT directory.
 
-**Force logging**: You can enable the force logging mode of the database.
+   **Minimal supplemental logging**: The log files generated after this option is enabled can be used for LogMiner. This operation is a one-time operation.
 
-**Reserve archive logs**:
+   **Force logging**: You can enable the force logging mode of the database.
 
-- Delete all archive logs: Delete the backed-up archive logs after the backup.
-- Reserve archive logs for N day(s)/hour(s): After the backup, reserve the backed-up archive logs in the previous N day(s)/hour(s) and delete those that are older than N day(s)/hour(s).
-- Do not delete archive logs: Do not delete the backed-up archive logs after the backup.
+   **Reserve archive logs**: Specify whether to delete the archive logs in the database after the backup. The **Delete all archive logs** option is enabled by default.
 
-**Encryption wallet password**: If you enable encryption wallet, you are required to enter the encryption wallet password when performing database database backups.
+   - Delete all archive logs: Delete the backed-up archive logs after the backup.
+   - Reserve archive logs for N day(s)/hour(s): Delete the backed-up archive logs that exist for longer than the specified N days/hours.
+   - Do not delete archive logs: Do not delete the backed-up archive logs after the backup.
 
-- **Advanced options**:
+   **Encryption wallet password**: If you enable Encryption Wallet, you are required to enter the encryption wallet password when performing database backups.
 
-  ![](../image/01-agent/oracle/oracle-18.png)
+   - **Advanced options**:
 
-**Reconnection time**: 1-60 are supported. The unit is minute.
+   ![](../image/01-agent/oracle/oracle-18.png)
 
-**Speed limit**: You can limit the data transfer speed or data read and write speed. The unit is MiB/s.
+   **Reconnection time**: 1-60 are supported. The unit is minute.
 
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted and it becomes idle when the precondition is invalid.
+   **Speed limit**: You can limit the data transfer speed or data read and write speed. The unit is MiB/s.
 
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
+   **Precondition**: The precondition is checked before the job starts. The job execution is aborted and it becomes idle when the precondition is invalid.
 
-**Archive log backup times**: You can set the archive log backup times. 1-5 are supported.
+   **Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
 
-**Custom RMAN commands**: You can customize RMAN commands and insert them between the allocate channel command and backup command. For example, you can use "set maxcorrupt for datafile xxx to N;" to ignore bad blocks of some files.
+   **Archive log backup times**: You can set the archive log backup times. 1-5 are supported.
 
-**Skip**: You can set this option to skip inaccessible files, offline files, read-only files, and send alerts when these files are skipped.
+   **Custom RMAN commands**: You can customize RMAN commands and insert them between the allocate channel command and the backup command. For example, you can use "set maxcorrupt for datafile xxx to N;" to ignore bad blocks of some files.
 
-6. Set **Job Name** and check whether the job information is correct. Click **Submit**.
+   **Skip**: You can set this option to skip inaccessible files, offline files, as well as read-only files, and send alerts when these files are skipped.
+
+6. Set **Job Name** and confirm the job information. Click **Submit**.
 
 ### Create Incremental/Cumulative Incremental Backup Jobs
 
@@ -545,36 +539,36 @@ We recommend running full database backups regularly (such as weekly) and increm
 
 - Creating an incremental/cumulative incremental backup is the same as creating a full backup. Select **Incremental** or **Cumulative Incremental Backup** as the backup type and choose databases.
 
-  ![](../image/01-agent/oracle/oracle-19.png)
+![](../image/01-agent/oracle/oracle-19.png)
 
 > Note:
 > - If the database has not been fully backed up, or has not been fully backed up after restore, the first cumulative incremental backup will be run as a full backup by default.
 
 ### Create Logical Backup Jobs
 
-Logical backup jobs include: Data Pump Export and Traditional Export. ADPS supports the export of database, tablespace, and schema. The export of database and tablespace should use a user with DBA privileges (SYSDBA cannot be used), and the export of schema should use the corresponding user.
+Logical backup jobs include: Data Pump Export and Traditional Export. ADPS supports the export of database, tablespace, and schema. The export of database and tablespace requires a user with DBA privileges (SYSDBA cannot be used), and the export of schema requires the corresponding user account.
+
+> Note:
+>
+> - Data Pump Export will be hidden when the Oracle version is older than 10g.
+> - When one of the following conditions occurs, Data Pump Export will be disabled:
+>   - The Oracle database authentication method is OS authentication.
+>   - The current instance status is STARTED or MOUNTED.
+>   - The database OPEN_MODE status is READ ONLY.
+>   - The Oracle database is a standby.
 
 1. Creating a logical backup is similar to creating a full backup. Select **Data Pump Export** or **Traditional Export** as the backup type and choose databases.
 
-![](../image/01-agent/oracle/oracle-20.png)
+   ![](../image/01-agent/oracle/oracle-20.png)
 
- > Note that logical backups are disabled or hidden in the following situations:
- > - Data Pump Export will be hidden when the Oracle version is older than 10g.
- > - Data Pump Export will be disabled when
- >   - the Oracle database authentication method is OS authentication;
- >   - the database state is STARTED or MOUNTED;
- >   - read-only is true; or
- >   - the Oracle database is a standby.
- >   Note:
- >
- > - When Traditional Export is selected and the Oracle major version is newer than or equal to 11, the interface will display a prompt: The traditional export of the current version (11.xxx) may fail.
- > - When the database state is OPEN and read_only is false, the interface will display a prompt: The database is in the OPEN READ WRITE status. It is recommended to use Data Pump Export.
+ > - When Traditional Export is selected and the Oracle major version is newer than or equal to 11, the job may fail.
+ > - When the database OPEN_MODE status is READ WRITE, it is recommended to use Data Pump Export.
 
 2. **Backup Source**:
 
-- Databases: Select the database name and the entire database will be exported. Select the tablespace under the database name and the tablespace will be exported.
+   - Databases: Select the database name, and the entire database will be exported. Select the tablespace under the database name, and the tablespace will be exported.
 
-- User: Select the user under the user list and the user will be exported. Multi-user export is supported.
+   - User: Select users under the user list, and the schemas will be exported.
 
 3. Select **Backup Target**. The data will be exported to the selected storage pool.
 
@@ -582,31 +576,28 @@ Logical backup jobs include: Data Pump Export and Traditional Export. ADPS suppo
 
 5. Set **Backup Options** according to your needs. The options include compression, channels, when the database is in NOARCHIVELOG mode, and reserve archive logs.
 
-![](../image/01-agent/oracle/oracle-21.png)
+   ![](../image/01-agent/oracle/oracle-21.png)
 
 6. Set **Job Name** and check whether the job information is correct. Click **Submit**.
 
 ### Create Log Backup Jobs
 
-Based on periodic full backups and cumulative incremental backups, you can also frequently add log backups to back up only the transaction logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. A log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, please consider more frequent log backups. Frequent log backups also increase the frequency of log truncation, resulting in smaller log files.
+Based on periodic full, incremental, and cumulative incremental backups, you can also add frequent log backups to back up only the archive logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider taking more frequent log backups. More frequent log backups also increase the frequency of log truncation, resulting in smaller log files.
 
 The log backup is classified into **Log** and **Continuous Backup**.
 
 - **Log**: It backs up Oracle archive logs. When selecting periodic backup schedules, you can set the backup condition at the **Automatically backup archive logs when** option.
-
-- **Continuous backup**: Oracle continuous log backup means that the backup system continuously backs up Oracle online logs and archive logs to the real-time backup pool. When a continuous log backup job is created, it is always running (except for job suspension caused by external factors).
-
-1. Creating a log backup is similar to creating a full backup. Select **Log** or **Continuous Backup** as the backup type and choose databases.
-
-![](../image/01-agent/oracle/oracle-22.png)
+- **Continuous backup**: Oracle continuous log backup means that the backup system continuously backs up Oracle redo logs and archive logs to the real-time backup pool. After a continuous log backup job is created, it is always running (except for job suspension caused by external factors).
 
 > Note:
 >
 > - Before creating continuous log backups, you need to perform a full backup or ensure that the storage pool has an available full backup set.
->
-> - Continuous log backup jobs can back up only to real-time backup pool and support replications between real-time backup pools.
->
-> - You can only create one continuous log backup job for one database instance. If you need to create a new continuous log backup, you should stop or delete the old one.
+> - Continuous log backups can only back up to the real-time backup pool. Replications between real-time backup pools are supported.
+> - You can only create one continuous log backup job for one database instance. To create a new continuous log backup, the old one should be stopped or deleted.
+
+1. Creating a log backup is similar to creating a full backup. Select **Log** or **Continuous Backup** as the backup type and choose databases.
+
+   ![](../image/01-agent/oracle/oracle-22.png)
 
 2. Select **Backup Target**. The logs will be backed up to the selected storage pool.
 
@@ -618,7 +609,7 @@ The log backup is classified into **Log** and **Continuous Backup**.
 
 ### Create Synthetic Backup Jobs
 
-The first Oracle synthetic backup job will be a full backup and the subsequent ones will be incremental. Each incremental backup will be synthesized with the last one to get a full backup. Then the synthetic backup uses the snapshot function of the database synthetic pool to generate a snapshot point. Oracle synthetic backups support:
+The first Oracle synthetic backup job will be a full backup and the subsequent ones will be incremental. Each incremental backup will be synthesized with the last backup to get a new full backup. Then the synthetic backup uses the snapshot function of the database synthetic pool to generate a snapshot point. Oracle synthetic backups support:
 
 - Linux, AIX, as well as Windows 2008 and later platforms;
 - Oracle 10g and later versions;
@@ -626,57 +617,34 @@ The first Oracle synthetic backup job will be a full backup and the subsequent o
 
 1. Creating a synthetic backup is similar to creating a full backup. Select **Synthetic Backup** as the backup type and choose databases.
 
-![](../image/01-agent/oracle/oracle-23.png)
+   ![](../image/01-agent/oracle/oracle-23.png)
 
-2. Select a **Data Pool** and set the **Staging Disk Size**. The data files will be backed up to the selected database synthetic storage pool. In the advanced options, you can fill in the ratio between the incremental storage disk and the real-time size of the database to set the volume size for incremental backup set storage. The default value is 100%, and the range is 0-100%. Select a **Log Pool**. Files except for data files, including archive logs, control files, and PFILE/SPFILE, will be backed up to the selected storage pool. If the storage type of the database synthesis pool is iSCSI, you need to install the iscsi initiator on the agent. If it is FC, the agent server needs to be equipped with an HBA card and installed the corresponding HBA API Driver.
+2. Select a **Data Pool** and set the **Staging Disk Size**. The datafiles will be backed up to the selected database synthetic storage pool. In the advanced options, you can fill in the ratio between the incremental storage disk and the real-time size of the database to set the volume size for incremental backup set storage. The default value is 100%, and the range is 0-100%. Select a **Log Pool**. Files except for datafiles, including archive logs, control files, and PFILE/SPFILE, will be backed up to the selected storage pool. If the storage type of the database synthesis pool is iSCSI, you need to install the iscsi initiator on the agent. If it is FC, the agent server needs to be equipped with an HBA card and installed the corresponding HBA API Driver.
 
-![](../image/01-agent/oracle/oracle-24.png)
+   ![](../image/01-agent/oracle/oracle-24.png)
 
 3. Select **Backup Schedule** to set the execution time of the backup job.
 
 4. Set **Backup Options**. The options include compression, reserve archive logs, BCT, channels, speed limit, precondition, pre/post action and custom RMAN commands. You can set them according to your needs. If the database has encrypted tablespaces, you need to enter the correct wallet password in the **Encryption wallet password** option.
 
-![](../image/01-agent/oracle/oracle-25.png)
+   ![](../image/01-agent/oracle/oracle-25.png)
 
-**Compression**: Fast is enabled by default. You can choose Fast to compress data.
+   - **Advanced options**:
 
-**Channels**: This option can improve backup efficiency. The default number is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
+   ![](../image/01-agent/oracle/oracle-26.png)
 
-> Note:
->
-> - When Oracle is backed up to a tape library pool, the channel number will be given a default value based on the number of drives in the tape library, the number of tapes, and whether the Oracle database is a RAC cluster. If the maximum number that can be filled is bigger than 4, the default value will be 4. Otherwise, the default value is the maximum number.
-> - Restoring Oracle from a tape library pool only supports one channel and the number cannot be modified.
+   **Direct I/O**: To avoid using system cache, this option will not change the filesystem_options parameter of the database.
 
-**Reserve archive logs**:
+   **Disable synchronous I/O**: It can speed up the backup speed.
 
-- Delete all archive logs: Delete the backed-up archive logs after the backup.
-- Reserve archive logs for N day(s)/hour(s): After the backup, reserve the backed-up archive logs in the previous N day(s)/hour(s) and delete those that are older than N day(s)/hour(s).
-- Do not delete archive logs: Do not delete the backed-up archive logs after the backup.
+   **Synthesis method**:
 
-**Advanced options**:
+   - Synthesize by Oracle RMAN: This method is selected by default.
+   - Frontend pipeline synthesis: Synthesize the datafile immediately after its incremental backup is completed.
 
-![](../image/01-agent/oracle/oracle-26.png)
+   > Note: When you select **Synthesize by Oracle RMAN** and the Oracle database parameter DISK_ASYNCH_IO is set to false, ADPS will send an alert message and automatically change the synthesis method to **Frontend pipeline synthesis**.
 
-**Speed limit**: The data transfer speed or data read and write speed can be limited. The unit is MiB/s.
-
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted and it becomes idle when the precondition is invalid.
-
-**Pre/post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-**Custom RMAN commands**: You can customize RMAN commands and insert them between the allocate channel command and backup command. For example, you can use "set maxcorrupt for datafile xxx to N;" to ignore bad blocks of some files.
-
-**Direct I/O**: To avoid using system cache, this option will not change the filesystem_options parameter of the database.
-
-**Disable synchronous I/O**: It can speed up the backup speed.
-
-**Synthesis method**:
-
-- Synthesize by Oracle RMAN: This method is selected by default.
-- Frontend pipeline synthesis: Synthesize the data file immediately after its incremental backup is complete.
-
- > Note: When you select **Synthesize by Oracle RMAN** and the Oracle database parameter disk_asynch_io is set to false, ADPS will send an alert message and automatically change the synthesis method to **Frontend pipeline synthesis**.
-
-**Scan FC ports**: The FC ports should be scanned if you select database synthetic pool with an FC protocol for synthetic backups. To avoid scanning all ports, you can specify an agent to scan a specific FC port.
+   **Scan FC ports**: The FC ports should be scanned if you select database synthetic pool with an FC protocol for synthetic backups. To avoid scanning all ports, you can select to scan a specified FC port.
 
 5. Set **Job Name** and check whether the job information is correct. Click **Submit**.
 
@@ -686,24 +654,24 @@ This chapter introduces how to restore Oracle databases. ADPS provides various r
 
 ### Prerequisites
 
-- You have a complete backup job. Please refer to *Create Backup Jobs*.
-- To restore to another host, you need to install an agent on that host, activate its license, and assign the authorization.
+- The database has a completed backup job. Please refer to *Create Backup Jobs*.
+- To restore to another host, install an agent on that host, activate its license, and assign the authorization.
 
 ### Create Media Restore Jobs
 
-When a media error occurs in Oracle databases such as data files corruption or accidental deletion, you can restore the databases or some data files through media restore jobs. If the redo logs and archive logs are not lost, running media restores will not lose data. Before creating restore jobs, start the database instance but do not need to mount it.
+When a media error occurs in Oracle databases such as datafile corruption or accidental deletion, you can restore the databases or some datafiles through media restore jobs. If the redo logs and archive logs are intact, running media restores will not lose data. Before creating restore jobs, boot the database instance but do not need to mount it.
 
 1. Select the Oracle host and instance. Click **Next**.
 
 2. Select **Media** as the restore type and choose databases to be restored. You can modify the path for restored files. Click **Next**.
 
-![](../image/01-agent/oracle/oracle-27.png)
+   ![](../image/01-agent/oracle/oracle-27.png)
 
 3. Set **Restore Schedule**. Only immediate and one-time schedules are supported. Click **Next**.
 
 4. Set **Restore Options** including reset log, channels, reconnection time, speed limit, precondition and pre/post action. If the database has encrypted tablespaces, you need to enter the correct wallet password in the **Encryption wallet password** option. You can disable synchronous I/O to speed up the restore job.
 
-![](../image/01-agent/oracle/oracle-29.png)
+   ![](../image/01-agent/oracle/oracle-29.png)
 
 5. After confirming the restore information, click **Submit** and wait for the execution.
 
@@ -715,9 +683,9 @@ When a logical error or disaster occurs in Oracle databases, you can restore the
 
 2. Select **Databases** under the **Timepoint Restore** and set the restored database information. Specify the restore point in time by Restore to the latest time, Restore to point in time, Restore to SCN, Restore to backup state (shortest recovery time), and Analyze redo log files to find the exact SCN to restore to. Click **Next**.
 
-![](../image/01-agent/oracle/oracle-28.png)
+   ![](../image/01-agent/oracle/oracle-28.png)
 
-3. Select the restore point in time by dragging the slider control or entering a specific point in time or SCN. For the restore content, you can select data files, control files, redo logs, and temporary files. PFILE/SPFILE, password files, Listener configuration, and TNSNames configuration. You can redirect the restored data via the **Modify the path of restore files** option.
+3. Select the restore point in time by dragging the slider control or entering a specific point in time or SCN. For the restore content, you can select datafiles, control files, redo logs, and temporary files. PFILE/SPFILE, password files, Listener configuration, and TNSNames configuration. You can redirect the restored data via the **Modify the path of restore files** option.
 
 4. Set **Restore Target**. You can restore to the source or a different host. Or you can restore to a database on a different host with the same operating system and Oracle version (major version number). Click **Next**. (It allows restoring to another instance with the same version on the source host. But the source instance should be shut down during the restore.)
 
@@ -725,18 +693,18 @@ When a logical error or disaster occurs in Oracle databases, you can restore the
 
 6. Set **Restore Options**.
 
-![](../image/01-agent/oracle/oracle-30.png)
-![](../image/01-agent/oracle/oracle-31.png)
+   ![](../image/01-agent/oracle/oracle-30.png)
 
-The options include reset log, channels, reconnection time, speed limit, precondition, and pre/post action. You can set them according to your needs.  If the database has encrypted tablespaces, you need to enter the correct wallet password in the **Encryption wallet password** option. You can disable synchronous I/O to speed up the restore.
+   ![](../image/01-agent/oracle/oracle-31.png)
 
-If you enable continuous log backups, you can set **Download buffer size** and **Reserve free disk space** when recovering continuous archive logs.
+   The options include reset log, channels, reconnection time, speed limit, precondition, and pre/post action. You can set them according to your needs.  If the database has encrypted tablespaces, you need to enter the correct wallet password in the **Encryption wallet password** option. You can disable synchronous I/O to speed up the restore.
 
-- Download buffer size: If the size of archive logs is greater than or equal to the value of this option, the log download will be stopped and then continue after the previously downloaded logs are applied and deleted.
+   If you enable continuous log backups, you can set **Download buffer size** and **Reserve free disk space** when recovering continuous archive logs.
 
-- Reserve free disk space: If the free space of the disk (the target disk that save downloaded archive logs) is less than or equal to the value of this option, the log download will be stopped and then continue after the previously downloaded logs are applied and deleted.
+   - Download buffer size: If the size of archive logs is greater than or equal to the value of this option, the log download will be stopped and then continue after the previously downloaded logs are applied and deleted.
+   - Reserve free disk space: If the free space of the disk (the target disk that save downloaded archive logs) is less than or equal to the value of this option, the log download will be stopped and then continue after the previously downloaded logs are applied and deleted.
 
-> Note: If the parameters are not filled properly, the recovery of logs will be slowed down.
+   > Note: If the parameters are not filled properly, the recovery of logs will be slowed down.
 
 7. Confirm the job information is correct and submit the job.
 
@@ -754,10 +722,11 @@ Limitations of tablespace timepoint restore:
 - VARRAY columns, nested tables, and external files cannot be restored.
 - A tablespace with rollback segments cannot be restored.
 
-> Note: Since different versions of Oracle have different limitations on tablespace timepoint restore, please read the official Oracle documentation in detail.
+> Note: Since different versions of Oracle have different limitations on tablespace timepoint restore, please refer to the official Oracle documentation for details.
 
 1. Click **Restore** and select the source host and Oracle instance. Select **Tablespace** as the restore type.
-![](../image/01-agent/oracle/oracle-32.png)
+
+   ![](../image/01-agent/oracle/oracle-32.png)
 
 2. Select **Restore Target**. You can only choose the source host and instance as the restore target.
 
@@ -777,19 +746,19 @@ Oracle table-level restore supports exporting a user's single table to a point-i
 
 1. Go to **Restore** and select the Oracle database host and instance. Select **Table** under **Timepoint Restore** as the restore type. Click **Next**.
 
-![](../image/01-agent/oracle/oracle-34.png)
+   ![](../image/01-agent/oracle/oracle-34.png)
 
 2. Select **Restore Schedule** to set the execution time of the job.
 
 3. Set **Restore Options** including common and advanced options.
 
-You can set common options including channels, auxiliary directory, and data cache directory. **Auxiliary directory** stores the temporary files required for auxiliary instances. Please ensure that its space is larger than the size of the tablespace or PDB to be restored and the Oracle database user has the read and write permissions. **Data cache directory** stores the export files of tables. If the database contains encrypted tablespaces, you also need to enter the correct wallet password in the **Encryption wallet password** option.
+   You can set common options including channels, auxiliary directory, and data cache directory. **Auxiliary directory** stores the temporary files required for auxiliary instances. Please ensure that its space is larger than the size of the tablespace or PDB to be restored and the Oracle database user has the read and write permissions. **Data cache directory** stores the export files of tables. If the database contains encrypted tablespaces, you also need to enter the correct wallet password in the **Encryption wallet password** option.
 
-![](../image/01-agent/oracle/oracle-35.png)
+   ![](../image/01-agent/oracle/oracle-35.png)
 
-You can set advanced options including reconnection time, speed limit, precondition and pre/post action.
+   You can set advanced options including reconnection time, speed limit, precondition and pre/post action.
 
-![](../image/01-agent/oracle/oracle-36.png)
+   ![](../image/01-agent/oracle/oracle-36.png)
 
 4. Set **Job Name** and check whether the job information is correct. Click **Submit**.
 
@@ -797,11 +766,11 @@ You can set advanced options including reconnection time, speed limit, precondit
 
 1. Click **Restore** on the left-side menu and select the host and Oracle resource. Select **Data Pump Import** or **Traditional Import** as the restore type. If you have not performed **Data Pump Export** or **Traditional Export**, you cannot select the corresponding import.
 
-![](../image/01-agent/oracle/oracle-37.png)
+   ![](../image/01-agent/oracle/oracle-37.png)
 
-- Select a point in time under the database list. The whole database will be imported.
-- Select a point in time under the tablespace list. A tablespace will be imported.
-- Select a point in time of a certain user under the user list. A schema will be imported. Multi-user import is supported.
+   - Select a point in time under the database list. The whole database will be imported.
+   - Select a point in time under the tablespace list. A tablespace will be imported.
+   - Select a point in time of a certain user under the user list. A schema will be imported. Multi-user import is supported.
 
 2. Select **Restore Target**. We recommend restoring to a target with the same version as the source database. Limitations may exist among different versions and the import may fail.
 
@@ -809,17 +778,17 @@ You can set advanced options including reconnection time, speed limit, precondit
 
 4. Set **Restore Options**. Select a user, enter the password, and set the data cache directory. You can set reconnection time, speed limit, precondition, and pre/post action according to your needs.
 
-![](../image/01-agent/oracle/oracle-38.png)
+   ![](../image/01-agent/oracle/oracle-38.png)
 
 5. Confirm the job information, click **Submit** and wait for the job completion.
 
 ### Create Restore Archived Logs Jobs
 
-This restore type is only applicable to the ARCHIVELOG mode. It can restore the archived logs and online logs in a specified range to the archived log directory under the database on the source or a different host. It there is no archived log directory, the logs will be restored to the db_recovery_file_dest directory. You can select the points in time of continuous backups and log backups. All archived logs must be backed up in the same storage pool.
+This restore type is only applicable to the ARCHIVELOG mode. It can restore the archived logs and online logs in a specified range to the archived log directory under the database on the source or a different host. Without an archived log directory, the logs will be restored to the db_recovery_file_dest directory. You can select the points in time of continuous backups and log backups. All archived logs must be backed up in the same storage pool.
 
 1. Select the Oracle database host and instance. Select **Restore Archived Logs** and click **Next**.
 
-![](../image/01-agent/oracle/oracle-39.png)
+   ![](../image/01-agent/oracle/oracle-39.png)
 
 2. Set **Restore Target**. You can restore to the source database or a database on a different host with the same operating system and Oracle version (major version number).  The target database should be at least in the MOUNTED state.
 
@@ -837,13 +806,13 @@ Oracle Recovery Testing can be used to create periodic restore jobs. It can rest
 
 2. Select **Recovery Testing** as the restore type. You do not need to select the point in time of backup sets. The job will recover the latest backup sets of the source host.
 
-![](../image/01-agent/oracle/oracle-40.png)
+   ![](../image/01-agent/oracle/oracle-40.png)
 
 3. Select **Restore Target**. The target cannot be the source instance. The database version should be the same as the source database version.
 
 4. Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
 
-5. Set **Restore Options** including channels and reset log. If you do not enable the **Open database with "resetlogs" after restore** option, then in the next run, the data file will not be restored, while the archived logs will be used to restore the database to the latest backup state.
+5. Set **Restore Options** including channels and reset log. If you do not enable the **Open database with "resetlogs" after restore** option, then in the next run, the datafile will not be restored, while the archived logs will be used to restore the database to the latest backup state.
 
 6. Confirm the job information and click **Submit**.
 
@@ -857,7 +826,7 @@ Oracle Logical Recovery Testing can be used to create periodic logical import jo
 
 2. Select **Data Pump Recovery Testing** or **Traditional Recovery Testing**. The job will recover the latest backup sets of the source host.
 
-![](../image/01-agent/oracle/oracle-41.png)
+   ![](../image/01-agent/oracle/oracle-41.png)
 
 3. Select **Restore Target**. We recommend restoring to a target with the same version as the source database. Limitations may exist between different versions and the import may fail.
 
@@ -877,9 +846,9 @@ Only databases with complete Oracle synthetic backups are supported for Instant 
 
 2. Select **Instant Recovery**. It supports restoring to a specified point in time, SCN, and the backup state (shortest recovery time).
 
-![](../image/01-agent/oracle/oracle-42.png)
+   ![](../image/01-agent/oracle/oracle-42.png)
 
-To restore the control files and log files to different directories on the source database, you can click **Modify the path of restore files** and edit the path of each file. However, when creating Instant Recovery, you cannot modify the path of data files, but can modify the path of other files.
+   To restore the control files and log files to different directories on the source database, you can click **Modify the path of restore files** and edit the path of each file. However, when creating Instant Recovery, you cannot modify the path of datafiles, but can modify the path of other files.
 
 3. Select **Restore Target**. It supports restoring to the source database and a database on a different host with the same operating system and Oracle version. The target database should be at least in the STARTED state.
 
@@ -887,27 +856,27 @@ To restore the control files and log files to different directories on the sourc
 
 5. Set **Restore Options** including common and advanced options.
 
-![](../image/01-agent/oracle/oracle-43.png)
+   ![](../image/01-agent/oracle/oracle-43.png)
 
-In the common options, you can set channels, reset log, and archived logs destination.
+   In the common options, you can set channels, reset log, and archived logs destination.
 
-About **Archived logs destination**:
+   About **Archived logs destination**:
 
-- **Separate volume**: A separate volume in the storage pool to store archived logs. The volume will be deleted after the mounted data is detached.
-- **Same volume as database copy**: Shared volume for backup set snapshots, i.e. same volume as backup set.
-- **Local directory**: Local file system directory. It can list the space usage of the directory and help you to determine the required space of archived logs.
+   - **Separate volume**: A separate volume in the storage pool to store archived logs. The volume will be deleted after the mounted data is detached.
+   - **Same volume as database copy**: Shared volume for backup set snapshots, i.e. same volume as backup set.
+   - **Local directory**: Local file system directory. It can list the space usage of the directory and help you to determine the required space of archived logs.
 
-![](../image/01-agent/oracle/oracle-44.png)
+   ![](../image/01-agent/oracle/oracle-44.png)
 
-Advanced options include precondition, pre/post action, and storage protocol. In the **Storage protocol** option, you can create a new FC Target or iSCSI Target for the restore job. It supports restoring the backup sets from the iSCSI database synthetic pool to the FC and vice versa. This option requires the operator has the admin permissions. You can enable the **Disable synchronous I/O** option to speed up the recovery.
+   Advanced options include precondition, pre/post action, and storage protocol. In the **Storage protocol** option, you can create a new FC Target or iSCSI Target for the restore job. It supports restoring the backup sets from the iSCSI database synthetic pool to the FC and vice versa. This option requires the operator has the admin permissions. You can enable the **Disable synchronous I/O** option to speed up the recovery.
 
 6. Confirm the job information and click **Submit**.
 
-7. After the instant recovery job is completed. you can find a corresponding record on the **CDM**  interface. To delete the instance, you can click the **Delete** icon. The agent will shut down the instance and delete the mounted data files.
+7. After the instant recovery job is completed. you can find a corresponding record on the **CDM**  interface. To delete the instance, you can click the **Delete** icon. The agent will shut down the instance and delete the mounted datafiles.
 
 ### Create Oracle Live Recovery Jobs
 
-Oracle Live Recovery is designed to migrate the mounted database back to the source database smoothly after the source database undergoes emergency instant recovery due to crash or other reasons.
+Oracle Live Recovery is designed to migrate the mounted database back to the source database smoothly after the source database undergoes emergency instant recovery due to a crash or other reasons.
 
 You can create Oracle Live Recovery jobs in two ways:
 
@@ -918,7 +887,7 @@ You can create Oracle Live Recovery jobs in two ways:
 
 2. Select **Live Recovery** as the restore type. The default restore destination is the original file path of the synthetic backup host. To restore the control files and log files to different directories, you can click **Modify the path of restore files** and edit the path of each file.
 
-![](../image/01-agent/oracle/oracle_live_recovery-01.png)
+   ![](../image/01-agent/oracle/oracle_live_recovery-01.png)
 
 3. Select **Restore Target**. It supports restoring to the source database and a database in a different host with the same operating system and Oracle version. The target database should be at least in the STARTED state.
 
@@ -926,24 +895,24 @@ You can create Oracle Live Recovery jobs in two ways:
 
 5. Set **Restore Options** including common and advanced options.
 
-Common options: Switch instance, host address of the mounted instance, target host address, and delete synced logs of the mounted instance.
+   ![](../image/01-agent/oracle/oracle_live_recovery-02.png)
 
-![](../image/01-agent/oracle/oracle_live_recovery-02.png)
+   Common options: Switch instance, host address of the mounted instance, target host address, and delete synced logs of the mounted instance.
 
-**Switch instance**:
+   **Switch instance**:
 
-- **Manual**: After the recovery, you should switch the instances manually.
-- **Immediate**: After the recovery, ADPS will switch the instances immediately.
-- **Specify time**: When the specified time is reached, ADPS will shut down the source instance and open the target instance.
-- **Delay**: After the recovery, ADPS will switch the instances after the set time.
+   - **Manual**: After the recovery, you should switch the instances manually.
+   - **Immediate**: After the recovery, ADPS will switch the instances immediately.
+   - **Specify time**: When the specified time is reached, ADPS will shut down the source instance and open the target instance.
+   - **Delay**: After the recovery, ADPS will switch the instances after the set time.
 
-**Sync period**: Set the periodic time for archived log synchronization before switching instances.
+   **Sync period**: Set the periodic time for archived log synchronization before switching instances.
 
-**Archived logs cache directory for the target host**: Specify the cache directory for downloading archived logs.
+   **Archived logs cache directory for the target host**: Specify the cache directory for downloading archived logs.
 
-Advanced options include reconnection time, resumption buffer size, speed limit, precondition, and pre/post action. You can enable the **Disable synchronous I/O** option to speed up the recovery speed.
+   ![](../image/01-agent/oracle/oracle_live_recovery-03.png)
 
-![](../image/01-agent/oracle/oracle_live_recovery-03.png)
+   Advanced options include reconnection time, resumption buffer size, speed limit, precondition, and pre/post action. You can enable the **Disable synchronous I/O** option to speed up the recovery speed.
 
 6. Confirm the job information and click **Submit**.
 
@@ -951,7 +920,7 @@ Advanced options include reconnection time, resumption buffer size, speed limit,
 
 ## Manage Jobs
 
-On the **Job** interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.
+On the **Job** interface, you can view the backup and restore job information of all agents, start, modify, and delete the jobs.
 
 ![](../image/01-agent/oracle/oracle-45.png)
 
@@ -963,26 +932,26 @@ On the **Job** interface, you can view the backup and restore job information of
 
 ### Backup Schedule Operation
 
-ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the currently created job.
+ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
 
 ![](../image/01-agent/oracle/oracle-53.png)
 
-- Immediate: The job starts immediately after it is submitted.
-- One Time: The job starts to run at a specified time. After the job is submitted, the job will be in an idle state and start to run when the specified run time is reached.
-- Hourly: The job runs after a specified number of hours according to the setting. The value is an integer between 1 and 24.
-- Daily: The job runs after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: The job runs after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
-- Monthly: The job runs at the specified weeks/days of months.
+- Immediate: The job immediately starts to run after it is submitted.
+- One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created,  the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created,  the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created,  the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 > **Example: Run the job every two weeks on Friday at 18:00**
 
-![](../image/01-agent/oracle/oracle-49.png)
+   ![](../image/01-agent/oracle/oracle-49.png)
 
-> **The actual execution time is:**
+> **The execution time is:**
 >
-> - If the current time is Friday 17:00, the execution time is Friday 18:00 (the current day).
-> - If the current time is Thursday 17:00, the execution time is Friday 18:00 (the next day).
-> - If the current time is Saturday 17:00, the execution time will be next Friday 18:00.
+> - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
+> - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).
+> - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
 > - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
 ### Backup Strategy Advice
@@ -990,19 +959,22 @@ ADPS provides 6 types of backup schedules. The schedule type selected is only va
 There are six Oracle backup types: full backup, incremental backup, cumulative incremental backup, logical backup, log backup, and synthetic backup. Full backup, incremental backup, cumulative incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
 
 1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
-2. After that, you can run a **Incremental Backup** or **Cumulative Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
+2. After that, you can run an **Incremental Backup** or **Cumulative Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
 3. If the database supports log backup, you can run a **Log Backup** every few hours to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.
 4. You can use other backups according to application scenarios.
 
-> Avoid using the strategies of all full backups or a full backup followed by cumulative incremental or log backups.
+> Avoid using the following strategies:
+>
+> - Only perform full backups.
+> - Perform a full backup followed by cumulative incremental or log backups.
 
 ## Channel Number Configuration
 
-- Description of the channel number for backup jobs. 1-255 channels are supported.
+1-255 channels are supported.
 
-  When Oracle is backed up to a tape library pool, the channel number will be given a default value based on the number of drives in the tape library, the number of tapes, and whether the Oracle database is a RAC cluster. If the maximum number that can be filled is bigger than 4, the default value will be 4. Otherwise, the default value is the maximum number that can be filled.
-  
-  Restoring Oracle from a tape library pool only supports one channel and the number cannot be modified.
+When Oracle is backed up to a tape library pool, the channel number will be given a default value based on the number of drives in the tape library, the number of tapes, and whether the Oracle database is a RAC cluster. The default value is the maximum number that can be filled.
+
+Restoring Oracle from a tape library pool only supports one channel and the number cannot be modified.
 
 ## Oracle Cluster
 
@@ -1014,11 +986,11 @@ ADPS supports Oracle RAC, Oracle hot standby, Oracle Data Guard, Oracle Active D
 
 1. Go to **Resource** -> **Cluster**. Click the **Cluster Binding** icon.
 
-![](../image/01-agent/oracle/oracle-51.png)
+   ![](../image/01-agent/oracle/oracle-51.png)
 
 2. Customize the cluster name. Select the active node as the **Primary Node**, the corresponding Oracle cluster type as the **Type**, and the inactive nodes as the **Nodes**. Click **Submit**.
 
-![](../image/01-agent/oracle/oracle-52.png)
+   ![](../image/01-agent/oracle/oracle-52.png)
 
 ### Backup
 
@@ -1031,6 +1003,11 @@ To create a backup job, go to the **Hosts and Resources** page and select the Or
 To create a backup job, go to the **Hosts and Resources** page where you can find all Oracle RAC nodes. Select the Oracle under any node as the backup source. The remaining steps are similar to single instance backup.
 
 The Oracle RAC backup job will be performed on the active node. If the active node goes down, the remaining nodes will take over the backup job according to the node settings in cluster binding. After the downed node is normal, it will take over the backup job again.
+
+When running Oracle RAC synthetic backup, please note that:
+
+- The Target will be mounted to the active node during the backup and the backup job will be performed on the active node. Jobs cannot be performed on the inactive node.
+- During the synthetic backup, please do not run tablespace restores and single table restores. Otherwise, the subsequent instant recovery will fail.
 
 #### Oracle One Node
 
@@ -1070,6 +1047,8 @@ The **Restore Target** step displays all the nodes of Oracle RAC. Select the Ora
 
 After the creation, the restore will be performed on the node selected as the restore target. Oracle instances of other nodes will be closed. After the single node restore is complete, Oracle instances of the other nodes will be started.
 
+During the instant recovery, the disk will be mounted to the active node and then ADPS will recover the disk's data according to the single instance instant recovery. After the recovery, only the active node is available while others are not.
+
 #### Oracle One Node
 
 The **Restore Target** step displays the active node of Oracle One Node. Select the Oracle under the Oracle One Node active node as the restore object. The remaining steps are similar to the single instance restore.
@@ -1107,10 +1086,10 @@ class: longtable
 | ------------------------------- | ------------------------------------------------------------ |
 | OS authentication   | Windows platforms are not supported. |
 | Access key authentication | Table restore is not supported.            |
-| Backup                    | Compression: If you select to back up to a de-duplication pool, the Compression option will not be provided. {{ br }}RMAN command: It will be inserted between the allocate channel command and backup command. For example, you can use "set maxcorrupt for datafile xxx to N;" to skip bad blocks of some files. {{ br }}Reserve archive logs: When Oracle backup and data synchronization exist at the same time, you should select not to delete archive logs when creating backups. Otherwise, the backup jobs will delete unsynchronized archive logs, leading to the failure of data synchronization.{{ br }}Hide Data Pump export: When the Oracle version is older than 10, Data Pump export will be hidden. {{ br }}Data Pump export is not supported when: the database is logged in with OS; the state of the database is STARTED or MOUNTED; read_only is true; or the database is a standby. {{ br }}Traditional export is not supported when: the database is logged in with OS; or the state of the database is STARTED or MOUNTED.{{ br }}Log backup is not supported when the database is in NOARCHIVELOG mode.{{ br }}The continuous log backup of Oracle RAC One Node is not supported when the database is in NOARCHIVELOG mode.{{ br }}Synthetic backup is not supported for HP-UX PA-RISC, HPUX-IA64, Solaris SPARC, and Solaris-x86.{{ br }}When you select Traditional Export and the Oracle database major version is newer than or equal to 11, the interface will prompt: Then traditional export of the current version (11.xxx) may fail. When the database state is OPEN and read_only is false, the interface will prompt: The database is in the OPEN READ WRITE state. It is recommended to use Data Pump export. <br/>LogMiner of 18c is not supported.<br/>The full backup and log backups should be in the same pool. Otherwise, the restore will fail. |
+| Backup                    | Compression: If you select to back up to a de-duplication pool, the Compression option will not be provided. {{ br }}RMAN command: It will be inserted between the allocate channel command and backup command. For example, you can use "set maxcorrupt for datafile xxx to N;" to skip bad blocks of some files. {{ br }}Reserve archive logs: When Oracle backup and data synchronization exist at the same time, you should select the Do not delete archive logs option when creating backups. Otherwise, the backup jobs will delete unsynchronized archive logs, leading to the failure of data synchronization.{{ br }}Hide Data Pump export: When the Oracle version is older than 10, Data Pump export will be hidden. {{ br }}Data Pump export is not supported when one of the following conditions occurs: the database is logged in with OS; the instance status is STARTED or MOUNTED; the database OPEN_MODE is READ ONLY; or the database is a standby. {{ br }}Traditional export is not supported when one of the following conditions occurs: the database is logged in with OS; or the instance status is STARTED or MOUNTED.{{ br }}Log backup is not supported when the database is in NOARCHIVELOG mode.{{ br }}The continuous log backup of Oracle RAC One Node is not supported when the database is in NOARCHIVELOG mode.{{ br }}Synthetic backup is not supported for HP-UX PA-RISC, HPUX-IA64, Solaris SPARC, and Solaris-x86.{{ br }}When you select Traditional Export and the Oracle database major version is newer than or equal to 11, the job may fail. When the database OPEN-MODE is READ WRTIE, Data Pump export is recommended. <br/>LogMiner of 18c is not supported.<br/>The full backup and log backups should be in the same pool. Otherwise, the restore will fail. |
 | Synthetic backup     | The agent supports Linux (Red Hat 4.9 and later), AIX and Windows 2008 and later platforms. The database version supports Oracle 10g and later versions. {{ br }}Disable synchronous I/O option only supports Linux platforms.{{ br }}If iSCSI is used, iscsi-initiator-utils should be installed on the agent. {{ br }}The database for AIX Oracle synthetic backup cannot be larger than 128T. {{ br }}If the Oracle does not enable AsyncIO, ADPS will not automatically switch the synthesis method to Frontend Pipeline Synthesis. {{ br }}Databases under Red Hat 4.0 for synthetic backups cannot be larger than 16T.{{ br }}Synthetic pools under Red Hat 4.0 should use the ext3 filesystem format.{{ br }}You should create a synthetic backup job first and then create a log backup. |
 | Live Recovery                   | You should create an instant recovery job first before using Live Recovery. {{ br }}Live Recovery is not supported for the instant recovery of synthetic backups that use the synthesis method of ASM disk group. |
-| Analyze redo log files to find the exact SCN to restore to | Only the logs generated after the first backup can be used for LogMiner. {{ br }}When you are selecting the logs for analysis, the logs should reside in the same restore branch with the database. It means that if you select the logs in other restore branches for analysis, you should perform a timepoint restore first and then perform the LogMiner. {{ br }}Only the analysis of the source database is supported.{{ br }}To set or modify the data dictionary file directory, you need to restart the database. {{ br }}The analysis progress cannot be displayed or stopped. {{ br }}DDL SQL statements (CREATE, ALTER, DROP, etc.) cannot be undid. |
+| Analyze redo log files to find the exact SCN to restore to | Only the logs generated after the first backup can be used for LogMiner. {{ br }}When you select the logs for analysis, the logs should reside in the same restore branch as the database. It means that if you select the logs in other restore branches for analysis, you should perform a timepoint restore first and then perform the LogMiner. {{ br }}Only the analysis of the source database is supported.{{ br }}To set or modify the data dictionary file directory, you need to restart the database. {{ br }}The analysis progress cannot be displayed or stopped. {{ br }}DDL SQL statements (CREATE, ALTER, DROP, etc.) cannot be undone. |
 |Oracle RAC|The multi-node concurrent backup of a database cannot be achieved with OS authentication. {{ br }}The continuous log backup of Oracle RAC One Node is not supported.|
 |Oracle XE|Database logical backup and restore are not supported. {{ br }}Tablespace and table timepoint restore are not supported.|
 ```

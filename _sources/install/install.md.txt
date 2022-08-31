@@ -2,7 +2,7 @@
 
 ## About ADPS
 
-Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of enterprise operating systems, databases, files, and virtual machines. ADPS provides a storage backup management platform through a Web interface for users to monitor and manage the backup and restore jobs. In addition, it can manage and monitor the backup systems of large enterprises or governments distributed in various places. The offsite disaster recovery and data replication of ADPS also provide enterprises with efficient and cost-effective solutions for high database reliability and availability.
+Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of enterprise operating systems, databases, files, and virtual machines. ADPS provides a Web interface for users to monitor and manage the backup/restore jobs and the backup systems of large enterprises or governments distributed in different places. With the capabilities of off-site disaster recovery and data replication, it offers an efficient and cost-effective solution for high database reliability and availability.
 
 ![](../image/install/install-1.png)
 
@@ -40,7 +40,6 @@ Step 9. Open access ports
 
 Step 10. Check the service state
 
-
 ### Server Requirements
 
 The following are the hardware requirements for the ADPS backup/storage server. You can refer to the server configuration of the Aurreum Data Protection Appliance (ADPA). If you use an outdated server, problems such as incompatibility may occur.
@@ -51,27 +50,28 @@ The following are the hardware requirements for the ADPS backup/storage server. 
 
 2. Memory
 
-```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.18}|\Y{0.32}|
-```
-```{table} Memory
+   ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.18}|\Y{0.32}|
+   ```
+   ```{table} Memory
    | Item                          | Standard Configuration         | Minimum Configuration | Instruction                                                  |
    | ----------------------------- | ------------------------------ | --------------------- | ------------------------------------------------------------ |
    | Software installation         | More than 32 G                 | More than 16 G        | Less than 16 G may result in unacceptable performance.       |
    | CDM or de-duplication service | At least 1.5‰ of the data disk | More than 16 G        | For example, if the data disk space is 64 T, the storage server memory should be at least 96 G. |
-```
+   ```
 
 3. Storage
 
    The storage of the backup/storage server is classified into: system disk and data disk.
 
-```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
-```
-```{table} Storage
+   ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
+   ```
+   ```{table} Storage
    | Storage     | Recommendation                                               |
    | ----------- | ------------------------------------------------------------ |
    | System disk | Use the Solid-State Drive (SSD) as the system disk, at least two SSDs of 120 G or above, and create a RAID1. |
    | Data disk   | Equip multiple mechanical Hard Disk Drives (HDDs) for the data disk, which depends on the hardware server configuration and business volume. |
-```
+   ```
+
 4. Network
 
    Use at least two network interface cards (GE/10GE) for isolating networks for different usages such as management and storage. If there are scenarios of LAN-Free function and database synthetic backups, an iSCSI/FC HBA card is also required. See the *Appendix* for the compatible models of the supported HBA card.
@@ -82,97 +82,106 @@ The following are the hardware requirements for the ADPS backup/storage server. 
 
    The following operating systems are supported for the backup/storage server:
 
-```{tabularcolumns} |\Y{0.33}|\Y{0.33}|\Y{0.33}|
-```
-```{table} Operating system
+   ```{tabularcolumns} |\Y{0.33}|\Y{0.33}|\Y{0.33}|
+   ```
+   ```{table} Operating system
    | Operating System | CPU Architecture | Operating System Bits |
    | ---------------- | ---------------- | --------------------- |
    | Ubuntu 18.04     | x86              | 64                    |
    | CentOS 7.6       | x86              | 64                    |
-```
+   ```
 
 6. File system
 
-  (1) System disk
+   (1) System disk
 
    Use LVM to create VG (systemvg)  on the system disk and then create LV on the systemvg. The recommended system partitions are:
 
-```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
-```
-```{table} System disk 
+   ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
+   ```
+   ```{table} System disk 
    | Partition | Mount Point | Partition Size   | File System |
    | --------- | ----------- | ---------------- | ----------- |
    | boot      | `/boot`     | 512 MiB          | ext2        |
    | rootlv    | `/`         | 32 GiB and above | xfs         |
    | swaplv    | `swap`      | 16 GiB and above | swap        |
-```
+   ```
    (2) Data disk
 
-   An XFS or ZFS file system is required to be created on the data disk. To achieve LAN-Free function and database synthetic backups, a ZFS file 	system         should be created. For other scenarios, an XFS file system should be created.
+   An XFS or ZFS file system is required to be created on the data disk. To achieve LAN-Free function and database synthetic backups, a ZFS file system should be created. For other scenarios, an XFS file system should be created.
 
-**XFS file system**
+   **XFS file system**
 
    Use LVM to create VG (infokistvg) on the data disk and create the following infokistlv on infokistvg.
 
-```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
-```
-```{table} XFS file system
- | Partition  | Mount Point | Capacity            | File System Type |
- | ---------- | ----------- | ------------------- | ---------------- |
- | infokistlv | `/infokist` | All data disk space | XFS              |
-```
-**ZFS file system**
+   ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
+   ```
+   ```{table} XFS file system
+   | Partition  | Mount Point | Capacity            | File System Type |
+   | ---------- | ----------- | ------------------- | ---------------- |
+   | infokistlv | `/infokist` | All data disk space | XFS              |
+   ```
+
+   **ZFS file system**
 
    If a ZFS file system is created on the data disk, you should configure JBOD mode (pass-through mode) on the RAID controller. Use the zpool create command to create an infokist pool on the data disk and then mount the pool to the /infokist directory.
 
-```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
-```
-```{table} ZFS file system
- | ZFS pool | Mount Point | Capacity            | File System Type |
- | -------- | ----------- | ------------------- | ---------------- |
- | infokist | `/infokist` | All data disk space | ZFS              |
-```
+   ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
+   ```
+   ```{table} ZFS file system
+   | ZFS pool | Mount Point | Capacity            | File System Type |
+   | -------- | ----------- | ------------------- | ---------------- |
+   | infokist | `/infokist` | All data disk space | ZFS              |
+   ```
 
-First, check the device ID of each hard disk. For example, /dev/disk/by-id/wwn-0x5000cca271c7dcd2 is the device ID of /dev/sda.
- ```
- ls -l /dev/disk/by-id/
- ```
- Create ZPOOL. Take 24 HDDs for example.
- ```
- Check the HDD physical sector size
- sudo blockdev --getpbsz /dev/disk/by-id/wwn-0x5000cca271c7dcd2
- 4096
- ```
- If the physical sector size of the disk is 4 KiB (i.e. "Advanced Format": https://en.wikipedia.org/wiki/Advanced_Format), then
- ```
- sudo zpool create -f -m /infokist -o ashift=12 infokist \
- raidz2 \
-    /dev/disk/by-id/wwn-0x5000cca271c7dcd2 /dev/disk/by-id/wwn-0x5000cca271c81fa3 /dev/disk/by-id/wwn-0x5000cca271c8259e \
-    /dev/disk/by-id/wwn-0x5000cca271c8273b /dev/disk/by-id/wwn-0x5000cca271c82b67 /dev/disk/by-id/wwn-0x5000cca271c82d9e \
-    /dev/disk/by-id/wwn-0x5000cca271c83674 /dev/disk/by-id/wwn-0x5000cca271c836e4 /dev/disk/by-id/wwn-0x5000cca271c840eb \
-    /dev/disk/by-id/wwn-0x5000cca271c846dd /dev/disk/by-id/wwn-0x5000cca271c848a6 /dev/disk/by-id/wwn-0x5000cca271c8509f \
- raidz2 \
-    /dev/disk/by-id/wwn-0x5000cca271c76773 /dev/disk/by-id/wwn-0x5000cca271c79f59 /dev/disk/by-id/wwn-0x5000cca271c8080a \
-    /dev/disk/by-id/wwn-0x5000cca271c82df7 /dev/disk/by-id/wwn-0x5000cca271c8371d /dev/disk/by-id/wwn-0x5000cca271c837e9 \
-    /dev/disk/by-id/wwn-0x5000cca271c837f7 /dev/disk/by-id/wwn-0x5000cca271c84cf8 /dev/disk/by-id/wwn-0x5000cca271c84cfd \
-    /dev/disk/by-id/wwn-0x5000cca271c84cff /dev/disk/by-id/wwn-0x5000cca271c8508f /dev/disk/by-id/wwn-0x5000cca271c85193
- ```
- If the physical sector size of the disk is 512 B, then
- ```
- sudo zpool create -f -m /infokist infokist \
- raidz2 \
-    /dev/disk/by-id/wwn-0x5000cca271c7dcd2 /dev/disk/by-id/wwn-0x5000cca271c81fa3 /dev/disk/by-id/wwn-0x5000cca271c8259e \
-    /dev/disk/by-id/wwn-0x5000cca271c8273b /dev/disk/by-id/wwn-0x5000cca271c82b67 /dev/disk/by-id/wwn-0x5000cca271c82d9e \
-    /dev/disk/by-id/wwn-0x5000cca271c83674 /dev/disk/by-id/wwn-0x5000cca271c836e4 /dev/disk/by-id/wwn-0x5000cca271c840eb \
-    /dev/disk/by-id/wwn-0x5000cca271c846dd /dev/disk/by-id/wwn-0x5000cca271c848a6 /dev/disk/by-id/wwn-0x5000cca271c8509f \
- raidz2 \
-    /dev/disk/by-id/wwn-0x5000cca271c76773 /dev/disk/by-id/wwn-0x5000cca271c79f59 /dev/disk/by-id/wwn-0x5000cca271c8080a \
-    /dev/disk/by-id/wwn-0x5000cca271c82df7 /dev/disk/by-id/wwn-0x5000cca271c8371d /dev/disk/by-id/wwn-0x5000cca271c837e9 \
-    /dev/disk/by-id/wwn-0x5000cca271c837f7 /dev/disk/by-id/wwn-0x5000cca271c84cf8 /dev/disk/by-id/wwn-0x5000cca271c84cfd \
-    /dev/disk/by-id/wwn-0x5000cca271c84cff /dev/disk/by-id/wwn-0x5000cca271c8508f /dev/disk/by-id/wwn-0x5000cca271c85193
- ```
+   First, check the device ID of each hard disk. For example, /dev/disk/by-id/wwn-0x5000cca271c7dcd2 is the device ID of /dev/sda.
 
- After the successful creation, ZPOOL will be automatically mounted to the /infokist directory. You can use the df -h command to check the results.
+   ```
+   ls -l /dev/disk/by-id/
+   ```
+   
+   Create ZPOOL. Take 24 HDDs for example.
+
+   ```
+   Check the HDD physical sector size
+   sudo blockdev --getpbsz /dev/disk/by-id/wwn-0x5000cca271c7dcd2
+   4096
+   ```
+
+   If the physical sector size of the disk is 4 KiB (i.e. "Advanced Format": https://en.wikipedia.org/wiki/Advanced_Format), then
+
+   ```
+   sudo zpool create -f -m /infokist -o ashift=12 infokist \
+   raidz2 \
+      /dev/disk/by-id/wwn-0x5000cca271c7dcd2 /dev/disk/by-id/wwn-0x5000cca271c81fa3 /dev/disk/by-id/wwn-0x5000cca271c8259e \
+      /dev/disk/by-id/wwn-0x5000cca271c8273b /dev/disk/by-id/wwn-0x5000cca271c82b67 /dev/disk/by-id/wwn-0x5000cca271c82d9e \
+      /dev/disk/by-id/wwn-0x5000cca271c83674 /dev/disk/by-id/wwn-0x5000cca271c836e4 /dev/disk/by-id/wwn-0x5000cca271c840eb \
+      /dev/disk/by-id/wwn-0x5000cca271c846dd /dev/disk/by-id/wwn-0x5000cca271c848a6 /dev/disk/by-id/wwn-0x5000cca271c8509f \
+   raidz2 \
+      /dev/disk/by-id/wwn-0x5000cca271c76773 /dev/disk/by-id/wwn-0x5000cca271c79f59 /dev/disk/by-id/wwn-0x5000cca271c8080a \
+      /dev/disk/by-id/wwn-0x5000cca271c82df7 /dev/disk/by-id/wwn-0x5000cca271c8371d /dev/disk/by-id/wwn-0x5000cca271c837e9 \
+      /dev/disk/by-id/wwn-0x5000cca271c837f7 /dev/disk/by-id/wwn-0x5000cca271c84cf8 /dev/disk/by-id/wwn-0x5000cca271c84cfd \
+      /dev/disk/by-id/wwn-0x5000cca271c84cff /dev/disk/by-id/wwn-0x5000cca271c8508f /dev/disk/by-id/wwn-0x5000cca271c85193
+   ```
+
+   If the physical sector size of the disk is 512 B, then
+
+   ```
+   sudo zpool create -f -m /infokist infokist \
+   raidz2 \
+      /dev/disk/by-id/wwn-0x5000cca271c7dcd2 /dev/disk/by-id/wwn-0x5000cca271c81fa3 /dev/disk/by-id/wwn-0x5000cca271c8259e \
+      /dev/disk/by-id/wwn-0x5000cca271c8273b /dev/disk/by-id/wwn-0x5000cca271c82b67 /dev/disk/by-id/wwn-0x5000cca271c82d9e \
+      /dev/disk/by-id/wwn-0x5000cca271c83674 /dev/disk/by-id/wwn-0x5000cca271c836e4 /dev/disk/by-id/wwn-0x5000cca271c840eb \
+      /dev/disk/by-id/wwn-0x5000cca271c846dd /dev/disk/by-id/wwn-0x5000cca271c848a6 /dev/disk/by-id/wwn-0x5000cca271c8509f \
+   raidz2 \
+      /dev/disk/by-id/wwn-0x5000cca271c76773 /dev/disk/by-id/wwn-0x5000cca271c79f59 /dev/disk/by-id/wwn-0x5000cca271c8080a \
+      /dev/disk/by-id/wwn-0x5000cca271c82df7 /dev/disk/by-id/wwn-0x5000cca271c8371d /dev/disk/by-id/wwn-0x5000cca271c837e9 \
+      /dev/disk/by-id/wwn-0x5000cca271c837f7 /dev/disk/by-id/wwn-0x5000cca271c84cf8 /dev/disk/by-id/wwn-0x5000cca271c84cfd \
+      /dev/disk/by-id/wwn-0x5000cca271c84cff /dev/disk/by-id/wwn-0x5000cca271c8508f /dev/disk/by-id/wwn-0x5000cca271c85193
+   ```
+
+   After the creation, ZPOOL will be automatically mounted to the /infokist directory. You can use the df -h command to check the results.
+
 7. Set the time zone
 
    Set the time zone of the operating system as that of your current location. The recommended modification command is:
@@ -202,6 +211,7 @@ You can contact our technical support to get the required ADPS packages. The ver
 | kernel_version-zfs_version-ubuntu1804_architecture.tar.gz | Kernel and ZFS tool package for Ubuntu 18.04.                |
 | kernel_version-zfs_version-centos76_architecture.tar.gz   | Kernel and ZFS tool package for CentOS 7.6.                  |
 ```
+
 ### Update the Kernel
 
 If you create a ZFS file system on the data disk of the operating system, you must update the kernel to the internal source version (not the public source version) before installing the ADPS software. Otherwise, it will affect the normal use of LAN-Free and database synthesis functions. The operation is as follows:
@@ -235,66 +245,66 @@ If you create a ZFS file system on the data disk of the operating system, you mu
 
 1. Installation method
 
-* Ubuntu
+   * Ubuntu
 
-```bash
-sudo tar -zvxf Ubuntu1804_amd64_MariaDB10.6.tar.gz
-cd Ubuntu1804_amd64_MariaDB10.6
-sudo sh install_MariaDB10.6.sh
-```
+   ```bash
+   sudo tar -zvxf Ubuntu1804_amd64_MariaDB10.6.tar.gz
+   cd Ubuntu1804_amd64_MariaDB10.6
+   sudo sh install_MariaDB10.6.sh
+   ```
 
-* CentOS
+   * CentOS
 
-```bash
-sudo tar -zvxf Centos7_x86-64_MariaDB10.6.tar.gz
-cd Centos7_x86-64_MariaDB10.6
-sudo sh install_MariaDB10.6.sh
-```
+   ```bash
+   sudo tar -zvxf Centos7_x86-64_MariaDB10.6.tar.gz
+   cd Centos7_x86-64_MariaDB10.6
+   sudo sh install_MariaDB10.6.sh
+   ```
 
 2. Set the root password
 
-```bash
-sudo systemctl start mariadb
-sudo mysqladmin -u root password 'xxxxxx'   #(xxxxxx is the password that you set for the root user)
-```
+   ```bash
+   sudo systemctl start mariadb
+   sudo mysqladmin -u root password 'xxxxxx'   #(xxxxxx is the password that you set for the root user)
+   ```
 
 3. Modify the configuration file
 
-Add sql_mode, remote access, and other settings on the MariaDB configuration file. Modify the /etc/mysql/mariadb.conf.d/50-server.cnf configuration file on Ubuntu and the /etc/my.cnf.d/server.cnf configuration file on CentOS.
+   Add sql_mode, remote access, and other settings on the MariaDB configuration file. Modify the /etc/mysql/mariadb.conf.d/50-server.cnf configuration file on Ubuntu and the /etc/my.cnf.d/server.cnf configuration file on CentOS.
 
-(1) Add sql_mode
+   (1) Add sql_mode
 
-```bash
-[mysqld]
-sql_mode='ONLY_FULL_GROUP_BY'
-```
+      ```bash
+      [mysqld]
+      sql_mode='ONLY_FULL_GROUP_BY'
+      ```
 
-(2) Enable remote access. Set the bind address to 0.0.0.0
+   (2) Enable remote access. Set the bind address to 0.0.0.0
 
-```bash
-[mysqld]
-bind-address = 0.0.0.0
-```
+      ```bash
+      [mysqld]
+      bind-address = 0.0.0.0
+      ```
 
-(3) Use root to log in to MariaDB and grant remote access privileges to root.
+   (3) Use root to log in to MariaDB and grant remote access privileges to root.
 
-```bash
-mysql -u root -p
-MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'xxxxxx';  #(xxxxxx is the password that you set for the root user)
-MariaDB [(none)]> FLUSH PRIVILEGES;
-```
+      ```bash
+      mysql -u root -p
+      MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'xxxxxx';  #(xxxxxx is the password that you set for the root user)
+      MariaDB [(none)]> FLUSH PRIVILEGES;
+      ```
 
-(4) Restart MariaDB
+   (4) Restart MariaDB
 
-``` bash
-sudo systemctl restart mariadb
-```
+      ``` bash
+      sudo systemctl restart mariadb
+      ```
 
 4. Set MariaDB to start on boot
 
-```
-sudo systemctl enable mariadb
-```
+   ```
+   sudo systemctl enable mariadb
+   ```
 
 ### Install ADPS Software
 
@@ -302,9 +312,9 @@ sudo systemctl enable mariadb
 
 1. In the directory where the installation package is located, execute the following commands in sequence with root privileges:
 
-```
-sudo dpkg -i adps-common_version_amd64.deb adps-backupd_version_amd64.deb adps-storaged_version_amd64.deb adps-nginx_version_amd64.deb adps-infokist_version_amd64.deb|| sudo apt-get -y -f install
-```
+   ```
+   sudo dpkg -i adps-common_version_amd64.deb adps-backupd_version_amd64.deb adps-storaged_version_amd64.deb adps-nginx_version_amd64.deb adps-infokist_version_amd64.deb|| sudo apt-get -y -f install
+   ```
 
 2. Configure adps-storaged and set the IP address of the backup server, e.g., 192.168.88.239
 
@@ -318,8 +328,7 @@ sudo dpkg -i adps-common_version_amd64.deb adps-backupd_version_amd64.deb adps-s
 
    ![](../image/install/install-5.png)
 
-4. Wait for the installation to complete. After the installation, symbolic links will be created between the ADPS-related directories and the /infokist under the data disk.
-
+5. Wait for the installation to complete. After the installation, symbolic links will be created between the ADPS-related directories and the /infokist under the data disk.
 
 > Install the adps-infokist package after the installation of the adps-storaged package. Otherwise the /infokist directory space may not be available.
 
@@ -335,12 +344,12 @@ sudo dpkg -i adps-common_version_amd64.deb adps-backupd_version_amd64.deb adps-s
 
 3. After the installation, configure adps-storaged:
 
-      ```bash
+   ```bash
    /etc/init.d/adps-storaged config
    Please input Aurreum Data Protection Suite Backup Server host[]:     ##Enter the IP address of the backup server here, e.g., 192.168.88.239
    Please input Aurreum Data Protection Suite Backup Server port[]:     ##Enter the port of the backup server here. The default port of the system: 60305
-   Does Aurreum Data Protection Suite Backup Server enable SSL protocol?[N]:     ##Enter yes here
-   Saving adps-storaged config[OK]:       ##Click "Enter" to save the configuration modification
+   Does Aurreum Data Protection Suite Backup Server enable SSL protocol?[N]:     ##Enter Yes here
+   Saving adps-storaged config[OK]:       ##Press "Enter" to save the configuration modification
    Do you want to restart adps-storaged[Y]:    ##Enter Y here to restart the service
    ```
 
@@ -470,6 +479,7 @@ For the safe running of the system, open the firewall and set the access ports a
 | 60309                             | Interprocess communication among agents | TCP          | Yes       |
 | 10000                             | NDMP backup and restore                 | TCP          | NDMP      |
 ```
+
 ## Check Service State
 
 After the installation, check whether the following ADPS services are running normally:
@@ -511,6 +521,7 @@ You must import a product license to use the Web console. Download the "Request 
 ### Uninstall Software
 
 > Before uninstalling the software, please confirm that you need to uninstall it. Relevant data cannot be retrieved after uninstallation.
+
 #### Ubuntu
 
 - Uninstall a module. For example, to uninstall the controller module, execute the following command with root privileges:
