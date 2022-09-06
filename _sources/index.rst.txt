@@ -31,4 +31,6 @@ Home
 
    postgres/postgres.md
 
+   sybase/sybase.md
+
    vmware/vmware.md
