@@ -27,6 +27,8 @@ Home
 
    mysql/mysql.md
 
+   obs/obs.md
+
    oracle/oracle.md
 
    postgres/postgres.md
