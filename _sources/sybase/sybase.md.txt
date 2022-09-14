@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Sybase databases. This guide introduces how to properly use ADPS to back up and restore Sybase databases.       
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Sybase databases. This guide introduces how to properly use ADPS to back up and restore Sybase databases. 
 
 ## Features
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|

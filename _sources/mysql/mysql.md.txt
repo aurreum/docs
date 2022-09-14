@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ADPS provides the capability for the backup and restore of MySQL databases. This guide introduces how to properly use ADPS to back up and restore MySQL databases.
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of MySQL databases. This guide introduces how to properly use ADPS to back up and restore MySQL databases.
 
 ## Features
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
@@ -185,7 +185,7 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 #### Download Windows Installation Package
 
-Select **Microsoft Windows** and click **Download Windows agent**.
+Select **Windows** and click **Download Windows agent**.
 
 ![agent-2](../image/mysql/01-agent/agent-2.png)
 
@@ -246,7 +246,7 @@ Log in to ADPS as the admin, go to **Resource**, and find the host that you need
 
 ### Activate License
 
-In the pop-up **MySQL License** window, select the resource you want to activate. Click **Activate XX Edition**.
+In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
 
 ![license-3](../image/mysql/02-license/license-3.png)
 
@@ -298,15 +298,12 @@ Log in to ADPS as the operator, go to **Storage Pool**, and check whether there 
 
 ### Add MySQL Instance Manually
 
-If you cannot find MySQL resource under the host on the **Resource** page, you can add MySQL instance manually.
+If MySQL resource is not available on the **Resource** page, you can add MySQL instance manually.
 
-This method is applicable to the following situations: The agent cannot be installed in some environments, or the agent instance cannot be discovered, resulting in failure to backup, such as:
+This method is applicable to the following situations: 
 
-- MySQL instance in container;
-- Unrecognized MySQL instance;
-- MySQL derivative version;
-- Instance without open port;
-- Inaccurate configuration of detected MySQL instance;
+- The agent cannot be installed in some environments,
+- The agent instance cannot be discovered, resulting in failure to backup, such as: MySQL instance in container; unrecognized MySQL instance; MySQL derivative version; instance without open port; inaccurate configuration of detected MySQL instance
 - ...
 
 > Note:
