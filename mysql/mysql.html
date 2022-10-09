@@ -120,6 +120,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../mariadb/mariadb.html">
+   MariaDB User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../mssql/mssql.html">
    SQL Server User’s Guide
   </a>
@@ -1672,14 +1677,14 @@ title="Fullscreen mode"
 <section id="get-agent-package">
 <h3>Get Agent Package<a class="headerlink" href="#get-agent-package" title="Permalink to this heading">#</a></h3>
 <p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
-<p><img alt="agent-1" src="../_images/agent-11.png" /></p>
+<p><img alt="agent-1" src="../_images/agent-12.png" /></p>
 </section>
 <section id="install-and-configure-windows-os-agent">
 <h3>Install and Configure Windows OS Agent<a class="headerlink" href="#install-and-configure-windows-os-agent" title="Permalink to this heading">#</a></h3>
 <section id="download-windows-installation-package">
 <h4>Download Windows Installation Package<a class="headerlink" href="#download-windows-installation-package" title="Permalink to this heading">#</a></h4>
 <p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong>.</p>
-<p><img alt="agent-2" src="../_images/agent-21.png" /></p>
+<p><img alt="agent-2" src="../_images/agent-22.png" /></p>
 </section>
 <section id="install-windows-os-agent">
 <h4>Install Windows OS Agent<a class="headerlink" href="#install-windows-os-agent" title="Permalink to this heading">#</a></h4>
@@ -1687,10 +1692,10 @@ title="Fullscreen mode"
 <li><p>Upload the installation package to the agent.</p></li>
 <li><p>Double-click the package to install it according to the wizard and click <strong>Next</strong>.</p></li>
 <li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Check the <strong>MySQL</strong> component and click <strong>Next</strong>.</p>
-<p><img alt="agent-3" src="../_images/agent-31.png" /></p>
+<p><img alt="agent-3" src="../_images/agent-32.png" /></p>
 </li>
 <li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
-<p><img alt="agent-4" src="../_images/agent-41.png" /></p>
+<p><img alt="agent-4" src="../_images/agent-42.png" /></p>
 </li>
 </ol>
 <blockquote>
@@ -1713,17 +1718,17 @@ title="Fullscreen mode"
 <ol class="arabic simple">
 <li><p>Select <strong>Linux</strong> and <strong>MySQL</strong>. Copy an installation command.</p></li>
 </ol>
-<p><img alt="agent-5" src="../_images/agent-5.png" /></p>
+<p><img alt="agent-5" src="../_images/agent-51.png" /></p>
 <ol class="arabic" start="2">
 <li><p>Paste the command on the command line and press Enter to execute the installation.</p>
-<p><img alt="agent-6" src="../_images/agent-6.png" /></p>
+<p><img alt="agent-6" src="../_images/agent-61.png" /></p>
 </li>
 </ol>
 </section>
 <section id="check-successful-installation">
 <h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
 <p>After the successful installation, you can log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
-<p><img alt="license-1" src="../_images/license-11.png" /></p>
+<p><img alt="license-1" src="../_images/license-12.png" /></p>
 </section>
 </section>
 <section id="activate-license-and-assign-authorization">
@@ -1732,17 +1737,17 @@ title="Fullscreen mode"
 <section id="register-host">
 <h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
 <p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and find the host that you need to activate. Click <strong>Register</strong> icon.</p>
-<p><img alt="license-2" src="../_images/license-2.png" /></p>
+<p><img alt="license-2" src="../_images/license-21.png" /></p>
 </section>
 <section id="activate-license">
 <h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
 <p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
-<p><img alt="license-3" src="../_images/license-3.png" /></p>
+<p><img alt="license-3" src="../_images/license-31.png" /></p>
 </section>
 <section id="assign-authorization">
 <h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
 <p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
-<p><img alt="license-4" src="../_images/license-4.png" /></p>
+<p><img alt="license-4" src="../_images/license-41.png" /></p>
 </section>
 </section>
 <section id="before-you-begin">
@@ -1762,12 +1767,12 @@ title="Fullscreen mode"
 <section id="check-resource">
 <h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
 <p>Log in to ADPS as the operator, go to <strong>Resource</strong>, and you can see the activated and authorized resource on the list and its state is “Online”. If the resource is not available, please check <em>Activate License and Assign Authorization</em>.</p>
-<p><img alt="login-1" src="../_images/login-1.png" /></p>
+<p><img alt="login-1" src="../_images/login-11.png" /></p>
 </section>
 <section id="check-storage-pool">
 <h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
 <p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and check whether there is any storage pool. If a storage pool is not listed, please contact the admin to create one and assign permissions to the operator.</p>
-<p><img alt="storaged-1" src="../_images/storaged-1.png" /></p>
+<p><img alt="storaged-1" src="../_images/storaged-11.png" /></p>
 </section>
 </section>
 <section id="login-resource">
@@ -1777,11 +1782,11 @@ title="Fullscreen mode"
 <ol class="arabic simple">
 <li><p>Before creating the first backup and restore job for the MySQL database, you need to <strong>Login</strong> to MySQL first.</p></li>
 </ol>
-<p><img alt="login-2" src="../_images/login-21.png" /></p>
+<p><img alt="login-2" src="../_images/login-22.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p>Enter the username and password of MySQL to login.</p></li>
 </ol>
-<p><img alt="login-3" src="../_images/login-3.png" /></p>
+<p><img alt="login-3" src="../_images/login-31.png" /></p>
 </section>
 <section id="add-mysql-instance-manually">
 <h3>Add MySQL Instance Manually<a class="headerlink" href="#add-mysql-instance-manually" title="Permalink to this heading">#</a></h3>
@@ -1977,7 +1982,7 @@ title="Fullscreen mode"
 <p>Logical backup jobs can back up single or multiple databases.</p>
 <ul>
 <li><p>The steps are the same as steps to create a full backup. Select <strong>Logical</strong> as the backup type and choose one or more databases.</p>
-<p><img alt="logical-1" src="../_images/logical-1.png" /></p>
+<p><img alt="logical-1" src="../_images/logical-11.png" /></p>
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
@@ -1998,13 +2003,13 @@ title="Fullscreen mode"
 <li><p>The admin has created and assigned a database synthetic pool to the operator.</p></li>
 </ol>
 <p>(1) The steps to create a synthetic backup are similar to steps to create a full backup. Select <strong>Synthetic Backup</strong> as the backup type and choose database instances.</p>
-<p><img alt="merge-1" src="../_images/merge-1.png" /></p>
+<p><img alt="merge-1" src="../_images/merge-11.png" /></p>
 <p>(2) Select <strong>Backup Target</strong>. The backup target can only be the database synthetic pool. If the database synthetic pool is not listed, you should contact the admin to create one.</p>
-<p><img alt="merge-2" src="../_images/merge-2.png" /></p>
+<p><img alt="merge-2" src="../_images/merge-21.png" /></p>
 <p>(3) Select <strong>Backup Schedule</strong> to set the run time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a synthetic backup on a daily basis.</p>
 <p>(4) Set <strong>Backup Options</strong>, including common options and advanced options. The advanced options are similar to those in full backups but without reconnection time, resumption buffer size, and speed limit.</p>
-<p><img alt="merge-3" src="../_images/merge-3.png" /></p>
-<p><img alt="merge-4" src="../_images/merge-4.png" /></p>
+<p><img alt="merge-3" src="../_images/merge-31.png" /></p>
+<p><img alt="merge-4" src="../_images/merge-41.png" /></p>
 <p>(5) Set <strong>Job Name</strong>, check whether the job information is correct, and click <strong>Submit</strong>.</p>
 </section>
 </section>
@@ -2126,13 +2131,13 @@ title="Fullscreen mode"
 <p>If you have executed a log backup or a continuous log backup job, you can run the instant recovery job by dragging the slider control or manually entering to specify the point in time of the database that needs to be restored.</p>
 </li>
 </ul>
-<p><img alt="instant_restore-1" src="../_images/instant_restore-1.png" /></p>
+<p><img alt="instant_restore-1" src="../_images/instant_restore-11.png" /></p>
 <ul>
 <li><p><strong>Restore to GTID</strong></p>
 <p>This restore type is available only when you have enabled GITD and completed a log backup or continuous log backup. You can run an instant recovery job via Restore Branch and the specified GTID number.</p>
 </li>
 </ul>
-<p><img alt="instant_restore-2" src="../_images/instant_restore-2.png" /></p>
+<p><img alt="instant_restore-2" src="../_images/instant_restore-21.png" /></p>
 <ul>
 <li><p><strong>Restore to Backup State (shortest recovery time)</strong></p>
 <p>Select <strong>Restore to Backup State (shortest recovery time)</strong>. This restore job will only restore synthetic backup sets but not binlog.</p>
@@ -2147,7 +2152,7 @@ title="Fullscreen mode"
 <p>In common options, you can set the configuration file of MySQL database, and username and password for the backup source.</p>
 </li>
 </ul>
-<p><img alt="instant_restore-4" src="../_images/instant_restore-4.png" /></p>
+<p><img alt="instant_restore-4" src="../_images/instant_restore-41.png" /></p>
 <p><strong>Database configuration file</strong>: Click <strong>Browse</strong> or manually fill in the configuration file path of the MySQL database. If you leave it empty, the default configuration file will be used.</p>
 <p><strong>Database username for the backup source</strong>: Enter the database username for the backup source manually. If you leave it empty, it will use the username of the current login resource (i.e. the target database).</p>
 <p><strong>Database password for the backup source</strong>: Enter the database password for the backup source manually. If you leave it empty, it will use the password of the current login resource (i.e. the target database).</p>
@@ -2156,8 +2161,8 @@ title="Fullscreen mode"
 <p>In advanced options, you can set precondition, pre/post action, database service startup/stop script, storage protocol, skip grant tables while applying binlog, accelerate applying binlog, force apply binlog, keep the mount point even if job fails, and MySQL service startup timeout.</p>
 </li>
 </ul>
-<p><img alt="instant_restore-5_1" src="../_images/instant_restore-5_1.png" /></p>
-<p><img alt="instant_restore-5_2" src="../_images/instant_restore-5_2.png" /></p>
+<p><img alt="instant_restore-5_1" src="../_images/instant_restore-5_11.png" /></p>
+<p><img alt="instant_restore-5_2" src="../_images/instant_restore-5_21.png" /></p>
 <p><strong>Database service start script</strong>: You can set the command used to start the MySQL service. The database service script starts with this command by default.</p>
 <p><strong>Database service stop script</strong>: You can set the command used to stop the MySQL service. The database service script stops with this command by default.</p>
 <p><strong>Storage protocol</strong>: You can create a new FC Target or iSCSI Target to run instant recovery. Backup sets that are backed up to an iSCSI database synthetic pool can be restored instantly using FC and vice versa. This function requires that the operator has the administrative permission.</p>
@@ -2175,10 +2180,10 @@ title="Fullscreen mode"
 <p>You can detach the mounted directory from the agent using the <strong>Detach</strong> icon. If the directory that you want to detach has any applied data files, detaching the mounted directory will delete the database at the same time. Please operate with caution.</p>
 <ul>
 <li><p>Click the <strong>Detach</strong> icon beside the data copy record.</p>
-<p><img alt="cdm-2" src="../_images/cdm-2.png" /></p>
+<p><img alt="cdm-2" src="../_images/cdm-21.png" /></p>
 </li>
 <li><p>Pay attention to the warning and enter the verification code.</p>
-<p><img alt="cdm-3" src="../_images/cdm-3.png" /></p>
+<p><img alt="cdm-3" src="../_images/cdm-31.png" /></p>
 </li>
 </ul>
 </section>
@@ -2193,7 +2198,7 @@ title="Fullscreen mode"
 <p>You can run the restore logs job by dragging the slider control or manually entering to specify the point in time of the database that needs to be restored.</p>
 </li>
 </ul>
-<p><img alt="log_restore-1" src="../_images/log_restore-1.png" /></p>
+<p><img alt="log_restore-1" src="../_images/log_restore-11.png" /></p>
 <ul>
 <li><p><strong>Restore to GTID</strong></p>
 <p>The restore type is available only when you have enabled the GITD. You can run the restore logs job via Restore Branch and the specified GTID number.</p>
@@ -2207,13 +2212,13 @@ title="Fullscreen mode"
 <p>In common options, you can set binlog destination.</p>
 </li>
 </ul>
-<p><img alt="log_restore-3" src="../_images/log_restore-3.png" /></p>
+<p><img alt="log_restore-3" src="../_images/log_restore-31.png" /></p>
 <ul>
 <li><p><strong>Advanced options</strong>:</p>
 <p>In advanced options, you can set reconnection time, resumption buffer size, speed limit, precondition and pre/post action.</p>
 </li>
 </ul>
-<p><img alt="log_restore-4" src="../_images/log_restore-4.png" /></p>
+<p><img alt="log_restore-4" src="../_images/log_restore-41.png" /></p>
 <p>(5) Confirm the job settings, click <strong>Submit</strong> and wait for the job to be executed.</p>
 </section>
 <section id="create-recovery-testing-jobs">
@@ -2232,12 +2237,12 @@ title="Fullscreen mode"
 <section id="manage-jobs">
 <h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
 <p>On the <strong>Job</strong> interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
-<p><img alt="job-1" src="../_images/job-1.png" /></p>
+<p><img alt="job-1" src="../_images/job-11.png" /></p>
 <ul class="simple">
-<li><p>Start: Click  <img alt="job-2" src="../_images/job-2.png" /> to start the job immediately.</p></li>
-<li><p>Modify: Click <img alt="job-3" src="../_images/job-3.png" /> to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
-<li><p>Clone: Click <img alt="job-4" src="../_images/job-4.png" /> to create multiple similar backup jobs.</p></li>
-<li><p>Delete: Click <img alt="job-5" src="../_images/job-5.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+<li><p>Start: Click  <img alt="job-2" src="../_images/job-21.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="job-3" src="../_images/job-31.png" /> to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="job-4" src="../_images/job-41.png" /> to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="job-5" src="../_images/job-51.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
 </ul>
 </section>
 <section id="backup-protection-strategy">
@@ -2245,7 +2250,7 @@ title="Fullscreen mode"
 <section id="backup-schedule-operation">
 <h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
 <p>ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
-<p><img alt="time-1" src="../_images/time-1.png" /></p>
+<p><img alt="time-1" src="../_images/time-11.png" /></p>
 <ul class="simple">
 <li><p>Immediate: The job starts immediately after it is submitted.</p></li>
 <li><p>One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.</p></li>
@@ -2257,7 +2262,7 @@ title="Fullscreen mode"
 <blockquote>
 <div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
 </div></blockquote>
-<p><img alt="time-3" src="../_images/time-3.png" /></p>
+<p><img alt="time-3" src="../_images/time-31.png" /></p>
 <blockquote>
 <div><p><strong>The actual execution time is:</strong></p>
 <ul class="simple">
@@ -2306,11 +2311,11 @@ title="Fullscreen mode"
 <ol class="arabic simple">
 <li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click <strong>Cluster Binding</strong>.</p></li>
 </ol>
-<p><img alt="cluster-1" src="../_images/cluster-1.png" /></p>
+<p><img alt="cluster-1" src="../_images/cluster-11.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p>Customize the cluster binding name. Select <strong>Primary Node</strong>, select <strong>Master Slave Replication</strong> as the <strong>Type</strong>, and select slave nodes as the <strong>Nodes</strong>. You can set the <strong>Keepalived Configuration File</strong> as you need. <strong>Preferred Backup Node</strong> is none by default but you can set it according to your needs. Click <strong>Submit</strong>.</p></li>
 </ol>
-<p><img alt="cluster-2" src="../_images/cluster-2.png" /></p>
+<p><img alt="cluster-2" src="../_images/cluster-21.png" /></p>
 </section>
 <section id="backup-and-restore">
 <h4>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading">#</a></h4>
@@ -2329,7 +2334,7 @@ title="Fullscreen mode"
 <li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click <strong>Cluster Binding</strong>.</p></li>
 <li><p>Customize the cluster name, select <strong>Primary Node</strong>, select <strong>Dual-master Replication</strong> as the <strong>Type</strong>, and select other primary nodes in the cluster as the <strong>Nodes</strong>. You can set the <strong>Keepalived Configuration File</strong> as you need. <strong>Preferred Backup Node</strong> is none by default but you can set it according to your needs. Click <strong>Submit</strong>.</p></li>
 </ol>
-<p><img alt="cluster-3" src="../_images/cluster-3.png" /></p>
+<p><img alt="cluster-3" src="../_images/cluster-31.png" /></p>
 </section>
 <section id="id3">
 <h4>Backup and Restore<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>

@@ -23,6 +23,8 @@ Home
 
    install/install.md
 
+   mariadb/mariadb.md
+
    mssql/mssql.md
 
    mysql/mysql.md

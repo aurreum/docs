@@ -120,6 +120,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../mariadb/mariadb.html">
+   MariaDB User’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../mssql/mssql.html">
    SQL Server User’s Guide
   </a>
@@ -257,28 +262,14 @@ title="Fullscreen mode"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download-hyper-v-agent">
-   Download Hyper-V Agent
+  <a class="reference internal nav-link" href="#download-hyper-v-agent-package">
+   Download Hyper-V Agent Package
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-windows-package">
-     Download Windows Package
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#install-and-configure-hyper-v-agent">
    Install and Configure Hyper-V Agent
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-windows-os-agent">
-     Install and Configure Windows OS Agent
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#register-resource">
@@ -391,28 +382,14 @@ title="Fullscreen mode"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download-hyper-v-agent">
-   Download Hyper-V Agent
+  <a class="reference internal nav-link" href="#download-hyper-v-agent-package">
+   Download Hyper-V Agent Package
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-windows-package">
-     Download Windows Package
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#install-and-configure-hyper-v-agent">
    Install and Configure Hyper-V Agent
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-windows-os-agent">
-     Install and Configure Windows OS Agent
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#register-resource">
@@ -499,7 +476,7 @@ title="Fullscreen mode"
 <h1>Hyper-V User’s Guide<a class="headerlink" href="#hyper-v-user-s-guide" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Aurreum Data Protection Suite (ADPS) supports the backup and restore of virtual machines running on Windows Servers or bare-metal Hyper-V Servers. It is easy to deploy the Hyper-V agent of ADPS. We recommend installing the Hyper-V agent on the Hyper-V server.</p>
+<p>Aurreum Data Protection Suite (ADPS) supports the backup and restore of virtual machines (VMs) running on Windows Servers or bare-metal Hyper-V Servers. It is easy to deploy the Hyper-V agent of ADPS. The Hyper-V agent should be installed on the Hyper-V server. This guide describes how to install the agent and how to use ADPS to back up and restore Hyper-V virtual machines.</p>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
@@ -512,13 +489,13 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Backup source</p></td>
-<td><p>Virtual machine (VM)</p></td>
+<td><p>Virtual machine, host</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup type</p></td>
 <td><p>Full backup: Back up all the data on the VMs. <br> Incremental backup: Back up the data that has changed since the last backup.</p></td>
 </tr>
 <tr class="row-even"><td><p>Backup target</p></td>
-<td><p>Standard storage pool, de-duplication storage pool, LAN-Free pool</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, object storage service pool, tape library pool</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup compression</p></td>
 <td><p>None, fast</p></td>
@@ -527,7 +504,7 @@ title="Fullscreen mode"
 <td><p>A positive integer from 1 to 32</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup schedule</p></td>
-<td><p>Immediate, one-time, hourly, daily, weekly, yearly</p></td>
+<td><p>Immediate, one-time, hourly, daily, weekly, monthly</p></td>
 </tr>
 <tr class="row-even"><td><p>Reconnection time</p></td>
 <td><p>The default value is 10 minutes.</p></td>
@@ -570,6 +547,9 @@ title="Fullscreen mode"
 </tr>
 <tr class="row-odd"><td><p>Start virtual machine after restoring</p></td>
 <td><p>The restored VMs can be started after the restore job is completed.</p></td>
+</tr>
+<tr class="row-even"><td><p>Browse type</p></td>
+<td><p>The backup set list is in decending order based on the point in time</p></td>
 </tr>
 </tbody>
 </table>
@@ -636,12 +616,10 @@ title="Fullscreen mode"
 </tbody>
 </table>
 </section>
-<section id="download-hyper-v-agent">
-<h2>Download Hyper-V Agent<a class="headerlink" href="#download-hyper-v-agent" title="Permalink to this heading">#</a></h2>
-<section id="download-windows-package">
-<h3>Download Windows Package<a class="headerlink" href="#download-windows-package" title="Permalink to this heading">#</a></h3>
+<section id="download-hyper-v-agent-package">
+<h2>Download Hyper-V Agent Package<a class="headerlink" href="#download-hyper-v-agent-package" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
-<li><p>Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon to access the pop-up window.</p>
+<li><p>Log in to the ADPS console as an administrator. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p>
 <p><img alt="" src="../_images/license1.png" /></p>
 </li>
 <li><p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
@@ -649,28 +627,24 @@ title="Fullscreen mode"
 </li>
 </ol>
 </section>
-</section>
 <section id="install-and-configure-hyper-v-agent">
 <h2>Install and Configure Hyper-V Agent<a class="headerlink" href="#install-and-configure-hyper-v-agent" title="Permalink to this heading">#</a></h2>
-<section id="install-and-configure-windows-os-agent">
-<h3>Install and Configure Windows OS Agent<a class="headerlink" href="#install-and-configure-windows-os-agent" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
-<li><p>Double-click the installation package to open the installation wizard.</p></li>
-<li><p>Select the Hyper-V component manually. You can add or delete other resources according to your needs. If you select a resource, its backup and restore module will be enabled.</p>
+<li><p>Double-click the package to launch the setup wizard.</p></li>
+<li><p>Select the Hyper-V component manually. You can select other resources according to your needs. If you select a resource, its backup and restore module will be enabled.</p>
 <p><img alt="" src="../_images/install1.png" /></p>
 </li>
-<li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. The Access Key identifies the operator of the agent. You can log in to ADPS and see the account’s Access Key on the <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If the backup server is a non-tenant version, then it is not required to configure the Access Key.</p>
+<li><p>Enter the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. The Access Key identifies the operator of the agent. You can log in to the ADPS console and see the account’s Access Key on the <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If the backup server is a non-tenant version, then it is not required to configure the Access Key.</p>
 <p><img alt="" src="../_images/install2.png" /></p>
 </li>
-<li><p>Set the <strong>Destination Folder</strong> of the backup server.</p></li>
+<li><p>Set the <strong>Destination Folder</strong> for the backup agent.</p></li>
 <li><p>After the configuration, follow the wizard to complete the installation.</p></li>
 </ol>
-</section>
 </section>
 <section id="register-resource">
 <h2>Register Resource<a class="headerlink" href="#register-resource" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
-<li><p>Log in to ADPS and click the <strong>Register</strong> icon to register the Hyper-V resource on the <strong>Resource</strong> interface.</p>
+<li><p>Log in to the ADPS console and open <strong>Resource</strong>. Click the <strong>Register</strong> icon to register the Hyper-V resource.</p>
 <p><img alt="" src="../_images/register0.png" /></p>
 </li>
 <li><p>Select the check box to activate the resource.</p>
@@ -682,16 +656,16 @@ title="Fullscreen mode"
 <li><p>Click the <strong>Modify</strong> icon to assign the data network to the resource.</p>
 <p><img alt="" src="../_images/register3.png" /></p>
 </li>
-<li><p>Click <strong>Login</strong>. Enter the user name and password.</p>
+<li><p>Click <strong>Login</strong>. Enter the user name and password of the host’s operating system.</p>
 <p><img alt="" src="../_images/register4.png" /></p>
 </li>
 </ol>
 </section>
 <section id="job">
 <h2>Job<a class="headerlink" href="#job" title="Permalink to this heading">#</a></h2>
-<p>Log in to ADPS and go to the <strong>Job</strong> interface.</p>
+<p>Log in to the ADPS console and go to the <strong>Job</strong> page.</p>
 <p><img alt="" src="../_images/task1.png" /></p>
-<ol class="arabic">
+<ul>
 <li><p>View the job detail: You can click a <strong>Job Name</strong> to view the job’s detailed information.</p>
 <p><img alt="" src="../_images/task2.png" /></p>
 </li>
@@ -700,17 +674,19 @@ title="Fullscreen mode"
 <li><p>Modify: Select a non-running job and click <img alt="" src="../_images/task5.png" /> to modify the job.</p></li>
 <li><p>Delete: Select a non-running job and click <img alt="" src="../_images/task6.png" /> to delete the job.</p></li>
 <li><p>Disable: Select a non-running scheduled job and click <img alt="" src="../_images/task7.png" /> to disable the scheduled job.</p></li>
-</ol>
+</ul>
 </section>
 <section id="back-up-hyper-v">
 <h2>Back Up Hyper-V<a class="headerlink" href="#back-up-hyper-v" title="Permalink to this heading">#</a></h2>
-<p>Go to the <strong>Backup</strong> interface.</p>
+<p>Go to the <strong>Backup</strong> page.</p>
 <p><img alt="" src="../_images/backup0.png" /></p>
 <p>The steps to create a backup job are:</p>
 <ol class="arabic">
-<li><p><strong>Hosts and Resources</strong>: Select the Hyper-V host that you want to back up. Click <strong>Next</strong>.</p></li>
-<li><p><strong>Backup Source</strong>: Select <strong>Full Backup</strong> or <strong>Incremental Backup</strong>. Choose virtual machines to be backed up. Click <strong>Next</strong>.</p>
+<li><p><strong>Hosts and Resources</strong>: Select the host and Hyper-V that you want to back up. Click <strong>Next</strong>.</p></li>
+<li><p><strong>Backup Source</strong>: Select <strong>Full Backup</strong> or <strong>Incremental Backup</strong>. Choose virtual machines or the host that you want to back up. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/backup1.png" /></p>
+<p><img alt="" src="../_images/backup7.png" /></p>
+<p><img alt="" src="../_images/backup8.png" /></p>
 <p>Backup type:</p>
 <ul class="simple">
 <li><p>Full backup: Back up all the data on the VMs.</p></li>
@@ -718,7 +694,8 @@ title="Fullscreen mode"
 </ul>
 <p>Backup source:</p>
 <ul class="simple">
-<li><p>Virtual machine: Select the VMs that need to be backed up.</p></li>
+<li><p>Virtual machine: You can select the specific VMs that you want to back up.</p></li>
+<li><p>Host: You can select the host to back up all the VMs on it.</p></li>
 </ul>
 </li>
 <li><p><strong>Backup Target</strong>: Select a storage pool. Click <strong>Next</strong>.</p>
@@ -726,7 +703,7 @@ title="Fullscreen mode"
 </li>
 </ol>
 <ul class="simple">
-<li><p>It supports standard storage pool, de-duplication storage pool, and LAN-Free pool (uses SAN transport mode by default).</p></li>
+<li><p>It supports standard storage pool, de-duplication storage pool, object storage service pool, and tape library pool.</p></li>
 </ul>
 <ol class="arabic" start="4">
 <li><p><strong>Backup Schedule</strong>: Select a schedule type according to your needs. Click <strong>Next</strong>.</p>
@@ -744,7 +721,7 @@ title="Fullscreen mode"
 <ul class="simple">
 <li><p>Reconnection time: The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes and the unit is minute.</p></li>
 <li><p>Resumption buffer size: You can set the resumption buffer size. The default value is 10 MiB.</p></li>
-<li><p>Speed limit: You can set different backup speeds in different time periods.</p></li>
+<li><p>Speed limit: You can set different backup speeds for different time periods.</p></li>
 <li><p>Precondition: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p></li>
 <li><p>Pre/Post action: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></li>
 <li><p>Checkpoint consistency level:</p>
@@ -763,11 +740,11 @@ title="Fullscreen mode"
 </section>
 <section id="restore-hyper-v">
 <h2>Restore Hyper-V<a class="headerlink" href="#restore-hyper-v" title="Permalink to this heading">#</a></h2>
-<p>Go to the <strong>Restore</strong> interface.</p>
+<p>Go to the <strong>Restore</strong> page.</p>
 <p><img alt="" src="../_images/recovery0.png" /></p>
 <p>The steps to create a restore job are:</p>
 <ol class="arabic">
-<li><p><strong>Hosts and Resources</strong>: Select the Hyper-V host that needs to be restored. Click <strong>Next</strong>.</p></li>
+<li><p><strong>Hosts and Resources</strong>: Select the host and Hyper-V that you want to restore. Click <strong>Next</strong>.</p></li>
 <li><p><strong>Backup Sets</strong>: Select <strong>Virtual Machine Restore</strong> or <strong>Virtual Disk</strong> as the restore type. Select the restore source. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/recovery1.png" /></p>
 <p><img alt="" src="../_images/recovery2.png" /></p>
@@ -784,7 +761,7 @@ title="Fullscreen mode"
 <ul class="simple">
 <li><p>Restore location:</p>
 <ul>
-<li><p>Original path: The location of the restored configuration file and disk is the same as the original location, i.e., to overwrite and restore to the original path.</p></li>
+<li><p>Original path: The location of the restored configuration file and disk is the same as the original location, i.e. to overwrite and restore to the original path.</p></li>
 <li><p>New path: New virtual machines or virtual disks will be created. It is required to set the name, configuration, and storage directory of the new virtual machines.</p></li>
 </ul>
 </li>
@@ -797,7 +774,7 @@ title="Fullscreen mode"
 <ul class="simple">
 <li><p>Reconnection time: The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes and the unit is minute.</p></li>
 <li><p>Resumption buffer size: You can set the resumption buffer size. The default value is 10 MiB.</p></li>
-<li><p>Speed limit: You can set different backup speeds in different time periods.</p></li>
+<li><p>Speed limit: You can set different restore speeds for different time periods.</p></li>
 <li><p>Precondition: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p></li>
 <li><p>Pre/Post action: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></li>
 </ul>
@@ -947,7 +924,7 @@ title="Fullscreen mode"
 <td><p>Differential backup is not supported.  <br> VM grouping is not supported.  <br> If the VM to be backed up is overwritten and restored, the backup jobs will be unavailable and should be recreated. <br> Under the following conditions, the backup job cannot be stopped: The agent is creating checkpoints, or the agent is using a LAN-Free storage pool and mounting the disks. <br> Checkpoints include crash-consistent checkpoints and application-consistent checkpoints. The default checkpoint is application-consistent. <br> On Windows Server 2016 and later versions, Hyper-V backup jobs will not reserve checkpoints after the job completion.  <br> A host can only run one backup or restore job at a time. A backup job can back up multiple VMs in parallel, while a restore job can only restore VMs one by one.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore</p></td>
-<td><p>Mount recovery is not supported. <br> The interface cannot display the restore progress of a single virtual disk.  <br> To overwrite and restore the disk, ensure that the original host is shut down and no checkpoints remain. <br> To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.  <br> When the agent is merging subdisks, the restore job cannot be stopped. <br> ADPS cannot restore the Ubuntu/CentOS Generation 2 virtual machines on Hyper-V 2012 series. <br> ADPS cannot restore the virtual disks on Ubuntu/CentOS Generation 2 virtual machines.  <br> The Generation 1 virtual machines can only be booted from the IDE controller. The Generation 2 virtual machines can only be booted from the SCSI controller.</p></td>
+<td><p>Mount recovery is not supported. <br> The interface cannot display the restore progress of a single virtual disk.  <br> To overwrite and restore to the disk, ensure that the original host is shut down and no checkpoints remain. <br> To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.  <br> When the agent is merging subdisks, the restore job cannot be stopped. <br> ADPS cannot restore the Ubuntu/CentOS Generation 2 virtual machines on Hyper-V 2012 series. <br> ADPS cannot restore the virtual disks on Ubuntu/CentOS Generation 2 virtual machines.  <br> The Generation 1 virtual machines can only be booted from the IDE controller. The Generation 2 virtual machines can only be booted from the SCSI controller.</p></td>
 </tr>
 </tbody>
 </table>
