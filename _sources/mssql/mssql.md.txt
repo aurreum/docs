@@ -1,8 +1,8 @@
-# SQL Server User's Guide
+# Microsoft SQL Server User's Guide
 
 ## Introduction
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of SQL Server databases. This guide introduces how to properly use ADPS to back up and restore SQL Server databases.
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of SQL Server databases. This guide introduces how to install the ADPS agent and use ADPS to back up and restore SQL Server databases.
 
 ## Features
 
@@ -33,7 +33,7 @@ class: longtable
 |Restore from target pool |Restoring backup sets from the target storage pool is supported.|
 |D2C| Data can be backed up directly to object storage services. |
 |D2T |Data can be backed up directly to tape libraries.|
-|Hot standby environment |The backup and restore of hot standby clusters are supported.|
+|Failover cluster |The backup and restore of failover clusters are supported.|
 |Always On availability groups |The backup and restore of Always On availability groups are supported.|
 |Always On failover cluster |The backup and restore of Always On failover clusters are supported.|
 |Modify the backup source and target| Modifying a job's backup source and backup target is supported. |
@@ -45,15 +45,13 @@ class: longtable
 
 ### Verify Compatibility
 
-ADPS supports the backup and restore of SQL Server single host, hot standby, Always On availability groups, and Always On failover cluster. Check whether the operating system (OS) and database version are supported before deploying the agent. Please refer to *Compatibility List* for details.
+Before you install the ADPS agent, check whether your environment is supported. ADPS supports the backup and restore for SQL Server standalone, failover cluster, Always On Availability Groups (AGs), and Always On failover cluster instances (FCIs).
 
-#### Compatibility List
-
-##### Single Host
+#### Standalone
 
 ```{tabularcolumns} |\Y{0.2}|\Y{0.2}|\Y{0.2}|\Y{0.2}|\Y{0.2}|
 ```
-```{table} Single Host Compatibility List
+```{table} Standalone Compatibility List
 ---
 class: longtable
 ---
@@ -93,11 +91,11 @@ class: longtable
 | 2019             | 64            | Red Hat 8           | x86              | 64      |
 ```
 
-##### Hot Standby
+#### Failover Cluster
 
 ```{tabularcolumns} |\Y{0.2}|\Y{0.2}|\Y{0.2}|\Y{0.2}|\Y{0.2}|
 ```
-```{table} Hot Standby Compatibility List
+```{table} Failover Cluster Compatibility List
 | Database Version | Database Bits | OS              | CPU Architecture | OS Bits |
 | ---------------- | ------------- | --------------- | ---------------- | ------- |
 | 2008 R2          | 64            | Windows 2008 R2 | x86              | 64      |
@@ -108,7 +106,7 @@ class: longtable
 | 2019             | 64            | Windows 2016    | x86              | 64      |
 ```
 
-##### Always On Availability Groups
+#### Always On Availability Groups
 
 ```{tabularcolumns} |\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.14}|\Y{0.14}|
 ```
@@ -123,164 +121,188 @@ class: longtable
 | 2019             | 64            | Windows 2016    | x86              | 64      | Two nodes   |
 ```
 
-##### Always On Failover Cluster
+#### Always On Failover Cluster Instances
 
 ```{tabularcolumns} |\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.14}|\Y{0.14}|
 ```
-```{table} Always On Availability Groups Compatibility List
+```{table} Always On Failover Cluster Instances Compatibility List
 | Database Version | Database Bits | OS           | CPU Architecture | OS Bits | Note        |
 | ---------------- | ------------- | ------------ | ---------------- | ------- | ----------- |
 | 2017             | 64            | Windows 2016 | x86              | 64      | Three nodes |
 | 2019             | 64            | Windows 2016 | x86              | 64      | Three nodes |
 ```
 
-### Get Agent Packages
+### Install ADPS Agent
 
-Open a browser and log in to ADPS as the admin. Click **Resource**-> **Install Agent** icon. You can download the installation packages according to your needs.
+ADPS supports the backup and restore for SQL Server on Windows and Linux. 
 
-![](../image/01-agent/mssql/mssql_agent01.png)
+#### Install Agent on Windows
 
-### Install and Configure Windows OS Agent
+1. Log in to the ADPS console as a user with the administrator privileges.
 
-#### Download Windows Installation Package
+2. Open **Resource** from the side bar, and click the **Install Agent** icon. The **Install agent** window appears.
 
-Select **Windows** and click **Download Windows agent** to download the package.
+    ![](../image/01-agent/mssql/mssql_agent01.png)
 
-![](../image/01-agent/mssql/mssql_agent02.png)
+3. In the **Install agent** window, select **Windows** and click **Download Windows agent** to download the package.
 
-#### Install Windows OS Agent
+    ![](../image/01-agent/mssql/mssql_agent02.png)
 
- 1. Upload the installation package to the agent.
+4. Copy the package to the Windows host.
 
- 2. Double-click the package to install it according to the wizard and click **Next**.
+5. Log in to the Windows host as a user with the administrator privileges.
 
- 3. This installation package chooses the database resources, files, or applications installed on the agent by default. Select the **Microsoft SQL Server** component and click **Next**.
+6. Double-click the package to launch the setup wizard. Click **Next**.
+
+7. Select **Microsoft SQL Server** from the **Component** list and click **Next**.
 
     ![](../image/01-agent/mssql/mssql_agent03.png)
 
- 4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
+8. Enter the information of the backup server. Click **Next**.
+
+    - **Backup Server Host**: Enter the IP or domain name of the backup server.
+    - **Backup Server Port**: The default port is 50305. To use SSL connection, enable **Use SSL secure connection** and set the port to 60305.
+    - **Access Key**: This field is optional. When the backup server is a multi-tenant system, the agent must be configured with the access key of a tenant.
+
+    > To get the access key of a tenant: Log in to the console as a tenant, click Personal Settings in the upper right corner, select Account Settings, In the Preferences tab click View to get the Access Key of the tenant.
 
     ![](../image/01-agent/mssql/mssql_agent04.png)
 
- 5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
+9. Confirm the **Destination Folder** or specify another folder for the installation. Click **Next**.
 
-### Install and Configure Linux OS Agent
+10. Wait for the installation to complete.
 
-1. Select **Linux** and **SQL Server**. Copy an installation command.
+#### Install Agent on Linux
 
-![](../image/01-agent/mssql/mssql_agent05.png)
+For Linux, ADPS allows users to directly download the packages from the backup server and execute the installation command over the Internet.
 
-2. Paste the command on the command line and press Enter to execute the installation.
+1. Log in to the ADPS console as a user with the administrator privileges.
 
-   ```
-   [root@localhost ~]# curl -o- "http://192.168.20.85:50305/d2/update/script?modules=mssql&location=http%3A%2F%2F192.168.20.85%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                    Dload  Upload   Total   Spent    Left  Speed
-   100  7905    0  7905    0     0  23844      0 --:--:-- --:--:-- --:--:-- 44661
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                    Dload  Upload   Total   Spent    Left  Speed
-     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 58.7M  100 58.7M    0     0  1804k      0  0:00:33  0:00:33 --:--:-- 4859k
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                    Dload  Upload   Total   Spent    Left  Speed
-     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 6728k  100 6728k    0     0  1900k      0  0:00:03  0:00:03 --:--:-- 1874k
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                    Dload  Upload   Total   Spent    Left  Speed
-     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 3879k  100 3879k    0     0  5703k      0 --:--:-- --:--:-- --:--:-- 6247k
-   ```
+2. Open **Resource** from the sidebar and click the **Install Agent** icon. The **Install agent** window appears.
 
-### Check Successful Installation
+3. In the **Install agent** window, select **Linux** from the list of operating systems and **SQL Server** from the module list. The curl and wget installation commands appear.
 
-After the successful installation, you can log in to ADPS as the admin and see that the host is on the **Resource** list.
+> Note: To delete the package downloaded to the Linux server automatically after the installation, select the **Remove installation package** check box.
+
+4. Copy the curl or wget command.
+
+    ![](../image/01-agent/mssql/mssql_agent05.png)
+
+5. Log in to the Linux server as a root user. Paste the copied command in the terminal and press Enter to execute the installation.
+
+    ```
+    [root@localhost ~]# curl -o- "http://192.168.20.85:50305/d2/update/script?modules=mssql&location=http%3A%2F%2F192.168.20.85%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+    Dload  Upload   Total   Spent    Left  Speed
+    100  7905    0  7905    0     0  23844      0 --:--:-- --:--:-- --:--:-- 44661
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+    Dload  Upload   Total   Spent    Left  Speed
+    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100 58.7M  100 58.7M    0     0  1804k      0  0:00:33  0:00:33 --:--:-- 4859k
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+    Dload  Upload   Total   Spent    Left  Speed
+    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100 6728k  100 6728k    0     0  1900k      0  0:00:03  0:00:03 --:--:-- 1874k
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+    Dload  Upload   Total   Spent    Left  Speed
+    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100 3879k  100 3879k    0     0  5703k      0 --:--:-- --:--:-- --:--:-- 6247k
+    ```
+
+## Check Successful Installation
+
+After the installation, log in to the ADPS console as a user with the administrator privileges, and open **Resource**. The host with the agent installed will be available on the list. 
 
 ![](../image/02-license/mssql/mssql_lincense01.png)
 
-## Activate License and Assign Authorization
+## Activate License and Authorize User
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out activation and authorization in batches. Please refer to *Batch Register/Activate/Authorize* for more details.
+Before the backup and restore, activate the SQL Server license and authorize the resource to users.
 
-### Register Host
+1. Log in to the ADPS console as a user with the administrator privileges.
 
-Log in to ADPS as the admin, go to **Resource**, and find the host that you need to activate. Click the **Register** icon.
+2. Open **Resource** from the sidebar, and find the host that you want to activate. Click the **Register** icon next to the host. The process automatically advances to the **Activate** step.
 
-![](../image/02-license/mssql/mssql_lincense02.png)
+    ![](../image/02-license/mssql/mssql_lincense02.png)
 
-### Activate License
+3. In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**. The process automatically advances to the **Authorize** step.
 
-In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
+    If you are notified that the license is insufficient, contact the ADPS administrator to add licenses.
 
-![](../image/02-license/mssql/mssql_lincense03.png)
+    ![](../image/02-license/mssql/mssql_lincense03.png)
 
-### Assign Authorization
+4. In the pop-up **Authorize** window, grant user groups with privileges so that users in these groups can operate the resource.
 
-After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window.
+    ![](../image/02-license/mssql/mssql_lincense04.png)
 
-![](../image/02-license/mssql/mssql_lincense04.png)
+> Note: If you have multiple agents, you can install all the agents first, and then use **Batch Register**, **Batch Activate**, and **Batch Authorize** to configure them in batches. For details, see *Batch Register/Activate/Authorize* in the *Administrator's Guide*.
 
 ## Before You Begin
 
-### Check Database State
+### Check SQL Server State
 
 Check the SQL Server service state of the agent. The SQL Server database service should be in the "running" state for the backup and restore.
 
-#### Windows OS
+- Windows OS
 
-![](../image/03-mssql/mssql_database01.png)
+    ![](../image/03-mssql/mssql_database01.png)
 
-#### Linux OS
+- Linux OS
 
-```
-[root@localhost ~]# systemctl status mssql-server
-● mssql-server.service - Microsoft SQL Server Database Engine
-   Loaded: loaded (/usr/lib/systemd/system/mssql-server.service; enabled; vendor preset: disabled)
-   Active: active (running) since Two 2022-05-31 04:55:30 EDT; 5s ago
-     Docs: https://docs.microsoft.com/en-us/sql/linux
- Main PID: 15804 (sqlservr)
-   CGroup: /system.slice/mssql-server.service
-           └─15804 /opt/mssql/bin/sqlservr
+    ```
+    [root@localhost ~]# systemctl status mssql-server
+    ● mssql-server.service - Microsoft SQL Server Database Engine
+    Loaded: loaded (/usr/lib/systemd/system/mssql-server.service; enabled; vendor preset: disabled)
+    Active: active (running) since Two 2022-05-31 04:55:30 EDT; 5s ago
+        Docs: https://docs.microsoft.com/en-us/sql/linux
+    Main PID: 15804 (sqlservr)
+    CGroup: /system.slice/mssql-server.service
+            └─15804 /opt/mssql/bin/sqlservr
+    
+    2022-05-31 04:55:30 localhost.localdomain systemd[1]: Started Microsoft SQL Server Database Engine.
+    2022-05-31 04:55:30 localhost.localdomain systemd[1]: Starting Microsoft SQL Server Database Engine...
+    ```
 
-2022-05-31 04:55:30 localhost.localdomain systemd[1]: Started Microsoft SQL Server Database Engine.
-2022-05-31 04:55:30 localhost.localdomain systemd[1]: Starting Microsoft SQL Server Database Engine...
-```
+### Check Resource State
 
-### Check Resource
-
-Log in to ADPS as the operator and go to **Resource**. You can see the activated and authorized resource is on the list and its state is "Online". If the resource is not available, please check *Activate License and Assign Authorization*.
+Log in to the ADPS console as a user with the operator privileges, and open **Resource**. The host and SQL Server are displayed in "Online" state. If the state is offline, check whether the ADPS Agent service and SQL Server service work normally.
 
 ![](../image/03-mssql/mssql_login01.png)
 
 ### Check Storage Pool
 
-Log in to ADPS as the operator, go to **Storage Pool**, and check whether there is any storage pool. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.
+Log in to the ADPS console as a user with the operator privileges, open **Storage Pool**, and check whether the operator has been assigned storage pools. If no storage pool is available, contact the administrator to create one and assign permissions to the current operator.
 
 ![](../image/03-mssql/mssql_storaged01.png)
 
-## Login Instance for the First Time
+## First Time Login
 
-1. Before creating the first SQL Server backup and restore, you need to **Login** to the SQL Server first.
+Before you create the first SQL Server backup and restore, log in to the SQL Server instance first. ADPS supports three authentication methods for SQL Server: database, OS, and access key.
 
-![](../image/03-mssql/mssql_login02.png)
+1. Log in to the ADPS console as a user with the operator privileges.
 
+2. Open **Resource** and find the host with SQL Server. Expand the host, and click **Login** next to the SQL Server instance. The **Login** window appears.
 
-2. SQL Server supports three authentication methods: **Database**, **OS**, and **Access Key**.
+    ![](../image/03-mssql/mssql_login02.png)
 
-- Database Authentication: Log in with the SQL Server instance user. If the SQL Server password is changed, you need to log in to the instance again. Otherwise, the job will fail.
-- OS Authentication: Log in with the SQL Server software installation user or Administrator. The change of SQL Server password does not affect jobs.
-- Access Key Authentication: Log in with the Access Key of the user who has the authorization of the resource. You can perform a job without a password, which has potential data security risks.
+3. In the **Login** window, do the following:
 
-3. Select **Authentication**, fill in **User** / **Password**, and click **Login**.
+    ![](../image/03-mssql/mssql_login03.png)
 
-![](../image/03-mssql/mssql_login03.png)
+    - Select **Database Authentication** from the **Authentication** list to use SQL Server Authentication. Enter the SQL Server user name and password. Click **Login**.
 
+        - To use Database Authentication, the SQL Server user should have the following roles: server roles of sysadmin and dbcreator, database roles of db_backupoperator and db_owner.
+        - If the SQL Server user changes its password, you must re-log in to the instance. Otherwise the job will fail.
 
-> Note:
->
-> - To use Access Key Authentication, the admin should enable the **Access Key login instance** option in the **Settings** -> **Security**.
-> - To use Database Authentication for the backup and restore, the database user should be assigned the following roles:
->   - Server roles: sysadmin and dbcreator
->   - Database roles: db_backupoperator and db_owner
+    - Select **OS Authentication** from the **Authentication** list to use Windows Authentication. Enter the user name and password of the operating system. Click **Login**.
+
+        - To use OS Authentication, the Windows user can be the Administrator or the one who installed the SQL Server.
+        - OS Authentication does not require the password of the SQL Server user. If the SQL Server user changes its password, it will not affect the backup and restore jobs.
+
+    - Select **Access Key** from the **Authentication** list. Enter the access key of the current logged-in user. Click **Login**.
+
+        - To get the access key of the user: Click the **Personal Settings** in the upper right corner, select **Account Settings**, and in the **Preference** tab, click **View** to get the Access Key.
+        - Access Key Authentication is not enabled by default. To enable this feature, log in to the console as a user with the administrator privileges, open **Settings**, and in the **Security** tab, enable **Access Key Login Instance**.
 
 ## Create Backup Jobs
 
@@ -288,151 +310,150 @@ This chapter introduces how to back up the SQL Server databases.
 
 ### Prerequisites
 
-- You have installed the agent. For installation, please refer to *Install and Configure Agent*.
-- You have activated the license and assigned the authorization. For details, please see *Activate License and Assign Authorization*.
-- Log in to ADPS as the *operator*.
+- The agent has been installed. For installation, see *Install and Configure Agent*.
+- The license has been activated, and the resource has been authorized to users. For details, see *Activate License and Authorize User*.
+- Log in to the ADPS console as a user with the *operator* privileges and the resource permissions.
 
 ### Create Full Backup Jobs
 
 Full backup jobs take database as the backup unit and support the backup of the System databases and User databases.
 
-(1) Click **Backup**. Select the SQL Server host and instance.
+1. Open **Backup** from the sidebar. Select the host and SQL Server instance. Click **Next**.
 
-(2) Select **Full** as the backup type and choose the databases to be backed up.
+2. Select **Full** as the backup type and choose the databases that you want to back up. Click **Next**.
 
-![](../image/03-mssql/mssql_backup01.png)
+    ![](../image/03-mssql/mssql_backup01.png)
 
-(3) Select **Backup Target**.
+3. Select a **Backup Target**. Click **Next**.
 
-(4) Go to **Backup Schedule** and set the execution time of the backup job. For details, please refer to *Backup Schedule Operation*. We recommend running a full backup on a weekly basis.
+4. Select a **Backup Schedule** to set the execution time of the backup job. Click **Next**.
 
-(5) Set **Backup Options** including common and advanced options.
+5. Set **Backup Options** including common and advanced options. Click **Next**.
 
-- **Common options**:
+    - **Common options**:
 
-![](../image/03-mssql/mssql_backup02.png)
+    ![](../image/03-mssql/mssql_backup02.png)
 
-**Compression**: Fast compression is enabled by default.
+    **Compression**: Fast compression is enabled by default.
 
-> - None: During the backup, the data will not be compressed.
-> - Tunable: You can customize the compression level. It requires activating the advanced feature of Advanced Compression.
-> - Fast: During the backup, the data will be compressed by fast compression algorithms.
+    > - None: During the backup, the data will not be compressed.
+    > - Tunable: You can customize the compression level. It requires activating the advanced feature of Advanced Compression.
+    > - Fast: During the backup, the data will be compressed by fast compression algorithms.
 
-**Verify backup files**: Verify the backup sets. If the verification is successful, the backup set is valid.
+    **Verify backup files**: If you enable this option, RESTORE VERIFYONLY will be used to verify the backup set is intact and available after the backup, but it will not restore the backup set.
 
-**Channels**: This option can improve backup efficiency. The default number of channels is 1 and the range is 1 to 64. For details, please refer to *Channel Number Configuration*.
+    **Channels**: This option can improve backup efficiency. The default value is 1 and the range is 1 to 64. For details, see *Channel Number Configuration*.
 
-**Backup new databases**: It is not enabled by default. When enabled, it will check whether the SQL Server instance has new databases before the backup job starts. If so, the new databases will be added to the backup job.
+    **Backup new databases**: It is not enabled by default. When enabled, it will check whether the SQL Server instance has new databases before the backup job starts. If so, the new databases will be added to the backup job.
 
-- **Advanced options**:
+    - **Advanced options**:
 
-![](../image/03-mssql/mssql_backup03.png)
+    ![](../image/03-mssql/mssql_backup03.png)
 
-**Reconnection time**: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.
+    **Reconnection time**: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.
 
-**Speed limit**: It can limit data transfer speed or disk read and write speed. The unit is MiB/s.
+    **Speed limit**: It can limit data transfer speed or disk read and write speed. The unit is MiB/s.
 
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
+    **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
+    **Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
 
-(6) Set **Job Name** and check whether the job information is correct. Click **Submit**.
+6. Set a **Job Name** and confirm the job information. Click **Submit**.
 
 ### Create Cumulative Incremental Backup Jobs
 
 The cumulative incremental backup is created based on a full backup. It only backs up data that has changed since the last full backup.
 
-- Creating a cumulative incremental backup is the same as creating a full backup. Select **Cumulative Incremental Backup** as the backup type and choose databases.
+Creating a cumulative incremental backup is the same as creating a full backup. Select **Cumulative Incremental Backup** as the backup type and choose databases.
 
-  ![](../image/03-mssql/mssql_icr01.png)
+![](../image/03-mssql/mssql_icr01.png)
 
-
-  > Note:
-  >
-  > - Master database does not support cumulative incremental backup and you cannot select it.
-  > - If the database has not been fully backed up, or has not been fully backed up after the restore, the first cumulative incremental backup will be performed as a full backup by default.
-  > - When you switch the backup target of a cumulative incremental backup job to a new storage pool, a full backup should be first performed on the new pool.
+> Note:
+>
+> - Master database does not support cumulative incremental backup. It cannot be selected as the backup source.
+> - If the database has not been fully backed up, or has not been fully backed up after the restore, the first cumulative incremental backup will be performed as a full backup by default.
+> - When you switch the backup target of a cumulative incremental backup job to a new storage pool, a full backup should be first performed on the backup source with the new pool as the backup target.
 
 ### Create Log Backup Jobs
 
-Based on periodic full backups and cumulative incremental backups, you can also frequently add log backups to back up the transaction logs of the database separately. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. A log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider more frequent log backups. Frequent log backups also increase the frequency of log truncation, resulting in smaller log files.
+If your databases use the Full or BULK-LOGGED recovery model, you can back up transaction logs periodically based on full backups or cumulative incremental backups. Transaction log backup saves more time and space than full backup, and will truncate the log after the job is completed to avoid the log fills. When you use transaction logs to recover the database, you can specify a point in time.
 
-- Creating a log backup is similar to creating a full backup. Select **Log** as the backup type and choose databases.
+Creating a log backup is similar to creating a full backup. Select **Log** as the backup type and choose databases.
 
-  ![](../image/03-mssql/mssql_log01.png)
+![](../image/03-mssql/mssql_log01.png)
 
+> Note:
+>
+> - Log backup is not supported for databases with the SIMPLE recovery model.
+> - If the database has not been fully backed up, or has not been fully backed up after the restore, you should first run a full backup and then a log backup.
+> - When you switch the backup target of a log backup job to a new storage pool, a full backup should be first performed on the backup source with the new pool as the backup target.
 
-  >  Note:
-  >
-  >  - Log backup is not supported for databases with the SIMPLE recovery model.
-  >  - If the database has not been fully backed up, or has not been fully backed up after the restore, you should first run a full backup and then a log backup.
-  >  - When you switch the backup target of a log backup job to a new storage pool, a full backup should be first performed on the new pool.
-- **Backup Options** -> **Common** provides the **Log** option.
+- **Backup Options** -> **Common** provides the **Log backup threshold** option.
 
-  ![](../image/03-mssql/mssql_log03.png)
+![](../image/03-mssql/mssql_log03.png)
 
-  **Log**: You will see this option only when selecting a periodic backup schedule. This option is not enabled by default. When you enable it, you can set the log space usage threshold.  When the log space usage of the database reaches the threshold, the log backup will start to run. If the log space usages of all databases do not reach the threshold, ADPS will not start the job, generate the job history, or provide the alert.
+**Log backup threshold**: This option is not enabled by default. When you enable it, you can set the log space usage threshold.  Each time before the running of log backup, the log space usage rate will be checked. Log backup will perform on the databases whose log space usage reaches the threshold.
+
+> Note: You will see this option only when selecting hourly, daily, weekly, and monthly backup schedules. 
 
 - **Backup Options** -> **Advanced** provides the **Backup tail-log** option.
 
-  ![](../image/03-mssql/mssql_log02.png)
+![](../image/03-mssql/mssql_log02.png)
 
-**Backup tail-log**: When the data files in the database are lost or damaged, you can use this option to capture any log records that have not been backed up, avoiding losing your work records and ensuring that the log chain remains intact.
+**Backup tail-log**: When the database is damaged or data files are deleted, you can try to create a log backup first before the restore and enable the **Backup tail-log** option. It can capture any log records (tail log) that have not been backed up. After the log backup, you can create a job and restore the database to a point in time before the failure.
 
-- After the tail-log backup is completed, the database will be in the RESTORING state.
-- **Backup new databases** is not compatible with **Backup tail-log**. You cannot enable them at the same time.
-
-> Prerequisites for tail-log backup:
+> To perform a successful tail-log backup, consider the following:
 >
-> - The instance is running normally and the storage pool has a full backup as the base.
-> - The database is in a state that supports tail-log backups (Online, Recovery, Recovery Pending, and Suspect) and does not contain any bulk-logged changes. The states that do not support tail-log backups are Offline, Restoring, and Emergency.
-> - The database recovery model is full or bulk-logged.
+> - The SQL Server instance is running normally under the full or bulk-logged recovery model.
+> - The database state is Online, Recovery, Recovery Pending, and Suspect. The database does not contain any bulk-logged changes. 
+> - The database states that do not support tail-log backups are Offline, Restoring, and Emergency.
+> - **Backup new databases** is not compatible with **Backup tail-log**. You cannot enable them at the same time.
 
 ### Create Synthetic Backup Jobs
 
-To restore the above three traditional backups, the backup sets will be re-converted into the source data files of the database, which costs a lot of recovery time. To reduce the time, ADPS also supports **Synthetic Backup**, a more advanced way to back up SQL Server databases.
+The restore of the above three traditional backups will re-covert the backup sets into the source data files of the database, which costs a lot of recovery time. To reduce the time, ADPS also supports **Synthetic Backup**, a more advanced way to back up SQL Server databases.
 
 Synthetic backup can capture data from the production system through snapshot technology. The first synthetic backup job is a full backup and the subsequent ones are incremental. Each incremental backup is synthesized with the previous backup copy to generate a new one. The copy can be directly mounted to the target database for usage by Instant Recovery without adding physical copies and occupying additional storage space.
 
 > Prerequisites for creating a synthetic backup:
 >
-> - The data disk of the storage server requires the ZFS file system. For installation, please refer to *Server Requirements*.
+> - The data disk of the storage server requires the ZFS file system. For installation, see *Server Requirements*.
 > - You need to configure iSCSI/FC between the agent and the storage server.
 > - Your **License** should have the advanced features of MS SQL Server Synthetic Backup and MS SQL Server Copy Management.
 > - The admin has created and assigned a Database Synthetic Pool to operators.
 
-(1) Creating a synthetic backup is similar to creating a full backup. Select **Synthetic Backup** as the backup type and choose databases.
+1. Creating a synthetic backup is similar to creating a full backup. Select **Synthetic Backup** as the backup type and choose databases.
 
-![](../image/03-mssql/mssql_merge01.png)
+    ![](../image/03-mssql/mssql_merge01.png)
 
 > Note:
 >
->- The system databases do not support synthetic backup and they cannot be selected.
->- SQL Server synthetic backup supports Windows 2003 and later versions. For databases, it supports SQL Server 2005 and later versions. iSCSI and FC storage types are supported.
+> - SQL Server System databases do not support synthetic backup. They cannot be selected as the backup source.
+> - SQL Server synthetic backup supports Windows 2003 and later versions. For databases, it supports SQL Server 2005 and later versions. iSCSI and FC storage types are supported.
 
-(2) Select **Backup Target**. The backup target can only be a database synthetic pool. If you cannot find a database synthetic pool, please contact the admin to create one.
+2. Select a **Backup Target**. The backup target can only be a database synthetic pool. If you cannot find a database synthetic pool, please contact the admin to create one.
 
-![](../image/03-mssql/mssql_merge02.png)
+    ![](../image/03-mssql/mssql_merge02.png)
 
-(3) Select **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. We recommend running a synthetic backup on a daily basis.
+3. Select a **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. We recommend running a synthetic backup on a daily basis.
 
-(4) Set **Backup Options** including common and advanced options. Compared with the traditional backup, the synthetic backup configuration options add **Full backup threshold** and **Shadow copy provider**.
+4. Set **Backup Options** including common and advanced options. Compared with the traditional backup, the synthetic backup configuration options add **Full backup threshold** and **Shadow copy provider**.
 
-- **Common options**:
+    - **Common options**:
 
-![](../image/03-mssql/mssql_merge03.png)
+    ![](../image/03-mssql/mssql_merge03.png)
 
-**Channels**: You can enable this option to improve backup efficiency. The default number is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
+    **Channels**: You can enable this option to improve backup efficiency. The default number is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
 
-**Full backup threshold**: The full backup threshold is 50 by default. The range is 5 to 100. When the data page changes of the database reach the full backup threshold, the synthetic backup job will be performed as a full backup.
+    **Full backup threshold**: Before the synthetic backup job run as an incremental backup, the data page changes will be checked. When the data page changes of the database reach the full backup threshold, the synthetic backup job will be performed as a full backup but not an incremental. The full backup threshold is 50 by default. The range is 5 to 100. 
 
-- **Advanced options**:
+    - **Advanced options**:
 
-![](../image/03-mssql/mssql_merge04.png)
+    ![](../image/03-mssql/mssql_merge04.png)
 
-**Shadow copy provider**: You can select a shadow copy provider in the agent for the synthetic backup job.
+    **Shadow copy provider**: You can specify a shadow copy provider in the agent to perform the synthetic backup job.
 
-(5) Set **Job Name** and check whether the job information is correct. Click **Submit**.
+5. Set a **Job Name** and check whether the job information is correct. Click **Submit**.
 
 ## Create Restore Jobs
 
@@ -445,257 +466,216 @@ This chapter introduces how to restore SQL Server databases. ADPS provides a var
 
 ### Create Media Restore Jobs
 
-When a media error occurs in the SQL Server database, such as data file corruption or accidental deletion, you can perform media restore jobs to restore the database or some data files to the latest state.
+When a media error occurs in the SQL Server database, such as data file corruption or accidental deletion, you can perform media restore jobs to restore one or more data files to the state of the latest backup set.
 
-(1) Select the SQL Server host and instance. Click **Next**.
+1. Select the host and SQL Server instance. Click **Next**.
 
-(2) Select **Media** as the restore type and choose the databases or data files to be restored. You can modify the path for restored files. Click **Next**.
+2. Select **Media** as the restore type and choose the databases or data files that you want to restore. You can modify the path for restored files. Click **Next**.
 
-![](../image/03-mssql/mssql_restore01.png)
+    ![](../image/03-mssql/mssql_restore01.png)
 
 > Note:
 >
 > - Media restore can only restore to the source host.
 > - Under the simple recovery model, the file must belong to a read-only filegroup for media restore.
 
-(3) Set **Restore Schedule**. Click **Next**.
+3. Select a **Restore Schedule**. Click **Next**.
 
-(4) Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
+4. Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
 
-![](../image/03-mssql/mssql_restore02.png)
+    ![](../image/03-mssql/mssql_restore02.png)
 
-(5) Confirm the job information, click **Submit**, and wait for the job to be executed.
+5. Confirm the job information, click **Submit**, and wait for the job to be executed.
 
 ### Create Timepoint Restore Jobs
 
-When a logical error or disaster occurs in the SQL Server database, you can use Timepoint Restore to restore the database to a specified point-in-time state.
+When a logical error or disaster occurs in a SQL Server database, you can use Timepoint Restore to restore the database to a specified point-in-time state. Restoring to the source or a different host is supported.
 
-(1) Select the SQL Server host and instance. Click **Next**.
+1. Select the host and SQL Server instance. Click **Next**.
 
-(2) Select **Timepoint Restore** and a database. Then set the database information after restoring. Specify a point in time for the restore by **Restore to point in time**, **Restore to LSN**, or **Restore to backup state**. Click **Next**.
+2. On the **Backup Sets** page, do the following:
 
-![](../image/03-mssql/mssql_restore03.png)
+    (1) Select **Timepoint Restore** as the restore type. Choose a database that you want to restore.
 
-- You can specify the restored database name or data file path and name with the **Rename** operation. Click **Submit** to modify the information.
+    ![](../image/03-mssql/mssql_restore03.png)
 
- ![](../image/03-mssql/mssql_restore08.png)
+    (2) The database will be restored as the original name by default. You can click the **Rename** icon beside **Restore As** to specify the restored database name or data file path and name. 
 
-- **Restore to point in time**: You can select a restore branch to get a time, click the time, and drag the slider control to select a specific backup set.
+    ![](../image/03-mssql/mssql_restore08.png)
 
-![](../image/03-mssql/mssql_restore05.png)
+    (3) Select a restore point in time by the following three methods:
 
-- **Restore to LSN**: You can select a restore branch to get a LSN segment, click the segment, and modify the LSN to get a specific backup set.
+    - **Restore to Point-in-time**: If the database has log backups, it will display the latest point in time of the newest backup set by default.
 
-![](../image/03-mssql/mssql_restore06.png)
+        You can click the time beside **Restore to Point-in-time**. In the pop-up window, drag the slider to specify a point in time for the restore. Click the tick. The restore branch and backup set information of the point in time will appear.
 
-- **Restore to backup state**:
+    ![](../image/03-mssql/mssql_restore05.png)
 
-![](../image/03-mssql/mssql_restore07.png)
+    - **Restore to LSN**: If the database has log backups, it will display the latest LSN of the newest backup set by default.
 
-- You can specify the restored database name or data file path and name through the **Rename** icon. Click **OK** to modify.
+        You can click the LSN number beside Restore to LSN. In the pop-up window, enter a specific LSN number for the restore. Click the tick. The restore branch and backup set information of the LSN will appear.
 
-  ![](../image/03-mssql/mssql_restore08.png)
+    ![](../image/03-mssql/mssql_restore06.png)
 
-(3) Set **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
+    - **Restore to Backup State**: Click this option and the backup set list will appear. It will restore to the backup state of the newest backup set by default.
 
-(4) Set **Restore Schedule**. It only supports immediate and one-time schedule types.
+        You can select a backup set from the list and restore to its latest backup state.
 
-(5) Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action.
+    ![](../image/03-mssql/mssql_restore07.png)
 
-(6) Confirm whether the information is correct and then submit the job.
+3. Select a **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
+
+4. Select a **Restore Schedule**. It supports only immediate and one-time schedule types.
+
+5. Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action.
+
+6. Confirm whether the information is correct and then submit the job.
 
 ### Create Instant Recovery Jobs
 
-Instant recovery is only supported for SQL Server databases with synthetic backups. It can reduce the recovery time by mounting the synthetic backup set at a specified point in time in the database synthetic pool.
+Disasters may occur in a SQL Server database. If you want the database to be online quickly, you can perform an instant recovery job to create a database copy using the synthetic backup set and mount the copy directly to the agent. The data can be recovered quickly to reduce the recovery time.
 
 > Note:
 >
 > - If the storage pool storing synthetic backup sets is of the iSCSI type, you must install the iSCSI Initiator on the agent where you perform the restore job.
 > - If the storage pool storing synthetic backup sets is of the FC type, you must install the HBA API Driver corresponding to the HBA card on the agent where you perform the restore job.
 > - After the instant recovery is completed, the data file path of the database will be redirected to the mounted directory.
-> - If the restore target is a single instance, the mounted directory is under the path C:\ProgramData\\aurreum\\adps. If the restore target is hot standby, the mounted directory is under the shared disk.
+> - If the restore target is a single instance, the mounted directory is under the path C:\ProgramData\\aurreum\\adps. If the restore target is a failover cluster, the mounted directory is under the shared disk.
 
 ADPS provides the following two portals to create instant recovery jobs: **Restore** and **CDM**.
 
-#### Create from Restore Menu
+#### Create from Restore Page
 
-(1) Enter the **Restore** main menu. Select the SQL Server host and instance. Click **Next**.
+1. Open the **Restore** page. Select the host and SQL Server instance. Click **Next**.
 
-(2) Select **Instant Recovery** as the restore type and choose a database. Instant Recovery supports restoring to a specified point in time, LSN, and backup state. You can specify the restored database name and data file name through the **Rename** icon. Click **Next**.
+2. On the **Backup Sets** page, do the following:
 
-![](../image/03-mssql/mssql_restore09.png)
+    (1) Select **Instant Recovery** as the restore type and choose a database. 
 
-(3) Set **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
+    (2) The database will be restored as the original name by default. You can click the **Rename** icon beside **Restore As** to specify the restored database name or data file path and name.
 
-(4) Set **Restore Schedule**. It supports immediate and one-time schedule types. Click **Next**.
+    (3) Select a restore point in time by the following three methods: **Restore to Point-in-time**, **Restore to LSN**, and **Restore to Backup State**.  
 
-(5) Set **Restore Options** according to your needs including precondition and pre/post action. Click **Next**.
+    (4) Click **Next**.
 
-![](../image/03-mssql/mssql_restore10.png)
+    ![](../image/03-mssql/mssql_restore09.png)
 
-- Select storage protocol: You can create a new FC Target or iSCSI Target for the restore. ADPS supports restoring the backup sets from the iSCSI database synthetic pool to the FC and vice versa.
+3. Select a **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
 
-(6) Set **Job Name** and check whether the job information is correct. Click **Submit**.
+4. Select a **Restore Schedule**. It supports immediate and one-time schedule types. Click **Next**.
 
-#### Create from CDM Menu
+5. Set **Restore Options** according to your needs including precondition and pre/post action. Click **Next**.
 
-On the **CDM** interface, you can view the corresponding data copies on a storage server and create instant recovery jobs to clone copies and meet the needs of using the same data in multiple business situations.
+    ![](../image/03-mssql/mssql_restore10.png)
 
-(1) Enter the **CDM** main menu and filter out the relevant data copies of SQL Server instances. Select the instance and click the **Create Copy** icon.
+    - **Select storage protocol**: When you enable this option, you can select iSCSI or FC storage protocol to restore the synthetic backup set in a database synthetic pool, and set the name for the target. During the instant recovery, the selected storage protocol will be used to transfer data between the storage server and the restore target.
 
-![](../image/03-mssql/mssql_cdm01.png)
+6. Set **Job Name** and check whether the job information is correct. Click **Submit**.
 
-(2) The default restore type is **Instant Recovery**. Select the database to be recovered. Instant Recovery supports restoring to a specified point in time, LSN, and backup state. You can specify the restored database name and data file name through the **Rename** icon. Click **Next**.
+#### Create from CDM Page
 
-![](../image/03-mssql/mssql_cdm02.png)
+On the **CDM** page, you can view data copies generated after the database synthetic backup set finished. You can use the **Create Copy** icon to create an instant recovery job.
 
-(3) Other operations such as **Restore Target**, **Restore Schedule**, and **Restore Options** are the same as the previous section.
+1. Open **CDM** and filter out the relevant data copies of SQL Server instances. Select the instance and click the **Create Copy** icon next to the instance.
+
+    ![](../image/03-mssql/mssql_cdm01.png)
+
+2. The default restore type is **Instant Recovery**. Select the database that you want to recover. You can specify the restored database name and data file name through the **Rename** icon. Instant Recovery supports restoring to a specified point in time, LSN, and backup state. Click **Next**. 
+
+    ![](../image/03-mssql/mssql_cdm02.png)
+
+3. Other operations such as **Restore Target**, **Restore Schedule**, and **Restore Options** are the same as the previous section.
 
 #### Check Successful Recovery
 
-After the instant recovery is completed, enter the **CDM** menu. You can find a mounted recovery record under the corresponding data copy.
+After the instant recovery is completed, go to the **CDM** page. You can find a mounted copy record under the corresponding data copy.
 
 ![](../image/03-mssql/mssql_cdm05.png)
 
 #### Detach Copy
 
-You can detach the mounted data copies from the agent using the **Detach** icon. However, please note that detaching the copy will lose new data created after mounting and delete the mounted database.
+You can detach the mounted data copies from the agent using the **Detach** icon. Note that detaching the copy will lose new data created after mounting and delete the mounted database.
 
-- Click the **Detach** icon beside the data copy record.
+1. Select a detached copy and click the **Detach** icon beside the copy record.
 
-  ![](../image/03-mssql/mssql_cdm03.png)
+    ![](../image/03-mssql/mssql_cdm03.png)
 
-- Pay attention to the warning, fill in the verification code, and click **OK**.
+2. Pay attention to the warning, enter the verification code, and click **OK**.
 
-  ![](../image/03-mssql/mssql_cdm04.png)
+    ![](../image/03-mssql/mssql_cdm04.png)
 
 ### Create Disaster Recovery Jobs
 
-When a logical error or disaster occurs in the SQL Server database, you can create a disaster recovery job to restore one or more databases to the latest backup state.
+When a disaster occurs in the SQL Server database, you can create a disaster recovery job to restore one or more databases to the latest state of the newest backup set. You can restore to the source or a different host.
 
-(1) Select the SQL Server host and instance. Click **Next**.
+1. Select the host and SQL Server instance. Click **Next**.
 
-(2) Select **Disaster Recovery** and choose databases. You can specify the restored database name through the **Rename** icon.
+2. Select **Disaster Recovery** and choose databases. You can specify the restored database name through the **Rename** icon.
 
-![](../image/03-mssql/mssql_restore12.png)
+    ![](../image/03-mssql/mssql_restore12.png)
 
-(3) Set **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
+3. Select a **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
 
-(4) Set **Restore Schedule**. It supports immediate and one-time schedule types. Click **Next**.
+4. Select a **Restore Schedule**. It supports immediate and one-time schedule types. Click **Next**.
 
-(5) Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
+5. Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
 
-(6) Confirm the job information. Click **Submit**.
+6. Confirm the job information. Click **Submit**.
 
 ### Create Recovery Testing Jobs
 
 You can restore the latest backup sets of SQL Server to other instances on the source host or a different host hourly, daily, weekly, or monthly.
 
-(1) Select the SQL Server host and instance. Click **Next**.
+1. Select the host and SQL Server instance. Click **Next**.
 
-(2) Select **Recovery Testing** and choose databases. You can specify the restored database name through the **Rename** icon.
+2. Select **Recovery Testing** and choose databases. You can specify the restored database name through the **Rename** icon.
 
-![](../image/03-mssql/mssql_restore11.png)
+    ![](../image/03-mssql/mssql_restore11.png)
 
-(3) Set **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
+3. Select a **Restore Target**. It supports restoring to the source or a different host. Click **Next**.
 
-(4) Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
+4. Select a **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
 
-(5) Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
+5. Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
 
-(6) Confirm the job information. Click **Submit**.
+6. Confirm the job information. Click **Submit**.
 
-(7) Wait for the job to be executed. The job will restore the latest backup sets of the source host.
+7. Wait for the job to be executed. The job will restore the latest backup sets of the source host.
 
-## Manage Jobs
+## SQL Server Cluster Backup and Restore
 
-On the **Job** interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.
+ADPS supports three types of SQL Server clusters: failover cluster, Always On availability groups, and Always On failover clusters. Before the first backup and restore, you must cluster the SQL Server nodes.
 
-![](../image/03-mssql/mssql_job01.png)
+### Failover cluster
 
-- Start: Click ![](../image/03-mssql/mssql_job02.png) to start the job immediately.
-- Modify: Click ![](../image/03-mssql/mssql_job03.png) to modify the basic job information, backup/restore schedule, and backup/restore options.
-- Clone: Click ![](../image/03-mssql/mssql_job04.png) to create multiple similar backup jobs.
-- Delete: Click ![](../image/03-mssql/mssql_job05.png) to access the confirmation window. Click **OK** to delete the job.
-
-## Backup Protection Strategy
-### Backup Schedule Operation
-ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the currently created job.
-
-![](../image/03-mssql/mssql_time01.png)
-
-- Immediate: The job starts immediately after it is submitted.
-- One time: The job starts to run at a specified time. After the job is submitted, the job will be in an idle state and start to run when the specified execution time is reached.
-- Hourly: The job runs after a specified number of hours according to your setting. The value is an integer between 1 and 24.
-- Daily: The job runs after a specified number of days according to your setting. The value is an integer between 1 and 5.
-- Weekly: The job runs after a specified number of weeks according to your setting. You can specify which day of the week to run the job.
-- Monthly: The job runs at the specified weeks and days of the months according to your setting.
-
->  **Example: Perform the job every two weeks on Friday at 18:00**
-
-> ![](../image/03-mssql/mssql_time03.png)
-
-> **The actual execution time is:**
->
-> - If the current time is Friday 17:00, the execution time is Friday 18:00 (the current day).
-> - If the current time is Thursday 17:00, the execution time is Friday 18:00 (the next day).
-> - If the current time is Saturday 17:00, the execution time will be next Friday 18:00.
-> - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
-
-### Backup Strategy Advice
-
-There are four SQL Server backup types: full backup, cumulative incremental backup, log backup, and synthetic backup. Full backup, cumulative incremental backup, and log backup can be used together. Synthetic backup and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
-
-1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
-2. After that, you can run a **Cumulative Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
-3. If the database supports log backup, you can run a **Log Backup** every few hours to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.
-
-> Avoid using the strategies of all full backups or a full backup followed by cumulative incremental or log backups.
-
-## Channel Number Configuration
-
-- Description of the channel number for backup jobs
-
-  SQL Server physical backups support up to 64 channels and synthetic backup supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
-
-- Description of the channel number for restore jobs
-
-   The channel number for a restore job is the same as that for the backup job. The **Restore** page does not have the Channel option by default.
-
-## SQL Server Cluster
-
-ADPS supports three types of SQL Server clusters: hot standby, Always On availability groups, and Always On failover clusters. Before the first backup and restore, you must cluster the SQL Server nodes.
-
-### Hot Standby
-
-Deploy the environment of each node in the cluster. For details, please refer to *Install and Configure Agent* as well as *Activate License and Assign Authorization*.
+Deploy the environment of each node in the cluster according to *Install and Configure Agent* as well as *Activate License and Authorize User*.
 
 #### Cluster Binding
 
 1. Go to **Resource** -> **Cluster**. Click the **Cluster Binding** icon.
 
-![](../image/03-mssql/mssql_cluster01.png)
+    ![](../image/03-mssql/mssql_cluster01.png)
 
-2. Customize the cluster name. Select the active node as the **Primary Node**, Active-Passive as  the **Type**, and the inactive node as the **Node**. Fill in the IP of the **Database Cluster Address**. Click **Submit**.
+2. Customize the cluster name. Select the active node as the **Primary Node**, Active-Passive as  the **Type**, and the inactive node as the **Node**. Enter the IP of the **Database Cluster Address**. Click **Submit**.
 
-![](../image/03-mssql/mssql_cluster02.png)
+    ![](../image/03-mssql/mssql_cluster02.png)
 
 #### Backup and Restore
 
-The backup and restore types for SQL Server hot standby are the same as those for single instance.
+The backup and restore types for SQL Server failover cluster are the same as those for single instance.
 
 - When creating a backup job, select the SQL Server of the active node as the backup resource. The remaining steps are similar to *Create Backup Jobs*.
-- If a node switch occurs on the SQL Server hot standby, the new active node will automatically take over the backup job.
-- In the process of creating a restore job, the restore target supports single instance and hot standby.
+- If a node switch occurs on the SQL Server failover cluster, the new active node will automatically take over the backup job.
 
 ### Always On Availability Groups
 
-SQL Server Always On availability groups are called virtual instances. The virtual instance is named: SQL Server instance name-ag-always on availability group name. Please refer to *Install and Configure Agent* as well as *Activate License and Assign Authorization* to complete the environment deployment of each node. Before activating the virtual instance, log in to the SQL Server instance first.
+SQL Server Always On availability groups are called virtual instances. The virtual instance is named: SQL Server instance name-ag-always on availability group name. Deploy the environment of each node according to *Install and Configure Agent* as well as *Activate License and Authorize User*. Before activating the virtual instance, log in to the SQL Server instance first.
 
 #### Cluster Binding
 
 1. Go to **Resource** -> **Cluster** and click the **Cluster Binding** icon.
-2. Customize the cluster name. Select the virtual instance of the current primary copy as the **Primary Node**, Always On Availability Groups as the **Type**, and the virtual instance of the secondary copy as the **Node**. Click **Submit**.
+
+2. Customize the cluster name. Select the virtual instance of the current primary copy as the **Primary Node**, **Always On Availability Groups** as the **Type**, and the virtual instance of the secondary copy as the **Node**. Click **Submit**.
 
 ![](../image/03-mssql/mssql_cluster03.png)
 
@@ -710,9 +690,12 @@ The backup and restore types of SQL Server Always On availability groups are the
 #### Cluster Binding
 
 1. Go to **Resource** -> **Cluster** and click the **Cluster Binding** icon.
-2. Select Active-Passive to bind the SQL Server instance. Then log in to the instance on the **Resource** page.
-3. Activate virtual instances. Please refer to *Install and Configure Agent* as well as *Activate License and Assign Authorization*.
-4. Select Always On Availability Groups to bind virtual instances. Then log in to the virtual instances on the **Resource** page.
+
+2. Select **Active-Passive** to bind SQL Server instances. Then log in to the instances on the **Resource** page.
+
+3. Activate virtual instances. See *Install and Configure Agent* as well as *Activate License and Authorize User*.
+
+4. Select **Always On Availability Groups** to bind virtual instances. Then log in to the virtual instances on the **Resource** page.
 
 #### Backup and Restore
 
@@ -725,8 +708,11 @@ The backup and restore types for SQL Server Always On failover cluster are the s
 #### Cluster Binding
 
 1. Go to **Resource** -> **Cluster** and click **Cluster Binding** icon.
-2. Select Active-Passive to bind the physical instances. After that, log in to the physical instances on the **Resource** page.
-3. Activate virtual instances. Please refer to *Install and Configure Agent* as well as *Activate License and Assign Authorization*.
+
+2. Select **Active-Passive** to bind the physical instances. After that, log in to the physical instances on the **Resource** page.
+
+3. Activate virtual instances. See *Install and Configure Agent* as well as *Activate License and Authorize User*.
+
 4. Select Always On Availability Groups to bind virtual instances. After that, log in to the virtual instances on the **Resource** page.
 
 #### Backup and Restore
@@ -735,103 +721,73 @@ The backup and restore types for Always On failover clusters are the same as tho
 
 - When creating a backup job, select a virtual instance as the backup resource. The remaining steps are basically similar to those in *Create Backup Jobs*.
 
-## SQL Server Database Replication
+## Manage Jobs
 
-### Prerequisites for Database Replication
+On the **Job** interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.
 
-- The Primary and Standby should have the same major version number. It has no requirement for the minor version number, revision number, and operating system.
-- The operations of SQL Server hot standby are the same as the single instance, but the premise is that you need to bind the nodes into a cluster on the **Cluster** page. All the hosts that participate in database replication jobs should be deployed according to *Install and Configure Agent* as well as *Activate License and Assign Authorization*.
+![](../image/03-mssql/mssql_job01.png)
 
-### Compatibility List
+- Start: Click ![](../image/03-mssql/mssql_job02.png) to start the job immediately.
+- Modify: Click ![](../image/03-mssql/mssql_job03.png) to modify the basic job information, backup/restore schedule, and backup/restore options.
+- Clone: Click ![](../image/03-mssql/mssql_job04.png) to create multiple similar backup jobs.
+- Delete: Click ![](../image/03-mssql/mssql_job05.png) to access the confirmation window. Click **OK** to delete the job.
 
-#### Single Host
+## Backup Protection Strategy
 
-```{tabularcolumns} |\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.14}|\Y{0.14}|
-```
-```{table} Single Host Compatibility List
-| Database Version | Database Bits | OS              | CPU Architecture | OS Bits | Patch |
-| ---------------- | ------------- | --------------- | ---------------- | ------- | ----- |
-| 2000             | 32            | Windows 2000    | x86              | 32      |       |
-| 2005             | 64            | Windows 2003    | x86              | 64      |       |
-| 2008             | 32            | Windows 2008    | x86              | 64      |       |
-| 2008             | 32            | Windows 2008 R2 | x86              | 64      |       |
-| 2008 R2          | 64            | Windows 2008 R2 | x86              | 64      |       |
-| 2012             | 64            | Windows 2012 RC | x86              | 64      |       |
-| 2014             | 64            | Windows 2012 R2 | x86              | 64      |       |
-| 2016 (RTM)       | 64            | Windows 2012 R2 | x86              | 64      |       |
-| 2017             | 64            | Windows 2012 R2 | x86              | 64      |       |
-```
+### Backup Schedule Operation
 
-#### Hot Standby
+ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the currently created job.
 
-```{tabularcolumns} |\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.14}|\Y{0.14}|
-```
-```{table} Single Host Compatibility List
-| Database Version | Database Bits | OS              | CPU Architecture | OS Bits | Patch |
-| ---------------- | ------------- | --------------- | ---------------- | ------- | ----- |
-| 2005             | 64            | Windows 2003 R2 | x86              | 64      | SP2   |
-| 2008 R2          | 64            | Windows 2008 R2 | x86              | 64      | SP3   |
-| 2012             | 64            | Windows 2012 RC | x86              | 64      |       |
-| 2014             | 64            | Windows 2012 R2 | x86              | 64      |       |
-| 2016 (RTM)       | 64            | Windows 2012 R2 | x86              | 64      |       |
-```
+![](../image/03-mssql/mssql_time01.png)
 
-### Create SQL Server Database Replication Jobs
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
-1. Go to the **Database Replication** interface. Click the "+" icon to create a job.
+> **Example: Perform the job every two weeks on Friday at 18:00**
 
-   ![](../image/03-mssql/mssql_replication01.png)
+> ![](../image/03-mssql/mssql_time03.png)
 
-1. Select the **Primary**.
+> **The actual execution time will be:**
+>
+> - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
+> - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).
+> - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
+> - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
-   ![](../image/03-mssql/mssql_replication02.png)
+### Backup Strategy Advice
 
-1. Select the **Standby**.
+There are four SQL Server backup types: full backup, cumulative incremental backup, log backup, and synthetic backup. You can add cumulative incremental backups or log backups based on full backups to save more storage space and backup time and realize the recovery to a specified point in time. You can also add log backups based on synthetic backups to realize the instant recovery to a specified point in time. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of data loss that you can tolerate.
 
-   ![](../image/03-mssql/mssql_replication03.png)
+1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have an RTO of every week.
 
-1. Set the **Database Configuration**.
+2. After that, you can run a **Cumulative Incremental Backup** every day to reduce the backup time and ensure that you have an RPO of every day.
 
-   ![](../image/03-mssql/mssql_replication04.png)
+3. If the database supports log backup, you can run a **Log Backup** every few hours to ensure that the RPO can reach the second level. For example, you can run a log backup every 2 hours.
 
-   - Primary/Standby address: It supports the IP address and domain name. For the cluster resource, enter the cluster IP.
-   - Storage pool: It supports standard storage pool, de-duplication storage pool, object storage service pool, and tape library pool.
-   - Primary/Standby storage dir: The default storage directory is the default path of the data file, log file, and standby file (for read-only access) of the resource. The directory can be customized.
-   - Number of parallelism: It refers to the number of database replication jobs running in parallel. The default number is 1. You can customize the number. An integer from 1 to 64 is supported.
-   - Replication content: Select at least one database of the Primary for replication.
+> Avoid using the following strategies:
+>
+> - Perform only full backups.
+> - Perform a full backup followed by all cumulative incremental or log backups.
 
-1. Set the **Application Plan**.
+## Channel Number Configuration
 
-   ![](../image/03-mssql/mssql_replication05.png)
+- Channel number for backup jobs
 
-1. Set the job name and confirm whether the job information is correct. **Submit** the job after confirmation.
+SQL Server physical backups support up to 64 channels and synthetic backup supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
 
-   ![](../image/03-mssql/mssql_replication06.png)
+- Channel number for restore jobs
 
-1. Wait for the replication job to complete.
+The channel number for a restore job is the same as that for the backup job. The **Restore** page does not provide the Channel option by default.
 
-   ![](../image/03-mssql/mssql_replication07.png)
-
-### Database Replication Operation
-
-The time required to create a database replication job will vary in different environments. When the database replication job is created and the state is Idle, the interface will display all the operation icons of database replications.
-
-![](../image/03-mssql/mssql_replication08.png)
-
-- Disable replication: The replication job will be stopped. Even if the set time is reached, the Primary will not be replicated to the Standby.
-- Enable replication: The job will continue to replicate the data from the Primary to the Standby according to the set strategy.
-- Switch: Through the switchover of the Primary and the Standby, you can convert the original Primary to the new Standby and the original Standby to the new Primary. The replication operation and strategy will remain the same.
-- Delete: You can click it to delete the database replication job.
-- Config: You can check the configuration information of the replication job and modify the application plan, number of parallelism, and replication content.
-- Activate: When the Primary fails, you can click Activate to access the confirmation window, click Submit, and change the Standby to the new Primary.
-- Read only: You can execute read-only queries on the Standby.
-- Rebuild: It can be used when the database fails and the primary-standby relationship needs to be rebuilt. After rebuilding the Standby, the original Primary will become the new Standby and the original Standby will become the new Primary.
-
-## Restrictions
+## Limitations
 
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
-```{table} Restrictions
+```{table} Limitations
 ---
 class: longtable
 ---
@@ -842,7 +798,7 @@ class: longtable
 | Media restore                 | SQL Server 2000 only supports offline restore. SQL Server 2005 and later Enterprise Editions support online restore. {{ br }}You cannot perform media restores on deleted databases.{{ br }}Synthetic backup sets do not support media restore. {{ br }}Media restore does not support restoring to a different host. {{ br }}Databases in Restoring and Emergency states do not support media restore. {{ br }}After the restore of the primary filegroup, run a full backup before running a media restore again. {{ br }}Log backup is required when the databases with the full and bulk-logged recovery models have read-only filegroups. Otherwise, media restore will fail when files are lost. {{ br }}Media restore does not support restoring from the target storage pool. |
 | Instant recovery              | Instant recovery does not support restoring multiple databases in one job currently. {{ br }}Instant recovery is only supported for online or offline databases. {{ br }}Neither Always On availability groups nor SQL Server on Linux supports instant recovery. |
 | Always On availability groups | The databases in availability groups must be with the full recovery model. Therefore,  when a virtual instance is selected as the restore target, the database with the simple or bulk-logged recovery model cannot be restored to the target.{{ br }}Always On availability groups do not support synthetic backup and instant recovery. |
-| Authentication method         | Neither Linux SQL Server nor Linux Always On availability groups support OS Authentication. {{ br }}Only Windows SQL Server single instance supports login with Access Key. |
+| Authentication method         | Neither SQL Server on Linux nor Always On availability groups on Linux support OS Authentication. {{ br }}Only Windows SQL Server single instance supports login with Access Key. |
 ```
 
 ## Glossary
@@ -854,7 +810,7 @@ class: longtable
 | ----------------------------- | ------------------------------------------------------------ |
 | Fast compression              | Compress data during backup using fast compression algorithms. |
 | Log truncation                | Log truncation can remove inactive virtual log files from the logical transaction logs in a SQL Server database to free up space in the logical logs for reuse by the physical transaction logs. |
-| Hot standby                   | Only one host is allowed to mount the shared disk, while the other is closed. When the active node fails, the inactive node will become the active node and mount the shared disk. |
+| Failover cluster                   | Only one host is allowed to mount the shared disk, while the other is closed. When the active node fails, the inactive node will become the active node and mount the shared disk. |
 | Always On availability groups | Under synchronous-commit mode, the data of the primary copy is updated to the secondary copy synchronously. Real-time synchronization can be maintained between the primary copy and the secondary copy. When the system detects the failure of the primary copy, the secondary copy will immediately become the new primary. |
 | Snapshot                      | A database snapshot is a read-only static view of a SQL Server database (source database). |
 ```
