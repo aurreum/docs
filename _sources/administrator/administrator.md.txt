@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ADPS disaster recovery backup platform is an enterprise-level data security protection platform. With the built-in backup cloud system, ADPS provides data backup, disaster recovery, multi-tenant shared use and collaboration of local and cloud data, etc. to protect enterprise data such as operating systems, databases, applications, files, virtual machines, object storage, and many more. When a data disaster occurs, ADPS can restore the data completely, accurately and quickly, to minimize the economic loss as possible.
+Aurreum Data Protection Suite (ADPS) backup and disaster recovery platform is an enterprise-level data security protection platform. With the built-in backup cloud system, ADPS provides data backup, disaster recovery, multi-tenant shared use and collaboration of local and cloud data and other features to protect enterprise data such as operating systems, databases, applications, files, virtual machines, object storage, and many more. When a data disaster occurs, ADPS can restore the data completely, accurately and quickly, to minimize the economic loss.
 
 This guide introduces how to use ADPS as System Admin (the admin).
 
@@ -12,9 +12,9 @@ ADPS system components contain Backup Server, Storage Server, and Agent.
 
 **Backup Server**: It is responsible for managing the connections of the Backup Agent and Storage Server. It can monitor and manage the business information of each agent resource, including backups and restores, and the information of storage servers.
 
-**Storage Server**: It is responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. The Backup Server and Storage Server components can be installed on the same device or different devices. One backup server can manage multiple storage servers to achieve storage scalability.
+**Storage Server**: It is responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. The Backup Server and Storage Server components can be installed on the same or different devices. One backup server can manage multiple storage servers to achieve storage scalability.
 
-**Agent**: It is installed on the server where users store business data. After the agent connects to the backup server, it will be managed by the Backup Server. The agent is responsible for responding to the commands of the backup server console and performing the backup and restore jobs.
+**Agent**: It is responsible for responding to the commands of the backup server console as well as performing the backup and restore jobs. The Agent is installed on the server where users store business data. It will be managed by the backup server after their connection.
 
 ## Features
 
@@ -24,17 +24,15 @@ ADPS system components contain Backup Server, Storage Server, and Agent.
 | Feature                              | Description                                                  |
 | ------------------------------------ | ------------------------------------------------------------ |
 | Backup and restore                   | Files backup and restore{{ br }}Databases backup and restore{{ br }}Virtue machines backup and restore{{ br }}Cloud platforms backup and restore{{ br }}Office software backup and restore{{ br }}Operating systems backup and restore |
-| Disaster recovery                    | Database replication{{ br }}Continuous log protection{{ br }}Remote disaster recovery |
+| Backup and Disaster recovery                    | Database replication{{ br }}Continuous backup protection{{ br }}Remote disaster recovery |
 | Data management                      | Effective data compression{{ br }}Accurate de-duplication{{ br }}Custom backup speed limit within different time periods{{ br }}Synthetic backups of data{{ br }}Multiple copy data management strategies{{ br }}Self-serve BaaS (Backup as a Service){{ br }}Encryption of data transmission and data storage |
-| Operation and maintenance (O&M) management | Labeled resource control{{ br }}Rich reports and log output{{ br }}Different user roles and access control permissions{{ br }}Data transfer in weak network environment{{ br }}Distributed multi-level management and unified monitoring{{ br }}Periodic disaster recovery testing{{ br }}Multi-factor authentication |
+| Operation and maintenance (O&M) management | Labeled resource management{{ br }}Various reports and log output{{ br }}Different user roles and access control permissions{{ br }}Data transfer in weak network environment{{ br }}Distributed multi-level management and unified monitoring{{ br }}Periodic disaster recovery testing{{ br }}Multi-factor authentication |
 ```
 ##  User System
 
-ADPS user system is made up of system users and external users. The user system enables users of different roles to be in charge of various operations, and provides unified monitoring, isolation, checks and balances to guarantee that each user's behavior can be monitored and that every event can be traced back.
+ADPS user system contains different users roles. The user system enables different user roles to be in charge of various operations, and provides unified monitoring, isolation, checks and balances to guarantee that each user's behavior can be monitored and that every event can be traced back to the origin.
 
-- System users
-
-After the successful software installation, the system has four system users by default: System Admin (the admin), Audit Admin, System Security, and System Monitor, with the following permissions:
+After the successful installation, ADPS has four built-in user roles by default: System Admin (the admin), Audit Admin, System Security, and System Monitor. Their permissions are as shown in the following table:
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
@@ -43,19 +41,17 @@ After the successful software installation, the system has four system users by 
 | ------------------------ | ------------------------------------------------------------ |
 | System Admin (the admin) | Responsible for the system configuration, user management, storage management, license management, resource management, operation and maintenance, etc.{{ br }}Default username and password is "admin/admin". |
 | Audit Admin              | Responsible for recording user actions and log retention management. {{ br }}Default username and password is "audit/audit". |
-| System Security          | When System Security is enabled, the system user management such as user adding, deleting, modifying, and locking, is responsible by System Security. {{ br }}Default username and password is "security/security". |
+| System Security          | When the Enable Security User option is checked, the system user management such as adding, deleting, user, modifying, and locking user is responsible by System Security. {{ br }}Default username and password is "security/security". |
 | System Monitor           | Responsible for monitoring the operation state of the system. All system information can be monitored, including the system and job state of sub-servers. {{ br }}Default username and password is "sysmonitor/sysmonitor". |
 ```
-- External users
-
-You (System Admin/the admin) can create three roles of external users: Admin, Monitor, and Operator. Different external users have different operational permissions as follows:
+As the System Admin, you can create three user roles: Admin, Monitor, and Operator. Their permissions are as shown in the following table:
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} External users
 | Role     | Permission                                                   |
 | -------- | ------------------------------------------------------------ |
-| Admin    | Responsible for the system management, but without the management of important data in Storage Server. {{ br }}The external Admin's permissions are second only to System Admin (the admin). |
+| Admin    | Responsible for the system management, but without the management of important data in Storage Server. {{ br }}The external Admin's permissions are second only to System Admin. |
 | Monitor  | Responsible for monitoring the operation state of the system. {{ br }}All system information can be monitored, but the system and job state of sub-servers are not included. |
 | Operator | Responsible for the management of the backup and restore on the Agent. |
 ```
@@ -63,11 +59,11 @@ You (System Admin/the admin) can create three roles of external users: Admin, Mo
 
 ### Multiple Storage Types
 
-Storage media is used to store various backup data. ADPS supports common disk storage, tape storage, object storage and CD storage. You can create different storage pools for users based on the types of storage media.
+Storage media is used to store various backup data. ADPS supports common storage types such as disk storage, tape storage, object storage and CD storage. You can create different storage pools for users.
 
 - Disk storage
 
-  When the disk storage is mounted to the operating system, the file system is formatted as xfs or zfs, and the backup data is saved to the file system. You can create the following types of storage pools: 
+  When the disk storage media is mounted to the operating system, the file system is formatted as XFS or ZFS, and the backup data is saved to the file system. You can create the following types of disk storage pools: 
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.44}|\Y{0.28}|
 ```
@@ -75,216 +71,214 @@ Storage media is used to store various backup data. ADPS supports common disk st
   | Type                        | Description                                                  | Note                                                         |
   | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | Standard storage pool       | Used to store the backup data of traditional backup types.   | -                                                            |
-  | De-duplication storage pool | Used to store the backup data of traditional backup types. {{ br }}The data is sharded and fingerprinted by using source de-duplication, and the data blocks with different fingerprints are saved at the end. | The file system of the disk requires the XFS format.{{ br }}    |
-  | Real-time backup pool       | Used to store the backup data for Oracle and MySQL continuous log backups. | -                                                            |
-  | File synthetic pool         | Used to store the backup data for File, Hadoop, and OBS synthetic backups. {{ br }}Using NFS technology, it mounts the restored data on the agent for a fast recovery. | The adps-nfs module needs to be installed for fast recovery. |
-  | Database synthetic pool     | Used to store the backup data for Oracle, SQL Server, MySQL synthetic backups. {{ br }}It provides block devices for the agent through iSCSI/FC Target, takes snapshots of the block devices, and mounts the snapshots directly to the agent for fast recovery. | The file system of the disk requires the ZFS format. {{ br }}Require an installation of adps-storgaed-lanfree module. |
-  | LAN-Free pool               | Used to store the backup data for traditional store types that use a LAN-Free link. {{ br }}It mounts block devices to the Agent via iSCSI/FC Target, and writes or reads data directly. | The file system of the disk requires the ZFS format.{{ br }}Require an installation of adps-storgaed-lanfree module. |
+  | De-duplication storage pool | Used to store the backup data of traditional backup types. {{ br }}When the data is sharded and the fingerprint is calcultated using the source de-duplication, the data blocks with different fingerprints will be saved. | The file system of the disk requires the XFS format.{{ br }}    |
+  | Real-time backup pool       | Used to store the Oracle and MySQL continuous backups. | -                                                            |
+  | File synthetic pool         | Used to store the File, Hadoop, and OBS synthetic backups. {{ br }}Storage Server mounts the backup sets to Agent via NFS for a fast restore. | The fast restore requires adps-nfs module installed. |
+  | Database synthetic pool     | Used to store Oracle, SQL Server and MySQL synthetic backups. {{ br }}Storage Server provides block devices for Agent via iSCSI/FC Target, takes snapshots of the block devices, and mounts the snapshots directly to Agent for a fast restore. | The file system of the disk requires the ZFS format. {{ br }}Require adps-storgaed-lanfree module installed. |
+  | LAN-Free pool               | The backup data is transfered to the LAN-Free pool over SAN. {{ br }}Stoarge Server mounts block devices to the Agent via iSCSI/FC Target to write or read data directly. | The file system of the disk requires the ZFS format.{{ br }}Require adps-storgaed-lanfree module installed. |
 ```
 - Tape storage
 
-  The storage media connect tape libraries or virtual tape libraries to the tape controller (adps-controller installation required). You can scan the connected tape libraries on the corresponding page and create tape pools to store the backup data.
+  The storage media connect tape libraries or virtual tape libraries to the tape controller (adps-controller installation required). You can scan the connected tape library on the corresponding page and create tape library pools to store the backup data.
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.44}|\Y{0.28}|
 ```
 ```{table} Tape storage
   | Type      | Description                                                  | Note                                                         |
   | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | Tape pool | Used to store the backup data from traditional backup types. {{ br }}The data is backed up directly to tape libraries (D2T). | Require to install adps-controller to manage tape libraries. |
+  | Tape library pool | Used to store the backup data from traditional backup types. {{ br }}The data is backed up directly to tape library (D2T). | The management of tape library require adps-controller installed. |
 ```
 - Object storage
 
-  Object storage is secure and convenient. It is increasingly used, and more people prefer to back up local data directly to the cloud (D2C). You can create an object storage service pool by entering the type of the cloud storage, Access Key, Secret Key, etc. and then create a backup job to back up the data on the agent to the object storage service pool.
+  Object storage is secure and convenient. By using  object storage service pool, the backup data on Agent can be stored directly to the cloud (D2C). Enter parameters such as vendor, access key, secret key, etc. to create an object storage service pool. 
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.44}|\Y{0.28}|
 ```
 ```{table} Object storage
   | Type                        | Description                                                  | Note |
   | --------------------------- | ------------------------------------------------------------ | ---- |
-  | Object storage service pool | Used to store the backup data from traditional backup types. {{ br }}The data is backed up directly to the cloud (D2C). | -    |
+  | Object storage service pool | Used to store the backup data of traditional backup types. {{ br }}The data is backed up directly to the cloud (D2C). | -    |
 ```
 ### Flexible Pool Recycling Strategies
 
-The data in storage pools have a well-tried life cycle management. You can set the recycling strategy according to the storage time, space and other factors to achieve the recycling of storage space. 
+The data in storage pools have a well-tried life cycle management. You can set the recycling strategy according to the storage time, space and other conditions to achieve the recycling of storage space effectively. 
 
 Supported retention policies are as the followings :
 
 ```{tabularcolumns} |\Y{0.15}|\Y{0.28}|\Y{0.57}|
 ```
 ```{table} Flexible Pool Recycling Strategies
-|   Strategy   | Retention policy                                        | Description                                                  |
+|   Retention policy   |       Strategy                                  | Description                                                  |
 | :----------: | :------------------------------------------------------ | :----------------------------------------------------------- |
-|     Time     | Backup sets retention days                              | After the full backups of each resource are completed, the backup sets of both incremental backups (that depend on full backups) and log backups will be marked as expired together when they exceed the set retention days. |
-|    Space     | Backup sets retention quota                             | When the total size of the backup sets in the pool exceeds the set retention quota, the backup sets of the earliest full backups, incremental backups (that depend on full backups) and log backups will be marked as expired together. |
-| Time + Space | Backup sets retention days, backup sets retention quota | If you set the retention days and retention quota, the backup sets will be marked as expired as long as either set condition is met. |
+|     Time policy   | Backup sets retention days                              | When the full backups of each resource are completed, the backup sets of both incremental backups (depending on full backups) and log backups will be marked as expired together when their retention days exceed the set days. |
+|    Space policy    | Backup sets retention quota                             | When the total size of the backup sets in the pool exceeds the set retention quota, the backup sets of the earliest full backups, incremental backups (depending on full backups) and log backups will be marked as expired together. |
+| Time and space policy| Backup sets retention days, backup sets retention quota | If you set the retention days and retention quota, the backup sets will be marked as expired as long as either set condition is met. |
 ```
-**Delay delete backup sets**: You can set the time at which backup sets are actually deleted when they meet the retention policy of the storage pool.
+**Delay delete backup sets**: You can delay the deletion of expired backup sets by checking this option.
 
-- When checked, if the disk space usage exceeds 90% (the percentage can be modified in **Storage->Storage Server->Modify**), the earliest expired backup sets will be deleted in order to free up space.
-- When unchecked, If the backup sets in storage pools reach the expired state, they will be deleted to free up space.
+- When the option is checked, the earliest expired backup sets will be deleted to free up space when the disk space usage exceeds 90%. (The percentage can be modified in **Storage->Storage Server->Modify**)
+- When the option is unchecked, backup sets in the storage pool will be deleted to free up space when they become expired.
 
-**The minimum backup sets**: You can configure the minimum full backup sets of each resource that will be kept in storage pools, and the default minimum is 1. The backup sets of both the incremental backups which depend on full backups, and cumulative incremental backups will be kept at the same time. When the number of full backups sets is greater than the configured value, the recycling will start according to the retention policy of the storage pool.
+**Min full backups retention**: Set the minimum number of full backup sets retained for each resource in the storage pool. The default minimum is 1. Incremental and differential backup sets that depend on these full backups are retained at the same time. When the number of full backup sets exceeds the set value, the recycling will start according to the configured retention policies of the storage pool.
 
-> You can configure the value by referring to the following example:
+> Refer to the following example to configure the minimum value:
 >
-> - User environment: The current business data is 20TB and the storage space is about 140T (36*4TiB). Assume that the daily increment is 0.01TB and the annual increment is 40%, which need to back up to one storage pool.  
+> - User environment: The current business data is 20 TB and the storage space is about 140 TB (36 * 4 TiB). Assume that the daily increment is 0.01 TB, the annual increment is 40%, and you want to back up these data to one storage pool.  
 >
 > - Backup schedule: Full backup once a week on Sunday and incremental backup once a day.
 >
-> - Retention policy: With the minimum backup sets of 1 and Delay Delete Backup Sets disabled, 140/20 = 7 copies. Since the maximum retention days of backup sets cannot exceed 2 months, it is recommended that 45 days (Backup sets retention days) is appropriate.
+> - Retention policy: When you uncheck Delay Delete Backup Sets option and set the Min Full Backups Retention to 1, seven copies (140/20 = 7) exist in one storage pool. Since the maximum retention days of backup sets cannot exceed 2 months, it is recommended to set the Backup Sets Retention Days option to 45.
 
 ## Initialize the System
 
-1. When you first access the ADPS interface, you will enter the license request page. After importing the license, you need to log in to ADPS and follow the wizard to continue initializing the system. The wizard interface allows you to initialize the license, register the storage server, add users, user groups, and storage pools.
+The license request page will be shown when you first access ADPS interface. After importing the license, log in to ADPS and follow the initialization wizard to select the license edition, register the storage server, add users, user groups, and storage pools.
 
-2. You can enter the IP or domain name of the backup server in the browser address bar to access the login page. Supported browsers and versions are as the followings:
-   - IE 11 later versions
-   - Firefox 52 and later versions
+Enter the IP or domain name of the backup server in the browser address bar to access the login page. See the followings for the supported browsers and versions:
+- IE 11 later versions
+- Firefox 52 and later versions
 
-   - Chrome 49 and later versions
+- Chrome 49 and later versions
 
 > Note: 
 >
-> - The initialization wizard is only operated and configured by you (System Admin/the admin), and is not visible to other users. 
+> - Only the System Admin has the permission to access the initialization wizard. 
 
-### Apply for a License
+### Apply for License
 
-1. Select Aurreum Data Protection Suite to activate ADPS.
+1. Select Aurreum Data Protection Suite to activate ADPS. Click **Next**.
 
-2. Choose the license **Edition**, including **Trial**, **Lease**, **Official**, and **Channel**.
+2. Choose the license **Edition**, including **Trial**, **Official**, **Lease**, and **Channel**. Click **Next**.
 
    ![license-02](../image/admin/10-license/license-02.png)
 
-**Trial**: You can try the software for 30 days. After the license expires, you cannot continue using ADPS, and if you want to keep using it, you need to purchase the Official License edition.
+**Trial**: You can try the software for 30 days. After the license expires, you cannot continue using ADPS. To continue the use, purchase the Official edition.
 
-**Lease**: You can use the software during the lease duration including one year, two years, three years, and five years after you get authorized. You need to renew the lease to continue using it after the lease duration expires. 
+**Lease**: You can use the software during the lease duration including one year, two years, three years, and five years after you get authorized. Renew the lease to continue the use after the lease duration expires. 
 
-**Official**: Officially licensed version. You can use the software for lifetime after you get the Official license.
+**Official**: Officially licensed edition. You can use the software for lifetime after you get the Official edition.
 
-**Channel**: Officially licensed version. You can use the software for lifetime after you get the Channel license.
+**Channel**: Officially licensed edition. You can use the software for lifetime after you get the Channel edition.
 
-3. Set options for different licenses. 
+3. Set the license options, and after you set the options, click **Next**.
 
 - Options for the Trial License.
 
 
 ![license-03](../image/admin/10-license/license-03.png)
 
-**Trial license renewal**: When the Trial License expires and by applying for a trial license renewal, you can continue using ADPS. When you apply for a trial license renewal, the settings page is loaded with expired resources by default, and you need to bind the license renewal to the resources. If you delete the expired resource records loaded by default and replace them by adding modules, the resource renewal will be invalid.
+**Trial license renewal**: By requesting the trial license renewal when the license expires or expires in 7 days, you can keep using ADPS. When the option is checked, the setting page shows expired resources by default. You need to bind the expired resource to the license that requires a renewal. The license renewal won't be valid if you remove the default loaded expired resource and replace it by adding a module.
 
-**Trial days**: The trial period is 30 days by default. After the expiration, you can't continue using the software, and if you want to continue, you can apply for the Trial License Renewal or purchase the Official License edition.
+**Trial days**: The trial period is 30 days by default. After the expiration, you can't continue using the software. To continue the use, apply for the trial license renewal or purchase the Official License edition.
 
-**Number of each module**: You can customize the number of licenses that need to be applied for each resource module.
+**Number of each module**: Customize the number of licenses that need to be applied for each resource module.
 
-**Custom**: You can manually select the platform where the resource is located and the resource type according to your need.
+- **Custom**: You can select the platform manually where the resource is located and the resource type.
+- **Unactivated**: When you select this option, ADPS automatically lists all the resource types associated to the server and the number of unactivated resources.
 
-**Unactivated**: After you select this option, the system automatically lists all the resource types associated to the server and the number of unactivated resources.
 
 - Options for the Lease License
 
 
 ![license-04](../image/admin/10-license/license-04.png)
 
-**Lease license renewal**: You can continue using ADPS by applying for a lease licence renewal when the lease duration expires.
+**Lease license renewal**: You can continue using ADPS by checking the option when the lease expires.
 
-**Lease duration**: The lease time period of the authorized use. The lease duration includes one, two, three and five years. You need to renew for further use after the lease duration expires.
+**Lease duration**: The lease term of the authorized use. The lease duration includes one, two, three and five years. Check the Trial License Renewal option to continue the use when the lease expires.
 
-**Storage space**: The activated storage space. Users can only use the activated storage space. When the activated storage space is used up, users of the Operator role cannot back up data to the storage server. If you want to expand the storage space, you need to apply for a new license. Storage space unit includes GiB, TiB, and PiB.
+**Storage space**: The activated storage space for users. When the activated storage space is used up, the Operator cannot back up data to the storage server. To expand the storage space, apply for a new license. Storage space unit includes GiB, TiB, and PiB.
 
-**Disk storage**: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.
+- **Disk storage**: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.
 
-**Object storage**: Used for object storage service pool.
+- **Object storage**: Used for object storage service pool.
 
-**Tape storage**: Used for tape storage pool.
+- **Tape storage**: Used for tape storage pool.
 
-**CD storage**: Used for CD-ROM tower storage pool.
+- **CD storage**: Used for CD-ROM tower storage pool.
 
 - Options for the Official License
 
 
 ![license-05](../image/admin/10-license/license-05.png)
 
-**Licensing mode**: You can choose to license **By Module** or **By Space Storage**. 
+**Licensing mode**: You can choose to license by module or by space storage. 
 
-- When you choose by module, after the module has been used, you need to apply for another license before you can add another module. 
-- When you choose by space storage, the use of modules will not be restricted. When the storage space is used up, you need to reapply for storage space before users of the Operator role can continue to back up data.
+- If you choose **By Module**, re-request the license after the module has been used before you may add another module.
+- If you choose **By Space Storage**, the use of modules will not be restricted. When the storage space is used up, you need to reapply for storage space before the Operator can continue to back up data.
 
-**Maintenance time**: The maintenance time is available for six months, one year, two years, three years and five years. You can choose the maintenance time according to your need.
+**Maintenance time**: You can choose the maintenance time including six months, one year, two years, three years and five years. 
 
-**Support**: You can choose the support service of 7 * 24 hours or of 5 * 8 working hours according to your need.
+**Number of each module**: Customize the number of licenses that need to be applied for each resource module.
 
-**Custom**: You can manually select the platform where the resource is located and the resource type according to your need.
+- **Custom**: You can select the platform manually where the resource is located and the resource type.
+- **Unactivated**: When you select this option, ADPS automatically lists all the resource types associated to the server and the number of unactivated resources.
 
-**Unactivated**: When you select this option, the system automatically lists all the resource types associated to the server and the number of unactivated resources.
+**Support**: You can choose the support service of 24/7 or during normal business hours.
 
-**Storage space**: The activated storage space. Users can only use the activated storage space. When the activated storage space is used up, users of the Operator role cannot back up data to the storage server. If you want to expand the storage space, you need to apply for a new license. Storage space unit includes GiB, TiB, and PiB.
+**Storage space**: The activated storage space for users. When the activated storage space is used up, the Operator cannot back up data to the storage server. To expand the storage space, apply for a new license. Storage space unit includes GiB, TiB, and PiB.
 
-**Disk storage**: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.
+- **Disk storage**: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.
 
-**Object storage**: Used for object storage service pool.
+- **Object storage**: Used for object storage service pool.
 
-**Tape storage**: Used for tape storage pool.
+- **Tape storage**: Used for tape storage pool.
 
-**CD storage**: Used for CD-ROM tower storage pool.
+- **CD storage**: Used for CD-ROM tower storage pool.
 
 - Options for the Channel License
 
 
 ![license-06](../image/admin/10-license/license-06.png)
 
-**Maintenance time**: The maintenance time is available for six months, one year, two years, three years and five years. You can choose the maintenance time according to your need.
+**Maintenance time**: You can choose the maintenance time including six months, one year, two years, three years and five years. 
 
-**Support**: You can choose the support service of 7 * 24 hours or of 5 * 8 working hours according to your need.
+**Support**: You can choose the support service of 24/7 or during normal business hours.
 
-**Custom**: You can manually select the platform where the resource is located and the resource type according to your need.
+**Storage space**: The activated storage space for users. When the activated storage space is used up, the Operator cannot back up data to the storage server. To expand the storage space, apply for a new license. Storage space unit includes GiB, TiB, and PiB.
 
-**Unactivated**: When you select this option, the system automatically lists all the resource types associated to the server and the number of unactivated resources.
+- **Disk storage**: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.
+- **Object storage**: Used for object storage service pool.
+- **Tape storage**: Used for tape storage pool.
+- **CD storage**: Used for CD-ROM tower storage pool.
 
-**Storage space**: The activated storage space. Users can only use the activated storage space. When the activated storage space is used up, users of the Operator role cannot back up data to the storage server. If you want to expand the storage space, you need to apply for a new license. Storage space unit includes GiB, TiB, and PiB.
+4. On the Modules page, select the modules, the number of modules, and the OS architectures and resource types based on the agent. Click **Next**.
 
-**Disk storage**: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.
-
-**Object storage**: Used for object storage service pool.
-
-**Tape storage**: Used for tape storage pool.
-
-**CD storage**: Used for CD-ROM tower storage pool.
-
-4. You can add modules, customize the number of modules, and choose the OS architectures and resource types of the agent. If you apply for the Official License edition and choose to license by storage space, you don't need to add more modules.
+   > Note:
+   >
+   > - You don't need to add more modules If you select the Official License edition and choose to license by storage space.
 
 ![license-07](../image/admin/10-license/license-07.png)
 
-5. You can choose the relevant options to enable the corresponding **Advanced** functions according to your need. As the module usage period, when the advanced functions of the Trial License expire, you can apply again after the expiration date. If your edition is the Official License, you don't need to repeat the application when advanced functions are enabled.
+5. On the **Advanced** page, choose the relevant options to enable the corresponding advanced features. If your edition is the Trial license, apply again when the advanced features expire. No application of the advanced features for the Official license edition is required once the advanced feature are enabled.
 
 ![license-08](../image/admin/10-license/license-08.png)
 
-**Multi-Tenant**: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private system of backup and restore is established for multiple tenants in a shared backup environment. You can use **Multi-Tenant** to provide individual services for each tenant on demand, configure independent data storage space to achieve data isolation among tenants via the separate management mechanism.
+**Multi-Tenant**: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private backup and restore system is provided for each tenant in a shared backup environment. You can use the Multi-Tenant option to provide individual service for each tenant, and configure independent data storage space to achieve data isolation via the separate management mechanism.
 
 ### Import a License
 
-Click **Import License**, and upload the license you have acquired. After you upload the license successfully, its information will be added on the license page. You can view the acquired license information on the **License** page.
+Click **Import License** to upload the license. After you upload the license successfully, its information will be added on the license page. You can view the license information on the **License** page.
 
 > Note: 
 >
-> - The license is for one-time use only, and it is required to correspond to the last generated application file. If you upload the license generated from the old application file, the license operation will fail.
+> - The license is for one-time use only, and it is required to correspond to the last generated application file. If you upload the license generated from the old application file, the license-related operation will fail.
 
 ### Log in to the System
 
-1. Enter **Username** and **Password** as System Admin (the admin). Both the default username and password are admin.
+1. Enter **Username** and **Password** as System Admin. Both the default username and password are admin.
 
 > Note: 
 >
-> - If the user enter the wrong password, the browser IP will be listed in the IP blocklist of the logged-in user. The user must apply to you (System Admin/the admin) for a release from the IP blocklist before the browser can be used to log in the user again.
+> - If a user repeatedly enters the error password, the browser IP address will be added to the Login IP Address Blocklist. Before the browser may be used to log in the user again, the user must apply to System Admin for a release from the Login IP Address Blocklist.
 
-2. After the first login, it is mandatory to modify the password and set **New Password**.
+2. After the first login, set a new password and click **Submit**.
 
 ![login-2](../image/admin/02-login/login-2.png)
 
-3. Once the new password is set, you will automatically log in to the system and enter the wizard for quick configuration page.
+3. Once the new password is set, you will automatically log in to ADPS and enter to the setup wizard page for a quick configuration.
 
 ### Quick Configuration
 
-This chapter introduces how you (System Admin/the admin) can quickly configure the users, storage, network, and resources in the wizard. Contents include:
+This section helps you to use the initialization wizard for a quick configuration. Configurations include:
 
 - Add user
 
@@ -297,24 +291,20 @@ This chapter introduces how you (System Admin/the admin) can quickly configure t
 
 - Set the Backup index
 
-> Note: 
->
-> - The initialization wizard can only be operated by you (System Admin/the admin), not visible by other users.
-
 #### Add User
 
-Functions like backup and restore, data disaster recovery, etc. are executed by the user of the "Operator" role, so you must create a user of the "Operator" role. External users of Admin and Monitor roles are added on demand.
+Functions like backup and restore, data disaster recovery, etc. are executed by the Operator, so you must create an Operator user role. You can add user roles of Admin and Monitor on demand.
 
-1. Enter **Username**, **Password**, **Maximum password age**, **Email**, **Telephone**. You can also customize the users' **Nickname**, **Organization**, **Department**, **Audit Log Quantity Limit**, and **Audit Log Retention Days**.
-2. Select **Operator** as **Roles**. **User Group** sets **Create user group with the same name** by default. Click **Submit**.
+1. Enter **Username**, **Password**, **Email**, **Telephone** and other fields required. You can customize the users' **Nickname**, and fill in optional fields such as **Organization**, **Department**, **Audit Log Quantity Limit**, **Audit Log Retention Days**, etc.
+2. Select **Operator** as **Roles**. The **User Group** option sets **Create user group with the same name** by default. 
 
      ![user-1](../image/admin/03-guide/user-1.png) 
 
-3. After you add the user successfully, click **Submit** to enter the **Register Storage Server** page.
+3. After you set the user information, click **Submit** to enter the **Register Storage Server** page.
 
 > Note: 
 >
-> - If you have multiple users to add, you can further add them on the User page. Please refer to *User Management* in this guide.
+> - If you have multiple users to add, you can add them on the User page. Please refer to *User Management* in this guide.
 
 #### Register Storage Server
 
@@ -324,11 +314,11 @@ After the storage server software is installed and registered, you can add the s
 
 ![storage-2](../image/admin/03-guide/storage-2.png)
 
-2. After the registration, you will see a pop-up window confirming the setup of management network. Click **OK** to enter the next step to specify the communication network between the backup server and the storage server.
+2. After the registration, a pop-up window appears confirming the setup of management network used for the control and management between backup server and storage server. Click **OK** to enter the next step.
 
    ![storage-4](../image/admin/03-guide/storage-4.png)
 
-3. **Network** selects **New** by default. You can set the **Name** of the network, check **Management Network** as **Purposes**, set the **Address**, **SSL**, and **Port** of the network between the storage server and the backup server.
+3. Set the **Name** of the network, check **Management Network** as **Purposes**, set the **Address**, **SSL**, and **Port** of the network between the storage server and the backup server. The **Network** option selects **New** by default. 
 
 ![storage-5](../image/admin/03-guide/storage-5.png)
 
@@ -342,26 +332,26 @@ After the storage server software is installed and registered, you can add the s
 
 #### Add Storage Pool
 
-After the storage server is registered, you can add storage pools and assign them to users for storing data, and users can add storage pools on demand as well. 
+After the storage server is registered, you can create storage pools and assign them to users to store data, and users can add storage pools on demand as well. 
 
-For example, if you want to add a standard storage pool:
+The steps to create a storage pool are as follows, using a standard storage pool as an example.
 
 1. Select **Standard Storage Pool** as the **Type**, select the corresponding **Storage Server**, and click **Next**.
 
 ![pool-1](../image/admin/03-guide/pool-1.png)
 
-2. Set retention policy, and encryption for the storage pool. For **Backup Sets Retention Policy**, see *Flexible Pool Recycling Strategies* in this guide.
+2. Set options including advanced options for the added standard storage pool. Please refer to *Flexible Pool Recycling Strategies* in this guide to set the options for backup set retention policy.
 
 ![pool-2](../image/admin/03-guide/pool-2.png)
 
-- **Advanced Options**:
+- Advanced Options:
 
-  **Data storage encryption**: Data storage support AES and Blowfish encryption. After you enable this option, select **Encryption algorithm** and **Key length**.
+  **Data storage encryption**: Data storage support AES and SM4 encryption. After you enable this option, select **Encryption algorithm** and **Key length**.
 
-  **Specify UUID**: You can specify the UUID for the pool you add. This option is for rebuilding storage pools in case of accidental deletion, please use with caution!
+  **Specify UUID**: You can specify the UUID for the pool you add. This option is for rebuilding the storage pool in case of accidental deletion.
 
 
-3. You can customize the name of the storage pool and assign the pool to user groups. Only users under the user group have permissions to the pool.
+3. You can customize the name of the storage pool and assign the pool to the user group. Only users under the user group have permissions to the pool.
 
 ![poo3](../image/admin/03-guide/poo3.png)
 
@@ -371,7 +361,7 @@ For example, if you want to add a standard storage pool:
 
 #### Activate Resource
 
-1. After the agent software is installed and registered, you need to activate the license and authorize users before the authorized users can perform the backup and restore.
+1. After the agent software is installed and registered, activate the license and authorize users before the authorized users can perform the backup and restore.
 
 ![agent-1](../image/admin/03-guide/agent-1.png)
 
@@ -385,22 +375,22 @@ For example, if you want to add a standard storage pool:
 
 >  Note: 
 >
->  - If you have multiple resource hosts to register and activate, it is recommended to register and batch license on the Resources page.
+>  - If you have multiple resource hosts to register and activate, it is recommended to register and license in batches on the Resources page.
 
 #### Set the Network
 
-- If the storage server is multi-IP, it is recommended that you create **Data Network** and **Storage Pool Replication Network** to specify the transfer network for backup, restore and pool replication, if not, communication problems may occur to cause jobs fail.
+If the storage server is multi-IP, it is recommended to create **Data Network** and **Storage Pool Replication Network** to specify the transfer network for backup, restore and pool replication, if not, communication problems may occur to cause jobs fail.
 
-- If the network type of storage servers is single, you are allowed not to specify the network, and the IP will be obtained by default. If there are many items to set, it is recommended to complete this deployment in **Storage** -> **Network**. See *Storage Management->Network* in this guide for details.
+If the network type of storage servers is single, you can skip specifying the network and the IP will be obtained by default. If there are many items to set, it is recommended to complete this deployment in **Storage** -> **Network**. See *Storage Management->Network* in this guide for details.
 
 
 ![network-1](../image/admin/03-guide/network-1.png)
 
 #### Set the Backup Index
 
-With backup index, the backup server can be self-protected and used together with storage pool replication for scenarios like backup server local/offsite disaster recovery and migration, etc. When users misoperate, the backup server is abnormal or reinstalled, you can use the disaster recovery to reduce the loss.
+With backup index, the backup server can be self-protected and used together with storage pool replication for scenarios like backup server local/offsite disaster recovery and migration, etc. You can use the disaster recovery to reduce the loss when users misoperate, the backup server is abnormal or reinstalled.
 
-Set the **Name** of the backup index job, the **Storage Pool** to store data, **Retention Days**, **Start Time**, **Execution Interval**.
+Set the **Name** of the backup index job, and select the **Storage Pool**. Set **Retention Days**, **Start Time**, and **Execution Interval**.
 
 >Note: 
 >
@@ -408,13 +398,13 @@ Set the **Name** of the backup index job, the **Storage Pool** to store data, **
 
 ![catalog-1](../image/admin/03-guide/catalog-1.png)
 
-After completing the above operations, the basic configuration of the system is finishing.
+After completing the above operations, the basic configuration of ADPS is finishing.
 
 ## Dashboard
 
-The **Dashboard** interface helps you understand the overall state of the system operation. The display modules mainly include:
+The **Dashboard** interface shows the overall operation state of the backup system, which helps you monitor and manage the system. The displayed information mainly includes:
 
-- O&M statistics
+- Operation and maintenance (O&M) statistics
 - Overall storage capacity usage
 - Licensed storage space usage 
 - Storage pool capacity usage
@@ -426,25 +416,25 @@ The **Dashboard** interface helps you understand the overall state of the system
 
 ![dashboard-2](../image/admin/04-dashboard/dashboard-2.png)
 
-**Hosts**: Count the total number of registered hosts, and the number of online and offline hosts.
+**Hosts**: List the total number of registered hosts including the number of online and offline hosts.
 
-**Resources**: Count the total number of resources of registered hosts, and the number of online and offline resources.
+**Resources**: List the total number of registered host resources including the number of the online and offline resources.
 
-**Storage pools**: Count the total number of storage pools, the number of online and offline storage pools.
+**Storage pools**: List the total number of storage pools including the number of the online and offline storage pools.
 
-**Storage pool replication**: Count the total number of pool replication jobs and the number of successful, failed, and running jobs. You can choose to count the data within 24 hours, 7 days, 30 days, or 90 days.
+**Storage pool replication**: List the total number of pool replication jobs including the number of the jobs with the "Success", "Failure" and "Running" state. You can choose to count the statistics in 24 hours, 7 days, 30 days, or 90 days.
 
-**Jobs**: Count the total number of backup and restore jobs created and the number of one-time, cycle, and running jobs.
+**Jobs**: List the total number of backup and restore jobs created including the number of jobs with the "One time", "Cycle", and "Running" state.
 
-**Histories**: Count the total number of jobs executed and the number of successful, failed, and cancelled jobs. You can choose to count the data within 24 hours, 7 days, 30 days, or 90 days.
+**Histories**: List the total number of jobs executed including the number of jobs that ended up with the "Success", "Failure" and "Cancelled" state. You can choose to count the statistics in 24 hours, 7 days, 30 days, or 90 days.
 
-**Database replication**: Count the total number of database replication, and the number of the database replication in normal, error, and warning state.
+**Database replication**: List the total number of database replication including the number of replication with the  "Normal", "Error", and "Warning" state.
 
-**Alerts**: Count the total number of alerts, errors, and fatal errors generated by users' agents, storage pools, and data synchronization. You can choose to count the data within 24 hours, 7 days, 30 days, or 90 days.
+**Alerts**: List the total number of alerts generated by the client, storage pools, and data synchronization including the number of alerts with the "Error" and "Fatal" states. You can choose to count the data in 24 hours, 7 days, 30 days, or 90 days.
 
 > Note: 
 >
-> - You can click the names on the display modules to redirect to the relevant pages.
+> - You can click the dashboard widget name to redirect to the relevant page.
 
 ### Overall Storage Capacity Usage
 
@@ -458,87 +448,83 @@ The overall disk storage capacity usage is presented as a pie chart.
 
 ### Licensed Storage Space Usage 
 
-The Licensed Storage Space Usage is for Official License Edition only. It refers to the activated storage space usage. Users can only use the activated storage space. When the activated storage space is used up, users of the "Operator" role cannot back up data to the storage server. If you want to expand the storage space you need to re-apply for a license.
+The Licensed Storage Space Usage is for Official License Edition only. Licensed Storage Space refers to the activated storage space, and users can only use the activated storage space. When the activated storage space is used up, the Operator cannot back up data to the storage server. Re-apply for a license if you want to expand the storage space.
 
 ![dashboard-4](../image/admin/04-dashboard/dashboard-4.png)
 
 ### Storage Pool Space Usage
 
-The usage of each disk storage capacity is displayed as a pie chart, and the usage of the storage pool under each disk is displayed as a bar graph.
+The usage of each disk storage capacity is presented as a pie chart, and the storage pool usage under each disk is presented as a bar graph.
 
 - The progress bar appears in blue when the pool usage is below 80% of the total pool capacity.
 
 - The progress bar appears in orange when the pool usage is above 80% but below 90%, and an alert email will be sent to users.
-- The progress bar appears in red when the pool usage is greater than 90% of the total pool capacity, and an alert email will be sent to users. Storage pool capacity usage is presented as bar graphs.
+- The progress bar appears in red when the pool usage is greater than 90% of the total pool capacity, and an alert email will be sent to users. 
 
 ![dashboard-8](../image/admin/04-dashboard/dashboard-8.png)
 
-> Note: 
->
-> - If there are tape library pool and object storage service pool existing, the tape library pool and object storage service pool will also show the corresponding usage in bar graphs.
-
 ### Data Export
 
-You can export data shown on the Dashboard. Click the ![dashboard-6](../image/admin/04-dashboard/dashboard-6.png) icon of the upper-right corner to export the visual data to CSV format.
+Dashboard data can be exported to a CSV file. Click the ![dashboard-6](../image/admin/04-dashboard/dashboard-6.png) icon of the upper-right corner to export the data.
 
 ![load-1](../image/admin/04-dashboard/load-1.png)
 
-**Refresh**: Click the ![dashboard-5](../image/admin/04-dashboard/dashboard-5.png) icon of the upper-right corner to refresh all data of the Dashboard. To avoid frequent refreshing, the refresh icon is locked for 3 seconds during the refreshing process. If you set automatic refresh in **Set Up**,  the refresh icon will rotate slowly and a progress bar at the bottom of the icon will indicate the progress of triggering the next refresh.
+**Refresh**: Click the ![dashboard-5](../image/admin/04-dashboard/dashboard-5.png) icon of the upper-right corner to refresh the Dashboard. To avoid frequent refreshing, the refresh icon will be locked for 3 seconds during the refreshing process. If you set automatic refresh in **Set Up**,  the refresh icon will rotate slowly and a progress bar at the bottom of the icon will indicate the progress of triggering the next refresh.
 
-**Set up**: By clicking the ![dashboard-7](../image/admin/04-dashboard/dashboard-7.png) icon of the upper-right corner, you can set the frequency of automatic refresh for 30 seconds, 1 minute, 3 minutes or 5 minutes. Also, you can hide or show the specified modules, and the CSV downloaded does not contain the corresponding data from the hidden modules. 
+**Set up**: Click the ![dashboard-7](../image/admin/04-dashboard/dashboard-7.png) icon of the upper-right corner to set the frequency of automatic refresh. You can choose 30 seconds, 1 minute, 3 minutes or 5 minutes. You can also set the specified widgets to hide or show in Set Up, and the data from the hidden widget will not be included in the exported CSV file. 
 
 ## User Management
 
-This chapter introduces how you can add users of different roles and assign operational permissions of resources and storage pools to users under user groups. Contents include:
+This chapter introduces how System Admin add users of different roles and assign operational permissions of resources and storage pools to users under user groups. Contents include:
 
 - Add user
 - Assign user group
 
 ### Add User 
 
-Select **User**->**User** to enter the user page, which allows you to view and manage the information about users. You (System Admin/the admin) can add new users with roles of Admin, Monitor and Operator. Backup and restore, disaster recovery, and other functions are executed by the Operator, so you must create a user of the **Operator** role. You can add users with roles of **Admin** and **Monitor** on demand. The supported operations are as follows:
+Select **User**->**User** to enter the user page where you can view and manage the user information. You can add new users with roles of Admin, Monitor and Operator. Backup and restore, disaster recovery, and other operations are executed by the Operator, so it is necessary to create the Operator user role. You can add Admin and Monitor user roles on demand. 
 
-- Add Operator, Monitor, Auditor
+In Add User settings, supported operations are as follows:
+
+- Add the user roles
 - Lock/unlock user
-- Modify user information
+- Modify user informtaion
 - Delete user
-- Add IP address to the login blocklist
+- Add to IP address blocklist
 
 ![user-1](../image/admin/05-user/user-1.png)
 
 1. Click the icon ![user-2](../image/admin/05-user/user-2.png) to add the user.
 
-2. Enter **Username**, **Password**, **Maximum password age**, **Email**, **Telephone**. You can also customize the user's **Nickname**, **Organization**, **Department**, **Audit Log Quantity Limit**, and **Audit Log Retention Days**.
+2. Enter **Username**, **Password**, **Email**, **Telephone** and other fields required. You can customize the users' **Nickname**, and fill in optional fields such as **Organization**, **Department**, **Audit Log Quantity Limit**, **Audit Log Retention Days**, etc.
 
-3. Select **Operator** as **Roles**. set **User Group**. Click **Submit** to finish the adding.
+3. Select **Operator** as **Roles** and set **User Group**. Click **Submit**.
 
     ![user-add](../image/admin/05-user/user-add.png)
 
     > Note: 
     >
-    > - The steps to add users of the Admin role or Monitor role are the same as above.
+    > - The steps to add the Admin and Monitor user roles are the same as above.
 
-**Modify user information**: Click ![user-3](../image/admin/05-user/user-3.png) to modify user information. You can modify nickname, password, Email, phone and other information of all users.
+**Modify user information**: Click ![user-3](../image/admin/05-user/user-3.png) to modify user information. You can modify nickname, password, Email, phone and other information.
 
-**Lock user**: If you need to disable a user, click ![user-4](../image/admin/05-user/user-4.png) to lock the user with the ![user-8](../image/admin/05-user/user-8.png) state, the user will not be able to log in to the management console.
+**Lock user**: If you want to disable a user, click ![user-4](../image/admin/05-user/user-4.png) to lock the user with the ![user-8](../image/admin/05-user/user-8.png) status, the user will not be able to log in to the management console.
 
 **Delete user**: Click ![user-5](../image/admin/05-user/user-5.png) to delete users.
 
-**Login IP address blocklist**: For system security and to prevent brute-force cracking, if you add a user's IP to the **Login IP address blocklist**, this user cannot log in anymore using the IP that you add, and the login is not allowed until you release the IP from the blocklist.
-
-- Click ![ip-5](../image/admin/05-user/ip-5.png) to batch view the blocklist of all users' login IP address. Click ![ip-3](../image/admin/05-user/ip-3.png) to release the IP from the blocklist.
-
-- Click ![user-6](../image/admin/05-user/user-6.png) to access the pop-up window where you can click ![ip-2](../image/admin/05-user/ip-2.png) to add the IP to the blocklist.
+**Login IP address blocklist**: Click the **Login IP address blocklist** icon to access the pop-up window and click ![ip-2](../image/admin/05-user/ip-2.png) to add the user's IP to the Login IP address blocklist. This user cannot log in anymore using the IP that you add, and the login using the IP is not allowed until you click the trash bin icon to remove the IP from the blocklist. 
 
 ![ip-1](../image/admin/05-user/ip-1.png)
 
 > Note: 
 >
-> - When a user fails to log in more than 3 times, this user' current browser IP will also be blocklisted from logging in, and the user needs to contact you (System Admin/the admin) to ask for a release from the blocklist before being allowed to log in.
+> - When a user fails to log in more than 3 times, this user' current IP will also be added to the IP address blocklist. This user must contact System Admin to ask for a release from the blocklist before being allowed to log in using the IP.
 
 ### Assign User Group
 
-Click **User**->**User Group** to enter the User Group page. This page allows you to view and manage users under user groups, resources and storage pools, and you can assign users permissions to operate resources and storage pools. The supported operations are as follows:
+Click **User**->**User Group** to enter the User Group page. This page allows you to view and manage users under user groups, resources and storage pools, and you can assign users permissions to operate resources and storage pools. 
+
+In Add User Group settings, the supported operations are as follows:
 
 - Add user group
 - Modify user group
@@ -546,37 +532,37 @@ Click **User**->**User Group** to enter the User Group page. This page allows yo
 
 ![group-2](../image/admin/05-user/group-2.png)
 
-1. Click ![ip-2](../image/admin/05-user/ip-2.png) to select **Users**, **Resources**, and **Storage Pools**.
-2. Click **Submit** to add user groups. Only users under the same user group have the access and operational permissions to resources and storage pools. 
+1. Click ![ip-2](../image/admin/05-user/ip-2.png) to enter the Add User Group page. Set the name and select **Users**, **Resources**, and **Storage Pools**.
+2. Click **Submit** to add user groups. Only users under the user group have the access and operational permissions to corresponding resources and storage pools. 
 
 ![group-1](../image/admin/05-user/group-1.png)
 
-**Modify user group**: Click ![group-3](../image/admin/05-user/group-3.png) to add or delete users under user groups, resources, and storage pools.
+**Modify user group**: Click ![group-3](../image/admin/05-user/group-3.png) to add or remove users, resources, and storage pools under the user group.
 
-**Delete user group**: Click ![group-4](../image/admin/05-user/group-4.png) to delete the configuration for user groups.
+**Delete user group**: Click ![group-4](../image/admin/05-user/group-4.png) to delete the user group.
 
 ## Storage Management
 
-Storage media is used to store various backup data. ADPS supports common disk storage, tape storage, object storage and CD storage. You can create different storage pools for users based on the types of storage media. This chapter introduces the management of various storage media, included:
+This chapter introduces the various storage management including:
 
 - Storage server 
 - Storage pool
 - Pool replication job
 - Network
 - SCSI Target 
-- RAID controller (Data protection appliance)
-- Software RAID (Data protection appliance)
+- RAID controller
+- Software RAID 
 
 ### Storage Server
 
 Click **Storage** -> **Storage Server** to enter the storage server page. After the storage server software is installed and registered, you can add storage pools and set up networks.
 
-1. Select the storage server, and click ![storage-3](../image/admin/03-guide/storage-3.png) to register.
+1. Select the storage server and click ![storage-3](../image/admin/03-guide/storage-3.png) to register.
 
 ![storage-1](../image/admin/06-storage/storage-1.png)
 
-2. After the registration, you will see a pop-up window confirming the setup of management network. Click **Submit** to enter the next step to specify the communication network between the backup server and storage server.
-3. The system allows only one Management Network to be created. If there is no Management Network existing, the system will add Management Network by default. In the **Add Network** window, set the name of the **Network**, check **Management Network**, and fill in the **Address**, and **Port** of the network between the storage server and the backup server.
+2. After the registration, a pop-up window appears confirming the setup of management network used for the control and management between backup server and storage server. Click **Submit**.
+3. The system allows only one Management Network to be created. If there is no Management Network existing, ADPS will add Management Network by default. In the **Add Network** window, check **Management Network** as the purpose, set the name of the **Network**, **Address**, and **Port**, 
 
 ![net](../image/admin/06-storage/net.png)
 
@@ -584,13 +570,13 @@ Click **Storage** -> **Storage Server** to enter the storage server page. After 
 
    ![storage-4](../image/admin/06-storage/storage-4.png)
 
-   - Modify used space alarm threshold: Click ![storage-5](../image/admin/06-storage/storage-5.png) to modify the name of the storage server and used space alarm threshold. The threshold value is 0 ~ 99. No alert Email is sent when it is 0, and the Email will be sent when the physical space usage ratio exceeds the set value.
-   - Modify the network: Click ![storage-6](../image/admin/06-storage/storage-6.png) to view, modify and delete the network setting of the storage server.
-   - Unregister the storage server: Click ![storage-7](../image/admin/06-storage/storage-7.png) to unregister the storage server. The backup and restore jobs of the storage pool on the storage server will fail when the storage server is unregistered. If the unregistration is an accidental deletion, you can re-register the storage server to the backup server again, and the jobs related to the storage server can be executed normally.
+   - Modify: Click ![storage-5](../image/admin/06-storage/storage-5.png) to modify the name of the storage server and used space alarm threshold. The threshold value is 0 ~ 99. No alert email is sent when it is 0, and the email will be sent when the physical space usage ratio exceeds the set value.
+   - Network: Click ![storage-6](../image/admin/06-storage/storage-6.png) to view, modify and delete the network setting of the storage server.
+   - Unregister: Click ![storage-7](../image/admin/06-storage/storage-7.png) to unregister the storage server. When you unregister a storage server, the backup and restore jobs on this storage server will fail. If the unregistration is an accidental deletion, you can re-register the storage server with the backup server again, and the backup and restore jobs on the storage server can continue as usual.
 
 > Note: 
 >
-> - Please be careful to modify the configuration of the storage server, otherwise the agent may not be able to connect to the added storage pool.
+> - Please be careful to modify the storage server configuration. If the configuration of the storage server is modified incorrectly, the agent may not be able to connect to the storage pool.
 
 ### Storage Pool
 
@@ -604,69 +590,65 @@ Click **Storage** -> **Storage Pool** to enter the Storage Pool page where you c
 
 ##### Add Standard Storage Pool
 
-1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Standard Storage Pool** as the **Type**, and select the **Storage Server** where the storaged module is installed.
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Standard Storage Pool** as the type, and select the **Storage Server** where the storaged module is installed.
 
  ![pool-sta-1](../image/admin/06-storage/pool-sta-1.png)
 
-**Multi-storage**: You can expand or merge storage capacity by adding multiple storage servers. When adding a storage pool, enable **Multi-storage** and select **Allocate Storage Space**. You cannot modify its configuration after the adding.
+**Multi-storage**: You can add multiple storage servers to expand or merge storage capacity by checking this option. Set **Allocate Storage Space **if you check the option. This configuration cannot be modify once the storage pool is submitted.
 
-**Allocate storage space**: If you enable **Multi-storage**, you need to allocate storage space to the storage pool, which means backup sets are allowed to use the amount of storage space. If the allocated space for the storage has been used up, no further backups can be made to the storage server.
+**Allocate storage space**: When you check Multi-storage option, you must allocate storage space to the storage pool. The allocated storage space refers to the the amount of storage space that backup sets are allowed to use. If the allocated space has been used up, no further backups can be made to the storage server.
 
-2. Set the retention policy for the storage pool
+2. Set the options including advanced options for the standard storage pool.
 
 ![pool-sta-2](../image/admin/06-storage/pool-sta-2.png)
 
-- **Common options**:
+**Backup sets retention policy**: You can choose time policy, space policy, and time and space policy.
 
-  **Time policy**: This policy only shows the option of **Backup sets retention days**, and the option of **Backup sets retention quota** is not displayed.
+* **Time policy**: This policy only shows the **Backup sets retention days **option. 
 
-  **Space policy**: This policy only shows the option of **Backup sets retention quota**, and the option of **Backup sets retention days** is not displayed. 
+  * **Backup sets retention days**: Set the retention days for backup sets in this pool. The default value is 30 days. 0 means no restriction on the retention days.
 
-  **Time and space policy**: The options of **Backup sets retention days** and **Backup sets retention quota** are displayed. 
+* **Space policy**: This policy only shows the option **Backup sets retention quota** option.  
 
-  - If you enter 0 in both the options, the Backup Sets Retention Policy of the pool you added on the Storage Pool page shows **Unlimited**. 
+  * **Backup sets retention quota**: Set the retention quota for backup sets in this pool. 10 GiB is retain by default. 0 means no restriction on the retention quota.
+
+* **Time and space policy**: This policy shows both the **Backup sets retention days** and **Backup sets retention quota** options. 
+
+  - If you enter 0 in both options, the Backup Sets Retention Policy of the pool you added on the Storage Pool page displays as "Unlimited". 
   - If you enter 0 in one of the options, the Backup Sets Retention Policy of the pool you added on the Storage Pool page shows the value you entered. 
-  - If you enter values in both the options, the Backup Sets Retention Policy of the pool you added on the Storage Pool page shows **XX days or XX GiB/PiB** you entered.
 
-  **Backup sets retention quota**: Set the retention quota for the storage pool backup sets. 10 GiB is retain by default. 0 means no restriction on the retention quota.
+  - If you enter values in both the options, the Backup Sets Retention Policy of the pool you added on the Storage Pool page displays as "XX days or XX GiB/PiB" you entered.
 
-  **Backup sets retention days**: Set the retention days for the storage pool backup sets. The default is 30 days. 0 means no restriction on the retention days.
+**Delay delete backup sets**: If the option is unchecked, the backup sets in the pool will be deleted as soon as it expires. If you check this option, the expired backup sets in the pool will not be deleted immediately and the backup sets can still be used to restore. 
 
-  **Delay delete backup sets**: 
+- When the disk space usage exceeds 90%, the earliest expired backup sets will be deleted first to keep the disk space usage below 90%. 
+- For the pool with the multi-storage feature, only the earliest expired backup sets are deleted to free up the storage space when all allocated storage space are used up. 
 
-- When it's enabled, the backup sets in the storage pool that are expired will not be deleted immediately and the backup sets can still be restored. 
+**Min full backups retention**: Set the number of full backup sets that each resource will retain at least when the pool recycling strategy triggers.
 
-   - When the disk space usage exceeds 90%, the earliest expired backup sets will be deleted first so that the disk space usage is below 90%. 
+![pool-sta-5](../image/admin/06-storage/pool-sta-5.png)
 
-   - For multi-storage pools, when all allocated storage space are used up, only the earliest expired backup sets are deleted to free up the storage space. 
+- Advanced options:
 
-- When it's disabled, the backup sets in the storage pool will be deleted as soon as it expires.
+**Data storage encryption**: If you enable this option, the transfer and storage of backup sets will be encrypted. Select **Encryption Algorithm**, **Cipher Length**, and **Encryption Mode** after the option is enabled.
 
-  **Min full backups retention**: Set the number of full backup sets that each resource will retain at least when the pool recycling strategy triggers.
+- The encryption algorithms available are **AES** and **SM4**. 
+- The cipher length available under AES encryption algorithm are **128**, **192**, and **256**. 
+- For **Encryption Mode**, AES encryption algorithm supports **CTR** and **OFB**; SM4 encryption algorithm supports **OFB**.
 
-  ![pool-sta-5](../image/admin/06-storage/pool-sta-5.png)
-
-- **Advanced options**:
-
-  **Data storage encryption**: After enabling this option, you need to select **Encryption Algorithm**, **Cipher Length**, **Encryption Mode**, and the transfer and storage of backup sets will be encrypted. 
-
-  - The encryption algorithms available are **AES**, **Blowfish** and **SM4**. 
-  - The cipher length available under AES encryption algorithm are **128**, **192**, and **256**. 
-  - AES algorithm supports five encryption modes that are **CBC**, **CFB**, **CTR**, **ECB** and **OFB**, while Blowfish and SM4 algorithms support four encryption modes that are **CBC**, **CFB**, **ECB** and **OFB**.
-
-3. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+3. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
    ![pool-sta-8](../image/admin/06-storage/pool-sta-8.png)
 
-   **Name**: You can customize the name of the storage pool and the name cannot be repeated.
+   **Name**: Customize the name of the pool and the name cannot be repeated.
    
-   **User group**: You can select users to use storage pools. Only the resources and users under that user group have permissions to operate and use the pool.
+   **User group**: Select users to have permission of the pool. Only the resources and users under the user group have permissions to use the pool.
    
-   **Owner**: You can select tenants to use the storage pool. Only the owner of that pool and its subordinate operators have permissions to the pool. This configuration is only available for multi-tenant environments.
+   **Owner**: Select tenants to use the pool. Only the owner of the pool and its subordinate operators have permission of the pool. This option is only available in multi-tenant environments.
 
 ###### **Add Storage**
 
-After creating a standard storage pool with Multi-storage enabled, you can add multiple storage, consolidate the storage capacity, and expand the storage pool space.
+After creating a standard storage pool with Multi-storage enabled, you can add multiple storage to merge the storage capacity and expand the storage pool space.
 
 ![pool-sta-6](../image/admin/06-storage/pool-sta-6.png)
 
@@ -674,122 +656,116 @@ Click "**+**" on the right side of the specified storage pool to access the Add 
 
 ![pool-sta-7](../image/admin/06-storage/pool-sta-7.png)
 
-**Type**: Select **Standard Storage Pool** by default.
+**Type**: Standard Storage Pool is selected by default.
 
-**Address**: Select the domain name or IP address of the server corresponding to the device on which the storaged module is installed.
+**Address**: Set the device domain name or IP address for the server where the storaged module is installed.
 
-**SSL**: When you enable this option, the storage uses SSL and the data is encrypted when backed up to this storage pool.
+**SSL**: When you enable this option, the storage uses SSL and the data is encrypted when backed up to this pool.
 
 **Port**: Enter the port number of the device. The default port is 50306. If SSL is enabled, the default port is 60306.
 
-**Allocate storage space**: The storage pool allocates storage space, which means the backup sets are allowed to use the amount of this storage space. If this allocated storage space is used up, no further backups can be made to this storage.
+**Allocate storage space**: The allocated storage space refers to the the amount of storage space that backup sets are allowed to use. If the allocated space has been used up, no further backups can be made to the storage server.
 
 ##### Add De-duplication Storage Pool
 
-1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **De-duplication Storage Pool** as the **Type**, select the storage server where the storaged module is installed, and set **Chuck Size**, which is **Adaptive** by default.
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **De-duplication Storage Pool** as the type, select the storage server where the storaged module is installed, and set **Chuck Size**, which is **Adaptive** by default.
 
  ![pool-dep](../image/admin/06-storage/pool-dep.png)
 
 ![pool-dep-5](../image/admin/06-storage/pool-dep-5.png)
 
-**Chunk Size**: Supports **Adaptive**, **Variable**, **64 KiB**, **128KiB**, **256KiB**, and **512KiB**. It is recommended that you back up each resource to the de-duplication pool with the appropriate block size to achieve the best de-duplication effect.
+**Chunk Size**: You can select **Adaptive**, **Variable**, **64 KiB**, **128KiB**, **256KiB**, and **512KiB** as the chuck size. It is recommended that you back up each resource to the de-duplication pool with the appropriate chuck size to achieve the best de-duplication effect.
 
-2. Set the retention policy for the storage pool
+2. Set options including advanced options for the de-duplication storage pool.
 
 ![pool-dep-3](../image/admin/06-storage/pool-dep-3.png)
 
 ![pool-dep-4](../image/admin/06-storage/pool-dep-4.png)
 
-- **Advanced options**:
+- Advanced options:
 
-  **Fingerprint database compression**: If you enable the option, the storage size of the fingerprint database will be compressed.
+  **Fingerprint database compression**: If you enable the option, the fingerprint storage size will be compressed.
 
-  **Redundancy (Number of copies)**: Set the number of redundant copies. The default value cannot exceed the number of storage nodes, and the maximum is 3.
+  **Redundancy (Number of copies)**: Set the number of redundant copies. The set value cannot exceed the number of storage server nodes, and the maximum is 3.
 
-  **Data storage encryption**: Data storage supports AES and Blowfish encryption. After enable this option, select **Encryption algorithm** and **Key length**.
+  **Data storage encryption**: If you enable this option, the transfer and storage of backup sets will be encrypted. Select **Encryption Algorithm**, **Cipher Length**, and **Encryption Mode** after the option is enabled.
 
-  **Specify UUID**: You can specify the UUID of the created pool. It's used to rebuild storage pools in case there are mistaken deletions, please use with caution!
+  **Specify UUID**: You can specify the UUID for the pool you add. This option is for rebuilding the storage pool in case of accidental deletion.
 
-3. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+3. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
 ##### Add Real-time Backup Pool
 
-1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Real-time Backup Pool** as the **Type**, and select the storage server on which the storaged module is installed. 
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Real-time Backup Pool** as the type, and select the storage server on which the storaged module is installed. 
 
  ![pool-time-1](../image/admin/06-storage/pool-time-1.png)
 
-2. Set the retention policy for the storage pool
+2. Set options including advanced options for the real-time backup pool. See *Add Standard Storage Pool* and *Add De-duplication Storage Pool* for the relevant options configuration.
 
     ![pool-time-3](../image/admin/06-storage/pool-time-3.png)
 
     ![pool-time-2](../image/admin/06-storage/pool-time-2.png)
 
-- **Advanced options**: 
-
-    **Specify UUID**: You can specify the UUID of the created pool. It's used to rebuild storage pools in case there are mistaken deletions, please use with caution!
-
-3. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+3. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
 ##### Add File Synthetic Pool
 
-File synthetic pool allows the pool to synthesize the backup sets as the base with subsequent incremental backups. By scanning directories, it recycles the space occupied by the redundant files in the full backup sets. With the Synthetic Backup Sets Retention enabled, the full backups and the incremental backups will be merge automatically.
+File synthetic pool allows the pool to synthesize the base backup set with subsequent incremental backups. By scanning directories, it recycles the space occupied by the redundant files of the full backup sets. The full backup set and the incremental backup set will be merge automatically according to your configuration for the Backup Sets Retention option.
 
-1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **File Synthetic Pool** as the **Type**, and select the **Storage Server** on which the storaged module is installed. This server requires the nfsd module to be installed as well. 
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png), select **File Synthetic Pool** as the type, and select the **Storage Server** on which the storaged module is installed. This server requires the nfsd module to be installed as well. 
 
  ![pool-file-merge-1](../image/admin/06-storage/pool-file-merge-1.png)
 
 > Note: 
 >
-> - File synthetic pool does not support Windows for now. When you enter the address that the storage server installed on Windows, the page indicates that the file synthetic pool is not supported.
+> - File synthetic pool is not available on Windows. When you enter the address of the Windows storage server, the page indicates that the file synthetic pool is not supported.
 
-2. Set retention policy and advanced options for the storage pool
+2. Set options including advanced options for the file synthetic pool. See *Add Standard Storage Pool* and *Add De-duplication Storage Pool* for the relevant options configuration.
 
     ![pool-file-merge-2](../image/admin/06-storage/pool-file-merge-2.png)
 
-**Specify UUID**: You can specify the UUID of the created pool. It's used to rebuild storage pools in case there are mistaken deletions, please use with caution!
-
-3. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+3. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
 ##### Add Database Synthetic Pool 
 
-1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Database Synthetic Pool** as the **Type**, and select the **Storage Server** on which the storaged module is installed. This server requires the storaged- lanfree module to be installed as well. 
+1. Click ![pool-2](../image/admin/06-storage/pool-2.png) , select **Database Synthetic Pool** as the type, and select the **Storage Server** on which the storaged module is installed. This server requires the storaged- lanfree module to be installed as well. 
 
  ![pool-database](../image/admin/06-storage/pool-database.png)
 
-**As a pool replication target**: When it's enabled, database synthetic pool can only be used as a pool replication target, not as a backup target, and cannot be modified after the creation.
+**As a pool replication target**: If you enable this option, the database synthetic pool can only be used as a pool replication target, not as a backup target. This configuration cannot be modified after you submit the pool.
 
-2. Set the number of **Backup Sets Retention**, and the number of **Synthetic Pool Snapshot Retention**. You should set a reasonable value considering the backup period.
+2. Set options including the advanced options for the database synthetic pool. See *Add Standard Storage Pool* for the relevant options configuration. You should set a reasonable value for the **Backup sets retention** considering the backup schedule.
 
     ![pool-database-1](../image/admin/06-storage/pool-database-1.png)
 
-**Protocol type**: Support iSCSI and FC. 
+**Protocol type**: You can select iSCSI or FC. 
 
-**Target**: Set names for the created iSCSI and FC Target, One Target should only correspond one storage pool. You should note the FC type, and select the online WWPN as the target. 
+**Target**: Set names for the created iSCSI and FC Target, One Target should only correspond one storage pool. If you select FC as the protocol type, select the online WWPN as the Target. 
 
-**Compression**: You can select to use compression to store data.
+**Compression**: Select to enable or disable the compression function.
 
-**Capacity**: Set the capacity for the storage pool. The capacity of storage pool should include the size of LUN and the capacity of snapshot. It is recommended that the size of the pool created should be at least twice the total size of the database, or larger if the amount of data changes and the snapshot retention is large.
+**Capacity**: Set the capacity for the storage pool. The capacity of storage pool includes the size of LUN and the capacity of snapshot. It is recommended that the size of the pool created should be at least twice the total size of the database, or larger if there are large amount of data changed and many snapshot reserved.
 
-**Dynamic allocation of space**: When creating a storage pool, you can set whether to immediately take up space on the storage server.
+**Dynamically allocated**: When creating a storage pool, you can set whether to immediately take up space on the storage server.
 
-- **Advanced options**:
+- Advanced options:
 
 
 ![pool-database-2](../image/admin/06-storage/pool-database-2.png)
 
-**Asynchronous I/O for backend storage**: 
+**Asynchronous I/O for backstore**: 
 
 - When the option is enabled, it means "Asynchronous". You can use the command “zfs get all” to view pool information, and the state of sync is disable.
 
 - When the option is disabled, it means "Synchronous". You can use the command “zfs get all” to view pool information, and the state of sync is standard.
 
-**Backend storage block size**: You can select **512B** and **128KB**. The block size is exponentially larger. You can use the command "zfs get all" to view the pool information, and the volblocksize is the selected size.
+**Backend storage block size**: You can select **4KiB** and **128KiB**. The block size is exponentially larger. Use the command "zfs get all" to view the pool information, and the volblocksize is the selected size.
 
-**Verify data integrity**: You can use the command "zfs get all" to view pool information. "On" means enabled, while "Off" means disabled.
+**Verify data integrity**: Use the command "zfs get all" to view pool information. "On" means enabled, while "Off" means disabled.
 
-**File system format**: You can select formats such as xfs, ext4, ext3, ext2, and you can use the command "mount" on the agent to view the mounted format.
+**File system format**: You can select XFS, Ext4, Ext3, and Ext2 as the file system format. Use the command "mount" on the agent to view the mounted format.
 
-**Formatting options**: After setting parameters with different formatting commands for different file systems, you can view the parameters with the corresponding commands in the background 
+**Formatting options**: After setting parameters with different formatting commands for different file systems, you can view the parameters with the corresponding commands in the background.
 
 > For example: 
 >
@@ -797,9 +773,9 @@ File synthetic pool allows the pool to synthesize the backup sets as the base wi
 
 **Mount options**: You can use the command "mount" on agent to view. The default state is rw, noatime, nouuid, inode64, and noquota.
 
-**Discard unused blocks on source filesystem after synthetic backup**: To recycle the unused blocks on the backend storage and source filesystem, you need to execute fstrim manually on the agent to free up space.
+**Discard unused blocks on source filesystem after synthetic backup**: To recycle the unused blocks on the backend storage and source filesystem, execute fstrim manually on the agent to free up space.
 
-3. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+3. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
 #####  Add LAN-Free Pool
 
@@ -807,51 +783,15 @@ File synthetic pool allows the pool to synthesize the backup sets as the base wi
 
     ![pool-lanfree](../image/admin/06-storage/pool-lanfree.png)
 
-2. Set the retention policy and the advanced options
+2. Set options including advanced options for the Lan-free pool. See *Add Standard Storage Pool* and *Add Database Synthetic Pool* for the relevant options configuration. 
 
     ![pool-lanfree-1](../image/admin/06-storage/pool-lanfree-1.png)
 
-**Protocol type**: Support iSCSI and FC protocol. 
-
-**Target**: Set the name of the created iSCSI and FC Target, with one Target for one storage pool. You should note the FC type, and select the online WWPN as the target. 
-
-**Compression**: You can select to use compression to store data.
-
-**Capacity**: Set the capacity for the storage pool. The capacity of storage pool should include the size of LUN and the capacity of snapshot. It is recommended that the size of the pool created should be at least twice the total size of the database, or larger if the amount of data changes and the snapshot retention is large.
-
-**Dynamic allocation of space**: When creating a storage pool, you can set whether to immediately take up space on the storage server.
-
-- **Advanced options**
-
-![pool-database-2](../image/admin/06-storage/pool-database-2.png)
-
-**Asynchronous I/O for backend storage**: 
-
-- When the option is enabled, it means "Asynchronous". You can use the command “zfs get all” to view pool information, and the state of sync is disable.
-
-- When the option is disabled, it means "Synchronous". You can use the command “zfs get all” to view pool information, and the state of sync is standard.
-
-**Backend storage block size**: You can select **512B** and **128KB**. The block size is exponentially larger. You can use the command "zfs get all" to view the pool information, and the volblocksize is the selected size.
-
-**Verify data integrity**: You can use the command "zfs get all" to view pool information. "On" means enabled, while "Off" means disabled.
-
-**File system format:** You can choose formats such as xfs, ext4, ext3, ext2, and you can use the command "mount" on the agent to view the mounted format.
-
-**Formatting options**: After setting parameters with different formatting commands for different file systems, you can view the parameters with the corresponding commands in the background. 
-
-> For example: 
->
-> - After setting the block size, you can use the 'tune2fs -l /dev/sda1|(enter the pipe symbol) grep "Block size" to view it in the background.)
-
-**Mount options**: You can use the command "mount" on agent to view. The default state is rw, noatime, nouuid, inode64, and noquota.
-
-**Discard unused blocks on source filesystem after synthetic backup**: To recycle the unused blocks on the backend storage and source filesystem, you need to execute fstrim manually on the agent to free up space.
-
 > Note: 
 >
-> - There is no delayed deletion policy of backup sets for LAN-Free pools, and expired backups are deleted immediately when the backup sets retention policy is met.
+> - There is no Delay delete backup sets option for the setup of the LAN-Free pool. Backup sets are deleted immediately once they get expired.
 
-3. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+3. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
 4. After you create a LAN-Free pool, you need to add storage. Each LUN added can only be used by one host.
 
@@ -862,7 +802,7 @@ File synthetic pool allows the pool to synthesize the backup sets as the base wi
 
 ##### Add Tape Library Pool
 
-Tapes are used as a physical storage to hold archived user data. Before creating a tape pool, you need to scan the tape first.
+Tapes are used as a physical storage to hold archived user data. Before creating a tape pool, scan the tape first.
 
 ###### Scan the Tape
 
@@ -874,9 +814,9 @@ Tapes are used as a physical storage to hold archived user data. Before creating
 
     ![tape-con-2](../image/admin/06-storage/tape-con-2.png)
 
-3. After submitted, information about the the tape library attached to the controller is listed.
+3. After submitted, information about the the tape libraries attached to the controller is listed.
 
-4. Click **Initialize**, and the tape library will be initially scanned. The initial scan lasts for a period of time, depending on the tape loading speed of the tape library drive.
+4. Click **Initialize**, and the tape library will be initially scanned. The initial scan lasts for a period of time, depending on the loading speed of the tape library drive.
 
    ![tape-con-3](../image/admin/06-storage/tape-con-3.png)
 
@@ -886,31 +826,29 @@ Tapes are used as a physical storage to hold archived user data. Before creating
 
     ![pool-tape-1](../image/admin/06-storage/pool-tape-1.png)
 
-2. Set **Backup Sets Retention Policy**, and the tape pool only supports **Time Policy**.
+2. Set **Backup Sets Retention Policy**. The tape library pool only supports **Time Policy**.
 
-3. Based on the scanned tape library information, select **Target - LUN**, and set the **Space** of the allocated tape by dragging the slider control.
+3. Based on the scanned tape library, select **Target - LUN**, and set the **Space** of the allocated tape by dragging the slider control. See *Add Standard Storage Pool* for the relevant options configuration.
 
     ![pool-tape-2](../image/admin/06-storage/pool-tape-2.png)
 
-- **Advanced options**:
+- Advanced options:
 
 ![pool-tape-3](../image/admin/06-storage/pool-tape-3.png)
 
-**Data storage encryption**: Data storage supports AES and Blowfish encryption. After enabling this option, select **Encryption algorithm** and **Key length**.
+**Data storage encryption**: If you enable this option, the transfer and storage of backup sets will be encrypted. Select **Encryption Algorithm**, **Cipher Length**, and **Encryption Mode** after the option is enabled.
 
-**Specify UUID**: You can specify the UUID of the created pool. It's used to rebuild storage pools in case there are mistaken deletions, please use with caution!
+- The encryption algorithms available are **AES** and **SM4**. 
+- The cipher length available under AES encryption algorithm are **128**, **192**, and **256**. 
+- For **Encryption Mode**, AES encryption algorithm supports **CTR** and **OFB**; SM4 encryption algorithm supports **OFB**.
+
+**Specify UUID**: You can specify the UUID for the pool you add. This option is for rebuilding the storage pool in case of accidental deletion.
 
 **Block size**: Set the block size used by the tape during the read and write. The default block size is **256 KiB**.
 
-5. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+5. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
-6. After adding the tape library pool, you can re-allocate the tape storage space. In **Storage->Storage Pool** page, you can expand the storage pool information by clicking the **"+"** button on the left size of the tape library pool, and click the **Allocate Tapes** icon on the expand panel to access the pop-up Allocate Tapes window where you can re-configure options to re-allocate tapes. 
-
-**Target-LUN**: Modify the Target-LUN of tape library pool.
-
-**Dynamically Allocated**: Modify whether the tape of the tape library pool is dynamically allocated.
-
-**Space**: Add or reduce the tape space by dragging the slider control, excluding tapes that have been used or backup sets that have not been recycled.
+6. After adding the tape library pool, you can re-allocate the tape storage space. In **Storage->Storage Pool** page, you can expand the pool information by clicking the **"+"** button on the left size of the added tape library pool, and click the **Allocate Tapes** icon on the expansion panel to access the pop-up Allocate Tapes window where you can re-allocate tapes. 
 
 ##### Add Object Storage Service Pool
 
@@ -922,23 +860,23 @@ Tapes are used as a physical storage to hold archived user data. Before creating
 
 **Endpoint**: Select or enter the cloud server endpoint address.
 
-**Region**: Select or enter the region where the data center is located (It's automatically filled in by default based on the Endpoint).
+**Region**: Select or enter the region where the data center is located (The option is automatically filled in by default based on the Endpoint).
 
-**SSL**: Select whether to use SSL. If the cloud service vendor supports using SSL, you can select this option on demand.
+**SSL**: Select whether to use SSL. To enable SSL, the cloud service vendor must support SSL.
 
 **Access key**: Enter the access key. 
 
 **Secret key**: Enter the secret key. 
 
-**Bucket**: Select or enter a bucket name. If users of the Access Key and Secret Key do not have bucket permission, the bucket cannot be loaded when the object storage service pool is added, and in this case users can manually enter a bucket name.
+**Bucket**: Select or enter a bucket name. If users of the Access Key and Secret Key do not have the bucket permission, the bucket cannot be loaded when the object storage service pool is added, and in this case you can manually enter a bucket name.
 
-3. Set the retention policy for the storage pool and set advanced options
+3. Set options including advanced options for the Lan-free pool. See *Add Standard Storage Pool* for the relevant options configuration. 
 
 >  Note: 
 >
->  - There is no delayed deletion policy of backup sets for object storage service pools, and expired backups are deleted immediately when the backup sets retention policy is met.
+>  - There is no Delay delete backup sets option for the setup of the Object Storage Service Pool. Backup sets are deleted immediately once they get expired.
 
-4. You can customize the name of the pool and assign permissions to user groups, and only users under the specified user group have permissions to use the pool.
+4. Set the name for the pool and assign the pool to the user group. Click **Submit**.
 
 #### Modify Storage Pool and Storage
 
@@ -946,22 +884,13 @@ The configuration of storage pool includes two part: the pool configuration and 
 
 1.  Modify storage pools
 
-The Modify icon on the right side of the specific storage pool allows you to modify the storage pool in the pop-up Edit window.
+The Modify icon on the right side of the specific storage pool allows you to modify the storage pool in the pop-up Edit window. See relevant storage pool section descriptions to modify the options. 
 
 ![pool-tape-5](../image/admin/06-storage/pool-tape-5.png)
 
-**Name**: Modify the name of the storage pool.
-
-**Backup sets retention quota**: Modify the retention quota for the backup sets of the storage pool. It will take effect only when the next backup is executed.
-
-**Backup sets retention days**: Modify the retention days for the backup sets of the storage pool. It will take effect only when the next backup is executed.
-
-**Delay delete backup sets**: 
-
-- When it's enabled, the backup sets in the storage pool that are expired will not be deleted immediately and the backup sets can still be restored at this time. The earliest expired backup sets will be deleted first when the disk space usage exceeds 90%, so that the disk space usage is below 90%. For the multi-storage pools, when all allocated storage space is used up, only the earliest expired backup sets are deleted to free the storage space. 
-- When it's disabled, the backup sets in the storage pool will be deleted as soon as it expires.
-
-**Min full backups retention**: Modify the number of full backup sets of each resource will retain at least when the pool recycling strategy triggers.
+>Note:
+>
+>If you modify the Backup sets retention quota or the Backup sets retention days option, they will take effect only when the next backup is executed.
 
 2. Modify the storage
 
@@ -969,24 +898,24 @@ By clicking the **"+"** button on the left side of the specific storage pool, th
 
    ![pool-tape-6](../image/admin/06-storage/pool-tape-6.png)
 
-**Address**: You need to modify this option when the IP address of the storage server changes. The backup sets of the storage pool are still available after you modify the address. When there is a pool replication relationship, you need to modify the IP address of the source pool first, and then modify the IP address of the target pool.
+**Address**: Modify this option when the IP address of the storage server changes. The backup sets of the storage pool are still available after you modify the address. When there is a pool replication relationship, you need to modify the IP address of the source pool first, and then modify the IP address of the target pool.
 
 **SSL**: Modify to use SSL or not.
 
-**Port**: Modify the port number of the device. The default port is 50306.
+**Port**: Modify the port number of the device. The default port is 50306. If you enable SSL, the default port number is 60306.
 
 #### Delete the Storage Pool
 
 You can delete the corresponding pool by clicking the **Delete** icon. 
 
-- When a storage pool exists a pool replication relationship, deleting the pool will fail. 
-- When the storage server is online, only delete the storage pool after the resource is recycled.
-- When the storage server is offline, there is a red delete icon providing a forced deletion. The forced deletion may cause part of the authorized space unable to be recycled.
+- When the storage pool exists a pool replication relationship, the pool deletion will fail. 
+- When the server of the storage server is online, only delete the storage pool after the resource is recycled.
+- When the server of the storage server is offline, there is a red delete icon providing a forced deletion. The forced deletion may cause part of the authorized space unable to be recycled.
 - If an abnormal service occurs during the deletion, the deletion can be continued after the service restarts.
 
 ### Storage Pool Replication
 
-You can manually set storage pools to replicate pool by pool. When you set a pool replication, and run a backup job to the source storage pool, the backup sets are automatically backed up to the target storage pool; If the source pool fails and the related backup sets files are lost, you can restore the backup sets from the target pool.
+You can manually set the storage pool to replicate pool by pool. When you set a pool replication, and run a backup job to the source storage pool, the backup set is automatically backed up to the target storage pool; If errors occur in the source pool and the related backup set files are lost, you can restore the backup sets from the target pool.
 
 #### Set Up Pool Replication
 
@@ -994,13 +923,13 @@ You can manually set storage pools to replicate pool by pool. When you set a poo
 
 ![set](../image/admin/06-storage/replicate/set.png)
 
-2. Set **Target Storage Pool** in the pop-up window.
+2. Set **Target Storage Pool** and other options in the pop-up window.
 
  ![](../image/admin/06-storage/replicate/set-1.png)
 
-**Reconnection time**: Set the reconnection time. Support 1~60 minutes.
+**Reconnection time**: Support 1 to 60. The unit is minute (s). The job continues after the abnormal reset occurs in the network within the set time.
 
-**Speed limit**: You can limit the network transfer speed when replicating backup sets within a certain time period. The unit is MiB/s. You can customize different speed limits within different periods.
+**Speed limit**: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the "**+**" icon to add limits within different periods.
 
 3. Click **Submit** and the setup of storage pool replication is successful.
 
@@ -1008,7 +937,7 @@ You can manually set storage pools to replicate pool by pool. When you set a poo
 
 #### Pool Replicate Job
 
-Click **Storage** -> **Pool Replicate Job** and enter the Pool Replicate Job page to view all the storage pool replicating job records.
+Click **Storage** -> **Pool Replicate Job** to enter the Pool Replicate Job page to view all the storage pool replicating job records.
 
 ![](../image/admin/06-storage/replicate/copy-1.png)
 
@@ -1018,25 +947,26 @@ Click **Storage** -> **Pool Replicate Job** and enter the Pool Replicate Job pag
 
 #### Pool Replication List
 
-You can view all pool replication information in **Pool Replication List**. 
+You can view all pool replication information by clicking the **Pool Replication List** icon on the Storage Pool page. 
 
-1. Click the icon ![](../image/admin/06-storage/replicate/list.png) of **Pool Replication List** to enter the list page, view and operate the pool replication.
+Click the icon ![](../image/admin/06-storage/replicate/list.png) on Pool Replication List page to enter the list page, view and operate the pool replication.
 
 ![](../image/admin/06-storage/replicate/list-2.png)
 
-2. Click ![](../image/admin/06-storage/replicate/setting.png) to enter the Set Up page where you can set the **Restore Source**, **Reconnection Time** and **Speed Limit**. You can choose to restore from the source or target storage pool, both of which can achieve direct data restore from offsite pool. 
+- Set up: Click ![](../image/admin/06-storage/replicate/setting.png) to enter the Set Up page where you can set the **Restore Source**, **Reconnection Time**, **Speed Limit** and other options. You can choose to restore from the source or from the target storage pool, both of which can achieve direct data restore from offsite pool. 
 
 ![](../image/admin/06-storage/replicate/modify-1.png)
 
-**Delete**: Delete the pool replication relation. Backup sets cannot be restored from the target storage pool if the pool replication is deleted, please operate it with caution!
+- Delete: Click the "Delete" icon to delete the pool replication. Backup sets cannot be restored from the target storage pool if the pool replication is deleted. Please operate it with caution!
+
 
 #### Repair Source Pool
 
 You can repair index data between the source pool and the target pool when the source pool device fails.
 
 1. Configure the same IP as the source storage pool on the new device, install the storaged module and re-register.
-2. On **Storage** -> **Storage Pool** page, click the Pool Replication List icon to enter the Pool Replication List page, and click ![](../image/admin/06-storage/replicate/modify.png) to repair the index data between the source pool and the target pool.
-2. Click the **Restore from Pool Replication Target** icon on the Pool Replicate Job page. The option allows you to retrieve the backup sets from the target storage pool to the source storage pool, and continue the backup and restore jobs.
+2. On **Storage** -> **Storage Pool** page, click the Pool Replication List icon to enter the Pool Replication List page, and click ![](../image/admin/06-storage/replicate/modify.png) to repair the index data between the source storage pool and the target storage pool.
+2. Click the **Restore from Pool Replication Target** icon on the Pool Replicate Job page. The option allows you to retrieve backup sets from the target storage pool to the source storage pool, and continue the backup and restore jobs.
 
 > Note: 
 >
@@ -1050,17 +980,17 @@ Click **Storage** -> **Network** to enter the Network page, and you can view all
 
 #### Add Data Network
 
-You can specify the data transfer network for the agent and storage server during the backup and restore process. 
+You can specify the data transfer network for the agent and storage server during the backup and restore.
 
-1. Click the "**+**" button in the upper left corner to access the Add window. Enter the **Name** of the network and check **Data Network** as **Purposes**. After you click **Submit**, the network is created successfully.
+1. Click the "**+**" button in the upper left corner to access the Add window. Enter the **Name** of the network and check **Data Network** as the purpose. After you click **Submit**, the network is created successfully.
 
 ![](../image/admin/06-storage/net-2.png)
 
-2. Click "**+**" button on the left side of the network to access the expansion panel. On the expansion panel, click the "**+**" button on the right side of the **Storage Servers** and **Hosts**. You can specify the IP of the storage server to be used for the backup and restore, and specify the host. 
+2. Click "**+**" button on the left side of the network to expand the list. On the expansion panel, click the "**+**" button on the right side of the **Storage Servers** and **Hosts**. You can specify the storage server IP used for the backup and restore.
 
 ![](../image/admin/06-storage/net-3.png)
 
-3. After you click **Submit**, the storage server and agent bind the data network successfully. During the backup and restore, the network for transferring data is the IP of the storage server that you just have set.
+3. After you click **Submit**, the storage server and agent bind the data network successfully. During the backup and restore, the network for transferring data is the storage server IP that you just have set.
 
 ![](../image/admin/06-storage/net-6.png)
 
@@ -1068,7 +998,7 @@ You can specify the data transfer network for the agent and storage server durin
 
 You can specify the transfer network during the storage pool replication. 
 
-1. Click the "**+**" in the upper left corner to access the Add window. Enter the **Name** of the network and check **Storage Pool Replication Network** as **Purposes**. After you click **Submit**, the network is created successfully.
+1. Click the "**+**" in the upper left corner to access the Add window. Enter the **Name** of the network and check **Storage Pool Replication Network** as the purpose. After you click **Submit**, the network is created successfully.
 
 ![](../image/admin/06-storage/net-7.png)
 
@@ -1078,9 +1008,9 @@ You can specify the transfer network during the storage pool replication.
 
 #### Add Management Network
 
-You can specify a network to control and manage the backup server and storage server, as well as to achieve network isolation between the management and the business.
+You can specify a network to control and manage the backup server and the storage server, as well as to achieve network isolation between the management and the business.
 
-1. Click the "**+**" button in the upper left corner to access the Add window, enter the **Name** of the network and check **Management Network** as **Purposes**. After you click **Submit**, the network is created successfully.
+1. Click the "**+**" button in the upper left corner to access the Add window, enter the **Name** of the network and check **Management Network** as the purpose. After you click **Submit**, the network is created successfully.
 
 ![](../image/admin/06-storage/net-9.png)
 
@@ -1090,19 +1020,19 @@ You can specify a network to control and manage the backup server and storage se
 
 > Note:
 >
-> - Only one Management Network is allowed. If there is already a Management Network, you can directly add a new storage server in the Edit window of the Management Network.
+> - Only one Management Network is allowed. If there is already a Management Network existing, you can directly add a new storage server in the Edit window of the Management Network.
 >
-> - When the pools replicate, its network is based on the network of the target pool replication. When the backup sets are retrieved, its network is based on the network of the source pool replication. It is preferable that you use the same network label for the source pool node and the target pool node, and select the network label when setting up the pool replication.
+> - When the pools replicate, its network is based on the network of the target storage pool. When the backup sets are retrieved, its network is based on the network of the source storage pool. It is preferable that use the same network purpose for the source pool node and the target pool node. 
 
 ### SCSI Target 
 
-The SCSI Target provides iSCSI target and FC target to the agent on the storage server with the storaged-lanfree module installed.
+The SCSI Target function provides iSCSI target and FC target to the agent on the storage server with the storaged-lanfree module installed.
 
 Before you can use this feature, you need to add a storage server with the storaged-lanfree module installed to the storage pool.
 
-1. Click **Storage** -> **SCSI Target** to enter the setup page of SCSI Target.
+1. Click **Storage** -> **SCSI Target** to enter the SCSI Target page.
 
-2. Select a storage server and by default **iSCSI** will be listed, or **FC** if the storage server has FC HBA cards installed.
+2. In the upper left corner, select a storage server. The SCSI Target lists **iSCSI** by default. If the storage server has FC HBA card installed, the page will list **FC**.
 
     ![](../image/admin/06-storage/iscsi-02.png)
 
@@ -1110,49 +1040,37 @@ Before you can use this feature, you need to add a storage server with the stora
 
 ##### Add
 
-1. Click "**+**" button next to **iSCSI**, and modify the name of the iSCSI target in the pop-up window. Click "**√**" button to add an iSCSI target.
+1. Click the "**+**" button next to **iSCSI**, and modify the name of the iSCSI target in the pop-up window. Click the "**√**" button to add a new iSCSI target.
 
     ![](../image/admin/06-storage/iscsi-02.png)
 
-2. After adding a target, you need to add one or more LUNs to the target. Click the "**+**" button next to the newly added target and drag the slider control in the pop-up window or enter a value to set the size of the LUN.
+2. After adding a new iSCSI target, you need to add one or more LUNs to the target. Click the "**+**" button next to the newly added target and drag the slider control in the pop-up window or enter a value to set the size of the LUN. Click "**√**" button to submit the LUN.
 
     ![](../image/admin/06-storage/iscsi-03.png)
 
-3. Click "**√**" button to add a LUN. The newly added LUN will not allocate the corresponding space on the storage server immediately, but will allocate the space according to the actual usage.
+3.  The newly added LUN will not allocate the corresponding space on the storage server immediately, but will allocate the space according to the actual usage.
 
     ![](../image/admin/06-storage/iscsi-04.png)
 
-4. Click **Access Control List (ACL)** to bring up the Access Control List window of the LUN, you can add one or more initiators, and only the initiators in the list can access the LUN. When using the Lan-Free pool or database synthetic pool for backup jobs, you will be prompted to select a storage device and the initiator will be automatically added to the corresponding LUN after your selection.
+4. Click the **Access Control List (ACL)** icon to bring up the ACL window of the LUN where you can add one or more initiators, and only the initiators in the list can access the LUN. When you run a backup to a Lan-Free pool or database synthetic pool, you will be prompted to select a storage device and the initiator will be automatically added to the corresponding LUN after your selection.
 
     ![](../image/admin/06-storage/iscsi-05.png)
 
 ##### Delete
 
-Deleting a target or LUN will erase all the data on the LUN. Please read the prompts displayed on the page carefully and make sure the target or LUN is not in use before deleting it.
+Click the "Delete" icon next to the LUN on the SCSI Target page to delete the LUN. Deleting a LUN will erase all the data on the LUN. Make sure the LUN is not in use before deleting it. 
 
 #### FC target
 
-To create FC target, you need to install FC HBA card on the storage server and set the operating mode of the HBA card to target mode. This version only supports Qlogic HBA card.
+To create FC target, install FC HBA card on the storage server first and set the HBA card in target mode. ADPS only supports QLogic HBA card at the moment.
 
-##### Add
+##### Add and Delete
 
-By default, targets are automatically created according to the number of interfaces on the HBA card, and you only need to add LUNs under the corresponding targets.
+The SCSI Target page list the FC by default based to the the number of interfaces on the HBA card. Create one or more LUNs under the corresponding FC target. Adding a LUN to FC target is same as adding a LUN to iSCSI target. Refer to the *iSCSI target* section to add and delete a LUN to the FC target.
 
-1. Click "**+**" button next to the target, and drag the slider control in the pop-up window or enter a value to set the LUN size.
+![](../image/admin/06-storage/fc-01.png)
 
-    ![](../image/admin/06-storage/fc-01.png)
-
-2. Click "**√**" button to add a LUN or multiple LUNs in one target. The newly added LUNs will not allocate the corresponding space on the storage server immediately, but will allocate the space according to the actual usage.
-
-    ![](../image/admin/06-storage/fc-02.png)
-
-3. Click **Access Control List (ACL)** to bring up the Access Control List window of the LUN, you can add HBA card port WWPN, and only the agent with WWPN added in the list can access the LUN. When using the Lan-Free pool or database synthetic pool for backup jobs, you will be prompted to select a storage device and the port WWPN of HBA card will be automatically added to the corresponding LUN after your selection.
-
-    ![](../image/admin/06-storage/fc-03.png)
-
-##### Delete
-
-Deleting a LUN will erase all the data on the LUN. Please read the prompts displayed on the page carefully and make sure the LUN is not in use before deleting it. Click the Delete icon next to LUN to delete the LUN.
+![](../image/admin/06-storage/fc-02.png)
 
 ### Tape Library
 
@@ -1160,15 +1078,15 @@ Deleting a LUN will erase all the data on the LUN. Please read the prompts displ
 
     ![](../image/admin/06-storage/tape-01.png)
 
-2. Click the "**+**" button to add the tape controller. In the pop-up window, enter the **Name** of the tape controller, the **Address** and **Port** of the server where the tape library controller module is installed, fill in the **Remark**, and click **Submit**.
+2. Click the "**+**" button to add a tape controller. In the pop-up window, enter the **Name** of the tape controller, the **Address** and **Port** of the server where the tape library controller is installed, fill in the **Remark**, and click **Submit**.
 
     ![](../image/admin/06-storage/tape-02.png)
 
-3. After **Submit**, it will list the tape library information attached to the controller.
+3. After the submission, the page will list the tape library attached to the controller.
 
     ![](../image/admin/06-storage/tape-10.png)
 
-4. Click the **Initialize** icon to perform an initial scan of the tape library. The scan will last for a period of time, which is affected by the tape loading speed of the tape library drive.
+4. Click the **Initialize** icon to perform an initial scan of the tape library. The scan will last for a period of time, depending on the loading speed of the tape library drive.
 
     ![](../image/admin/06-storage/tape-03.png)
 
@@ -1176,159 +1094,161 @@ Deleting a LUN will erase all the data on the LUN. Please read the prompts displ
 
     ![](../image/admin/06-storage/tape-21.png)
 
-6. Click the **Rescan** icon under the Action bar to rescan the tape library and update the tape library information.
+6. Click the **Rescan** icon in the Actions column to rescan the tape library and update the tape library information.
 
     ![](../image/admin/06-storage/tape-22.png)
 
-7. Click the **Drives** icon under the Action bar to enter the Drives page.
+7. Click the **Drives** icon in the Actions column to enter the Drives page.
 
     ![](../image/admin/06-storage/tape-23.png)
 
-8. Click the **Media Management** icon under the Action bar to enter the Tape Library Media page.
+8. Click the **Media Management** icon in the Actions column to enter the Tape Library Media page.
 
     ![](../image/admin/06-storage/tape-24.png)
 
-9. Click the **Task Management** icon under the Action bar to enter the Tape Library Task page.
+9. Click the **Task Management** icon in the Actions column to enter the Tape Library Task page.
 
     ![](../image/admin/06-storage/tape-25.png)
 
-10. Click the **Set Up** icon to access the pop-up window where you can manually configure the capacity of the tape.
+10. Click the **Set Up** icon to access the pop-up window where you can manually configure the tape capacity.
 
     ![](../image/admin/06-storage/tape-26.png)
     
     > Note:
     >
-    > -  When the system cannot get the tape capacity correctly, it's necessary to set up the tape capacity to perform the capacity statistics.
+    > -  When ADPS cannot get the tape capacity correctly, the setup of the tape capacity is required to perform the capacity statistics.
 
 #### Tape Library Controller
 
-1. Click **Controller** at the top left of the page to enter the **Tape Library Controller** page. Click the **"+"** button on the left side of the controller to list the names of the tape libraries connected to the controller.
+1. Click **Controller** at the top left of the page to enter the **Tape Library Controller** page. Click the **"+"** button on the left side of the controller to list the tape libraries connected to the controller.
 
     ![](../image/admin/06-storage/tape-05.png)
 
-2. Click the **"+"** button at the top left of the page to access the Add Tape Controller window. You can enter the **Name** of the controller, the **Address** and **Port** of the server where the tape library controller module is installed, fill in the **Remark**, and click **Submit**.
+2. Click the **"+"** button at the top left of the Tape Library Controller page to access the Add Tape Controller window. You can enter the **Name** of the controller, the **Address** and **Port** of the server where the tape library controller is installed, fill in the **Remark**, and click **Submit**.
 
     ![](../image/admin/06-storage/tape-11.png)
 
-3. After you submit the adding of the tape controller, the page will list the tape library records connected the tape controller. You need to back to the **Tape Library** page and initialize the tape controller.
+3. After you submit the adding of the controller, the page will list the records of the tape libraries  connected the controller. Go to the **Tape Library** page and initialize the controller.
 
-4. Click the **Rescan** icon to update the tape library records connected to the controller.
+4. In the Actions column on the Tape Library Controller page, you can refresh, modify and delete the corresponding controller.
+
+    **Refresh**: Click the "Refresh" icon to update the tape libraries connected to the controller.
 
     ![](../image/admin/06-storage/tape-12.png)
 
-5. Click the **Modify** icon under the Action bar to access the Modify Tape Controller window.
+    **Modify**: Click the "Modify" icon to access the Modify Tape Controller window.
 
-6. Click the **Delete** icon under the Action bar to delete the controller.
+    **Delete**: Click the "Delete" icon to delete the controller.
 
-   > Note: 
-   >
-   > - When you delete the controller, the corresponding connected tape library records will be deleted also. Please operate with caution.
+    > Note: 
+    >
+    > - When you delete the controller, the corresponding connected tape libraries will be deleted also. Please operate with caution.
 
-#### Controller Drives
+#### Drives
 
-1. Click the **Drives** icon under the Action bar to enter the Drives page where you can view the state of the tape library drives and information about the media loaded on the drives.
+1. Click the **Drives** icon in the Actions column to enter the Drives page where you can view the state of the tape library drives and information about the media loaded on the drives.
 
     ![](../image/admin/06-storage/tape-07.png)
 
-2. When a faulty drive is detected, the drive **State** on the Tape Library Controller page is displayed in red. You cannot select the faulty drive.
+2. When a failed drive is detected, the **Drives** number is showed in red. 
 
     ![](../image/admin/06-storage/tape-13.png)
 
-2. You can enter the Drives page to execute operations for the faulty drive.
+2. On the Drives page, the failed drive shows a red icon in the State column, indicating a fault sate.
 
     ![](../image/admin/06-storage/tape-14.png)
 
-3. To repair the faulty drive, click **Remove Tapes** to unload the tape media first, and then click **Repair**, select the tape media, and click **Test** to execute operations like loading the drive or uninstalling the tape.
+3. Click the **Test** icon to test if the drive can load and unload tape properly.
 
     ![](../image/admin/06-storage/tape-15.png)
 
-4. After the test is passed, the state of the drive is shown in green, indicating a "normal" state, and you can use it normally.
+4. After the test is passed, the drive shows a green icon in the State column, indicating a "Normal" state, and you can use it normally.
 
     ![](../image/admin/06-storage/tape-07.png)
 
 #### Tape Library Media
 
-1. Click the **Media Management** icon under the Action bar to enter the Tape Library Media page where you can view information about tape media. When the state of the tape library is **Current**, **Full**, or **Expired**, a red **Forced Recycling**  icon is displayed in the **Actions** column of the page.
+1. Click the **Media Management** icon in the Actions column to enter the Tape Library Media page where you can view the tape media information. When the state of the tape library is **Current**, **Full**, or **Expired**, a red **Forced Recycling** icon is displayed in the **Actions** column.
 
    ![](../image/admin/06-storage/tape-17.png)
 
    > Note:
    >
    > - The Forced Recycling will delete the associated backup sets in the tape library pool to free up the licensed space and the space used by the tape library.
-   > - If a backup set occupies two tapes, when force recycle one tape and the corresponding backup set in that tape will be deleted, the backup set on the other tape will not be deleted.
+   > - If a backup set occupies two tapes, and in this case you force recycle one tape and the corresponding backup set in that tape will be deleted, the backup set on the other tape will not be deleted.
 
-2. Click the **Discover New Tape** icon to synchronize the latest slot state of the tape library and new tapes will be added to the tape list automatically. If the capacity of the old and new tapes are different, you can set the tape capacity manually.
+2. Click the **Discover New Tape** icon to synchronize the latest slot state of the tape library and new tapes will be added automatically to the list. If the capacity of the old and new tapes are different, you can set the tape capacity manually.
 
 3. Select the tape media, and click the **Tape Out** icon to export the selected tape media. 
 
    ![](../image/admin/06-storage/tape-18.png)
 
-4. When the Tape Out task is executed, it will redirect to the Task Management page. The system automatically moves the tape media to the gateway of the tape library, and the task is completed when the tape is removed.
+4. The Tape Out request redirects to the Task Management page. The tape media will be moved automatically to the tape library gateway. The tape out request is successful after the tape is removed.
 
    ![](../image/admin/06-storage/tape-09.png)
 
-5. When the tape with state of "Blank" or "Clean" successfully out, the Tape Library Media list will delete the corresponding records; when the tape with the state of "Current" successfully out, its state will be changed to the "Offline" state.
+5. When the tape in the "Blank" or "Clean" state successfully out, the Tape Library Media page will delete the corresponding records; when the tape in the "Current" state successfully out, its state will be changed to the "Offline" state.
 
    ![](../image/admin/06-storage/tape-17.png)
 
-6. When the relevant backup sets are set to **Offline** state after the tape out of the library, you can retrieve the offline backup sets. 
+6. When the relevant backup sets will be in an **Offline** state after the tape is out of the library, you can retrieve the offline backup sets. 
 
    ![](../image/admin/06-storage/tape-19.png)
 
-7. Click **Retrieve** to view the tapes and retrieve the backup sets. The **Retrieve** task will add the tapes to the library to complete the retrieval.
+7. Click the **Retrieve** icon access the Retrieve window where you view the tape information. Click the **Retrieve** button and the tape will be added to the library.
 
    ![](../image/admin/06-storage/tape-20.png)
 
    > Note:
    >
-   > - The Retrieve task detects the in-library tapes and automatically moves the tapes to the slot if the required tapes are in the tape library gateway.
-   > - Tapes will be checked for expiration when they are in library, and tapes in retrieved state cannot write data.
+   > - The Retrieve request will detect the in-library tapes and automatically move the tapes to the slot if the required tapes are in the tape library gateway.
+   > - Tapes will be checked for expiration when they are retrieved to the library, and the retrieved tapes cannot write data.
 
 #### Tape Library Task
 
-1. Click the **Task Management** icon under the Action bar to enter the Tape Library Task page.
+1. Click the **Task Management** icon in the Actions column to enter the Tape Library Task page.
 
     ![](../image/admin/06-storage/tape-09.png)
 
-2. Click the **Modify** icon to withdraw the tape media. The withdrawal task will refresh the tape list, and return the tape to the slot.
+2. Click the **Modify** icon to withdraw the tape media. The Withdraw request will refresh the list, and return the tape to the slot.
 
 3. Click the task name to enter the Tape Library Task Detail page where you can **Print** the page.
 
     ![](../image/admin/06-storage/tape-16.png)
 
-### RAID Card (Data Protection Appliance)
+### RAID Card
 
-Click **Storage** -> **RAID Card** to enter the RAID Card page where you can view the RAID card state of storage servers. The state of Adaptec and MegaRAID are also supported.
+Click **Storage** -> **RAID Card** to enter the RAID Card page where you can view the RAID card state of storage server, the state of Adaptec and MegaRAID.
 
-1. Click **Adapter**, and you can view the basic information about the RAID card.
+1. Click **Adapter** to view the basic information about the RAID card.
 
     ![](../image/admin/06-storage/raid-01.png)
 
-2. Click **Virtual Drives**, and you can view the basic information about the logical drives. Click the "**+**" icon on the left side of the drive, more detailed information will be displayed.
+2. Click **Virtual Drives** to view the basic information about the logical drives. Click the "**+**" icon on the left side of the drive, more detailed information will be displayed.
 
     ![](../image/admin/06-storage/raid-02.png)
 
-3. Click **Physical Drives**, and you can view the state and details of the drives on the servers.
+3. Click **Physical Drives** to view the state and details of the drives on the servers.
 
     ![](../image/admin/06-storage/raid-03.png)
 
-4. Click **Connector** (for Adaptec) or **Battery** (for MegaRAID), and you can view information about the connector or the battery.
+4. Click **Connector** (for Adaptec) or **Battery** (for MegaRAID) to view information about the connector or the battery.
 
     ![](../image/admin/06-storage/raid-04.png)
 
-### Software RAID (Data Protection Appliance)
+### Software RAID
 
-1. Mount disks on the device where the RAID needs to be created (Usually the device where the storaged module is installed).
+1. Mount disks on the device where the RAID needs to be created (The device with the storaged module installed).
 
-2. Log in as System Admin/the admin, click **Storage Pool** -> **RAID Card** to enter the Software RAID page.
+2. Log in as the System Admin. Click **Storage Pool** -> **RAID Card** to enter the Software RAID page.
 
    > Note: 
    >
-   > - You need to create a storage pool before entering the Software RAID page, otherwise the page will show "Unable to get the storage pool!".
+   > - Create a storage pool first before entering the Software RAID page, otherwise the page will show "Unable to get the storage pool!".
 
     ![](../image/admin/06-storage/raid-05.png)
 
-3. Click **Initialize Software RAID**. In the pop-up window, select the **RAID Devices**, **RAID Type**, and **Spare Devices** for storage (RAID 1, RAID 5, and RAID 6 support the spare devices for storage).
+3. Click **Initialize Software RAID** to access the pop-up window. Select the **RAID Devices**, **RAID Type**, and **Spare Devices** (RAID 1, RAID 5, and RAID 6 support the spare devices).
 
    ![](../image/admin/06-storage/raid-06.png)
 
@@ -1336,7 +1256,7 @@ Click **Storage** -> **RAID Card** to enter the RAID Card page where you can vie
 
     ![](../image/admin/06-storage/raid-07.png)
 
-5. After the software RAID data synchronization is completed, it enters the active state, and the software RAID is successfully created and mounted to the /infokist directory.
+5. After the software RAID data synchronization is completed, the state on the Software RAID shows "Active", which indicates the software RAID is successfully created and mounted to the /infokist directory.
 
     ![](../image/admin/06-storage/raid-08.png)
 
@@ -1346,7 +1266,9 @@ Click **Storage** -> **RAID Card** to enter the RAID Card page where you can vie
 
 ## Resource Management
 
-The **Resource** of the Menu includes **Resource** and **Cluster**. After the installation of the agent is complete, you need to register the agent, activate the license, and authorize users before users of the "Operator" role execute the backup and restore. Contents include:
+The **Resource** of the Menu includes **Resource** and **Cluster**. After the agent installation is completed, you need to register the agent, activate the license, and authorize users before the Operator is allowed to execute the backup and restore. 
+
+The chapter includes:
 
 - Register hosts/activate licenses/authorize licenses
 - Batch register/batch activate/batch authorize
@@ -1380,17 +1302,17 @@ The **Resource** of the Menu includes **Resource** and **Cluster**. After the in
 >
 > - If the resource module is installed, but there is no corresponding license, the "Activate" link will not be displayed next to the resource module.
 >
-> - You can set the same user group when activating resources. If you need to assign the resources to different user groups, see *Assign User Group* in this guide for details.
+> - You can assign to the same user group when activating resources. If you need to assign the resources to different user groups, see *Assign User Group* in this guide for details.
 >
-> - The "Unregister" icon is displayed to the right of the registered resource. If there is a change in the resource's user name or password that the program cannot detect in time, the resource cannot be used properly. In this case, you can click the "Unregister" icon to log out and log back in with a new username and password.
+> - The "Unregister" icon is displayed to the right of the registered resource. If there is a change in the resource's user name or password that ADPS cannot detect in time, the resource cannot be used properly. In this case, you can click the "Unregister" icon to log out and log back in with a new username and password.
 
 #### Cluster Binding
 
-Click **Resource->Cluster** to enter the cluster management page where you can bind and manage the cluster environment on agents. 
+Click **Resource->Cluster** to enter the cluster page where you can bind and manage the cluster on the agent. 
 
 ![](../image/admin/07-resource/resoure-6.png)
 
-- The currently supported cluster binding environments include:
+- See the following table to refer to the currently supported cluster binding. For the specific binding operation of each resource cluster, refer to the relevant users' guide.
   
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
@@ -1403,15 +1325,13 @@ Click **Resource->Cluster** to enter the cluster management page where you can b
   | SAP HANA   | Active-Passive                                    |
   | PostgreSQL | Master-Slave Replication                          |
 ```
-- Please refer to the relevant users' guide for the specific binding operation of each resource cluster.
-
 - Delete binding: Click the icon ![](../image/admin/07-resource/resoure-8.png) on the right of the cluster page to delete the binding cluster.
 
 - Modify binding: Click the icon ![](../image/admin/07-resource/resoure-7.png) on the right of the cluster page to modify the cluster name, nodes, etc.
 
 ## System Management
 
-Click **Settings** of the Menu to enter the ADPS server settings page where you can set the following items:
+Click **Settings** of the Menu to enter the ADPS settings page where you can set the following items:
 
 - System Configuration
 
@@ -1421,7 +1341,7 @@ Click **Settings** of the Menu to enter the ADPS server settings page where you 
 
 ### System Configuration
 
-Click **Settings** to enter the page where you can configure the convention, server, index, security, SMTP, and storage etc.
+Click **Settings** to enter the page where you can set the convention, server, index, security, SMTP, and storage etc.
 
 #### Convention
 
@@ -1435,39 +1355,37 @@ Set **Localization** including **Default language** and **Relative time**.
 
 - **Relative time**: Set the time format of jobs, alerts, history, reports, etc.
 
-**Agent installation config**: You can set the download address of the installation package on the agent based on the default address format.
+**Agent installation config**: You can set the download address of the installation package on the agent.
 
-- Default address: If you use the default address, you need to upload the agent package on **Upgrade**->**Upload Packages** page.
-- Other address: If you use other address, you need to configure the address that can be accessed, and save the agent package on the server.
+- If you use the default address, you need to upload the agent package on **Upgrade**->**Upload Packages** page.
+- If you use other address, you need to configure the address that can be accessed, and save the agent package on the server.
 
 **Backup server connection config**: You can set the backup server address.
 
-- **SSL**: Set whether the agent using the SSL connection.
-- **Port**: Set the agent to connect to the backup server. The default is 50305. When the SSL is enabled, the default is 60305.
+- **SSL**: Enable or disable the SSL used by the agent.
+- **Port**: Set the port of the agent connected to the backup server. The default number is 50305. When the SSL is enabled, the default port number is 60305.
 
 #### Server
 
 ![](../image/admin/08-setting/set-2.png)
 
-**Date & Time**: Click the time, and you can modify the server time in the pop-up window.
+**Date & Time**: Click the time to modify the server time in the pop-up window.
 
 **Reboot**: Click the button to restart the server remotely.
 
 **Shutdown**: Click the button to shut down the server remotely.
 
-**Network interface**: All the network interfaces bound by all servers are listed. You can set the connection **Method** of the network interface, **IP address**, **Netmask**, **Default gateway**, **Preferred DNS** and **Alternate DNS** as needed. The modification takes effect immediately after you click **Modify**. Click **Reset** to restore the default value. 
+**Network interface**: All the network interfaces bound with all servers are listed. You can set the connection **Method** of the network interface, **IP address**, **Netmask**, **Default gateway**, **Preferred DNS** and **Alternate DNS** as needed. The modification takes effect immediately after you click **Modify**. Click **Reset** to restore the default value. 
 
 #### Index
 
-The backup server can be self-protected by the backup index. With storage pool replication, backup index can be used for scenarios like backup server local/offsite disaster recovery, migration, and etc. When you or other users have misoperations, or the backup server has abnormalities or re-installation, you can use disaster recovery to reduce the loss. 
-
-For example, set the index backup to be executed at 16:00 every day.
+The backup server can be self-protected by the backup index. With storage pool replication feature, backup index can be used for scenarios like backup server local/offsite disaster recovery, migration...and other scenarios. When you or other users have misoperations, or the backup server has abnormalities or re-installation, you can use disaster recovery to reduce the loss. 
 
 ![](../image/admin/08-setting/set-4.png)
 
 > Note:
 >
-> - For specific backup & restore application scenarios, see *Backup Index* for details
+> - For specific backup & restore scenarios, see *Backup Index* for details
 
 #### Security
 
@@ -1475,25 +1393,21 @@ For example, set the index backup to be executed at 16:00 every day.
 
 **Safe options**:
 
-- **No action prompt timeout**: Log out after timeout. The page shows “Your session has expired, please sign in again!”
+- **No action prompt timeout**: Log out after timeout. The page will show “Your session has expired, please sign in again!”
 - **Maximum login attempts**: You can set a limit on the number of unsuccessful login attempts that a user can make. Once the limit is exceeded, the IP address of the browser the user using will be blocked or the user will be locked out. The user must contact you to release the IP address from the blocklist. 
-- **Login failed exceeded limit**: If the maximum number of unsuccessful login is exceeded, you can set to block the IP address of the browser the user using, or lock the user. 
-- **Add to the IP address blocklist**
-    - External users need to contact you (System Admin/the admin) to remove the blocked IP.
-  - System users such as you (System Admin/the admin), Audit Admin, etc. need to contact the External Admin to remove the blocked IP. See *Appendix* for reference.
-- **Lock user**
-    - External users are automatically unlocked after ten minutes by default, otherwise they need to contact you (System Admin/the admin) to unlock manually.
-    - System users such as you (System Admin/the admin), Audit Admin, etc. will be unlocked automatically after ten minutes by default. You can customized the lock time. See *Appendix* for reference.
-- **Enable security user**: You can transfer the user management permissions of the External Admin (including user modification and user group assignment) to the System Security.
+- **Login failed exceeded limit**: If the maximum number of unsuccessful login is exceeded, you can block the IP address of the browser the user using, or lock the user. 
+- **Add to the IP address blocklist**: The user need to contact you to remove the blocked IP. See *Appendix* for reference.  
+- **Lock user**: The built-in users will be unlocked automatically after ten minutes by default. You can customized the lock time. See *Appendix* for reference. Other users are automatically unlocked aw well after ten minutes by default, if not, they need to contact you to unlock manually.
+- **Enable security user**: You can transfer the user management permissions (including user modification and user group assignment) of the added Admin to the System Security.
 - **Restrict user to single role**: Enabling the option will not allow to create multi-role users. When you or other users add or modify a new user, you or they can only select one of the roles for the new user.
 - **Enable multilevel tenant**: You can set up a parent tenant when you create tenants, and tenants can also create users of the tenant role.
 - **Enable operating child tenant's resource**: You can allocate child tenants' resource permissions to control their resources.
 - **Encrypt job definition**: The contents of Job Template files under the server are encrypted.
 - **Show upgrade management page**: If you disable the Upgrade Management, the page will hide the upgrade management function and the login page will hide the download function.
-- **Access key login instance**: When it's enabled, the Access Key authentication will be added to the instance login page, so that you can choose to log in with the Access Key of your current account if you forget your OS password.
-- **2FA by email**: When it's enabled, you need to enter the additional verification code that you receive via email to log in to Resource Instance and Restore CD. Only the Restore CD that you use the username and password method to log in supports two authentication attempts. 
+- **Access key login instance**: When it is enabled, the Access Key authentication will be added to the instance login page, so that you can choose to log in with the Access Key of your current account if you forget your OS password.
+- **2FA by email**: When it is enabled, you need to enter the additional verification code that you receive via email to log in to Resource Instance and Restore CD. Only the Restore CD that you use the username and password method to log in supports this feature. 
 
-**Password policy**: You can set policies for password including the length, the characters required to contain, encryption before the transfer, and etc.
+**Password policy**: You can set policies for password including the length, the characters required to contain, encryption before the transfer..., etc.
 
 **Access control list**: You can set IP address/CIDR allowlist, and MAC address allowlist.
 
@@ -1503,8 +1417,8 @@ For example, set the index backup to be executed at 16:00 every day.
 
 > Note:
 >
-> - Only support the LAN environment. You need to access the backupd within the same network.
-> - Support access via IPv4 only. For example, If MAC control is enabled, you cannot use IPv6 to log in.
+> - Only available in the LAN environment. You need to access the backupd within the same network.
+> - You can use IPv4 only to access. For example, If MAC control is enabled, you cannot use IPv6 to log in.
 >
 > - The MAC address allowlist only supports the format 00:00:00:00:00:00:00, separated by a colon.
 
@@ -1522,7 +1436,7 @@ You can set the SMTP sender's information. It can send  automatically the system
 
 #### LDAP Authentication
 
-ADPS supports LDAP integration service, and you can log in or allow users to log in to the system and operate directly with the LDAP user/password.
+ADPS supports LDAP integration service, and you can log in or allow users to log in with the LDAP user/password .
 
 1. **Enable** LDAP Authentication.
 2. Enter the host, port, user, password, Base DN of the LDAP server, and click **Connect**.
@@ -1534,8 +1448,8 @@ ADPS supports LDAP integration service, and you can log in or allow users to log
 
 > Note: 
 >
-> - You cannot check users that are unable to sync LDAP Authentication. When the synchronization with LDAP fails, the page can display the failure reason. Mouse over to see the reason.
-> - When the LDAP authentication is enabled, the backup server allows the login with the LADP user and password, and when it's disabled, the LADP user and password can not be used to log in to the backup server.
+> - You cannot check users that are unable to sync LDAP Authentication. When the synchronization with LDAP fails, the page will display the failure reason. Mouse over to see the reason.
+> - When the LDAP authentication is enabled, the backup server allows the login with the LADP user and password; when it is disabled, the LADP user and password can not be used to log in to the backup server.
 
 #### Storage
 
@@ -1545,7 +1459,7 @@ You can set the min full backups retention when creating storage pools, and set 
 
 > Note: 
 >
-> - When you set the Min Full Backups Retention is 0, the backup sets may be fully recycled and cannot be restored! Please operate with caution.
+> - When you set the Min Full Backups Retention to 0, the backup sets may be fully recycled and cannot be restored! Please operate with caution.
 
 **Used space alarm threshold**: The alert Email will be sent when the physical space occupancy ratio of the storage server exceeds the set value. No alert Email is sent when it is 0.
 
@@ -1553,7 +1467,7 @@ You can set the min full backups retention when creating storage pools, and set 
 
 #### WebHooks
 
-Log in ADPS as System Admin/the admin, click **Settings** -> **WebHooks** to enter the Webhooks page.
+Log in ADPS as the System Admin, click **Settings** -> **WebHooks** to enter the Webhooks page.
 
 ![](../image/admin/08-setting/webhook-03.png)
 
@@ -1567,41 +1481,41 @@ On top of the URL input box on the Add Webhook page, you can click **More Descri
 
 #### Approval
 
-Only you (System Admin/the admin) can see the approval page. 
+Only you can see the approval page. 
 
 ![](../image/admin/08-setting/approval-01.png)
 
 **Approval**: Approval types available are as follows:
 
-- **Add storage pool**: The addition of a storage pool by an operator needs to be approved by the specified approver before it can be executed.
+- **Add storage pool**: The adding of a storage pool by the operator needs to be approved by the specified approver before it can be executed.
 
-- **Modify storage pool**: The modification of a storage pool by an operator needs to be approved by the specified approver before it can be executed.
+- **Modify storage pool**: The modification of a storage pool by the operator needs to be approved by the specified approver before it can be executed.
 
-- **Add job**: The addition of a job by an operator needs to be approved by the specified approver before it can be executed. 
+- **Add job**: The adding of a job by the operator needs to be approved by the specified approver before it can be executed. 
 
   > For example:
   >
-  > - If a backup job requires the approval, when an operator adds a backup job, it needs to be approved by the specified approver before execution.
+  > - If a backup job requires the approval, when the operator adds a backup job, it needs to be approved by the specified approver before execution.
 
 **Approvers**: You can give specified users permissions to grant approval.
 
-**Actions**: You can enable or disable the approvals. When the approval is Add Job, you need to select or multi select **Approval Required Jobs**. After the selecting, click **Submit**.
+**Actions**: You can enable or disable the approvals. When the approval is Add Job, select or multi select **Approval Required Jobs**. After the selecting, click **Submit**.
 
 ![](../image/admin/08-setting/approval-02.png)
 
 ## License
 
-Click **License** to enter the page where you can view the acquired License information, including: license space, maintenance deadline, advanced features, and module etc.
+Click **License** to enter the page where you can view the acquired License information such as license space, maintenance deadline, advanced features, module, etc.
 
 ![](../image/admin/10-license/license-1.png)
 
-**Import**: Import the license file issued by the vendors..
+**Import**: Import the license file issued by the vendors.
 
 **Request**: If you need to add license again, you can follow *Apply for a License* in this guide to generate the license file and send it to vendors.
 
 > Note:
 >
-> - When a trial license or resource has expired, click Request->Trial, you will see Trial License Renewal option. When it's checked, a "Resource" list will be displayed on the module page to automatically list resources available for trial renewal.
+> - When a trial license or resource has expired, click Request->Trial, you will see Trial License Renewal option. When it is checked, a "Resource" list will be displayed on the module page to automatically list resources available for trial renewal.
 
 ## Backup Index
 
@@ -1627,7 +1541,7 @@ Deploy one server each locally and offsite, the network is made isolated and the
 
 4. Index Disaster Recovery
 
-   - Log in to the offsite backup server as System Admin/the admin, go to the **Settings**->**Settings** page and click **Index**->**Disaster Recovery**.
+   - Log in to the offsite backup server as System Admin, go to the **Settings**->**Settings** page and click **Index**->**Disaster Recovery**.
 
    - If backup sets of the index are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select **Restore by Scanning** as the **Restore Source**. When restoring, select the **Point-in-Time** that needs to recover, which is related to the range of backup sets that the resource is allowed to restore. The resource can only restore the backup sets that have been replicated to the target storage pool prior to this point in time.
 
@@ -1668,9 +1582,9 @@ In case there is a backup server disaster, you can deploy a new backup server to
 
 2. Index Disaster Recovery
 
-   - Log in to the local backup server as System Admin/the admin, go to the **Settings**->**Settings** page and click **Index**->**Disaster Recovery**.
+   - Log in to the local backup server as System Admin, go to the **Settings**->**Settings** page and click **Index**->**Disaster Recovery**.
 
-   - If the backup sets of the index are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select **Restore by Scanning** as the **Restore Source**. When restoring, select the latest **Point-in-Time** to minimize the impact caused by data loss.
+   - If the index backup sets are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select **Restore by Scanning** as the **Restore Source**. When restoring, select the latest **Point-in-Time** to minimize the impact caused by data loss.
 
      ![](../image/admin/08-setting/set-14.png)
 
@@ -1684,7 +1598,7 @@ In case there is a backup server disaster, you can deploy a new backup server to
 
 3. Repair Source Pool
 
-   Log in to the backup server as System Admin/the admin, enter the **Storage** -> **Storage Pool** page, click the **Pool Replication List** icon, select the storage pool record of the old storage server (old backup server), click the **Repair Source Pool** icon to repair the source pool. It is recommended to perform a full backup of all resources after repairing the source pool to ensure the continuity of the backup sets in the future.
+   Log in to the backup server as System Admin, enter the **Storage** -> **Storage Pool** page, click the **Pool Replication List** icon, select the storage pool record of the old storage server (old backup server), click the **Repair Source Pool** icon to repair the source pool. It is recommended to perform a full backup of all resources after repairing the source pool to ensure the continuity of the backup sets in the future.
 
    ![](../image/admin/08-setting/set-16.png)
 
@@ -1697,7 +1611,7 @@ In case there is a backup server disaster, you can deploy a new backup server to
 
    - The index's disaster recovery to different host only retains licenses for activated resources and does not restore all requested licenses. If you need to license a new agent or a new resource, you need to reapply for a license. 
 
-5. After completing the above operations, the backup-and-restore system will resume normal state.
+5. After completing the above operations, ADPS will resume normal state.
 
 ### Backup
 
@@ -1789,7 +1703,7 @@ Click **History** to enter the page. This page allows you to view the records of
 
 **Job**: You can view backup jobs, restore jobs, or all jobs by ascending or descending order of historical job names.
 
-**Status**: You can view the job history of completed, error, cancelled or all by status.
+**Status**: You can view the job history in the completed, error, cancelled state or all status.
 
 **Host**: You can view the job history for an individual host or all hosts.
 
@@ -1801,7 +1715,7 @@ Click **History** to enter the page. This page allows you to view the records of
 
 > Note: 
 >
-> - Only you (System Admin/the admin) can export all job histories.
+> - Only the System Admin can export all job histories.
 
 ### Alert
 
@@ -1815,7 +1729,7 @@ Click **Alert** -> **Alert** to enter the page where you can view the alert leve
 
 **Delete**: Click **Edit** to enter the Delete page where you can delete the selected record.
 
-**Export alert view**: You can filter the alert view and select the corresponding type and format. After clicking download, the relevant alert view file can be exported. 
+**Export**: You can filter the alert and select the corresponding type and format. After clicking download, the alert file can be exported. 
 
 - Customized download formats include: pretty formatter and raw formatter. 
 - The type includes: CSV, XML, UOF. 
@@ -1824,7 +1738,7 @@ Click **Alert** -> **Alert** to enter the page where you can view the alert leve
 
 > Note: 
 >
-> - Only you (System Admin/the admin) can export all job histories.
+> - Only the System Admin can export all job histories.
 
 #### Subscription
 
@@ -1838,9 +1752,8 @@ Click **Subscription** to enter the subscription page where you can view the ale
 
 **Resource**: Display the resources within your permissions. 
 
-**Subscription level**: Five levels are available: **Debug**, **Info**, **Warning**, **Error**, and **Fatal**.
+**Subscription level**: Five levels are available: **Info**, **Warning**, **Error**, and **Fatal**.
 
-- **Debug**: Send the system operating state.
 - **Info**: Send feedback on the current system state.
 - **Warning**: The system detects an abnormal state and can perform restorative work to restore the system to a normal state.
 - **Error**: The system detects errors and abnormalities that prevent the normal completion of the target operation, but can still perform restorative work to make the target operation complete normally.
@@ -2088,9 +2001,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{table} Glossary Limitation List
 | Term                    | Description                                                  |
 | ----------------------- | ------------------------------------------------------------ |
-| Traditional backup      | The backup interface of the target application is connected with agent to obtain data for protection on a regular basis, such as full backup, incremental backup, log backup and so on. |
-| System user             | System built-in user.                                        |
-| External user           | User that you can create.                                    |
+| Traditional backup      | The backup interface of the target application is connected with agent to obtain data for protection on a regular basis, such as full backup, incremental backup, log backup and so on.                                   |
 | Tape library controller | The tape controller connects the central processor and the logical control circuit device of the tape drive. The tape controller receives commands from the central processor, analyzes and monitors the execution of the commands. |
 | SMTP                    | SMTP is a protocol that provides reliable and efficient email delivery. |
 | LDAP                    | LDAP can be used for permission authentication and System User management and authentication. |

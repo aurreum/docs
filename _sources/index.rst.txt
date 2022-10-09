@@ -21,6 +21,8 @@ Home
 
    hyper-v/hyper-v.md
 
+   informix/informix.md
+
    install/install.md
 
    mariadb/mariadb.md
