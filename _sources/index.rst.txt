@@ -27,6 +27,8 @@ Home
 
    mariadb/mariadb.md
 
+   mongodb/mongodb.md
+
    mssql/mssql.md
 
    mysql/mysql.md
