@@ -1,4 +1,4 @@
-# MariaDB User's Guide
+# User Guide for MariaDB
 
 ## Introduction
 
@@ -96,9 +96,9 @@ Log in to the ADPS console as the admin. Click **Resource** -> **Install Agent**
 
 ![](../image/MariaDB/01-agent/agent-1.png)
 
-### Install and Configure Windows Agent
+### Install and Configure Agent on Windows
 
-#### Download Windows Installation Package
+#### Download Installation Package
 
 In the **Install agent** window, select **Windows** and click **Download Windows agent** to download the package.
 

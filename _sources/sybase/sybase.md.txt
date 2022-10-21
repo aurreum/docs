@@ -1,4 +1,4 @@
-# Sybase User's Guide
+# User Guide for Sybase
 
 ## Introduction
 
@@ -74,19 +74,19 @@ class: longtable
 
 ### Get Agent Packages
 
-Open a browser and log in to ADPS as the admin. Click **Resource**-> **Install Agent** icon. You can download the installation packages according to your needs.
+Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
 
 ![sybase_agent_1](../image/01-agent/sybase/sybase_agent_1.png)
 
-### Install and Configure Windows OS Agent
+### Install and Configure Agent on Windows
 
-#### Download Windows Installation Package
+#### Download Installation Package
 
 Select **Windows** and click **Download Windows agent** to download the package.
 
 ![](../image/01-agent/sybase/sybase_agent_2.png)
 
-#### Install Windows OS Agent
+#### Install Agent on Windows
 
   1. Upload the installation package to the agent.
   2. Double-click the package to install it according to the setup wizard and click **Next**.
@@ -100,7 +100,7 @@ Select **Windows** and click **Download Windows agent** to download the package.
 
  5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
-###  Install and Configure Linux OS Agent
+###  Install and Configure Agent on Linux
 
 1. Select **Linux** as the system and **Sybase** as the module. Copy an installation command.
 

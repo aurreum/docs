@@ -1,4 +1,4 @@
-# File User's Guide
+# User Guide for File
 
 ## Introduction
 
@@ -155,9 +155,9 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 ![file_agent01](../image/01-agent/file/file_agent01.png)
 
-### Install and Configure Windows OS Agent
+### Install and Configure Agent on Windows
 
-#### Download Windows Installation Package
+#### Download Installation Package
 
 Select **Microsoft Windows** and click **Download Windows agent**.
 
@@ -165,7 +165,7 @@ Select **Microsoft Windows** and click **Download Windows agent**.
 
 
 
-#### Install Windows OS Agent
+#### Install Agent on Windows
 
  1. Upload the installation package to the agent.
 
@@ -181,7 +181,7 @@ Select **Microsoft Windows** and click **Download Windows agent**.
 
  5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
-###  Install and Configure Linux OS Agent
+###  Install and Configure Agent on Linux
 
 1. Select **Linux** and **File**. Copy an installation command.
 

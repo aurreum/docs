@@ -1,4 +1,4 @@
-# Oracle User's Guide
+# User Guide for Oracle
 
 ## Introduction
 
@@ -103,11 +103,11 @@ ADPS supports the backup and restore of Oracle database single instance, hot sta
 
 #### Compatibility List
 
-##### Single Host
+##### Single Instance
 
 ```{tabularcolumns} |\Y{0.1}|\Y{0.1}|\Y{0.18}|\Y{0.18}|\Y{0.18}|\Y{0.1}|\Y{0.16}|
 ```
-```{table} Single Host Compatibility List
+```{table} Single Instance Compatibility List
 | Database Version | Patch    | Database Bits | OS                          | CPU Architecture | OS Bits | Note                  |
 | ---------------- | -------- | ------------- | --------------------------- | ---------------- | ------- | --------------------- |
 | 8i               | 8.1.7    | 32            | Windows 2003 SP2            | x86              | 32      |                       |
@@ -249,15 +249,15 @@ Open a browser and log in to ADPS as the admin. Click **Resource**-> **Install A
 
 ![](../image/01-agent/oracle/oracle-01.png)
 
-### Install and Configure Windows OS Agent
+### Install and Configure Agent on Windows
 
-#### Download Windows Installation Package
+#### Download Installation Package
 
 Select **Windows** and click **Download Windows agent**.
 
 ![](../image/01-agent/oracle/oracle-02.png)
 
-#### Install Windows OS Agent
+#### Install Agent on Windows
 
 1. Upload the installation package to the target host.
 
@@ -273,7 +273,7 @@ Select **Windows** and click **Download Windows agent**.
 
 5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
-### Install and Configure Linux OS Agent
+### Install and Configure Agent on Linux
 
 1. Select **Linux** and **Oracle**. Copy an installation command.
 
@@ -283,21 +283,21 @@ Select **Windows** and click **Download Windows agent**.
 
    ```
    [root@rhel69 ~]# curl -o- "http://192.168.18.60:50305/d2/update/script?modules=oracle&location=http%3A%2F%2F192.168.18.60%3A50305&access_key=0daed99203711fe2c50555c8a8334904&rm=&tool=curl" | sh
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
    101  7898    0  7898    0     0   815k      0 --:--:-- --:--:-- --:--:-- 1285k
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
    100 57.1M  100 57.1M    0     0  40.0M      0  0:00:01  0:00:01 --:--:-- 36.9M
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
    100 6151k  100 6151k    0     0  28.5M      0 --:--:-- --:--:-- --:--:-- 28.5M
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
    100 12.2M  100 12.2M    0     0  54.6M      0 --:--:-- --:--:-- --:--:-- 54.6M
    ```
 
-### Install and Configure Solaris OS Agent
+### Install and Configure Agent on Solaris
 
 1. Select the corresponding installation package according to the Solaris system, bit and Oracle version. Take the Solaris 9 SPARC 64-bit as an example. Execute the unzip command with root privileges:
 
@@ -329,7 +329,7 @@ Select **Windows** and click **Download Windows agent**.
    sudo /etc/init.d/adps-agent config oracle
    ```
 
-### Install and Configure HP-UX OS Agent
+### Install and Configure Agent on HP-UX
 
 1. Unzip to get the adps-version-ia64.depot.gz installation file. Execute the unzip command with root privileges:
 
@@ -496,8 +496,8 @@ This chapter introduces how to back up the Oracle databases.
    **When the database is in NOARCHIVELOG mode**:
 
    - Send an alert message and cancel the job: When the database is in NOARCHIVELOG mode, ADPS will cancel the backup job and send an alert message.
-   - Allow offline backup:  When the database is in NOARCHIVELOG mode, ADPS will send an alert message and perform the backup job offline.
-   - Enable ARCHIVELOG:  When the database is in NOARCHIVELOG mode, ADPS will enable the ARCHIVELOG mode according to the customized archive log directory or the database default directory, send an alert message, and then perform the backup job.
+   - Allow offline backup: When the database is in NOARCHIVELOG mode, ADPS will send an alert message and perform the backup job offline.
+   - Enable ARCHIVELOG: When the database is in NOARCHIVELOG mode, ADPS will enable the ARCHIVELOG mode according to the customized archive log directory or the database default directory, send an alert message, and then perform the backup job.
 
    **BCT**: BCT (Block Change Tracking) is a feature introduced in Oracle 10g. It mainly serves the RMAN incremental backups. You can enable BCT to improve the incremental backup performance. After enabling BCT, you can customize the BCT directory or use the database default BCT directory.
 
@@ -938,9 +938,9 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 
 - Immediate: The job immediately starts to run after it is submitted.
 - One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created,  the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
-- Daily: After the job is created,  the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: After the job is created,  the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
 - Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 > **Example: Run the job every two weeks on Friday at 18:00**

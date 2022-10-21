@@ -1,4 +1,4 @@
-# MySQL User's Guide
+# User Guide for MySQL
 
 ## Introduction
 
@@ -181,16 +181,16 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 ![agent-1](../image/mysql/01-agent/agent-1.png)
 
-### Install and Configure Windows OS Agent
+### Install and Configure Agent on Windows
 
-#### Download Windows Installation Package
+#### Download Installation Package
 
 Select **Windows** and click **Download Windows agent**.
 
 ![agent-2](../image/mysql/01-agent/agent-2.png)
 
 
-#### Install Windows OS Agent
+#### Install Agent on Windows
 
  1. Upload the installation package to the agent.
 
@@ -216,7 +216,7 @@ Select **Windows** and click **Download Windows agent**.
 
 5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
-###  Install and Configure Linux OS Agent
+###  Install and Configure Agent on Linux
 
 1. Select **Linux** and **MySQL**. Copy an installation command.
 

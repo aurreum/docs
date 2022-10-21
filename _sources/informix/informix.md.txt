@@ -1,4 +1,4 @@
-# Informix User's Guide
+# User Guide for Informix
 
 ## Introduction
 Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Informix databases. This guide introduces how to properly use ADPS to back up and restore Informix databases. 
@@ -46,7 +46,7 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 ![informix_agent01](../image/01-agent/informix/informix_agent01.png)
 
-### Install and Configure Windows OS Agent 
+### Install and Configure Agent on Windows
 
 #### Download Windows Installation Package 
 
@@ -54,7 +54,7 @@ Select **Windows** and click **Download Windows agent**.
 
 ![](../image/01-agent/informix/informix_agent02.png)
 
-#### Install Windows OS Agent		
+#### Install Agent on Windows		
 
  1. Upload the installation package to the agent.
 
@@ -70,7 +70,7 @@ Select **Windows** and click **Download Windows agent**.
 
  5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
-###  Install and Configure Linux OS Agent
+###  Install and Configure Agent on Linux
 
 1. Select **Linux** as the system and **Informix** as the module. Copy an installation command.
 

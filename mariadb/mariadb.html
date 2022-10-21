@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>MariaDB User’s Guide &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for MariaDB &#8212; ADPS 3.0.35274</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,7 +35,7 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MongoDB User’s Guide" href="../mongodb/mongodb.html" />
+    <link rel="next" title="User Guide for MongoDB" href="../mongodb/mongodb.html" />
     <link rel="prev" title="Installation Guide" href="../install/install.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en-US">
@@ -106,17 +106,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../file/file.html">
-   File User’s Guide
+   User Guide for File
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hyper-v/hyper-v.html">
-   Hyper-V User’s Guide
+   User Guide for Hyper-V
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../informix/informix.html">
-   Informix User’s Guide
+   User Guide for Informix
   </a>
  </li>
  <li class="toctree-l1">
@@ -126,47 +126,47 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   MariaDB User’s Guide
+   User Guide for MariaDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../mongodb/mongodb.html">
-   MongoDB User’s Guide
+   User Guide for MongoDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../mssql/mssql.html">
-   Microsoft SQL Server User’s Guide
+   User Guide for Microsoft SQL Server
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../mysql/mysql.html">
-   MySQL User’s Guide
+   User Guide for MySQL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../obs/obs.html">
-   Object Storage User’s Guide
+   User Guide for Object Storage
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../oracle/oracle.html">
-   Oracle User’s Guide
+   User Guide for Oracle
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../postgres/postgres.html">
-   PostgreSQL User’s Guide
+   User Guide for PostgreSQL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sybase/sybase.html">
-   Sybase User’s Guide
+   User Guide for Sybase
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../vmware/vmware.html">
-   VMware User’s Guide
+   User Guide for VMware
   </a>
  </li>
 </ul>
@@ -289,13 +289,13 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-windows-agent">
-     Install and Configure Windows Agent
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">
+     Install and Configure Agent on Windows
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-windows-installation-package">
-       Download Windows Installation Package
+      <a class="reference internal nav-link" href="#download-installation-package">
+       Download Installation Package
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -539,7 +539,7 @@ title="Fullscreen mode"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>MariaDB User’s Guide</h1>
+                <h1>User Guide for MariaDB</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -587,13 +587,13 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-windows-agent">
-     Install and Configure Windows Agent
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">
+     Install and Configure Agent on Windows
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-windows-installation-package">
-       Download Windows Installation Package
+      <a class="reference internal nav-link" href="#download-installation-package">
+       Download Installation Package
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -838,8 +838,8 @@ title="Fullscreen mode"
                 
               <div>
                 
-  <section id="mariadb-user-s-guide">
-<h1>MariaDB User’s Guide<a class="headerlink" href="#mariadb-user-s-guide" title="Permalink to this heading">#</a></h1>
+  <section id="user-guide-for-mariadb">
+<h1>User Guide for MariaDB<a class="headerlink" href="#user-guide-for-mariadb" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Aurreum Data Protection Suite (ADPS) enables you to back up and restore MariaDB databases. This guide describes how to install the ADPS agent and how to back up and restore MariaDB databases.</p>
@@ -1094,10 +1094,10 @@ title="Fullscreen mode"
 <p>Log in to the ADPS console as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon.</p>
 <p><img alt="" src="../_images/agent-11.png" /></p>
 </section>
-<section id="install-and-configure-windows-agent">
-<h3>Install and Configure Windows Agent<a class="headerlink" href="#install-and-configure-windows-agent" title="Permalink to this heading">#</a></h3>
-<section id="download-windows-installation-package">
-<h4>Download Windows Installation Package<a class="headerlink" href="#download-windows-installation-package" title="Permalink to this heading">#</a></h4>
+<section id="install-and-configure-agent-on-windows">
+<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
+<section id="download-installation-package">
+<h4>Download Installation Package<a class="headerlink" href="#download-installation-package" title="Permalink to this heading">#</a></h4>
 <p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
 <p><img alt="" src="../_images/agent-21.png" /></p>
 </section>
@@ -1663,7 +1663,7 @@ title="Fullscreen mode"
     <a class='right-next' id="next-link" href="../mongodb/mongodb.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MongoDB User’s Guide</p>
+        <p class="prev-next-title">User Guide for MongoDB</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
