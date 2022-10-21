@@ -105,6 +105,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../db2/db2.html">
+   User Guide for DB2
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../file/file.html">
    User Guide for File
   </a>
@@ -1720,7 +1725,7 @@ title="Fullscreen mode"
 <p>ADPS user system contains different users roles. The user system enables different user roles to be in charge of various operations, and provides unified monitoring, isolation, checks and balances to guarantee that each user’s behavior can be monitored and that every event can be traced back to the origin.</p>
 <p>After the successful installation, ADPS has four built-in user roles by default: System Admin (the admin), Audit Admin, System Security, and System Monitor. Their permissions are as shown in the following table:</p>
 <table class="table" id="id12">
-<caption><span class="caption-text">System users</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Built-in roles</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Role</p></th>
 <th class="head"><p>Permission</p></th>
@@ -1741,9 +1746,9 @@ title="Fullscreen mode"
 </tr>
 </tbody>
 </table>
-<p>As the System Admin, you can create three user roles: Admin, Monitor, and Operator. Their permissions are as shown in the following table:</p>
+<p>As System Admin, you can customize three user roles: Admin, Monitor, and Operator. Their permissions are as shown in the following table:</p>
 <table class="table" id="id13">
-<caption><span class="caption-text">External users</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Custom roles</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Role</p></th>
 <th class="head"><p>Permission</p></th>
@@ -1751,10 +1756,10 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Admin</p></td>
-<td><p>Responsible for the system management, but without the management of important data in Storage Server.  <br> The external Admin’s permissions are second only to System Admin.</p></td>
+<td><p>Responsible for the system management, but without the management of important data in Storage Server. <br> The custom Admin’s permissions are second only to that of System Admin.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Monitor</p></td>
-<td><p>Responsible for monitoring the operation state of the system.  <br> All system information can be monitored, but the system and job state of sub-servers are not included.</p></td>
+<td><p>Responsible for monitoring the operation system state. <br> All system information can be monitored, but the system and job state of sub-servers are not included.</p></td>
 </tr>
 <tr class="row-even"><td><p>Operator</p></td>
 <td><p>Responsible for the management of the backup and restore on the Agent.</p></td>
@@ -3041,7 +3046,7 @@ title="Fullscreen mode"
 <h2>System Management<a class="headerlink" href="#system-management" title="Permalink to this heading">#</a></h2>
 <p>Click <strong>Settings</strong> of the Menu to enter the ADPS settings page where you can set the following items:</p>
 <ul class="simple">
-<li><p>System Configuration</p></li>
+<li><p>System configuration</p></li>
 <li><p>Webhooks</p></li>
 <li><p>Approval</p></li>
 </ul>
@@ -3055,17 +3060,17 @@ title="Fullscreen mode"
 <p><strong>Localization</strong>:</p>
 <ul class="simple">
 <li><p><strong>Default language</strong>: Set the default language for the new user.</p></li>
-<li><p><strong>Relative time</strong>: Set the time format of jobs, alerts, history, reports, etc.</p></li>
+<li><p><strong>Relative time</strong>: Set the time display format of jobs, alerts, history, reports, etc.</p></li>
 </ul>
-<p><strong>Agent installation config</strong>: You can set the download address of the installation package on the agent.</p>
+<p><strong>Agent installation config</strong>: Set the address to download the agent installation package.</p>
 <ul class="simple">
-<li><p>If you use the default address, you need to upload the agent package on <strong>Upgrade</strong>-&gt;<strong>Upload Packages</strong> page.</p></li>
-<li><p>If you use other address, you need to configure the address that can be accessed, and save the agent package on the server.</p></li>
+<li><p>To use the default address, you need to upload the agent package by clicking the  <strong>Upload Packages</strong> icon on the <strong>Upgrade</strong> page.</p></li>
+<li><p>To use another address, you need to fill in the server address that can be accessed, and save the agent package on the server.</p></li>
 </ul>
-<p><strong>Backup server connection config</strong>: You can set the backup server address.</p>
+<p><strong>Backup server connection config</strong>: Set the backup server address.</p>
 <ul class="simple">
-<li><p><strong>SSL</strong>: Enable or disable the SSL used by the agent.</p></li>
-<li><p><strong>Port</strong>: Set the port of the agent connected to the backup server. The default number is 50305. When the SSL is enabled, the default port number is 60305.</p></li>
+<li><p><strong>SSL</strong>: Enable or disable SSL for the agent.</p></li>
+<li><p><strong>Port</strong>: Set the port that the agent connects to the backup server. The default number is 50305. When the SSL is enabled, the default port number is 60305.</p></li>
 </ul>
 </section>
 <section id="server">
@@ -3074,11 +3079,11 @@ title="Fullscreen mode"
 <p><strong>Date &amp; Time</strong>: Click the time to modify the server time in the pop-up window.</p>
 <p><strong>Reboot</strong>: Click the button to restart the server remotely.</p>
 <p><strong>Shutdown</strong>: Click the button to shut down the server remotely.</p>
-<p><strong>Network interface</strong>: All the network interfaces bound with all servers are listed. You can set the connection <strong>Method</strong> of the network interface, <strong>IP address</strong>, <strong>Netmask</strong>, <strong>Default gateway</strong>, <strong>Preferred DNS</strong> and <strong>Alternate DNS</strong> as needed. The modification takes effect immediately after you click <strong>Modify</strong>. Click <strong>Reset</strong> to restore the default value.</p>
+<p><strong>Network interface</strong>: All the network interfaces bound with all servers are listed. Set the connection <strong>Method</strong> of the network interface, <strong>IP address</strong>, <strong>Netmask</strong>, <strong>Default gateway</strong>, <strong>Preferred DNS</strong> and <strong>Alternate DNS</strong> as needed. The modification takes effect immediately after you click <strong>Modify</strong>. Click <strong>Reset</strong> to restore the default value.</p>
 </section>
 <section id="index">
 <h4>Index<a class="headerlink" href="#index" title="Permalink to this heading">#</a></h4>
-<p>The backup server can be self-protected by the backup index. With storage pool replication feature, backup index can be used for scenarios like backup server local/offsite disaster recovery, migration…and other scenarios. When you or other users have misoperations, or the backup server has abnormalities or re-installation, you can use disaster recovery to reduce the loss.</p>
+<p>The backup server can achieve self-protection by backing up the Catalog, combined with storage pool replication for the local/remote disaster recovery, migration on the backup server, and other scenarios. When you or other users have misoperations, or the backup server has abnormalities or re-installation, you can use disaster recovery to reduce the loss.</p>
 <p><img alt="" src="../_images/set-4.png" /></p>
 <blockquote>
 <div><p>Note:</p>
@@ -3092,19 +3097,22 @@ title="Fullscreen mode"
 <p><img alt="" src="../_images/set-5.png" /></p>
 <p><strong>Safe options</strong>:</p>
 <ul class="simple">
-<li><p><strong>No action prompt timeout</strong>: Log out after timeout. The page will show “Your session has expired, please sign in again!”</p></li>
+<li><p><strong>No action prompt timeout</strong>: Log out after the specified time of inactivity. The page will show “Your session has expired, please sign in again!”</p></li>
 <li><p><strong>Maximum login attempts</strong>: You can set a limit on the number of unsuccessful login attempts that a user can make. Once the limit is exceeded, the IP address of the browser the user using will be blocked or the user will be locked out. The user must contact you to release the IP address from the blocklist.</p></li>
-<li><p><strong>Login failed exceeded limit</strong>: If the maximum number of unsuccessful login is exceeded, you can block the IP address of the browser the user using, or lock the user.</p></li>
-<li><p><strong>Add to the IP address blocklist</strong>: The user need to contact you to remove the blocked IP. See <em>Appendix</em> for reference.</p></li>
-<li><p><strong>Lock user</strong>: The built-in users will be unlocked automatically after ten minutes by default. You can customized the lock time. See <em>Appendix</em> for reference. Other users are automatically unlocked aw well after ten minutes by default, if not, they need to contact you to unlock manually.</p></li>
-<li><p><strong>Enable security user</strong>: You can transfer the user management permissions (including user modification and user group assignment) of the added Admin to the System Security.</p></li>
-<li><p><strong>Restrict user to single role</strong>: Enabling the option will not allow to create multi-role users. When you or other users add or modify a new user, you or they can only select one of the roles for the new user.</p></li>
+<li><p><strong>Login failed exceeded limit</strong>: If the maximum number of unsuccessful login is exceeded, you can block the IP address of the browser the user using, or lock the user.</p>
+<ul>
+<li><p><strong>Add to the IP address blocklist</strong>: Custom users need to contact you to remove the blocked IP. To release the blocked IP addresses of built-in users, see <em>Appendix</em> for reference.</p></li>
+<li><p><strong>Lock user</strong>: The built-in users will be unlocked automatically after ten minutes by default. The custom users will be unlocked automatically after ten minutes as well, if not, they need to contact you to unlock manually. You can customized the lock time. See <em>Appendix</em> for reference.</p></li>
+</ul>
+</li>
+<li><p><strong>Enable security user</strong>: You can transfer the user management permissions (including user modification and user group assignment) of the custom Admin to the System Security.</p></li>
+<li><p><strong>Restrict user to single role</strong>: If the option is checked, the creation of multi-role users will not be allowed. When you or other users add or modify a new user, you or they can only select one of the roles for the new user.</p></li>
 <li><p><strong>Enable multilevel tenant</strong>: You can set up a parent tenant when you create tenants, and tenants can also create users of the tenant role.</p></li>
 <li><p><strong>Enable operating child tenant’s resource</strong>: You can allocate child tenants’ resource permissions to control their resources.</p></li>
-<li><p><strong>Encrypt job definition</strong>: The contents of Job Template files under the server are encrypted.</p></li>
-<li><p><strong>Show upgrade management page</strong>: If you disable the Upgrade Management, the page will hide the upgrade management function and the login page will hide the download function.</p></li>
+<li><p><strong>Encrypt job definition</strong>: The job files on the servers will  encrypted.</p></li>
+<li><p><strong>Show upgrade management page</strong>: Unchecking the option will hide the <strong>Upgrade</strong> page and the download function on the login page.</p></li>
 <li><p><strong>Access key login instance</strong>: When it is enabled, the Access Key authentication will be added to the instance login page, so that you can choose to log in with the Access Key of your current account if you forget your OS password.</p></li>
-<li><p><strong>2FA by email</strong>: When it is enabled, you need to enter the additional verification code that you receive via email to log in to Resource Instance and Restore CD. Only the Restore CD that you use the username and password method to log in supports this feature.</p></li>
+<li><p><strong>2FA by email</strong>: Users must enter email OTP when logging in. To ensure the successful sending and receiving of email OTP, SMTP and personal email must be configured properly.</p></li>
 </ul>
 <p><strong>Password policy</strong>: You can set policies for password including the length, the characters required to contain, encryption before the transfer…, etc.</p>
 <p><strong>Access control list</strong>: You can set IP address/CIDR allowlist, and MAC address allowlist.</p>
@@ -3123,7 +3131,7 @@ title="Fullscreen mode"
 </section>
 <section id="smtp">
 <h4>SMTP<a class="headerlink" href="#smtp" title="Permalink to this heading">#</a></h4>
-<p>You can set the SMTP sender’s information. It can send  automatically the system-generated alerts to the user’s personal email. The Email contents include job execution state, insufficient storage space, network disconnection, etc.</p>
+<p>You can set the SMTP sender’s information. It can send automatically the system-generated alerts to the user’s personal email. The Email contents include job execution state, insufficient storage space, network disconnection, etc.</p>
 <ol class="arabic simple">
 <li><p>Click the <strong>Not Set</strong> label to access the SMTP settings window.</p></li>
 <li><p>Enter the sender’s <strong>Email</strong>, <strong>Password</strong>, and the SMTP <strong>Server</strong> address, <strong>Port</strong>, and select whether to use <strong>Secure</strong> connection.</p></li>
@@ -3163,16 +3171,16 @@ title="Fullscreen mode"
 <li><p>When you set the Min Full Backups Retention to 0, the backup sets may be fully recycled and cannot be restored! Please operate with caution.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Used space alarm threshold</strong>: The alert Email will be sent when the physical space occupancy ratio of the storage server exceeds the set value. No alert Email is sent when it is 0.</p>
+<p><strong>Used space alarm threshold</strong>: The alert email will be sent when the physical space occupancy ratio of the storage server exceeds the set value. No alert email is sent when it is 0.</p>
 <p><img alt="" src="../_images/set-7.png" /></p>
 </section>
 <section id="webhooks">
 <h4>WebHooks<a class="headerlink" href="#webhooks" title="Permalink to this heading">#</a></h4>
-<p>Log in ADPS as the System Admin, click <strong>Settings</strong> -&gt; <strong>WebHooks</strong> to enter the Webhooks page.</p>
+<p>Log in ADPS as System Admin, click <strong>Settings</strong> -&gt; <strong>WebHooks</strong> to enter the Webhooks page.</p>
 <p><img alt="" src="../_images/webhook-03.png" /></p>
 <section id="id4">
 <h5>Add<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h5>
-<p>Click the <strong>Add</strong> icon to enter the Add Webhooks page. On Add Webhooks page, enter the <strong>URL</strong> to receive the Webhooks information, enter the <strong>Secret Token</strong> information, check the corresponding event, and click the <strong>Add Webhook</strong> button at the bottom of the page to add the Webhook.</p>
+<p>Click the <strong>Add</strong> icon to enter the Add Webhooks page. On Add Webhooks page, enter the <strong>URL</strong> to receive the Webhooks, enter the <strong>Secret Token</strong>, check the corresponding events, and click the <strong>Add Webhook</strong> button at the bottom of the page to add Webhooks.</p>
 </section>
 <section id="more-description">
 <h5>More Description<a class="headerlink" href="#more-description" title="Permalink to this heading">#</a></h5>
@@ -3181,7 +3189,7 @@ title="Fullscreen mode"
 </section>
 <section id="approval">
 <h4>Approval<a class="headerlink" href="#approval" title="Permalink to this heading">#</a></h4>
-<p>Only you can see the approval page.</p>
+<p>Only System Admin can see the approval page.</p>
 <p><img alt="" src="../_images/approval-01.png" /></p>
 <p><strong>Approval</strong>: Approval types available are as follows:</p>
 <ul>
@@ -3217,10 +3225,10 @@ title="Fullscreen mode"
 </section>
 <section id="backup-index">
 <h2>Backup Index<a class="headerlink" href="#backup-index" title="Permalink to this heading">#</a></h2>
-<p>With the backup index, information about users, user groups, storage pools, backup sets, etc. can be retained. It is generally used in combination with storage pool replication for backup server local/offsite disaster recovery, backup server migration and other scenarios.</p>
+<p>Catalog backup allows to retain information about users, user groups, storage pools, backup sets, etc. It is generally used in combination with storage pool replication for backup server local/offsite disaster recovery, backup server migration and other scenarios.</p>
 <section id="disaster-recovery">
 <h3>Disaster Recovery<a class="headerlink" href="#disaster-recovery" title="Permalink to this heading">#</a></h3>
-<p>Backup Index supports local and off-site disaster recovery, requiring that the recovery target device and the storage server that stores the index backup sets can communicate with each other.</p>
+<p>Catalog backup can be used for the local and off-site disaster recovery, requiring that the recovery target host and the storage server that stores the Catalog backup sets can communicate with each other.</p>
 <section id="off-site-disaster-recovery">
 <h4>Off-site Disaster Recovery<a class="headerlink" href="#off-site-disaster-recovery" title="Permalink to this heading">#</a></h4>
 <p>Deploy one server each locally and offsite, the network is made isolated and the servers can communicate with each other. Both servers are installed with backup server and storage server to recover the backup sets of local agent’s resources in offsite.</p>
@@ -3228,17 +3236,17 @@ title="Fullscreen mode"
 <li><p>Add two storage pools belonged to local and offsite storage servers respectively, and set the storage pool replication that replicates from local to offsite.</p>
 <p><img alt="" src="../_images/set-10.png" /></p>
 </li>
-<li><p>Set the <strong>Backup Schedule</strong> for the index to periodically back up to the local storage pool.</p>
+<li><p>Set the <strong>Backup Schedule</strong> that the Catalog will be backed up periodically to the local storage pool.</p>
 <p><img alt="" src="../_images/set-111.png" /></p>
 </li>
 <li><p>Create backup jobs of resources to a local storage pool.</p></li>
 <li><p>Index Disaster Recovery</p>
 <ul>
 <li><p>Log in to the offsite backup server as System Admin, go to the <strong>Settings</strong>-&gt;<strong>Settings</strong> page and click <strong>Index</strong>-&gt;<strong>Disaster Recovery</strong>.</p></li>
-<li><p>If backup sets of the index are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select <strong>Restore by Scanning</strong> as the <strong>Restore Source</strong>. When restoring, select the <strong>Point-in-Time</strong> that needs to recover, which is related to the range of backup sets that the resource is allowed to restore. The resource can only restore the backup sets that have been replicated to the target storage pool prior to this point in time.</p>
+<li><p>If the Catalog backup sets are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select <strong>Restore by Scanning</strong> as the <strong>Restore Source</strong>. When restoring, select the <strong>Point-in-Time</strong> that needs to recover, which is related to the range of backup sets that the resource is allowed to restore. The resource can only restore the backup sets that have been replicated to the target storage pool prior to this point in time.</p>
 <p><img alt="" src="../_images/set-12.png" /></p>
 </li>
-<li><p>If backup sets are stored in the object storage service pool, you can restore it by selecting <strong>Restore by Entering the URL Directly</strong> as the <strong>Restore Source</strong>. When restoring, you need to fill in the s3 object storage path where the catalog backup sets are located, and enter the <strong>Access Key</strong> and <strong>Secret Key</strong>.</p>
+<li><p>If backup sets are stored in the object storage service pool, you can restore it by selecting <strong>Restore by Entering the URL Directly</strong> as the <strong>Restore Source</strong>. When restoring, you need to fill in the s3 object storage path where the Catalog backup sets are located, and enter the <strong>Access Key</strong> and <strong>Secret Key</strong>.</p>
 <p><img alt="" src="../_images/set-13.png" /></p>
 </li>
 </ul>
@@ -3249,7 +3257,7 @@ title="Fullscreen mode"
 </ul>
 </div></blockquote>
 </li>
-<li><p>Apply for a license: The Disaster Recovery of Index only keeps licenses for activated resources and does not restore all applied licenses. After registering the agent on the offsite backup server, you need to apply licenses for the resources on the offsite agent.</p></li>
+<li><p>Apply for a license: The Index Disaster Recovery only keeps licenses for activated resources and does not restore all applied licenses. After registering the agent on the offsite backup server, you need to apply licenses for the resources on the offsite agent.</p></li>
 <li><p>Deploy an offsite agent and associate it to an offsite backup server.</p></li>
 <li><p>Set both the local agent and offsite agent to a same user group.</p></li>
 <li><p>Create restore jobs: Log in to the backup server as the operator, go to the <strong>Restore</strong> page, select the local agent and resources, select the backup sets, select the resources on the offsite agent for the restore target, and create the restore job.</p></li>
@@ -3257,7 +3265,7 @@ title="Fullscreen mode"
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
-<li><p>There are two portals for index recovery on the different host. Index recovery on authorized systems is available on the setup page. Index recovery on unauthorized system is available on the product activation page.</p></li>
+<li><p>There are two portals for index recovery on the offsite host. Index recovery on authorized systems is available on the Setup page. Index recovery on unauthorized system is available on the product activation page.</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -3311,7 +3319,7 @@ title="Fullscreen mode"
 </section>
 <section id="backup">
 <h3>Backup<a class="headerlink" href="#backup" title="Permalink to this heading">#</a></h3>
-<p>After you configure the Backup Schedule, click the <strong>Backup</strong> button on the Index page, and the top right corner will show <strong>Submission Succeeded</strong>, indicating that an index backup is performed immediately to the storage pool configured in the backup schedule. While the backup is in progress, the Backup button will show the loading state.</p>
+<p>After you configure the Backup Schedule, click the <strong>Backup</strong> button on the Index page, and the top right corner will show <strong>Submission Succeeded</strong>, indicating that an Catalog backup is performed immediately to the storage pool configured in the backup schedule. While the backup is in progress, the Backup button will show the loading state.</p>
 <p><img alt="" src="../_images/set-17.png" /></p>
 </section>
 <section id="restore">
@@ -3571,10 +3579,10 @@ title="Fullscreen mode"
 <section id="id6">
 <h3>Storage Pool<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <table class="table" id="id19">
-<caption><span class="caption-text">Storage Pool Limitation List</span><a class="headerlink" href="#id19" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Storage Pool  Limitation List</span><a class="headerlink" href="#id19" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3582,19 +3590,19 @@ title="Fullscreen mode"
 <td><p>For the standard storage pool with multi-storage, when the primary device is down, you cannot restore data from other devices.</p></td>
 </tr>
 <tr class="row-odd"><td><p>De-duplication storage pool</p></td>
-<td><p>Default recycling will free up space.  <br> Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation. <br> Supported file system:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　NTFSXFS (since Linux 2.6.38) ext4 (since Linux 3.0) Btrfs (since Linux 3.7)</p></td>
+<td><p>Default recycling will free up space. <br> Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation. <br> Supported file system: <br> NTFSXFS (since Linux 2.6.38) <br> ext4(since Linux 3.0) <br> Btrfs (since Linux 3.7)</p></td>
 </tr>
 <tr class="row-even"><td><p>Real-time backup pool</p></td>
 <td><p>Only Oracle and MySQL continuous log backup are supported.</p></td>
 </tr>
 <tr class="row-odd"><td><p>File synthetic pool</p></td>
-<td><p>Only support Linux storage server. <br> Limitations on file system and kernel versions for synthetic backups: <br> XFS (since Linux 2.6.38) ext4 (since Linux 3.0)). <br> NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool.</p></td>
+<td><p>Only support Linux storage server. <br> Limitations on file system and kernel versions for synthetic backups: <br> XFS (since Linux 2.6.38) <br> ext4 (since Linux 3.0)) <br> NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool.</p></td>
 </tr>
 <tr class="row-even"><td><p>Database synthetic pool</p></td>
-<td><p>Only support Ubuntu storage server. <br> Support synthetic backups of Oracle, SQL Server, MySQL with data volume greater than 1T, which needs to be used in 16.04 ZFS file system.  <br> only support level-1 pool replication relationship.</p></td>
+<td><p>Only support Ubuntu storage server. <br> Support synthetic backups of Oracle, SQL Server, MySQL with data volume greater than 1T, which needs to be used in 16.04 ZFS file system. <br> only support level-1 pool replication relationship.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LAN-Free storage pool</p></td>
-<td><p>Only support Ubuntu storage server.  <br> Backups to LAN-Free pools are not supported for data in dual-cluster environments. <br> Oracle RAC does not support the backup to LAN-Free pools. <br> The agent supports Linux (Red Hat 4.0 and later), AIX and Windows 2008 and later platforms. <br> To use iSCSI, you need to install iscsi-initiator-utils on the agent first.</p></td>
+<td><p>Only support Ubuntu storage server. <br> Backups to LAN-Free pools are not supported for data in dual-cluster environments. <br> Oracle RAC does not support the backup to LAN-Free pools. <br> The agent supports Linux (Red Hat 4.0 and later), AIX and Windows 2008 and later platforms. <br> To use iSCSI, you need to install iscsi-initiator-utils on the agent first.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3605,7 +3613,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Job Replication Limitation List</span><a class="headerlink" href="#id20" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3627,7 +3635,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Multi-tenant Limitation List</span><a class="headerlink" href="#id21" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3646,7 +3654,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Index Limitation List</span><a class="headerlink" href="#id22" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3665,7 +3673,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">License Limitation List</span><a class="headerlink" href="#id23" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3681,7 +3689,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Approval Limitation List</span><a class="headerlink" href="#id24" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3697,7 +3705,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Jobs Limitation List</span><a class="headerlink" href="#id25" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3719,7 +3727,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Upgrade Limitation List</span><a class="headerlink" href="#id26" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3735,7 +3743,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Access Key Limitation List</span><a class="headerlink" href="#id27" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3751,7 +3759,7 @@ title="Fullscreen mode"
 <caption><span class="caption-text">Installation Packages Limitation List</span><a class="headerlink" href="#id28" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3812,7 +3820,7 @@ MariaDB [adps]&gt; flush privileges;
 </li>
 <li><p>Lock period of failed login: The default is read-only and unmodifiable, and you need to modify in the background. To modify the configuration of “Lock period of failed login” and “Auto Unlock”, see the following:</p>
 <ul class="simple">
-<li><p>Access the /etc/opt/aurreum/adps/backupd/svc.conf.d/00-base.conf file under the backup server. BACKUPD Service adds “–non-sysuser-auto-unlock” (Enable external users to unlock automatically) and “– user-auto-unlock-wait-seconds” (The unlock waiting time (in seconds)).</p></li>
+<li><p>Access the /etc/opt/aurreum/adps/backupd/svc.conf.d/00-base.conf file under the backup server. BACKUPD Service adds “–non-sysuser-auto-unlock” (Enable common users to unlock automatically) and “– user-auto-unlock-wait-seconds” (The unlock waiting time (in seconds)).</p></li>
 </ul>
 </li>
 </ol>

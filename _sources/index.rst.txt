@@ -17,6 +17,8 @@ Home
 
    agent_install/agent_install.md
 
+   db2/db2.md
+
    file/file.md
 
    hyper-v/hyper-v.md

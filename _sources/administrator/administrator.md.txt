@@ -36,7 +36,7 @@ After the successful installation, ADPS has four built-in user roles by default:
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
-```{table} System users
+```{table} Built-in roles
 | Role                     | Permission                                                   |
 | ------------------------ | ------------------------------------------------------------ |
 | System Admin (the admin) | Responsible for the system configuration, user management, storage management, license management, resource management, operation and maintenance, etc.{{ br }}Default username and password is "admin/admin". |
@@ -44,15 +44,15 @@ After the successful installation, ADPS has four built-in user roles by default:
 | System Security          | When the Enable Security User option is checked, the system user management such as adding, deleting, user, modifying, and locking user is responsible by System Security. {{ br }}Default username and password is "security/security". |
 | System Monitor           | Responsible for monitoring the operation state of the system. All system information can be monitored, including the system and job state of sub-servers. {{ br }}Default username and password is "sysmonitor/sysmonitor". |
 ```
-As the System Admin, you can create three user roles: Admin, Monitor, and Operator. Their permissions are as shown in the following table:
+As System Admin, you can customize three user roles: Admin, Monitor, and Operator. Their permissions are as shown in the following table:
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
-```{table} External users
+```{table} Custom roles
 | Role     | Permission                                                   |
 | -------- | ------------------------------------------------------------ |
-| Admin    | Responsible for the system management, but without the management of important data in Storage Server. {{ br }}The external Admin's permissions are second only to System Admin. |
-| Monitor  | Responsible for monitoring the operation state of the system. {{ br }}All system information can be monitored, but the system and job state of sub-servers are not included. |
+| Admin    | Responsible for the system management, but without the management of important data in Storage Server.{{ br }}The custom Admin's permissions are second only to that of System Admin. |
+| Monitor  | Responsible for monitoring the operation system state.{{ br }}All system information can be monitored, but the system and job state of sub-servers are not included. |
 | Operator | Responsible for the management of the backup and restore on the Agent. |
 ```
 ## Storage Design
@@ -1333,7 +1333,7 @@ Click **Resource->Cluster** to enter the cluster page where you can bind and man
 
 Click **Settings** of the Menu to enter the ADPS settings page where you can set the following items:
 
-- System Configuration
+- System configuration
 
 - Webhooks 
 
@@ -1353,17 +1353,17 @@ Set **Localization** including **Default language** and **Relative time**.
 
 - **Default language**: Set the default language for the new user.
 
-- **Relative time**: Set the time format of jobs, alerts, history, reports, etc.
+- **Relative time**: Set the time display format of jobs, alerts, history, reports, etc.
 
-**Agent installation config**: You can set the download address of the installation package on the agent.
+**Agent installation config**: Set the address to download the agent installation package.
 
-- If you use the default address, you need to upload the agent package on **Upgrade**->**Upload Packages** page.
-- If you use other address, you need to configure the address that can be accessed, and save the agent package on the server.
+- To use the default address, you need to upload the agent package by clicking the  **Upload Packages** icon on the **Upgrade** page.
+- To use another address, you need to fill in the server address that can be accessed, and save the agent package on the server.
 
-**Backup server connection config**: You can set the backup server address.
+**Backup server connection config**: Set the backup server address.
 
-- **SSL**: Enable or disable the SSL used by the agent.
-- **Port**: Set the port of the agent connected to the backup server. The default number is 50305. When the SSL is enabled, the default port number is 60305.
+- **SSL**: Enable or disable SSL for the agent.
+- **Port**: Set the port that the agent connects to the backup server. The default number is 50305. When the SSL is enabled, the default port number is 60305.
 
 #### Server
 
@@ -1375,11 +1375,11 @@ Set **Localization** including **Default language** and **Relative time**.
 
 **Shutdown**: Click the button to shut down the server remotely.
 
-**Network interface**: All the network interfaces bound with all servers are listed. You can set the connection **Method** of the network interface, **IP address**, **Netmask**, **Default gateway**, **Preferred DNS** and **Alternate DNS** as needed. The modification takes effect immediately after you click **Modify**. Click **Reset** to restore the default value. 
+**Network interface**: All the network interfaces bound with all servers are listed. Set the connection **Method** of the network interface, **IP address**, **Netmask**, **Default gateway**, **Preferred DNS** and **Alternate DNS** as needed. The modification takes effect immediately after you click **Modify**. Click **Reset** to restore the default value. 
 
 #### Index
 
-The backup server can be self-protected by the backup index. With storage pool replication feature, backup index can be used for scenarios like backup server local/offsite disaster recovery, migration...and other scenarios. When you or other users have misoperations, or the backup server has abnormalities or re-installation, you can use disaster recovery to reduce the loss. 
+The backup server can achieve self-protection by backing up the Catalog, combined with storage pool replication for the local/remote disaster recovery, migration on the backup server, and other scenarios. When you or other users have misoperations, or the backup server has abnormalities or re-installation, you can use disaster recovery to reduce the loss. 
 
 ![](../image/admin/08-setting/set-4.png)
 
@@ -1393,19 +1393,20 @@ The backup server can be self-protected by the backup index. With storage pool r
 
 **Safe options**:
 
-- **No action prompt timeout**: Log out after timeout. The page will show “Your session has expired, please sign in again!”
+- **No action prompt timeout**: Log out after the specified time of inactivity. The page will show “Your session has expired, please sign in again!”
 - **Maximum login attempts**: You can set a limit on the number of unsuccessful login attempts that a user can make. Once the limit is exceeded, the IP address of the browser the user using will be blocked or the user will be locked out. The user must contact you to release the IP address from the blocklist. 
 - **Login failed exceeded limit**: If the maximum number of unsuccessful login is exceeded, you can block the IP address of the browser the user using, or lock the user. 
-- **Add to the IP address blocklist**: The user need to contact you to remove the blocked IP. See *Appendix* for reference.  
-- **Lock user**: The built-in users will be unlocked automatically after ten minutes by default. You can customized the lock time. See *Appendix* for reference. Other users are automatically unlocked aw well after ten minutes by default, if not, they need to contact you to unlock manually.
-- **Enable security user**: You can transfer the user management permissions (including user modification and user group assignment) of the added Admin to the System Security.
-- **Restrict user to single role**: Enabling the option will not allow to create multi-role users. When you or other users add or modify a new user, you or they can only select one of the roles for the new user.
+  - **Add to the IP address blocklist**: Custom users need to contact you to remove the blocked IP. To release the blocked IP addresses of built-in users, see *Appendix* for reference.  
+  - **Lock user**: The built-in users will be unlocked automatically after ten minutes by default. The custom users will be unlocked automatically after ten minutes as well, if not, they need to contact you to unlock manually. You can customized the lock time. See *Appendix* for reference.
+
+- **Enable security user**: You can transfer the user management permissions (including user modification and user group assignment) of the custom Admin to the System Security.
+- **Restrict user to single role**: If the option is checked, the creation of multi-role users will not be allowed. When you or other users add or modify a new user, you or they can only select one of the roles for the new user.
 - **Enable multilevel tenant**: You can set up a parent tenant when you create tenants, and tenants can also create users of the tenant role.
 - **Enable operating child tenant's resource**: You can allocate child tenants' resource permissions to control their resources.
-- **Encrypt job definition**: The contents of Job Template files under the server are encrypted.
-- **Show upgrade management page**: If you disable the Upgrade Management, the page will hide the upgrade management function and the login page will hide the download function.
+- **Encrypt job definition**: The job files on the servers will  encrypted.
+- **Show upgrade management page**: Unchecking the option will hide the **Upgrade** page and the download function on the login page.
 - **Access key login instance**: When it is enabled, the Access Key authentication will be added to the instance login page, so that you can choose to log in with the Access Key of your current account if you forget your OS password.
-- **2FA by email**: When it is enabled, you need to enter the additional verification code that you receive via email to log in to Resource Instance and Restore CD. Only the Restore CD that you use the username and password method to log in supports this feature. 
+- **2FA by email**: Users must enter email OTP when logging in. To ensure the successful sending and receiving of email OTP, SMTP and personal email must be configured properly.
 
 **Password policy**: You can set policies for password including the length, the characters required to contain, encryption before the transfer..., etc.
 
@@ -1424,7 +1425,7 @@ The backup server can be self-protected by the backup index. With storage pool r
 
 #### SMTP 
 
-You can set the SMTP sender's information. It can send  automatically the system-generated alerts to the user's personal email. The Email contents include job execution state, insufficient storage space, network disconnection, etc.
+You can set the SMTP sender's information. It can send automatically the system-generated alerts to the user's personal email. The Email contents include job execution state, insufficient storage space, network disconnection, etc.
 
 1. Click the **Not Set** label to access the SMTP settings window.
 2. Enter the sender's **Email**, **Password**, and the SMTP **Server** address, **Port**, and select whether to use **Secure** connection.
@@ -1461,19 +1462,19 @@ You can set the min full backups retention when creating storage pools, and set 
 >
 > - When you set the Min Full Backups Retention to 0, the backup sets may be fully recycled and cannot be restored! Please operate with caution.
 
-**Used space alarm threshold**: The alert Email will be sent when the physical space occupancy ratio of the storage server exceeds the set value. No alert Email is sent when it is 0.
+**Used space alarm threshold**: The alert email will be sent when the physical space occupancy ratio of the storage server exceeds the set value. No alert email is sent when it is 0.
 
 ![](../image/admin/08-setting/set-7.png)
 
 #### WebHooks
 
-Log in ADPS as the System Admin, click **Settings** -> **WebHooks** to enter the Webhooks page.
+Log in ADPS as System Admin, click **Settings** -> **WebHooks** to enter the Webhooks page.
 
 ![](../image/admin/08-setting/webhook-03.png)
 
 ##### Add
 
-Click the **Add** icon to enter the Add Webhooks page. On Add Webhooks page, enter the **URL** to receive the Webhooks information, enter the **Secret Token** information, check the corresponding event, and click the **Add Webhook** button at the bottom of the page to add the Webhook.
+Click the **Add** icon to enter the Add Webhooks page. On Add Webhooks page, enter the **URL** to receive the Webhooks, enter the **Secret Token**, check the corresponding events, and click the **Add Webhook** button at the bottom of the page to add Webhooks.
 
 ##### More Description 
 
@@ -1481,7 +1482,7 @@ On top of the URL input box on the Add Webhook page, you can click **More Descri
 
 #### Approval
 
-Only you can see the approval page. 
+Only System Admin can see the approval page. 
 
 ![](../image/admin/08-setting/approval-01.png)
 
@@ -1519,11 +1520,11 @@ Click **License** to enter the page where you can view the acquired License info
 
 ## Backup Index
 
-With the backup index, information about users, user groups, storage pools, backup sets, etc. can be retained. It is generally used in combination with storage pool replication for backup server local/offsite disaster recovery, backup server migration and other scenarios.
+Catalog backup allows to retain information about users, user groups, storage pools, backup sets, etc. It is generally used in combination with storage pool replication for backup server local/offsite disaster recovery, backup server migration and other scenarios.
 
 ### Disaster Recovery
 
-Backup Index supports local and off-site disaster recovery, requiring that the recovery target device and the storage server that stores the index backup sets can communicate with each other.
+Catalog backup can be used for the local and off-site disaster recovery, requiring that the recovery target host and the storage server that stores the Catalog backup sets can communicate with each other.
 
 #### Off-site Disaster Recovery
 
@@ -1533,7 +1534,7 @@ Deploy one server each locally and offsite, the network is made isolated and the
 
    ![](../image/admin/08-setting/set-10.png)
 
-2. Set the **Backup Schedule** for the index to periodically back up to the local storage pool.
+2. Set the **Backup Schedule** that the Catalog will be backed up periodically to the local storage pool.
 
    ![](../image/admin/08-setting/set-11.png)
 
@@ -1543,11 +1544,11 @@ Deploy one server each locally and offsite, the network is made isolated and the
 
    - Log in to the offsite backup server as System Admin, go to the **Settings**->**Settings** page and click **Index**->**Disaster Recovery**.
 
-   - If backup sets of the index are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select **Restore by Scanning** as the **Restore Source**. When restoring, select the **Point-in-Time** that needs to recover, which is related to the range of backup sets that the resource is allowed to restore. The resource can only restore the backup sets that have been replicated to the target storage pool prior to this point in time.
+   - If the Catalog backup sets are stored in a standard storage pool, de-duplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (i.e., the storage server where the target storage pool is located) and select **Restore by Scanning** as the **Restore Source**. When restoring, select the **Point-in-Time** that needs to recover, which is related to the range of backup sets that the resource is allowed to restore. The resource can only restore the backup sets that have been replicated to the target storage pool prior to this point in time.
 
      ![](../image/admin/08-setting/set-12.png)
 
-   - If backup sets are stored in the object storage service pool, you can restore it by selecting **Restore by Entering the URL Directly** as the **Restore Source**. When restoring, you need to fill in the s3 object storage path where the catalog backup sets are located, and enter the **Access Key** and **Secret Key**.
+   - If backup sets are stored in the object storage service pool, you can restore it by selecting **Restore by Entering the URL Directly** as the **Restore Source**. When restoring, you need to fill in the s3 object storage path where the Catalog backup sets are located, and enter the **Access Key** and **Secret Key**.
 
      ![](../image/admin/08-setting/set-13.png)
    
@@ -1555,7 +1556,7 @@ Deploy one server each locally and offsite, the network is made isolated and the
    >
    > - After the recovery is completed, you need to restart the backup server manually.
    
-5. Apply for a license: The Disaster Recovery of Index only keeps licenses for activated resources and does not restore all applied licenses. After registering the agent on the offsite backup server, you need to apply licenses for the resources on the offsite agent.
+5. Apply for a license: The Index Disaster Recovery only keeps licenses for activated resources and does not restore all applied licenses. After registering the agent on the offsite backup server, you need to apply licenses for the resources on the offsite agent.
 
 6. Deploy an offsite agent and associate it to an offsite backup server.
 
@@ -1566,7 +1567,7 @@ Deploy one server each locally and offsite, the network is made isolated and the
 
 > Note: 
 >
-> - There are two portals for index recovery on the different host. Index recovery on authorized systems is available on the setup page. Index recovery on unauthorized system is available on the product activation page.
+> - There are two portals for index recovery on the offsite host. Index recovery on authorized systems is available on the Setup page. Index recovery on unauthorized system is available on the product activation page.
 
 #### Local Disaster Recovery
 
@@ -1615,7 +1616,7 @@ In case there is a backup server disaster, you can deploy a new backup server to
 
 ### Backup
 
-After you configure the Backup Schedule, click the **Backup** button on the Index page, and the top right corner will show **Submission Succeeded**, indicating that an index backup is performed immediately to the storage pool configured in the backup schedule. While the backup is in progress, the Backup button will show the loading state.
+After you configure the Backup Schedule, click the **Backup** button on the Index page, and the top right corner will show **Submission Succeeded**, indicating that an Catalog backup is performed immediately to the storage pool configured in the backup schedule. While the backup is in progress, the Backup button will show the loading state.
 
 ![](../image/admin/08-setting/set-17.png)
 
@@ -1897,22 +1898,22 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
-```{table} Storage Pool Limitation List
-| Function                    | Limitation Description                                       |
-| -----------------------     | ------------------------------------------------------------ |
+```{table} Storage Pool  Limitation List
+| Function                    | Limitation                                 |
+| ----------------------- | ------------------------------------------------------------ |
 | Standard storage pool       | For the standard storage pool with multi-storage, when the primary device is down, you cannot restore data from other devices. |
-| De-duplication storage pool | Default recycling will free up space. {{ br }}Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation.{{ br }}Supported file system:　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　NTFSXFS (since Linux 2.6.38) ext4 (since Linux 3.0) Btrfs (since Linux 3.7) |
-| Real-time backup pool       | Only Oracle and MySQL continuous log backup are supported.   |
-| File synthetic pool         | Only support Linux storage server.{{ br }}Limitations on file system and kernel versions for synthetic backups:{{ br }}XFS (since Linux 2.6.38) ext4 (since Linux 3.0)).{{ br }}NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool. |
-| Database synthetic pool     | Only support Ubuntu storage server.{{ br }}Support synthetic backups of Oracle, SQL Server, MySQL with data volume greater than 1T, which needs to be used in 16.04 ZFS file system. {{ br }}only support level-1 pool replication relationship. |
-| LAN-Free storage pool       | Only support Ubuntu storage server. {{ br }}Backups to LAN-Free pools are not supported for data in dual-cluster environments.{{ br }}Oracle RAC does not support the backup to LAN-Free pools.{{ br }}The agent supports Linux (Red Hat 4.0 and later), AIX and Windows 2008 and later platforms.{{ br }}To use iSCSI, you need to install iscsi-initiator-utils on the agent first. |
+| De-duplication storage pool | Default recycling will free up space.{{ br }}Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation.{{ br }}Supported file system:{{ br }}NTFSXFS (since Linux 2.6.38){{ br }}ext4(since Linux 3.0){{ br }}Btrfs (since Linux 3.7) |　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 
+| Real-time backup pool       | Only Oracle and MySQL continuous log backup are supported.|
+| File synthetic pool         | Only support Linux storage server.{{ br }}Limitations on file system and kernel versions for synthetic backups:{{ br }}XFS (since Linux 2.6.38){{ br }}ext4 (since Linux 3.0)){{ br }}NeoKylin 6 kernal 2.6.32-0.18 does not support file synthetic pool. |
+| Database synthetic pool     | Only support Ubuntu storage server.{{ br }}Support synthetic backups of Oracle, SQL Server, MySQL with data volume greater than 1T, which needs to be used in 16.04 ZFS file system.{{ br }}only support level-1 pool replication relationship. |
+| LAN-Free storage pool       | Only support Ubuntu storage server.{{ br }}Backups to LAN-Free pools are not supported for data in dual-cluster environments.{{ br }}Oracle RAC does not support the backup to LAN-Free pools.{{ br }}The agent supports Linux (Red Hat 4.0 and later), AIX and Windows 2008 and later platforms.{{ br }}To use iSCSI, you need to install iscsi-initiator-utils on the agent first. |
 ```
 ### Job Replication
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Job Replication Limitation List
-| Function                | Limitation Description                                       |
+| Function                | Limitation                                     |
 | ----------------------- | ------------------------------------------------------------ |
 | Replicate storage pools | Pool replication is not supported for Local Storage Pool, LAN Free Pool, and File Synthesis Pool. |
 | Replicate jobs          | Do not support deleting job replication records. When executing a job replication, you cannot restore the corresponding backup point of the target pool; When executing the restore of the target pool, you cannot make a replication of the corresponding backup point as well. Block device de-duplication storage pools do not support modifing network in the settings of pool replication. |
@@ -1923,7 +1924,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Multi-tenant Limitation List
-| Function          | Limitation Description                                       |
+| Function          | Limitation                                      |
 | ----------------- | ------------------------------------------------------------ |
 | Use storage pools | Users can only use the corresponding storage pools after the pricing of storage space  is enabled. |
 | Add storage pools | Users can only create object storage service pool or create standard storage pool, de-duplication storage pool, and block device storage pool via storage regions. |
@@ -1933,7 +1934,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Index Limitation List
-| Function          | Limitation Description                                       |
+| Function          | Limitation                                     |
 | ----------------- | ------------------------------------------------------------ |
 | Backup            | Support the following types of storage pools: standard storage pool, de-duplication storage pool, tape library pool, and object storage service pool. |
 | Disaster recovery | To restore the backup sets to the agent of the offsite backup server, you need to restore the index first and then associate the agent to the offsite backup server, otherwise restoring the backup sets of local resources will fail. |
@@ -1943,7 +1944,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} License Limitation List
-| Function          | Limitation Description                                       |
+| Function          | Limitation                                      |
 | ----------------- | ------------------------------------------------------------ |
 | Initialize system | Before the initialization of the system, when the license edition is selected as "Leased", the module cannot be selected because the host is not yet registered, so you need to enter the system after the initialization is completed, associate the agent with the host, and then license the host with the lease edition. |
 ```
@@ -1952,7 +1953,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Approval Limitation List
-| Function | Limitation Description               |
+| Function | Limitation              |
 | -------- | ------------------------------------ |
 | Job      | Support databases, files, and Linux. |
 ```
@@ -1961,7 +1962,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Jobs Limitation List
-| Function    | Limitation Description                                       |
+| Function    | Limitation                                      |
 | ----------- | ------------------------------------------------------------ |
 | Modify jobs | Only supports modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to modify jobs. |
 | Stop jobs   | Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, GBase, File support stopping jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to stop jobs. |
@@ -1972,7 +1973,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Upgrade Limitation List
-| Function        | Limitation Description                                       |
+| Function        | Limitation                                      |
 | --------------- | ------------------------------------------------------------ |
 | Upload packages | The version of the upgrade package must be consistent with the version of the backup server adps-backupd. You must upload all installed packages of adps modules on the backup server or agent to upgrade properly. adps-storaged is installed on the same device as adps-backupd or adps-agent to allow automatic upgrades. HP-UX, Solaris, and AIX agents do not support upgrades via the interface and you need to upgrade them manually. |
 ```
@@ -1981,7 +1982,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Access Key Limitation List
-| Function           | Limitation Description                                       |
+| Function           | Limitation                                     |
 | ------------------ | ------------------------------------------------------------ |
 | Log in to resource | Oracle, DB2, MongoDB, Domino, File, Linux OS resource login are supported. When Oracle restores to the latest instance, it does not support access key logging agent. |
 ```
@@ -1990,7 +1991,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Installation Packages Limitation List
-| Function | Limitation Description                                       |
+| Function | Limitation                                  |
 | -------- | ------------------------------------------------------------ |
 | Windows  | Windows, AIX, Solaris, HP-UX do not support the installation of Backup Server, Storage Server. |
 ```
@@ -2029,4 +2030,4 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 
 2. Lock period of failed login: The default is read-only and unmodifiable, and you need to modify in the background. To modify the configuration of "Lock period of failed login" and "Auto Unlock", see the following:
 
-   - Access the /etc/opt/aurreum/adps/backupd/svc.conf.d/00-base.conf file under the backup server. BACKUPD Service adds "--non-sysuser-auto-unlock" (Enable external users to unlock automatically) and "-- user-auto-unlock-wait-seconds" (The unlock waiting time (in seconds)).
+   - Access the /etc/opt/aurreum/adps/backupd/svc.conf.d/00-base.conf file under the backup server. BACKUPD Service adds "--non-sysuser-auto-unlock" (Enable common users to unlock automatically) and "-- user-auto-unlock-wait-seconds" (The unlock waiting time (in seconds)).
