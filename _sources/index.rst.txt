@@ -21,6 +21,8 @@ Home
 
    file/file.md
 
+   hana/hana.md
+
    hyper-v/hyper-v.md
 
    informix/informix.md

@@ -1,0 +1,1197 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>User Guide for SAP HANA &#8212; ADPS 3.0.35274</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for Hyper-V" href="../hyper-v/hyper-v.html" />
+    <link rel="prev" title="User Guide for File" href="../file/file.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en-US">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../administrator/administrator.html">
+   Administrator’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../agent_install/agent_install.html">
+   Agent Installation Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db2/db2.html">
+   User Guide for DB2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../file/file.html">
+   User Guide for File
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   User Guide for SAP HANA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hyper-v/hyper-v.html">
+   User Guide for Hyper-V
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../informix/informix.html">
+   User Guide for Informix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install/install.html">
+   Installation Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mariadb/mariadb.html">
+   User Guide for MariaDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mongodb/mongodb.html">
+   User Guide for MongoDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mssql/mssql.html">
+   User Guide for Microsoft SQL Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mysql/mysql.html">
+   User Guide for MySQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../obs/obs.html">
+   User Guide for Object Storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oracle/oracle.html">
+   User Guide for Oracle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../postgres/postgres.html">
+   User Guide for PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sybase/sybase.html">
+   User Guide for Sybase
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vmware/vmware.html">
+   User Guide for VMware
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features">
+     Features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-agent">
+   Install and Configure Agent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-compatibility">
+     Verify Compatibility
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-agent-package">
+     Get Agent Package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">
+     Install and Configure Agent on Linux
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-successful-installation">
+     Check Successful Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activate-license-and-authorize-user">
+   Activate License and Authorize User
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-host">
+     Register Host
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-license">
+     Activate License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authorize-user">
+     Authorize User
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before You Begin
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-database-status">
+     Verify Database Status
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-resource">
+     Check Resource
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-storage-pool">
+     Check Storage Pool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-time-login">
+   First Time Login
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-backup-job">
+   Create Backup Job
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-on-demand-jobs">
+     Create On Demand Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-full-backup-job">
+     Create Full Backup Job
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-incremental-backup-jobs">
+     Create Incremental Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-cumulative-incremental-backup-jobs">
+     Create Cumulative Incremental Backup Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-restore-jobs">
+   Create Restore Jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-timepoint-restore-jobs">
+     Create Timepoint Restore Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-jobs">
+   Manage Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup-protection-strategy">
+   Backup Protection Strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-schedule-operation">
+     Backup Schedule Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-strategy-advice">
+     Backup Strategy Advice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sap-hana-cluster">
+   SAP HANA Cluster
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cluster-binding">
+     Cluster Binding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-and-restore">
+     Backup and Restore
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>User Guide for SAP HANA</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features">
+     Features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-agent">
+   Install and Configure Agent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-compatibility">
+     Verify Compatibility
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-agent-package">
+     Get Agent Package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">
+     Install and Configure Agent on Linux
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-successful-installation">
+     Check Successful Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activate-license-and-authorize-user">
+   Activate License and Authorize User
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-host">
+     Register Host
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-license">
+     Activate License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authorize-user">
+     Authorize User
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before You Begin
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-database-status">
+     Verify Database Status
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-resource">
+     Check Resource
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-storage-pool">
+     Check Storage Pool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-time-login">
+   First Time Login
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-backup-job">
+   Create Backup Job
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-on-demand-jobs">
+     Create On Demand Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-full-backup-job">
+     Create Full Backup Job
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-incremental-backup-jobs">
+     Create Incremental Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-cumulative-incremental-backup-jobs">
+     Create Cumulative Incremental Backup Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-restore-jobs">
+   Create Restore Jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-timepoint-restore-jobs">
+     Create Timepoint Restore Jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-jobs">
+   Manage Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup-protection-strategy">
+   Backup Protection Strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-schedule-operation">
+     Backup Schedule Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-strategy-advice">
+     Backup Strategy Advice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sap-hana-cluster">
+   SAP HANA Cluster
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cluster-binding">
+     Cluster Binding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-and-restore">
+     Backup and Restore
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="user-guide-for-sap-hana">
+<h1>User Guide for SAP HANA<a class="headerlink" href="#user-guide-for-sap-hana" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of SAP HANA databases. This guide introduces how to install the ADPS agent as well as how to properly use ADPS to back up and restore SAP HANA databases.</p>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h3>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup type</p></td>
+<td><p>On Demand: When the transaction logs are full or the time reaches the log backup setting, On Demand will be performed automatically. <br> Full backup: Back up one or more databases. <br> Incremental backup: Back up the data blocks that have changed since the last backup.  <br> Cumulative incremental backup: Back up the data blocks that have changed since the last full backup.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup source</p></td>
+<td><p>Database</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup target</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reconnection time</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes.</p></td>
+</tr>
+<tr class="row-even"><td><p>Stop jobs</p></td>
+<td><p>It is supported to stop backup and restore jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Compression</p></td>
+<td><p>None, fast, tunable</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup schedule</p></td>
+<td><p>Immediate, one-time, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore type</p></td>
+<td><p>Timepoint restore: Restore the database to a specified point-in-time state.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore target</p></td>
+<td><p>Overwrite the original database</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore granularity</p></td>
+<td><p>Database (single)</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore to a different host</p></td>
+<td><p>Data can be restored to a different host with the same version or from an old version to a new one.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage pool replication</p></td>
+<td><p>SAP HANA backup sets support storage pool replication.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore from target pool</p></td>
+<td><p>Data can be restored from target storage pools.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pre/Post action</p></td>
+<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>The data transport speed or disk read/write speed can be limited in different time periods.</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2C</p></td>
+<td><p>Data can be backed up directly to the object storage.</p></td>
+</tr>
+<tr class="row-even"><td><p>D2T</p></td>
+<td><p>Data can be backed up directly to the tape library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modify a job’s backup source and target</p></td>
+<td><p>The settings of a backup job, including backup source and backup target, can be modified.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore for SAP HANA single nodes and clusters. Before you install the agent, check whether your environment is supported. For details, see the following compatibility list.</p>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Compatibility List</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>Operating System</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.00.112.00</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>High availability</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.00.112.03</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Single-tenant</p></td>
+</tr>
+<tr class="row-even"><td><p>1.00.112.03</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Multi-tenant</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.00.112.03</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Two-node cluster</p></td>
+</tr>
+<tr class="row-even"><td><p>1.00.112.21</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Multi-tenant</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.00.122.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Multi-tenant</p></td>
+</tr>
+<tr class="row-even"><td><p>2.00.000.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>High availability <br> (single-tenant)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.00.000.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>High availability <br> (multi-tenant)</p></td>
+</tr>
+<tr class="row-even"><td><p>2.00.030.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Multi-tenant</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.00.030.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Two-node cluster</p></td>
+</tr>
+<tr class="row-even"><td><p>2.00.045.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 15</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2.00.056.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 15</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>High availability</p></td>
+</tr>
+<tr class="row-even"><td><p>2.00.062.00</p></td>
+<td><p>64</p></td>
+<td><p>SLES for SAP 12 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>Multi-tenant</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="get-agent-package">
+<h3>Get Agent Package<a class="headerlink" href="#get-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to the ADPS console as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p>
+<p><img alt="" src="../_images/hana_agent01.png" /></p>
+</section>
+<section id="install-and-configure-agent-on-linux">
+<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>In the <strong>Install agent</strong> window, select <strong>Linux</strong> as the system and <strong>SAP HANA</strong> as the module. Copy an installation command.</p>
+<p><img alt="" src="../_images/hana_agent02.png" /></p>
+</li>
+<li><p>Paste the command in the terminal of the target host and press Enter to execute the installation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="o">-</span><span class="n">hana</span><span class="p">:</span><span class="o">~</span> <span class="c1"># curl -o- &quot;http://192.168.20.133:50305/d2/update/script?modules=hana&amp;location=http%3A%2F%2F192.168.20.133%3A50305&amp;access_key=3545f35aea7e512e12ab517230a46270&amp;rm=&amp;tool=curl&quot; | sh</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                  <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">100</span>  <span class="mi">7906</span>    <span class="mi">0</span>  <span class="mi">7906</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">1207</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">1286</span><span class="n">k</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">24.6</span><span class="n">M</span>      <span class="mi">0</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">25.9</span><span class="n">M</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">6730</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">6730</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">2483</span><span class="n">k</span>      <span class="mi">0</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2592</span><span class="n">k</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">3626</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">3626</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">13.8</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">13.8</span><span class="n">M</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the successful installation, log in to the ADPS console as an admin. The target host with an agent installed is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/hana_license01.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-authorize-user">
+<h2>Activate License and Authorize User<a class="headerlink" href="#activate-license-and-authorize-user" title="Permalink to this heading">#</a></h2>
+<p>This chapter is specific to configuring one agent. If you have multiple agents, you can first install all the agents, then carry out activation and authorization in batches. For details, refer to <em>Batch Register/Activate/Authorize</em> in <em>Administrator’s Guide</em>.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to the ADPS console as an admin. On the <strong>Resource</strong> page, select the host that you want to activate. Click the <strong>Register</strong> icon next to the host. After the automatic registration, the <strong>Activate</strong> window appears.</p>
+<p><img alt="" src="../_images/hana_license02.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Activate</strong> window, select the check box of the resource and click <strong>Submit</strong>. After the activation, the <strong>Authorize</strong> window appears.</p>
+<p><img alt="" src="../_images/hana_license03.png" /></p>
+</section>
+<section id="authorize-user">
+<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Authorize</strong> window, authorize users to operate the resource.</p>
+<p><img alt="" src="../_images/hana_license04.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="verify-database-status">
+<h3>Verify Database Status<a class="headerlink" href="#verify-database-status" title="Permalink to this heading">#</a></h3>
+<p>Verify the SAP HANA service status on the host. The database should be in the “Running” status for the backup and restore.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hdbadm</span><span class="nd">@linux</span><span class="o">-</span><span class="n">hana</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sap</span><span class="o">/</span><span class="n">HDB</span><span class="o">/</span><span class="n">HDB00</span><span class="o">&gt;</span> <span class="n">sapcontrol</span> <span class="o">-</span><span class="n">nr</span> <span class="mi">00</span> <span class="o">-</span><span class="n">function</span> <span class="n">GetProcessList</span>
+
+<span class="mf">28.09.2022</span> <span class="mi">03</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">32</span>
+<span class="n">GetProcessList</span>
+<span class="n">OK</span>
+<span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">dispstatus</span><span class="p">,</span> <span class="n">textstatus</span><span class="p">,</span> <span class="n">starttime</span><span class="p">,</span> <span class="n">elapsedtime</span><span class="p">,</span> <span class="n">pid</span>
+<span class="n">hdbdaemon</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">Daemon</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">27</span> <span class="mi">07</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">09</span><span class="p">,</span> <span class="mi">25898</span>
+<span class="n">hdbcompileserver</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">Compileserver</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">27</span> <span class="mi">07</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">08</span><span class="p">,</span> <span class="mi">26139</span>
+<span class="n">hdbnameserver</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">Nameserver</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">28</span> <span class="mi">02</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span> <span class="mi">2816</span>
+<span class="n">hdbpreprocessor</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">Preprocessor</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">27</span> <span class="mi">07</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">08</span><span class="p">,</span> <span class="mi">26142</span>
+<span class="n">hdbwebdispatcher</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">Web</span> <span class="n">Dispatcher</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">27</span> <span class="mi">07</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span> <span class="mi">26494</span>
+<span class="n">hdbindexserver</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">Indexserver</span><span class="o">-</span><span class="n">HDB</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">28</span> <span class="mi">02</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2819</span>
+<span class="n">hdbxsengine</span><span class="p">,</span> <span class="n">HDB</span> <span class="n">XSEngine</span><span class="o">-</span><span class="n">HDB</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">Running</span><span class="p">,</span> <span class="mi">2022</span> <span class="mi">09</span> <span class="mi">27</span> <span class="mi">07</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">07</span><span class="p">,</span> <span class="mi">26192</span>
+</pre></div>
+</div>
+</section>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to the ADPS console as an operator with SAP HANA permissions and open the <strong>Resource</strong> page. The activated resource is listed on the page with an “Online” state. If the resource is not available, see <em>Activate License and Authorize User</em>.</p>
+<p><img alt="" src="../_images/hana_login01.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to the ADPS console as an operator, go to the <strong>Storage Pool</strong> page, and check whether the operator has been assigned any storage pools. If no storage pool is present, contact the admin to create one and assign it to the operator.</p>
+<p><img alt="" src="../_images/hana_storage01.png" /></p>
+</section>
+</section>
+<section id="first-time-login">
+<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Permalink to this heading">#</a></h2>
+<p>Before you create the first backup and restore, SAP HANA login is required. On the <strong>Resource</strong> page, click <strong>Login</strong> next to SAP HANA.</p>
+<p><img alt="" src="../_images/hana_login02.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Enter the Access Key of the operator for the normal backup and restore functions.</p></li>
+<li><p>After restoring SYSTEMDB to a different host, re-import the license into the database on the restore target.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-backup-job">
+<h2>Create Backup Job<a class="headerlink" href="#create-backup-job" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to back up SAP HANA databases.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An agent has been installed. For details, see <em>Install and Configure Agent</em>.</p></li>
+<li><p>The license has been activated and users have been authorized to operate the resource. For details, see <em>Activate License and Authorize User</em>.</p></li>
+<li><p>Open a browser and log in to the ADPS console as an operator.</p></li>
+</ul>
+</section>
+<section id="create-on-demand-jobs">
+<h3>Create On Demand Jobs<a class="headerlink" href="#create-on-demand-jobs" title="Permalink to this heading">#</a></h3>
+<p>When the transaction logs are full or the time reaches the log backup setting, the On Demand log backup job will be performed automatically.</p>
+<ol class="arabic">
+<li><p>Open the <strong>Backup</strong> page. At the <strong>Hosts and Resources</strong> step, select the host and SAP HANA instance.</p></li>
+<li><p>At the <strong>Backup Source</strong> step, select <strong>On Demand</strong> as the backup type and choose databases as the backup source.</p>
+<p><img alt="" src="../_images/hana_backup01.png" /></p>
+</li>
+<li><p>At the <strong>Backup Target</strong> step, select a storage pool. The target can be a standard storage pool, de-duplication storage pool, local storage pool, tape library pool, or object storage service pool.</p></li>
+<li><p>At the <strong>Backup Options</strong> step, set the common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/hana_backup02.png" /></p>
+<p><strong>Compression</strong>: The <strong>Fast</strong> option is enabled by default.</p>
+<blockquote>
+<div><p>None: During the backup, the data will not be compressed.</p>
+<p>Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.</p>
+<p>Fast: During the backup, the data will be compressed by fast compression algorithms.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/hana_backup03.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: You can set speed limits for multiple time periods. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>At the <strong>Finish</strong> step, set a job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="create-full-backup-job">
+<h3>Create Full Backup Job<a class="headerlink" href="#create-full-backup-job" title="Permalink to this heading">#</a></h3>
+<p>You can create a full backup job to back up one or more databases.</p>
+<ol class="arabic">
+<li><p>Open the <strong>Backup</strong> page. At the <strong>Hosts and Resources</strong> step, select the host and SAP HANA instance.</p></li>
+<li><p>At the <strong>Backup Source</strong> step, select <strong>Full</strong> as the backup type and choose databases as the backup source.</p>
+<p><img alt="" src="../_images/hana_backup04.png" /></p>
+</li>
+<li><p>At the <strong>Backup Target</strong> step, select a storage pool. The target can be a standard storage pool, de-duplication storage pool, local storage pool, tape library pool, or object storage service pool.</p></li>
+<li><p>At the <strong>Backup Schedule</strong> step, set the execution time for the job. For details, see <em>Backup Schedule Operation</em>.</p></li>
+<li><p>At the <strong>Backup Options</strong> step, set the common and advanced options. For details, see the introduction in <em>Create On Demand Jobs</em>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set a job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="create-incremental-backup-jobs">
+<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Incremental backups only back up data that has changed since the last backup.</p>
+<ul class="simple">
+<li><p>The procedure to create an incremental backup is the same as for a full backup. Select <strong>Incremental</strong> as the backup type and choose databases.</p></li>
+</ul>
+<p><img alt="" src="../_images/hana_backup05.png" /></p>
+</section>
+<section id="create-cumulative-incremental-backup-jobs">
+<h3>Create Cumulative Incremental Backup Jobs<a class="headerlink" href="#create-cumulative-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Cumulative incremental backups only back up data that has changed since the last full backup.</p>
+<ul class="simple">
+<li><p>The procedure to create an incremental backup is the same as for a full backup.  Select <strong>Cumulative Incremental Backup</strong> as the backup type and choose databases.</p></li>
+</ul>
+<p><img alt="" src="../_images/hana_backup06.png" /></p>
+</section>
+</section>
+<section id="create-restore-jobs">
+<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to restore SAP HANA databases.</p>
+<section id="id1">
+<h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A backup job has been completed.</p></li>
+<li><p>To restore to another host, install an agent on that host, activate the license, and authorize users to operate the resource.</p></li>
+</ul>
+</section>
+<section id="create-timepoint-restore-jobs">
+<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
+<p>When a disaster occurs in a SAP HANA database, Timepoint Restore can help you to restore the database to a specified point-in-time state.</p>
+<ol class="arabic">
+<li><p>Open the <strong>Restore</strong> page. At the <strong>Hosts and Resources</strong> step, select the host and SAP HANA instance. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Backup Sets</strong> step, select a database that you want to restore and drag the slider control to specify a restore point in time. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/hana_restore01.png" /></p>
+</li>
+<li><p>At the <strong>Restore Target</strong> step, select a resource as the restore target. The target can be the source or a different host. Click <strong>Next</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>The restore target should have the same database mode as the restore source.</p></li>
+<li><p>The target instance version should be newer than or equal to the source instance version.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>At the <strong>Restore Schedule</strong> step, set the execution time for the job. Only immediate and one-time schedule types are supported. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Restore Options</strong> step, set the options according to your needs, including reconnection time, speed limit, and pre/post action.</p></li>
+<li><p>At the <strong>Finish</strong> step, set a job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>The <strong>Job</strong> page provides the job information of all agents. You can start, modify, clone, and delete the jobs.</p>
+<p><img alt="" src="../_images/hana_job01.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="" src="../_images/hana_job02.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="" src="../_images/hana_job03.png" /> to modify the basic job information, backup/restore schedule, and backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="" src="../_images/hana_job04.png" /> to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="" src="../_images/hana_job05.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
+<p><img alt="" src="../_images/hana_time01.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If you select Hour as the unit, you can set the value from 1 to 24. If you select Minute, you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Example: Run a job every two weeks on Friday at 18:00</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="" src="../_images/hana_time03.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>The execution time will be:</strong></p>
+<ul class="simple">
+<li><p>If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup-strategy-advice">
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<p>ADPS offers four SAP HANA backup types: On Demand, full backup, incremental backup, and cumulative incremental backup. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of data loss that you can tolerate.</p>
+<ol class="arabic simple">
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable point in time every week.</p></li>
+<li><p>After that, you can run a <strong>Cumulative Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable point in time every day.</p></li>
+</ol>
+<blockquote>
+<div><p>Avoid using the following strategies:</p>
+<ul class="simple">
+<li><p>Perform only full backups.</p></li>
+<li><p>Perform one full backup followed by all incremental or cumulative incremental backups.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="sap-hana-cluster">
+<h2>SAP HANA Cluster<a class="headerlink" href="#sap-hana-cluster" title="Permalink to this heading">#</a></h2>
+<p>ADPS supports the backup and restore for SAP HANA clusters. Before you back up and restore a cluster, bind the SAP HANA nodes into a cluster. Deploy the environment of each node in the cluster according to <em>Install and Configure Agent</em> as well as <em>Activate License and Authorize User</em>.</p>
+<section id="cluster-binding">
+<h3>Cluster Binding<a class="headerlink" href="#cluster-binding" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click the <strong>Cluster Binding</strong> icon.</p>
+<p><img alt="" src="../_images/hana_cluster01.png" /></p>
+</li>
+<li><p>Customize the cluster name. Select the active node as the <strong>Primary Node</strong>, “Active-Passive” as the <strong>Type</strong>, and the inactive node as the <strong>Nodes</strong>. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/hana_cluster02.png" /></p>
+</li>
+</ol>
+</section>
+<section id="backup-and-restore">
+<h3>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading">#</a></h3>
+<p>SAP HANA cluster has the same backup and restore types as the single instance.</p>
+<ul class="simple">
+<li><p>The <strong>Backup</strong> page displays only the active nodes in the SAP HANA cluster. Select an active node as the backup source. The remaining steps are similar to those in <em>Create Backup Jobs</em>.</p></li>
+<li><p>When a switchover occurs in the nodes of the SAP HANA cluster, the new active node will automatically take over the backup job.</p></li>
+<li><p>When creating a restore job, you can select a single instance or cluster as the restore target.</p></li>
+</ul>
+</section>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>On Demand log backup job is necessary. <br> IPv6 cannot be the localhost address. <br> Data cannot be backed up to LAN-Free storage pools. <br> After the restore, you must perform a full backup before you can perform the incremental or cumulative incremental backups. Otherwise the backup sets cannot be displayed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../file/file.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">User Guide for File</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../hyper-v/hyper-v.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for Hyper-V</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Aurreum<br/>
+  
+    <div class="extra_footer">
+      Copyright © 2022 Aurreum
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
