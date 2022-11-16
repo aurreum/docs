@@ -29,6 +29,8 @@ Home
 
    install/install.md
 
+   linux-os/linux-os.md
+
    mariadb/mariadb.md
 
    mongodb/mongodb.md
