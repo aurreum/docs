@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User Guide for Sybase &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for Caché &#8212; ADPS 3.0.35274</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="User Guide for VMware" href="../vmware/vmware.html" />
-    <link rel="prev" title="User Guide for PostgreSQL" href="../postgres/postgres.html" />
+    <link rel="next" title="User Guide for DB2" href="../db2/db2.html" />
+    <link rel="prev" title="Agent Installation Guide" href="../agent_install/agent_install.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en-US">
     
@@ -104,8 +104,8 @@
    Agent Installation Guide
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../cachedb/cachedb.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    User Guide for Caché
   </a>
  </li>
@@ -179,8 +179,8 @@
    User Guide for PostgreSQL
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sybase/sybase.html">
    User Guide for Sybase
   </a>
  </li>
@@ -290,34 +290,20 @@ title="Fullscreen mode"
     <a class="reference internal nav-link" href="#verify-compatibility">
      Verify Compatibility
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#compatibility-list">
-       Compatibility List
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#single-host">
-         Single Host
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-agent-packages">
-     Get Agent Packages
+    <a class="reference internal nav-link" href="#get-agent-package">
+     Get Agent Package
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">
-     Install and Configure Agent on Windows
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows-os">
+     Install and Configure Agent on Windows OS
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-installation-package">
-       Download Installation Package
+      <a class="reference internal nav-link" href="#download-windows-installation-package">
+       Download Windows Installation Package
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -328,8 +314,8 @@ title="Fullscreen mode"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">
-     Install and Configure Agent on Linux
+    <a class="reference internal nav-link" href="#install-agent-on-linux">
+     Install Agent on Linux
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -340,8 +326,8 @@ title="Fullscreen mode"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activate-license-and-assign-authorization">
-   Activate License and Assign Authorization
+  <a class="reference internal nav-link" href="#activate-license-and-authorize-user">
+   Activate License and Authorize User
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -355,8 +341,8 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#assign-authorization">
-     Assign Authorization
+    <a class="reference internal nav-link" href="#authorize-user">
+     Authorize User
     </a>
    </li>
   </ul>
@@ -367,8 +353,8 @@ title="Fullscreen mode"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-database-state">
-     Check Database State
+    <a class="reference internal nav-link" href="#check-database-status">
+     Check Database Status
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -401,6 +387,11 @@ title="Fullscreen mode"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-full-backup-jobs">
      Create Full Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-incremental-backup-jobs">
+     Create Incremental Backup Jobs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -455,8 +446,8 @@ title="Fullscreen mode"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#channel-number-configuration">
-   Channel Number Configuration
+  <a class="reference internal nav-link" href="#limitation">
+   Limitation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -473,7 +464,7 @@ title="Fullscreen mode"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>User Guide for Sybase</h1>
+                <h1>User Guide for Caché</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -502,34 +493,20 @@ title="Fullscreen mode"
     <a class="reference internal nav-link" href="#verify-compatibility">
      Verify Compatibility
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#compatibility-list">
-       Compatibility List
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#single-host">
-         Single Host
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-agent-packages">
-     Get Agent Packages
+    <a class="reference internal nav-link" href="#get-agent-package">
+     Get Agent Package
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">
-     Install and Configure Agent on Windows
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows-os">
+     Install and Configure Agent on Windows OS
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-installation-package">
-       Download Installation Package
+      <a class="reference internal nav-link" href="#download-windows-installation-package">
+       Download Windows Installation Package
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -540,8 +517,8 @@ title="Fullscreen mode"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">
-     Install and Configure Agent on Linux
+    <a class="reference internal nav-link" href="#install-agent-on-linux">
+     Install Agent on Linux
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -552,8 +529,8 @@ title="Fullscreen mode"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activate-license-and-assign-authorization">
-   Activate License and Assign Authorization
+  <a class="reference internal nav-link" href="#activate-license-and-authorize-user">
+   Activate License and Authorize User
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -567,8 +544,8 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#assign-authorization">
-     Assign Authorization
+    <a class="reference internal nav-link" href="#authorize-user">
+     Authorize User
     </a>
    </li>
   </ul>
@@ -579,8 +556,8 @@ title="Fullscreen mode"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-database-state">
-     Check Database State
+    <a class="reference internal nav-link" href="#check-database-status">
+     Check Database Status
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -613,6 +590,11 @@ title="Fullscreen mode"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-full-backup-jobs">
      Create Full Backup Jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-incremental-backup-jobs">
+     Create Incremental Backup Jobs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -667,8 +649,8 @@ title="Fullscreen mode"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#channel-number-configuration">
-   Channel Number Configuration
+  <a class="reference internal nav-link" href="#limitation">
+   Limitation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -686,11 +668,11 @@ title="Fullscreen mode"
                 
               <div>
                 
-  <section id="user-guide-for-sybase">
-<h1>User Guide for Sybase<a class="headerlink" href="#user-guide-for-sybase" title="Permalink to this heading">#</a></h1>
+  <section id="user-guide-for-cache">
+<h1>User Guide for Caché<a class="headerlink" href="#user-guide-for-cache" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Sybase databases. This guide introduces how to properly use ADPS to back up and restore Sybase databases.</p>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Caché databases. This guide introduces how to properly use ADPS to back up and restore Caché databases.</p>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
@@ -706,69 +688,60 @@ title="Fullscreen mode"
 <td><p>Database (single, multiple)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup type</p></td>
-<td><p>Full backup: Back up all data of one or more System databases or User databases. <br> Log backup: Back up the transaction logs of the selected User databases.</p></td>
+<td><p>Full backup: Back up all databases except the CACHESYS database. <br> Incremental backup: Back up data changed since the last full/incremental backup. The first incremental backup will be executed as the full backup if no full backup is ever executed. <br> Log backup: With the Global Journal State database option enabled, the journal files of  Caché instance will be backed up.</p></td>
 </tr>
 <tr class="row-even"><td><p>Backup target</p></td>
 <td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
 </tr>
 <tr class="row-odd"><td><p>Reconnection time</p></td>
-<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes. If the network is completely disconnected, this feature does not take effect.</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time.  Available only for the backup job.</p></td>
 </tr>
 <tr class="row-even"><td><p>Stop jobs</p></td>
 <td><p>Stop the backup and restore jobs.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Multiple instances</p></td>
-<td><p>Support the backup and restore of multiple instances on a single host.</p></td>
-</tr>
-<tr class="row-even"><td><p>Backup compression</p></td>
+<tr class="row-odd"><td><p>Backup compression</p></td>
 <td><p>None, fast, tunable</p></td>
-</tr>
-<tr class="row-odd"><td><p>Channels</p></td>
-<td><p>A positive integer between 1-32.</p></td>
 </tr>
 <tr class="row-even"><td><p>Backup schedule</p></td>
 <td><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore type</p></td>
-<td><p>Timepoint restore: Restore the database to the state of the most recent full backup first, and then use the backup logs to roll back the database to the specified point in time. For the database that has only run a full backup job, the timepoint restore can only restore it to the data state at the end of the backup job. <br> Recovery testing: Restore the latest backup set to a different host according to the schedule.</p></td>
+<td><p>Timepoint restore: Restore a database to a specific point-in-time state. <br> Recovery testing: Recover the latest backup set except the log backup set to a target host or another instance on the source host, used with the backup schedule to verify the integrity and availability of the backup set.</p></td>
 </tr>
-<tr class="row-even"><td><p>Restore location</p></td>
-<td><p>Original path, custom path</p></td>
+<tr class="row-even"><td><p>Restore target</p></td>
+<td><p>Overwrite the original database, create a new database</p></td>
 </tr>
-<tr class="row-odd"><td><p>Restore target</p></td>
-<td><p>original instance, new instance</p></td>
+<tr class="row-odd"><td><p>Restore granularity</p></td>
+<td><p>Database (Single)</p></td>
 </tr>
-<tr class="row-even"><td><p>Restore granularity</p></td>
-<td><p>Database (single)</p></td>
+<tr class="row-even"><td><p>Restore to a different host</p></td>
+<td><p>Restoring to a different host requires the same OS and database version.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Restore to a different host</p></td>
-<td><p>Restoring to a different host requires the same version or from an old version to a new version.</p></td>
-</tr>
-<tr class="row-even"><td><p>Pre/Post action</p></td>
+<tr class="row-odd"><td><p>Pre/Post action</p></td>
 <td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Speed limit</p></td>
-<td><p>Limit data transfer speed or disk read and write speed within different periods.</p></td>
-</tr>
 <tr class="row-even"><td><p>Storage pool replication</p></td>
-<td><p>Replicate backup sets from the source storage pool to another pool.</p></td>
+<td><p>Replicate backup sets from the source storage pool to another pool</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore from the target pool</p></td>
-<td><p>Restore backup sets from the target storage pool.</p></td>
+<td><p>Restore backup sets from the target storage pool</p></td>
 </tr>
-<tr class="row-even"><td><p>D2C</p></td>
-<td><p>Back up data directly to object storage.</p></td>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limit data transfer speed or disk read and write speed at different times</p></td>
 </tr>
-<tr class="row-odd"><td><p>D2T</p></td>
-<td><p>Back up data directly to tape library.</p></td>
+<tr class="row-odd"><td><p>D2C</p></td>
+<td><p>Back up data directly to the object storage.</p></td>
 </tr>
-<tr class="row-even"><td><p>LAN-Free</p></td>
+<tr class="row-even"><td><p>D2T</p></td>
+<td><p>Back up data directly to the tape library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAN-Free</p></td>
 <td><p>Back up to and restore from LAN-Free storage pools.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Modify the backup source and target</p></td>
+<tr class="row-even"><td><p>Modify the backup source and target</p></td>
 <td><p>Modify the backup source and backup target of a job.</p></td>
 </tr>
-<tr class="row-even"><td><p>IPv6</p></td>
+<tr class="row-odd"><td><p>IPv6</p></td>
 <td><p>Transfer and manage data over IPv6 network.</p></td>
 </tr>
 </tbody>
@@ -778,346 +751,248 @@ title="Fullscreen mode"
 <h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
 <section id="verify-compatibility">
 <h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
-<p>ADPS supports the backup and restore of Sybase single host. Check whether the operating system (OS) and database version are supported before deploying the agent. Please refer to <em>Compatibility List</em> for the supported OS and database versions.</p>
-<section id="compatibility-list">
-<h4>Compatibility List<a class="headerlink" href="#compatibility-list" title="Permalink to this heading">#</a></h4>
-<section id="single-host">
-<h5>Single Host<a class="headerlink" href="#single-host" title="Permalink to this heading">#</a></h5>
-<table class="longtable table" id="id3">
-<caption><span class="caption-text">Single Host</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Database Version</p></th>
-<th class="head"><p>Database Bits</p></th>
-<th class="head"><p>OS</p></th>
-<th class="head"><p>CPU Architecture</p></th>
-<th class="head"><p>OS Bits</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>12.5.1</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2003 R2 SP2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-odd"><td><p>ASE12.5.1</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2008</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>12.5.1</p></td>
-<td><p>32</p></td>
-<td><p>Red Hat 4</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-odd"><td><p>15.5</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2003 R2 SP2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>15.7</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2003 R2 SP2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-odd"><td><p>ASE15.7</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>ASE15.7</p></td>
-<td><p>32</p></td>
-<td><p>Red Hat 6</p></td>
-<td><p>x86</p></td>
-<td><p>32</p></td>
-</tr>
-<tr class="row-odd"><td><p>ASE15.7</p></td>
-<td><p>32</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>15.7</p></td>
-<td><p>64</p></td>
-<td><p>AIX 7.1</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-odd"><td><p>15.7</p></td>
-<td><p>64</p></td>
-<td><p>Solaris 10</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>15.7</p></td>
-<td><p>32</p></td>
-<td><p>Solaris 11</p></td>
-<td><p>x86</p></td>
-<td><p>32</p></td>
-</tr>
-<tr class="row-odd"><td><p>ASE16.0</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>ASE16.0</p></td>
-<td><p>32</p></td>
-<td><p>Red Hat 6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-odd"><td><p>ASE16.0</p></td>
-<td><p>32</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-<tr class="row-even"><td><p>16.5</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-</tr>
-</tbody>
-</table>
+<p>ADPS supports the backup and restore of Caché single instance, multiple instances, master-slave and master-master replication cluster. Before deploying the agent, check whether the operating system (OS) and database version are supported. See the following information for the mainly supported database versions:</p>
+<ul class="simple">
+<li><p>Caché 2010/2016/2017/2018</p></li>
+</ul>
 </section>
+<section id="get-agent-package">
+<h3>Get Agent Package<a class="headerlink" href="#get-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS console as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon and download the installation packages according to your needs.</p>
+<p><img alt="cache_agent_1" src="../_images/cache_agent_1.png" /></p>
 </section>
-</section>
-<section id="get-agent-packages">
-<h3>Get Agent Packages<a class="headerlink" href="#get-agent-packages" title="Permalink to this heading">#</a></h3>
-<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
-<p><img alt="sybase_agent_1" src="../_images/sybase_agent_1.png" /></p>
-</section>
-<section id="install-and-configure-agent-on-windows">
-<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
-<section id="download-installation-package">
-<h4>Download Installation Package<a class="headerlink" href="#download-installation-package" title="Permalink to this heading">#</a></h4>
-<p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
-<p><img alt="" src="../_images/sybase_agent_2.png" /></p>
+<section id="install-and-configure-agent-on-windows-os">
+<h3>Install and Configure Agent on Windows OS<a class="headerlink" href="#install-and-configure-agent-on-windows-os" title="Permalink to this heading">#</a></h3>
+<section id="download-windows-installation-package">
+<h4>Download Windows Installation Package<a class="headerlink" href="#download-windows-installation-package" title="Permalink to this heading">#</a></h4>
+<p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
+<p><img alt="" src="../_images/cache_agent_2.png" /></p>
 </section>
 <section id="install-agent-on-windows">
 <h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Upload the installation package to the agent.</p></li>
-<li><p>Double-click the package to install it according to the setup wizard and click <strong>Next</strong>.</p></li>
-<li><p>This installation package selects the database resources, files, or applications installed on the agent by default. Select the <strong>Sybase</strong> component and click <strong>Next</strong>.</p></li>
+<li><p>Double-click the package to launch the setup wizard and click <strong>Next</strong>.</p></li>
+<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Select the <strong>CacheDB</strong> component and click <strong>Next</strong>.</p></li>
 </ol>
-<p><img alt="" src="../_images/sybase_agent_3.png" /></p>
+<p><img alt="" src="../_images/cache_agent_3.png" /></p>
 <ol class="arabic simple" start="4">
 <li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p></li>
 </ol>
-<p><img alt="" src="../_images/sybase_agent_4.png" /></p>
+<p><img alt="" src="../_images/cache_agent_4.png" /></p>
 <ol class="arabic simple" start="5">
 <li><p>Select <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
 </ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>The Access Key is used to identify users on the agent. On Personal Settings -&gt; Settings -&gt; Home page, you can view your own Access Key after logging in to the backup server.</p></li>
+<li><p>If the backup server is a non-tenant version, it is not required to configure Access Key.</p></li>
+<li><p>If the backup server is a tenant version, then an Access Key is required. If you leave it blank, the resource will be bound to the admin. If you enter the Access Key, the resource will be bound to the corresponding tenant.</p></li>
+</ul>
+</div></blockquote>
 </section>
 </section>
-<section id="install-and-configure-agent-on-linux">
-<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<section id="install-agent-on-linux">
+<h3>Install Agent on Linux<a class="headerlink" href="#install-agent-on-linux" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Select <strong>Linux</strong> as the system and <strong>Sybase</strong> as the module. Copy an installation command.</p></li>
+<li><p>Select <strong>Linux</strong> as the system and <strong>InterSystemsCache</strong> as the module. Copy an installation command.</p></li>
 </ol>
-<p><img alt="" src="../_images/sybase_agent_5.png" /></p>
+<p><img alt="" src="../_images/cache_agent_5.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p>Paste the command on the command line and press Enter to execute the installation.</p></li>
 </ol>
-<p><img alt="" src="../_images/sybase_agent_6.png" /></p>
+<p><img alt="" src="../_images/cache_agent_6.png" /></p>
 </section>
 <section id="check-successful-installation">
 <h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
-<p>After the successful installation, you can log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
-<p><img alt="" src="../_images/sybase_license_1.png" /></p>
+<p>After the successful installation, log in to ADPS console as the admin and go to the <strong>Resource</strong> page. The host with the agent installed will be available on the Resource list.</p>
+<p><img alt="" src="../_images/cache_license_1.png" /></p>
 </section>
 </section>
-<section id="activate-license-and-assign-authorization">
-<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
-<p>This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization.</p>
+<section id="activate-license-and-authorize-user">
+<h2>Activate License and Authorize User<a class="headerlink" href="#activate-license-and-authorize-user" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See <em>Batch Activate</em> from <em>Administrator’s Guide</em> for more details.</p>
 <section id="register-host">
 <h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and select the host that you need to activate. Click the <strong>Register</strong> icon.</p>
-<p><img alt="" src="../_images/sybase_license_2.png" /></p>
+<p>Log in to ADPS console as the admin, go to <strong>Resource</strong>, and select the host that you want to activate. Click the <strong>Register</strong> icon.</p>
+<p><img alt="" src="../_images/cache_license_2.png" /></p>
 </section>
 <section id="activate-license">
 <h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
-<p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
-<p><img alt="" src="../_images/sybase_license_3.png" /></p>
+<p>In the pop-up <strong>Activate</strong> window, select the resource that you want to activate. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/cache_license_3.png" /></p>
 </section>
-<section id="assign-authorization">
-<h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
-<p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
-<p><img alt="" src="../_images/sybase_license_4.png" /></p>
+<section id="authorize-user">
+<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Permalink to this heading">#</a></h3>
+<p>After the activation, authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="" src="../_images/cache_license_4.png" /></p>
 </section>
 </section>
 <section id="before-you-begin">
 <h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
-<section id="check-database-state">
-<h3>Check Database State<a class="headerlink" href="#check-database-state" title="Permalink to this heading">#</a></h3>
-<p>Check the Sybase service state of the agent. The Sybase database service should be in the “Started” state for backup and restore.</p>
-<p><img alt="" src="../_images/sybase_database_1.png" /></p>
+<section id="check-database-status">
+<h3>Check Database Status<a class="headerlink" href="#check-database-status" title="Permalink to this heading">#</a></h3>
+<p>Check the Caché status of the agent host. The Caché should be in the “running”  status for backup and restore.</p>
+<p><img alt="" src="../_images/cache_status_1.png" /></p>
 </section>
 <section id="check-resource">
 <h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource with an “Online” state on the list. If the resource is not present, please refer to <em>Activate License and Assign Authorization</em>.</p>
-<p><img alt="" src="../_images/sybase_login_1.png" /></p>
+<p>Log in to ADPS console as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource with an “Online” state on the list. Please check <em>Activate License and Assign Authorization</em> if the resource is not available.</p>
+<p><img alt="" src="../_images/cache_login_1.png" /></p>
 </section>
 <section id="check-storage-pool">
 <h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and verify a storage pool is available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.</p>
-<p><img alt="" src="../_images/sybase_storaged_1.png" /></p>
+<p>Log in to ADPS console as the operator, go to <strong>Storage Pool</strong>, and verify the presence of storage pools. If no storage pool is available, please contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="" src="../_images/cache_storage_1.png" /></p>
 </section>
 </section>
 <section id="first-time-login">
 <h2>First Time Login<a class="headerlink" href="#first-time-login" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Before creating the first Sybase backup and restore, go to <strong>Resource</strong> and log in to Sybase.</p></li>
+<li><p>Before creating the first Caché backup and restore, go to <strong>Resource</strong> and click <strong>Login</strong> next to the resource to log in to Caché.</p></li>
 </ol>
-<p><img alt="" src="../_images/sybase_login_2.png" /></p>
+<p><img alt="" src="../_images/cache_login_2.png" /></p>
 <ol class="arabic simple" start="2">
-<li><p>Sybase supports the login by database authentication.</p></li>
+<li><p>Enter the <strong>User</strong> and <strong>Password</strong>. Click <strong>Login</strong>.</p></li>
 </ol>
+<p><img alt="" src="../_images/cache_login_3.png" /></p>
+<blockquote>
+<div><p>Note:</p>
 <ul class="simple">
-<li><p><strong>Database authentication</strong>: The Sybase instance requires using sa account. If your Sybase password changes, you must log in to the instance again; if not, the job will fail.</p></li>
+<li><p>Use the user and password for the Caché Management Portal to log in to the Caché database resource on ADPS.</p></li>
+<li><p>Select the Unicode database option during the Caché 2016 installation.</p></li>
+<li><p>After Caché is installed, add the Caché installation directory to the environment variable path.</p></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li><p>Select <strong>Authentication</strong>, fill in <strong>User</strong> / <strong>Password</strong>, and click <strong>Login</strong>.</p></li>
-</ol>
-<p><img alt="" src="../_images/sybase_login_3.png" /></p>
+</div></blockquote>
 </section>
 <section id="create-backup-jobs">
 <h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
-<p>This chapter introduces how to back up the Sybase databases.</p>
+<p>This chapter introduces how to back up the Caché databases.</p>
 <section id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>You have installed the agent. For installation, please refer to <em>Install and Configure Agent</em>.</p></li>
-<li><p>You have activated the agent and assigned the authorization. For details, please see <em>Activate License and Assign Authorization</em>.</p></li>
-<li><p>Log in to ADPS as the <em>operator</em>.</p></li>
+<li><p>The agent has been installed. For installation, see <em>Install and Configure Agent</em>.</p></li>
+<li><p>The license has been activated, and the resource has been authorized to users. For details, see <em>Activate License and Authorize User</em>.</p></li>
+<li><p>Log in to the ADPS console as the <em>operator</em> with resource permissions.</p></li>
 </ul>
 </section>
 <section id="create-full-backup-jobs">
 <h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>(1) Click <strong>Backup</strong>. Select the Sybase host and instance.</p>
-<p>(2) Select <strong>Full Backup</strong> as the backup type and choose the databases. You can back up System databases and User databases.</p>
-<p><img alt="" src="../_images/sybase_backup_1.png" /></p>
-<p>(3) Select <strong>Backup Target</strong>. You can select a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool and LAN-Free pool.</p>
+<p>(1) Click <strong>Backup</strong>. Select the Caché host and instance.</p>
+<p>(2) Select <strong>Full</strong> as the <strong>Backup Type</strong> and choose the databases to be backed up.</p>
+<p><img alt="" src="../_images/cache_backup_1.png" /></p>
+<p>(3) Select <strong>Backup Target</strong>. You can choose a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool.</p>
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
-<li><p>It is not supported to store full backups and log backups in different storage pools.</p></li>
+<li><p>It is not supported to store full backups, incremental backups and log backups in different storage pools.</p></li>
 </ul>
 </div></blockquote>
-<p>(4) Go to <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, please refer to <em>Backup Schedule Operation</em>. It is recommended to run a full backup on a weekly basis.</p>
+<p>(4) Go to <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
 <p>(5) Set <strong>Backup Options</strong>, including common options and advanced options.</p>
-<ul class="simple">
-<li><p><strong>Common options</strong>:</p></li>
-</ul>
-<p><img alt="" src="../_images/sybase_backup_2.png" /></p>
+<p><strong>Common options</strong>:</p>
+<p><img alt="" src="../_images/cache_backup_2.png" /></p>
 <p><strong>Compression</strong>: <strong>Fast</strong> is enabled by default.</p>
 <ul class="simple">
 <li><p>None: No data compression during the backup.</p></li>
-<li><p>Tunable: You can customize the Compression Level, which requires the activation of the advanced features.</p></li>
+<li><p>Tunable: You can customize the compression level, which requires the activated feature of Advanced Compression.</p></li>
 <li><p>Fast: Use the fast compression algorithms during the backup.</p></li>
 </ul>
-<p><strong>Channels</strong>: Used to improve backup efficiency. The default value is 1 and the range is 1 to 32. For details, please refer to <em>Channel Number Configuration</em>.</p>
-<ul class="simple">
-<li><p><strong>Advanced options</strong>:</p></li>
-</ul>
-<p><img alt="" src="../_images/sybase_backup_3.png" /></p>
-<p><strong>Reconnection time</strong>: Support 1 to 60. The unit is minute (s). he job continues after the abnormal reset occurs in the network within the set time.</p>
-<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the “+” icon to add the limit within different periods.</p>
+<p><strong>Advanced options</strong>:</p>
+<p><img alt="" src="../_images/cache_backup_3.png" /></p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
-<p>(6) Set <strong>Job Name</strong>, check whether the job information is correct, and click <strong>Submit</strong>.</p>
+<p>(6) Set <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Caché database name supports only 1 to 64 characters, starting with a letter, and may contain alphanumerics, dashes, or underscores.</p></li>
+<li><p>When creating a database with SQL statement, two databases will be created automatically. Select one of them to back up, and the backup job will back up both databases.</p></li>
+<li><p>File permissions are required to add a local storage pool.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-incremental-backup-jobs">
+<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week.</p>
+<ul class="simple">
+<li><p>Creating an incremental backup job is the same as creating a full backup job. Select <strong>Incremental</strong> as the backup type.</p></li>
+</ul>
+<p><img alt="" src="../_images/cache_backup_4.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup will be run as a full backup by default.</p></li>
+</ul>
+</div></blockquote>
 </section>
 <section id="create-log-backup-jobs">
 <h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>Based on periodic full backups, you can add frequent log backups only to back up the transaction logs of the databases separately. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be enough. But if your business requires minimizing the work-loss risk, consider running log backups more frequently. More frequent log backups can increase the frequency of log truncation, making log files smaller.</p>
+<p>Based on periodic full and incremental backups, you can also add frequent log backups to back up only the binary logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.</p>
 <ul class="simple">
-<li><p>The steps to create a log backup are similar to steps to create a full backup. Select <strong>Log</strong> as the backup type and choose the databases.</p></li>
+<li><p>Creating a log backup job is the same as creating a full backup job. Select <strong>Log</strong> as the backup type.</p></li>
 </ul>
-<p><img alt="" src="../_images/sybase_backup_4.png" /></p>
+<p><img alt="" src="../_images/cache_backup_5.png" /></p>
 <blockquote>
 <div><p>Note:</p>
-<ol class="arabic simple">
-<li><p>Log backups are only available for databases that meet all of the following conditions:</p></li>
-</ol>
 <ul class="simple">
-<li><p>Data and logs are stored in separate devices.</p></li>
-<li><p>Set the “trunc log on chkpt” database option to “false” (off/disabled).</p></li>
-<li><p>Log backup jobs only support the backup of the User databases.</p></li>
+<li><p>Log backup requires the Global Journal State database option enabled.</p></li>
+<li><p>Set the When to purge journal files database options to reasonable values.</p></li>
 </ul>
-<ol class="arabic simple" start="2">
-<li><p>Run a Full backup job for the User databases before the first Log backup job.</p></li>
-<li><p>A full backup job does not truncate transaction logs, while a log backup job will truncate the inactive logs after the job is executed.</p></li>
-<li><p>To keep the database’s logs from getting full, it is recommended to set up a log backup job schedule. For the databases that do not support log backups, set the “trunc log on chkpt” database option to “true” (on/enabled), and the databases will clean up logs periodically.</p></li>
-</ol>
 </div></blockquote>
-<p><img alt="" src="../_images/sybase_backup_5.png" /></p>
 </section>
 </section>
 <section id="create-restore-jobs">
 <h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
-<p>This chapter introduces how to restore Sybase databases. ADPS provides two restore types based on the actual demands of users: Timepoint Restore and Recovery Testing.</p>
+<p>This chapter introduces how to restore Caché databases. ADPS provides two restore types: timepoint restore and recovery testing.</p>
 <section id="id1">
 <h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>A backup job has been completed. See <em>Create Backup Jobs</em>.</p></li>
-<li><p>To restore to another host, it is required to install the agent on that host, activate its license, and assign the authorization.</p></li>
+<li><p>A backup job has been completed successfully. See <em>Create Backup Jobs</em>.</p></li>
+<li><p>To restore to another host, install the agent on that host, activate its license, and assign the resource to users.</p></li>
 </ul>
 </section>
 <section id="create-timepoint-restore-jobs">
 <h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
-<p>When a logical error or a disaster occurs in a Sybase database, timepoint restore allows you to restore the database to a specified point-in-time state.</p>
-<p>(1) Select the Sybase database host and instance, and click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Timepoint Restore</strong> as the restore type, and select the <strong>Database</strong>. The System databases can only be restored to the full backup state, while the User databases can be restored to a specific point-in-time state. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/sybase_restore_1.png" /></p>
-<ul class="simple">
-<li><p><strong>Restore to Point-in-time</strong>: You can select a backup set by clicking the time displayed next to the <strong>Restore to Point-in-time</strong> option, and specify a point in time by dragging the slider control.</p></li>
-</ul>
-<p><img alt="" src="../_images/sybase_restore_2.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. The restore target can be the source host or a different host. Click <strong>Next</strong>.</p>
-<ul class="simple">
-<li><p>Source host: The Restore Target page selects the source host and Sybase databases by default.</p></li>
-<li><p>Different host: On Restore Target page, you can select a different host. Restoring to a different host requires the same version or from an old version to a new version.</p></li>
-</ul>
-<p>(4) Set <strong>Restore Schedule</strong>. Timepoint restore only supports immediate and one-time restore schedules.</p>
-<p>(5) Set <strong>Restore Options</strong>. If you leave <strong>Restore Database</strong> option empty, the restore job will overwrite the original databases. Set advanced options, including reconnection time, speed limit, precondition, and pre/post action according to your needs.</p>
-<p>(6) Confirm the job information and click <strong>Submit</strong>.</p>
+<p>When a logical error or a disaster occurs in a Caché database, timepoint restore allows to restore the database to the state of the most recent full backup first, and then use the backup logs to roll back the database to the specified point in time. For the database that has only run a full backup job, the timepoint restore can only restore it to the data state at the end of the backup job.</p>
+<p>(1) Select the Cache host and resource. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Timepoint Restore</strong> as the restore type, and select the <strong>Database</strong>. You can select a backup set by clicking the time displayed next to the <strong>Restore to Point-in-time</strong> option, and specify a point in time by dragging the slider control. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/cache_restore_1.png" /></p>
+<p>(3) Set <strong>Restore Target</strong>. The restore target can be the source host or a different host. Restoring to a different host requires the same OS and database versions. Click <strong>Next</strong>.</p>
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
-<li><p>When you restore to a new database, one or more new device files will be created for the restore job. Before you run a restore job, ensure that the number of existing devices in the database does not exceed the upper limit.</p></li>
+<li><p>To restore to the source host or another instance on a different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental point in time.</p></li>
 </ul>
 </div></blockquote>
+<p>(4) Set <strong>Restore Schedule</strong>. It only supports immediate and one-time restore schedules.</p>
+<p>(5) Set <strong>Restore Options</strong>. Click <strong>Next</strong>.</p>
+<p>(6) Confirm the job information and submit the job.</p>
 </section>
 <section id="create-recovery-testing-jobs">
 <h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
-<p>With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest Sybase backup set to another instance on the source host or a different host and to check the backup set’s availability.</p>
-<p>(1) Select Sybase database host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Recovery Testing</strong> as the restore type, and select the <strong>Database</strong>. The Backup Sets page does not have the Backup Sets and Restore to a Point in time options, because the recovery testing job will recover the selected host to the latest backup set state of the original instance.</p>
-<p><img alt="" src="../_images/sybase_restore_3.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. You can select another instance on the source host or a different host as the restore target. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedules. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>, including reconnection time, speed limit, pre action and post action. Click <strong>Next</strong>.</p>
-<p>(6) Confirm the job information and click <strong>Submit</strong>.</p>
-<p>(7) Wait for the job to be executed.</p>
+<p>Recovery testing verifies the integrity and availability of the backup set. With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest Caché backup set to another instance.</p>
+<p>(1) Select the Caché host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Recovery Testing</strong> and select the restore source. You can specify the database name by clicking the <strong>Rename</strong> icon next to the selected database.</p>
+<p><img alt="" src="../_images/cache_restore_2.png" /></p>
+<p>(3) Select <strong>Restore Target</strong>. The source instance cannot be selected as the restore target. The selected restore target requires that the database version is consistent with that of the source database. Click <strong>Next</strong>.</p>
+<p>(4) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p>
+<p>(5) Set <strong>Restore Options</strong>. Click <strong>Next</strong>.</p>
+<p>(6) Confirm the job information. Click <strong>Submit</strong>.</p>
+<p>(7) Wait for the job cycle to be executed. The job will restore the latest backup sets of the source host.</p>
 </section>
 </section>
 <section id="manage-jobs">
 <h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
-<p>On the <strong>Job</strong> page, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
-<p><img alt="" src="../_images/sybase_job_1.png" /></p>
+<p>The Job page provides the job information of all agents. You can start, modify, and delete the jobs.</p>
+<p><img alt="" src="../_images/cache_job_1.png" /></p>
 <ul class="simple">
-<li><p>Start: Click <img alt="" src="../_images/sybase_job_2.png" /> to start the job immediately.</p></li>
-<li><p>Modify: Click <img alt="" src="../_images/sybase_job_3.png" /> to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
-<li><p>Clone: Click <img alt="" src="../_images/sybase_job_4.png" /> to create multiple similar backup jobs.</p></li>
-<li><p>Delete: Click <img alt="" src="../_images/sybase_job_5.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+<li><p>Start: Click <img alt="" src="../_images/cache_job_2.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click<img alt="" src="../_images/cache_job_3.png" /> to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
+<li><p>Delete: Click<img alt="" src="../_images/cache_job_4.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
 </ul>
 </section>
 <section id="backup-protection-strategy">
@@ -1125,58 +1000,72 @@ title="Fullscreen mode"
 <section id="backup-schedule-operation">
 <h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
 <p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
-<p><img alt="" src="../_images/sybase_time_1.png" /></p>
+<p><img alt="" src="../_images/cache_job_5.png" /></p>
 <ul class="simple">
 <li><p>Immediate: The job starts immediately after it is submitted.</p></li>
 <li><p>One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.</p></li>
-<li><p>Hourly: The job runs after a specified number of hours according to the setting. The value range is an integer between 1 and 24.</p></li>
-<li><p>Daily: The job runs after a specified number of days according to the setting. The value range is an integer between 1 and 5.</p></li>
-<li><p>Weekly: The job runs after a specified number of weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs after a specified number of months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.</p></li>
+<li><p>Hourly: The job runs every few hours according to the setting. The value range is an integer between 1 and 24.</p></li>
+<li><p>Daily: The job runs every few days according to the setting. The value range is an integer between 1 and 5.</p></li>
+<li><p>Weekly: The job runs every few weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs every few months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.</p></li>
 </ul>
 <blockquote>
 <div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
 </div></blockquote>
-<p><img alt="" src="../_images/sybase_time_2.png" /></p>
+<p><img alt="" src="../_images/cache_job_6.png" /></p>
 <blockquote>
 <div><p><strong>The actual execution time is:</strong></p>
 <ul class="simple">
-<li><p>If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).</p></li>
-<li><p>If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).</p></li>
-<li><p>If the current time is Saturday 17:00, the run time will be next Friday 18:00.</p></li>
+<li><p>If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00</p></li>
 <li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
 </ul>
 </div></blockquote>
 </section>
 <section id="backup-strategy-advice">
 <h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
-<p>ADPS offers two Sybase backup types: full backup and log backup. Full backup and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
+<p>There are three types to back up Caché: full backup, incremental backup, and log backup. Full backup, incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
 <ol class="arabic simple">
 <li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
-<li><p>If the database supports log backups, you can run a <strong>Log Backup</strong> every few hours to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
+<li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> every few hours to ensure that the restore granularity RPO can reach the second level.</p></li>
 </ol>
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
-<li><p>Avoid using the strategies of all full backups or a full backup followed by log backups.</p></li>
+<li><p>Avoid using the following strategies:</p>
+<ul>
+<li><p>Perform only full backups.</p></li>
+<li><p>Perform a full backup followed by all incremental or log backups.</p></li>
+</ul>
+</li>
 </ul>
 </div></blockquote>
 </section>
 </section>
-<section id="channel-number-configuration">
-<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
-<ul>
-<li><p>Description of Channel number for backup jobs</p>
-<p>Sybase supports up to 32 channels. You can set the Channel number for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The Channel number is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the Channel number exceeds that of CPU cores.</p>
-</li>
-<li><p>Description of Channel number for restore jobs</p>
-<p>The channel number for a restore job is the same as that for the backup job. The restore page does not show the Channels option by default.</p>
-</li>
-</ul>
+<section id="limitation">
+<h2>Limitation<a class="headerlink" href="#limitation" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Limitation</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>Do not support the following types of databases: dismounted, read-only, and CACHESYS. <br> As there is only one backup list for one instance, all backup jobs will share the same backup list. If the newly added backup job needs to modify the backup list, the backup job will be invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore</p></td>
+<td><p>The restore of the database using the interactive key activation is not supported. If you need to restore to the encrypted instance, it is recommended to set the unattended key activation or disable the encryption feature and then enable it after the restore job is completed. <br> The Reconnection Time feature is not supported.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="glossary">
 <h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
-<table class="longtable table" id="id4">
+<table class="table" id="id4">
 <caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
@@ -1184,14 +1073,8 @@ title="Fullscreen mode"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Fast compression</p></td>
-<td><p>Compress data during the backup using fast compression algorithms.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Log truncation</p></td>
-<td><p>Log truncation automatically frees space in the log for reuse by the transaction logs. Log truncation removes inactive virtual log files from the logical transaction logs of the Sybase databases, freeing up the space in the logical logs so that the physical transaction logs can reuse.</p></td>
-</tr>
-<tr class="row-even"><td><p>Device</p></td>
-<td><p>A database device stores the objects that make up databases. To create Sybase databases, you need to initialize database devices and specify the storage partition to store databases.</p></td>
+<tr class="row-even"><td><p>Global Journal</p></td>
+<td><p>Record all DDL operations</p></td>
 </tr>
 </tbody>
 </table>
@@ -1206,17 +1089,17 @@ title="Fullscreen mode"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../postgres/postgres.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../agent_install/agent_install.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">User Guide for PostgreSQL</p>
+            <p class="prev-next-title">Agent Installation Guide</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../vmware/vmware.html" title="next page">
+    <a class='right-next' id="next-link" href="../db2/db2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">User Guide for VMware</p>
+        <p class="prev-next-title">User Guide for DB2</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

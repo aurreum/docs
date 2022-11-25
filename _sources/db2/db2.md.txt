@@ -178,7 +178,7 @@ Log in to ADPS console as the operator, go to **Storage Pool**, and verify the p
 2. You can use **OS Authentication** or **Access Key** to log in to your DB2 database.
 
 - **OS Authentication**: For OS account login requirements, see *Limitation*.
-- **Access Key**: Log in with Access Key tied to the user who has been authorized the resource. Data security risks exist when back and restore jobs are carried out without the database password.
+- **Access Key**: Log in with Access Key tied to the user who has been authorized the resource. Data security risks exist when backup and restore jobs are carried out without the database password.
 
 3. Select **Authentication**. Enter **User** and **Password**. Click **Login**.
 
