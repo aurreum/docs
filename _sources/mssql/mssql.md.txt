@@ -140,7 +140,7 @@ ADPS supports the backup and restore for SQL Server on Windows and Linux.
 
 1. Log in to the ADPS console as a user with the administrator privileges.
 
-2. Open **Resource** from the side bar, and click the **Install Agent** icon. The **Install agent** window appears.
+2. Open **Resource** from the menu bar, and click the **Install Agent** icon. The **Install agent** window appears.
 
     ![](../image/01-agent/mssql/mssql_agent01.png)
 
@@ -178,7 +178,7 @@ For Linux, ADPS allows users to directly download the packages from the backup s
 
 1. Log in to the ADPS console as a user with the administrator privileges.
 
-2. Open **Resource** from the sidebar and click the **Install Agent** icon. The **Install agent** window appears.
+2. Open **Resource** from the menu bar and click the **Install Agent** icon. The **Install agent** window appears.
 
 3. In the **Install agent** window, select **Linux** from the list of operating systems and **SQL Server** from the module list. The curl and wget installation commands appear.
 
@@ -221,7 +221,7 @@ Before the backup and restore, activate the SQL Server license and authorize the
 
 1. Log in to the ADPS console as a user with the administrator privileges.
 
-2. Open **Resource** from the sidebar, and find the host that you want to activate. Click the **Register** icon next to the host. The process automatically advances to the **Activate** step.
+2. Open **Resource** from the menu bar, and find the host that you want to activate. Click the **Register** icon next to the host. The process automatically advances to the **Activate** step.
 
     ![](../image/02-license/mssql/mssql_lincense02.png)
 
@@ -318,7 +318,7 @@ This chapter introduces how to back up the SQL Server databases.
 
 Full backup jobs take database as the backup unit and support the backup of the System databases and User databases.
 
-1. Open **Backup** from the sidebar. Select the host and SQL Server instance. Click **Next**.
+1. Open **Backup** from the menu bar. Select the host and SQL Server instance. Click **Next**.
 
 2. Select **Full** as the backup type and choose the databases that you want to back up. Click **Next**.
 
@@ -392,7 +392,7 @@ Creating a log backup is similar to creating a full backup. Select **Log** as th
 
 ![](../image/03-mssql/mssql_log03.png)
 
-**Log backup threshold**: This option is not enabled by default. When you enable it, you can set the log space usage threshold.  Each time before the running of log backup, the log space usage rate will be checked. Log backup will perform on the databases whose log space usage reaches the threshold.
+**Log backup threshold**: This option is not enabled by default. When you enable it, you can set the log space usage threshold.  Each time before the running of log backup, the log space usage rate will be checked. The log backup will be performed on the databases whose log space usage reaches the threshold.
 
 > Note: You will see this option only when selecting hourly, daily, weekly, and monthly backup schedules. 
 

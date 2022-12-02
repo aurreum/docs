@@ -141,7 +141,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../linux-os/linux-os.html">
-   User’s Guide for Linux OS
+   User Guide for Linux OS
   </a>
  </li>
  <li class="toctree-l1">
@@ -1359,7 +1359,7 @@ title="Fullscreen mode"
 <h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>Log in to the ADPS console as a user with the administrator privileges.</p></li>
-<li><p>Open <strong>Resource</strong> from the side bar, and click the <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p>
+<li><p>Open <strong>Resource</strong> from the menu bar, and click the <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p>
 <p><img alt="" src="../_images/mssql_agent01.png" /></p>
 </li>
 <li><p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
@@ -1391,7 +1391,7 @@ title="Fullscreen mode"
 <p>For Linux, ADPS allows users to directly download the packages from the backup server and execute the installation command over the Internet.</p>
 <ol class="arabic simple">
 <li><p>Log in to the ADPS console as a user with the administrator privileges.</p></li>
-<li><p>Open <strong>Resource</strong> from the sidebar and click the <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>Open <strong>Resource</strong> from the menu bar and click the <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
 <li><p>In the <strong>Install agent</strong> window, select <strong>Linux</strong> from the list of operating systems and <strong>SQL Server</strong> from the module list. The curl and wget installation commands appear.</p></li>
 </ol>
 <blockquote>
@@ -1435,7 +1435,7 @@ title="Fullscreen mode"
 <p>Before the backup and restore, activate the SQL Server license and authorize the resource to users.</p>
 <ol class="arabic">
 <li><p>Log in to the ADPS console as a user with the administrator privileges.</p></li>
-<li><p>Open <strong>Resource</strong> from the sidebar, and find the host that you want to activate. Click the <strong>Register</strong> icon next to the host. The process automatically advances to the <strong>Activate</strong> step.</p>
+<li><p>Open <strong>Resource</strong> from the menu bar, and find the host that you want to activate. Click the <strong>Register</strong> icon next to the host. The process automatically advances to the <strong>Activate</strong> step.</p>
 <p><img alt="" src="../_images/mssql_lincense02.png" /></p>
 </li>
 <li><p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>. The process automatically advances to the <strong>Authorize</strong> step.</p>
@@ -1535,7 +1535,7 @@ CGroup: /system.slice/mssql-server.service
 <h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
 <p>Full backup jobs take database as the backup unit and support the backup of the System databases and User databases.</p>
 <ol class="arabic">
-<li><p>Open <strong>Backup</strong> from the sidebar. Select the host and SQL Server instance. Click <strong>Next</strong>.</p></li>
+<li><p>Open <strong>Backup</strong> from the menu bar. Select the host and SQL Server instance. Click <strong>Next</strong>.</p></li>
 <li><p>Select <strong>Full</strong> as the backup type and choose the databases that you want to back up. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/mssql_backup01.png" /></p>
 </li>
@@ -1600,7 +1600,7 @@ CGroup: /system.slice/mssql-server.service
 <li><p><strong>Backup Options</strong> -&gt; <strong>Common</strong> provides the <strong>Log backup threshold</strong> option.</p></li>
 </ul>
 <p><img alt="" src="../_images/mssql_log03.png" /></p>
-<p><strong>Log backup threshold</strong>: This option is not enabled by default. When you enable it, you can set the log space usage threshold.  Each time before the running of log backup, the log space usage rate will be checked. Log backup will perform on the databases whose log space usage reaches the threshold.</p>
+<p><strong>Log backup threshold</strong>: This option is not enabled by default. When you enable it, you can set the log space usage threshold.  Each time before the running of log backup, the log space usage rate will be checked. The log backup will be performed on the databases whose log space usage reaches the threshold.</p>
 <blockquote>
 <div><p>Note: You will see this option only when selecting hourly, daily, weekly, and monthly backup schedules.</p>
 </div></blockquote>
