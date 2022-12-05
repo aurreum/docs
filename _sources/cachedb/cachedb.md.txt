@@ -1,9 +1,9 @@
-# User Guide for Caché 
+# User Guide for Caché
 
 
 ## Introduction
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Caché databases. This guide introduces how to properly use ADPS to back up and restore Caché databases. 
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Caché databases. This guide introduces how to properly use ADPS to back up and restore Caché databases.
 
 ## Features
 
@@ -52,7 +52,7 @@ Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** ico
 ![cache_agent_1](../image/01-agent/cache/cache_agent_1.png)
 
 
-### Install and Configure Agent on Windows OS 
+### Install and Configure Agent on Windows OS
 
 #### Download Windows Installation Package
 
@@ -61,7 +61,7 @@ In the **Install agent** window, select **Windows** and click **Download Windows
 ![](../image/01-agent/cache/cache_agent_2.png)
 
 
-#### Install Agent on Windows 	
+#### Install Agent on Windows
 
   1. Upload the installation package to the agent.
   2. Double-click the package to launch the setup wizard and click **Next**.
@@ -81,7 +81,7 @@ In the **Install agent** window, select **Windows** and click **Download Windows
 > - If the backup server is a non-tenant version, it is not required to configure Access Key.
 > - If the backup server is a tenant version, then an Access Key is required. If you leave it blank, the resource will be bound to the admin. If you enter the Access Key, the resource will be bound to the corresponding tenant.
 
-###  Install Agent on Linux 
+###  Install Agent on Linux
 
 1. Select **Linux** as the system and **InterSystemsCache** as the module. Copy an installation command.
 
@@ -107,9 +107,9 @@ Log in to ADPS console as the admin, go to **Resource**, and select the host tha
 
 ![](../image/02-license/cache/cache_license_2.png)
 
-### Activate License	
+### Activate License
 
-In the pop-up **Activate** window, select the resource that you want to activate. Click **Submit**.       
+In the pop-up **Activate** window, select the resource that you want to activate. Click **Submit**.
 
 ![](../image/02-license/cache/cache_license_3.png)
 
@@ -200,7 +200,7 @@ This chapter introduces how to back up the Caché databases.
 
 ![](../image/03-database/cache/cache_backup_3.png)
 
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s). 
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s).
 
 **Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
@@ -212,18 +212,18 @@ This chapter introduces how to back up the Caché databases.
 
 > Note:
 > - Caché database name supports only 1 to 64 characters, starting with a letter, and may contain alphanumerics, dashes, or underscores.
-> - When creating a database with SQL statement, two databases will be created automatically. Select one of them to back up, and the backup job will back up both databases.  
+> - When creating a database with SQL statement, two databases will be created automatically. Select one of them to back up, and the backup job will back up both databases.
 > - File permissions are required to add a local storage pool.
 ### Create Incremental Backup Jobs
 
-An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week. 
+An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week.
 
 - Creating an incremental backup job is the same as creating a full backup job. Select **Incremental** as the backup type.
 
 ![](../image/03-database/cache/cache_backup_4.png)
 
 
-  > Note: 
+  > Note:
   >
   > - If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup will be run as a full backup by default.
 
@@ -237,11 +237,11 @@ Based on periodic full and incremental backups, you can also add frequent log ba
 
 > Note:
 > - Log backup requires the Global Journal State database option enabled.
-> - Set the When to purge journal files database options to reasonable values. 
+> - Set the When to purge journal files database options to reasonable values.
 
 ## Create Restore Jobs
 
-This chapter introduces how to restore Caché databases. ADPS provides two restore types: timepoint restore and recovery testing.  
+This chapter introduces how to restore Caché databases. ADPS provides two restore types: timepoint restore and recovery testing.
 
 ### Prerequisites
 
@@ -250,7 +250,7 @@ This chapter introduces how to restore Caché databases. ADPS provides two resto
 
 ### Create Timepoint Restore Jobs
 
-When a logical error or a disaster occurs in a Caché database, timepoint restore allows to restore the database to the state of the most recent full backup first, and then use the backup logs to roll back the database to the specified point in time. For the database that has only run a full backup job, the timepoint restore can only restore it to the data state at the end of the backup job. 
+When a logical error or a disaster occurs in a Caché database, timepoint restore allows to restore the database to the state of the most recent full backup first, and then use the backup logs to roll back the database to the specified point in time. For the database that has only run a full backup job, the timepoint restore can only restore it to the data state at the end of the backup job.
 
 (1) Select the Cache host and resource. Click **Next**.
 
@@ -262,7 +262,7 @@ When a logical error or a disaster occurs in a Caché database, timepoint restor
 
 > Note:
 >
-> - To restore to the source host or another instance on a different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental point in time. 
+> - To restore to the source host or another instance on a different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental point in time.
 
 (4) Set **Restore Schedule**. It only supports immediate and one-time restore schedules.
 
@@ -306,7 +306,7 @@ The Job page provides the job information of all agents. You can start, modify, 
 
 ## Backup Protection Strategy
 
-###  Backup Schedule Operation	
+###  Backup Schedule Operation
 ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
 
 ![](../image/03-database/cache/cache_job_5.png)
@@ -323,16 +323,16 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 
 ![](../image/03-database/cache/cache_job_6.png)
 
-> **The actual execution time is:** 
+> **The actual execution time is:**
 >
 > - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
 > - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).
 > - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00
 > - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
-### Backup Strategy Advice	
+### Backup Strategy Advice
 
-There are three types to back up Caché: full backup, incremental backup, and log backup. Full backup, incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.  
+There are three types to back up Caché: full backup, incremental backup, and log backup. Full backup, incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
 
 1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
 2. After that, you can run an **Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
