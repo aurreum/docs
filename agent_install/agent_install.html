@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Agent Installation Guide &#8212; ADPS 3.0.35274</title>
+    <title>Agent Installation Guide &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -299,23 +299,23 @@ title="Fullscreen mode"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-installation-package">
-     Windows Installation Package
+    <a class="reference internal nav-link" href="#windows">
+     Windows
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linux-aix-installation-packages">
-     Linux &amp; AIX Installation Packages
+    <a class="reference internal nav-link" href="#linux-aix">
+     Linux &amp; AIX
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solaris-platform-installation-packages">
-     Solaris Platform Installation Packages
+    <a class="reference internal nav-link" href="#solaris">
+     Solaris
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hp-platform-installation-packages">
-     HP Platform Installation Packages
+    <a class="reference internal nav-link" href="#hp">
+     HP
     </a>
    </li>
   </ul>
@@ -419,7 +419,7 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solaris">
+    <a class="reference internal nav-link" href="#id3">
      Solaris
     </a>
    </li>
@@ -472,23 +472,23 @@ title="Fullscreen mode"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-installation-package">
-     Windows Installation Package
+    <a class="reference internal nav-link" href="#windows">
+     Windows
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linux-aix-installation-packages">
-     Linux &amp; AIX Installation Packages
+    <a class="reference internal nav-link" href="#linux-aix">
+     Linux &amp; AIX
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solaris-platform-installation-packages">
-     Solaris Platform Installation Packages
+    <a class="reference internal nav-link" href="#solaris">
+     Solaris
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hp-platform-installation-packages">
-     HP Platform Installation Packages
+    <a class="reference internal nav-link" href="#hp">
+     HP
     </a>
    </li>
   </ul>
@@ -592,7 +592,7 @@ title="Fullscreen mode"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solaris">
+    <a class="reference internal nav-link" href="#id3">
      Solaris
     </a>
    </li>
@@ -612,11 +612,11 @@ title="Fullscreen mode"
 <h1>Agent Installation Guide<a class="headerlink" href="#agent-installation-guide" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>This guide describes how to properly install Aurreum Data Protection Suite (ADPS) agents so that the ADPS backup server can perform unified operation and management of the agents.</p>
+<p>This guide describes how to properly install Aurreum Data Protection Suite (ADPS) agents so that the ADPS backup server can perform unified operation and management of resources.</p>
 </section>
 <section id="supported-environments">
 <h2>Supported Environments<a class="headerlink" href="#supported-environments" title="Permalink to this heading">#</a></h2>
-<p>Before installation, check whether the operating system and resources of the agent are supported by ADPS. Unsupported environments could result in problems such as installation failure, abnormal server startup, and unrecognized resources on the agent.</p>
+<p>Before installation, check whether your operating systems and resources are supported by ADPS. Unsupported environments could result in problems such as installation failure, abnormal server startup, and unrecognized resources.</p>
 <section id="supported-operating-systems">
 <h3>Supported Operating Systems<a class="headerlink" href="#supported-operating-systems" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -692,7 +692,6 @@ title="Fullscreen mode"
 <li><p>Google Cloud Storage https://cloud.google.com/storage/ss</p></li>
 <li><p>IBM Cloud Object Storage https://www.ibm.com/cloud/object-storage</p></li>
 <li><p>Backblaze B2 https://www.backblaze.com/b2/cloud-storage.html</p></li>
-<li><p>Ceph object storage</p></li>
 <li><p>Other S3 object storage services</p></li>
 </ul>
 </li>
@@ -701,11 +700,11 @@ title="Fullscreen mode"
 </section>
 <section id="prepare-installation-packages">
 <h2>Prepare Installation Packages<a class="headerlink" href="#prepare-installation-packages" title="Permalink to this heading">#</a></h2>
-<p>You can contact Aurreum technical support to get ADPS software packages. The version of the ADPS agent must be the same as the version of the ADPS backup server software. Mixed-version installation and use will lead to installation failure and abnormal function. Different operating systems require different agent packages.</p>
-<section id="windows-installation-package">
-<h3>Windows Installation Package<a class="headerlink" href="#windows-installation-package" title="Permalink to this heading">#</a></h3>
-<table class="table" id="id3">
-<caption><span class="caption-text">Windows Installation Package</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<p>You can go to the Aurreum official website or contact Aurreum technical support to get ADPS software packages. The version of the ADPS agent must be the same as the version of the ADPS backup server software. Mixed-version installation and use will lead to installation failure and abnormal function. Different operating systems require different agent packages.</p>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id4">
+<caption><span class="caption-text">Windows Package</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Software Package</p></th>
 <th class="head"><p>Function</p></th>
@@ -713,15 +712,15 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-left"><p>adps_version.dbg.exe</p></td>
-<td><p>Windows OS installation package contains the backup and restore modules for various resources including File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs.</p></td>
+<td><p>This package contains the backup and restore modules for various resources on Windows including File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="linux-aix-installation-packages">
-<h3>Linux &amp; AIX Installation Packages<a class="headerlink" href="#linux-aix-installation-packages" title="Permalink to this heading">#</a></h3>
-<table class="table" id="id4">
-<caption><span class="caption-text">Linux &amp; AIX Installation Packages</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<section id="linux-aix">
+<h3>Linux &amp; AIX<a class="headerlink" href="#linux-aix" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id5">
+<caption><span class="caption-text">Linux &amp; AIX Packages</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Software Package</p></th>
 <th class="head"><p>Function</p></th>
@@ -729,10 +728,10 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>adps-common-version.dbg.architecture.suffix</p></td>
-<td><p>Dependent package. It should be installed on all agents.</p></td>
+<td><p>Dependent package. It should be installed on all hosts.</p></td>
 </tr>
 <tr class="row-odd"><td><p>adps-agent-version.dbg.architecture.suffix</p></td>
-<td><p>Agent base package. It should be installed on all agents.</p></td>
+<td><p>Agent base package. It should be installed on all hosts.</p></td>
 </tr>
 <tr class="row-even"><td><p>adps-agent-file-version.dbg.architecture.suffix</p></td>
 <td><p>For File backup and restore</p></td>
@@ -762,30 +761,30 @@ title="Fullscreen mode"
 <td><p>For Sybase database backup and restore</p></td>
 </tr>
 <tr class="row-odd"><td><p>adps-agent-mssql-version.dbg.architecture.suffix</p></td>
-<td><p>For Linux SQL Server database backup and restore</p></td>
+<td><p>For SQL Server database backup and restore</p></td>
 </tr>
 <tr class="row-even"><td><p>adps-agent-postgres-version.dbg.architecture.suffix</p></td>
 <td><p>For PostgreSQL database backup and restore</p></td>
 </tr>
 <tr class="row-odd"><td><p>adps-agent-obs-version.dbg.architecture.suffix</p></td>
-<td><p>For OBS database backup and restore</p></td>
+<td><p>For OBS backup and restore</p></td>
 </tr>
 <tr class="row-even"><td><p>adps-agent-hadoop-version.dbg.architecture.suffix</p></td>
-<td><p>For Hadoop database backup and restore</p></td>
+<td><p>For Hadoop backup and restore</p></td>
 </tr>
 <tr class="row-odd"><td><p>adps-agent-ndmp-version.dbg.architecture.suffix</p></td>
-<td><p>For NDMP database backup and restore</p></td>
+<td><p>For NDMP backup and restore</p></td>
 </tr>
 <tr class="row-even"><td><p>adps-agent-vmware-version.dbg.architecture.suffix</p></td>
-<td><p>For VMware database backup and restore</p></td>
+<td><p>For VMware backup and restore</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="solaris-platform-installation-packages">
-<h3>Solaris Platform Installation Packages<a class="headerlink" href="#solaris-platform-installation-packages" title="Permalink to this heading">#</a></h3>
-<table class="table" id="id5">
-<caption><span class="caption-text">Solaris Platform Installation Packages</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
+<section id="solaris">
+<h3>Solaris<a class="headerlink" href="#solaris" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id6">
+<caption><span class="caption-text">Solaris Package</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Software Package</p></th>
 <th class="head"><p>Function</p></th>
@@ -793,15 +792,15 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>adps-version-sol9-sparc64-local.gz</p></td>
-<td><p>Solaris OS installation package contains the backup and restore modules of various resources such as File and Oracle. You can select the resources and install the corresponding modules according to your needs.</p></td>
+<td><p>This package contains the backup and restore modules of various resources on Solaris such as File and Oracle. You can select the resources and install the corresponding modules according to your needs.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="hp-platform-installation-packages">
-<h3>HP Platform Installation Packages<a class="headerlink" href="#hp-platform-installation-packages" title="Permalink to this heading">#</a></h3>
-<table class="table" id="id6">
-<caption><span class="caption-text">HP Platform Installation Packages</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
+<section id="hp">
+<h3>HP<a class="headerlink" href="#hp" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id7">
+<caption><span class="caption-text">HP Package</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Software Package</p></th>
 <th class="head"><p>Function</p></th>
@@ -809,7 +808,7 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>adps-version-ia64.depot.gz</p></td>
-<td><p>HP OS installation package integrates the backup and restore modules of various resources such as File and Oracle. You can select the resources and install the corresponding modules according to your needs.</p></td>
+<td><p>This package contains the backup and restore modules of various resources on HP such as File and Oracle. You can select the resources and install the corresponding modules according to your needs.</p></td>
 </tr>
 </tbody>
 </table>
@@ -821,15 +820,15 @@ title="Fullscreen mode"
 <h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Copy the agent installation package to a drive partition with enough space.</p></li>
-<li><p>Double-click the installation package to open the setup wizard.</p></li>
-<li><p>Select the resource modules to be installed.</p>
-<p>You can select the resource types to install their backup and restore modules. During installation, the database resources, files, or applications installed on the agent are selected by default. Resource types include File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange.</p>
+<li><p>Double-click the package to open the setup wizard.</p></li>
+<li><p>Select the resource modules.</p>
+<p>You can select the resource types to install their backup and restore modules. The databases or applications installed on the host are selected by default. Resource types include File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange.</p>
 <p><img alt="" src="../_images/install-7.png" /></p>
 </li>
 <li><p>Enter the IP of the backup server, SSL encryption (optional), and Access Key (applicable to multi-tenant scenarios).</p>
 <p><img alt="" src="../_images/install-8.png" /></p>
 </li>
-<li><p>Select Destination Folder.</p></li>
+<li><p>Select a Destination Folder.</p></li>
 <li><p>Wait for the installation.</p></li>
 <li><p>After the installation, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
 <p><img alt="" src="../_images/install-12.png" /></p>
@@ -840,7 +839,7 @@ title="Fullscreen mode"
 <h3>Install on Linux<a class="headerlink" href="#install-on-linux" title="Permalink to this heading">#</a></h3>
 <section id="local-install">
 <h4>Local Install<a class="headerlink" href="#local-install" title="Permalink to this heading">#</a></h4>
-<p>Upload the installation package to the agent for manual installation and configuration. Run the package with root privileges in the directory where the package resides.</p>
+<p>Upload the installation package to the target host for manual installation and configuration. Run the package with root privileges in the directory where the package resides.</p>
 <section id="centos-red-hat">
 <h5>CentOS &amp; Red Hat<a class="headerlink" href="#centos-red-hat" title="Permalink to this heading">#</a></h5>
 <ol class="arabic">
@@ -849,12 +848,12 @@ title="Fullscreen mode"
 </pre></div>
 </div>
 </li>
-<li><p>Install resource backup and restore packages. Add the corresponding packages in the following command according to your needs. Take File resource as an example:</p>
+<li><p>Install resource backup and restore packages. Add the corresponding packages in the following command according to your needs. Take the File resource as an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
 </li>
-<li><p>After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
+<li><p>After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># /etc/init.d/adps-agent config
 Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
 Please input Aurreum Data Protection Suite Backup Server port[50305]:
@@ -880,12 +879,12 @@ Starting adps-agent                                        [OK]
 </pre></div>
 </div>
 </li>
-<li><p>Install resource backup and restore software packages. Add the corresponding package behind the following command according to your needs. Take file resource as an example:</p>
+<li><p>Install resource backup and restore software packages. Add the corresponding package behind the following command according to your needs. Take the File resource as an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span>
 </pre></div>
 </div>
 </li>
-<li><p>After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
+<li><p>After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># sudo /etc/init.d/adps-agent config
 Please input Aurreum Data Protection Suite Backup Server host[192.168.18.110]: 192.168.18.110
 Please input Aurreum Data Protection Suite Backup Server port[50305]: 50305
@@ -925,8 +924,8 @@ Do you want to restart adps-agent? [Y]:
 <h4>Optional Configuration<a class="headerlink" href="#optional-configuration" title="Permalink to this heading">#</a></h4>
 <section id="reconfigure-agent">
 <h5>Reconfigure Agent<a class="headerlink" href="#reconfigure-agent" title="Permalink to this heading">#</a></h5>
-<p>Reconfigure the ADPS Agent when the agent instance is unable to automatically detect the already-installed backup and restore modules of Oracle, Informix, Sybase, PostgreSQL, Domino, and Caché.</p>
-<p>Execute the following commands:</p>
+<p>Reconfigure the ADPS Agent when the backup and restore modules of Oracle, Informix, Sybase, PostgreSQL, Domino, and Caché are already installed but the instances cannot be detected automatically.</p>
+<p>Run the following commands:</p>
 <ul>
 <li><p>Configure Oracle Home directory: /etc/init.d/adps-agent config oracle</p></li>
 <li><p>Configure Informix Home directory: /etc/init.d/adps-agent config informix</p></li>
@@ -946,7 +945,7 @@ Do you want to restart adps-agent? [Y]:
 <section id="configure-vmware">
 <h5>Configure VMware<a class="headerlink" href="#configure-vmware" title="Permalink to this heading">#</a></h5>
 <ol class="arabic">
-<li><p>To back up and restore VMware, the backup host should configure VDDK. Add VDDK as follows:</p>
+<li><p>To back up and restore VMware, configure VDDK on the backup host. Add VDDK as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">vddk</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">aurreum</span><span class="o">/</span><span class="n">adps</span><span class="o">/</span>
 </pre></div>
 </div>
@@ -987,7 +986,7 @@ Do you want to restart adps-agent? [Y]:
 <div><p>Note: Fill in the JRE installation directory and version. The default directory is under /usr/lib/jvm/</p>
 </div></blockquote>
 <ol class="arabic" start="2">
-<li><p>Install and configure Hadoop backup agent.</p>
+<li><p>Install and configure the Hadoop backup agent.</p>
 <ul>
 <li><p>Input JRE home. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">amd64</span><span class="o">/</span><span class="n">jre</span>
@@ -999,7 +998,7 @@ Do you want to restart adps-agent? [Y]:
 </pre></div>
 </div>
 </li>
-<li><p>To reconfigure Hadoop runtime environment, enter the following command:</p>
+<li><p>To reconfigure the Hadoop runtime environment, run the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">hadoop</span>
 </pre></div>
 </div>
@@ -1018,12 +1017,12 @@ Do you want to restart adps-agent? [Y]:
 </pre></div>
 </div>
 </li>
-<li><p>Install resource backup and restore packages. Add the corresponding package in the following command according to your needs. Take File resource as an example:</p>
+<li><p>Install resource backup and restore packages. Add the corresponding package in the following command according to your needs. Take the File resource as an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="o">--</span><span class="n">nodeps</span> <span class="o">--</span><span class="n">ignorearch</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_pcc64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
 </li>
-<li><p>After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
+<li><p>After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#/etc/init.d/adps-agent config
 Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
 Please input Aurreum Data Protection Suite Backup Server port[50305]:
@@ -1047,17 +1046,17 @@ Starting adps-agent
 <section id="install-on-hp-ux">
 <h3>Install on HP-UX<a class="headerlink" href="#install-on-hp-ux" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
-<li><p>To unzip adps–version-ia64.depot.gz, execute the following command with root privileges:</p>
+<li><p>To unzip adps–version-ia64.depot.gz, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gunzip</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">ia64</span><span class="o">.</span><span class="n">depot</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
 </li>
-<li><p>Install the agent and modules. For example, the absolute path of the unzipped package is /tmp/adps-version-ia64.depot. Install the Oracle module. Execute the command with root privileges as follows:</p>
+<li><p>Enter the absolute path of the unzipped package (e.g., /tmp/) and add the module name that you want to install. For example, to install the Oracle module, run the command with root privileges as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swinstall</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">ia64</span><span class="o">.</span><span class="n">depot</span>  <span class="n">adps</span><span class="o">.</span><span class="n">agent</span><span class="o">-</span><span class="n">oracle</span>
 </pre></div>
 </div>
 </li>
-<li><p>After the installation (or to change the current backup server), execute the configuration command:</p>
+<li><p>After the installation (or to change the current backup server), run the configuration command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span>
 </pre></div>
 </div>
@@ -1070,23 +1069,23 @@ Starting adps-agent
 <section id="install-on-solaris">
 <h3>Install on Solaris<a class="headerlink" href="#install-on-solaris" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
-<li><p>Select the corresponding installation package according to the Solaris system, bits, and resource. Take the Solaris 9 SPARC 64-bit as an example. Execute the unzip command with root privileges:</p>
+<li><p>Select the corresponding installation package according to the Solaris system, bits, and resource. Take the Solaris 9 SPARC 64-bit as an example. Run the unzip command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gunzip</span> <span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">sol9</span><span class="o">-</span><span class="n">sparc64</span><span class="o">-</span><span class="n">local</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
 </li>
-<li><p>Execute the following installation command:</p>
+<li><p>Run the following installation command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pkgadd</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">sol9</span><span class="o">-</span><span class="n">sparc64</span><span class="o">-</span><span class="n">local</span>
 </pre></div>
 </div>
 </li>
-<li><p>Select the modules that you want to install, eg: AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle</p></li>
+<li><p>Select the modules that you want to install, e.g., AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle</p></li>
 <li><p>Enter y or press Enter to the next step according to the prompts.</p></li>
-<li><p>After the installation is completed, execute the following configuration command:</p>
+<li><p>After the installation is completed, run the following configuration command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span>
 </pre></div>
 </div>
-<p>Follow the prompts to enter the IP address and port of the Backup Server.</p>
+<p>Follow the prompts to enter the IP address and port of the backup server.</p>
 </li>
 <li><p>Take the Oracle resource as an example. Configure Oracle Home directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span> <span class="n">oracle</span>
@@ -1103,14 +1102,14 @@ Starting adps-agent
 <h2>Uninstall Agent<a class="headerlink" href="#uninstall-agent" title="Permalink to this heading">#</a></h2>
 <section id="id1">
 <h3>Ubuntu &amp; Debian<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>This method is applicable to uninstall the agent on Linux with the APT package manager.</p>
+<p>This method applies to uninstall the agent on Linux with the APT package manager.</p>
 <ul>
-<li><p>Execute the command with root privileges to uninstall a module. For example, uninstall the adps-agent-file module.</p>
+<li><p>Run the command with root privileges to uninstall a module. For example, to uninstall the adps-agent-file module:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">purge</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span>
 </pre></div>
 </div>
 </li>
-<li><p>Execute the command with root privileges to uninstall all ADPS components.</p>
+<li><p>Run the command with root privileges to uninstall all ADPS components.</p>
 <blockquote>
 <div><p>Note: This command will completely remove the software packages and the configuration files.</p>
 </div></blockquote>
@@ -1122,14 +1121,14 @@ Starting adps-agent
 </section>
 <section id="id2">
 <h3>CentOS &amp; Red Hat<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>This method is applicable to uninstall the agent on Linux with the PRM package manager.</p>
+<p>This method applies to uninstall the agent on Linux with the PRM package manager.</p>
 <ul>
-<li><p>Execute the command with root privileges to uninstall a module. For example, uninstall the adps-agent-file module.</p>
+<li><p>Run the command with root privileges to uninstall a module. For example, to uninstall the adps-agent-file module:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">e</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span>
 </pre></div>
 </div>
 </li>
-<li><p>Execute the command with root privileges to uninstall all ADPS components.</p>
+<li><p>Run the command with root privileges to uninstall all ADPS components.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rpm -e `rpm -qa | grep adps`
 </pre></div>
 </div>
@@ -1139,21 +1138,21 @@ Starting adps-agent
 <section id="hp-ux">
 <h3>HP-UX<a class="headerlink" href="#hp-ux" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>Execute the command with root privileges to uninstall the modules. For example, uninstall adps-agent and adps-common.</p>
+<li><p>Run the command with root privileges to uninstall the modules. For example, to uninstall adps-agent and adps-common:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swremove</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span>
 </pre></div>
 </div>
 </li>
-<li><p>Execute the command with root privileges to uninstall all ADPS components.</p>
+<li><p>Run the command with root privileges to uninstall all ADPS components.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swremove</span> <span class="n">adps</span><span class="o">*</span>
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
-<section id="solaris">
-<h3>Solaris<a class="headerlink" href="#solaris" title="Permalink to this heading">#</a></h3>
-<p>Execute the command with root privileges to uninstall the modules. For example, uninstall AURREUMadps-agent and AURREUMadps-common.</p>
+<section id="id3">
+<h3>Solaris<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Run the command with root privileges to uninstall the modules. For example, uninstall AURREUMadps-agent and AURREUMadps-common.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pkgrm</span> <span class="n">AURREUMadps</span><span class="o">-</span><span class="n">agent</span> <span class="n">AURREUMadps</span><span class="o">-</span><span class="n">common</span>
 </pre></div>
 </div>
@@ -1193,7 +1192,7 @@ Starting adps-agent
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

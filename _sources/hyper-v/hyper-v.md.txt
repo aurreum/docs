@@ -64,17 +64,17 @@ class: longtable
 
 ## Download Hyper-V Agent Package
 
-1. Log in to the ADPS console as an administrator. Click **Resource** -> **Install Agent** icon. The **Install agent** window appears.
+1. Log in to the ADPS console as the admin. Click **Resource** -> **Install Agent** icon. The **Install agent** window appears.
 
    ![](../image/01-license/Hyper-V/license1.png)
 
-2. Select **Windows** and click **Download Windows agent** to download the package. 
+2. Select **Windows** and click **Download Windows agent** to download the package.
 
    ![](../image/03-Hyper-V/Hyper-V/agent.png)
 
-## Install and Configure Hyper-V Agent 
+## Install and Configure Hyper-V Agent
 
-1. Double-click the package to launch the setup wizard. 
+1. Double-click the package to launch the setup wizard.
 
 2. Select the Hyper-V component manually. You can select other resources according to your needs. If you select a resource, its backup and restore module will be enabled.
 
@@ -86,7 +86,7 @@ class: longtable
 
 4. Set the **Destination Folder** for the backup agent.
 
-5. After the configuration, follow the wizard to complete the installation. 
+5. After the configuration, follow the wizard to complete the installation.
 
 ## Register Resource
 
@@ -94,7 +94,7 @@ class: longtable
 
    ![](../image/01-license/Hyper-V/register0.png)
 
-2. Select the check box to activate the resource. 
+2. Select the check box to activate the resource.
 
    ![](../image/01-license/Hyper-V/register1.png)
 
@@ -120,23 +120,23 @@ Log in to the ADPS console and go to the **Job** page.
 
   ![](../image/03-Hyper-V/Hyper-V/task2.png)
 
-- Start: Select a non-running job and click ![](../image/03-Hyper-V/Hyper-V/task3.png) to start the job.  
+- Start: Select a non-running job and click ![](../image/03-Hyper-V/Hyper-V/task3.png) to start the job.
 
 - Stop: Select a running job and click ![](../image/03-Hyper-V/Hyper-V/task4.png) to stop the job.
 
-- Modify: Select a non-running job and click ![](../image/03-Hyper-V/Hyper-V/task5.png) to modify the job.  
+- Modify: Select a non-running job and click ![](../image/03-Hyper-V/Hyper-V/task5.png) to modify the job.
 
-- Delete: Select a non-running job and click ![](../image/03-Hyper-V/Hyper-V/task6.png) to delete the job.  
+- Delete: Select a non-running job and click ![](../image/03-Hyper-V/Hyper-V/task6.png) to delete the job.
 
-- Disable: Select a non-running scheduled job and click ![](../image/03-Hyper-V/Hyper-V/task7.png) to disable the scheduled job. 
+- Disable: Select a non-running scheduled job and click ![](../image/03-Hyper-V/Hyper-V/task7.png) to disable the scheduled job.
 
 ## Back Up Hyper-V
 
-Go to the **Backup** page. 
+Go to the **Backup** page.
 
 ![](../image/03-Hyper-V/Hyper-V/backup0.png)
 
-The steps to create a backup job are: 
+The steps to create a backup job are:
 
 1. **Hosts and Resources**: Select the host and Hyper-V that you want to back up. Click **Next**.
 
@@ -153,7 +153,7 @@ The steps to create a backup job are:
    - Full backup: Back up all the data on the VMs.
    - Incremental backup: Back up the data that has changed since the last backup (no matter what type of the last backup is, the data that has changed will be backed up).
 
-   Backup source: 
+   Backup source:
 
    - Virtual machine: You can select the specific VMs that you want to back up.
    - Host: You can select the host to back up all the VMs on it.
@@ -183,10 +183,10 @@ The steps to create a backup job are:
 
    - Reconnection time: The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes and the unit is minute.
    - Resumption buffer size: You can set the resumption buffer size. The default value is 10 MiB.
-   - Speed limit: You can set different backup speeds for different time periods. 
+   - Speed limit: You can set different backup speeds for different time periods.
    - Precondition: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
    - Pre/Post action: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-   - Checkpoint consistency level: 
+   - Checkpoint consistency level:
      - Crash consistent: Create application-consistent checkpoints that capture the current state of applications.
      - Application consistent: Use backup technology in the guest operating system to create data-consistent checkpoints that do not contain information about running applications.
      - Automatic: Application Consistent is used by default. If it fails, Crash Consistent will be used instead.
@@ -201,11 +201,11 @@ Go to the **Restore** page.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery0.png)
 
-The steps to create a restore job are:  
+The steps to create a restore job are:
 
 1. **Hosts and Resources**: Select the host and Hyper-V that you want to restore. Click **Next**.
 
-2. **Backup Sets**: Select **Virtual Machine Restore** or **Virtual Disk** as the restore type. Select the restore source. Click **Next**. 
+2. **Backup Sets**: Select **Virtual Machine Restore** or **Virtual Disk** as the restore type. Select the restore source. Click **Next**.
 
    ![](../image/03-Hyper-V/Hyper-V/recovery1.png)
 
@@ -215,11 +215,11 @@ The steps to create a restore job are:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery3.png)
 
-4. **Restore Schedule**: Select a schedule type according to your needs. Click **Next**. 
+4. **Restore Schedule**: Select a schedule type according to your needs. Click **Next**.
 
    ![](../image/03-Hyper-V/Hyper-V/recovery4.png)
 
-5. **Restore Options**: Set restore options according to your needs. Click **Next**. 
+5. **Restore Options**: Set restore options according to your needs. Click **Next**.
 
    ![](../image/03-Hyper-V/Hyper-V/recovery5.png)
 
@@ -227,11 +227,11 @@ The steps to create a restore job are:
 
    - Restore location:
      - Original path: The location of the restored configuration file and disk is the same as the original location, i.e. to overwrite and restore to the original path.
-     - New path: New virtual machines or virtual disks will be created. It is required to set the name, configuration, and storage directory of the new virtual machines. 
+     - New path: New virtual machines or virtual disks will be created. It is required to set the name, configuration, and storage directory of the new virtual machines.
 
-   - Channels: It refers to the number of virtual disks that can be restored at the same time. 
-   - Start virtual machine after restoring: The virtual machine will be started automatically after the restore job. 
-   - Restore the network adapter: The network adapter of the VM can be restored. 
+   - Channels: It refers to the number of virtual disks that can be restored at the same time.
+   - Start virtual machine after restoring: The virtual machine will be started automatically after the restore job.
+   - Restore the network adapter: The network adapter of the VM can be restored.
 
    ![](../image/03-Hyper-V/Hyper-V/recovery6.png)
 
@@ -239,7 +239,7 @@ The steps to create a restore job are:
 
    - Reconnection time: The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes and the unit is minute.
    - Resumption buffer size: You can set the resumption buffer size. The default value is 10 MiB.
-   - Speed limit: You can set different restore speeds for different time periods. 
+   - Speed limit: You can set different restore speeds for different time periods.
    - Precondition: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
    - Pre/Post action: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
 
@@ -249,25 +249,25 @@ The steps to create a restore job are:
 
 ### Restore Virtual Machines
 
-You can select **Virtual Machine Restore** to create a VM restore job. 
+You can select **Virtual Machine Restore** to create a VM restore job.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery1.png)
 
 #### Overwrite and Restore to Original Path
 
-To overwrite and restore to the original path, select the original host as the restore target and the **Original Path** as the restore location. 
+To overwrite and restore to the original path, select the original host as the restore target and the **Original Path** as the restore location.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery8.png)
 
 #### Restore to New Path on Original Host
 
-Select the original host as the restore target and the **New Path** as the restore location. Set the new VM name and storage directory. 
+Select the original host as the restore target and the **New Path** as the restore location. Set the new VM name and storage directory.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery9.png)
 
-The steps to set a new path: 
+The steps to set a new path:
 
-1. Rename the new VM: 
+1. Rename the new VM:
 
    (1) Click the VM name to access the **Rename** window.
 
@@ -281,9 +281,9 @@ The steps to set a new path:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery12.png)
 
-2. Set the storage directory: 
+2. Set the storage directory:
 
-   The steps to set the directories in a batch are: 
+   The steps to set the directories in a batch are:
 
    (1) Select all the files and click the **Set Storage Directories in batch** option.
 
@@ -297,7 +297,7 @@ The steps to set a new path:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery15.png)
 
-   The steps to set one directory are: 
+   The steps to set one directory are:
 
    (1) Click the storage directory of a specific disk.
 
@@ -311,9 +311,9 @@ The steps to set a new path:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery18.png)
 
-#### Restore to New Path on Another Host 
+#### Restore to New Path on Another Host
 
-Select another host as the restore target and the **New Path** as the restore location. 
+Select another host as the restore target and the **New Path** as the restore location.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery25.png)
 
@@ -321,11 +321,11 @@ Set the new VM name and storage directory.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery19.png)
 
-The steps to create a new path are: 
+The steps to create a new path are:
 
-1. Rename the new VM: 
+1. Rename the new VM:
 
-   (1) Click the VM name to access the **Rename** window. 
+   (1) Click the VM name to access the **Rename** window.
 
    ![](../image/03-Hyper-V/Hyper-V/recovery10.png)
 
@@ -337,9 +337,9 @@ The steps to create a new path are:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery12.png)
 
-2. Set the storage directory: 
+2. Set the storage directory:
 
-   The steps to set the directories in a batch are: 
+   The steps to set the directories in a batch are:
 
    (1) Select all the files and click the **Set Storage Directories in batch** option.
 
@@ -353,7 +353,7 @@ The steps to create a new path are:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery21.png)
 
-   The steps to set one directory are: 
+   The steps to set one directory are:
 
    (1) Click the storage directory of a specific disk.
 
@@ -367,7 +367,7 @@ The steps to create a new path are:
 
    ![](../image/03-Hyper-V/Hyper-V/recovery24.png)
 
-> Note: 
+> Note:
 >
 > - Restore to a new path on another host: To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.
 
@@ -385,11 +385,11 @@ To overwrite and restore to the original disk, select the original host as the r
 
 #### Restore to New Disk on Original VM
 
-Select the original host as the restore target and the **New Path** as the restore location. Set the storage directory of the new disk. 
+Select the original host as the restore target and the **New Path** as the restore location. Set the storage directory of the new disk.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery38.png)
 
-The steps to create a new path are: 
+The steps to create a new path are:
 
 1. Set the storage directory:
 
@@ -408,7 +408,7 @@ The steps to create a new path are:
 
 #### Restore to New Disk on Another Host
 
-Select another host as the restore target and the **New Path** as the restore location.  
+Select another host as the restore target and the **New Path** as the restore location.
 
 ![](../image/03-Hyper-V/Hyper-V/recovery25.png)
 
@@ -418,7 +418,7 @@ Then, set the storage directory of the new disk.
 
 The steps to create a new path are:
 
-1. Set the storage directory: 
+1. Set the storage directory:
 
    (1) Select all the files and click the **Set Storage Directories in batch** option, or click the storage directory of a specific disk.
 

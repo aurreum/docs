@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This guide describes how to properly install Aurreum Data Protection Suite (ADPS) agents so that the ADPS backup server can perform unified operation and management of the agents.
+This guide describes how to properly install Aurreum Data Protection Suite (ADPS) agents so that the ADPS backup server can perform unified operation and management of resources.
 
 ## Supported Environments
 
-Before installation, check whether the operating system and resources of the agent are supported by ADPS. Unsupported environments could result in problems such as installation failure, abnormal server startup, and unrecognized resources on the agent.
+Before installation, check whether your operating systems and resources are supported by ADPS. Unsupported environments could result in problems such as installation failure, abnormal server startup, and unrecognized resources.
 
 ### Supported Operating Systems
 
@@ -63,32 +63,31 @@ Before installation, check whether the operating system and resources of the age
    - Google Cloud Storage https://cloud.google.com/storage/ss
    - IBM Cloud Object Storage https://www.ibm.com/cloud/object-storage
    - Backblaze B2 https://www.backblaze.com/b2/cloud-storage.html
-   - Ceph object storage
    - Other S3 object storage services
 
 ## Prepare Installation Packages
 
-You can contact Aurreum technical support to get ADPS software packages. The version of the ADPS agent must be the same as the version of the ADPS backup server software. Mixed-version installation and use will lead to installation failure and abnormal function. Different operating systems require different agent packages.
+You can go to the Aurreum official website or contact Aurreum technical support to get ADPS software packages. The version of the ADPS agent must be the same as the version of the ADPS backup server software. Mixed-version installation and use will lead to installation failure and abnormal function. Different operating systems require different agent packages.
 
-### Windows Installation Package
+### Windows
 
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
-```{table} Windows Installation Package
+```{table} Windows Package
 | Software Package           | Function                                                     |
 | :------------------------- | ------------------------------------------------------------ |
-| adps_version.dbg.exe | Windows OS installation package contains the backup and restore modules for various resources including File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs. |
+| adps_version.dbg.exe | This package contains the backup and restore modules for various resources on Windows including File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs. |
 ```
 
-### Linux & AIX Installation Packages
+### Linux & AIX
 
 ```{tabularcolumns} |\Y{0.5}|\Y{0.5}|
 ```
-```{table} Linux & AIX Installation Packages
+```{table} Linux & AIX Packages
 | Software Package                                          | Function                                                  |
 | --------------------------------------------------------- | --------------------------------------------------------- |
-| adps-common-version.dbg.architecture.suffix         | Dependent package. It should be installed on all agents.  |
-| adps-agent-version.dbg.architecture.suffix          | Agent base package. It should be installed on all agents. |
+| adps-common-version.dbg.architecture.suffix         | Dependent package. It should be installed on all hosts.  |
+| adps-agent-version.dbg.architecture.suffix          | Agent base package. It should be installed on all hosts. |
 | adps-agent-file-version.dbg.architecture.suffix     | For File backup and restore                               |
 | adps-agent-bmr-version.dbg.architecture.suffix      | For Operating System backup and restore                   |
 | adps-agent-db2-version.dbg.architecture.suffix      | For DB2 database backup and restore                       |
@@ -98,32 +97,32 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 | adps-agent-mysql-version.dbg.architecture.suffix    | For MySQL database backup and restore                     |
 | adps-agent-oracle-version.dbg.architecture.suffix   | For Oracle database backup and restore                    |
 | adps-agent-sybase-version.dbg.architecture.suffix   | For Sybase database backup and restore                    |
-| adps-agent-mssql-version.dbg.architecture.suffix    | For Linux SQL Server database backup and restore          |
+| adps-agent-mssql-version.dbg.architecture.suffix    | For SQL Server database backup and restore          |
 | adps-agent-postgres-version.dbg.architecture.suffix | For PostgreSQL database backup and restore                |
-| adps-agent-obs-version.dbg.architecture.suffix      | For OBS database backup and restore                       |
-| adps-agent-hadoop-version.dbg.architecture.suffix   | For Hadoop database backup and restore                    |
-| adps-agent-ndmp-version.dbg.architecture.suffix     | For NDMP database backup and restore                      |
-| adps-agent-vmware-version.dbg.architecture.suffix   | For VMware database backup and restore                    |
+| adps-agent-obs-version.dbg.architecture.suffix      | For OBS backup and restore                       |
+| adps-agent-hadoop-version.dbg.architecture.suffix   | For Hadoop backup and restore                    |
+| adps-agent-ndmp-version.dbg.architecture.suffix     | For NDMP backup and restore                      |
+| adps-agent-vmware-version.dbg.architecture.suffix   | For VMware backup and restore                    |
 ```
 
-### Solaris Platform Installation Packages
+### Solaris
 
 ```{tabularcolumns} |\Y{0.4}|\Y{0.6}|
 ```
-```{table} Solaris Platform Installation Packages
+```{table} Solaris Package
 | Software Package                         | Function                                                     |
 | ---------------------------------------- | ------------------------------------------------------------ |
-| adps-version-sol9-sparc64-local.gz | Solaris OS installation package contains the backup and restore modules of various resources such as File and Oracle. You can select the resources and install the corresponding modules according to your needs. |
+| adps-version-sol9-sparc64-local.gz | This package contains the backup and restore modules of various resources on Solaris such as File and Oracle. You can select the resources and install the corresponding modules according to your needs. |
 ```
 
-### HP Platform Installation Packages
+### HP
 
 ```{tabularcolumns} |\Y{0.4}|\Y{0.6}|
 ```
-```{table}  HP Platform Installation Packages
+```{table}  HP Package
 | Software Package                 | Function                                                     |
 | -------------------------------- | ------------------------------------------------------------ |
-| adps-version-ia64.depot.gz | HP OS installation package integrates the backup and restore modules of various resources such as File and Oracle. You can select the resources and install the corresponding modules according to your needs. |
+| adps-version-ia64.depot.gz | This package contains the backup and restore modules of various resources on HP such as File and Oracle. You can select the resources and install the corresponding modules according to your needs. |
 ```
 
 ## Install Agent
@@ -132,11 +131,11 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 
 1. Copy the agent installation package to a drive partition with enough space.
 
-2. Double-click the installation package to open the setup wizard.
+2. Double-click the package to open the setup wizard.
 
-3. Select the resource modules to be installed.
+3. Select the resource modules.
 
-   You can select the resource types to install their backup and restore modules. During installation, the database resources, files, or applications installed on the agent are selected by default. Resource types include File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange.
+   You can select the resource types to install their backup and restore modules. The databases or applications installed on the host are selected by default. Resource types include File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange.
 
    ![](../image/agent_install/install-7.png)
 
@@ -144,7 +143,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 
    ![](../image/agent_install/install-8.png)
 
-5. Select Destination Folder.
+5. Select a Destination Folder.
 
 6. Wait for the installation.
 
@@ -156,7 +155,7 @@ You can contact Aurreum technical support to get ADPS software packages. The ver
 
 #### Local Install
 
-Upload the installation package to the agent for manual installation and configuration. Run the package with root privileges in the directory where the package resides.
+Upload the installation package to the target host for manual installation and configuration. Run the package with root privileges in the directory where the package resides.
 
 ##### CentOS & Red Hat
 
@@ -166,13 +165,13 @@ Upload the installation package to the agent for manual installation and configu
    rpm -ivh adps-common-version.x86_64.rpm adps-agent-version_x86_64.rpm
    ```
 
-2. Install resource backup and restore packages. Add the corresponding packages in the following command according to your needs. Take File resource as an example:
+2. Install resource backup and restore packages. Add the corresponding packages in the following command according to your needs. Take the File resource as an example:
 
    ```
    rpm -ivh adps-agent-file-version_x86_64.rpm
    ```
 
-3. After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
+3. After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
 
    ```
    # /etc/init.d/adps-agent config
@@ -198,13 +197,13 @@ Upload the installation package to the agent for manual installation and configu
    dpkg -i adps-common-version_amd64.deb adps-agent-version_amd64.deb adps-agent-file-version_amd64.deb
    ```
 
-2. Install resource backup and restore software packages. Add the corresponding package behind the following command according to your needs. Take file resource as an example:
+2. Install resource backup and restore software packages. Add the corresponding package behind the following command according to your needs. Take the File resource as an example:
 
    ```
    dpkg -i adps-agent-file-version_amd64.deb
    ```
 
-3. After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
+3. After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
 
    ```
    # sudo /etc/init.d/adps-agent config
@@ -243,9 +242,9 @@ Upload the installation package to the agent for manual installation and configu
 
 ##### Reconfigure Agent
 
-Reconfigure the ADPS Agent when the agent instance is unable to automatically detect the already-installed backup and restore modules of Oracle, Informix, Sybase, PostgreSQL, Domino, and Caché.
+Reconfigure the ADPS Agent when the backup and restore modules of Oracle, Informix, Sybase, PostgreSQL, Domino, and Caché are already installed but the instances cannot be detected automatically.
 
-Execute the following commands:
+Run the following commands:
 
 - Configure Oracle Home directory: /etc/init.d/adps-agent config oracle
 
@@ -271,7 +270,7 @@ Execute the following commands:
 
 ##### Configure VMware
 
-1. To back up and restore VMware, the backup host should configure VDDK. Add VDDK as follows:
+1. To back up and restore VMware, configure VDDK on the backup host. Add VDDK as follows:
 
    ```
    tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
@@ -305,7 +304,7 @@ Execute the following commands:
 
 > Note: Fill in the JRE installation directory and version. The default directory is under /usr/lib/jvm/
 
-2. Install and configure Hadoop backup agent.
+2. Install and configure the Hadoop backup agent.
 
    - Input JRE home. For example:
 
@@ -318,12 +317,13 @@ Execute the following commands:
      ```
      /home/user/hadoop-2.10.0
      ```
-   
-   - To reconfigure Hadoop runtime environment, enter the following command:
+
+   - To reconfigure the Hadoop runtime environment, run the following command:
 
      ```
      sudo dpkg-reconfigure adps-agent-hadoop
      ```
+
 ### Install on AIX
 
 1. Install dependent packages and agent service software packages.
@@ -332,13 +332,13 @@ Execute the following commands:
    rpm -ivh --nodeps --ignorearch adps-common--version_pcc64.rpm adps-agent-version_pcc64.rpm adps-agent-file-version_pcc64.rpm
    ```
 
-2. Install resource backup and restore packages. Add the corresponding package in the following command according to your needs. Take File resource as an example:
+2. Install resource backup and restore packages. Add the corresponding package in the following command according to your needs. Take the File resource as an example:
 
    ```
    rpm -ivh --nodeps --ignorearch adps-agent-file-version_pcc64.rpm
    ```
 
-3. After the installation, configure the agent. Set the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
+3. After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account's Access Key in **Personal Settings** -> **Settings**. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.
 
    ```
    #/etc/init.d/adps-agent config
@@ -361,19 +361,19 @@ Execute the following commands:
 
 ### Install on HP-UX
 
-1. To unzip adps--version-ia64.depot.gz, execute the following command with root privileges:
+1. To unzip adps--version-ia64.depot.gz, run the following command with root privileges:
 
    ```
    sudo gunzip /tmp/adps-version-ia64.depot.gz
    ```
 
-2. Install the agent and modules. For example, the absolute path of the unzipped package is /tmp/adps-version-ia64.depot. Install the Oracle module. Execute the command with root privileges as follows:
+2. Enter the absolute path of the unzipped package (e.g., /tmp/) and add the module name that you want to install. For example, to install the Oracle module, run the command with root privileges as follows:
 
    ```
    swinstall -s /tmp/adps-version-ia64.depot  adps.agent-oracle
    ```
 
-3. After the installation (or to change the current backup server), execute the configuration command:
+3. After the installation (or to change the current backup server), run the configuration command:
 
    ```
    sudo /sbin/init.d/adps-agent config
@@ -385,29 +385,29 @@ Execute the following commands:
 
 ### Install on Solaris
 
-1. Select the corresponding installation package according to the Solaris system, bits, and resource. Take the Solaris 9 SPARC 64-bit as an example. Execute the unzip command with root privileges:
+1. Select the corresponding installation package according to the Solaris system, bits, and resource. Take the Solaris 9 SPARC 64-bit as an example. Run the unzip command with root privileges:
 
    ```
    sudo gunzip adps-version-sol9-sparc64-local.gz
    ```
 
-2. Execute the following installation command:
+2. Run the following installation command:
 
    ```
    sudo pkgadd -d /tmp/adps-version-sol9-sparc64-local
    ```
 
-3. Select the modules that you want to install, eg: AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle
+3. Select the modules that you want to install, e.g., AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle
 
 4. Enter y or press Enter to the next step according to the prompts.
 
-5. After the installation is completed, execute the following configuration command:
+5. After the installation is completed, run the following configuration command:
 
    ```
    sudo /etc/init.d/adps-agent config
    ```
 
-   Follow the prompts to enter the IP address and port of the Backup Server.
+   Follow the prompts to enter the IP address and port of the backup server.
 
 6. Take the Oracle resource as an example. Configure Oracle Home directory:
 
@@ -423,15 +423,15 @@ Execute the following commands:
 
 ### Ubuntu & Debian
 
-This method is applicable to uninstall the agent on Linux with the APT package manager.
+This method applies to uninstall the agent on Linux with the APT package manager.
 
-- Execute the command with root privileges to uninstall a module. For example, uninstall the adps-agent-file module.
+- Run the command with root privileges to uninstall a module. For example, to uninstall the adps-agent-file module:
 
    ```
    sudo apt-get purge adps-agent-file
    ```
 
-- Execute the command with root privileges to uninstall all ADPS components.
+- Run the command with root privileges to uninstall all ADPS components.
 
    > Note: This command will completely remove the software packages and the configuration files.
 
@@ -441,15 +441,15 @@ This method is applicable to uninstall the agent on Linux with the APT package m
 
 ### CentOS & Red Hat
 
-This method is applicable to uninstall the agent on Linux with the PRM package manager.
+This method applies to uninstall the agent on Linux with the PRM package manager.
 
-- Execute the command with root privileges to uninstall a module. For example, uninstall the adps-agent-file module.
+- Run the command with root privileges to uninstall a module. For example, to uninstall the adps-agent-file module:
 
    ```
    rpm -e adps-agent-file
    ```
 
-- Execute the command with root privileges to uninstall all ADPS components.
+- Run the command with root privileges to uninstall all ADPS components.
 
    ```
    rpm -e `rpm -qa | grep adps`
@@ -457,13 +457,13 @@ This method is applicable to uninstall the agent on Linux with the PRM package m
 
 ### HP-UX
 
-- Execute the command with root privileges to uninstall the modules. For example, uninstall adps-agent and adps-common.
+- Run the command with root privileges to uninstall the modules. For example, to uninstall adps-agent and adps-common:
 
    ```
    swremove adps-agent adps-common
    ```
 
-- Execute the command with root privileges to uninstall all ADPS components.
+- Run the command with root privileges to uninstall all ADPS components.
 
    ```
    swremove adps*
@@ -472,7 +472,7 @@ This method is applicable to uninstall the agent on Linux with the PRM package m
 
 ### Solaris
 
-Execute the command with root privileges to uninstall the modules. For example, uninstall AURREUMadps-agent and AURREUMadps-common.
+Run the command with root privileges to uninstall the modules. For example, uninstall AURREUMadps-agent and AURREUMadps-common.
 
 ```
 pkgrm AURREUMadps-agent AURREUMadps-common

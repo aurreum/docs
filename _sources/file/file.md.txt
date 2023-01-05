@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ADPS provides the capability for the backup and restore of files. This guide introduces how to correctly use ADPS to back up and restore files.
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of files. This guide introduces how to correctly use ADPS to back up and restore files.
 
 ## Features
 
@@ -47,7 +47,7 @@ class: longtable
 ```
 > Note:
 >
-> - Synthetic backup supports all platforms and mount recovery supports character encoding conversion.
+> - ADPS supports synthetic backup on all platforms.  Character encoding conversion is available for the mount recovery job.
 
 ## Install and Configure Agent
 
@@ -167,11 +167,11 @@ Select **Microsoft Windows** and click **Download Windows agent**.
 
 #### Install Agent on Windows
 
- 1. Upload the installation package to the agent.
+ 1. Upload the installation package to the target host.
 
  2. Double-click the package to install it according to the wizard and click **Next**.
 
- 3. This installation package is a collection of components. It checks the file resources, files, or applications installed on the agent by default. Check the **File** and click **Next**.
+ 3. This installation package is a collection of components. It checks the file resources, files, or applications installed on the host by default. Check the **File** and click **Next**.
 
     ![file_agent03](../image/01-agent/file/file_agent03.png)
 
@@ -261,7 +261,7 @@ Log in to ADPS as the operator, go to **Storage Pool**, and check whether there 
 2. File supports the login by two authentication methods: **OS Authentication**, and **Access Key**.
 
 - **OS Authentication**: Use the admin account to log in.
-- **Access Key**: Log in with the Access Key of the user who has the authorization of the resource. You can run a job without a password, which has potential data security risks.
+- **Access Key**: Log in with the Access Key of the user who has the permission of the resource. You can run a job without a password, which has potential data security risks.
 
 3. Select the **Authentication** method. Enter **User** and **Password**. Click **Login**.
 
@@ -287,7 +287,7 @@ All files can execute backup jobs.
 
 (1) Click **Backup**. Select file host and instance.
 
-(2) Select **Full** as the backup type and choose file folders or files. It supports full backup, incremental backup, cumulative incremental backup, and synthetic backup.
+(2) Select **Full** as the backup type and choose file folders or files.
 
 ![file_backup01](../image/03-file/file_backup01.png)
 
@@ -297,7 +297,7 @@ All files can execute backup jobs.
 >
 >  - It's not supported to store full backups, incremental backups, and cumulative incremental backups in different storage pools.
 
-(4) Go to **Backup Schedule** and set the run time of the backup job. For details, refer to *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis.
+(4) Go to **Backup Schedule** and set the run time of the backup job. For details, see *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis.
 
 (5) Set **Backup Options** including common and advanced options.
 
@@ -317,9 +317,9 @@ All files can execute backup jobs.
 
 ![file_backup03](../image/03-file/file_backup03.png)
 
-**Reconnection time**: Support 1 to 60. The unit is minute. The job continues after the abnormal reset occurs in the network within the set time.
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: Limit data transfer speed or disk read and write speed. You can limit the speed within different periods. The unit is MiB/s or KiB/s.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met.
 
@@ -426,9 +426,9 @@ When folders or files are lost from the system, timepoint restore can be used to
 
 ![file_restore04](../image/03-file/file_restore04.png)
 
-**Reconnection time**: Support 1 to 60. The unit is minute. The job continues after the abnormal reset occurs in the network within the set time.
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: Limit data transfer speed or disk read and write speed. You can limit the speed within the different time periods. The unit is MiB/s or KiB/s.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.
 
@@ -551,9 +551,9 @@ With the hourly, daily, weekly, or monthly schedule, recovery testing can restor
 
 **Path conversion type**: Strip directory and path transform.
 
-**Reconnection time**: Support 1 to 60. The unit is minute. The job continues after the abnormal reset occurs in the network within the set time.
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: Limit data transfer speed or disk read and write speed. You can limit the speed within different time periods. The unit is MiB/s or KiB/s.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.
 
@@ -583,12 +583,12 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 
 ![](../image/03-file/file_time01.png)
 
-- Immediate: The job starts immediately after it is submitted.
-- One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.
-- Hourly: The job runs every few hours according to the setting. The value range is an integer between 1 and 24.
-- Daily: The job runs every few days according to the setting. The value range is an integer between 1 and 5.
-- Weekly: The job runs every few weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.
-- Monthly: The job runs every few months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 >  Example: Run the job every two weeks on Friday at 18:00
 
@@ -625,7 +625,12 @@ There are four backup methods for File: full backup, incremental backup, cumulat
 
 ## Limitation
 
-```{table} Limitation
+```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```
+```{table} Limitations
+---
+class: longtable
+---
 | Function                               | Limitation Description                                       |
 | -------------------------------------- | ------------------------------------------------------------ |
 | Synthetic Backup                       | The synthetic backup job of a single file under AIX system cannot be greater than 32Tb. |
@@ -637,7 +642,12 @@ There are four backup methods for File: full backup, incremental backup, cumulat
 
 ## Glossary
 
+```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```
 ```{table} Glossary
+---
+class: longtable
+---
 | Term             | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
 | Fast Compression | Compress data during backup using fast compression algorithms. |

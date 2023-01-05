@@ -135,7 +135,7 @@ This chapter introduces how to download and install the agent and connect it to 
 
 ### Install Agent
 
-1. Open a browser and log in to the ADPS console as an *administrator*.
+1. Open a browser and log in to the ADPS console as an *admin*.
 
 2. Click **Resource** -> **Install Agent** icon to access the pop-up installation window.
 
@@ -159,12 +159,12 @@ For VMware backup and restore, you need to install VDDK on the backup host. Add 
    tar -zxvf vddk.tar.gz -C /opt/aurreum/adps/
    ```
 
-2. When creating backup and restore jobs, you can select Automatic or specify a VDDK version. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version. The VDDK versions that you can specify are: 
+2. When creating backup and restore jobs, you can select Automatic or specify a VDDK version. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version. The VDDK versions that you can specify are:
    - VDDK: 6.0 / 6.5 / 6.7 / 7.0
 
 ### Check Successful Installation
 
-After the agent installation, log in to the ADPS console as an administrator and open the **Resource** page. The backup host is on the resource list.
+After the agent installation, log in to the ADPS console as an admin and open the **Resource** page. The backup host is on the resource list.
 
 ![](../image/01-license/vmware/vmware_lincense06.png)
 
@@ -172,7 +172,7 @@ After the agent installation, log in to the ADPS console as an administrator and
 
 After deploying the backup software and agent on the backup host, activate the host and authorize it to users. If you have multiple agents, you can install them first and then carry out batch activation and authorization. For details, see *Batch Register/Activate/Authorize* in *Administrator's Guide*.
 
-1. Open a browser and log in to the ADPS console as an administrator.
+1. Open a browser and log in to the ADPS console as an admin.
 
 2. Go to **Resource** and find the host that you want to activate. Click the **Register** icon.
 
@@ -190,7 +190,7 @@ After deploying the backup software and agent on the backup host, activate the h
 
 ### Enable VMware
 
-1. Open a browser and log in to the ADPS console as an administrator.
+1. Open a browser and log in to the ADPS console as an admin.
 
 2. Select **Settings** -> **Resource** and click **Enable VMware**.
 
@@ -242,7 +242,7 @@ After the VMware data center is added, you can manage it on the **Resource** pag
 
 1. Log in to the ADPS console as an *operator*.
 
-2. Go to **Storage Pool** and verify the presence of storage pools. If no storage pool is available, contact an administrator to create one and assign the permissions to users.
+2. Go to **Storage Pool** and verify the presence of storage pools. If no storage pool is available, contact an admin to create one and assign the permissions to users.
 
    ![](../image/03-vmware/vmware/vmware_check02.png)
 
@@ -341,7 +341,7 @@ This chapter introduces how to back up VMware.
    > - **VDDK transport log level**: You can set Panic, Error, Warning, Audit, Info, Verbose, and Trivia. By default, VDDK transport logs above the Audit level are printed to agent.log.
    > - **NFC operations log level**: You can set Quiet, Error, Warning, Info, Debug. Under the NBD/NBDSSL transport mode, NFC (network file copy) operation logs above the Error level are printed to agent.log by default.
    > - **Snapshot**: You can set Automatic, Quiesced Snapshot, and Normal Snapshot. Automatic is selected by default, which will create a quiesced snapshot first to ensure data consistency in file systems. If it fails to create a quiesced snapshot, it will retry to create a normal snapshot.
-   
+
 7. Set a **Job Name** and confirm the job information. Click **Submit**.
 
    ![](../image/03-vmware/vmware/vmware_backup_11.png)
@@ -405,7 +405,7 @@ When a disaster occurs in the virtual machine, you can restore the entire machin
 
    (1) Restore to the original path
 
-   When you choose **Original Path**, the job will use the original VM configuration to overwrite and restore the VM. 
+   When you choose **Original Path**, the job will use the original VM configuration to overwrite and restore the VM.
 
    ![](../image/03-vmware/vmware/vmware_restore_07.png)
 
@@ -508,7 +508,7 @@ When a disaster occurs in the virtual machine, you can restore the entire machin
    > - **Channels**: It refers to the maximum number of virtual machines that can be restored at the same time. The default value is 8. We recommend that the channel number is no more than the number of CPU cores. If it exceeds, the efficiency cannot be improved obviously.
    > - **Number of virtual machines per host restore in parallel**: It refers to the number of virtual machines per host that can be restored at the same time. The number can not exceed 5 by default.
    > - **Data transport mode**: You can choose NBD, NBDSSL, SAN, HotAdd, and Adaptive.
-   > - **VDDK version**: You can select Automatic or specify a VDDK version. 6.0, 6.5, 6.7, and 7.0 are supported. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version. 
+   > - **VDDK version**: You can select Automatic or specify a VDDK version. 6.0, 6.5, 6.7, and 7.0 are supported. If you enable Automatic, ADPS will automatically select the VDDK version according to the vSphere version.
    > - **Overwrite existing virtual machines**: If a virtual machine has the same name as the restored virtual machine, this option should be enabled for successful restores. This option is required when you choose to restore to the original path.
    > - **Start virtual machine after restoring**: The restored virtual machine can be automatically started after the successful restore job.
    > - **Restore the CD/DVD drive**: You can enable this option to restore the CD/DVD drive of the original virtual machine.

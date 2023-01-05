@@ -12,8 +12,8 @@ class: longtable
 ---
 | Feature                             | Description                                                  |
 |------|------|
-|Backup source|Database, log, automatic archiving log|
-|Backup type|Full backup: Back up all online and non-temporary storage spaces and logical logs, including onconﬁg, sqlhosts, ixbar, and oncfg ﬁles. It is a level 0 backup.{{ br }}Cumulative incremental backup: Back up all blocks changed after the last full backup. It is a level 1 backup.{{ br }}Incremental backup: Back up all blocks changed after the last backup. It is a level 2 backup.{{ br }}Log backup: Back up logical logs.{{ br }}Automatic archiving log backup: Perform automatically when the logical logs are full or when you manually execute a log switch command.|
+|Backup source|Database, log|
+|Backup type|Full backup: Back up all online and non-temporary storage spaces and logical logs, including onconﬁg, sqlhosts, ixbar, and oncfg ﬁles. It is a level 0 backup.{{ br }}Cumulative incremental backup: Back up all blocks changed after the last full backup. It is a level 1 backup.{{ br }}Incremental backup: Back up all blocks changed after the last backup. It is a level 2 backup.{{ br }}Log backup: Back up logical logs.{{ br }}Automatic archiving log backup: It is performed automatically when the logical logs are full or when you manually execute a log switch command.|
 |Backup target|Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool |
 |Backup compression |None, fast, tunable|
 | Channels                            | A positive integer between 1-255                            |
@@ -35,9 +35,9 @@ class: longtable
 | Modify the backup source and target | Modify the backup source and backup target of a job          |
 | IPv6                                | Transfer and manage data over IPv6 network                   |
 ```
-## Install and Configure Agent 
+## Install and Configure Agent
 
-### Verify Compatibility 
+### Verify Compatibility
 ADPS supports the backup and restore of Informix single instance. Before deploying the agent, check whether the operating system (OS) and database version are supported. See the followings for supported database versions:
 - Informix 11.50/11.70/12.10/14.10 
 
@@ -48,19 +48,19 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 ### Install and Configure Agent on Windows
 
-#### Download Windows Installation Package 
+#### Download Windows Installation Package
 
 Select **Windows** and click **Download Windows agent**.
 
 ![](../image/01-agent/informix/informix_agent02.png)
 
-#### Install Agent on Windows		
+#### Install Agent on Windows	
 
- 1. Upload the installation package to the agent.
+ 1. Upload the installation package to the target host.
 
  2. Double-click the package to install it according to the setup wizard and click **Next**.
 
- 3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Select the **Informix** component and click **Next**. 
+ 3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the **Informix** component and click **Next**. 
 
     ![](../image/01-agent/informix/informix_agent03.png)
 
@@ -112,7 +112,7 @@ After the successful activation, you can authorize users to operate the resource
 
 ### Check Database State
 
-Check the Informix instance state of the agent. The Informix instance should be in the "On-Line"  state for backup and restore.
+Check the Informix instance state. The Informix instance should be in the "On-Line"  state for backup and restore.
 
 ![](../image/03-informix/informix_database01.png)
 
@@ -134,7 +134,7 @@ Log in to ADPS as the operator, go to **Storage Pool**, and verify there is any 
 
 ![](../image/03-informix/informix_login02.png)
 
-2. You must have the privileges of CONNECT, RESOURCE, and DBA to log in to Informix. You will need to log in to Informix again if the password is changed, otherwise, the jobs will fail. 
+2. You must have the privileges of CONNECT, RESOURCE, and DBA to log in to Informix. You will need to log in to Informix again if the password is changed; otherwise, the jobs will fail. 
 
 3. The Agent supports using ODBC or DBACCESS to access Informix databases:
 
@@ -148,7 +148,7 @@ Log in to ADPS as the operator, go to **Storage Pool**, and verify there is any 
 
 > Note:
 >
-> - Informix must be online for successful login. If the agent is not online the login will fail even if the username and password are correct.
+> - Informix must be online for successful login; otherwise, the login will fail even if the username and password are correct.
 >
 > - If you use ODBC to access Informix 12.10 on Windows, follow the configuration steps below before you log in.
 >   
@@ -169,17 +169,17 @@ Log in to ADPS as the operator, go to **Storage Pool**, and verify there is any 
 >   
 >   5. Open Windows Start meun, select IBM Informix Client SDK program, and click ConnectTest Demo to test the successful connection.
 
-## Create Backup Jobs 
+## Create Backup Jobs
 
 This chapter introduces how to back up the Informix databases.   
 
-### Prerequisites 
+### Prerequisites
 
 - You have installed the agent. For installation, please refer to *Install and Configure Agent*. 
 - You have activated the agent and assigned the authorization. For details about the activation and authorization, see *Activate License and Assign Authorization*. 
 - Log in to ADPS as the *operator*. 
 
-### Create Full Backup Jobs 
+### Create Full Backup Jobs
 
 Informix full backup allows for database instance backup but not a single database backup. It backs up all online, non-temporary storage space and logical logs, as well as onconﬁg, sqlhosts, ixbar, and oncfg ﬁles. Informix full backup corresponds to the Level-0 backup.
 
@@ -194,7 +194,7 @@ Informix full backup allows for database instance backup but not a single databa
 >  Note: 
 >
 >  - It is not supported to store full backups, incremental backups/cumulative incremental backups and log backups in different storage pools. 
->  - When you run a backup job to a storage pool that has not been used for informix backups, you need to perform a full backup to the pool first.
+>  - Perform a full backup to the storage pool before using it for Informix backups.
 
 (4) Go to **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis. 
 
@@ -210,7 +210,7 @@ Informix full backup allows for database instance backup but not a single databa
 - Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.
 - Fast: Use the fast compression algorithms during the backup.
 
-**On-Bar**: When you run an Informix backup job for the first time, On-Bar will be configured by default and a full backup job will be executed. Configuring On-Bar is an one-time operation that is only required for the first backup. If your Informix version is lower than 12.10, the database will be shut down and be restarted during the On-Bar configuration, and it is recommended that you set job execution in free time. On-Bar configuration modifies the following values in $INFORMIXDIR/etc/onconﬁg file: BAR_BSALIB_PATH, BAR_MAX_BACKUP, and LTAPEDEV.	
+**On-Bar**: When you run an Informix backup job for the first time, On-Bar will be configured by default and a full backup job will be executed. Configuring On-Bar is an one-time operation that is only required for the first backup. If your Informix version is lower than 12.10, the database will be shut down and be restarted during the On-Bar configuration, and it is recommended that you schedule job execution in idle business time. On-Bar configuration modifies the following values in $INFORMIXDIR/etc/onconﬁg file: BAR_BSALIB_PATH, BAR_MAX_BACKUP, and LTAPEDEV.	
 
 **Channels**: Used to improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, refer to *Channel Number Configuration*.
 
@@ -218,9 +218,9 @@ Informix full backup allows for database instance backup but not a single databa
 
 ![](../image/03-informix/informix_backup03.png)
 
-**Reconnection time**: Support 1 to 60. The unit is minute (s). The job continues after the abnormal reset occurs in the network within the set time.
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the "**+**" icon to add limits within different periods.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -261,8 +261,8 @@ Informix log backup is created based on a full backup. It backs up the current l
   
  > Note: 
  > - If the database has never been fully backed up, or has not been fully backed up after the restore, run a full backup job before the log backup job.
- > - The restores are only successfully executed when full backups and log backups are in the same storage pool.
- > - When a log backup job is running,  the Agent modifies onconfig file parameter LTAPEDEV to a value other than /dev/ null.
+ > - To perform the restore job successfully, it is required that full backups and log backups are in the same storage pool.
+ > - When a log backup job is running,  the Agent modifies onconfig file parameter LTAPEDEV to a value other than /dev/null.
  > - When a single logical log file is full, this log file will not be automatically marked as backed up. When all logical logs are full and no log backup has been performed since the last backup, the database will hang and become inaccessible. It is recommended that you set the log backup execution cycle according to the speed at which logical logs are generated to avoid database from crashing.
 
 ### Create Automatic Archiving Log Backup Jobs
@@ -279,7 +279,7 @@ When logical logs are full or when you manually execute log switch command, auto
   > - It is not supported to run an automatic archiving log backup job and a log backup job on the same instance.
   > - Informix version 11.50 configures On-Bar and restarts the instance when the automatic archiving log backup job is running.
 
-## Create Restore Jobs 
+## Create Restore Jobs
 
 This chapter introduces how to restore Informix databases. ADPS provides a variety of restore types including timepoint restore, full recovery testing, and continuous recovery testing.
 
@@ -372,17 +372,18 @@ On the **Job** interface, you can view the backup and restore job information of
 
 ## Backup Protection Strategy
 
-###  Backup Schedule Operation	
+###  Backup Schedule Operation
+
 ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
 
 ![](../image/03-informix/informix_time01.png)
 
-- Immediate: The job starts immediately after it is submitted.  
-- One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.  
-- Hourly: The job runs after a specified number of hours according to the setting. The value range is an integer between 1 and 24.
-- Daily: The job runs after a specified number of days according to the setting. The value range is an integer between 1 and 5.  
-- Weekly: The job runs after a specified number of weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.  
-- Monthly: The job runs after a specified number of months according to the setting. You can also set the week/day and specify which week/day of the month to run the job. 
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 >  **Example: Perform the job every two weeks on Friday at 18:00**
 
@@ -395,7 +396,7 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 >   - If the current time is Saturday 17:00, the run time will be next Friday 18:00.
 >   - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
-### Backup Strategy Advice		
+### Backup Strategy Advice
 
 There are six methods to back up Informix: full backup, incremental backup, cumulative incremental backup, log backup, and automatic archiving log backup. Full backup, incremental backup, cumulative incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
 
@@ -407,9 +408,9 @@ There are six methods to back up Informix: full backup, incremental backup, cumu
 >
 > - Avoid using the strategies of all full backups or a full backup followed by cumulative incremental or log backups.
 
-## Configure the Agent Access Mode 
+## Configure the Agent Access Mode
 
-The Agent supports use ODBC and DBACCESS to access the databases. 
+The Agent supports using ODBC and DBACCESS to access the databases. 
 
 - If you have installed Informix CSDK (Client Software Development Kit), ODBC access mode will be used by default. 
 - If Informix CSDK (Client Software Development Kit) is not installed, you can use the DBACCESS access mode. 

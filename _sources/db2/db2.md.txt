@@ -36,7 +36,7 @@ class: longtable
 | IPv6                                | Transfer and manage data over IPv6 network                   |
 | Access key login                    |  Login with Access Key is supported     |
 ```
-## Install and Configure Agent 
+## Install and Configure Agent
 
 ### Verify Compatibility
 
@@ -56,7 +56,7 @@ Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** ico
 
 ![db2_agent01](../image/01-agent/db2/db2_agent01.png)
 
-###  Install and Configure Agent on Linux OS 
+###  Install and Configure Agent on Linux OS
 
 1. Select **Linux** as the system and **DB2** as the module. Copy an installation command.
 
@@ -81,23 +81,23 @@ Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** ico
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 100  814k  100  814k    0     0  9465k      0 --:--:-- --:--:-- --:--:-- 9465k
-warning: adps-common-3.0.35274-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
+warning: adps-common-V3.0-2-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
-	package adps-common-3.0.35274-1.1eebb99.dbg.x86_64 is already installed
-warning: adps-agent-3.0.35274-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
+	package adps-common-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
+warning: adps-agent-V3.0-2-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
-	package adps-agent-3.0.35274-1.1eebb99.dbg.x86_64 is already installed
-warning: adps-agent-file-3.0.35274-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
+	package adps-agent-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
+warning: adps-agent-file-V3.0-2-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
-	package adps-agent-file-3.0.35274-1.1eebb99.dbg.x86_64 is already installed
+	package adps-agent-file-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
 Restarting adps-agent (via systemctl):  [  OK  ]
 [root@kylinv10x86 ~]# 
 ```
 
-   ### Install and Configure Agent on Windows OS 
+   ### Install and Configure Agent on Windows OS
 
    #### Download Windows Installation Package
 
@@ -105,13 +105,13 @@ In the **Install agent** window, select **Windows** and click **Download Windows
 
    ![](../image/01-agent/db2/db2_install01.png)
 
-   #### Install Agent on Windows 	
+   #### Install Agent on Windows
 
-   1. Upload the installation package to the agent.
+   1. Upload the installation package to the target host.
    
  2. Double-click the package to launch the setup wizard and click **Next**.
 
-   3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Select the **DB2** component and click **Next**.
+   3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the **DB2** component and click **Next**.
    
       ![](../image/01-agent/db2/db2_windows_install02.png)
    
@@ -121,7 +121,7 @@ In the **Install agent** window, select **Windows** and click **Download Windows
    
    5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
-### Check Successful Installation 
+### Check Successful Installation
 
 After the successful installation, log in to ADPS console as the admin and go to the **Resource** page. The host with the agent installed will be available on the Resource list.
 
@@ -153,7 +153,7 @@ After the activation, authorize users to operate the resource in the pop-up **Au
 
 ### Check Database State
 
-Check the DB2 service state of the agent. The DB2 database service should be in the "Active -- Up" state for backup and restore.
+Check the DB2 service state. The DB2 database service should be in the "Active -- Up" state for backup and restore.
 
 ![](../image/01-agent/db2/db2_agent18.png)
 
@@ -244,9 +244,9 @@ This chapter introduces how to back up DB2 databases.
 
 ![](../image/01-agent/db2/db2_agent14.png)
 
-**Reconnection Time**: Support 1 to 60. The unit is minute(s). The job continues after the abnormal reset occurs in the network within the set time. 
+**Reconnection Time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s). 
 
-**Speed Limit**: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the "**+**" icon to add limits at different times.
+**Speed Limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -287,7 +287,7 @@ You can only create one automatic archiving log backup job on one database insta
 >Note:
 >- Prerequisites for an automatic archiving log backup job: 
 >   - You have executed a full backup job and the full backup set exists;
->   - You have selected to archive to disk for the database. For example: LOGARCHMETH1 = DISK:/home/db2inst1/arch
+>   - You have selected to archive log files to disk for the database. For example: LOGARCHMETH1 = DISK:/home/db2inst1/arch
 >- Differences between log backup and automatic archiving log backup: 
 >   - The database server triggers an automatic archiving log backup when the logical logs are full or when you manually execute the log switch command. To avoid the constant log archiving failures and database hang issues due to the inaccessible storage server, it is recommended that FAILARCHPATH should also be configured for the database when you create the automatic archiving log backup. 
 >   - A log backup is initiated and executed by ADPS, and is generally set to execute periodically. 
@@ -333,6 +333,7 @@ When a logical error or a disaster occurs in a DB2 database, timepoint restore a
 **Without Rolling forward**: When you enable the option, the database will keep "Pending" after the timepoint restore job is executed successfully.
 
 (6)  Confirm the job information and submit the job.
+
 ### Create Restore Archived Logs Jobs
 
 This restore type is applicable when you enable ARCHIVELOG. You can restore archived logs in the specified range to the database archive log directory of the source host or the different host.
@@ -385,22 +386,17 @@ The Job page provides the job information of all agents. You can start, modify, 
 - Delete: Click ![](../image/01-agent/db2/db2_job_delete.png) to access the confirmation window. Click **OK** to delete the job.
 
 ## Backup Protection Strategy
-###  Backup Schedule Operation	
+###  Backup Schedule Operation
 ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
 
 ![](../image/01-agent/db2/db2_time01.png)
 
-**Immediate**: The job starts immediately after it is submitted. 
-
-**One Time**: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached. 
-
-**Hourly**: The job runs every few hours according to the setting. The value range is an integer between 1 and 24.
-
-**Daily**: The job runs every few days according to the setting. The value range is an integer between 1 and 5. 
-
-**Weekly**: The job runs every few weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.
-
-**Monthly**: The job runs every few months according to the setting. You can also set the week/day and specify which week/day of the month to run the job. 
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 >  **Example: Run the job every two weeks on Friday at 18:00**
 
@@ -413,7 +409,7 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 > - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
 > - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
-### Backup Strategy Advice	
+### Backup Strategy Advice
 
 There are five types to back up DB2: full backup, incremental backup, cumulative incremental backup, log backup, and automatic archiving log backup. Full backup, incremental backup/cumulative incremental backup, and log backup/automatic archiving log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
 
@@ -436,6 +432,7 @@ There are five types to back up DB2: full backup, incremental backup, cumulative
 - Parallelism/Sessions number for restore jobs
   
   The restore job does not provide the setting for the parallelism number. It is recommended that the sessions number is not greater than the number of host logical CPU.
+  
 ## Limitation
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
@@ -447,10 +444,11 @@ class: longtable
 | -------- | ------------------------------------------------------------ |
 | Backup   | To log in to the DB2 database via the OS authentication method, Linux requires the DB2 instance user account whereas Windows requires a Windows administrator account. If you want to log in to the database using the domain user on Windows, fill in the domain name to successfully log in to the database resource and back up the databases. |
 ```
+
 ## Glossary
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
-```d{table} Glossary
+```{table} Glossary
 ---
 class: longtable
 ---

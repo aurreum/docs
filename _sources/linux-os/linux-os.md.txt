@@ -6,6 +6,8 @@ Aurreum Data Protection Suite (ADPS) provides the capability for the backup and 
 
 ## Features
 
+```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```
 ```{table} Features
 ---
 class: longtable
@@ -94,7 +96,7 @@ After the successful activation, you can authorize users to operate the resource
 
 ### Check Resource
 
-Log in to ADPS as the operator and go to **Resource**. You can see the activated and authorized resource on the list and its state is "Online". Please refer to *Activate License and Assign Authorization* If the resource is not available.
+Log in to ADPS as the operator and go to **Resource**. You can see the activated and authorized resource on the list and its state is "Online". Please refer to *Activate License and Assign Authorization* if the resource is not available.
 
 ![](../image/linux-os/linux-os_08.png)
 
@@ -166,9 +168,9 @@ This chapter introduces how to back up the Linux OS.
 
 ![](../image/linux-os/linux-os_14.png)
 
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s).
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the ‘’+‘’ icon to add limits at different times.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -260,8 +262,8 @@ Under the **Advanced** tab, you can set the reconnection time, resumption buffer
 
 
 > 		Note:
->
-> 	- If the admin enables Job Approval function, the job will be executed after the admin approves the job.
+>	
+> 		- If the admin enables Job Approval function, the job will be executed after the admin approves the job.
 
 ## Manage Jobs
 
@@ -283,12 +285,12 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 
 ![](../image/linux-os/linux-os_32.png)
 
-- Immediate: The job starts immediately after it is submitted.
-- One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.
-- Hourly: The job runs after a specified number of hours according to the setting. The value range is an integer between 1 and 24.
-- Daily: The job runs after a specified number of days according to the setting. The value range is an integer between 1 and 5.
-- Weekly: The job runs after a specified number of weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.
-- Monthly: The job runs after a specified number of months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 > Example: Perform the job every two weeks on Friday at 18:00
 
@@ -310,6 +312,8 @@ There are two types to back up Linux OS: full backup and incremental backup.
 
 ## Limitations
 
+```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```
 ```{table} Limitations
 ---
 class: longtable

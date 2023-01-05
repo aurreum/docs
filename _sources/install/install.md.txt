@@ -2,7 +2,7 @@
 
 ## About ADPS
 
-Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of enterprise operating systems, databases, files, and virtual machines. ADPS provides a Web interface for users to monitor and manage the backup/restore jobs and the backup systems of large enterprises or governments distributed in different places. With the capabilities of off-site disaster recovery and data replication, it offers an efficient and cost-effective solution for high database reliability and availability.
+Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of operating systems, databases, files, and virtual machines. ADPS provides a Web interface for users to manage the backup/restore jobs. It can not only back up and restore the resources, but also monitor and manage the backup systems distributed in different places. Moreover, it provides enterprises with an efficient and cost-effective solution to achieve database high reliability and high availability.
 
 ![](../image/install/install-1.png)
 
@@ -10,15 +10,15 @@ Aurreum Data Protection Suite (ADPS) is a software product that can be used for 
 
 ADPS components include Backup Server, Storage Server, and Agent.
 
-**Backup Server**: It is responsible for managing the connections of the Backup Agent and Storage Server. It can monitor and manage the business information of each agent resource, including backups and restores, and the information of storage servers.
+**Backup Server**: It is responsible for managing the connections and business information of Agents and the Storage Servers.
 
-**Storage Server**: It is responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. The Backup Server and Storage Server components can be installed on the same or different devices. One backup server can manage multiple storage servers to achieve storage scalability.
+**Storage Server**: It is responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. Backup Server and Storage Server components can be installed on the same or different machines. One backup server can manage multiple storage servers to achieve storage scalability.
 
-**Agent**: It is responsible for responding to the commands of the backup server console as well as performing the backup and restore jobs. The Agent is installed on the server where users store business data. It will be managed by the backup server after their connection.
+**Agent**: It is responsible for responding to the commands of the backup console and performing the backup/restore jobs. The Agent is installed on the server where users store business data. It will be managed by the backup server after their connection.
 
 ## Installation Process
 
-This document introduces the process of installing a new ADPS system in the environment where the backup server and storage server are installed on the same device (i.e., an engineered data protection appliance). Please follow the steps below.
+This document introduces the process of deploying a new ADPS system in which the backup server and storage server are installed on the same machine (i.e., an engineered data protection appliance). Please follow the steps below.
 
 Step 1. Prepare the environment
 
@@ -42,11 +42,11 @@ Step 10. Check the service state
 
 ### Server Requirements
 
-The following are the hardware requirements for the ADPS backup/storage server. You can refer to the server configuration of the Aurreum Data Protection Appliance (ADPA). If you use an outdated server, problems such as incompatibility may occur.
+The followings are the hardware requirements for the ADPS backup/storage server. You can refer to the server configuration of the Aurreum Data Protection Appliance (ADPA). If you use an outdated server, problems such as incompatibility may occur.
 
 1. Architecture
 
-   A physical server or virtual machine with a 64-bit x86 architecture is required.
+   A physical server or virtual machine with an x86-64 architecture is required.
 
 2. Memory
 
@@ -68,13 +68,13 @@ The following are the hardware requirements for the ADPS backup/storage server. 
    ```{table} Storage
    | Storage     | Recommendation                                               |
    | ----------- | ------------------------------------------------------------ |
-   | System disk | Use the Solid-State Drive (SSD) as the system disk, at least two SSDs of 120 G or above, and create a RAID1. |
+   | System disk | Use at least two Solid-State Drives (SSDs), each 120 G or above, and create a RAID1. |
    | Data disk   | Equip multiple mechanical Hard Disk Drives (HDDs) for the data disk, which depends on the hardware server configuration and business volume. |
    ```
 
 4. Network
 
-   Use at least two network interface cards (GE/10GE) for isolating networks for different usages such as management and storage. If there are scenarios of LAN-Free function and database synthetic backups, an iSCSI/FC HBA card is also required. See the *Appendix* for the compatible models of the supported HBA card.
+   Use at least two network interface cards (GE/10GE) to isolate networks for different usages such as management and storage. An iSCSI/FC HBA card is also required for LAN-Free and synthetic backup features. See the *Appendix* for compatible models of the supported HBA card.
 
    > For hardware servers other than ADPA, you need to handle the compatibility issues of hardware devices and system software by yourselves, including network interface card and HBA card.
 
@@ -95,11 +95,11 @@ The following are the hardware requirements for the ADPS backup/storage server. 
 
    (1) System disk
 
-   Use LVM to create VG (systemvg)  on the system disk and then create LV on the systemvg. The recommended system partitions are:
+   Use the Logical Volume Manager (LVM) to create a volume group (VG) (systemvg) on the system disk and then create a logical volume (LV) on the systemvg. The recommended system partitions are:
 
    ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
    ```
-   ```{table} System disk 
+   ```{table} System disk
    | Partition | Mount Point | Partition Size   | File System |
    | --------- | ----------- | ---------------- | ----------- |
    | boot      | `/boot`     | 512 MiB          | ext2        |
@@ -108,11 +108,11 @@ The following are the hardware requirements for the ADPS backup/storage server. 
    ```
    (2) Data disk
 
-   An XFS or ZFS file system is required to be created on the data disk. To achieve LAN-Free function and database synthetic backups, a ZFS file system should be created. For other scenarios, an XFS file system should be created.
+   Create an XFS or ZFS file system on the data disk. For LAN-Free and synthetic backup features, create a ZFS file system. For other scenarios, create an XFS file system.
 
    **XFS file system**
 
-   Use LVM to create VG (infokistvg) on the data disk and create the following infokistlv on infokistvg.
+   Use LVM to create a VG (infokistvg) on the data disk and create a LV (infokistlv) on infokistvg.
 
    ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
    ```
@@ -124,7 +124,7 @@ The following are the hardware requirements for the ADPS backup/storage server. 
 
    **ZFS file system**
 
-   If a ZFS file system is created on the data disk, you should configure JBOD mode (pass-through mode) on the RAID controller. Use the zpool create command to create an infokist pool on the data disk and then mount the pool to the /infokist directory.
+   To create a ZFS file system on the data disk, configure JBOD mode (pass-through mode) on the RAID controller. Use the zpool create command to create a pool (infokist) on the data disk and then mount the pool to the /infokist directory.
 
    ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
    ```
@@ -139,16 +139,15 @@ The following are the hardware requirements for the ADPS backup/storage server. 
    ```
    ls -l /dev/disk/by-id/
    ```
-   
-   Create ZPOOL. Take 24 HDDs for example.
+
+   Create a zpool. Take 24 HDDs for example. First, check the HDD physical sector size.
 
    ```
-   Check the HDD physical sector size
    sudo blockdev --getpbsz /dev/disk/by-id/wwn-0x5000cca271c7dcd2
    4096
    ```
 
-   If the physical sector size of the disk is 4 KiB (i.e. "Advanced Format": https://en.wikipedia.org/wiki/Advanced_Format), then
+   If the physical sector size of the disk is 4 KiB (i.e. "Advanced Format": https://en.wikipedia.org/wiki/Advanced_Format), then:
 
    ```
    sudo zpool create -f -m /infokist -o ashift=12 infokist \
@@ -164,7 +163,7 @@ The following are the hardware requirements for the ADPS backup/storage server. 
       /dev/disk/by-id/wwn-0x5000cca271c84cff /dev/disk/by-id/wwn-0x5000cca271c8508f /dev/disk/by-id/wwn-0x5000cca271c85193
    ```
 
-   If the physical sector size of the disk is 512 B, then
+   If the physical sector size of the disk is 512 B, then:
 
    ```
    sudo zpool create -f -m /infokist infokist \
@@ -180,11 +179,11 @@ The following are the hardware requirements for the ADPS backup/storage server. 
       /dev/disk/by-id/wwn-0x5000cca271c84cff /dev/disk/by-id/wwn-0x5000cca271c8508f /dev/disk/by-id/wwn-0x5000cca271c85193
    ```
 
-   After the creation, ZPOOL will be automatically mounted to the /infokist directory. You can use the df -h command to check the results.
+   After the creation, the zpool will be mounted to the /infokist directory automatically. You can use the df -h command to check the results.
 
 7. Set the time zone
 
-   Set the time zone of the operating system as that of your current location. The recommended modification command is:
+   We recommend setting the time zone of the operating system as that of your current location. The command is:
 
    ```
    sudo timedatectl set-timezone <your_time_zone>
@@ -192,7 +191,7 @@ The following are the hardware requirements for the ADPS backup/storage server. 
 
 ### Prepare Software Packages
 
-You can contact our technical support to get the required ADPS packages. The versions of the products installed on all ADPS components must be the same. Mixed version installation may result in abnormal Web access and functions. The following table shows the packages and their functions:
+You can go to the Aurreum website or contact our technical support to get the required ADPS packages. The product versions installed on all components must be the same. Mixed version installation may result in abnormal Web access and functions. The following table shows the packages and their functions:
 
 ```{tabularcolumns} |\Y{0.50}|\Y{0.50}|
 ```
@@ -204,7 +203,7 @@ You can contact our technical support to get the required ADPS packages. The ver
 | adps-storaged-version-architecture.suffix           | It provides ADPS storage server service.              |
 | adps-nginx-version-architecture.suffix              | It provides ADPS Web management service.              |
 | adps-infokist-version-architecture.suffix           | Feature pack that moves the ADPS file directory to /infokist. |
-| adps-storaged-lanfree-version-architecture.suffix   | ADPS LAN-Free and database synthesis feature pack.    |
+| adps-storaged-lanfree-version-architecture.suffix   | Feature pack of ADPS LAN-Free and synthetic backup.    |
 | adps-controller-version-architecture.suffix         | Feature pack that ADPS manages tape libraries.        |
 | adps-nfsd-version-architecture.suffix               | Feature pack that ADPS mounts files.                  |
 | system-MariaDB-version.tar.gz                             | ADPS database software package.                       |
@@ -214,23 +213,24 @@ You can contact our technical support to get the required ADPS packages. The ver
 
 ### Update the Kernel
 
-If you create a ZFS file system on the data disk of the operating system, you must update the kernel to the internal source version (not the public source version) before installing the ADPS software. Otherwise, it will affect the normal use of LAN-Free and database synthesis functions. The operation is as follows:
+If the data disk of the operating system uses the ZFS file system, you must update the kernel to the internal source version (not the public source version) before installing the ADPS software. Otherwise, it will affect the normal use of LAN-Free and synthetic backup. To update the kernel, do the following:
 
 - Ubuntu
 
-   (1) Execute the following commands with root privileges:
+   (1) Run the following commands with root privileges:
 
    ```bash
-   sudo tar -zvxf 5.4.0-115_zfs0.8.6_ubuntu1804_amd64.tar.gz
-   cd 5.4.0-115_zfs0.8.6_ubuntu1804_amd64
-   sudo dpkg -i kernel/*
+   sudo tar -xf 5.4.0-132_zfs0.8.6_ubuntu1804_amd64_aurreum.tar.gz -C /home/aurreum/    #If you do not have the /home/aurreum directory, use the command sudo mkdir /home/aurreum to create the directory first
+   secho deb [signed-by=/home/aurreum/ubuntu1804_amd64/repo.gpg] file:///home/aurreum/ubuntu1804_amd64 bionic main | sudo tee -a /etc/apt/sources.list.d/aurreum.list
+   sudo apt-get update
+   sudo apt-get install -y linux-{image,modules,modules-extra,headers}-5.4.0-132-generic linux-base linux-firmware
    ```
 
    (2) After updating the kernel, you must restart the server.
 
 - CentOS
 
-   (1) Execute the following commands with root privileges:
+   (1) Run the following commands with root privileges:
 
    ```bash
    tar -zvxf 5.4.96-200.el7_zfs0.8.6_centos76_x86_64.tar.gz
@@ -245,7 +245,7 @@ If you create a ZFS file system on the data disk of the operating system, you mu
 
 1. Installation method
 
-   * Ubuntu
+   - Ubuntu
 
    ```bash
    sudo tar -zvxf Ubuntu1804_amd64_MariaDB10.6.tar.gz
@@ -253,7 +253,7 @@ If you create a ZFS file system on the data disk of the operating system, you mu
    sudo sh install_MariaDB10.6.sh
    ```
 
-   * CentOS
+   - CentOS
 
    ```bash
    sudo tar -zvxf Centos7_x86-64_MariaDB10.6.tar.gz
@@ -270,7 +270,7 @@ If you create a ZFS file system on the data disk of the operating system, you mu
 
 3. Modify the configuration file
 
-   Add sql_mode, remote access, and other settings on the MariaDB configuration file. Modify the /etc/mysql/mariadb.conf.d/50-server.cnf configuration file on Ubuntu and the /etc/my.cnf.d/server.cnf configuration file on CentOS.
+   Add sql_mode, remote access, and other settings in the MariaDB configuration file. Modify the /etc/mysql/mariadb.conf.d/50-server.cnf configuration file on Ubuntu and the /etc/my.cnf.d/server.cnf configuration file on CentOS.
 
    (1) Add sql_mode
 
@@ -286,7 +286,7 @@ If you create a ZFS file system on the data disk of the operating system, you mu
       bind-address = 0.0.0.0
       ```
 
-   (3) Use root to log in to MariaDB and grant remote access privileges to root.
+   (3) Use root to log in to MariaDB and grant the root user the remote access privilege.
 
       ```bash
       mysql -u root -p
@@ -310,17 +310,17 @@ If you create a ZFS file system on the data disk of the operating system, you mu
 
 #### Ubuntu
 
-1. In the directory where the installation package is located, execute the following commands in sequence with root privileges:
+1. In the directory where the installation package is located, run the following commands in sequence with root privileges:
 
    ```
    sudo dpkg -i adps-common_version_amd64.deb adps-backupd_version_amd64.deb adps-storaged_version_amd64.deb adps-nginx_version_amd64.deb adps-infokist_version_amd64.deb|| sudo apt-get -y -f install
    ```
 
-2. Configure adps-storaged and set the IP address of the backup server, e.g., 192.168.88.239
+2. Configure adps-storaged and set the IP address for the backup server, e.g., 192.168.88.239
 
    ![](../image/install/install-3.png)
 
-3. Set the port of the backup server. The default port is 50305, which means that the data is transferred without encryption. You can encrypt the data by modifying the port to 60305.
+3. Set the port for the backup server. The default port is 50305, which means that data is transferred without encryption. You can encrypt the data by modifying the port to 60305.
 
    ![](../image/install/install-4.png)
 
@@ -330,11 +330,11 @@ If you create a ZFS file system on the data disk of the operating system, you mu
 
 5. Wait for the installation to complete. After the installation, symbolic links will be created between the ADPS-related directories and the /infokist under the data disk.
 
-> Install the adps-infokist package after the installation of the adps-storaged package. Otherwise the /infokist directory space may not be available.
+> Install the adps-infokist package after the installation of the adps-storaged package. Otherwise, the /infokist directory space may not be available.
 
 #### CentOS
 
-1. In the directory where the installation package is located, execute the following commands in sequence with root privileges:
+1. In the directory where the installation package is located, install the packages in sequence with root privileges:
 
    ```
    rpm -i adps-common_version_x86_64.rpm  adps-backupd_version_x86_64.rpm adps-storaged_version_x86_64.rpm adps-nginx_version_x86_64.rpm rpm -i adps-infokist_version_x86_64.rpm
@@ -349,13 +349,13 @@ If you create a ZFS file system on the data disk of the operating system, you mu
    Please input Aurreum Data Protection Suite Backup Server host[]:     ##Enter the IP address of the backup server here, e.g., 192.168.88.239
    Please input Aurreum Data Protection Suite Backup Server port[]:     ##Enter the port of the backup server here. The default port of the system: 60305
    Does Aurreum Data Protection Suite Backup Server enable SSL protocol?[N]:     ##Enter Yes here
-   Saving adps-storaged config[OK]:       ##Press "Enter" to save the configuration modification
+   Saving adps-storaged config[OK]:       ##Press "Enter" to save the modification
    Do you want to restart adps-storaged[Y]:    ##Enter Y here to restart the service
    ```
 
 ### Connect Catalog Database
 
-The ADPS catalog needs to be connected to the MariaDB database.
+The ADPS catalog should be connected to the MariaDB database.
 
 ```
 sudo /etc/init.d/adps-backupd config mysql
@@ -366,13 +366,13 @@ Please input mysql password:
 Loaded /opt/aurreum/adps/lib/libmysqlclient.so.18 with flags 0x00000101(RTLD_LAZY | RTLD_GLOBAL)
 Test MySQL connectivity OK!
 Select Y when you see the following prompt;
-Do you want to restart backupd? [Y]:y
+Do you want to restart backupd? [Y]: y
 [ ok ] Restarting adps-backupd (via systemctl): adps-backupd.service.
 ```
 
 ### Install Online Manual
 
-This step aims to enable the ADPS Web console to display the online manual. Execute the manual run script (manual_run/manual-*.run) with root privileges and enter it according to the prompt.
+This step aims to enable the ADPS Web console to display the online manual. Run the manual run script (manual_run/manual-*.run) with root privileges.
 
 ```
 chmod +x manual-version.run
@@ -383,20 +383,20 @@ chmod +x manual-version.run
 
 ### Install LAN-Free Module
 
-If you create a ZFS file system on the data disk of the operating system, then install the adps-storaged-lanfree software package on the storage server to run LAN-Free backups and database synthetic backups through iSCSI/FC Target. The installation commands are:
+If the data disk of the operating system uses the ZFS file system, you should install the adps-storaged-lanfree software package on the storage server to realize LAN-Free backups and synthetic backups through iSCSI/FC Target. The installation commands are:
 
 #### Ubuntu
 
-1. Install the lio-utils and zfsutils-linux dependent packages
+1. Install the lio-utils and zfsutils-linux dependent packages.
 
    ```bash
-   sudo tar -zvxf 5.4.0-115_zfs0.8.6_ubuntu1804_amd64.tar.gz
-   cd 5.4.0-115_zfs0.8.6_ubuntu1804_amd64
-   sudo dpkg -i lio-utils/*  #For there may be installation package dependencies, execute twice
-   sudo dpkg -i zfsutils-linux/*
+   sudo tar -xf 5.4.0-132_zfs0.8.6_ubuntu1804_amd64_aurreum.tar.gz -C /home/aurreum/  #If you do not have the /home/aurreum directory, use the command sudo mkdir /home/aurreum to create the directory first
+   sudo echo deb [signed-by=/home/aurreum/ubuntu1804_amd64/repo.gpg] file:///home/aurreum/ubuntu1804_amd64 bionic main | sudo tee -a /etc/apt/sources.list.d/aurreum.list
+   sudo apt-get update
+   sudo apt-get install -y zfs* lio-utils
    ```
 
-2. Install the adps-storaged-lanfree software package
+2. Install the adps-storaged-lanfree software package.
 
    ```
    sudo dpkg -i adps-storaged-lanfree_version_amd64.deb
@@ -404,15 +404,15 @@ If you create a ZFS file system on the data disk of the operating system, then i
 
 #### CentOS
 
-1. Install the lio-utils and zfsutils-linux dependent packages
+1. Install the lio-utils and zfsutils-linux dependent packages.
 
    ```bash
    tar -zvxf 5.4.0-115_zfs0.8.6_ubuntu1804_amd64.tar.gz
    rpm -ivh lio-zfs-utils/lio-utils-3.1-11.noarch.rpm
-   rpm -ivh lio-zfs-utils/zfs-utils/* #For there may be installation package dependencies, execute twice
+   rpm -ivh lio-zfs-utils/zfs-utils/*
    ```
 
-2. Install the adps-storaged-lanfree software package
+2. Install the adps-storaged-lanfree software package.
 
    ```
    rpm -ivh adps-storaged-lanfree_version_amd64.deb
@@ -420,7 +420,7 @@ If you create a ZFS file system on the data disk of the operating system, then i
 
 ### Install Tape Library Controller Module
 
-To back up the data to the tape library, you need to install the adps-controller package on the server and make it the tape library controller. The tape library controller must be connected to the tape library over the IP-SAN or FC-SAC network. And the adps-controller handles all requests from the agent to the tape library. The installation commands are:
+To back up data to the tape library, install the adps-controller package on a server and make the server the tape library controller. The tape library controller must be connected to the tape library over the IP-SAN or FC-SAC network. adps-controller handles all requests from the agent to the tape library. The installation commands are:
 
 #### Ubuntu
 
@@ -434,9 +434,9 @@ To back up the data to the tape library, you need to install the adps-controller
    rpm -ivh adps-controller_version_x86_64.rpm
    ```
 
-### Install Instant File Recovery Module
+### Install File Instant Recovery Module
 
-To achieve instant file recovery, you need to install the adps-nfsd package on the storage server. Then the file backup sets of the storage pool can be mounted on the agent. The installation commands are:
+To achieve file instant recovery, install the adps-nfsd package on the storage server. Then the file backup sets in storage pools can be mounted to the host with the agent installed. The installation commands are:
 
 #### Ubuntu
 
@@ -460,7 +460,7 @@ For the safe running of the system, open the firewall and set the access ports a
 
 ```{tabularcolumns} |\Y{0.25}|\Y{0.25}|\Y{0.25}|\Y{0.25}|
 ```
-```{table} Open Access Ports List 
+```{table} Open Access Ports List
 | Port                              | Function                                | Protocol     | Encrypted |
 | --------------------------------- | --------------------------------------- | ------------ | --------- |
 | 80                                | Nginx server HTTP                       | TCP (HTTP)  | No        |
@@ -475,8 +475,8 @@ For the safe running of the system, open the firewall and set the access ports a
 | 60306                             | Data encryption                         | TCP          | Yes       |
 | 50308                             | Loading and unloading tapes             | TCP          | No        |
 | 60308                             | Loading and unloading tapes             | TCP          | Yes       |
-| 50309                             | Interprocess communication among agents | TCP          | No        |
-| 60309                             | Interprocess communication among agents | TCP          | Yes       |
+| 50309                             | Agent interprocess communication | TCP          | No        |
+| 60309                             | Agent interprocess communication | TCP          | Yes       |
 | 10000                             | NDMP backup and restore                 | TCP          | NDMP      |
 ```
 
@@ -492,7 +492,7 @@ adps-controller
 mariadb
 ```
 
-For example, you can check the adps-backupd service according to the following commands. The active state means that the service is running normally. The query commands for other services are the same.
+For example, you can check the adps-backupd service using the following commands. The active state means that the service is running normally. The query commands for other services are the same.
 
 ```
 /etc/init.d/adps-backupd  status
@@ -514,23 +514,23 @@ After the installation, enter the IP or domain name on the browser. If you can a
 
 ![](../image/install/install-6.png)
 
-You must import a product license to use the Web console. Download the "Request License" file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, please refer to the *Administrator's Guide*.
+You must import a product license to use the Web console. Download the "Request License" file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, see the *Administrator's Guide*.
 
 ## Appendix
 
 ### Uninstall Software
 
-> Before uninstalling the software, please confirm that you need to uninstall it. Relevant data cannot be retrieved after uninstallation.
+> Before you uninstall the software, please confirm that you want to uninstall it. You cannot retrieve relevant data after uninstallation.
 
 #### Ubuntu
 
-- Uninstall a module. For example, to uninstall the controller module, execute the following command with root privileges:
+- Uninstall a module. For example, to uninstall the controller module, run the following command with root privileges:
 
    ```
    sudo apt-get purge adps-controller
    ```
 
-- To uninstall all ADPS software, execute the following command with root privileges:
+- To uninstall all ADPS software, run the following command with root privileges:
 
    ```
    sudo apt-get purge adps-common
@@ -546,13 +546,13 @@ You must import a product license to use the Web console. Download the "Request 
 
 #### CentOS
 
-- Uninstall a module. For example, to uninstall the controller module, execute the following command with root privileges:
+- Uninstall a module. For example, to uninstall the controller module, run the following command with root privileges:
 
    ```
    rpm -e adps-controller
    ```
 
-- To uninstall all ADPS software, execute the following command with root privileges:-
+- To uninstall all ADPS software, run the following command with root privileges:
 
    ```
    rpm -e `rpm -qa | grep adps`
@@ -566,7 +566,7 @@ You must import a product license to use the Web console. Download the "Request 
 
 ### Reconfigure storaged
 
-You can execute the following commands to reconfigure adps-storaged when the server address is changed or you have inputted the wrong backup server address, port, and protocol.
+You can run the following commands to reconfigure adps-storaged when the server address is changed or you have inputted the wrong backup server address, port, and protocol.
 
 ```
 /etc/init.d/adps-storaged config
@@ -581,11 +581,9 @@ Do you want to restart adps-storaged? [Y]:
 
 ### Supported FC HBA List
 
-QLogic
-
-```{tabularcolumns} |\Y{0.33}|\Y{0.33}|\Y{0.33}|
+```{tabularcolumns} |\Y{0.33}|\Y{0.33}|\Y{0.34}|
 ```
-```{table} QLogic 
+```{table} QLogic
 | Model   | Port | Supported Speed (GBit/s) |
 | ------- | ---- | ------------------------ |
 | QLE2560 | 1    | 2, 4, 8                  |

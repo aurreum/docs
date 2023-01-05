@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Installation Guide &#8212; ADPS 3.0.35274</title>
+    <title>Installation Guide &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -375,8 +375,8 @@ title="Fullscreen mode"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-instant-file-recovery-module">
-     Install Instant File Recovery Module
+    <a class="reference internal nav-link" href="#install-file-instant-recovery-module">
+     Install File Instant Recovery Module
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -570,8 +570,8 @@ title="Fullscreen mode"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-instant-file-recovery-module">
-     Install Instant File Recovery Module
+    <a class="reference internal nav-link" href="#install-file-instant-recovery-module">
+     Install File Instant Recovery Module
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -656,19 +656,19 @@ title="Fullscreen mode"
 <h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this heading">#</a></h1>
 <section id="about-adps">
 <h2>About ADPS<a class="headerlink" href="#about-adps" title="Permalink to this heading">#</a></h2>
-<p>Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of enterprise operating systems, databases, files, and virtual machines. ADPS provides a Web interface for users to monitor and manage the backup/restore jobs and the backup systems of large enterprises or governments distributed in different places. With the capabilities of off-site disaster recovery and data replication, it offers an efficient and cost-effective solution for high database reliability and availability.</p>
+<p>Aurreum Data Protection Suite (ADPS) is a software product that can be used for the backup, restore, and disaster recovery of operating systems, databases, files, and virtual machines. ADPS provides a Web interface for users to manage the backup/restore jobs. It can not only back up and restore the resources, but also monitor and manage the backup systems distributed in different places. Moreover, it provides enterprises with an efficient and cost-effective solution to achieve database high reliability and high availability.</p>
 <p><img alt="" src="../_images/install-1.png" /></p>
 </section>
 <section id="adps-components">
 <h2>ADPS Components<a class="headerlink" href="#adps-components" title="Permalink to this heading">#</a></h2>
 <p>ADPS components include Backup Server, Storage Server, and Agent.</p>
-<p><strong>Backup Server</strong>: It is responsible for managing the connections of the Backup Agent and Storage Server. It can monitor and manage the business information of each agent resource, including backups and restores, and the information of storage servers.</p>
-<p><strong>Storage Server</strong>: It is responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. The Backup Server and Storage Server components can be installed on the same or different devices. One backup server can manage multiple storage servers to achieve storage scalability.</p>
-<p><strong>Agent</strong>: It is responsible for responding to the commands of the backup server console as well as performing the backup and restore jobs. The Agent is installed on the server where users store business data. It will be managed by the backup server after their connection.</p>
+<p><strong>Backup Server</strong>: It is responsible for managing the connections and business information of Agents and the Storage Servers.</p>
+<p><strong>Storage Server</strong>: It is responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. Backup Server and Storage Server components can be installed on the same or different machines. One backup server can manage multiple storage servers to achieve storage scalability.</p>
+<p><strong>Agent</strong>: It is responsible for responding to the commands of the backup console and performing the backup/restore jobs. The Agent is installed on the server where users store business data. It will be managed by the backup server after their connection.</p>
 </section>
 <section id="installation-process">
 <h2>Installation Process<a class="headerlink" href="#installation-process" title="Permalink to this heading">#</a></h2>
-<p>This document introduces the process of installing a new ADPS system in the environment where the backup server and storage server are installed on the same device (i.e., an engineered data protection appliance). Please follow the steps below.</p>
+<p>This document introduces the process of deploying a new ADPS system in which the backup server and storage server are installed on the same machine (i.e., an engineered data protection appliance). Please follow the steps below.</p>
 <p>Step 1. Prepare the environment</p>
 <p>Step 2. Update the kernel</p>
 <p>Step 3. Install MariaDB</p>
@@ -681,10 +681,10 @@ title="Fullscreen mode"
 <p>Step 10. Check the service state</p>
 <section id="server-requirements">
 <h3>Server Requirements<a class="headerlink" href="#server-requirements" title="Permalink to this heading">#</a></h3>
-<p>The following are the hardware requirements for the ADPS backup/storage server. You can refer to the server configuration of the Aurreum Data Protection Appliance (ADPA). If you use an outdated server, problems such as incompatibility may occur.</p>
+<p>The followings are the hardware requirements for the ADPS backup/storage server. You can refer to the server configuration of the Aurreum Data Protection Appliance (ADPA). If you use an outdated server, problems such as incompatibility may occur.</p>
 <ol class="arabic">
 <li><p>Architecture</p>
-<p>A physical server or virtual machine with a 64-bit x86 architecture is required.</p>
+<p>A physical server or virtual machine with an x86-64 architecture is required.</p>
 </li>
 <li><p>Memory</p>
 <table class="table" id="id9">
@@ -721,7 +721,7 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>System disk</p></td>
-<td><p>Use the Solid-State Drive (SSD) as the system disk, at least two SSDs of 120 G or above, and create a RAID1.</p></td>
+<td><p>Use at least two Solid-State Drives (SSDs), each 120 G or above, and create a RAID1.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Data disk</p></td>
 <td><p>Equip multiple mechanical Hard Disk Drives (HDDs) for the data disk, which depends on the hardware server configuration and business volume.</p></td>
@@ -730,7 +730,7 @@ title="Fullscreen mode"
 </table>
 </li>
 <li><p>Network</p>
-<p>Use at least two network interface cards (GE/10GE) for isolating networks for different usages such as management and storage. If there are scenarios of LAN-Free function and database synthetic backups, an iSCSI/FC HBA card is also required. See the <em>Appendix</em> for the compatible models of the supported HBA card.</p>
+<p>Use at least two network interface cards (GE/10GE) to isolate networks for different usages such as management and storage. An iSCSI/FC HBA card is also required for LAN-Free and synthetic backup features. See the <em>Appendix</em> for compatible models of the supported HBA card.</p>
 <blockquote>
 <div><p>For hardware servers other than ADPA, you need to handle the compatibility issues of hardware devices and system software by yourselves, including network interface card and HBA card.</p>
 </div></blockquote>
@@ -759,9 +759,9 @@ title="Fullscreen mode"
 </li>
 <li><p>File system</p>
 <p>(1) System disk</p>
-<p>Use LVM to create VG (systemvg)  on the system disk and then create LV on the systemvg. The recommended system partitions are:</p>
+<p>Use the Logical Volume Manager (LVM) to create a volume group (VG) (systemvg) on the system disk and then create a logical volume (LV) on the systemvg. The recommended system partitions are:</p>
 <table class="table" id="id12">
-<caption><span class="caption-text">System disk </span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">System disk</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Partition</p></th>
 <th class="head"><p>Mount Point</p></th>
@@ -788,9 +788,9 @@ title="Fullscreen mode"
 </tbody>
 </table>
 <p>(2) Data disk</p>
-<p>An XFS or ZFS file system is required to be created on the data disk. To achieve LAN-Free function and database synthetic backups, a ZFS file system should be created. For other scenarios, an XFS file system should be created.</p>
+<p>Create an XFS or ZFS file system on the data disk. For LAN-Free and synthetic backup features, create a ZFS file system. For other scenarios, create an XFS file system.</p>
 <p><strong>XFS file system</strong></p>
-<p>Use LVM to create VG (infokistvg) on the data disk and create the following infokistlv on infokistvg.</p>
+<p>Use LVM to create a VG (infokistvg) on the data disk and create a LV (infokistlv) on infokistvg.</p>
 <table class="table" id="id13">
 <caption><span class="caption-text">XFS file system</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
 <thead>
@@ -809,7 +809,7 @@ title="Fullscreen mode"
 </tbody>
 </table>
 <p><strong>ZFS file system</strong></p>
-<p>If a ZFS file system is created on the data disk, you should configure JBOD mode (pass-through mode) on the RAID controller. Use the zpool create command to create an infokist pool on the data disk and then mount the pool to the /infokist directory.</p>
+<p>To create a ZFS file system on the data disk, configure JBOD mode (pass-through mode) on the RAID controller. Use the zpool create command to create a pool (infokist) on the data disk and then mount the pool to the /infokist directory.</p>
 <table class="table" id="id14">
 <caption><span class="caption-text">ZFS file system</span><a class="headerlink" href="#id14" title="Permalink to this table">#</a></caption>
 <thead>
@@ -831,13 +831,12 @@ title="Fullscreen mode"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Create ZPOOL. Take 24 HDDs for example.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Check</span> <span class="n">the</span> <span class="n">HDD</span> <span class="n">physical</span> <span class="n">sector</span> <span class="n">size</span>
-<span class="n">sudo</span> <span class="n">blockdev</span> <span class="o">--</span><span class="n">getpbsz</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c7dcd2</span>
+<p>Create a zpool. Take 24 HDDs for example. First, check the HDD physical sector size.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">blockdev</span> <span class="o">--</span><span class="n">getpbsz</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c7dcd2</span>
 <span class="mi">4096</span>
 </pre></div>
 </div>
-<p>If the physical sector size of the disk is 4 KiB (i.e. “Advanced Format”: https://en.wikipedia.org/wiki/Advanced_Format), then</p>
+<p>If the physical sector size of the disk is 4 KiB (i.e. “Advanced Format”: https://en.wikipedia.org/wiki/Advanced_Format), then:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zpool</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="n">infokist</span> <span class="o">-</span><span class="n">o</span> <span class="n">ashift</span><span class="o">=</span><span class="mi">12</span> <span class="n">infokist</span> \
 <span class="n">raidz2</span> \
    <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c7dcd2</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c81fa3</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c8259e</span> \
@@ -851,7 +850,7 @@ title="Fullscreen mode"
    <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c84cff</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c8508f</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c85193</span>
 </pre></div>
 </div>
-<p>If the physical sector size of the disk is 512 B, then</p>
+<p>If the physical sector size of the disk is 512 B, then:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zpool</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="n">infokist</span> <span class="n">infokist</span> \
 <span class="n">raidz2</span> \
    <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c7dcd2</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c81fa3</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c8259e</span> \
@@ -865,10 +864,10 @@ title="Fullscreen mode"
    <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c84cff</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c8508f</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">wwn</span><span class="o">-</span><span class="mh">0x5000cca271c85193</span>
 </pre></div>
 </div>
-<p>After the creation, ZPOOL will be automatically mounted to the /infokist directory. You can use the df -h command to check the results.</p>
+<p>After the creation, the zpool will be mounted to the /infokist directory automatically. You can use the df -h command to check the results.</p>
 </li>
 <li><p>Set the time zone</p>
-<p>Set the time zone of the operating system as that of your current location. The recommended modification command is:</p>
+<p>We recommend setting the time zone of the operating system as that of your current location. The command is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">timedatectl</span> <span class="nb">set</span><span class="o">-</span><span class="n">timezone</span> <span class="o">&lt;</span><span class="n">your_time_zone</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -877,7 +876,7 @@ title="Fullscreen mode"
 </section>
 <section id="prepare-software-packages">
 <h3>Prepare Software Packages<a class="headerlink" href="#prepare-software-packages" title="Permalink to this heading">#</a></h3>
-<p>You can contact our technical support to get the required ADPS packages. The versions of the products installed on all ADPS components must be the same. Mixed version installation may result in abnormal Web access and functions. The following table shows the packages and their functions:</p>
+<p>You can go to the Aurreum website or contact our technical support to get the required ADPS packages. The product versions installed on all components must be the same. Mixed version installation may result in abnormal Web access and functions. The following table shows the packages and their functions:</p>
 <table class="table" id="id15">
 <caption><span class="caption-text">Prepare Software Packages</span><a class="headerlink" href="#id15" title="Permalink to this table">#</a></caption>
 <thead>
@@ -902,7 +901,7 @@ title="Fullscreen mode"
 <td><p>Feature pack that moves the ADPS file directory to /infokist.</p></td>
 </tr>
 <tr class="row-odd"><td><p>adps-storaged-lanfree-version-architecture.suffix</p></td>
-<td><p>ADPS LAN-Free and database synthesis feature pack.</p></td>
+<td><p>Feature pack of ADPS LAN-Free and synthetic backup.</p></td>
 </tr>
 <tr class="row-even"><td><p>adps-controller-version-architecture.suffix</p></td>
 <td><p>Feature pack that ADPS manages tape libraries.</p></td>
@@ -924,19 +923,20 @@ title="Fullscreen mode"
 </section>
 <section id="update-the-kernel">
 <h3>Update the Kernel<a class="headerlink" href="#update-the-kernel" title="Permalink to this heading">#</a></h3>
-<p>If you create a ZFS file system on the data disk of the operating system, you must update the kernel to the internal source version (not the public source version) before installing the ADPS software. Otherwise, it will affect the normal use of LAN-Free and database synthesis functions. The operation is as follows:</p>
+<p>If the data disk of the operating system uses the ZFS file system, you must update the kernel to the internal source version (not the public source version) before installing the ADPS software. Otherwise, it will affect the normal use of LAN-Free and synthetic backup. To update the kernel, do the following:</p>
 <ul>
 <li><p>Ubuntu</p>
-<p>(1) Execute the following commands with root privileges:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar -zvxf <span class="m">5</span>.4.0-115_zfs0.8.6_ubuntu1804_amd64.tar.gz
-<span class="nb">cd</span> <span class="m">5</span>.4.0-115_zfs0.8.6_ubuntu1804_amd64
-sudo dpkg -i kernel/*
+<p>(1) Run the following commands with root privileges:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar -xf <span class="m">5</span>.4.0-132_zfs0.8.6_ubuntu1804_amd64_aurreum.tar.gz -C /home/aurreum/    <span class="c1">#If you do not have the /home/aurreum directory, use the command sudo mkdir /home/aurreum to create the directory first</span>
+secho deb <span class="o">[</span>signed-by<span class="o">=</span>/home/aurreum/ubuntu1804_amd64/repo.gpg<span class="o">]</span> file:///home/aurreum/ubuntu1804_amd64 bionic main <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/aurreum.list
+sudo apt-get update
+sudo apt-get install -y linux-<span class="o">{</span>image,modules,modules-extra,headers<span class="o">}</span>-5.4.0-132-generic linux-base linux-firmware
 </pre></div>
 </div>
 <p>(2) After updating the kernel, you must restart the server.</p>
 </li>
 <li><p>CentOS</p>
-<p>(1) Execute the following commands with root privileges:</p>
+<p>(1) Run the following commands with root privileges:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -zvxf <span class="m">5</span>.4.96-200.el7_zfs0.8.6_centos76_x86_64.tar.gz
 rpm -Uvh kernel/*
 </pre></div>
@@ -976,7 +976,7 @@ sudo mysqladmin -u root password <span class="s1">&#39;xxxxxx&#39;</span>   <spa
 </div>
 </li>
 <li><p>Modify the configuration file</p>
-<p>Add sql_mode, remote access, and other settings on the MariaDB configuration file. Modify the /etc/mysql/mariadb.conf.d/50-server.cnf configuration file on Ubuntu and the /etc/my.cnf.d/server.cnf configuration file on CentOS.</p>
+<p>Add sql_mode, remote access, and other settings in the MariaDB configuration file. Modify the /etc/mysql/mariadb.conf.d/50-server.cnf configuration file on Ubuntu and the /etc/my.cnf.d/server.cnf configuration file on CentOS.</p>
 <p>(1) Add sql_mode</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>mysqld<span class="o">]</span>
 <span class="nv">sql_mode</span><span class="o">=</span><span class="s1">&#39;ONLY_FULL_GROUP_BY&#39;</span>
@@ -987,7 +987,7 @@ sudo mysqladmin -u root password <span class="s1">&#39;xxxxxx&#39;</span>   <spa
 bind-address <span class="o">=</span> <span class="m">0</span>.0.0.0
 </pre></div>
 </div>
-<p>(3) Use root to log in to MariaDB and grant remote access privileges to root.</p>
+<p>(3) Use root to log in to MariaDB and grant the root user the remote access privilege.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql -u root -p
 MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;xxxxxx&#39;</span><span class="p">;</span>  <span class="c1">#(xxxxxx is the password that you set for the root user)</span>
 MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILEGES<span class="p">;</span>
@@ -1010,15 +1010,15 @@ MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILE
 <section id="ubuntu">
 <h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
-<li><p>In the directory where the installation package is located, execute the following commands in sequence with root privileges:</p>
+<li><p>In the directory where the installation package is located, run the following commands in sequence with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">common_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">backupd_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">storaged_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">nginx_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">infokist_version_amd64</span><span class="o">.</span><span class="n">deb</span><span class="o">||</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">f</span> <span class="n">install</span>
 </pre></div>
 </div>
 </li>
-<li><p>Configure adps-storaged and set the IP address of the backup server, e.g., 192.168.88.239</p>
+<li><p>Configure adps-storaged and set the IP address for the backup server, e.g., 192.168.88.239</p>
 <p><img alt="" src="../_images/install-31.png" /></p>
 </li>
-<li><p>Set the port of the backup server. The default port is 50305, which means that the data is transferred without encryption. You can encrypt the data by modifying the port to 60305.</p>
+<li><p>Set the port for the backup server. The default port is 50305, which means that data is transferred without encryption. You can encrypt the data by modifying the port to 60305.</p>
 <p><img alt="" src="../_images/install-4.png" /></p>
 </li>
 <li><p>If you enter 50305 in the previous step, choose “No” to disable the SSL protocol. If you enter 60305, choose “Yes” to enable the SSL protocol.</p>
@@ -1027,13 +1027,13 @@ MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILE
 <li><p>Wait for the installation to complete. After the installation, symbolic links will be created between the ADPS-related directories and the /infokist under the data disk.</p></li>
 </ol>
 <blockquote>
-<div><p>Install the adps-infokist package after the installation of the adps-storaged package. Otherwise the /infokist directory space may not be available.</p>
+<div><p>Install the adps-infokist package after the installation of the adps-storaged package. Otherwise, the /infokist directory space may not be available.</p>
 </div></blockquote>
 </section>
 <section id="centos">
 <h4>CentOS<a class="headerlink" href="#centos" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
-<li><p>In the directory where the installation package is located, execute the following commands in sequence with root privileges:</p>
+<li><p>In the directory where the installation package is located, install the packages in sequence with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">common_version_x86_64</span><span class="o">.</span><span class="n">rpm</span>  <span class="n">adps</span><span class="o">-</span><span class="n">backupd_version_x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">storaged_version_x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">nginx_version_x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">infokist_version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
@@ -1044,7 +1044,7 @@ MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILE
 Please input Aurreum Data Protection Suite Backup Server host<span class="o">[]</span>:     <span class="c1">##Enter the IP address of the backup server here, e.g., 192.168.88.239</span>
 Please input Aurreum Data Protection Suite Backup Server port<span class="o">[]</span>:     <span class="c1">##Enter the port of the backup server here. The default port of the system: 60305</span>
 Does Aurreum Data Protection Suite Backup Server <span class="nb">enable</span> SSL protocol?<span class="o">[</span>N<span class="o">]</span>:     <span class="c1">##Enter Yes here</span>
-Saving adps-storaged config<span class="o">[</span>OK<span class="o">]</span>:       <span class="c1">##Press &quot;Enter&quot; to save the configuration modification</span>
+Saving adps-storaged config<span class="o">[</span>OK<span class="o">]</span>:       <span class="c1">##Press &quot;Enter&quot; to save the modification</span>
 Do you want to restart adps-storaged<span class="o">[</span>Y<span class="o">]</span>:    <span class="c1">##Enter Y here to restart the service</span>
 </pre></div>
 </div>
@@ -1054,7 +1054,7 @@ Do you want to restart adps-storaged<span class="o">[</span>Y<span class="o">]</
 </section>
 <section id="connect-catalog-database">
 <h3>Connect Catalog Database<a class="headerlink" href="#connect-catalog-database" title="Permalink to this heading">#</a></h3>
-<p>The ADPS catalog needs to be connected to the MariaDB database.</p>
+<p>The ADPS catalog should be connected to the MariaDB database.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo /etc/init.d/adps-backupd config mysql
 Please input mysql host[]: 127.0.0.1
 Please input mysql port[3306]:
@@ -1063,14 +1063,14 @@ Please input mysql password:
 Loaded /opt/aurreum/adps/lib/libmysqlclient.so.18 with flags 0x00000101(RTLD_LAZY | RTLD_GLOBAL)
 Test MySQL connectivity OK!
 Select Y when you see the following prompt;
-Do you want to restart backupd? [Y]:y
+Do you want to restart backupd? [Y]: y
 [ ok ] Restarting adps-backupd (via systemctl): adps-backupd.service.
 </pre></div>
 </div>
 </section>
 <section id="install-online-manual">
 <h3>Install Online Manual<a class="headerlink" href="#install-online-manual" title="Permalink to this heading">#</a></h3>
-<p>This step aims to enable the ADPS Web console to display the online manual. Execute the manual run script (manual_run/manual-*.run) with root privileges and enter it according to the prompt.</p>
+<p>This step aims to enable the ADPS Web console to display the online manual. Run the manual run script (manual_run/manual-*.run) with root privileges.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">manual</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="n">run</span>
 <span class="o">./</span><span class="n">manual</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="n">run</span>
 </pre></div>
@@ -1081,19 +1081,19 @@ Do you want to restart backupd? [Y]:y
 <h2>Install Optional Modules<a class="headerlink" href="#install-optional-modules" title="Permalink to this heading">#</a></h2>
 <section id="install-lan-free-module">
 <h3>Install LAN-Free Module<a class="headerlink" href="#install-lan-free-module" title="Permalink to this heading">#</a></h3>
-<p>If you create a ZFS file system on the data disk of the operating system, then install the adps-storaged-lanfree software package on the storage server to run LAN-Free backups and database synthetic backups through iSCSI/FC Target. The installation commands are:</p>
+<p>If the data disk of the operating system uses the ZFS file system, you should install the adps-storaged-lanfree software package on the storage server to realize LAN-Free backups and synthetic backups through iSCSI/FC Target. The installation commands are:</p>
 <section id="id1">
 <h4>Ubuntu<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
-<li><p>Install the lio-utils and zfsutils-linux dependent packages</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar -zvxf <span class="m">5</span>.4.0-115_zfs0.8.6_ubuntu1804_amd64.tar.gz
-<span class="nb">cd</span> <span class="m">5</span>.4.0-115_zfs0.8.6_ubuntu1804_amd64
-sudo dpkg -i lio-utils/*  <span class="c1">#For there may be installation package dependencies, execute twice</span>
-sudo dpkg -i zfsutils-linux/*
+<li><p>Install the lio-utils and zfsutils-linux dependent packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar -xf <span class="m">5</span>.4.0-132_zfs0.8.6_ubuntu1804_amd64_aurreum.tar.gz -C /home/aurreum/  <span class="c1">#If you do not have the /home/aurreum directory, use the command sudo mkdir /home/aurreum to create the directory first</span>
+sudo <span class="nb">echo</span> deb <span class="o">[</span>signed-by<span class="o">=</span>/home/aurreum/ubuntu1804_amd64/repo.gpg<span class="o">]</span> file:///home/aurreum/ubuntu1804_amd64 bionic main <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/aurreum.list
+sudo apt-get update
+sudo apt-get install -y zfs* lio-utils
 </pre></div>
 </div>
 </li>
-<li><p>Install the adps-storaged-lanfree software package</p>
+<li><p>Install the adps-storaged-lanfree software package.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">storaged</span><span class="o">-</span><span class="n">lanfree_version_amd64</span><span class="o">.</span><span class="n">deb</span>
 </pre></div>
 </div>
@@ -1103,14 +1103,14 @@ sudo dpkg -i zfsutils-linux/*
 <section id="id2">
 <h4>CentOS<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
-<li><p>Install the lio-utils and zfsutils-linux dependent packages</p>
+<li><p>Install the lio-utils and zfsutils-linux dependent packages.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -zvxf <span class="m">5</span>.4.0-115_zfs0.8.6_ubuntu1804_amd64.tar.gz
 rpm -ivh lio-zfs-utils/lio-utils-3.1-11.noarch.rpm
-rpm -ivh lio-zfs-utils/zfs-utils/* <span class="c1">#For there may be installation package dependencies, execute twice</span>
+rpm -ivh lio-zfs-utils/zfs-utils/*
 </pre></div>
 </div>
 </li>
-<li><p>Install the adps-storaged-lanfree software package</p>
+<li><p>Install the adps-storaged-lanfree software package.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">storaged</span><span class="o">-</span><span class="n">lanfree_version_amd64</span><span class="o">.</span><span class="n">deb</span>
 </pre></div>
 </div>
@@ -1120,7 +1120,7 @@ rpm -ivh lio-zfs-utils/zfs-utils/* <span class="c1">#For there may be installati
 </section>
 <section id="install-tape-library-controller-module">
 <h3>Install Tape Library Controller Module<a class="headerlink" href="#install-tape-library-controller-module" title="Permalink to this heading">#</a></h3>
-<p>To back up the data to the tape library, you need to install the adps-controller package on the server and make it the tape library controller. The tape library controller must be connected to the tape library over the IP-SAN or FC-SAC network. And the adps-controller handles all requests from the agent to the tape library. The installation commands are:</p>
+<p>To back up data to the tape library, install the adps-controller package on a server and make the server the tape library controller. The tape library controller must be connected to the tape library over the IP-SAN or FC-SAC network. adps-controller handles all requests from the agent to the tape library. The installation commands are:</p>
 <section id="id3">
 <h4>Ubuntu<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller_version_amd64</span><span class="o">.</span><span class="n">deb</span>
@@ -1134,9 +1134,9 @@ rpm -ivh lio-zfs-utils/zfs-utils/* <span class="c1">#For there may be installati
 </div>
 </section>
 </section>
-<section id="install-instant-file-recovery-module">
-<h3>Install Instant File Recovery Module<a class="headerlink" href="#install-instant-file-recovery-module" title="Permalink to this heading">#</a></h3>
-<p>To achieve instant file recovery, you need to install the adps-nfsd package on the storage server. Then the file backup sets of the storage pool can be mounted on the agent. The installation commands are:</p>
+<section id="install-file-instant-recovery-module">
+<h3>Install File Instant Recovery Module<a class="headerlink" href="#install-file-instant-recovery-module" title="Permalink to this heading">#</a></h3>
+<p>To achieve file instant recovery, install the adps-nfsd package on the storage server. Then the file backup sets in storage pools can be mounted to the host with the agent installed. The installation commands are:</p>
 <section id="id5">
 <h4>Ubuntu<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">nfsd_version_amd64</span><span class="o">.</span><span class="n">deb</span>
@@ -1159,7 +1159,7 @@ rpm -ivh lio-zfs-utils/zfs-utils/* <span class="c1">#For there may be installati
 <h2>Open Access Ports<a class="headerlink" href="#open-access-ports" title="Permalink to this heading">#</a></h2>
 <p>For the safe running of the system, open the firewall and set the access ports according to the following list.</p>
 <table class="table" id="id16">
-<caption><span class="caption-text">Open Access Ports List </span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Open Access Ports List</span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Port</p></th>
 <th class="head"><p>Function</p></th>
@@ -1229,12 +1229,12 @@ rpm -ivh lio-zfs-utils/zfs-utils/* <span class="c1">#For there may be installati
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>50309</p></td>
-<td><p>Interprocess communication among agents</p></td>
+<td><p>Agent interprocess communication</p></td>
 <td><p>TCP</p></td>
 <td><p>No</p></td>
 </tr>
 <tr class="row-odd"><td><p>60309</p></td>
-<td><p>Interprocess communication among agents</p></td>
+<td><p>Agent interprocess communication</p></td>
 <td><p>TCP</p></td>
 <td><p>Yes</p></td>
 </tr>
@@ -1256,7 +1256,7 @@ rpm -ivh lio-zfs-utils/zfs-utils/* <span class="c1">#For there may be installati
 <span class="n">mariadb</span>
 </pre></div>
 </div>
-<p>For example, you can check the adps-backupd service according to the following commands. The active state means that the service is running normally. The query commands for other services are the same.</p>
+<p>For example, you can check the adps-backupd service using the following commands. The active state means that the service is running normally. The query commands for other services are the same.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/etc/init.d/adps-backupd  status
 ● adps-backupd.service - adps backup server daemon
    Loaded: loaded (/lib/systemd/system/adps-backupd.service; enabled; vendor preset: enabled)
@@ -1275,24 +1275,24 @@ May 17 13:54:37 ubuntu1804 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 <h2>Web Interface<a class="headerlink" href="#web-interface" title="Permalink to this heading">#</a></h2>
 <p>After the installation, enter the IP or domain name on the browser. If you can access the ADPS Web console, the installation is successful.</p>
 <p><img alt="" src="../_images/install-6.png" /></p>
-<p>You must import a product license to use the Web console. Download the “Request License” file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, please refer to the <em>Administrator’s Guide</em>.</p>
+<p>You must import a product license to use the Web console. Download the “Request License” file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, see the <em>Administrator’s Guide</em>.</p>
 </section>
 <section id="appendix">
 <h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h2>
 <section id="uninstall-software">
 <h3>Uninstall Software<a class="headerlink" href="#uninstall-software" title="Permalink to this heading">#</a></h3>
 <blockquote>
-<div><p>Before uninstalling the software, please confirm that you need to uninstall it. Relevant data cannot be retrieved after uninstallation.</p>
+<div><p>Before you uninstall the software, please confirm that you want to uninstall it. You cannot retrieve relevant data after uninstallation.</p>
 </div></blockquote>
 <section id="id7">
 <h4>Ubuntu<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <ul>
-<li><p>Uninstall a module. For example, to uninstall the controller module, execute the following command with root privileges:</p>
+<li><p>Uninstall a module. For example, to uninstall the controller module, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">purge</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller</span>
 </pre></div>
 </div>
 </li>
-<li><p>To uninstall all ADPS software, execute the following command with root privileges:</p>
+<li><p>To uninstall all ADPS software, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">purge</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span>
 </pre></div>
 </div>
@@ -1310,12 +1310,12 @@ May 17 13:54:37 ubuntu1804 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 <section id="id8">
 <h4>CentOS<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
 <ul>
-<li><p>Uninstall a module. For example, to uninstall the controller module, execute the following command with root privileges:</p>
+<li><p>Uninstall a module. For example, to uninstall the controller module, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">e</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller</span>
 </pre></div>
 </div>
 </li>
-<li><p>To uninstall all ADPS software, execute the following command with root privileges:-</p>
+<li><p>To uninstall all ADPS software, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rpm -e `rpm -qa | grep adps`
 </pre></div>
 </div>
@@ -1330,7 +1330,7 @@ May 17 13:54:37 ubuntu1804 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 </section>
 <section id="reconfigure-storaged">
 <h3>Reconfigure storaged<a class="headerlink" href="#reconfigure-storaged" title="Permalink to this heading">#</a></h3>
-<p>You can execute the following commands to reconfigure adps-storaged when the server address is changed or you have inputted the wrong backup server address, port, and protocol.</p>
+<p>You can run the following commands to reconfigure adps-storaged when the server address is changed or you have inputted the wrong backup server address, port, and protocol.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/etc/init.d/adps-storaged config
 Please input Aurreum Data Protection Suite Backup Server host[192.168.20.115]: 192.168.87.115
 Please input Aurreum Data Protection Suite Backup Server port[50305]:
@@ -1344,7 +1344,6 @@ Do you want to restart adps-storaged? [Y]:
 </section>
 <section id="supported-fc-hba-list">
 <h3>Supported FC HBA List<a class="headerlink" href="#supported-fc-hba-list" title="Permalink to this heading">#</a></h3>
-<p>QLogic</p>
 <table class="table" id="id17">
 <caption><span class="caption-text">QLogic</span><a class="headerlink" href="#id17" title="Permalink to this table">#</a></caption>
 <thead>
@@ -1416,7 +1415,7 @@ Do you want to restart adps-storaged? [Y]:
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

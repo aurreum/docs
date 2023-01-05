@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User Guide for Caché &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for Caché &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -302,8 +302,8 @@ title="Fullscreen mode"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-windows-installation-package">
-       Download Windows Installation Package
+      <a class="reference internal nav-link" href="#download-agent-installation-package">
+       Download Agent Installation Package
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -505,8 +505,8 @@ title="Fullscreen mode"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-windows-installation-package">
-       Download Windows Installation Package
+      <a class="reference internal nav-link" href="#download-agent-installation-package">
+       Download Agent Installation Package
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -706,7 +706,7 @@ title="Fullscreen mode"
 <td><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore type</p></td>
-<td><p>Timepoint restore: Restore a database to a specific point-in-time state. <br> Recovery testing: Recover the latest backup set except the log backup set to a target host or another instance on the source host, used with the backup schedule to verify the integrity and availability of the backup set.</p></td>
+<td><p>Timepoint restore: Restore a database to a specific point-in-time state. <br> Recovery testing: Recover the latest backup set except the log backup set to a target host or another instance on the source host, used with the restore schedule to verify the integrity and availability of the backup set.</p></td>
 </tr>
 <tr class="row-even"><td><p>Restore target</p></td>
 <td><p>Overwrite the original database, create a new database</p></td>
@@ -763,17 +763,17 @@ title="Fullscreen mode"
 </section>
 <section id="install-and-configure-agent-on-windows-os">
 <h3>Install and Configure Agent on Windows OS<a class="headerlink" href="#install-and-configure-agent-on-windows-os" title="Permalink to this heading">#</a></h3>
-<section id="download-windows-installation-package">
-<h4>Download Windows Installation Package<a class="headerlink" href="#download-windows-installation-package" title="Permalink to this heading">#</a></h4>
+<section id="download-agent-installation-package">
+<h4>Download Agent Installation Package<a class="headerlink" href="#download-agent-installation-package" title="Permalink to this heading">#</a></h4>
 <p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
 <p><img alt="" src="../_images/cache_agent_2.png" /></p>
 </section>
 <section id="install-agent-on-windows">
 <h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
-<li><p>Upload the installation package to the agent.</p></li>
+<li><p>Upload the installation package to the target host.</p></li>
 <li><p>Double-click the package to launch the setup wizard and click <strong>Next</strong>.</p></li>
-<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Select the <strong>CacheDB</strong> component and click <strong>Next</strong>.</p></li>
+<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the <strong>CacheDB</strong> component and click <strong>Next</strong>.</p></li>
 </ol>
 <p><img alt="" src="../_images/cache_agent_3.png" /></p>
 <ol class="arabic simple" start="4">
@@ -796,7 +796,7 @@ title="Fullscreen mode"
 <section id="install-agent-on-linux">
 <h3>Install Agent on Linux<a class="headerlink" href="#install-agent-on-linux" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Select <strong>Linux</strong> as the system and <strong>InterSystemsCache</strong> as the module. Copy an installation command.</p></li>
+<li><p>Select <strong>Linux</strong> as the system and <strong>InterSystems Caché</strong> as the module. Copy an installation command.</p></li>
 </ol>
 <p><img alt="" src="../_images/cache_agent_5.png" /></p>
 <ol class="arabic simple" start="2">
@@ -833,7 +833,7 @@ title="Fullscreen mode"
 <h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
 <section id="check-database-status">
 <h3>Check Database Status<a class="headerlink" href="#check-database-status" title="Permalink to this heading">#</a></h3>
-<p>Check the Caché status of the agent host. The Caché should be in the “running”  status for backup and restore.</p>
+<p>Check the Caché status. The Caché should be in the “running”  status for backup and restore.</p>
 <p><img alt="" src="../_images/cache_status_1.png" /></p>
 </section>
 <section id="check-resource">
@@ -901,8 +901,8 @@ title="Fullscreen mode"
 </ul>
 <p><strong>Advanced options</strong>:</p>
 <p><img alt="" src="../_images/cache_backup_3.png" /></p>
-<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s).</p>
-<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
 <p>(6) Set <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
@@ -910,14 +910,14 @@ title="Fullscreen mode"
 <div><p>Note:</p>
 <ul class="simple">
 <li><p>Caché database name supports only 1 to 64 characters, starting with a letter, and may contain alphanumerics, dashes, or underscores.</p></li>
-<li><p>When creating a database with SQL statement, two databases will be created automatically. Select one of them to back up, and the backup job will back up both databases.</p></li>
+<li><p>When you create a database via SQL statements, two databases are automatically created. Select one of the databases for backup, and the backup job will back up both databases.</p></li>
 <li><p>File permissions are required to add a local storage pool.</p></li>
 </ul>
 </div></blockquote>
 </section>
 <section id="create-incremental-backup-jobs">
 <h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week.</p>
+<p>An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable point in time every week.</p>
 <ul class="simple">
 <li><p>Creating an incremental backup job is the same as creating a full backup job. Select <strong>Incremental</strong> as the backup type.</p></li>
 </ul>
@@ -931,7 +931,7 @@ title="Fullscreen mode"
 </section>
 <section id="create-log-backup-jobs">
 <h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>Based on periodic full and incremental backups, you can also add frequent log backups to back up only the binary logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.</p>
+<p>Based on periodic full and incremental backups, you can also add frequent log backups to back up the journals of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.</p>
 <ul class="simple">
 <li><p>Creating a log backup job is the same as creating a full backup job. Select <strong>Log</strong> as the backup type.</p></li>
 </ul>
@@ -940,7 +940,7 @@ title="Fullscreen mode"
 <div><p>Note:</p>
 <ul class="simple">
 <li><p>Log backup requires the Global Journal State database option enabled.</p></li>
-<li><p>Set the When to purge journal files database options to reasonable values.</p></li>
+<li><p>Set reasonable values for the When to purge journal files database options.</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -957,7 +957,7 @@ title="Fullscreen mode"
 </section>
 <section id="create-timepoint-restore-jobs">
 <h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
-<p>When a logical error or a disaster occurs in a Caché database, timepoint restore allows to restore the database to the state of the most recent full backup first, and then use the backup logs to roll back the database to the specified point in time. For the database that has only run a full backup job, the timepoint restore can only restore it to the data state at the end of the backup job.</p>
+<p>When a logical error or a disaster occurs in a Caché database, timepoint restore allows you to restore the database to a specific point in time. This restore type restores the database to the state of the most recent full backup first, and then uses backup logs to restore the database to the specified point in time.</p>
 <p>(1) Select the Cache host and resource. Click <strong>Next</strong>.</p>
 <p>(2) Select <strong>Timepoint Restore</strong> as the restore type, and select the <strong>Database</strong>. You can select a backup set by clicking the time displayed next to the <strong>Restore to Point-in-time</strong> option, and specify a point in time by dragging the slider control. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/cache_restore_1.png" /></p>
@@ -965,7 +965,7 @@ title="Fullscreen mode"
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
-<li><p>To restore to the source host or another instance on a different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental point in time.</p></li>
+<li><p>To restore to another instance on the source or different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental backup point in time.</p></li>
 </ul>
 </div></blockquote>
 <p>(4) Set <strong>Restore Schedule</strong>. It only supports immediate and one-time restore schedules.</p>
@@ -1002,12 +1002,12 @@ title="Fullscreen mode"
 <p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
 <p><img alt="" src="../_images/cache_job_5.png" /></p>
 <ul class="simple">
-<li><p>Immediate: The job starts immediately after it is submitted.</p></li>
-<li><p>One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.</p></li>
-<li><p>Hourly: The job runs every few hours according to the setting. The value range is an integer between 1 and 24.</p></li>
-<li><p>Daily: The job runs every few days according to the setting. The value range is an integer between 1 and 5.</p></li>
-<li><p>Weekly: The job runs every few weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs every few months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.</p></li>
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
 </ul>
 <blockquote>
 <div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
@@ -1055,7 +1055,7 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Backup</p></td>
-<td><p>Do not support the following types of databases: dismounted, read-only, and CACHESYS. <br> As there is only one backup list for one instance, all backup jobs will share the same backup list. If the newly added backup job needs to modify the backup list, the backup job will be invalid.</p></td>
+<td><p>Do not support the following types of databases: dismounted, read-only, and CACHESYS. <br> AS there is only one backup list for one instance, all backup jobs will share the same backup list (backup content). If the newly created backup job requires to modify the backup list, the backup content of all created backup jobs will be changed. The periodical backup jobs can still be executed, but the backup content will be changed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore</p></td>
 <td><p>The restore of the database using the interactive key activation is not supported. If you need to restore to the encrypted instance, it is recommended to set the unattended key activation or disable the encryption feature and then enable it after the restore job is completed. <br> The Reconnection Time feature is not supported.</p></td>
@@ -1113,7 +1113,7 @@ title="Fullscreen mode"
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

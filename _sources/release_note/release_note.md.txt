@@ -2,7 +2,7 @@
 
 ## Introduction
 
-*{{product}} Release Note* briefly introduces {{product}} functions of a specific version when it is released. It includes two parts: *Glossary* and *Function Description*. *Glossary* can make *Function Description* easier to understand. *Function Description* briefly describes the changes and other core features in this release.
+*{{title}} ({{product}}) Release Note* briefly introduces {{product}} functions of a specific version when it is released. It includes two parts: *Glossary* and *Function Description*. *Glossary* can make *Function Description* easier to understand. *Function Description* briefly describes the changes and other core features in this release.
 
 ## Glossary
 

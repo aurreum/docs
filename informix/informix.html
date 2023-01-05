@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User Guide for Informix &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for Informix &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -735,10 +735,10 @@ title="Fullscreen mode"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Backup source</p></td>
-<td><p>Database, log, automatic archiving log</p></td>
+<td><p>Database, log</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup type</p></td>
-<td><p>Full backup: Back up all online and non-temporary storage spaces and logical logs, including onconﬁg, sqlhosts, ixbar, and oncfg ﬁles. It is a level 0 backup. <br> Cumulative incremental backup: Back up all blocks changed after the last full backup. It is a level 1 backup. <br> Incremental backup: Back up all blocks changed after the last backup. It is a level 2 backup. <br> Log backup: Back up logical logs. <br> Automatic archiving log backup: Perform automatically when the logical logs are full or when you manually execute a log switch command.</p></td>
+<td><p>Full backup: Back up all online and non-temporary storage spaces and logical logs, including onconﬁg, sqlhosts, ixbar, and oncfg ﬁles. It is a level 0 backup. <br> Cumulative incremental backup: Back up all blocks changed after the last full backup. It is a level 1 backup. <br> Incremental backup: Back up all blocks changed after the last backup. It is a level 2 backup. <br> Log backup: Back up logical logs. <br> Automatic archiving log backup: It is performed automatically when the logical logs are full or when you manually execute a log switch command.</p></td>
 </tr>
 <tr class="row-even"><td><p>Backup target</p></td>
 <td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
@@ -827,9 +827,9 @@ title="Fullscreen mode"
 <section id="install-agent-on-windows">
 <h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
-<li><p>Upload the installation package to the agent.</p></li>
+<li><p>Upload the installation package to the target host.</p></li>
 <li><p>Double-click the package to install it according to the setup wizard and click <strong>Next</strong>.</p></li>
-<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Select the <strong>Informix</strong> component and click <strong>Next</strong>.</p>
+<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the <strong>Informix</strong> component and click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/informix_agent03.png" /></p>
 </li>
 <li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
@@ -880,7 +880,7 @@ title="Fullscreen mode"
 <h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
 <section id="check-database-state">
 <h3>Check Database State<a class="headerlink" href="#check-database-state" title="Permalink to this heading">#</a></h3>
-<p>Check the Informix instance state of the agent. The Informix instance should be in the “On-Line”  state for backup and restore.</p>
+<p>Check the Informix instance state. The Informix instance should be in the “On-Line”  state for backup and restore.</p>
 <p><img alt="" src="../_images/informix_database01.png" /></p>
 </section>
 <section id="check-resource">
@@ -901,7 +901,7 @@ title="Fullscreen mode"
 </ol>
 <p><img alt="" src="../_images/informix_login02.png" /></p>
 <ol class="arabic simple" start="2">
-<li><p>You must have the privileges of CONNECT, RESOURCE, and DBA to log in to Informix. You will need to log in to Informix again if the password is changed, otherwise, the jobs will fail.</p></li>
+<li><p>You must have the privileges of CONNECT, RESOURCE, and DBA to log in to Informix. You will need to log in to Informix again if the password is changed; otherwise, the jobs will fail.</p></li>
 <li><p>The Agent supports using ODBC or DBACCESS to access Informix databases:</p>
 <ul class="simple">
 <li><p>If you have installed Informix CSDK (Client Software Development Kit), use ODBC access mode. See <em>Configure the Agent Access Mode</em> for the specific configuration.</p></li>
@@ -914,7 +914,7 @@ title="Fullscreen mode"
 <blockquote>
 <div><p>Note:</p>
 <ul>
-<li><p>Informix must be online for successful login. If the agent is not online the login will fail even if the username and password are correct.</p></li>
+<li><p>Informix must be online for successful login; otherwise, the login will fail even if the username and password are correct.</p></li>
 <li><p>If you use ODBC to access Informix 12.10 on Windows, follow the configuration steps below before you log in.</p>
 <ol class="arabic simple">
 <li><p>Modify the file in C:\Program Files\IBM Informix Software Bundle\etc\sqlhosts as the follow:</p></li>
@@ -962,7 +962,7 @@ title="Fullscreen mode"
 <div><p>Note:</p>
 <ul class="simple">
 <li><p>It is not supported to store full backups, incremental backups/cumulative incremental backups and log backups in different storage pools.</p></li>
-<li><p>When you run a backup job to a storage pool that has not been used for informix backups, you need to perform a full backup to the pool first.</p></li>
+<li><p>Perform a full backup to the storage pool before using it for Informix backups.</p></li>
 </ul>
 </div></blockquote>
 <p>(4) Go to <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
@@ -977,14 +977,14 @@ title="Fullscreen mode"
 <li><p>Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.</p></li>
 <li><p>Fast: Use the fast compression algorithms during the backup.</p></li>
 </ul>
-<p><strong>On-Bar</strong>: When you run an Informix backup job for the first time, On-Bar will be configured by default and a full backup job will be executed. Configuring On-Bar is an one-time operation that is only required for the first backup. If your Informix version is lower than 12.10, the database will be shut down and be restarted during the On-Bar configuration, and it is recommended that you set job execution in free time. On-Bar configuration modifies the following values in $INFORMIXDIR/etc/onconﬁg file: BAR_BSALIB_PATH, BAR_MAX_BACKUP, and LTAPEDEV.</p>
+<p><strong>On-Bar</strong>: When you run an Informix backup job for the first time, On-Bar will be configured by default and a full backup job will be executed. Configuring On-Bar is an one-time operation that is only required for the first backup. If your Informix version is lower than 12.10, the database will be shut down and be restarted during the On-Bar configuration, and it is recommended that you schedule job execution in idle business time. On-Bar configuration modifies the following values in $INFORMIXDIR/etc/onconﬁg file: BAR_BSALIB_PATH, BAR_MAX_BACKUP, and LTAPEDEV.</p>
 <p><strong>Channels</strong>: Used to improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, refer to <em>Channel Number Configuration</em>.</p>
 <ul class="simple">
 <li><p><strong>Advanced options</strong>:</p></li>
 </ul>
 <p><img alt="" src="../_images/informix_backup03.png" /></p>
-<p><strong>Reconnection time</strong>: Support 1 to 60. The unit is minute (s). The job continues after the abnormal reset occurs in the network within the set time.</p>
-<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the “<strong>+</strong>” icon to add limits within different periods.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
 <p>(6) Set <strong>Job Name</strong>, check whether the job information is correct. Click <strong>Submit</strong>.</p>
@@ -1031,8 +1031,8 @@ title="Fullscreen mode"
 <div><p>Note:</p>
 <ul class="simple">
 <li><p>If the database has never been fully backed up, or has not been fully backed up after the restore, run a full backup job before the log backup job.</p></li>
-<li><p>The restores are only successfully executed when full backups and log backups are in the same storage pool.</p></li>
-<li><p>When a log backup job is running,  the Agent modifies onconfig file parameter LTAPEDEV to a value other than /dev/ null.</p></li>
+<li><p>To perform the restore job successfully, it is required that full backups and log backups are in the same storage pool.</p></li>
+<li><p>When a log backup job is running,  the Agent modifies onconfig file parameter LTAPEDEV to a value other than /dev/null.</p></li>
 <li><p>When a single logical log file is full, this log file will not be automatically marked as backed up. When all logical logs are full and no log backup has been performed since the last backup, the database will hang and become inaccessible. It is recommended that you set the log backup execution cycle according to the speed at which logical logs are generated to avoid database from crashing.</p></li>
 </ul>
 </div></blockquote>
@@ -1139,12 +1139,12 @@ title="Fullscreen mode"
 <p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
 <p><img alt="" src="../_images/informix_time01.png" /></p>
 <ul class="simple">
-<li><p>Immediate: The job starts immediately after it is submitted.</p></li>
-<li><p>One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.</p></li>
-<li><p>Hourly: The job runs after a specified number of hours according to the setting. The value range is an integer between 1 and 24.</p></li>
-<li><p>Daily: The job runs after a specified number of days according to the setting. The value range is an integer between 1 and 5.</p></li>
-<li><p>Weekly: The job runs after a specified number of weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs after a specified number of months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.</p></li>
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
 </ul>
 <blockquote>
 <div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
@@ -1180,7 +1180,7 @@ title="Fullscreen mode"
 </section>
 <section id="configure-the-agent-access-mode">
 <h2>Configure the Agent Access Mode<a class="headerlink" href="#configure-the-agent-access-mode" title="Permalink to this heading">#</a></h2>
-<p>The Agent supports use ODBC and DBACCESS to access the databases.</p>
+<p>The Agent supports using ODBC and DBACCESS to access the databases.</p>
 <ul class="simple">
 <li><p>If you have installed Informix CSDK (Client Software Development Kit), ODBC access mode will be used by default.</p></li>
 <li><p>If Informix CSDK (Client Software Development Kit) is not installed, you can use the DBACCESS access mode.</p></li>
@@ -1293,7 +1293,7 @@ HKEY_LOCAL_MACHINE<span class="se">\S</span>OFTWARE<span class="se">\a</span>urr
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

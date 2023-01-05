@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User Guide for File &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for File &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +740,7 @@ title="Fullscreen mode"
 <h1>User Guide for File<a class="headerlink" href="#user-guide-for-file" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>ADPS provides the capability for the backup and restore of files. This guide introduces how to correctly use ADPS to back up and restore files.</p>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of files. This guide introduces how to correctly use ADPS to back up and restore files.</p>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
@@ -847,7 +847,7 @@ title="Fullscreen mode"
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
-<li><p>Synthetic backup supports all platforms and mount recovery supports character encoding conversion.</p></li>
+<li><p>ADPS supports synthetic backup on all platforms.  Character encoding conversion is available for the mount recovery job.</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1307,9 +1307,9 @@ title="Fullscreen mode"
 <section id="install-agent-on-windows">
 <h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
 <ol class="arabic">
-<li><p>Upload the installation package to the agent.</p></li>
+<li><p>Upload the installation package to the target host.</p></li>
 <li><p>Double-click the package to install it according to the wizard and click <strong>Next</strong>.</p></li>
-<li><p>This installation package is a collection of components. It checks the file resources, files, or applications installed on the agent by default. Check the <strong>File</strong> and click <strong>Next</strong>.</p>
+<li><p>This installation package is a collection of components. It checks the file resources, files, or applications installed on the host by default. Check the <strong>File</strong> and click <strong>Next</strong>.</p>
 <p><img alt="file_agent03" src="../_images/file_agent03.png" /></p>
 </li>
 <li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
@@ -1397,7 +1397,7 @@ title="Fullscreen mode"
 </ol>
 <ul class="simple">
 <li><p><strong>OS Authentication</strong>: Use the admin account to log in.</p></li>
-<li><p><strong>Access Key</strong>: Log in with the Access Key of the user who has the authorization of the resource. You can run a job without a password, which has potential data security risks.</p></li>
+<li><p><strong>Access Key</strong>: Log in with the Access Key of the user who has the permission of the resource. You can run a job without a password, which has potential data security risks.</p></li>
 </ul>
 <ol class="arabic simple" start="3">
 <li><p>Select the <strong>Authentication</strong> method. Enter <strong>User</strong> and <strong>Password</strong>. Click <strong>Login</strong>.</p></li>
@@ -1425,7 +1425,7 @@ title="Fullscreen mode"
 <h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
 <p>All files can execute backup jobs.</p>
 <p>(1) Click <strong>Backup</strong>. Select file host and instance.</p>
-<p>(2) Select <strong>Full</strong> as the backup type and choose file folders or files. It supports full backup, incremental backup, cumulative incremental backup, and synthetic backup.</p>
+<p>(2) Select <strong>Full</strong> as the backup type and choose file folders or files.</p>
 <p><img alt="file_backup01" src="../_images/file_backup01.png" /></p>
 <p>(3) Select <strong>Backup Target</strong>. You can choose standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, or LAN-Free pool.</p>
 <blockquote>
@@ -1434,7 +1434,7 @@ title="Fullscreen mode"
 <li><p>It’s not supported to store full backups, incremental backups, and cumulative incremental backups in different storage pools.</p></li>
 </ul>
 </div></blockquote>
-<p>(4) Go to <strong>Backup Schedule</strong> and set the run time of the backup job. For details, refer to <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
+<p>(4) Go to <strong>Backup Schedule</strong> and set the run time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
 <p>(5) Set <strong>Backup Options</strong> including common and advanced options.</p>
 <ul class="simple">
 <li><p><strong>Common options</strong>:</p></li>
@@ -1451,8 +1451,8 @@ title="Fullscreen mode"
 <li><p><strong>Advanced options</strong>:</p></li>
 </ul>
 <p><img alt="file_backup03" src="../_images/file_backup03.png" /></p>
-<p><strong>Reconnection time</strong>: Support 1 to 60. The unit is minute. The job continues after the abnormal reset occurs in the network within the set time.</p>
-<p><strong>Speed limit</strong>: Limit data transfer speed or disk read and write speed. You can limit the speed within different periods. The unit is MiB/s or KiB/s.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
 <p><strong>Snapshot</strong>: Enabled by default for consistent backups via snapshots when there are backup files in a locked state. Only available for Windows.</p>
@@ -1538,8 +1538,8 @@ title="Fullscreen mode"
 <li><p><strong>Advanced options</strong>:</p></li>
 </ul>
 <p><img alt="file_restore04" src="../_images/file_restore04.png" /></p>
-<p><strong>Reconnection time</strong>: Support 1 to 60. The unit is minute. The job continues after the abnormal reset occurs in the network within the set time.</p>
-<p><strong>Speed limit</strong>: Limit data transfer speed or disk read and write speed. You can limit the speed within the different time periods. The unit is MiB/s or KiB/s.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
 <p>(6) Confirm the restore content and submit the job. Click <strong>Submit</strong>.</p>
@@ -1637,8 +1637,8 @@ bridge_fd <span class="m">0</span>
 <p><strong>How to handle files with the same name</strong>: Overwrite, skip, retain most recent, rename and save.</p>
 <p><strong>Dry-run</strong>: Enable dry-run to simulate execution results without specific testing operations. Dry-run log path can be the original path or custom path.</p>
 <p><strong>Path conversion type</strong>: Strip directory and path transform.</p>
-<p><strong>Reconnection time</strong>: Support 1 to 60. The unit is minute. The job continues after the abnormal reset occurs in the network within the set time.</p>
-<p><strong>Speed limit</strong>: Limit data transfer speed or disk read and write speed. You can limit the speed within different time periods. The unit is MiB/s or KiB/s.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
 <p>(6) Confirm the recovery content and submit the job. Click <strong>Submit</strong>.</p>
@@ -1663,12 +1663,12 @@ bridge_fd <span class="m">0</span>
 <p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
 <p><img alt="" src="../_images/file_time01.png" /></p>
 <ul class="simple">
-<li><p>Immediate: The job starts immediately after it is submitted.</p></li>
-<li><p>One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.</p></li>
-<li><p>Hourly: The job runs every few hours according to the setting. The value range is an integer between 1 and 24.</p></li>
-<li><p>Daily: The job runs every few days according to the setting. The value range is an integer between 1 and 5.</p></li>
-<li><p>Weekly: The job runs every few weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs every few months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.</p></li>
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
 </ul>
 <blockquote>
 <div><p>Example: Run the job every two weeks on Friday at 18:00</p>
@@ -1715,8 +1715,8 @@ bridge_fd <span class="m">0</span>
 </section>
 <section id="limitation">
 <h2>Limitation<a class="headerlink" href="#limitation" title="Permalink to this heading">#</a></h2>
-<table class="table" id="id3">
-<caption><span class="caption-text">Limitation</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
 <th class="head"><p>Limitation Description</p></th>
@@ -1743,7 +1743,7 @@ bridge_fd <span class="m">0</span>
 </section>
 <section id="glossary">
 <h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
-<table class="table" id="id4">
+<table class="longtable table" id="id4">
 <caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
@@ -1791,7 +1791,7 @@ bridge_fd <span class="m">0</span>
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

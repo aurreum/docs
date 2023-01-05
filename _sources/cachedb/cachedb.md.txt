@@ -22,7 +22,7 @@ class: longtable
 |Stop jobs|Stop the backup and restore jobs.|
 |Backup compression |None, fast, tunable|
 |Backup schedule |Immediate, one-time, minutely, hourly, daily, weekly, monthly|
-|Restore type| Timepoint restore: Restore a database to a specific point-in-time state.{{ br }}Recovery testing: Recover the latest backup set except the log backup set to a target host or another instance on the source host, used with the backup schedule to verify the integrity and availability of the backup set. |
+|Restore type| Timepoint restore: Restore a database to a specific point-in-time state.{{ br }}Recovery testing: Recover the latest backup set except the log backup set to a target host or another instance on the source host, used with the restore schedule to verify the integrity and availability of the backup set. |
 |Restore target |Overwrite the original database, create a new database|
 |Restore granularity| Database (Single) |
 |Restore to a different host| Restoring to a different host requires the same OS and database version. |
@@ -54,7 +54,7 @@ Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** ico
 
 ### Install and Configure Agent on Windows OS
 
-#### Download Windows Installation Package
+#### Download Agent Installation Package
 
 In the **Install agent** window, select **Windows** and click **Download Windows agent** to download the package.
 
@@ -63,9 +63,9 @@ In the **Install agent** window, select **Windows** and click **Download Windows
 
 #### Install Agent on Windows
 
-  1. Upload the installation package to the agent.
+  1. Upload the installation package to the target host.
   2. Double-click the package to launch the setup wizard and click **Next**.
- 3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the agent by default. Select the **CacheDB** component and click **Next**.
+ 3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the **CacheDB** component and click **Next**.
 
 ![](../image/01-agent/cache/cache_agent_3.png)
 
@@ -83,7 +83,7 @@ In the **Install agent** window, select **Windows** and click **Download Windows
 
 ###  Install Agent on Linux
 
-1. Select **Linux** as the system and **InterSystemsCache** as the module. Copy an installation command.
+1. Select **Linux** as the system and **InterSystems Caché** as the module. Copy an installation command.
 
 ![](../image/01-agent/cache/cache_agent_5.png)
 
@@ -123,7 +123,7 @@ After the activation, authorize users to operate the resource in the pop-up **Au
 
 ### Check Database Status
 
-Check the Caché status of the agent host. The Caché should be in the "running"  status for backup and restore.
+Check the Caché status. The Caché should be in the "running"  status for backup and restore.
 
 ![](../image/03-database/cache/cache_status_1.png)
 
@@ -200,9 +200,9 @@ This chapter introduces how to back up the Caché databases.
 
 ![](../image/03-database/cache/cache_backup_3.png)
 
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s).
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the ‘’+‘’ icon to add limits at different times.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -212,11 +212,11 @@ This chapter introduces how to back up the Caché databases.
 
 > Note:
 > - Caché database name supports only 1 to 64 characters, starting with a letter, and may contain alphanumerics, dashes, or underscores.
-> - When creating a database with SQL statement, two databases will be created automatically. Select one of them to back up, and the backup job will back up both databases.
+> - When you create a database via SQL statements, two databases are automatically created. Select one of the databases for backup, and the backup job will back up both databases.
 > - File permissions are required to add a local storage pool.
 ### Create Incremental Backup Jobs
 
-An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week.
+An incremental backup only backs up data that has changed since the last full/incremental backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable point in time every week.
 
 - Creating an incremental backup job is the same as creating a full backup job. Select **Incremental** as the backup type.
 
@@ -229,7 +229,7 @@ An incremental backup only backs up data that has changed since the last full/in
 
 ### Create Log Backup Jobs
 
-Based on periodic full and incremental backups, you can also add frequent log backups to back up only the binary logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.
+Based on periodic full and incremental backups, you can also add frequent log backups to back up the journals of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.
 
 - Creating a log backup job is the same as creating a full backup job. Select **Log** as the backup type.
 
@@ -237,7 +237,7 @@ Based on periodic full and incremental backups, you can also add frequent log ba
 
 > Note:
 > - Log backup requires the Global Journal State database option enabled.
-> - Set the When to purge journal files database options to reasonable values.
+> - Set reasonable values for the When to purge journal files database options.
 
 ## Create Restore Jobs
 
@@ -250,7 +250,7 @@ This chapter introduces how to restore Caché databases. ADPS provides two resto
 
 ### Create Timepoint Restore Jobs
 
-When a logical error or a disaster occurs in a Caché database, timepoint restore allows to restore the database to the state of the most recent full backup first, and then use the backup logs to roll back the database to the specified point in time. For the database that has only run a full backup job, the timepoint restore can only restore it to the data state at the end of the backup job.
+When a logical error or a disaster occurs in a Caché database, timepoint restore allows you to restore the database to a specific point in time. This restore type restores the database to the state of the most recent full backup first, and then uses backup logs to restore the database to the specified point in time. 
 
 (1) Select the Cache host and resource. Click **Next**.
 
@@ -262,7 +262,7 @@ When a logical error or a disaster occurs in a Caché database, timepoint restor
 
 > Note:
 >
-> - To restore to the source host or another instance on a different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental point in time.
+> - To restore to another instance on the source or different host, it is required to select the database with the same path and same name; otherwise, it will only be restored to the most recent full or incremental backup point in time.
 
 (4) Set **Restore Schedule**. It only supports immediate and one-time restore schedules.
 
@@ -312,12 +312,12 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 ![](../image/03-database/cache/cache_job_5.png)
 
 
-- Immediate: The job starts immediately after it is submitted.
-- One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.
-- Hourly: The job runs every few hours according to the setting. The value range is an integer between 1 and 24.
-- Daily: The job runs every few days according to the setting. The value range is an integer between 1 and 5.
-- Weekly: The job runs every few weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.
-- Monthly: The job runs every few months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 >  **Example: Perform the job every two weeks on Friday at 18:00**
 
@@ -354,7 +354,7 @@ class: longtable
 ---
 | Function | Limitation                                                   |
 | -------- | ------------------------------------------------------------ |
-| Backup   | Do not support the following types of databases: dismounted, read-only, and CACHESYS.{{ br }}As there is only one backup list for one instance, all backup jobs will share the same backup list. If the newly added backup job needs to modify the backup list, the backup job will be invalid. |
+| Backup   | Do not support the following types of databases: dismounted, read-only, and CACHESYS.{{ br }}AS there is only one backup list for one instance, all backup jobs will share the same backup list (backup content). If the newly created backup job requires to modify the backup list, the backup content of all created backup jobs will be changed. The periodical backup jobs can still be executed, but the backup content will be changed.|
 | Restore  | The restore of the database using the interactive key activation is not supported. If you need to restore to the encrypted instance, it is recommended to set the unattended key activation or disable the encryption feature and then enable it after the restore job is completed.{{ br }}The Reconnection Time feature is not supported. |
 ```
 

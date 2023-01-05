@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User Guide for Linux OS &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for Linux OS &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -706,7 +706,7 @@ title="Fullscreen mode"
 <h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
 <section id="check-resource">
 <h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource on the list and its state is “Online”. Please refer to <em>Activate License and Assign Authorization</em> If the resource is not available.</p>
+<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource on the list and its state is “Online”. Please refer to <em>Activate License and Assign Authorization</em> if the resource is not available.</p>
 <p><img alt="" src="../_images/linux-os_08.png" /></p>
 </section>
 <section id="check-storage-pool">
@@ -766,8 +766,8 @@ title="Fullscreen mode"
 <p><strong>Handling sparse files</strong>: The option is enabled by default. Sparse files will be handled during the backup job.</p>
 <p><strong>Advanced options</strong>:</p>
 <p><img alt="" src="../_images/linux-os_14.png" /></p>
-<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. Support 1 to 60. The unit is minute (s).</p>
-<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
 <p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
 <p>(6) Set <strong>Job Name</strong>, and check whether the job information is correct. Click <strong>Submit</strong>.</p>
@@ -858,11 +858,10 @@ title="Fullscreen mode"
 <p><img alt="" src="../_images/linux-os_26.png" /></p>
 <blockquote>
 <div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Note:
+
+  - If the admin enables Job Approval function, the job will be executed after the admin approves the job.
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>If the admin enables Job Approval function, the job will be executed after the admin approves the job.</p></li>
-</ul>
 </div></blockquote>
 </section>
 <section id="manage-jobs">
@@ -883,12 +882,12 @@ title="Fullscreen mode"
 <p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
 <p><img alt="" src="../_images/linux-os_32.png" /></p>
 <ul class="simple">
-<li><p>Immediate: The job starts immediately after it is submitted.</p></li>
-<li><p>One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.</p></li>
-<li><p>Hourly: The job runs after a specified number of hours according to the setting. The value range is an integer between 1 and 24.</p></li>
-<li><p>Daily: The job runs after a specified number of days according to the setting. The value range is an integer between 1 and 5.</p></li>
-<li><p>Weekly: The job runs after a specified number of weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs after a specified number of months according to the setting. You can also set the week/day and specify which week/day of the month to run the job.</p></li>
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
 </ul>
 <blockquote>
 <div><p>Example: Perform the job every two weeks on Friday at 18:00</p>
@@ -966,7 +965,7 @@ title="Fullscreen mode"
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

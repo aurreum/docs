@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User Guide for PostgreSQL &#8212; ADPS 3.0.35274</title>
+    <title>User Guide for PostgreSQL &#8212; ADPS V3.0-2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ADPS 3.0.35274</h1>
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -1171,7 +1171,7 @@ title="Fullscreen mode"
 </section>
 <section id="get-agent-packages">
 <h3>Get Agent Packages<a class="headerlink" href="#get-agent-packages" title="Permalink to this heading">#</a></h3>
-<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong>-&gt; <strong>Install Agent</strong> icon and download the installation packages according to your needs.</p>
+<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon and download the installation packages according to your needs.</p>
 <p><img alt="" src="../_images/postgres_agent01.png" /></p>
 </section>
 <section id="install-and-configure-agent-on-windows">
@@ -1198,27 +1198,26 @@ title="Fullscreen mode"
 </section>
 <section id="install-and-configure-agent-on-linux">
 <h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Select <strong>Linux</strong> as the system and <strong>PostgreSQL</strong> as the module. Copy an installation command.</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Select <strong>Linux</strong> as the system and <strong>PostgreSQL</strong> as the module. Copy an installation command.</p>
 <p><img alt="" src="../_images/postgres_agent05.png" /></p>
-<ol class="arabic" start="2">
+</li>
 <li><p>Paste the command on the command line and press Enter to execute the installation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="o">@</span><span class="mi">13</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.20.85:50305/d2/update/script?modules=postgres&amp;location=http%3A%2F%2F192.168.20.85%3A50305&amp;access_key=2042288d749dba47e963d1ab09a6472b&amp;rm=&amp;tool=curl&quot; | sh</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
 <span class="mi">100</span>  <span class="mi">7908</span>    <span class="mi">0</span>  <span class="mi">7908</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">1939</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2574</span><span class="n">k</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
   <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
 <span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">72.3</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>  <span class="mi">100</span><span class="n">M</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
-  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+ <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
 <span class="mi">100</span> <span class="mi">6728</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">6728</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">44.5</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">44.5</span><span class="n">M</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
-  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+ <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
 <span class="mi">100</span> <span class="mi">3304</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">3304</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">31.7</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">31.7</span><span class="n">M</span>
 </pre></div>
 </div>
@@ -1290,12 +1289,14 @@ pg_ctl: server is running (PID: 18378)
 </section>
 <section id="create-full-backup-jobs">
 <h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>(1) Click <strong>Backup</strong>. Select the PostgreSQL host and instance.</p>
-<p>(2) Select <strong>Full</strong> as the backup type.</p>
+<ol class="arabic">
+<li><p>Click <strong>Backup</strong>. Select the PostgreSQL host and instance.</p></li>
+<li><p>Select <strong>Full</strong> as the backup type.</p>
 <p><img alt="" src="../_images/postgres_backup01.png" /></p>
-<p>(3) Select <strong>Backup Target</strong>.</p>
-<p>(4) Go to <strong>Backup Schedule</strong> and set the execution time of the backup job. For details, please refer to <em>Backup Schedule Operation</em>.</p>
-<p>(5) Set <strong>Backup Options</strong> including common and advanced options. Enable the archive mode in PostgreSQL and set the archive log directory first if the database is not in archive mode.</p>
+</li>
+<li><p>Select a <strong>Backup Target</strong>.</p></li>
+<li><p>Go to <strong>Backup Schedule</strong> and set the execution time of the backup job. For details, please refer to <em>Backup Schedule Operation</em>.</p></li>
+<li><p>Set <strong>Backup Options</strong> including common and advanced options. Enable the archive mode in PostgreSQL and set the archive log directory first if the database is not in archive mode.</p>
 <ul class="simple">
 <li><p><strong>Common options</strong>:</p></li>
 </ul>
@@ -1325,16 +1326,17 @@ pg_ctl: server is running (PID: 18378)
 <p><strong>Speed Limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s.</p>
 <p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
 <p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
-<p>(6) Set the <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p></li>
+</ol>
 </section>
 <section id="create-incremental-backup-jobs">
 <h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
 <p>An incremental backup job is created based on a full backup. It only backs up data that has changed since the last backup.</p>
-<ul>
-<li><p>Creating a cumulative incremental backup is the same as creating a full backup. Select <strong>Incremental</strong> as the backup type.</p>
-<p><img alt="" src="../_images/postgres_backup04.png" /></p>
-</li>
+<ul class="simple">
+<li><p>Creating a cumulative incremental backup is the same as creating a full backup. Select <strong>Incremental</strong> as the backup type.</p></li>
 </ul>
+<p><img alt="" src="../_images/postgres_backup04.png" /></p>
 <blockquote>
 <div><p>Note:</p>
 <ul class="simple">
@@ -1351,11 +1353,10 @@ pg_ctl: server is running (PID: 18378)
 <section id="create-log-backup-jobs">
 <h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
 <p>Based on periodic full and incremental backups, you can add frequent log backups only to back up the archived logs. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be enough. But if your business requires minimizing the work-loss risk, consider running log backups more frequently. More frequent log backups can increase the frequency of log truncation, resulting in smaller log files.</p>
-<ul>
-<li><p>Creating a log backup is similar to creating a full backup. Select <strong>Log</strong> as the backup type and choose databases.</p>
-<p><img alt="" src="../_images/postgres_backup05.png" /></p>
-</li>
+<ul class="simple">
+<li><p>Creating a log backup is similar to creating a full backup. Select <strong>Log</strong> as the backup type and choose databases.</p></li>
 </ul>
+<p><img alt="" src="../_images/postgres_backup05.png" /></p>
 <blockquote>
 <div><p>Note:</p>
 <p>After you change the backup target of a log backup job to a new storage pool, ensure that the new pool has a full backup by one of the following methods:</p>
@@ -1393,23 +1394,23 @@ pg_ctl: server is running (PID: 18378)
 <section id="create-timepoint-restore-jobs">
 <h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
 <p>When a logical error or disaster occurs in a PostgreSQL database, you can restore the database to a specified point-in-time state using <strong>Timepoint Restore</strong>.</p>
-<p>(1) Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Timepoint Restore</strong>. Then specify a restore point in time by selecting the Restore to point in time or Restore to backup state (shortest recovery time) option. Click <strong>Next</strong>.</p>
-<ul>
-<li><p><strong>Restore to point in time</strong>:</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Timepoint Restore</strong>. Then specify a restore point in time by selecting the Restore to point in time or Restore to backup state (shortest recovery time) option. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p><strong>Restore to point in time</strong>:</p></li>
+</ul>
 <p>If you have performed log backup jobs, you can specify the restore point in time manually or by dragging the slider control.</p>
-</li>
-</ul>
 <p><img alt="" src="../_images/postgres_restore01.png" /></p>
-<ul>
-<li><p><strong>Restore to backup state (shortest recovery time)</strong>:</p>
-<p>When choosing Restore to backup state (shortest recovery time), you can select full backup sets and incremental backup sets for the restore job.</p>
-</li>
+<ul class="simple">
+<li><p><strong>Restore to backup state (shortest recovery time)</strong>:</p></li>
 </ul>
+<p>When choosing Restore to backup state (shortest recovery time), you can select full backup sets and incremental backup sets for the restore job.</p>
 <p><img alt="" src="../_images/postgres_restore09.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. The target can be the source host and a different host with or without activated resources. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. It supports immediate and one-time restore schedules. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>. You can set channels in the common options and set reconnection time, speed limit, precondition, pre/post action, as well as database configuration file in advanced options. Click <strong>Next</strong>.</p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. The target can be the source host and a different host with or without activated resources. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports immediate and one-time restore schedules. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong>. You can set channels in the common options and set reconnection time, speed limit, precondition, pre/post action, as well as database configuration file in advanced options. Click <strong>Next</strong>.</p>
 <ul class="simple">
 <li><p><strong>Common options</strong>:</p></li>
 </ul>
@@ -1420,32 +1421,42 @@ pg_ctl: server is running (PID: 18378)
 </ul>
 <p><strong>Database configuration file</strong>: Click Browse… to select the path of the configuration file or enter the path manually. If you leave it blank, the default configuration file will be used.</p>
 <p><img alt="" src="../_images/postgres_restore03.png" /></p>
-<p>(6) Confirm the job information and click <strong>Submit</strong>.</p>
+</li>
+<li><p>Confirm the job information and click <strong>Submit</strong>.</p></li>
+</ol>
 </section>
 <section id="create-logical-recovery-jobs">
 <h3>Create Logical Recovery Jobs<a class="headerlink" href="#create-logical-recovery-jobs" title="Permalink to this heading">#</a></h3>
 <p>When a database, schema, or table in PostgreSQL loses data, such as a data file is damaged or deleted by mistake, you can restore them to the latest state through Logical Recovery.</p>
-<p>(1) Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Logical Recovery</strong> and recovery type (database, schema, and table). Then select a point in time of the backup set that you want to restore. Click <strong>Next</strong>.</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Logical Recovery</strong> and a type (database, schema, or table). Then select a point in time of the backup set that you want to restore. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/postgres_restore04.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. You can restore the backup set to the source or a different host. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. It supports immediate and one-time restore schedules.</p>
-<p>(5) Set <strong>Restore Options</strong> including reconnection time, speed limit, pre action, and post action. You can set these options according to your needs.</p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. You can restore the backup set to the source or a different host. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports immediate and one-time restore schedules.</p></li>
+<li><p>Set <strong>Restore Options</strong> including reconnection time, speed limit, pre action, and post action. You can set these options according to your needs.</p>
 <p><img alt="" src="../_images/postgres_restore05.png" /></p>
 <p><strong>Restore Database</strong>: Set the method to restore the database. If you leave it blank, it will overwrite the original database by default. Or you can fill in the name of a new database and restore the backup set to it.</p>
-<p>(6) Confirm whether the information is correct and then submit the job.</p>
+</li>
+<li><p>Confirm whether the information is correct and then submit the job.</p></li>
+</ol>
 </section>
 <section id="create-restore-archived-logs-jobs">
 <h3>Create Restore Archived Logs Jobs<a class="headerlink" href="#create-restore-archived-logs-jobs" title="Permalink to this heading">#</a></h3>
 <p>With the <strong>Restore Archived Logs</strong> function, you can restore only the archived logs to a specified directory of the agent with no need to recover the entire database. But the premise is that the database has one or more completed log backup jobs.</p>
-<p>(1) Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Restore Archived Logs</strong> and a point in time. Click <strong>Next</strong>.</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Restore Archived Logs</strong> and a point in time. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/postgres_restore06.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. The target can be a single host or cluster of PostgreSQL. When the restore target is a cluster, the restore job will run on all the nodes on the cluster. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. It supports immediate and one-time schedule types. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>. You can set archived logs destination in common options and reconnection time, speed limit, pre action, and post action in advanced options. Click <strong>Next</strong>.</p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. The target can be a single host or cluster of PostgreSQL. When the restore target is a cluster, the restore job will run on all the nodes on the cluster. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports immediate and one-time schedule types. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong>. You can set archived logs destination in common options and reconnection time, speed limit, pre action, and post action in advanced options. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/postgres_restore07.png" /></p>
-<p>(6) Confirm the job information and click <strong>Submit</strong>.</p>
+</li>
+<li><p>Confirm the job information and click <strong>Submit</strong>.</p></li>
+</ol>
 </section>
 <section id="create-recovery-testing-jobs">
 <h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
@@ -1456,14 +1467,17 @@ pg_ctl: server is running (PID: 18378)
 <li><p>Recovery testing requires logical backup sets. Ensure that the database has logical backup sets before the recovery testing.</p></li>
 </ul>
 </div></blockquote>
-<p>(1) Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Recovery Testing</strong> as the restore type and databases as the restore source. You can specify the restored database name by the <strong>Rename</strong> operation. Click <strong>Next</strong>.</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Recovery Testing</strong> as the restore type and databases as the restore source. You can specify the restored database name by the <strong>Rename</strong> operation. Click <strong>Next</strong>.</p>
 <p><img alt="" src="../_images/postgres_restore08.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. The target can be another PostgreSQL instance on the source host or a different host. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action. Click <strong>Next</strong>.</p>
-<p>(6) Confirm the job information and click <strong>Submit</strong>.</p>
-<p>(7) Wait for the job to be executed. The job will restore the latest backup sets of the source host.</p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. The target can be another PostgreSQL instance on the source host or a different host. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action. Click <strong>Next</strong>.</p></li>
+<li><p>Confirm the job information and click <strong>Submit</strong>.</p></li>
+<li><p>Wait for the job to be executed. The job will restore the latest backup sets of the source host.</p></li>
+</ol>
 </section>
 </section>
 <section id="manage-jobs">
@@ -1498,7 +1512,7 @@ pg_ctl: server is running (PID: 18378)
 <div><p><img alt="" src="../_images/postgres_time03.png" /></p>
 </div></blockquote>
 <blockquote>
-<div><p><strong>The execution time is:</strong></p>
+<div><p><strong>The execution time wull be:</strong></p>
 <ul class="simple">
 <li><p>If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).</p></li>
 <li><p>If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).</p></li>
@@ -1511,8 +1525,8 @@ pg_ctl: server is running (PID: 18378)
 <h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
 <p>ADPS offers four PostgreSQL backup types: full backup, incremental backup, log backup, and logical backup. Full backup, incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
 <ol class="arabic simple">
-<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
-<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable point in time every week.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable point in time every day.</p></li>
 <li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> hourly to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.</p></li>
 </ol>
 <blockquote>
@@ -1526,14 +1540,14 @@ pg_ctl: server is running (PID: 18378)
 </section>
 <section id="channel-number-configuration">
 <h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
-<ul>
-<li><p>Description of the channel number for backup jobs</p>
-<p>PostgreSQL supports up to 255 channels. You can set the number of channels for backup and restore jobs according to your environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
-</li>
-<li><p>Description of the channel number for restore jobs</p>
-<p>You can set the <strong>Channels</strong> option on the restore page. If you use multiple channels to restore the backup set generated by one channel, the restore job will be automatically downgraded to a single-channel restore.</p>
-</li>
+<ul class="simple">
+<li><p>Description of the channel number for backup jobs</p></li>
 </ul>
+<p>PostgreSQL supports up to 255 channels. You can set the number of channels for backup and restore jobs according to your environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
+<ul class="simple">
+<li><p>Description of the channel number for restore jobs</p></li>
+</ul>
+<p>You can set the <strong>Channels</strong> option on the restore page. If you use multiple channels to restore the backup set generated by one channel, the restore job will be automatically downgraded to a single-channel restore.</p>
 </section>
 <section id="postgresql-cluster">
 <h2>PostgreSQL Cluster<a class="headerlink" href="#postgresql-cluster" title="Permalink to this heading">#</a></h2>
@@ -1546,14 +1560,14 @@ pg_ctl: server is running (PID: 18378)
 </div></blockquote>
 <section id="cluster-binding">
 <h3>Cluster Binding<a class="headerlink" href="#cluster-binding" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click the <strong>Cluster Binding</strong> icon.</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click the <strong>Cluster Binding</strong> icon.</p>
 <p><img alt="" src="../_images/postgres_cluster01.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>Customize the cluster name. Select the active node as the <strong>Primary Node</strong>, Master Slave Replication as the <strong>Type</strong>, and the inactive node as the <strong>Nodes</strong>. Click <strong>Submit</strong>.</p></li>
-</ol>
+</li>
+<li><p>Customize the cluster name. Select the active node as the <strong>Primary Node</strong>, Master Slave Replication as the <strong>Type</strong>, and the inactive node as the <strong>Nodes</strong>. Click <strong>Submit</strong>.</p>
 <p><img alt="" src="../_images/postgres_cluster02.png" /></p>
+</li>
+</ol>
 </section>
 <section id="backup-and-restore">
 <h3>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading">#</a></h3>
@@ -1598,7 +1612,7 @@ pg_ctl: server is running (PID: 18378)
     By Aurreum<br/>
   
     <div class="extra_footer">
-      Copyright © 2022 Aurreum
+      Copyright © 2022-2023 Aurreum
     </div>
 </p>
         </footer>

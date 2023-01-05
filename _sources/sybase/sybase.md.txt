@@ -42,11 +42,11 @@ class: longtable
 
 ### Verify Compatibility
 
-ADPS supports the backup and restore of Sybase single host. Check whether the operating system (OS) and database version are supported before deploying the agent. Please refer to *Compatibility List* for the supported OS and database versions.
+ADPS supports the backup and restore of Sybase standalone. Check whether the operating system (OS) and database version are supported before deploying the agent. Please refer to *Compatibility List* for the supported OS and database versions.
 
 #### Compatibility List
 
-##### Single Host
+##### Standalone
 ```{tabularcolumns} |\Y{0.2}|\Y{0.15}|\Y{0.3}|\Y{0.2}|\Y{0.15}|
 ```
 ```{table} Single Host
@@ -88,9 +88,9 @@ Select **Windows** and click **Download Windows agent** to download the package.
 
 #### Install Agent on Windows
 
-  1. Upload the installation package to the agent.
+  1. Upload the installation package to the target host.
   2. Double-click the package to install it according to the setup wizard and click **Next**.
-  3. This installation package selects the database resources, files, or applications installed on the agent by default. Select the **Sybase** component and click **Next**.
+  3. This installation package selects the database resources, files, or applications installed on the host by default. Select the **Sybase** component and click **Next**.
 
 ![](../image/01-agent/sybase/sybase_agent_3.png)
 
@@ -142,7 +142,7 @@ After the successful activation, you can authorize users to operate the resource
 
 ### Check Database State
 
-Check the Sybase service state of the agent. The Sybase database service should be in the "Started" state for backup and restore.
+Check the Sybase service state. The Sybase database service should be in the "Started" state for backup and restore.
 
 ![](../image/03-database/sybase/sybase_database_1.png)
 
@@ -218,9 +218,9 @@ This chapter introduces how to back up the Sybase databases.
 
 ![](../image/03-database/sybase/sybase_backup_3.png)
 
-**Reconnection time**: Support 1 to 60. The unit is minute (s). he job continues after the abnormal reset occurs in the network within the set time.
+**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
-**Speed limit**: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s. Click the "+" icon to add the limit within different periods.
+**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
 **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -327,12 +327,12 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 
 ![](../image/03-database/sybase/sybase_time_1.png)
 
-- Immediate: The job starts immediately after it is submitted.
-- One Time: The job starts to run at a specific time. After the job is submitted, the job will be in an idle state and start to run when the specific run time is reached.
-- Hourly: The job runs after a specified number of hours according to the setting. The value range is an integer between 1 and 24.
-- Daily: The job runs after a specified number of days according to the setting. The value range is an integer between 1 and 5.
-- Weekly: The job runs after a specified number of weeks according to the setting. You can also set the number of weeks and specify which day of the week to run the job.
-- Monthly: The job runs after a specified number of months according to the setting. You can also set the week/day and specify which week/day of the month to run the job. 
+- Immediate: The job immediately starts to run after it is submitted.
+- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
+- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 >  **Example: Perform the job every two weeks on Friday at 18:00**
 
