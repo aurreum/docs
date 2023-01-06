@@ -60,6 +60,8 @@ class: longtable
 | ---------------- | --------------------- | ------- |
 | Ubuntu 16.04     | x86_64                | Yes     |
 | Ubuntu 18.04     | x86_64                | Yes     |
+| Ubuntu 20.04     | x86_64                | Yes     |
+| CentOS 7.6       | x86_64                | Yes     |
 ```
 
 ## Download Hyper-V Agent Package
