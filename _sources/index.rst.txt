@@ -23,6 +23,8 @@ Home
 
    file/file.md
 
+   hadoop/hadoop.md
+
    hana/hana.md
 
    hyper-v/hyper-v.md
