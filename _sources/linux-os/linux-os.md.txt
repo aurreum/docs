@@ -69,7 +69,7 @@ After the successful installation, log in to ADPS as the admin and see that the 
 
 ## Activate License and Assign Authorization
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
 
 ### Register Host
 
@@ -262,7 +262,7 @@ Under the **Advanced** tab, you can set the reconnection time, resumption buffer
 
 
 > 		Note:
->	
+>		
 > 		- If the admin enables Job Approval function, the job will be executed after the admin approves the job.
 
 ## Manage Jobs

@@ -99,7 +99,7 @@ After the successful installation, log in to ADPS console as the admin and go to
 
 ## Activate License and Authorize User
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
 
 ### Register Host
 
@@ -344,7 +344,7 @@ There are three types to back up Caché: full backup, incremental backup, and lo
 >   - Perform only full backups.
 >   - Perform a full backup followed by all incremental or log backups.
 
-## Limitation
+## Limitations
 
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
@@ -352,7 +352,7 @@ There are three types to back up Caché: full backup, incremental backup, and lo
 ---
 class: longtable
 ---
-| Function | Limitation                                                   |
+| Function | Limitations                                                   |
 | -------- | ------------------------------------------------------------ |
 | Backup   | Do not support the following types of databases: dismounted, read-only, and CACHESYS.{{ br }}AS there is only one backup list for one instance, all backup jobs will share the same backup list (backup content). If the newly created backup job requires to modify the backup list, the backup content of all created backup jobs will be changed. The periodical backup jobs can still be executed, but the backup content will be changed.|
 | Restore  | The restore of the database using the interactive key activation is not supported. If you need to restore to the encrypted instance, it is recommended to set the unattended key activation or disable the encryption feature and then enable it after the restore job is completed.{{ br }}The Reconnection Time feature is not supported. |

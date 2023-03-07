@@ -88,7 +88,7 @@ After the successful installation, log in to ADPS as the admin and see that the 
 
 ## Activate License and Assign Authorization
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
 
 ### Register Host
 
@@ -451,22 +451,22 @@ Refer to the following steps to configure DBACCESS for different OS.
 
 ## Channel Number Configuration		
 
-- Description of Channel number for backup jobs
+- Channel number for backup jobs
 
   Informix supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. On-Bar backs up dbspace. If the channel number exceeds the dbspace number, the exceeded channel number will not take effect.
 
-- Description of Channel number for restore jobs
+- Channel number for restore jobs
 
   The channel number for a restore job is the same as that for the backup job. The restore page does not have the Channel option by default.
 
-## Limitation
+## Limitations
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
 ```{table} Limitation
 ---
 class: longtable
 ---
-| Function | Limitation Description                                       |
+| Function | Limitations                                       |
 | -------- | ------------------------------------------------------------ |
 | Restore  | The target database version number, instance name, and data storage path are required to be the same as those of the source database.{{ br }}Backup tail-log option only backs up data, not new tables. |
 ```

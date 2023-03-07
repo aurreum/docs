@@ -1892,14 +1892,14 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 
 **Delete all**: Click to delete all upgrade packages.
 
-## Limitation
+## Limitations
 
 ### Storage Pool
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Storage Pool  Limitation List
-| Function                    | Limitation                                 |
+| Function                    | Limitations                                 |
 | ----------------------- | ------------------------------------------------------------ |
 | Standard storage pool       | For the standard storage pool with multi-storage, when the primary device is down, you cannot restore data from other devices. |
 | De-duplication storage pool | Default recycling will free up space.{{ br }}Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation.{{ br }}Supported file system:{{ br }}NTFSXFS (since Linux 2.6.38){{ br }}ext4(since Linux 3.0){{ br }}Btrfs (since Linux 3.7) |　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 
@@ -1913,7 +1913,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Job Replication Limitation List
-| Function                | Limitation                                     |
+| Function                | Limitations                                     |
 | ----------------------- | ------------------------------------------------------------ |
 | Replicate storage pools | Pool replication is not supported for Local Storage Pool, LAN Free Pool, and File Synthesis Pool. |
 | Replicate jobs          | Do not support deleting job replication records. When executing a job replication, you cannot restore the corresponding backup point of the target pool; When executing the restore of the target pool, you cannot make a replication of the corresponding backup point as well. Block device de-duplication storage pools do not support modifing network in the settings of pool replication. |
@@ -1924,7 +1924,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Multi-tenant Limitation List
-| Function          | Limitation                                      |
+| Function          | Limitations                                      |
 | ----------------- | ------------------------------------------------------------ |
 | Use storage pools | Users can only use the corresponding storage pools after the pricing of storage space  is enabled. |
 | Add storage pools | Users can only create object storage service pool or create standard storage pool, de-duplication storage pool, and block device storage pool via storage regions. |
@@ -1934,7 +1934,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Index Limitation List
-| Function          | Limitation                                     |
+| Function          | Limitations                                     |
 | ----------------- | ------------------------------------------------------------ |
 | Backup            | Support the following types of storage pools: standard storage pool, de-duplication storage pool, tape library pool, and object storage service pool. |
 | Disaster recovery | To restore the backup sets to the agent of the offsite backup server, you need to restore the index first and then associate the agent to the offsite backup server, otherwise restoring the backup sets of local resources will fail. |
@@ -1944,7 +1944,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} License Limitation List
-| Function          | Limitation                                      |
+| Function          | Limitations                                      |
 | ----------------- | ------------------------------------------------------------ |
 | Initialize system | Before the initialization of the system, when the license edition is selected as "Leased", the module cannot be selected because the host is not yet registered, so you need to enter the system after the initialization is completed, associate the agent with the host, and then license the host with the lease edition. |
 ```
@@ -1953,7 +1953,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Approval Limitation List
-| Function | Limitation              |
+| Function | Limitations              |
 | -------- | ------------------------------------ |
 | Job      | Support databases, files, and Linux. |
 ```
@@ -1962,7 +1962,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Jobs Limitation List
-| Function    | Limitation                                      |
+| Function    | Limitations                                      |
 | ----------- | ------------------------------------------------------------ |
 | Modify jobs | Only supports modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to modify jobs. |
 | Stop jobs   | Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, GBase, File support stopping jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to stop jobs. |
@@ -1973,7 +1973,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Upgrade Limitation List
-| Function        | Limitation                                      |
+| Function        | Limitations                                      |
 | --------------- | ------------------------------------------------------------ |
 | Upload packages | The version of the upgrade package must be consistent with the version of the backup server adps-backupd. You must upload all installed packages of adps modules on the backup server or agent to upgrade properly. adps-storaged is installed on the same device as adps-backupd or adps-agent to allow automatic upgrades. HP-UX, Solaris, and AIX agents do not support upgrades via the interface and you need to upgrade them manually. |
 ```
@@ -1982,7 +1982,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Access Key Limitation List
-| Function           | Limitation                                     |
+| Function           | Limitations                                     |
 | ------------------ | ------------------------------------------------------------ |
 | Log in to resource | Oracle, DB2, MongoDB, Domino, File, Linux OS resource login are supported. When Oracle restores to the latest instance, it does not support access key logging agent. |
 ```
@@ -1991,7 +1991,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
 ```{table} Installation Packages Limitation List
-| Function | Limitation                                  |
+| Function | Limitations                                  |
 | -------- | ------------------------------------------------------------ |
 | Windows  | Windows, AIX, Solaris, HP-UX do not support the installation of Backup Server, Storage Server. |
 ```
@@ -1999,7 +1999,7 @@ Click the **View Packages** icon to view the information about the uploaded upgr
 
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
 ```
-```{table} Glossary Limitation List
+```{table} Glossary
 | Term                    | Description                                                  |
 | ----------------------- | ------------------------------------------------------------ |
 | Traditional backup      | The backup interface of the target application is connected with agent to obtain data for protection on a regular basis, such as full backup, incremental backup, log backup and so on.                                   |

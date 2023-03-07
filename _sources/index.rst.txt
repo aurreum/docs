@@ -21,6 +21,8 @@ Home
 
    db2/db2.md
 
+   exchange/exchange.md
+
    file/file.md
 
    hadoop/hadoop.md

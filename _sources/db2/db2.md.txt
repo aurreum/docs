@@ -129,7 +129,7 @@ After the successful installation, log in to ADPS console as the admin and go to
 
 ## Activate License and Authorize User
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out activation and authorization in batches. See *Batch Register/Activate/Authorize* from *Administrator's Guide* for more details.
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out activation and authorization in batches. See *Batch Register/Activate/Authorize* from *Administrator's Guide* for more details.
 
 ### Register Host
 
@@ -433,14 +433,14 @@ There are five types to back up DB2: full backup, incremental backup, cumulative
   
   The restore job does not provide the setting for the parallelism number. It is recommended that the sessions number is not greater than the number of host logical CPU.
   
-## Limitation
+## Limitations
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
 ```{table} Limitation
 ---
 class: longtable
 ---
-| Function | Limitation                                                   |
+| Function | Limitations                                                   |
 | -------- | ------------------------------------------------------------ |
 | Backup   | To log in to the DB2 database via the OS authentication method, Linux requires the DB2 instance user account whereas Windows requires a Windows administrator account. If you want to log in to the database using the domain user on Windows, fill in the domain name to successfully log in to the database resource and back up the databases. |
 ```

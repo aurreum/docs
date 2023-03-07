@@ -1,0 +1,1638 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>User Guide for Exchange &#8212; ADPS V3.0-2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for File" href="../file/file.html" />
+    <link rel="prev" title="User Guide for DB2" href="../db2/db2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en-US">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ADPS V3.0-2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../administrator/administrator.html">
+   Administrator’s Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../agent_install/agent_install.html">
+   Agent Installation Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cachedb/cachedb.html">
+   User Guide for Caché
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db2/db2.html">
+   User Guide for DB2
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   User Guide for Exchange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../file/file.html">
+   User Guide for File
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hadoop/hadoop.html">
+   User Guide for Hadoop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hana/hana.html">
+   User Guide for SAP HANA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hyper-v/hyper-v.html">
+   User Guide for Hyper-V
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../informix/informix.html">
+   User Guide for Informix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install/install.html">
+   Installation Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linux-os/linux-os.html">
+   User Guide for Linux OS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mariadb/mariadb.html">
+   User Guide for MariaDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mongodb/mongodb.html">
+   User Guide for MongoDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mssql/mssql.html">
+   User Guide for Microsoft SQL Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mysql/mysql.html">
+   User Guide for MySQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../obs/obs.html">
+   User Guide for Object Storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oracle/oracle.html">
+   User Guide for Oracle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../postgres/postgres.html">
+   User Guide for PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sybase/sybase.html">
+   User Guide for Sybase
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vmware/vmware.html">
+   User Guide for VMware
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features">
+   Features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-agent">
+   Install and Configure Agent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-compatibility">
+     Verify compatibility
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-agent-package">
+     Get Agent Package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">
+     Install and Configure Agent on Windows
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-agent-package">
+       Download Agent Package
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-agent-on-windows">
+       Install Agent on Windows
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-successful-installation">
+     Check Successful Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activate-license-and-authorize-user">
+   Activate License and Authorize User
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-host">
+     Register Host
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-license">
+     Activate License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authorize-user">
+     Authorize User
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before You Begin
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-database-status">
+     Verify Database Status
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exchange-server-mailbox-backup-and-restore-account">
+     Exchange Server Mailbox Backup and Restore Account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-resource">
+     Check Resource
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-storage-pool">
+     Check Storage Pool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-time-login">
+   First Time Login
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-database-backup-and-restore">
+   Exchange Database Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-backup">
+     Database Backup
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prerequisites">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#backup">
+       Backup
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-restore">
+     Database Restore
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restore">
+       Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-mailbox-backup-and-restore">
+   Exchange Mailbox Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mailbox-backup">
+     Mailbox Backup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mailbox-recovery">
+     Mailbox Recovery
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-dag-database-backup-and-restore">
+   Exchange DAG Database Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Database Backup
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Backup
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Database Restore
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-dag-mailbox-backup-and-restore">
+   Exchange DAG Mailbox Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Mailbox Backup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Mailbox Recovery
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-jobs">
+   Manage Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup-protection-strategy">
+   Backup Protection Strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-schedule-operation">
+     Backup Schedule Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-strategy-advice">
+     Backup Strategy Advice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>User Guide for Exchange</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features">
+   Features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-agent">
+   Install and Configure Agent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-compatibility">
+     Verify compatibility
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-agent-package">
+     Get Agent Package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">
+     Install and Configure Agent on Windows
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-agent-package">
+       Download Agent Package
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-agent-on-windows">
+       Install Agent on Windows
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-successful-installation">
+     Check Successful Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activate-license-and-authorize-user">
+   Activate License and Authorize User
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-host">
+     Register Host
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-license">
+     Activate License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authorize-user">
+     Authorize User
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before You Begin
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-database-status">
+     Verify Database Status
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exchange-server-mailbox-backup-and-restore-account">
+     Exchange Server Mailbox Backup and Restore Account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-resource">
+     Check Resource
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-storage-pool">
+     Check Storage Pool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-time-login">
+   First Time Login
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-database-backup-and-restore">
+   Exchange Database Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-backup">
+     Database Backup
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prerequisites">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#backup">
+       Backup
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-restore">
+     Database Restore
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restore">
+       Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-mailbox-backup-and-restore">
+   Exchange Mailbox Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mailbox-backup">
+     Mailbox Backup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mailbox-recovery">
+     Mailbox Recovery
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-dag-database-backup-and-restore">
+   Exchange DAG Database Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Database Backup
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Backup
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Database Restore
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Prerequisites
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Restore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exchange-dag-mailbox-backup-and-restore">
+   Exchange DAG Mailbox Backup and Restore
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Mailbox Backup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Mailbox Recovery
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-jobs">
+   Manage Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup-protection-strategy">
+   Backup Protection Strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-schedule-operation">
+     Backup Schedule Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-strategy-advice">
+     Backup Strategy Advice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="user-guide-for-exchange">
+<h1>User Guide for Exchange<a class="headerlink" href="#user-guide-for-exchange" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Exchange databases and mailboxes. This guide introduces how to properly use ADPS to back up and restore Exchange data.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id10">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id10" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup source</p></td>
+<td><p>Database (single, multiple), mailbox (single, multiple)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup type</p></td>
+<td><p>Full backup: a full copy of the data source, including all the data blocks from the start of the backup job.  <br> Incremental backup: Back up the data blocks that have changed since the last full backup.  <br> Log backup: Back up only the logs of the database. <br> MAPI mailbox backup: Use MAPI to back up only the emails. <br> EWS mailbox backup: Use EWS to back up only the emails.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup target</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage pool, LAN-Free pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Compression</p></td>
+<td><p>None, fast, tunable</p></td>
+</tr>
+<tr class="row-even"><td><p>Channels</p></td>
+<td><p>A positive integer from 1 to 255. Only VSS-full backup and VSS-incremental backup support this feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup schedule</p></td>
+<td><p>Immediate, one-time, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore type</p></td>
+<td><p>Timepoint restore: Restore data based on the points in time of backup sets.  <br> Mailbox recovery: Restore data based on the directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore location</p></td>
+<td><p>Original host, different host.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore target</p></td>
+<td><p>Original database, new database, mailbox</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore granularity</p></td>
+<td><p>Entire database (single, multiple), mail (single, multiple)</p></td>
+</tr>
+<tr class="row-even"><td><p>Pre/Post action</p></td>
+<td><p>The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Speed limit</p></td>
+<td><p>The data transfer speed or disk read and write speed can be limited.</p></td>
+</tr>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stop jobs</p></td>
+<td><p>Backup and restore jobs can be stopped.</p></td>
+</tr>
+<tr class="row-even"><td><p>Storage pool replication</p></td>
+<td><p>Exchange backup sets support storage pool replication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore from target pools</p></td>
+<td><p>Restoring backup sets from a target storage pool is supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>D2C</p></td>
+<td><p>Data can be backed up to an object storage service directly.</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2T</p></td>
+<td><p>Data can be backed up to a tape library directly.</p></td>
+</tr>
+<tr class="row-even"><td><p>LAN-Free</p></td>
+<td><p>Backing up data to and restoring data from LAN-Free storage pools are supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modify a job’s backup source and target</p></td>
+<td><p>Modifying a job’s backup source and backup target is supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>IPv6</p></td>
+<td><p>Data transfer and management over IPv6 network are supported.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of Exchange, Exchange mail, Exchange DAG, and Exchange DAG mail. Before you deploy the agent, check whether your environment is supported. For details, see <em>Compatibility List</em>. The supported database versions are:</p>
+<ul class="simple">
+<li><p>Exchange 2000/2003/2007/2010/2013/2016/2019</p></li>
+<li><p>Exchange DAG 2010/2013/2016</p></li>
+</ul>
+</section>
+<section id="get-agent-package">
+<h3>Get Agent Package<a class="headerlink" href="#get-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to the ADPS console as the admin. Click <strong>Resource</strong> -&gt; <strong>Install agent</strong> icon.​ You can download the packages according to your needs.</p>
+<p><img alt="agent-1.png" src="../_images/agent-11.png" /></p>
+</section>
+<section id="install-and-configure-agent-on-windows">
+<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
+<section id="download-agent-package">
+<h4>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h4>
+<p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> as the system and click <strong>Download Windows agent</strong>.</p>
+<p><img alt="agent-2.png" src="../_images/agent-21.png" /></p>
+</section>
+<section id="install-agent-on-windows">
+<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Copy the package to the target host.</p></li>
+<li><p>Double-click the package to launch the setup wizard. Click <strong>Next</strong>.</p></li>
+<li><p>The resources installed on the host are selected from the component list by default. Select the <strong>Exchange</strong> check box and click <strong>Next</strong>.</p>
+<p><img alt="agent-3.png" src="../_images/agent-31.png" /></p>
+</li>
+<li><p>Enter the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p></li>
+<li><p>Set the <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
+</ol>
+</section>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the installation, log in to the ADPS console as the admin and go to the <strong>Resource</strong> page. The target host with an agent installed is listed on the page.</p>
+<p><img alt="license-1.png" src="../_images/license-11.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-authorize-user">
+<h2>Activate License and Authorize User<a class="headerlink" href="#activate-license-and-authorize-user" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can install them first, and then carry out batch activation and authorization. For details, see <em>Batch Register/Activate/Authorize</em> in <em>Administrator’s Guide</em>.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to the ADPS console as the admin. Go to the <strong>Resource</strong> page. Select the host that you want to activate. Click the <strong>Register</strong> icon beside the host.</p>
+<p><img alt="license-2.png" src="../_images/license-2.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Activate</strong> window, select the check box of the resource and click <strong>Submit</strong>.</p>
+<p><img alt="license-3.png" src="../_images/license-3.png" /></p>
+</section>
+<section id="authorize-user">
+<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Authorize</strong> window, authorize users to operate the resource.</p>
+<p><img alt="license-4.png" src="../_images/license-4.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="verify-database-status">
+<h3>Verify Database Status<a class="headerlink" href="#verify-database-status" title="Permalink to this heading">#</a></h3>
+<p>The Exchange database service status should be “Started” for the backup and restore.</p>
+<p><img alt="database.png" src="../_images/database.png" /></p>
+</section>
+<section id="exchange-server-mailbox-backup-and-restore-account">
+<h3>Exchange Server Mailbox Backup and Restore Account<a class="headerlink" href="#exchange-server-mailbox-backup-and-restore-account" title="Permalink to this heading">#</a></h3>
+<p>Procedure:</p>
+<ol class="arabic">
+<li><p>Create a new mailbox as the backup and restore account. After creation, the mailbox will become a new account in the domain automatically. Tips:</p>
+<p><strong>Exchange 2010</strong>: Log in to the Exchange host, open the Exchange management console, expand the <strong>Recipient Configuration</strong>, right-click <strong>Mailbox</strong>, and select <strong>New Mailbox…</strong>. Create a new Exchange mailbox according to the prompts and set a username such as xxxxBackupUser.</p>
+<p><strong>Exchange 2013</strong>: Log in to the Exchange Web Admin Center. On the <strong>recipients</strong> page, click <strong>+</strong> and select <strong>User mailbox</strong>. Create a new Exchange mailbox according to the prompts and set a username such as xxxxBackupUser.</p>
+</li>
+<li><p>To log in to Exchange on the ADPS console, the account must be a member of Domain Admins. On the domain controller, open <strong>Active Directory Users and Computers</strong>, double-click the new account, select <strong>Member of</strong>, and click <strong>Add</strong> to add this user to Domain Admins. Click <strong>OK</strong>.</p></li>
+<li><p>To add Exchange credentials in the host properties, create a new role group and add the new account to the group. Open Exchange Management Shell and do the following:</p>
+<p><strong>Create a role group</strong>: Create a role group named xxxxBackupRoles:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">New</span><span class="o">-</span><span class="n">RoleGroup</span> <span class="o">-</span><span class="n">Name</span> <span class="n">xxxxBackupRoles</span> <span class="o">-</span><span class="n">Roles</span> <span class="o">@</span><span class="p">(</span><span class="s2">&quot;Database Copies&quot;</span><span class="p">,</span> <span class="s2">&quot;Databases&quot;</span><span class="p">,</span> <span class="s2">&quot;Exchange Servers&quot;</span><span class="p">,</span> <span class="s2">&quot;Monitoring&quot;</span><span class="p">,</span> <span class="s2">&quot;Mail Recipient Creation&quot;</span><span class="p">,</span> <span class="s2">&quot;Mail Recipients&quot;</span><span class="p">,</span> <span class="s2">&quot;Recipient Policies&quot;</span><span class="p">,</span> <span class="s2">&quot;View-Only Configuration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><strong>Database Copies</strong>: It enables administrators to manage the database copies on individual servers.</p></li>
+<li><p><strong>Databases</strong>: It enables administrators to create, manage, mount, and dismount mailbox databases on individual servers.</p></li>
+<li><p><strong>Exchange Servers</strong>: It enables administrators to manage the Exchange server configuration on individual servers.</p></li>
+<li><p><strong>Monitoring</strong>: It enables administrators to monitor Exchange services and component availability in an organization. In addition to administrators, roles associated with this role type can be used with service accounts used by monitoring applications to gather information about the state of servers running Exchange.</p></li>
+<li><p><strong>Mail Recipient Creation</strong>: It enables administrators to create mailboxes, mail users, mail contacts, distribution groups, and dynamic distribution groups.</p></li>
+<li><p><strong>Mail Recipients</strong>: It enables administrators to manage existing mailboxes, mail users, mail contacts, distribution groups, and dynamic distribution groups.</p></li>
+<li><p><strong>Recipient Policies</strong>: It enables administrators to manage recipient policies in an organization, such as configuration policies.</p></li>
+<li><p><strong>View-Only Conﬁguration</strong>: It enables administrators to view all non-recipients in an organization.</p></li>
+</ul>
+<p><strong>Add a role group member</strong>: Add xxxxBackupUser into the xxxxBackupUser role group:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="o">-</span><span class="n">RoleGroupMember</span> <span class="o">-</span><span class="n">Identity</span> <span class="n">xxxxBackupRoles</span> <span class="o">-</span><span class="n">Member</span> <span class="n">xxxxBackupUser</span>
+</pre></div>
+</div>
+</li>
+<li><p>On the Exchange Management Shell, do the following:</p>
+<p><strong>Create management roles</strong>: Based on the parent role ApplicationImpersonation, create a management role named xxxEWSImpersonationRole</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">New</span><span class="o">-</span><span class="n">ManagementRole</span> <span class="o">-</span><span class="n">Name</span> <span class="n">xxxxEWSImpersonationRole</span> <span class="o">-</span><span class="n">Parent</span> <span class="n">ApplicationImpersonation</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><strong>ApplicationImpersonation</strong>: It enables applications to impersonate users in an organization to perform tasks on behalf of the user.</p></li>
+</ul>
+<p><strong>Assign management roles</strong>: Assign xxxEWSImpersonationRole to xxxBackupUser</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">New</span><span class="o">-</span><span class="n">ManagementRoleAssignment</span> <span class="o">-</span><span class="n">Role</span> <span class="n">xxxxEWSImpersonationRole</span> <span class="o">-</span> <span class="n">User</span> <span class="n">xxxxBackupUser</span> <span class="o">-</span><span class="n">Name</span> <span class="s2">&quot;xxxxBackupUser-EWSImpersonation&quot;</span>
+</pre></div>
+</div>
+<p><strong>Create a new throttling policy for Exchange 2010</strong>: Create an unlimited EWS throttling policy</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>New-ThrottlingPolicy -Name &quot;xxxxEWSThrottlingPolicy&quot; - EWSPercentTimeInCAS $null -EWSPercentTimeInAD $null - EWSMaxConcurrency $null -EWSPercentTimeInMailboxRPC $null - PowerShellMaxConcurrency $null
+</pre></div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><strong>EWSPercentTimeInCAS</strong>: It specifies the percentage of one minute that an Exchange Web Services user can spend executing CAS code. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.</p></li>
+<li><p><strong>EWSPercentTimeInAD</strong>: It specifies the percentage of one minute that an Exchange Web Services user can spend executing LDAP requests. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.</p></li>
+<li><p><strong>EWSMaxConcurrency</strong>: It specifies the number of concurrent connections that an Exchange Web Services user can establish with an Exchange server at one time. A connection is maintained from the moment the request is received until a complete response is sent to the requestor. If the user tries to make more concurrent requests than the policy allows, the new connection attempt will fail. However, the existing connections are still valid. The parameter ranges from 0 to 2147483647 inclusive. The default value is 10. To indicate that the number of concurrent connections has no limit, the value should be set to $null.</p></li>
+<li><p><strong>EWSPercentTimeInMailboxRPC</strong>: It specifies the percentage of one minute that an Exchange Web Services user can spend executing mailbox RPC requests. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.</p></li>
+<li><p><strong>PowerShellMaxConcurrency</strong>: It specifies the maximum number of remote PowerShell sessions that a remote PowerShell user can open at the same time.</p></li>
+</ul>
+<p><strong>Create a new throttling policy for Exchange 2013 and later</strong>: Create an unlimited EWS throttling policy</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">New</span><span class="o">-</span><span class="n">ThrottlingPolicy</span> <span class="o">-</span><span class="n">Name</span> <span class="s2">&quot;xxxxEWSThrottlingPolicy&quot;</span> <span class="o">-</span> <span class="n">EwsCutoffBalance</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">EwsMaxBurst</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span> <span class="n">EwsMaxConcurrency</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">ExchangeMaxCmdlets</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">MessageRateLimit</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">PowerShellCutoffBalance</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">PowerShellMaxBurst</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span> <span class="n">PowerShellMaxCmdlets</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">PowerShellMaxConcurrency</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">PowerShellMaxOperations</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span> <span class="n">RecipientRateLimit</span> <span class="s2">&quot;Unlimited&quot;</span> <span class="o">-</span><span class="n">ThrottlingPolicyScope</span> <span class="s2">&quot;Regular&quot;</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><strong>EwsCutoffBalance</strong>: It defines the resource consumption limits for an EWS user before the user is completely blocked from performing operations on a specific component.</p></li>
+<li><p><strong>EwsMaxBurst</strong>: It specifies the amount of time that an EWS user can consume a large amount of resources before being throttled.</p></li>
+<li><p><strong>EwsMaxConcurrency</strong>: It applies to all actions except streaming notifications.</p></li>
+<li><p><strong>ExchangeMaxCmdlets</strong>: It specifies the number of cmdlets that can be executed in a specific time period before their execution is slowed down.</p></li>
+<li><p><strong>MessageRateLimit</strong>: It specifies the number of messages in one minute that can be submitted to transport by POP3 or IMAP4 clients that use SMTP.</p></li>
+<li><p><strong>PowerShellCutoﬀBalance</strong>: It specifies the resource consumption limits for a user before the user is completely blocked from performing operations on a specific component.</p></li>
+<li><p><strong>PowerShellMaxBurst</strong>: It specifies the amount of time that a user can consume an elevated amount of resources before being throttled.</p></li>
+<li><p><strong>PowerShellMaxCmdlets</strong>: It specifies the number of cmdlets that can be executed in a specific time period before their execution is stopped.</p></li>
+<li><p><strong>PowerShellMaxConcurrency</strong>: It specifies the number of concurrent cmdlet executions that a user can have at the same time.</p></li>
+<li><p><strong>PowerShellMaxOperations</strong>: It specifies the protocol-level operations that are used to send and receive data.</p></li>
+<li><p><strong>RecipientRateLimit</strong>: It specifies the limits on the number of recipients that a user can address in 24 hours.</p></li>
+<li><p><strong>ThrottlingPolicyScope</strong>: It specifies the scope of the throttling policy.</p></li>
+</ul>
+<p><strong>Set the mailbox policy</strong>: Assign xxxxEWSThrottlingPolicy to xxxxBackupUser</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Set</span><span class="o">-</span><span class="n">Mailbox</span> <span class="o">-</span><span class="n">Identity</span> <span class="n">xxxxBackupUser</span> <span class="o">-</span><span class="n">ThrottlingPolicy</span> <span class="s2">&quot;xxxxEWSThrottlingPolicy&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Open the Exchange Management Console, expand <strong>Recipient Configuration</strong>, click <strong>Mailboxes</strong>, and select the mailbox that you want to back up. Right-click the mailbox and <strong>select Manage Full Access Permission</strong>. Add xxxxBackupUser that you create in the first step. Click <strong>OK</strong>. This operation is required for MAPI backup but not for EWS backup.</p></li>
+<li><p>Enable the Basic Identity Authentication on the CAS node for EWS mailbox backup: IIS -&gt; Default Web Site -&gt; EWS -&gt; Identity Authentication -&gt; Enable Basic Identity Authentication.</p></li>
+</ol>
+</section>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to the ADPS console as an operator. Go to <strong>Resource</strong>. The activated and authorized resource is available on the host list with an Online state. If the resource is not available, see <em>Activate License and Authorize User</em>.</p>
+<p><img alt="login-1.png" src="../_images/login-1.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to the ADPS console as an operator. Go to the <strong>Storage Pool</strong> page and verify that a storage pool is available. If no storage pool is available, contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="storaged-1.png" src="../_images/storaged-1.png" /></p>
+</section>
+</section>
+<section id="first-time-login">
+<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Exchange 2013 MAPI authentication can be set to Basic or NTLM. NTLM authentication is used by default. However, when the Exchange server is limited by local security policies and group policies, NTLM authentication may not work. In this case, you can modify the authentication to Basic.</p></li>
+<li><p>Before the first Exchange backup and restore, go to <strong>Resource</strong> and click <strong>Login</strong> beside the resource to log in to Exchange.</p>
+<p><img alt="login-2.png" src="../_images/login-21.png" /></p>
+</li>
+<li><p>Enter the Exchange username and password.</p>
+<p><img alt="login-3.png" src="../_images/login-3.png" /></p>
+</li>
+</ol>
+</section>
+<section id="exchange-database-backup-and-restore">
+<h2>Exchange Database Backup and Restore<a class="headerlink" href="#exchange-database-backup-and-restore" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to back up Exchange databases.</p>
+<section id="database-backup">
+<h3>Database Backup<a class="headerlink" href="#database-backup" title="Permalink to this heading">#</a></h3>
+<section id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The ADPS agent has been installed. For details, see <em>Install and Configure Agent</em>.</p></li>
+<li><p>The license has been activated and users have been authorized to operate the resource. For details, see <em>Activate License and Authorize User</em>.</p></li>
+<li><p>Log in to the ADPS console as an operator.</p></li>
+</ul>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Exchange database backup supports Windows 2000 and later versions. To back up Exchange 2010 and later versions, a backup and restore account should be configured first. The account configuration is the same as the Exchange mailbox backup and restore account.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup">
+<h4>Backup<a class="headerlink" href="#backup" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Click <strong>Backup</strong>. Select the Exchange host and instance. In the pop-up window, enter the operating system username and password when the version is older than Exchange 2010, while for Exchange 2010 and later, enter the username and password of the configured backup and restore account.</p>
+<p><img alt="backup-6.png" src="../_images/backup-6.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Type</strong> and the databases that you want to back up.</p>
+<p><img alt="backup-7.png" src="../_images/backup-7.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<p><strong>Backup method</strong>:</p>
+<ul class="simple">
+<li><p>Exchange 2003 and 2007 support streaming-style backup and VSS backup.</p></li>
+<li><p>Exchange 2010 and 2007 support mailbox backup and VSS backup.</p></li>
+<li><p>Exchange 2013 and 2016 support VSS backup.</p></li>
+<li><p>The backup object of streaming-style backup is the storage in the database (storage group), while the backup object of VSS backup is the database (storage group).</p></li>
+<li><p>The Windows 2000 operating system does not support VSS backups.</p></li>
+</ul>
+<p><strong>Backup type</strong>:</p>
+<ul class="simple">
+<li><p>Backup types support full backup, incremental backup, and log backup.</p></li>
+<li><p>Streaming-style backup supports full backup and log backup. VSS backup supports full backup and incremental backup.</p></li>
+<li><p>Before the creation of log backups and incremental backups, a full backup should be completed first as their base.</p></li>
+</ul>
+<p><strong>Backup source</strong>:</p>
+<ul class="simple">
+<li><p>The unmounted storage on Windows 2000 will be displayed in the expanded tree. Be careful not to select the unmounted storage.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Select a <strong>Backup Target</strong>. The target can be a standard storage pool, de-duplication storage pool, tape library pool, object storage pool, and LAN-Free pool.</p>
+<blockquote>
+<div><p>Note: Incremental backup, log backup, and their base full backups cannot be stored in different storage pools.</p>
+</div></blockquote>
+<p><img alt="backup-8.png" src="../_images/backup-8.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Schedule</strong> to set the execution time for the backup job. For details, see <em>Backup Schedule Operation</em>. It is recommended to perform a full backup on a weekly basis.</p>
+<p><img alt="backup-9.png" src="../_images/backup-9.png" /></p>
+</li>
+<li><p>Set <strong>Backup Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="backup-10.png" src="../_images/backup-10.png" /></p>
+<p><strong>Compression</strong>: The <strong>Fast</strong> option is enabled by default.</p>
+<p><strong>Channels</strong>: VSS-full backup and VSS-incremental backup support this option. The value ranges from 1 to 255.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="backup-3.png" src="../_images/backup-3.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: This option can limit data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
+<p><img alt="backup-12.png" src="../_images/backup-12.png" /></p>
+</li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="database-restore">
+<h3>Database Restore<a class="headerlink" href="#database-restore" title="Permalink to this heading">#</a></h3>
+<p>This chapter introduces how to restore Exchange databases. When a logical error or disaster occurs in an Exchange database, you can restore the database to a specified point-in-time state using <strong>Timepoint Restore</strong>. The database can be restored to the original host or a different host.</p>
+<section id="id1">
+<h4>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>A backup job has been completed. For details, see <em>Database Backup</em>.</p></li>
+<li><p>To restore to another host, install an agent on that host, activate its license, and assign the permissions.</p></li>
+</ul>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Before you restore an Exchange database (storage group), ensure that the database (storage group) is existed and has enabled the <strong>This database can be overwritten by a restore</strong> option in the properties. If the database (storage group) does not exist, create it first.</p></li>
+<li><p>Exchange database restore will automatically apply the logs on the disks. To restore the database to a backup point in time, delete the corresponding database log file manually.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="restore">
+<h4>Restore<a class="headerlink" href="#restore" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Click <strong>Restore</strong>. Select Exchange host and resource. Click <strong>Next</strong>.</p>
+<p><img alt="restore-6.png" src="../_images/restore-6.png" /></p>
+</li>
+<li><p>Select <strong>Timepoint Restore</strong> and a <strong>Database</strong>. Select a <strong>Restore Point in Time</strong>. Click <strong>Next</strong>.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the backup method of the backup set is streaming-style, select the storage that you want to restore, which is not required for VSS.</p></li>
+</ul>
+</div></blockquote>
+<p><img alt="restore-7.png" src="../_images/restore-7.png" /></p>
+<p><strong>Restore to backup state</strong>: The database can be restored to a specific backup state.</p>
+<p><img alt="restore-2.png" src="../_images/restore-2.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. Select an Exchange instance resource with the same version. The database can be restored to the original host or a different host. Click <strong>Next</strong>.</p>
+<p><img alt="restore-8.png" src="../_images/restore-8.png" /></p>
+</li>
+<li><p>Set the <strong>Restore Schedule</strong>. Timepoint restore supports only immediate and one-time schedule types. Click <strong>Next</strong>.</p>
+<p><img alt="restore-9.png" src="../_images/restore-9.png" /></p>
+</li>
+<li><p>Set <strong>Restore Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="restore-10.png" src="../_images/restore-10.png" /></p>
+<p><strong>Restore database</strong>: You can select to overwrite the original database or create a new database.</p>
+<p><strong>Database is forbidden to overwrite</strong>: You can set the restore operation when the database cannot be overwritten.</p>
+<p><strong>Channels</strong>: The backup sets of VSS-full backups and VSS-incremental backups support this option. The channels for the restore job cannot exceed the number during the backup.</p>
+<p><strong>Automatically mount database</strong>: If this option is enabled, the database (storage group) will be automatically mounted after the successful restore.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong></p></li>
+</ul>
+<p><img alt="restore-11.png" src="../_images/restore-11.png" /></p>
+<p><strong>Reconnection Time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed Limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
+<p><img alt="restore-12.png" src="../_images/restore-12.png" /></p>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="exchange-mailbox-backup-and-restore">
+<h2>Exchange Mailbox Backup and Restore<a class="headerlink" href="#exchange-mailbox-backup-and-restore" title="Permalink to this heading">#</a></h2>
+<p>The Exchange account used for mailbox backup should have full access permission to the Exchange mailbox. Therefore, we recommend creating a dedicated account for the mailbox backup and restore on the Exchange host.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Mailbox backup supports EWS backup and MAPI backup.</p></li>
+<li><p>Before the MPAI backup and restore, install MAPI (software name: ExchangeMapiCdo.EXE) on the Exchange host.</p></li>
+<li><p>EWS mailbox backup and restore support Exchange 2010/2013.</p></li>
+<li><p>MAPI mailbox backup and restore support Exchange 2007/2010.</p></li>
+</ul>
+</div></blockquote>
+<section id="mailbox-backup">
+<h3>Mailbox Backup<a class="headerlink" href="#mailbox-backup" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Click <strong>Backup</strong>. Select the Exchange host and instance.</p></li>
+<li><p>Select a <strong>Backup Type</strong> and mailboxes that you want to back up. You can search accounts in the search field. EWS mailbox backup can only back up the folders visible in Outlook Top of Information Store, while MAPI mailbox backup can back up the entire mailbox directory.</p>
+<p><img alt="backup-4.png" src="../_images/backup-4.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Target</strong>. The target can be a standard storage pool, de-duplication storage pool, tape library pool, object storage pool, and LAN-Free pool.</p>
+<p><img alt="backup-8.png" src="../_images/backup-8.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Schedule</strong> to set the execution time for the backup job. For details, see <em>Backup Schedule Operation</em>.</p>
+<p><img alt="backup-9.png" src="../_images/backup-9.png" /></p>
+</li>
+<li><p>Set <strong>Backup Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="backup-2.png" src="../_images/backup-2.png" /></p>
+<p><strong>Compression</strong>: The <strong>Fast</strong> option is enabled by default.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="backup-3.png" src="../_images/backup-3.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="mailbox-recovery">
+<h3>Mailbox Recovery<a class="headerlink" href="#mailbox-recovery" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Click <strong>Restore</strong>. Select Exchange host and resource. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Type</strong> and <strong>Mailbox</strong>. Specify a restore point in time, and then select the backup sets from the list. Click <strong>Next</strong>. EWS mailbox recovery can only recover the file folders in the Top of Information Store, while MAPI mailbox recovery can recover the entire mailbox directory.</p>
+<p><img alt="restore-3.png" src="../_images/restore-3.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. Select an Exchange instance resource with the same version.</p></li>
+<li><p>Set the <strong>Restore Schedule</strong>. Only immediate and one-time schedule types are supported. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="restore-4.png" src="../_images/restore-4.png" /></p>
+<p><strong>Target mailbox</strong>: EWS mailbox recovery can recover data to a specified target mailbox.</p>
+<p><strong>Restore directory</strong>: For EWS mailbox recovery, you can restore to the original directory or a specified directory in the Top of Information Store. For MAPI mailbox recovery, you can restore to the original directory or a new directory.</p>
+<p><strong>Channels</strong>: EWS mailbox recovery supports this option.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>To restore a MAPI mailbox to a new directory, specify the first directory as Top of Information Store, e.g., Top of Information Store/restore, so that the mailbox user can see the recovered mails after the recovery.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="restore-5.png" src="../_images/restore-5.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="exchange-dag-database-backup-and-restore">
+<h2>Exchange DAG Database Backup and Restore<a class="headerlink" href="#exchange-dag-database-backup-and-restore" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h3>Database Backup<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="id3">
+<h4>Prerequisites<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The ADPS agent has been installed. For details, see <em>Install and Configure Agent</em>.</p></li>
+<li><p>The license has been activated and users have been authorized to operate the resource. For details, see <em>Activate License and Authorize User</em>.</p></li>
+<li><p>Log in to the ADPS console as an operator.</p></li>
+</ul>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Exchange DAG database backup is performed on the node where the Exchange MBX role is installed. The node should be configured with an account for the backup and restore. The account configuration is the same as the account for Exchange mailbox backup and restore.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id4">
+<h4>Backup<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Click <strong>Backup</strong>. Select the host and resource with the Exchange MBX role. In the pop-up window, enter the username and password of the operating system.</p>
+<p><img alt="backup-13.png" src="../_images/backup-13.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Type</strong> and databases.</p>
+<p><img alt="backup-14.png" src="../_images/backup-14.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<p>Backup method:</p>
+<ul class="simple">
+<li><p>VSS backup</p></li>
+</ul>
+<p>Backup type:</p>
+<ul class="simple">
+<li><p>VSS backup supports full backup and incremental backup.</p></li>
+<li><p>Before the creation of incremental backups, a full backup should be completed first as the base.</p></li>
+</ul>
+<p>Backup source:</p>
+<ul class="simple">
+<li><p>If the database on the current node is a passive database copy, it will be skipped in the backup process.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Select a <strong>Backup Target</strong>. The target can be a standard storage pool, de-duplication storage pool, tape library pool, object storage pool, and LAN-Free pool.</p>
+<p><img alt="backup-15.png" src="../_images/backup-15.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Schedule</strong> to set the execution time for the backup job. For details, see <em>Backup Schedule Operation</em>. It is recommended to perform a full backup on a weekly basis.</p>
+<p><img alt="backup-16.png" src="../_images/backup-16.png" /></p>
+</li>
+<li><p>Set <strong>Backup Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="backup-10.png" src="../_images/backup-10.png" /></p>
+<p><strong>Compression</strong>: The <strong>Fast</strong> option is enabled by default.</p>
+<p><strong>Channels</strong>: VSS-full backups and VSS-incremental backups support this option. The value ranges from 1 to 255.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="backup-3.png" src="../_images/backup-3.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="id5">
+<h3>Database Restore<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<section id="id6">
+<h4>Prerequisites<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>A backup job has been completed. For details, see <em>Database Backup</em>.</p></li>
+<li><p>To restore to another host, install an agent on that host, activate its license, and assign the permissions.</p></li>
+</ul>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Before you restore an Exchange DAG database, ensure that the database is existed and has enabled the <strong>This database can be overwritten by a restore</strong> option in the properties. If the database is not available, create it first.</p></li>
+<li><p>Before you restore the database, it is recommended to delete other replicated databases first, then back up the content in the folder where the database resides (It refers to the folder of xx.edb. You can right-click the properties of the database to find the folder) to other location, and clean up the folder.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id7">
+<h4>Restore<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Click <strong>Restore</strong>. Select the host and resource with the Exchange MBX role. Click <strong>Next</strong>.</p>
+<p><img alt="restore-6.png" src="../_images/restore-6.png" /></p>
+</li>
+<li><p>Select <strong>Timepoint Restore</strong> and a <strong>Database</strong>. Select a <strong>Restore Point in Time</strong>. Click <strong>Next</strong>.</p>
+<p><img alt="restore-7.png" src="../_images/restore-7.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. Select the Exchange instance resource with the same version. The database can be restored to the original host or a different host. Click <strong>Next</strong>.</p></li>
+<li><p>Set a <strong>Restore Schedule</strong>. Timepoint restore supports only immediate and one-time schedule types. Click <strong>Next</strong>.</p>
+<p><img alt="restore-9.png" src="../_images/restore-9.png" /></p>
+</li>
+<li><p>Set <strong>Backup Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="restore-10.png" src="../_images/restore-10.png" /></p>
+<p><strong>Restore database</strong>: You can select to overwrite the original database or create a new database.</p>
+<p><strong>Database is forbidden to overwrite</strong>: You can set the restore operation when the database cannot be overwritten.</p>
+<p><strong>Channels</strong>: The backup sets of VSS-full backups and VSS-incremental backups support this option. The channels for the restore job cannot exceed the number during the backup.</p>
+<p><strong>Automatically mount database</strong>: If this option is enabled, the database (storage group) will be automatically mounted after the successful restore.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="restore-11.png" src="../_images/restore-11.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>Wait for the restore job to complete.</p></li>
+<li><p>After the database is mounted successfully, create a database availability group.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="exchange-dag-mailbox-backup-and-restore">
+<h2>Exchange DAG Mailbox Backup and Restore<a class="headerlink" href="#exchange-dag-mailbox-backup-and-restore" title="Permalink to this heading">#</a></h2>
+<section id="id8">
+<h3>Mailbox Backup<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Click <strong>Backup</strong>. Select the host and instance with the Exchange CAS role. In the pop-up window, enter the username and password of the configured Exchange mailbox backup and restore account.</p></li>
+<li><p>Select a <strong>Backup Type</strong> and mailboxes that you want to back up. You can search accounts in the search field. EWS mailbox backup can only back up the folders visible in Outlook Top of Information Store, while MAPI mailbox backup can back up the entire mailbox directory.</p>
+<p><img alt="backup-21.png" src="../_images/backup-21.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Target</strong>. The target can be a standard storage pool, de-duplication storage pool, tape library pool, object storage pool, and LAN-Free pool.</p></li>
+<li><p>Select a <strong>Backup Schedule</strong> to set the execution time for the backup job. For details, see <em>Backup Schedule Operation</em>.</p></li>
+<li><p>Set <strong>Backup Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="backup-2.png" src="../_images/backup-2.png" /></p>
+<p><strong>Compression</strong>: The <strong>Fast</strong> option is enabled by default.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="backup-3.png" src="../_images/backup-3.png" /></p>
+<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+<li><p>Mailbox backup can only be performed on an Exchange CAS node.</p></li>
+<li><p>After you add new mailboxes, restart the ADPS Agent service.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id9">
+<h3>Mailbox Recovery<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Click <strong>Restore</strong>. Select the host and instance with the Exchange CAS role. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Type</strong> and <strong>Mailbox</strong>. Specify a restore point in time, and then select the backup sets from the list. Click <strong>Next</strong>. EWS mailbox recovery can only recover the file folders in the Top of Information Store, while MAPI mailbox recovery can recover the entire mailbox directory.</p>
+<p><img alt="restore-16.png" src="../_images/restore-16.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. Select the Exchange instance resource with the same version.</p></li>
+<li><p>Set a <strong>Restore Schedule</strong>. Only immediate and one-time schedule types are supported. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Backup Options</strong>, including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="restore-4.png" src="../_images/restore-4.png" /></p>
+<p><strong>Target Mailbox</strong>: EWS mailbox recovery can recover data to a specified target mailbox.</p>
+<p><strong>Restore Directory</strong>: For EWS mailbox recovery, you can restore to the original directory or a specified directory in the Top of Information Store. For MAPI mailbox recovery, you can restore to the original directory or a new directory.</p>
+<p><strong>Channels</strong>: EWS mailbox recovery supports this option.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="restore-5.png" src="../_images/restore-5.png" /></p>
+<p><strong>Reconnection Time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p>
+<p><strong>Speed Limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre-action is executed after the job starts and before the resource is backed up or restored. The post-action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the admin has enabled the Job Approval feature, the job should be approved by the admin to start running.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>On the <strong>Job</strong> page, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
+<p><img alt="job-1.png" src="../_images/job-1.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="" src="../_images/job-2.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="" src="../_images/job-3.png" /> to modify the basic job information, backup/restore schedule, and backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="" src="../_images/job-4.png" /> to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="" src="../_images/job-5.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides six types of backup schedules.</p>
+<p><img alt="time-1.png" src="../_images/time-1.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. The value ranges from 1 to 24 hours or 1 to 60 minutes.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
+</ul>
+<p><strong>Example: Run the job every two weeks on Friday at 18:00</strong></p>
+<p><img alt="time-3.png" src="../_images/time-3.png" /></p>
+<p><strong>The execution time will be:</strong></p>
+<ul class="simple">
+<li><p>If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</section>
+<section id="backup-strategy-advice">
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<p>Exchange backup types include VSS-full backup, VSS-incremental backup, streaming-full backup, streaming-incremental backup, EWS mailbox backup, and MAPI mailbox backup. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of data loss that you can tolerate.</p>
+<ol class="arabic simple">
+<li><p>Run a <strong>Full Backup</strong> once a week when the application traffic is small to ensure that you have an RTO of one week.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have an RPO of one day.</p></li>
+<li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> hourly to ensure that the RPO can reach the second level. For example, you can run a log backup every 2 hours.</p></li>
+<li><p>Perform a <strong>Mailbox Backup</strong> once a week when mail growth is small.</p></li>
+</ol>
+<blockquote>
+<div><p>Avoid using the following strategies:</p>
+<ul class="simple">
+<li><p>Only perform full backups.</p></li>
+<li><p>Perform a full backup followed by all incremental or log backups.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id11">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id11" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Resource</p></td>
+<td><p>· ADPS supports Exchange on Windows 2000 and later.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup</p></td>
+<td><p>· The Exchange database backup supports Windows OS 2000 and later. To back up databases on Exchange 2010 and later, a backup and restore account should be configured first. The account configuration is the same as the Exchange mailbox backup and restore account.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore</p></td>
+<td><p>· Before you restore an Exchange database (storage group), ensure that the database (storage group) is existed and has enabled the <strong>This database can be overwritten by a restore</strong> option in the properties. If the database (storage group) does not exist, create it first. <br> · The Exchange database restore will automatically apply the logs on the disks. To restore the database to a backup point in time, delete the corresponding database log file manually.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../db2/db2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">User Guide for DB2</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../file/file.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for File</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Aurreum<br/>
+  
+    <div class="extra_footer">
+      Copyright © 2022-2023 Aurreum
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

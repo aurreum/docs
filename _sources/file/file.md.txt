@@ -15,8 +15,8 @@ class: longtable
 | Feature                              | Description                                                  |
 | ------------------------------------ | ------------------------------------------------------------ |
 | Backup type                          | Full backup: Back up directories or files on the operating system. {{ br }}Incremental backup: Back up data that has changed since the last backup point in time. {{ br }}Cumulative incremental backup: Back up all data changed after the most recent incremental backup. {{ br }}Synthetic backup: Full backup for the first time, followed by incremental backups. |
-| Filter                               | Exclusion: Do not back up selected files or directories. {{ br }}Inclusion: Backup selected files or directories. |
-| Backup source                        | Single or multiple directory files                           |
+| Filter                               | Exclusion: Do not back up selected files or directories. {{ br }}Inclusion: Back up selected files or directories. |
+| Backup source                        | One or more directory files                           |
 | Channels                             | A positive integer between 1 and 255                         |
 | Backup target                        | Standard storage pool, de-duplication storage pool, local storage pool, file synthetic pool, tape library pool, object storage service pool, LAN-Free pool |
 | Clone backup job                     | Backup jobs can be cloned. The cloning will change an incremental backup job to a full backup job and relevant backup sets will be selected. |
@@ -159,7 +159,7 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 #### Download Installation Package
 
-Select **Microsoft Windows** and click **Download Windows agent**.
+Select **Windows** and click **Download Windows agent**.
 
 ![file_agent02](../image/01-agent/file/file_agent02.png)
 
@@ -217,7 +217,7 @@ After the successful installation, you can log in to ADPS as the admin and see t
 
 ## Activate License and Assign Authorization
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to *Batch Activate* from *Administrator's Guide* for more details.
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to *Batch Activate* from *Administrator's Guide* for more details.
 
 ### Register Host
 
@@ -443,7 +443,7 @@ File Instant Recovery can instantly recover file backup sets from the storage se
 > Note:
 >
 > - The file instant recovery requires the adps-nfsd package to be installed on the server where Storaged is located.
-> - File Instant Recovery currently only supports recovering backup sets from non-encrypted standard storage pools with single-level storage, and from file synthetic pools under Ubuntu.
+> - File Instant Recovery currently only supports recovering backup sets from standard storage pools without multi-storage and data storage encryption enabled, and from file synthetic pools on Ubuntu.
 
 The interface provides the following two portals to create instant recovery jobs for cloning copies: **Restore** and **CDM**.
 
@@ -615,15 +615,15 @@ There are four backup methods for File: full backup, incremental backup, cumulat
 
 ## Channel Number Configuration
 
-- Description of the channel number for backup jobs:
+- Channel number for backup jobs:
 
   File supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be consistent with that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
 
-- Description of Channel number for restore jobs:
+- Channel number for restore jobs:
 
   The number of channels used cannot exceed the number of channels configured for the backup job.
 
-## Limitation
+## Limitations
 
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
@@ -631,7 +631,7 @@ There are four backup methods for File: full backup, incremental backup, cumulat
 ---
 class: longtable
 ---
-| Function                               | Limitation Description                                       |
+| Function                               | Limitations                                       |
 | -------------------------------------- | ------------------------------------------------------------ |
 | Synthetic Backup                       | The synthetic backup job of a single file under AIX system cannot be greater than 32Tb. |
 | Restore                                | Instant recovery only supports recovering backup sets in unencrypted standard storage pools with single-level storage and file synthesis pools. |

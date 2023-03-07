@@ -118,7 +118,7 @@ After the successful installation, you can log in to ADPS as the admin and see t
 
 ## Activate License and Assign Authorization
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. 
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. 
 
 ### Register Host
 
@@ -359,11 +359,11 @@ ADPS offers two Sybase backup types: full backup and log backup. Full backup and
 
 ## Channel Number Configuration
 
-- Description of Channel number for backup jobs
+- Channel number for backup jobs
 
   Sybase supports up to 32 channels. You can set the Channel number for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The Channel number is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the Channel number exceeds that of CPU cores.
 
-- Description of Channel number for restore jobs
+- Channel number for restore jobs
 
   The channel number for a restore job is the same as that for the backup job. The restore page does not show the Channels option by default.
 

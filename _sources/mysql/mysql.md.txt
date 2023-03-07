@@ -71,7 +71,7 @@ ADPS supports the backup and restore of single instance, multiple instances, mas
 ---
 class: longtable
 ---
-| Database Version | Database Bits | OS                   | CPU Architecture | OS Bits | Note         |
+| Database Version | Database Bits | OS | CPU Architecture | OS Bits | Note         |
 | ---------------- | ------------- | -------------------- | ---------------- | ------- | ------------ |
 | 4.1.22           | 32            | Windows 2003         | x86              | 32      |              |
 | 4.1.22           | 64            | Windows 2003         | x86              | 64      |              |
@@ -155,7 +155,7 @@ class: longtable
 ---
 class: longtable
 ---
-| Database Version | Database Bits | OS          | CPU Architecture | OS Bits | Note                                     |
+| Database Version | Database Bits | OS | CPU Architecture | OS Bits | Note |
 | ---------------- | ------------- | ----------- | ---------------- | ------- | ---------------------------------------- |
 | 5.7.21           | 64            | Red Hat 7.0 | x86              | 64      | One master, two slaves                   |
 | 5.7.21           | 64            | Red Hat 6.5 | x86              | 64      | One master, two slaves                   |
@@ -234,7 +234,7 @@ After the successful installation, you can log in to ADPS as the admin and see t
 
 ## Activate License and Assign Authorization
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches.
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches.
 
 ### Register Host
 
@@ -506,7 +506,7 @@ Logical backup jobs can back up single or multiple databases.
 
   > Note:
   >
-  > - MySQL on Windows platform only supports logical backup jobs.
+  > - MySQL on Windows only supports logical backup jobs.
 
 
 ### Create Synthetic Backup Jobs
@@ -860,11 +860,11 @@ There are six methods to back up MySQL: full backup, incremental backup, log bac
 
 ## Channel Number Configuration
 
-- Description of Channel number for backup jobs
+- Channel number for backup jobs
 
   MySQL supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be consistent with that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
 
-- Description of Channel number for restore jobs
+- Channel number for restore jobs
 
   The channel number for a restore job is the same as that for the backup job. The restore page does not have the Channel option by default.
 ## MySQL Cluster
@@ -905,14 +905,14 @@ Each node of the cluster is required to complete the environment deployment by r
 
 When creating a backup job, select the primary node of MySQL as the backup object, and the remaining steps are similar to *Create Backup Jobs*.
 
-## Limitation
+## Limitations
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
 ```{table} Limitation
 ---
 class: longtable
 ---
-| Function | Limitation Description                   |
+| Function | Limitations                |
 | -------- | ---------------------------------------- |
 | Resource | · Do not support MySQL cluster environment on Windows. {{ br }}· After cluster binding, all nodes should be online so that you can create jobs. {{ br }}· After cluster binding, you cannot change the primary node unless you delete the cluster. |
 | Backup   | · MySQL on Windows only supports logical backups.  {{ br }}· To run physical backup on MySQL 5.1, it's necessary to install InnoDb Plugin engine.    {{ br }}· Do not support running incremental backups for databases with MySIAM storage engine. If you run incremental backups on those databases, it will run full backups by default.     {{ br }}· If the type of database synthetic pool is iSCSI, it's necessary to install iscsi-initiator-utils on the agent. If the type of database synthetic pool is FC, it's necessary to insert HBA card and install the corresponding HBA API Driver on the agent.  {{ br }}· Synthetic backups do not support reconnection time, resumption buffer size and speed limit. |

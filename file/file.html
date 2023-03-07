@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="User Guide for Hadoop" href="../hadoop/hadoop.html" />
-    <link rel="prev" title="User Guide for DB2" href="../db2/db2.html" />
+    <link rel="prev" title="User Guide for Exchange" href="../exchange/exchange.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en-US">
     
@@ -112,6 +112,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../db2/db2.html">
    User Guide for DB2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exchange/exchange.html">
+   User Guide for Exchange
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -485,8 +490,8 @@ title="Fullscreen mode"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#limitation">
-   Limitation
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -722,8 +727,8 @@ title="Fullscreen mode"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#limitation">
-   Limitation
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -761,10 +766,10 @@ title="Fullscreen mode"
 <td><p>Full backup: Back up directories or files on the operating system.  <br> Incremental backup: Back up data that has changed since the last backup point in time.  <br> Cumulative incremental backup: Back up all data changed after the most recent incremental backup.  <br> Synthetic backup: Full backup for the first time, followed by incremental backups.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Filter</p></td>
-<td><p>Exclusion: Do not back up selected files or directories.  <br> Inclusion: Backup selected files or directories.</p></td>
+<td><p>Exclusion: Do not back up selected files or directories.  <br> Inclusion: Back up selected files or directories.</p></td>
 </tr>
 <tr class="row-even"><td><p>Backup source</p></td>
-<td><p>Single or multiple directory files</p></td>
+<td><p>One or more directory files</p></td>
 </tr>
 <tr class="row-odd"><td><p>Channels</p></td>
 <td><p>A positive integer between 1 and 255</p></td>
@@ -1306,7 +1311,7 @@ title="Fullscreen mode"
 <h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
 <section id="download-installation-package">
 <h4>Download Installation Package<a class="headerlink" href="#download-installation-package" title="Permalink to this heading">#</a></h4>
-<p>Select <strong>Microsoft Windows</strong> and click <strong>Download Windows agent</strong>.</p>
+<p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong>.</p>
 <p><img alt="file_agent02" src="../_images/file_agent02.png" /></p>
 </section>
 <section id="install-agent-on-windows">
@@ -1361,7 +1366,7 @@ title="Fullscreen mode"
 </section>
 <section id="activate-license-and-assign-authorization">
 <h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
-<p>This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to <em>Batch Activate</em> from <em>Administrator’s Guide</em> for more details.</p>
+<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to <em>Batch Activate</em> from <em>Administrator’s Guide</em> for more details.</p>
 <section id="register-host">
 <h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
 <p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and find the host that you need to activate. Click the <strong>Register</strong> icon.</p>
@@ -1556,7 +1561,7 @@ title="Fullscreen mode"
 <div><p>Note:</p>
 <ul class="simple">
 <li><p>The file instant recovery requires the adps-nfsd package to be installed on the server where Storaged is located.</p></li>
-<li><p>File Instant Recovery currently only supports recovering backup sets from non-encrypted standard storage pools with single-level storage, and from file synthetic pools under Ubuntu.</p></li>
+<li><p>File Instant Recovery currently only supports recovering backup sets from standard storage pools without multi-storage and data storage encryption enabled, and from file synthetic pools on Ubuntu.</p></li>
 </ul>
 </div></blockquote>
 <p>The interface provides the following two portals to create instant recovery jobs for cloning copies: <strong>Restore</strong> and <strong>CDM</strong>.</p>
@@ -1710,21 +1715,21 @@ bridge_fd <span class="m">0</span>
 <section id="channel-number-configuration">
 <h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
 <ul>
-<li><p>Description of the channel number for backup jobs:</p>
+<li><p>Channel number for backup jobs:</p>
 <p>File supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be consistent with that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
 </li>
-<li><p>Description of Channel number for restore jobs:</p>
+<li><p>Channel number for restore jobs:</p>
 <p>The number of channels used cannot exceed the number of channels configured for the backup job.</p>
 </li>
 </ul>
 </section>
-<section id="limitation">
-<h2>Limitation<a class="headerlink" href="#limitation" title="Permalink to this heading">#</a></h2>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
 <table class="longtable table" id="id3">
 <caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
-<th class="head"><p>Limitation Description</p></th>
+<th class="head"><p>Limitations</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1772,11 +1777,11 @@ bridge_fd <span class="m">0</span>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../db2/db2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../exchange/exchange.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">User Guide for DB2</p>
+            <p class="prev-next-title">User Guide for Exchange</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../hadoop/hadoop.html" title="next page">
