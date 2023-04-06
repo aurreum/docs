@@ -41,13 +41,13 @@ class: longtable
 
 > Note:
 >
-> MariaDB on Windows supports only logical backup and its service name must include "MySQL" so that it can be recognized by ADPS. 
+> MariaDB on Windows supports only logical backup and its service name must include "MySQL" so that it can be recognized by ADPS.
 
-## Install and Configure Agent 
+## Install and Configure Agent
 
 ### Verify Compatibility
 
-ADPS supports the backup and restore for MariaDB single instance, multiple instances, master-slave cluster, master-master cluster. Before you install an agent, check whether your environment is supported. 
+ADPS supports the backup and restore for MariaDB single instance, multiple instances, master-slave cluster, master-master cluster. Before you install an agent, check whether your environment is supported.
 
 #### Single Instance
 
@@ -90,9 +90,9 @@ class: longtable
 | 10.2.41          | 64            | CentOS 7.3 | x86              | 64      | Dual masters         |
 ```
 
-### Get Agent Package
+### Download Agent Package
 
-Log in to the ADPS console as the admin. Click **Resource** -> **Install Agent** icon. 
+Log in to the ADPS console as the admin. Click **Resource** -> **Install Agent** icon.
 
 ![](../image/MariaDB/01-agent/agent-1.png)
 
@@ -110,15 +110,15 @@ In the **Install agent** window, select **Windows** and click **Download Windows
 
 2. Double-click the package to launch the setup wizard and click **Next**.
 
-3. This package selects the database resources, files, or applications installed on the host by default. Select the **MySQL** component and click **Next**. 
+3. This package selects the database resources, files, or applications installed on the host by default. Select the **MySQL** component and click **Next**.
 
     ![](../image/MariaDB/01-agent/agent-3.png)
-    
+
 4. Enter the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
 
     ![](../image/MariaDB/01-agent/agent-4.png)
 
-> The Access Key identifies the operator of the agent. You can see the user account's Access Key on the **Personal Settings** -> **Settings**. 
+> The Access Key identifies the operator of the agent. You can see the user account's Access Key on the **Personal Settings** -> **Settings**.
 >
 > If the backup server is a non-tenant version, it is not required to configure Access Key.
 >
@@ -228,13 +228,13 @@ This chapter introduces how to back up the MariaDB databases. ADPS supports full
 
     **Format**: Set the format of binary logs, including ROW, STATEMENT, and MIXED.
 
-    **Synchronizing binary log number**: In this field, set the number of transactions that need to be committed to synchronize the binary logs from the cache to the disk. When the transaction commits reach the value, the logs will be flushed to the disk. The value ranges from 0 to 4294967295. 0 indicates that when to flush the logs is determined by the operating system. The value affects database efficiency and data consistency. The larger the value, the higher the efficiency and the lower the data consistency. 
+    **Synchronizing binary log number**: In this field, set the number of transactions that need to be committed to synchronize the binary logs from the cache to the disk. When the transaction commits reach the value, the logs will be flushed to the disk. The value ranges from 0 to 4294967295. 0 indicates that when to flush the logs is determined by the operating system. The value affects database efficiency and data consistency. The larger the value, the higher the efficiency and the lower the data consistency.
 
     **Database service Startup script**: If the database cannot be managed with systemd, you can set a script in this field to start the database service.
 
     **Database service Stop script**: If the database cannot be managed with systemd, you can set a script in this field to stop the database service.
 
-    - **Advanced options**: 
+    - **Advanced options**:
 
     ![](../image/MariaDB/03-MariaDB/backup-3.png)
 
@@ -299,7 +299,7 @@ Based on periodic full and incremental backups, you can also add frequent log ba
 
 ### Create Continuous Log Backup Jobs
 
-Continuous log backup keeps backing up MariaDB binary logs to real-time backup pools. It requires the following conditions: 
+Continuous log backup keeps backing up MariaDB binary logs to real-time backup pools. It requires the following conditions:
 
 - The binary log is enabled in MariaDB.
 - server_id of MariaDB is configured.
@@ -311,7 +311,7 @@ One instance can only run a continuous log backup job at one time. When a full b
 
 ![](../image/MariaDB/03-MariaDB/log-2.png)
 
-> Note: The backup target of MariaDB continuous log backup jobs can only be real-time backup pools. 
+> Note: The backup target of MariaDB continuous log backup jobs can only be real-time backup pools.
 
 ### Create Logical Backup Jobs
 
@@ -359,7 +359,7 @@ Prerequisites for creating a synthetic backup:
 
 ## Create Restore Jobs
 
-This chapter introduces how to restore MariaDB databases. ADPS provides a variety of restore types for different needs, including timepoint restore, logical recovery, instant recovery, log restore, and recovery testing.  
+This chapter introduces how to restore MariaDB databases. ADPS provides a variety of restore types for different needs, including timepoint restore, logical recovery, instant recovery, log restore, and recovery testing.
 
 ### Prerequisites
 
@@ -374,13 +374,13 @@ When a logical error or disaster occurs in a MariaDB database, you can restore t
 
 2. Select **Timepoint Restore**. Specify a point in time for the restore job. Click **Next**.
 
-    - **Restore to Point in Time**: 
+    - **Restore to Point in Time**:
 
     If the database has log backups or continuous log backups, you can drag the slider control or enter the time to specify the point in time for the restore job.
 
     ![](../image/MariaDB/03-MariaDB/restore-3.png)
 
-    - **Restore to Backup State (shortest recovery time)**: 
+    - **Restore to Backup State (shortest recovery time)**:
 
     This option can restore full backup sets, incremental backup sets, and synthetic backup sets, but it cannot restore binlog.
 
@@ -426,9 +426,9 @@ When a media error occurs in a MariaDB database, such as data file corruption or
 
 ### Create Instant Recovery Jobs
 
-Instant recovery can only be performed on the MariaDB databases with synthetic backup sets.    
+Instant recovery can only be performed on the MariaDB databases with synthetic backup sets.
 
-> Note: 
+> Note:
 >
 > - If the storage pool storing synthetic backup sets is of the iSCSI type, then the iSCSI Initiator should be installed on the host where you perform the restore job.
 >
@@ -474,7 +474,7 @@ Instant recovery can only be performed on the MariaDB databases with synthetic b
 
     ![](../image/MariaDB/03-MariaDB/instant_restore-5_2.png)
 
-    **Keep the mount point even if job fails**: Enable this option to keep the mount point if the instant recovery job fails. 
+    **Keep the mount point even if job fails**: Enable this option to keep the mount point if the instant recovery job fails.
 
 6. Set a **Job Name** and confirm the job information. Click **Submit**.
 
@@ -630,7 +630,7 @@ The deployment of each node in the cluster is required. For details, see *Instal
 - The **Backup** interface displays only the active node of the MariaDB master-slave cluster. Select the active node as the backup resource. The remaining steps are similar to *Create Backup Jobs*.
 - If a switchover occurs in the nodes of the MariaDB master-slave cluster, the new active node will automatically take over the backup job.
 
-### Master-Master Replication 
+### Master-Master Replication
 
 ##### Cluster Binding
 

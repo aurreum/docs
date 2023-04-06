@@ -45,7 +45,7 @@ class: longtable
 
 - Caché 2010/2016/2017/2018
 
-### Get Agent Package
+### Download Agent Package
 
 Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** icon and download the installation packages according to your needs.
 
@@ -250,7 +250,7 @@ This chapter introduces how to restore Caché databases. ADPS provides two resto
 
 ### Create Timepoint Restore Jobs
 
-When a logical error or a disaster occurs in a Caché database, timepoint restore allows you to restore the database to a specific point in time. This restore type restores the database to the state of the most recent full backup first, and then uses backup logs to restore the database to the specified point in time. 
+When a logical error or a disaster occurs in a Caché database, timepoint restore allows you to restore the database to a specific point in time. This restore type restores the database to the state of the most recent full backup first, and then uses backup logs to restore the database to the specified point in time.
 
 (1) Select the Cache host and resource. Click **Next**.
 

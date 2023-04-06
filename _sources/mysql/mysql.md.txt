@@ -174,7 +174,7 @@ class: longtable
 ```
 
 
-### Get Agent Package
+### Download Agent Package
 
 Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
 

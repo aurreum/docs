@@ -44,13 +44,13 @@ Before deploying the agent, check whether your operating system (OS) and databas
 
 - DB2 version: 8.1/9.1/9.5/9.7/10.1/10.5/11.1
 
-- OS version: 
-  - Windows 2003/2008/2008 R2/2012  
-  - Linux 6/7/8 
-  - AIX 6.1/7.1 
+- OS version:
+  - Windows 2003/2008/2008 R2/2012
+  - Linux 6/7/8
+  - AIX 6.1/7.1
 
 
-### Get Agent Packages
+### Download Agent Package
 
 Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** icon and download the installation packages according to your needs.
 
@@ -94,7 +94,7 @@ Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
 	package adps-agent-file-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
 Restarting adps-agent (via systemctl):  [  OK  ]
-[root@kylinv10x86 ~]# 
+[root@kylinv10x86 ~]#
 ```
 
    ### Install and Configure Agent on Windows OS
@@ -108,17 +108,17 @@ In the **Install agent** window, select **Windows** and click **Download Windows
    #### Install Agent on Windows
 
    1. Upload the installation package to the target host.
-   
+
  2. Double-click the package to launch the setup wizard and click **Next**.
 
    3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the **DB2** component and click **Next**.
-   
+
       ![](../image/01-agent/db2/db2_windows_install02.png)
-   
+
    4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
-   
+
       ![](../image/01-agent/db2/db2_windows_install01.png)
-   
+
    5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
 
 ### Check Successful Installation
@@ -204,17 +204,17 @@ This chapter introduces how to back up DB2 databases.
 
 (1) Click **Backup**. Select the DB2 host and instance.
 
-(2) Select **Full** as the backup type and choose the databases to be backed up. 
+(2) Select **Full** as the backup type and choose the databases to be backed up.
 
->  Note: 
+>  Note:
 >
 >  - To back up multiple databases simultaneously, select databases with the same code page setting.
 >
 >    ![](../image/01-agent/db2/db2_agent12.png)
 
-(3) Select **Backup Target**. You can choose a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool. 
+(3) Select **Backup Target**. You can choose a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool.
 
->  Note: 
+>  Note:
 >
 >  - It is not supported to store full backups, incremental backups/cumulative incremental backups, and log backups in different storage pools.
 
@@ -236,7 +236,7 @@ This chapter introduces how to back up DB2 databases.
 
 **Number of Parallelism**: Define the number of tablespaces to be read in parallel, and assign each process or thread to the tablespace. It is recommended that the number of parallelism is not greater than the number of tablespaces in the database.
 
-**Number of Sessions**: Specify the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than the number of the host logical CPU. 
+**Number of Sessions**: Specify the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than the number of the host logical CPU.
 
 ![](../image/01-agent/db2/db2_agent19_en.png)
 
@@ -244,7 +244,7 @@ This chapter introduces how to back up DB2 databases.
 
 ![](../image/01-agent/db2/db2_agent14.png)
 
-**Reconnection Time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s). 
+**Reconnection Time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
 
 **Speed Limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
 
@@ -261,10 +261,10 @@ It is generally recommended to create full backups regularly (such as weekly) or
 - Creating an incremental backup or a cumulative incremental backup is the same as creating a full backup. Select **Incremental Backup** / **Cumulative Incremental Backup** as the backup type and choose databases.
 
   ![](../image/01-agent/db2/db2_agent15.png)
-  
-  > Note: 
+
+  > Note:
   >
-  > - If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup / cumulative incremental backup will be performed as a full backup by default. 
+  > - If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup / cumulative incremental backup will be performed as a full backup by default.
 
 ### Create Log Backup Jobs
 
@@ -278,19 +278,19 @@ Based on periodic full and incremental backups, you can also add frequent log ba
 
 When you create an automatic archiving log backup job, the job will be in an idle state. The job will be executed when the logical logs get full or when you manually execute the log switch command.
 
-You can only create one automatic archiving log backup job on one database instance. Delete the old automatic archiving log backup job first before creating a new automatic archiving log backup job. 
+You can only create one automatic archiving log backup job on one database instance. Delete the old automatic archiving log backup job first before creating a new automatic archiving log backup job.
 
 - Creating an automatic archiving log backup job is the same as creating a full backup job. Select **On Demand** as the backup type.
 
 ![](../image/01-agent/db2/db2_agent17.png)
 
 >Note:
->- Prerequisites for an automatic archiving log backup job: 
+>- Prerequisites for an automatic archiving log backup job:
 >   - You have executed a full backup job and the full backup set exists;
 >   - You have selected to archive log files to disk for the database. For example: LOGARCHMETH1 = DISK:/home/db2inst1/arch
->- Differences between log backup and automatic archiving log backup: 
->   - The database server triggers an automatic archiving log backup when the logical logs are full or when you manually execute the log switch command. To avoid the constant log archiving failures and database hang issues due to the inaccessible storage server, it is recommended that FAILARCHPATH should also be configured for the database when you create the automatic archiving log backup. 
->   - A log backup is initiated and executed by ADPS, and is generally set to execute periodically. 
+>- Differences between log backup and automatic archiving log backup:
+>   - The database server triggers an automatic archiving log backup when the logical logs are full or when you manually execute the log switch command. To avoid the constant log archiving failures and database hang issues due to the inaccessible storage server, it is recommended that FAILARCHPATH should also be configured for the database when you create the automatic archiving log backup.
+>   - A log backup is initiated and executed by ADPS, and is generally set to execute periodically.
 >- Log backups and automatic archiving log backups do not back up database schema. If a new table is created and only log backups are performed later instead of the database-level backups (full backups, incremental backups, and cumulative incremental backups), the new table data cannot be restored. Therefore, it is not suggested that only one database-level backup be performed followed by log backups/automatic archiving log backups. For backup strategy details, see *Backup Protection Strategy*.
 
 ## Create Restore Jobs
@@ -304,11 +304,11 @@ This chapter introduces how to restore DB2 databases. ADPS provides a variety of
 
 ### Create Timepoint Restore Jobs
 
-When a logical error or a disaster occurs in a DB2 database, timepoint restore allows you to restore the database to a specified point-in-time state. 
+When a logical error or a disaster occurs in a DB2 database, timepoint restore allows you to restore the database to a specified point-in-time state.
 
 (1) Select the DB2 **Host** and **Instance**. Click **Next**.
 
-(2) Select **Timepoint Restore** as the restore type, and select the **Database**. You can select a backup set by clicking the time displayed next to the **Restore to Point-in-time** option, and specify a point in time by dragging the slider control. Click **Next**. 
+(2) Select **Timepoint Restore** as the restore type, and select the **Database**. You can select a backup set by clicking the time displayed next to the **Restore to Point-in-time** option, and specify a point in time by dragging the slider control. Click **Next**.
 
 ![](../image/01-agent/db2/db2_recovery_01.png)
 
@@ -319,7 +319,7 @@ When a logical error or a disaster occurs in a DB2 database, timepoint restore a
 
 (4) Set **Restore Schedule**. Only immediate and one-time schedule types are supported.
 
-(5) Set **Restore Options**. You can set restore database, number of sessions, without Rolling forward in common options, and reconnection time, resumption buffer size, speed limit, precondition, pre/post action and serial restore in advanced options. 
+(5) Set **Restore Options**. You can set restore database, number of sessions, without Rolling forward in common options, and reconnection time, resumption buffer size, speed limit, precondition, pre/post action and serial restore in advanced options.
 
 **Restore database**: You can overwrite the source database or create a new database. To overwrite the source database, leave the field blank; to restore to a new database, the following options will appear automatically when you fill out the field.
 
@@ -338,13 +338,13 @@ When a logical error or a disaster occurs in a DB2 database, timepoint restore a
 
 This restore type is applicable when you enable ARCHIVELOG. You can restore archived logs in the specified range to the database archive log directory of the source host or the different host.
 
-(1) Select the DB2 host and instance. Click **Next**. 
+(1) Select the DB2 host and instance. Click **Next**.
 
-(2) Select **Restore Archived Logs** as the restore type. Select the **Database** and **Restore Branch**. 
+(2) Select **Restore Archived Logs** as the restore type. Select the **Database** and **Restore Branch**.
 
 ![](../image/01-agent/db2/db2_recovery_02.png)
 
-**Log ranges**: When you select **Time Range**, drag the slider control to specify a time range; when you select **Log Sequence Range**, select the range to start and end. 
+**Log ranges**: When you select **Time Range**, drag the slider control to specify a time range; when you select **Log Sequence Range**, select the range to start and end.
 
 (3) Set **Restore Target**. Select the source host or a different host as the restore target. Click **Next**.
 
@@ -358,19 +358,19 @@ This restore type is applicable when you enable ARCHIVELOG. You can restore arch
 
 Recovery testing verifies the integrity and availability of the backup set. With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest DB2 backup set to another instance on the source host or a different host.
 
-(1) Select the DB2 host and instance. Click **Next**. 
+(1) Select the DB2 host and instance. Click **Next**.
 
-(2) Select **Recovery Testing** and select the databases. You can specify the database name by clicking the **Rename** icon next to the selected database. 
+(2) Select **Recovery Testing** and select the databases. You can specify the database name by clicking the **Rename** icon next to the selected database.
 
 ![](../image/01-agent/db2/db2_recovery_03.png)
 
 (3) Set **Restore Target**. Select the source host or a different host as the restore target. Click **Next**.
 
-(4) Set **Restore Schedule**. You can set an hourly, daily, weekly, or monthly schedule. Click **Next**. 
+(4) Set **Restore Schedule**. You can set an hourly, daily, weekly, or monthly schedule. Click **Next**.
 
-(5) Set **Restore Options**. Click **Next**. 
+(5) Set **Restore Options**. Click **Next**.
 
-(6) Confirm the job information. Click **Submit**. 
+(6) Confirm the job information. Click **Submit**.
 
 (7) Wait for the job cycle to be executed. The job will restore the latest backup sets of the source host.
 
@@ -430,9 +430,9 @@ There are five types to back up DB2: full backup, incremental backup, cumulative
   DB2 supports up to 255 sessions. You can set the number of parallelism and sessions for backup jobs according to the actual environment. A reasonable number can improve job performance. It is recommended that the number of sessions is not greater than that of host logical CPU, and the number of parallelism is not greater than that of tablespaces.
 
 - Parallelism/Sessions number for restore jobs
-  
+
   The restore job does not provide the setting for the parallelism number. It is recommended that the sessions number is not greater than the number of host logical CPU.
-  
+
 ## Limitations
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```

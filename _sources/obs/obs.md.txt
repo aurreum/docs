@@ -35,9 +35,9 @@ class: longtable
 
 ## Install and Configure Agent
 
-### Get Agent Package
+### Download Agent Package
 
-Open a browser and log in to ADPS as an admin. Click **Resource** -> **Install Agent** icon. 
+Open a browser and log in to ADPS as an admin. Click **Resource** -> **Install Agent** icon.
 
 ![  ](../image/01-agent/obs/obs_agent01.png)
 
@@ -78,7 +78,7 @@ Log in to ADPS as an admin, go to **Resource**, and select the host that you wan
 
 ![  ](../image/02-license/obs/obs_license02.png)
 
-### Activate License	
+### Activate License
 
 In the pop-up **Activate** window, select the resource to activate. Click **Submit**.
 
@@ -112,7 +112,7 @@ The supported object storage service vendors are:
 
 	![  ](../image/01-agent/obs/obs_agent05.png)
 
-	- **Name**: Customize the name of the object storage service.  
+	- **Name**: Customize the name of the object storage service.
 	- **Vendor**: Select a cloud service vendor. At present, ADPS supports Amazon Cloud, Microsoft Azure, Google Cloud Storage (GCS), Backblaze B2, and other cloud service vendors that are compatible with the S3 protocol.
 	- **Endpoint**: Select or enter the endpoint address of the cloud service.
 	- **Region**: Select or enter the region where the data center is located (it is automatically filled in based on the endpoint).
@@ -131,7 +131,7 @@ The supported object storage service vendors are:
 
 	![  ](../image/01-agent/obs/obs_agent07.png)
 
-2. In the pop-up **Activate** window, select the **Object Storage Service Backup** module, and click the **Activate Trial Edition** button. 
+2. In the pop-up **Activate** window, select the **Object Storage Service Backup** module, and click the **Activate Trial Edition** button.
 
 	![  ](../image/01-agent/obs/obs_agent08.png)
 
@@ -180,9 +180,9 @@ All buckets can be backed up.
 
 	![  ](../image/03-obs/obs_backup02.png)
 
-4. Select **Backup Target**. 
+4. Select **Backup Target**.
 
-5. Select **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. 
+5. Select **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*.
 
 6. Set **Backup Options**, including common and advanced options.
 
@@ -238,7 +238,7 @@ Synthetic backup combines a full backup and some incremental backups into a new 
 
 	![  ](../image/03-obs/obs_backup07.png)
 
-4. Select **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. 
+4. Select **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*.
 
 5. Set **Backup Options** according to your needs.
 
@@ -255,9 +255,9 @@ This chapter introduces how to restore object storage.
 
 ### Create Timepoint Restore Jobs
 
-When a folder or file of the object storage is lost, it can be restored to a specified point-in-time state through Timepoint Restore. 
+When a folder or file of the object storage is lost, it can be restored to a specified point-in-time state through Timepoint Restore.
 
-1. Select the object storage host and resource. Click **Next**. 
+1. Select the object storage host and resource. Click **Next**.
 
 2. Select **Timepoint Restore** and choose a backup point in time that you want to restore. The backup points in time of incremental backup sets are under their base full backup. Click **Next**.
 
@@ -275,21 +275,21 @@ When a folder or file of the object storage is lost, it can be restored to a spe
 
 	![](../image/03-obs/obs_restore03.png)
 
-7. Set the **Job Name** and confirm the job information. Click **Submit**. 
+7. Set the **Job Name** and confirm the job information. Click **Submit**.
 
 ### Create Instant Recovery Jobs
 
-The instant recovery mounts the synthetic backup sets to the restore target through the NFS protocol. Mounting backup sets over the Internet does not require reading and transferring data, which can reduce the recovery time. 
+The instant recovery mounts the synthetic backup sets to the restore target through the NFS protocol. Mounting backup sets over the Internet does not require reading and transferring data, which can reduce the recovery time.
 
 > Note:
 >
-> - To use object storage instant recovery, install the nfsd package on the storage server. 
+> - To use object storage instant recovery, install the nfsd package on the storage server.
 
-#### Create from Restore Menu 
+#### Create from Restore Menu
 
 1. Go to the **Restore** page. Select the object storage host and resource. Click **Next**.
 
-2. Select **Instant Recovery** and choose a backup point in time that you want to restore. Click **Next**. 
+2. Select **Instant Recovery** and choose a backup point in time that you want to restore. Click **Next**.
 
 	![  ](../image/03-obs/obs_restore04.png)
 
@@ -298,11 +298,11 @@ The instant recovery mounts the synthetic backup sets to the restore target thro
 	![  ](../image/03-obs/obs_restore05.png)
 
 	- **Export**: Set the export mount point.
-	- **Access control list**: This option refers to the list of agents where the backup set can be mounted. It supports IP address or CIDR. * means that all agents can access the backup set. 
+	- **Access control list**: This option refers to the list of agents where the backup set can be mounted. It supports IP address or CIDR. * means that all agents can access the backup set.
 	- **Conversion path coding**: Set the path coding. The default path coding for mounting and restoring files is UTF-8.
 	- **Bridge**: Use a bridged network to export backup sets. It can avoid conflicts with the system's NFS service.
 
-	> Note: 
+	> Note:
 	>
 	> - The 4th bit of the IP address in the **Bridge** option is required to be entered manually. The IP address must be a valid one that has not been used in this network segment.
 	>
@@ -319,7 +319,7 @@ The instant recovery mounts the synthetic backup sets to the restore target thro
 	>   bridge_fd 0
 	>   ```
 
-4. Confirm the job information. Click **Submit**. 
+4. Confirm the job information. Click **Submit**.
 
 	![  ](../image/03-obs/obs_restore06.png)
 
@@ -331,9 +331,9 @@ The instant recovery mounts the synthetic backup sets to the restore target thro
 
 	![  ](../image/03-obs/obs_restore08.png)
 
-	- **Help**: Click ![](../image/03-obs/obs_restore15.png) to reach the help page. 
-	- **Modify**: Click ![](../image/03-obs/obs_restore16.png) to modify the export directory and access control list. 
-	- **Delete**: Click ![](../image/03-obs/obs_restore17.png) to delete the job record. 
+	- **Help**: Click ![](../image/03-obs/obs_restore15.png) to reach the help page.
+	- **Modify**: Click ![](../image/03-obs/obs_restore16.png) to modify the export directory and access control list.
+	- **Delete**: Click ![](../image/03-obs/obs_restore17.png) to delete the job record.
 
 #### Create from CDM Menu
 
@@ -347,13 +347,13 @@ On the **CDM** interface, you can view data copies on storage servers and create
 
 	![  ](../image/03-obs/obs_restore10.png)
 
-3. Confirm the job information. Click **Submit**. 
+3. Confirm the job information. Click **Submit**.
 
 4. You will be redirected to the help page. Mount the files manually according to the procedure.
 
 #### Check Successful Recovery
 
-After the instant recovery is completed, enter the **CDM** menu. You can see a recovery history record under the backup point in time of the corresponding object storage. 
+After the instant recovery is completed, enter the **CDM** menu. You can see a recovery history record under the backup point in time of the corresponding object storage.
 
 ![  ](../image/03-obs/obs_restore11.png)
 
@@ -377,11 +377,11 @@ The **Job** interface provides the backup and restore job information of all obj
 
 - Start: Click ![](../image/03-obs/obs_job02.png) to start the job immediately.
 - Modify: Click ![](../image/03-obs/obs_job03.png) to modify the basic job information, backup/restore schedule, and backup/restore options.
-- Delete: Click ![](../image/03-obs/obs_job05.png) to access the confirmation window. Click **OK** to delete the job. 
+- Delete: Click ![](../image/03-obs/obs_job05.png) to access the confirmation window. Click **OK** to delete the job.
 
 ## Backup Protection Policy
 
-###  Backup Schedule Operation	
+###  Backup Schedule Operation
 
 ADPS provides six types of backup schedule types. The schedule type selected is only valid for the currently created job.
 
@@ -405,17 +405,17 @@ ADPS provides six types of backup schedule types. The schedule type selected is 
 - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
 - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
-### Backup Policy Advice	
+### Backup Policy Advice
 
 ADPS offers three backup types for object storage: full backup, incremental backup, and synthetic backup. It is recommended to formulate the following backup policy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of data loss that you can tolerate.
 
-1. Run a **Full Backup** once a week when the application traffic is small to ensure that you have an RTO of one week. 
+1. Run a **Full Backup** once a week when the application traffic is small to ensure that you have an RTO of one week.
 2. After that, you can run an **Incremental Backup** every day to reduce the backup time and ensure that you have an RPO of one day.
 
 > Avoid using the following strategies:
 > - Perform only the full backups.
-> - Perform a full backup followed by all incremental backups. 
+> - Perform a full backup followed by all incremental backups.
 
-## Channel Number Configuration	
+## Channel Number Configuration
 
 Object storage supports up to 255 channels. You can set the channel number for the backup and restore jobs according to your environment, but the value you set for the restore job cannot exceed that of the backup job. A reasonable number of channels can improve job performance, which is recommended to be the same as the number of CPU cores in the agent. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.

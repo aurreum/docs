@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the MongoDB backup and restore. This guide describes how to deploy the ADPS agent and how to use ADPS to back up and restore MongoDB. 
+Aurreum Data Protection Suite (ADPS) provides the capability for the MongoDB backup and restore. This guide describes how to deploy the ADPS agent and how to use ADPS to back up and restore MongoDB.
 
 ## Features
 
@@ -92,9 +92,9 @@ class: longtable
 | 5.0.5            | 64            | Red Hat 8.0      | x86              | 64      |
 ```
 
-### Get Agent Package
+### Download Agent Package
 
-Open a browser and log in to the ADPS console as an admin. Click **Resource** -> **Install Agent** icon. You can select the software package according to your needs. 
+Open a browser and log in to the ADPS console as an admin. Click **Resource** -> **Install Agent** icon. You can select the software package according to your needs.
 
 ![](../image/01-agent/mongodb/mongodb_agent01.png)
 
@@ -106,11 +106,11 @@ In the **Install agent** window, select **Windows** as the system and click **Do
 
 ![](../image/01-agent/mongodb/mongodb_agent02.png)
 
-#### Install Agent on Windows	
+#### Install Agent on Windows
 
 1. Copy the package to the target host.
 
-2. Double-click the package to launch the setup wizard. Click **Next**. 
+2. Double-click the package to launch the setup wizard. Click **Next**.
 
 3. The package selects the check boxes of the resources installed on the host by default. From the **Component** list, select **MongoDB**. Click **Next**.
 
@@ -120,11 +120,11 @@ In the **Install agent** window, select **Windows** as the system and click **Do
 
    ![](../image/01-agent/mongodb/mongodb_agent04.png)
 
-5. Select a **Destination Folder**. Click **Next** to start the installation and wait for it to complete. 
+5. Select a **Destination Folder**. Click **Next** to start the installation and wait for it to complete.
 
 ###  Install and Configure Agent on Linux
 
-1. In the **Install agent** window, select **Linux** as the system and **MongoDB** as the module. Copy an installation command. 
+1. In the **Install agent** window, select **Linux** as the system and **MongoDB** as the module. Copy an installation command.
 
    ![](../image/01-agent/mongodb/mongodb_agent05.png)
 
@@ -140,7 +140,7 @@ After the installation, log in to the ADPS console as an admin and open the **Re
 
 ## Activate License and Authorize User
 
-This chapter is applicable to configuring one agent. If you have multiple agents, you can install them first and then carry out activation and authorization in batches. For details, refer to *Batch Register/Activate/Authorize* in *Administrator's Guide*. 
+This chapter is applicable to configuring one agent. If you have multiple agents, you can install them first and then carry out activation and authorization in batches. For details, refer to *Batch Register/Activate/Authorize* in *Administrator's Guide*.
 
 ### Register Host
 
@@ -156,7 +156,7 @@ In the pop-up **Activate** window, select the check box of the resource and clic
 
 ### Authorize User
 
-In the pop-up **Authorize** window, authorize users to operate the resource. 
+In the pop-up **Authorize** window, authorize users to operate the resource.
 
 ![](../image/02-license/mongodb/mongodb_lincense04.png)
 
@@ -164,13 +164,13 @@ In the pop-up **Authorize** window, authorize users to operate the resource.
 
 ### Verify Database Status
 
-Verify the MongoDB status on the host. The database should be in the "running" status. 
+Verify the MongoDB status on the host. The database should be in the "running" status.
 
 ![](../image/03-mongodb/mongodb_database01.png)
 
 ### Check Resource
 
-Log in to the ADPS console as an operator and open the **Resource** page. The activated and authorized resource is listed on the page with an "Online" state. If the resource is not available, see *Activate License and Authorize User*. 
+Log in to the ADPS console as an operator and open the **Resource** page. The activated and authorized resource is listed on the page with an "Online" state. If the resource is not available, see *Activate License and Authorize User*.
 
 ![](../image/03-mongodb/mongodb_login01.png)
 
@@ -188,17 +188,17 @@ Log in to the ADPS console as an operator, open the **Storage Pool** page, and c
 
    MongoDB supports two authentication methods: Database and Access Key.
 
-   - **Database Authentication**: To use the Database Authentication, the MongoDB instance user should have the privileges of backup and restore. If the password is changed, you must re-log in to the instance. Otherwise the jobs will fail. 
+   - **Database Authentication**: To use the Database Authentication, the MongoDB instance user should have the privileges of backup and restore. If the password is changed, you must re-log in to the instance. Otherwise the jobs will fail.
 
    - **Access Key Authentication**: Use the Access Key of the ADPS user who has been authorized with the resource to log in to MongoDB. With this method, jobs can be performed without the password of the ADPS user, which may have data security risks.
 
    > Prerequisites: The MongoDB database can be logged in without a password from the host where it resides.
 
-2. In the **Login** window, select an authentication method, enter the **User** and **Password**, and click **Login**. 
+2. In the **Login** window, select an authentication method, enter the **User** and **Password**, and click **Login**.
 
    ![](../image/03-mongodb/mongodb_login03.png)
 
-> Note: 
+> Note:
 >
 > - To use the Access Key Authentication, log in to the ADPS console as an admin and enable the **Access Key login instance** option in the **Settings** -> **Security**.
 
@@ -208,12 +208,12 @@ Log in to the ADPS console as an operator, open the **Storage Pool** page, and c
 
 - You have two or more hosts with MongoDB databases.
 - One of the hosts has been installed with the agent and connected to the backup server. For agent installation, see *Install and Configure Agent*.
-- All the MongoDB databases are configured to allow remote connections. 
-- ADPS licenses have been imported. 
+- All the MongoDB databases are configured to allow remote connections.
+- ADPS licenses have been imported.
 
 ### Add MongoDB Instance
 
-The steps to add a MongoDB instance are: 
+The steps to add a MongoDB instance are:
 
 1. On the **Resource** page, click the "+" icon beside the host. The **Add MongoDB Instance** window appears.
 
@@ -247,11 +247,11 @@ The steps to add a MongoDB instance are:
 
 ## Create Backup Jobs
 
-This chapter covers how to back up MongoDB databases. ADPS provides the following backup types: 
+This chapter covers how to back up MongoDB databases. ADPS provides the following backup types:
 
 - Full backup: This type will back up the whole database, including enough logs to recover the database.
 
-> Note: 
+> Note:
 > Do not change data during the full backup when the MongoDB version is 3.2.9 or 3.2.10 and the replica set is enabled. Otherwise, the restore of the full backup set will fail.
 > When the above situation occurs, return the mongorestore version to 3.2.8, then the full backup set can be restored.
 
@@ -259,17 +259,17 @@ This chapter covers how to back up MongoDB databases. ADPS provides the followin
 
 > Note: Replica set should be enabled for log backups.
 
-- Logical backup: This type can back up specified databases. 
+- Logical backup: This type can back up specified databases.
 
 ### Prerequisites
 
-- An agent has been installed. For details, see *Install and Configure Agent*. 
-- The license has been activated and the resource has been authorized to users. For details, see *Activate License and Authorize User*. 
+- An agent has been installed. For details, see *Install and Configure Agent*.
+- The license has been activated and the resource has been authorized to users. For details, see *Activate License and Authorize User*.
 - Log in to the ADPS console as an operator.
 
 ### Create Full Backup Jobs
 
-The steps to create a full backup job are: 
+The steps to create a full backup job are:
 
 1. Open the **Backup** page. At the first step, select the host and MongoDB instance. Click **Next**.
 
@@ -303,7 +303,7 @@ The steps to create a full backup job are:
 
    **Resumption buffer size**: You can set the resumption buffer speed after the abnormal reset. The unit is MiB.
 
-   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.  
+   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.
 
    **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -317,7 +317,7 @@ The steps to create a full backup job are:
 
 Based on periodic full backups, you can add frequent log backups to back up only the oplog. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the log backup number that you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be enough. But if your business requires minimizing the work-loss risk, consider running log backups more frequently. More frequent log backups can increase the frequency of log truncation, resulting in smaller log files.
 
-The steps to create a log backup job are: 
+The steps to create a log backup job are:
 
 1. Open the **Backup** page. At the first step, select the host and MongoDB instance. Click **Next**.
 
@@ -349,7 +349,7 @@ The steps to create a log backup job are:
 
    **Resumption buffer size**: You can set the resumption buffer speed after the abnormal reset. The unit is MiB.
 
-   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.  
+   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.
 
    **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -393,7 +393,7 @@ You can specify one or more databases for the logical backup.
 
    **Resumption buffer size**: You can set the resumption buffer speed after the abnormal reset. The unit is MiB.
 
-   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.  
+   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.
 
    **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -405,7 +405,7 @@ You can specify one or more databases for the logical backup.
 
 ## Create Restore Jobs
 
-This chapter introduces how to restore MongoDB databases. ADPS provides various restore types for different needs, including: 
+This chapter introduces how to restore MongoDB databases. ADPS provides various restore types for different needs, including:
 
 - Timepoint restore: With full backups, this type can only restore to the full backup point. While with log backups, it can restore to a specified point in time.
 
@@ -413,16 +413,16 @@ This chapter introduces how to restore MongoDB databases. ADPS provides various 
 
 ### Prerequisites
 
-- A backup job has been completed. 
-- To restore to another host, install an agent on that host, activate the license, and authorize it to users. 
+- A backup job has been completed.
+- To restore to another host, install an agent on that host, activate the license, and authorize it to users.
 
 ### Create Timepoint Restore Jobs
 
 When a logical error or disaster occurs in a MongoDB database, you can restore the database to a specified point-in-time state using **Timepoint Restore**.
 
-> Note: 
-> 
-> - To restore to a specified point in time, the MongoDB user role should have anyAction on anyResource. 
+> Note:
+>
+> - To restore to a specified point in time, the MongoDB user role should have anyAction on anyResource.
 > - The timepoint restore of MongoDB 2.6 can only restore to a single MongoDB instance without oplog.
 > - The instance and admin database on MongoDB 2.4 cannot be restored to MongoDB 2.6.
 > - After enabling the replica set, set the bind_ip in the configuration file to 127.0.0.1 or delete bind_ip so that the data can be restored to a new database.
@@ -464,7 +464,7 @@ The steps to create a timepoint restore job are:
 
    **Resumption buffer size**: You can set the resumption buffer speed after the abnormal reset. The unit is MiB.
 
-   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.  
+   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.
 
    **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -506,7 +506,7 @@ The steps to create a logical recovery job are:
 
    - Create a new database: A new database will be automatically created and used to store the backup data.
 
-   > Note: 
+   > Note:
    >
    > - When the MongoDB version is 3.2 and you want to restore to a new database, the database on the target with the same name as the source will be replaced by the new one.
    > - Only the logical recovery has the **Restore Database** option.
@@ -521,7 +521,7 @@ The steps to create a logical recovery job are:
 
    **Resumption buffer size**: You can set the resumption buffer speed after the abnormal reset. The unit is MiB.
 
-   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit. 
+   **Speed limit**: This option is based on the host's time. You can specify the start time, the end time, and a speed limit for this time period. If the start time is greater than or equal to the end time, it means the time crosses midnight. The value for the speed limit must be an integer and the unit can be MiB/s or KiB/s. 0 means no speed limit.
 
    **Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
 
@@ -542,24 +542,24 @@ The **Job** page provides the job information of all agents. You can start, modi
 
 ## Backup Protection Strategy
 
-### Backup Schedule Operation	
+### Backup Schedule Operation
 
 ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
 
 ![](../image/03-mongodb/mongodb_time01.png)
 
-- Immediate: The job immediately starts to run after it is submitted. 
+- Immediate: The job immediately starts to run after it is submitted.
 - One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60. 
-- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5. 
-- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job. 
+- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
+- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
+- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
 - Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
 
 **Example: Run the job every two weeks on Friday at 18:00**
 
 ![](../image/03-mongodb/mongodb_time02.png)
 
-**The execution time will be:** 
+**The execution time will be:**
 
 - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
 - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).

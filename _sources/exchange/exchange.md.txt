@@ -46,7 +46,7 @@ ADPS supports the backup and restore of Exchange, Exchange mail, Exchange DAG, a
 - Exchange 2000/2003/2007/2010/2013/2016/2019
 - Exchange DAG 2010/2013/2016
 
-### Get Agent Package
+### Download Agent Package
 
 Open a browser and log in to the ADPS console as the admin. Click **Resource** -> **Install agent** icon.​ You can download the packages according to your needs.
 
@@ -132,21 +132,21 @@ Procedure:
 
    **Parameters**:
 
-   - **Database Copies**: It enables administrators to manage the database copies on individual servers.
+   - **Database Copies**: enables administrators to manage the database copies on individual servers.
 
-   - **Databases**: It enables administrators to create, manage, mount, and dismount mailbox databases on individual servers.
+   - **Databases**: enables administrators to create, manage, mount, and dismount mailbox databases on individual servers.
 
-   - **Exchange Servers**: It enables administrators to manage the Exchange server configuration on individual servers.
+   - **Exchange Servers**: enables administrators to manage the Exchange server configuration on individual servers.
 
-   - **Monitoring**: It enables administrators to monitor Exchange services and component availability in an organization. In addition to administrators, roles associated with this role type can be used with service accounts used by monitoring applications to gather information about the state of servers running Exchange.
+   - **Monitoring**: enables administrators to monitor Exchange services and component availability in an organization. In addition to administrators, roles associated with this role type can be used with service accounts used by monitoring applications to gather information about the state of servers running Exchange.
 
-   - **Mail Recipient Creation**: It enables administrators to create mailboxes, mail users, mail contacts, distribution groups, and dynamic distribution groups.
+   - **Mail Recipient Creation**: enables administrators to create mailboxes, mail users, mail contacts, distribution groups, and dynamic distribution groups.
 
-   - **Mail Recipients**: It enables administrators to manage existing mailboxes, mail users, mail contacts, distribution groups, and dynamic distribution groups.
+   - **Mail Recipients**: enables administrators to manage existing mailboxes, mail users, mail contacts, distribution groups, and dynamic distribution groups.
 
-   - **Recipient Policies**: It enables administrators to manage recipient policies in an organization, such as configuration policies.
+   - **Recipient Policies**: enables administrators to manage recipient policies in an organization, such as configuration policies.
 
-   - **View-Only Conﬁguration**: It enables administrators to view all non-recipients in an organization.
+   - **View-Only Configuration**: enables administrators to view all non-recipients in an organization.
 
    **Add a role group member**: Add xxxxBackupUser into the xxxxBackupUser role group:
 
@@ -164,7 +164,7 @@ Procedure:
 
    **Parameters**:
 
-   - **ApplicationImpersonation**: It enables applications to impersonate users in an organization to perform tasks on behalf of the user.
+   - **ApplicationImpersonation**: enables applications to impersonate users in an organization to perform tasks on behalf of the user.
 
    **Assign management roles**: Assign xxxEWSImpersonationRole to xxxBackupUser
 
@@ -180,15 +180,15 @@ Procedure:
 
    **Parameters**:
 
-   - **EWSPercentTimeInCAS**: It specifies the percentage of one minute that an Exchange Web Services user can spend executing CAS code. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.
+   - **EWSPercentTimeInCAS**: defines the percentage of one minute that an Exchange Web Services user can spend executing CAS code. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.
 
-   - **EWSPercentTimeInAD**: It specifies the percentage of one minute that an Exchange Web Services user can spend executing LDAP requests. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.
+   - **EWSPercentTimeInAD**: defines the percentage of one minute that an Exchange Web Services user can spend executing LDAP requests. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.
 
-   - **EWSMaxConcurrency**: It specifies the number of concurrent connections that an Exchange Web Services user can establish with an Exchange server at one time. A connection is maintained from the moment the request is received until a complete response is sent to the requestor. If the user tries to make more concurrent requests than the policy allows, the new connection attempt will fail. However, the existing connections are still valid. The parameter ranges from 0 to 2147483647 inclusive. The default value is 10. To indicate that the number of concurrent connections has no limit, the value should be set to $null.
+   - **EWSMaxConcurrency**: defines the number of concurrent connections that an Exchange Web Services user can establish with an Exchange server at one time. A connection is maintained from the moment the request is received until a complete response is sent to the requestor. If the user tries to make more concurrent requests than the policy allows, the new connection attempt will fail. However, the existing connections are still valid. The parameter ranges from 0 to 2147483647 inclusive. The default value is 10. To indicate that the number of concurrent connections has no limit, the value should be set to $null.
 
-   - **EWSPercentTimeInMailboxRPC**: It specifies the percentage of one minute that an Exchange Web Services user can spend executing mailbox RPC requests. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.
+   - **EWSPercentTimeInMailboxRPC**: defines the percentage of one minute that an Exchange Web Services user can spend executing mailbox RPC requests. The value of 100 means that for every one-minute window, the user can spend 60 seconds consuming the related resource.
 
-   - **PowerShellMaxConcurrency**: It specifies the maximum number of remote PowerShell sessions that a remote PowerShell user can open at the same time.
+   - **PowerShellMaxConcurrency**: defines the maximum number of remote PowerShell sessions that a remote PowerShell user can open at the same time.
 
    **Create a new throttling policy for Exchange 2013 and later**: Create an unlimited EWS throttling policy
 
@@ -198,29 +198,29 @@ Procedure:
 
    **Parameters**:
 
-   - **EwsCutoffBalance**: It defines the resource consumption limits for an EWS user before the user is completely blocked from performing operations on a specific component.
+   - **EwsCutoffBalance**: defines the resource consumption limits for an EWS user before the user is completely blocked from performing operations on a specific component.
 
-   - **EwsMaxBurst**: It specifies the amount of time that an EWS user can consume a large amount of resources before being throttled.
+   - **EwsMaxBurst**: defines the amount of time that an EWS user can consume a large amount of resources before being throttled.
 
-   - **EwsMaxConcurrency**: It applies to all actions except streaming notifications.
+   - **EwsMaxConcurrency**: applies to all actions except streaming notifications.
 
-   - **ExchangeMaxCmdlets**: It specifies the number of cmdlets that can be executed in a specific time period before their execution is slowed down.
+   - **ExchangeMaxCmdlets**: defines the number of cmdlets that can be executed in a specific time period before their execution is slowed down.
 
-   - **MessageRateLimit**: It specifies the number of messages in one minute that can be submitted to transport by POP3 or IMAP4 clients that use SMTP.
+   - **MessageRateLimit**: defines the number of messages in one minute that can be submitted to transport by POP3 or IMAP4 clients that use SMTP.
 
-   - **PowerShellCutoﬀBalance**: It specifies the resource consumption limits for a user before the user is completely blocked from performing operations on a specific component.
+   - **PowerShellCutoﬀBalance**: defines the resource consumption limits for a user before the user is completely blocked from performing operations on a specific component.
 
-   - **PowerShellMaxBurst**: It specifies the amount of time that a user can consume an elevated amount of resources before being throttled.
+   - **PowerShellMaxBurst**: defines the amount of time that a user can consume an elevated amount of resources before being throttled.
 
-   - **PowerShellMaxCmdlets**: It specifies the number of cmdlets that can be executed in a specific time period before their execution is stopped.
+   - **PowerShellMaxCmdlets**: defines the number of cmdlets that can be executed in a specific time period before their execution is stopped.
 
-   - **PowerShellMaxConcurrency**: It specifies the number of concurrent cmdlet executions that a user can have at the same time.
+   - **PowerShellMaxConcurrency**: defines the number of concurrent cmdlet executions that a user can have at the same time.
 
-   - **PowerShellMaxOperations**: It specifies the protocol-level operations that are used to send and receive data.
+   - **PowerShellMaxOperations**: specifies the protocol-level operations that are used to send and receive data.
 
-   - **RecipientRateLimit**: It specifies the limits on the number of recipients that a user can address in 24 hours.
+   - **RecipientRateLimit**: defines the limits on the number of recipients that a user can address in 24 hours.
 
-   - **ThrottlingPolicyScope**: It specifies the scope of the throttling policy.
+   - **ThrottlingPolicyScope**: defines the scope of the throttling policy.
 
    **Set the mailbox policy**: Assign xxxxEWSThrottlingPolicy to xxxxBackupUser
 

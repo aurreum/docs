@@ -109,7 +109,7 @@ class: longtable
 | 14.1             | 64            | CentOS 7.5 | x86              | 64      | One master two slaves |
 ```
 
-### Get Agent Packages
+### Download Agent Package
 
 Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon and download the installation packages according to your needs.
 

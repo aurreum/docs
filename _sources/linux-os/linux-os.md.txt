@@ -40,7 +40,7 @@ class: longtable
 
 ADPS supports the backup and restore of various Linux distributions, such as Debian, RedHat, and their derivatives. Before deploying the agent, check whether the OS is supported.
 
-### Get Agent Package
+### Download Agent Package
 
 Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
 
@@ -262,7 +262,7 @@ Under the **Advanced** tab, you can set the reconnection time, resumption buffer
 
 
 > 		Note:
->		
+>
 > 		- If the admin enables Job Approval function, the job will be executed after the admin approves the job.
 
 ## Manage Jobs

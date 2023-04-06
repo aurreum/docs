@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Sybase databases. This guide introduces how to properly use ADPS to back up and restore Sybase databases. 
+Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Sybase databases. This guide introduces how to properly use ADPS to back up and restore Sybase databases.
 
 ## Features
 ```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
@@ -72,7 +72,7 @@ class: longtable
 | 16.5             | 64            | Red Hat 6           | x86              | 64      |
 ```
 
-### Get Agent Packages
+### Download Agent Package
 
 Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
 
@@ -118,7 +118,7 @@ After the successful installation, you can log in to ADPS as the admin and see t
 
 ## Activate License and Assign Authorization
 
-This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. 
+This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization.
 
 ### Register Host
 
@@ -126,7 +126,7 @@ Log in to ADPS as the admin, go to **Resource**, and select the host that you ne
 
 ![](../image/02-license/sybase/sybase_license_2.png)
 
-### Activate License	
+### Activate License
 
 In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
 
@@ -134,7 +134,7 @@ In the pop-up **Activate** window, select the resource you want to activate. Cli
 
 ### Assign Authorization
 
-After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window. 
+After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window.
 
 ![](../image/02-license/sybase/sybase_license_4.png)
 
@@ -194,9 +194,9 @@ This chapter introduces how to back up the Sybase databases.
 
 (3) Select **Backup Target**. You can select a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool and LAN-Free pool.
 
->  Note: 
+>  Note:
 >
->  - It is not supported to store full backups and log backups in different storage pools. 
+>  - It is not supported to store full backups and log backups in different storage pools.
 
 (4) Go to **Backup Schedule** to set the execution time of the backup job. For details, please refer to *Backup Schedule Operation*. It is recommended to run a full backup on a weekly basis.
 
@@ -206,7 +206,7 @@ This chapter introduces how to back up the Sybase databases.
 
 ![](../image/03-database/sybase/sybase_backup_2.png)
 
-**Compression**: **Fast** is enabled by default.	
+**Compression**: **Fast** is enabled by default.
 
 - None: No data compression during the backup.
 - Tunable: You can customize the Compression Level, which requires the activation of the advanced features.
@@ -261,7 +261,7 @@ This chapter introduces how to restore Sybase databases. ADPS provides two resto
 
 ### Create Timepoint Restore Jobs
 
-When a logical error or a disaster occurs in a Sybase database, timepoint restore allows you to restore the database to a specified point-in-time state. 
+When a logical error or a disaster occurs in a Sybase database, timepoint restore allows you to restore the database to a specified point-in-time state.
 
 (1) Select the Sybase database host and instance, and click **Next**.
 
@@ -279,7 +279,7 @@ When a logical error or a disaster occurs in a Sybase database, timepoint restor
 - Source host: The Restore Target page selects the source host and Sybase databases by default.
 - Different host: On Restore Target page, you can select a different host. Restoring to a different host requires the same version or from an old version to a new version.
 
-(4) Set **Restore Schedule**. Timepoint restore only supports immediate and one-time restore schedules. 
+(4) Set **Restore Schedule**. Timepoint restore only supports immediate and one-time restore schedules.
 
 (5) Set **Restore Options**. If you leave **Restore Database** option empty, the restore job will overwrite the original databases. Set advanced options, including reconnection time, speed limit, precondition, and pre/post action according to your needs.
 
@@ -291,7 +291,7 @@ When a logical error or a disaster occurs in a Sybase database, timepoint restor
 
 ### Create Recovery Testing Jobs
 
-With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest Sybase backup set to another instance on the source host or a different host and to check the backup set's availability. 
+With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest Sybase backup set to another instance on the source host or a different host and to check the backup set's availability.
 
 (1) Select Sybase database host and instance. Click **Next**.
 
@@ -299,7 +299,7 @@ With the hourly, daily, weekly, or monthly schedule, you can use recovery testin
 
 ![](../image/03-database/sybase/sybase_restore_3.png)
 
-(3) Set **Restore Target**. You can select another instance on the source host or a different host as the restore target. Click **Next**. 
+(3) Set **Restore Target**. You can select another instance on the source host or a different host as the restore target. Click **Next**.
 
 (4) Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedules. Click **Next**.
 

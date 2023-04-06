@@ -63,13 +63,13 @@ class: longtable
 | 2.00.062.00      | 64            | SLES for SAP 12 SP2 | x86              | 64      | Multi-tenant                    |
 ```
 
-### Get Agent Package
+### Download Agent Package
 
 Open a browser and log in to the ADPS console as the admin. Click **Resource** -> **Install Agent** icon. The **Install agent** window appears.
 
 ![](../image/01-agent/hana/hana_agent01.png)
 
-###  Install and Configure Agent on Linux 
+###  Install and Configure Agent on Linux
 
 1. In the **Install agent** window, select **Linux** as the system and **SAP HANA** as the module. Copy an installation command.
 
@@ -120,7 +120,7 @@ In the pop-up **Activate** window, select the check box of the resource and clic
 
 ### Authorize User
 
-In the pop-up **Authorize** window, authorize users to operate the resource. 
+In the pop-up **Authorize** window, authorize users to operate the resource.
 
 ![](../image/02-license/hana/hana_license04.png)
 
@@ -169,9 +169,9 @@ Before you create the first backup and restore, SAP HANA login is required. On t
 > - Enter the Access Key of the operator for the normal backup and restore functions.
 > - After restoring SYSTEMDB to a different host, re-import the license into the database on the restore target.
 
-## Create Backup Job
+## Create Backup Jobs
 
-This chapter introduces how to back up SAP HANA databases. 
+This chapter introduces how to back up SAP HANA databases.
 
 ### Prerequisites
 
@@ -185,7 +185,7 @@ When the transaction logs are full or the time reaches the log backup setting, t
 
 1. Open the **Backup** page. At the **Hosts and Resources** step, select the host and SAP HANA instance.
 
-2. At the **Backup Source** step, select **On Demand** as the backup type and choose databases as the backup source. 
+2. At the **Backup Source** step, select **On Demand** as the backup type and choose databases as the backup source.
 
 	![](../image/03-hana/hana_backup01.png)
 
@@ -225,7 +225,7 @@ You can create a full backup job to back up one or more databases.
 
 1. Open the **Backup** page. At the **Hosts and Resources** step, select the host and SAP HANA instance.
 
-2. At the **Backup Source** step, select **Full** as the backup type and choose databases as the backup source. 
+2. At the **Backup Source** step, select **Full** as the backup type and choose databases as the backup source.
 
    ![](../image/03-hana/hana_backup04.png)
 
@@ -239,7 +239,7 @@ You can create a full backup job to back up one or more databases.
 
 ### Create Incremental Backup Jobs
 
-Incremental backups only back up data that has changed since the last backup. 
+Incremental backups only back up data that has changed since the last backup.
 
 - The procedure to create an incremental backup is the same as for a full backup. Select **Incremental** as the backup type and choose databases.
 
@@ -247,7 +247,7 @@ Incremental backups only back up data that has changed since the last backup.
 
 ### Create Cumulative Incremental Backup Jobs
 
-Cumulative incremental backups only back up data that has changed since the last full backup. 
+Cumulative incremental backups only back up data that has changed since the last full backup.
 
 - The procedure to create an incremental backup is the same as for a full backup.  Select **Cumulative Incremental Backup** as the backup type and choose databases.
 
@@ -268,15 +268,15 @@ When a disaster occurs in a SAP HANA database, Timepoint Restore can help you to
 
 1. Open the **Restore** page. At the **Hosts and Resources** step, select the host and SAP HANA instance. Click **Next**.
 
-2. At the **Backup Sets** step, select a database that you want to restore and drag the slider control to specify a restore point in time. Click **Next**. 
+2. At the **Backup Sets** step, select a database that you want to restore and drag the slider control to specify a restore point in time. Click **Next**.
 
 	![](../image/03-hana/hana_restore01.png)
 
 3. At the **Restore Target** step, select a resource as the restore target. The target can be the source or a different host. Click **Next**.
 
-> Note: 
+> Note:
 >
-> - The restore target should have the same database mode as the restore source. 
+> - The restore target should have the same database mode as the restore source.
 >
 > - The target instance version should be newer than or equal to the source instance version.
 
@@ -299,14 +299,14 @@ The **Job** page provides the job information of all agents. You can start, modi
 
 ## Backup Protection Strategy
 
-### Backup Schedule Operation	
+### Backup Schedule Operation
 
 ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
 
 ![](../image/03-hana/hana_time01.png)
 
 - Immediate: The job immediately starts to run after it is submitted.
-- One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached. 
+- One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
 - Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If you select Hour as the unit, you can set the value from 1 to 24. If you select Minute, you can set the value from 1 to 60.
 - Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
 - Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
@@ -318,12 +318,12 @@ ADPS provides six types of backup schedules. The schedule type selected is only 
 
 > **The execution time will be:**
 >
-> - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day). 
+> - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
 > - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).
 > - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
 > - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
 
-### Backup Strategy Advice	
+### Backup Strategy Advice
 
 ADPS offers four SAP HANA backup types: On Demand, full backup, incremental backup, and cumulative incremental backup. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of data loss that you can tolerate.
 

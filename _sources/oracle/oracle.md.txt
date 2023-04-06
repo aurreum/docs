@@ -250,7 +250,7 @@ class: longtable
 | 11g              | 11.1.0.1 | 64            | CentOS 6.6      | x86              | 64      |
 ```
 
-### Get Agent Packages
+### Download Agent Package
 
 Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
 
@@ -771,7 +771,7 @@ Oracle table-level restore supports exporting a user's single table to a point-i
 
 ### Create Logical Import Jobs
 
-1. Go to the **Restore** page. Select the host and Oracle resource. 
+1. Go to the **Restore** page. Select the host and Oracle resource.
 
 2. Select **Data Pump Import** or **Traditional Import** as the restore type. If you have not performed **Data Pump Export** or **Traditional Export**, you cannot select the corresponding import.
 

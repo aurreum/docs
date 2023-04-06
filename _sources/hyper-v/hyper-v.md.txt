@@ -64,7 +64,7 @@ class: longtable
 | CentOS 7.6       | x86_64                | Yes     |
 ```
 
-## Download Hyper-V Agent Package
+## Download Agent Package
 
 1. Log in to the ADPS console as the admin. Click **Resource** -> **Install Agent** icon. The **Install agent** window appears.
 
@@ -74,7 +74,7 @@ class: longtable
 
    ![](../image/03-Hyper-V/Hyper-V/agent.png)
 
-## Install and Configure Hyper-V Agent
+## Install and Configure Agent
 
 1. Double-click the package to launch the setup wizard.
 
