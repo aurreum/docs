@@ -2,7 +2,7 @@
 
    <div style="visibility: hidden;">
 
-User Guides
+用户指南
 ========
 
 .. raw:: html
