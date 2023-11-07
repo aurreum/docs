@@ -1,0 +1,1322 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User Guide for PostgreSQL &#8212; ADPS V3.0-2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'postgresql/postgresql';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for Caché" href="../cachedb/cachedb.html" />
+    <link rel="prev" title="User Guide for Informix" href="../informix/informix.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sybase/sybase.html">User Guide for Sybase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Exchange</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>User Guide for PostgreSQL</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-list">Compatibility List</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#single-host">Single Host</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">Install and Configure Agent on Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-installation-package">Download Installation Package</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-database-state">Check Database State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-login">First Time Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-backup-jobs">Create Log Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-backup-jobs">Create Logical Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-recovery-jobs">Create Logical Recovery Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-archived-logs-jobs">Create Restore Archived Logs Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-cluster">PostgreSQL Cluster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-binding">Cluster Binding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="user-guide-for-postgresql">
+<h1>User Guide for PostgreSQL<a class="headerlink" href="#user-guide-for-postgresql" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) can back up and restore PostgreSQL databases. This guide introduces how to properly use ADPS to back up and restore PostgreSQL databases.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup type</p></td>
+<td><p>Full backup: Back up all the databases on the instance. <br> Incremental backup: Back up data blocks that have changed since the last backup. <br> Log backup: Back up the archived logs of database instances. <br> Logical backup: Back up one or more databases, schemas, and tables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup schedule</p></td>
+<td><p>Immediate, one-time, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup compression</p></td>
+<td><p>None, fast, tunable</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup target</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
+</tr>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multiple channels</p></td>
+<td><p>The backup and restore with multiple channels are supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore type</p></td>
+<td><p>Timepoint restore: Restore a database instance to a specified point-in-time state, including a backup state (shortest recovery time) and a specified point in time. <br> Logical recovery: recover one or more databases, schemas, and tables. <br> Restore archived logs: Download the backed-up logs to a specified directory of the agent.  <br> Recovery testing: Periodically restore the latest backup set to another instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore location</p></td>
+<td><p>Original path, specified path</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore target</p></td>
+<td><p>Overwrite the source database, create a new database</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore granularity</p></td>
+<td><p>Entire database (single, multiple), schema, table, instance, log</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore to different hosts</p></td>
+<td><p>Restoring to another host with different minor versions is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage pool replication</p></td>
+<td><p>PostgreSQL backup sets support storage pool replication.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore from target pools</p></td>
+<td><p>Restoring backup sets from a target storage pool is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pre/Post action</p></td>
+<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>The data transfer speed or disk read and write speed can be limited.</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2C</p></td>
+<td><p>Data can be backed up to an object storage service directly.</p></td>
+</tr>
+<tr class="row-even"><td><p>D2T</p></td>
+<td><p>Data can be backed up to a tape library directly.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAN-Free</p></td>
+<td><p>Backing up data to and restoring data from LAN-Free storage pools are supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Modify a job’s backup source and target</p></td>
+<td><p>Modifying a job’s backup source and backup target is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IPv6</p></td>
+<td><p>Data transfer and management over IPv6 network are supported.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of PostgreSQL single host and cluster. Before deploying the agent, check whether your operating system (OS) and database versions are supported. Please refer to <em>Compatibility List</em> for details.</p>
+<section id="compatibility-list">
+<h4>Compatibility List<a class="headerlink" href="#compatibility-list" title="Permalink to this heading">#</a></h4>
+<section id="single-host">
+<h5>Single Host<a class="headerlink" href="#single-host" title="Permalink to this heading">#</a></h5>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Single Host</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8.1</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>8.4</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>8.4</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>8.4</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>8.4</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.1</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>8.4.11</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 5.8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9.1</p></td>
+<td><p>64</p></td>
+<td><p>Debian 7.8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>9.2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2003</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9.2</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>9.2</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9.3</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>9.4.23</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9.5.5</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>9.6.12</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9.6.12</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 7.2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>9.6.12</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 7.4</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9.6.24</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>10.19</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>10.6</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>10.8</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>11.0</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11.0</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2012</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>11.1</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11.7</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>12.1</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>12.2</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>12.3</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>12.9</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>13.0</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>13.4</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>13.4</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 8.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>13.5</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>13.5</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2019</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>14.0</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>14.0</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 8.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>14.1</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>14.1</p></td>
+<td><p>64</p></td>
+<td><p>Windows 2019</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cluster">
+<h5>Cluster<a class="headerlink" href="#cluster" title="Permalink to this heading">#</a></h5>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Cluster</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database Version</p></th>
+<th class="head"><p>Database Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9.4</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>One master one slave</p></td>
+</tr>
+<tr class="row-odd"><td><p>10.8</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>One master one slave</p></td>
+</tr>
+<tr class="row-even"><td><p>13.4</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>One master one slave</p></td>
+</tr>
+<tr class="row-odd"><td><p>14.1</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p>One master two slaves</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="download-agent-package">
+<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon and download the installation packages according to your needs.</p>
+<p><img alt="" src="../_images/postgres_agent01.png" /></p>
+</section>
+<section id="install-and-configure-agent-on-windows">
+<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
+<section id="download-installation-package">
+<h4>Download Installation Package<a class="headerlink" href="#download-installation-package" title="Permalink to this heading">#</a></h4>
+<p>Select <strong>Windows</strong> as the system and choose a file. Click <strong>Download Windows agent</strong>.</p>
+<p><img alt="" src="../_images/postgres_agent02.png" /></p>
+</section>
+<section id="install-agent-on-windows">
+<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Upload the agent package to the target host.</p></li>
+<li><p>Double-click the package to install it according to the setup wizard and click <strong>Next</strong>.</p></li>
+<li><p>This installation package selects the database resources, files, or applications installed on the host by default. Select the <strong>PostgreSQL</strong> component and click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/postgres_agent03.png" /></p>
+</li>
+<li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/postgres_agent04.png" /></p>
+</li>
+<li><p>Select <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
+</ol>
+</section>
+</section>
+<section id="install-and-configure-agent-on-linux">
+<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Select <strong>Linux</strong> as the system and <strong>PostgreSQL</strong> as the module. Copy an installation command.</p>
+<p><img alt="" src="../_images/postgres_agent05.png" /></p>
+</li>
+<li><p>Paste the command on the command line and press Enter to execute the installation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="o">@</span><span class="mi">13</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.20.85:50305/d2/update/script?modules=postgres&amp;location=http%3A%2F%2F192.168.20.85%3A50305&amp;access_key=2042288d749dba47e963d1ab09a6472b&amp;rm=&amp;tool=curl&quot; | sh</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">100</span>  <span class="mi">7908</span>    <span class="mi">0</span>  <span class="mi">7908</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">1939</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2574</span><span class="n">k</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">58.7</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">72.3</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>  <span class="mi">100</span><span class="n">M</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+ <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">6728</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">6728</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">44.5</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">44.5</span><span class="n">M</span>
+ <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+ <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">3304</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">3304</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">31.7</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">31.7</span><span class="n">M</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the successful installation, log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/postgres_license01.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-assign-authorization">
+<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to <em>Batch Register/Activate/Authorize</em> for more details.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and select the host that you want to activate. Click the <strong>Register</strong> icon.</p>
+<p><img alt="" src="../_images/postgres_license02.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/postgres_license03.png" /></p>
+</section>
+<section id="assign-authorization">
+<h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
+<p>After the successful activation, authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="" src="../_images/postgres_license04.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="check-database-state">
+<h3>Check Database State<a class="headerlink" href="#check-database-state" title="Permalink to this heading">#</a></h3>
+<p>Check the PostgreSQL service state of the agent. The PostgreSQL database service should be in the “Running” state for backup and restore.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-bash-4.2$ /usr/pgsql-13/bin/pg_ctl -D /var/lib/pgsql/13/data/ -l logfile status
+pg_ctl: server is running (PID: 18378)
+/usr/pgsql-13/bin/postgres &quot;-D&quot; &quot;/var/lib/pgsql/13/data/&quot;
+</pre></div>
+</div>
+</section>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource with an “Online” state on the list. If the resource is not present, please check <em>Activate License and Assign Authorization</em>.</p>
+<p><img alt="" src="../_images/postgres_login01.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and verify a storage pool is available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="" src="../_images/postgres_storage01.png" /></p>
+</section>
+</section>
+<section id="first-time-login">
+<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Permalink to this heading">#</a></h2>
+<p>Before creating the first PostgreSQL backup and restore, go to <strong>Resource</strong> and log in to PostgreSQL.</p>
+<p><img alt="" src="../_images/postgres_login02.png" /></p>
+</section>
+<section id="create-backup-jobs">
+<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to back up the PostgreSQL databases.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An agent has been installed. For installation, please refer to <em>Install and Configure Agent</em>.</p></li>
+<li><p>You have activated the agent and assigned the authorization. For details, see <em>Activate License and Assign Authorization</em>.</p></li>
+<li><p>Log in to ADPS as the <em>operator</em>.</p></li>
+</ul>
+</section>
+<section id="create-full-backup-jobs">
+<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Click <strong>Backup</strong>. Select the PostgreSQL host and instance.</p></li>
+<li><p>Select <strong>Full</strong> as the backup type.</p>
+<p><img alt="" src="../_images/postgres_backup01.png" /></p>
+</li>
+<li><p>Select a <strong>Backup Target</strong>.</p></li>
+<li><p>Go to <strong>Backup Schedule</strong> and set the execution time of the backup job. For details, please refer to <em>Backup Schedule Operation</em>.</p></li>
+<li><p>Set <strong>Backup Options</strong> including common and advanced options. Enable the archive mode in PostgreSQL and set the archive log directory first if the database is not in archive mode.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/postgres_backup02.png" /></p>
+<p><strong>Compression</strong>: The <strong>Fast</strong> option is enabled by default.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>None: During the backup, the data will not be compressed.</p></li>
+<li><p>Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.</p></li>
+<li><p>Fast: During the backup, the data will be compressed by fast compression algorithms.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Channels</strong>: This option can improve backup efficiency. The default value is 1 and the range is 1 to 255. For details, please refer to <em>Channel Number Configuration</em>.</p>
+<p><strong>Reserve archive logs</strong>: Specify whether to delete the archive logs in the database after the backup. The <strong>Delete all archive logs</strong> option is enabled by default.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Delete all archive logs: Delete all the backed-up archive logs after the backup.</p></li>
+<li><p>Reserve archive logs for N days/hours: Delete the backed-up archive logs that exist for longer than the specified N days/hours.</p></li>
+<li><p>Do not delete archive logs: Do not delete the backed-up archive logs after the backup.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="" src="../_images/postgres_backup03.png" /></p>
+<p><strong>Reconnection Time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time. The unit is minute.</p>
+<p><strong>Speed Limit</strong>: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+</li>
+<li><p>Set a <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="create-incremental-backup-jobs">
+<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>An incremental backup job is created based on a full backup. It only backs up data that has changed since the last backup.</p>
+<ul class="simple">
+<li><p>Creating a cumulative incremental backup is the same as creating a full backup. Select <strong>Incremental</strong> as the backup type.</p></li>
+</ul>
+<p><img alt="" src="../_images/postgres_backup04.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>If the database has not been fully backed up, or has not been fully backed up after the restore, the first incremental backup will be performed as a full backup by default.</p></li>
+<li><p>After you change the backup target of the incremental backup to a new storage pool, ensure that the new pool has a full backup by one of the following methods:</p>
+<ul>
+<li><p>Create and perform a new full backup with the pool as the backup target.</p></li>
+<li><p>Change the backup target of the base full backup to the pool and perform the modified job.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-log-backup-jobs">
+<h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Based on periodic full and incremental backups, you can add frequent log backups only to back up the archived logs. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be enough. But if your business requires minimizing the work-loss risk, consider running log backups more frequently. More frequent log backups can increase the frequency of log truncation, resulting in smaller log files.</p>
+<ul class="simple">
+<li><p>Creating a log backup is similar to creating a full backup. Select <strong>Log</strong> as the backup type and choose databases.</p></li>
+</ul>
+<p><img alt="" src="../_images/postgres_backup05.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<p>After you change the backup target of a log backup job to a new storage pool, ensure that the new pool has a full backup by one of the following methods:</p>
+<ul class="simple">
+<li><p>Create and perform a new full backup with the pool as the backup target.</p></li>
+<li><p>Change the backup target of the base full backup to the pool and perform the modified job.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-logical-backup-jobs">
+<h3>Create Logical Backup Jobs<a class="headerlink" href="#create-logical-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>PostgreSQL logical backup jobs can back up one or more databases, schemas, and tables.</p>
+<ul class="simple">
+<li><p>Creating a logical backup is similar to creating a full backup. Select <strong>Logical</strong> as the backup type and choose databases, schemas, or tables that you want to back up.</p></li>
+</ul>
+<p><img alt="" src="../_images/postgres_backup06.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Currently, you can select only one of the following types for a logical backup job: database, schema, and table.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="create-restore-jobs">
+<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to restore PostgreSQL databases. ADPS provides various restore types for different needs including timepoint restore, logical recovery, restore archived logs, and recovery testing.</p>
+<section id="id1">
+<h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A backup job has been completed. See <em>Create Backup Jobs</em>.</p></li>
+<li><p>To restore to another host, install an agent on that host, activate its license and assign the authorization.</p></li>
+</ul>
+</section>
+<section id="create-timepoint-restore-jobs">
+<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
+<p>When a logical error or disaster occurs in a PostgreSQL database, you can restore the database to a specified point-in-time state using <strong>Timepoint Restore</strong>.</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Timepoint Restore</strong>. Then specify a restore point in time by selecting the Restore to point in time or Restore to backup state (shortest recovery time) option. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p><strong>Restore to point in time</strong>:</p></li>
+</ul>
+<p>If you have performed log backup jobs, you can specify the restore point in time manually or by dragging the slider control.</p>
+<p><img alt="" src="../_images/postgres_restore01.png" /></p>
+<ul class="simple">
+<li><p><strong>Restore to backup state (shortest recovery time)</strong>:</p></li>
+</ul>
+<p>When choosing Restore to backup state (shortest recovery time), you can select full backup sets and incremental backup sets for the restore job.</p>
+<p><img alt="" src="../_images/postgres_restore09.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. The target can be the source host and a different host with or without activated resources. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports immediate and one-time restore schedules. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong>. You can set channels in the common options and set reconnection time, speed limit, precondition, pre/post action, as well as database configuration file in advanced options. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><strong>Open database after restore</strong>: This option is enabled by default. If it is disabled, the database will not be started after the successful restore.</p>
+<p><img alt="" src="../_images/postgres_restore02.png" /></p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><strong>Database configuration file</strong>: Click Browse… to select the path of the configuration file or enter the path manually. If you leave it blank, the default configuration file will be used.</p>
+<p><img alt="" src="../_images/postgres_restore03.png" /></p>
+</li>
+<li><p>Confirm the job information and click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="create-logical-recovery-jobs">
+<h3>Create Logical Recovery Jobs<a class="headerlink" href="#create-logical-recovery-jobs" title="Permalink to this heading">#</a></h3>
+<p>When a database, schema, or table in PostgreSQL loses data, such as a data file is damaged or deleted by mistake, you can restore them to the latest state through Logical Recovery.</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Logical Recovery</strong> and a type (database, schema, or table). Then select a point in time of the backup set that you want to restore. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/postgres_restore04.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. You can restore the backup set to the source or a different host. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports immediate and one-time restore schedules.</p></li>
+<li><p>Set <strong>Restore Options</strong> including reconnection time, speed limit, pre action, and post action. You can set these options according to your needs.</p>
+<p><img alt="" src="../_images/postgres_restore05.png" /></p>
+<p><strong>Restore Database</strong>: Set the method to restore the database. If you leave it blank, it will overwrite the original database by default. Or you can fill in the name of a new database and restore the backup set to it.</p>
+</li>
+<li><p>Confirm whether the information is correct and then submit the job.</p></li>
+</ol>
+</section>
+<section id="create-restore-archived-logs-jobs">
+<h3>Create Restore Archived Logs Jobs<a class="headerlink" href="#create-restore-archived-logs-jobs" title="Permalink to this heading">#</a></h3>
+<p>With the <strong>Restore Archived Logs</strong> function, you can restore only the archived logs to a specified directory of the agent with no need to recover the entire database. But the premise is that the database has one or more completed log backup jobs.</p>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Restore Archived Logs</strong> and a point in time. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/postgres_restore06.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. The target can be a single host or cluster of PostgreSQL. When the restore target is a cluster, the restore job will run on all the nodes on the cluster. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports immediate and one-time schedule types. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong>. You can set archived logs destination in common options and reconnection time, speed limit, pre action, and post action in advanced options. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/postgres_restore07.png" /></p>
+</li>
+<li><p>Confirm the job information and click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="create-recovery-testing-jobs">
+<h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
+<p>Recovery testing jobs can restore the latest backup sets of PostgreSQL to another instance on the source or a different host hourly, daily, weekly, or monthly.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Recovery testing requires logical backup sets. Ensure that the database has logical backup sets before the recovery testing.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Select the PostgreSQL host and instance. Click <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Recovery Testing</strong> as the restore type and databases as the restore source. You can specify the restored database name by the <strong>Rename</strong> operation. Click <strong>Next</strong>.</p>
+<p><img alt="" src="../_images/postgres_restore08.png" /></p>
+</li>
+<li><p>Select a <strong>Restore Target</strong>. The target can be another PostgreSQL instance on the source host or a different host. Click <strong>Next</strong>.</p></li>
+<li><p>Select a <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p></li>
+<li><p>Set <strong>Restore Options</strong> according to your needs including reconnection time, speed limit, pre action, and post action. Click <strong>Next</strong>.</p></li>
+<li><p>Confirm the job information and click <strong>Submit</strong>.</p></li>
+<li><p>Wait for the job to be executed. The job will restore the latest backup sets of the source host.</p></li>
+</ol>
+</section>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>On the <strong>Job</strong> interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
+<p><img alt="" src="../_images/postgres_job01.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="" src="../_images/postgres_job02.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="" src="../_images/postgres_job03.png" /> to modify the basic job information, backup/restore schedule, and backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="" src="../_images/postgres_job04.png" /> to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="" src="../_images/postgres_job05.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
+<p><img alt="" src="../_images/postgres_time01.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Example: Run the job every two weeks on Friday at 18:00</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="" src="../_images/postgres_time03.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>The execution time wull be:</strong></p>
+<ul class="simple">
+<li><p>If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup-strategy-advice">
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<p>ADPS offers four PostgreSQL backup types: full backup, incremental backup, log backup, and logical backup. Full backup, incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
+<ol class="arabic simple">
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable point in time every week.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable point in time every day.</p></li>
+<li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> hourly to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.</p></li>
+</ol>
+<blockquote>
+<div><p>Avoid using the following strategies:</p>
+<ul class="simple">
+<li><p>Only perform full backups.</p></li>
+<li><p>Perform a full backup followed by all incremental or log backups.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="channel-number-configuration">
+<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Description of the channel number for backup jobs</p></li>
+</ul>
+<p>PostgreSQL supports up to 255 channels. You can set the number of channels for backup and restore jobs according to your environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
+<ul class="simple">
+<li><p>Description of the channel number for restore jobs</p></li>
+</ul>
+<p>You can set the <strong>Channels</strong> option on the restore page. If you use multiple channels to restore the backup set generated by one channel, the restore job will be automatically downgraded to a single-channel restore.</p>
+</section>
+<section id="postgresql-cluster">
+<h2>PostgreSQL Cluster<a class="headerlink" href="#postgresql-cluster" title="Permalink to this heading">#</a></h2>
+<p>ADPS supports PostgreSQL clusters. Before backup and restore, bind the PostgreSQL nodes into a cluster. Each node of the cluster is required to be deployed according to <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em>.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Log in to all the nodes before cluster binding.</p></li>
+</ul>
+</div></blockquote>
+<section id="cluster-binding">
+<h3>Cluster Binding<a class="headerlink" href="#cluster-binding" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click the <strong>Cluster Binding</strong> icon.</p>
+<p><img alt="" src="../_images/postgres_cluster01.png" /></p>
+</li>
+<li><p>Customize the cluster name. Select the active node as the <strong>Primary Node</strong>, Master Slave Replication as the <strong>Type</strong>, and the inactive node as the <strong>Nodes</strong>. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/postgres_cluster02.png" /></p>
+</li>
+</ol>
+</section>
+<section id="backup-and-restore">
+<h3>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading">#</a></h3>
+<p>PostgreSQL cluster has the same backup and restore types as the single instance.</p>
+<ul class="simple">
+<li><p>When a switchover occurs in the nodes of the PostgreSQL cluster, the new active node will automatically take over the backup job.</p></li>
+<li><p>When creating a restore job, you can select a single instance or cluster as the restore target.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../informix/informix.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guide for Informix</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../cachedb/cachedb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for Caché</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-list">Compatibility List</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#single-host">Single Host</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">Install and Configure Agent on Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-installation-package">Download Installation Package</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-database-state">Check Database State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-login">First Time Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-backup-jobs">Create Log Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-backup-jobs">Create Logical Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-recovery-jobs">Create Logical Recovery Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-archived-logs-jobs">Create Restore Archived Logs Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-cluster">PostgreSQL Cluster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-binding">Cluster Binding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2023 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User Guide for Hadoop &#8212; ADPS V3.0-2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hadoop/hadoop';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for Object Storage" href="../obs/obs.html" />
+    <link rel="prev" title="User Guide for MongoDB" href="../mongodb/mongodb.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sybase/sybase.html">User Guide for Sybase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Exchange</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>User Guide for Hadoop</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-compatibility-list">Hadoop Compatibility List</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorize-user">Authorize User</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-activate-and-modify-hadoop-cluster">Add, Activate, and Modify Hadoop Cluster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-hadoop-cluster">Add Hadoop Cluster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-hadoop">Activate Hadoop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-hadoop-cluster">Modify Hadoop Cluster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-backup-jobs">Create Synthetic Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-instant-recovery-jobs">Create Instant Recovery Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-restore-page">Create from Restore Page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-cdm-page">Create from CDM Page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-recovery">Check Successful Recovery</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detach-copy">Detach Copy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="user-guide-for-hadoop">
+<h1>User Guide for Hadoop<a class="headerlink" href="#user-guide-for-hadoop" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Hadoop. This guide introduces how to properly use ADPS to back up and restore Hadoop.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id1">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Authentication method</p></td>
+<td><p>Simple, Kerberos</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup type</p></td>
+<td><p>Full backup: Back up HDFS directories or files.  <br> Incremental backup: Back up data that has changed since the last backup point in time. <br> Synthetic backup: Full backup for the first time, followed by incremental backups.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup source</p></td>
+<td><p>HDFS directories or files (single, multiple)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Filter</p></td>
+<td><p>Exclusion: Do not back up selected files or directories.  <br> Inclusion: Back up selected files or directories. <br> </p></td>
+</tr>
+<tr class="row-even"><td><p>Backup target</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup compression</p></td>
+<td><p>None, fast, tunable</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup schedule</p></td>
+<td><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore type</p></td>
+<td><p>Timepoint restore: Restore one or more files to a specific point-in-time state. <br> Instant recovery: Recover data instantly by mounting the Hadoop backup set in the storage server. <br> Recovery testing: Restore the latest Hadoop backup set to the target or source host periodically.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore granularity</p></td>
+<td><p>HDFS directories or files (single, multiple)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore location</p></td>
+<td><p>Original path, custom path, different host</p></td>
+</tr>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage pool replication</p></td>
+<td><p>Hadoop backup sets support storage pool replication.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore from target pools</p></td>
+<td><p>Restoring backup sets from the target storage pool is supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pre/Post action</p></td>
+<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>The data transfer speed or disk read and write speed in different periods can be limited.</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2C</p></td>
+<td><p>Data can be backed up directly to object storage services.</p></td>
+</tr>
+<tr class="row-even"><td><p>D2T</p></td>
+<td><p>Data can be backed up directly to tape libraries.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAN-Free</p></td>
+<td><p>Backing up data to and restoring data from LAN-Free storage pools are supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Modify a job’s backup target</p></td>
+<td><p>Modifying a job’s backup target is supported.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p>Applicable to Hadoop (HDFS) and CDH (HDFS)</p></li>
+</ul>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of Hadoop. Before deploying the agent, check whether the operating system (OS) is supported. See the following for supported OS versions:</p>
+<section id="hadoop-compatibility-list">
+<h4>Hadoop Compatibility List<a class="headerlink" href="#hadoop-compatibility-list" title="Permalink to this heading">#</a></h4>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Hadoop Compatibility List</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Distributed Application</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Application Bits</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>2.2.0</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>2.6.0</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 14.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>2.6.5</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>2.7.3</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>2.7.6</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>2.7.6</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>2.8.3</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>2.9.0</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>3.0.0</p></td>
+<td><p>64</p></td>
+<td><p>Red Hat 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>3.0.2</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>3.1.0</p></td>
+<td><p>64</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>3.2.1</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 8.3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadoop</p></td>
+<td><p>3.2.2</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDH</p></td>
+<td><p>6.0</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>CDH</p></td>
+<td><p>6.1</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDH</p></td>
+<td><p>6.2</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>CDH</p></td>
+<td><p>6.3</p></td>
+<td><p>64</p></td>
+<td><p>CentOS 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="download-agent-package">
+<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
+<p><img alt="hadoop_agent01" src="../_images/hadoop_agent01.png" /></p>
+</section>
+<section id="install-and-configure-agent-on-linux">
+<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Install the Hadoop runtime environment before installing the agent.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Unzip the offline package for Hadoop runtime environment:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  $ sudo tar -axf hadoop-2.10.0.tar.xz
+</pre></div>
+</div>
+<p>After unzipping, you will see a hadoop-2.10.0 directory.</p>
+<ul>
+<li><p>Install OpenJDK:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install openjdk-8-jre-headless
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Select the version and set the directory according to your needs. The default directory is in the /usr/lib/jvm/ directory.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Select <strong>Linux</strong> as the system and <strong>Hadoop</strong> as the module. Copy an installation command.</p></li>
+</ol>
+<p><img alt="" src="../_images/hadoop_agent02.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Paste the command on the command line, and press Enter to execute the installation.</p></li>
+</ol>
+<p><img alt="" src="../_images/hadoop_agent03.png" /></p>
+<ul>
+<li><p>Follow the instructions to complete the configuration.</p>
+<ul class="simple">
+<li><p>input jre home</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">Enter</span> <span class="n">the</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">OpenJDK</span><span class="o">.</span>
+  <span class="n">For</span> <span class="n">example</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">amd64</span><span class="o">/</span><span class="n">jre</span>
+</pre></div>
+</div>
+<p><img alt="hadoop_agent04" src="../_images/hadoop_agent04.png" /></p>
+<ul>
+<li><p>input hadoop home</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">the</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">hadoop</span><span class="o">-</span><span class="mf">2.10.0</span>
+<span class="n">For</span> <span class="n">example</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">hadoop</span><span class="o">-</span><span class="mf">2.10.0</span>
+</pre></div>
+</div>
+<p><img alt="hadoop_agent05" src="../_images/hadoop_agent05.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>If you need to reconfigure the hadoop runtime environment, enter the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">hadoop</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the successful installation, log in to the ADPS console as the admin and go to the <strong>Resource</strong> page. The host with the agent installed will be available on the <strong>Resource</strong> list.</p>
+<p><img alt="hadoop_license01" src="../_images/hadoop_license01.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-assign-authorization">
+<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See Batch Activate from <em>Administrator’s Guide</em> for more details.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and select the host that you need to activate. Click the <strong>Register</strong> icon.</p>
+<p><img alt="hadoop_license02" src="../_images/hadoop_license02.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Activate</strong> window, select the Hadoop resource that you want to activate. Click <strong>Submit</strong>.</p>
+<p><img alt="hadoop_license03" src="../_images/hadoop_license03.png" /></p>
+</section>
+<section id="authorize-user">
+<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Permalink to this heading">#</a></h3>
+<p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="hadoop_license04" src="../_images/hadoop_license04.png" /></p>
+</section>
+</section>
+<section id="add-activate-and-modify-hadoop-cluster">
+<h2>Add, Activate, and Modify Hadoop Cluster<a class="headerlink" href="#add-activate-and-modify-hadoop-cluster" title="Permalink to this heading">#</a></h2>
+<section id="add-hadoop-cluster">
+<h3>Add Hadoop Cluster<a class="headerlink" href="#add-hadoop-cluster" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Click the <strong>“+”</strong> icon and select <strong>Hadoop Cluster</strong> on the Resource-&gt;Resource page to add the Hadoop Cluster.</p></li>
+</ol>
+<p><img alt="hadoop_register01" src="../_images/hadoop_register01.png" /></p>
+<ol class="arabic" start="2">
+<li><p>Two authentication methods are available for adding Hadoop Cluster: Simple and Kerberos.</p>
+<p>If the Hadoop cluster you are adding is configured with Kerberos, select <strong>Kerberos</strong>. If the Hadoop cluster to be added is not configured with Kerberos authentication, you can use the default <strong>Simple</strong> authentication method.</p>
+<p>Click the “<strong>+</strong>” icon in the lower left corner on the <strong>Add Hadoop Cluster</strong> page to add multiple NameNodes (HA).</p>
+</li>
+</ol>
+<ul>
+<li><p>Options for adding Hadoop Cluster</p>
+<p><img alt="hadoop_register02" src="../_images/hadoop_register02.png" /></p>
+<ul class="simple">
+<li><p><strong>Name</strong>: Enter the name for the Hadoop Cluster.</p></li>
+<li><p><strong>Host</strong>: Enter the IP or the name of the NameNode host. If the Principal is created using a hostname when Kerberos is configured, the hostname must be specified in this field. The IP address of the host and the corresponding hostname resolution must be added to the hosts file of the machine where the agent is installed.</p></li>
+<li><p><strong>SSL</strong>: To use SSL, it is required to enable HTTPS for the Hadoop cluster. The option is checked by default.</p></li>
+<li><p><strong>RPC API Port</strong>: The default value is 8020. The value needs to be modified according to the actual port if the cluster is configured with other port.</p></li>
+<li><p><strong>REST API Port</strong>: The default value is 50470 for HTTPS. When the SSL is not checked, the value is 50070 for HTTP. The value needs to be modified according to the actual port if the cluster is configured with other port.</p></li>
+<li><p><strong>User</strong>: HDFS user. For the Hadoop cluster that uses Kerberos, fill in the authenticated user in the keytab file.</p></li>
+</ul>
+</li>
+<li><p>Options for the Simple Authentication Method</p>
+<p><img alt="hadoop_register03" src="../_images/hadoop_register03.png" /></p>
+<ul class="simple">
+<li><p><strong>Authentication Method</strong>: Simple is selected by default.</p></li>
+<li><p><strong>core-site.xml file</strong>: Upload the core-site.xml file of the cluster. The Simple authentication method does not require file uploading.</p></li>
+<li><p><strong>hdfs-site.xml file</strong>: Upload the hdfs-site.xml file of the cluster. The Simple authentication method does not require file uploading.</p></li>
+</ul>
+</li>
+<li><p>Options for the Kerberos Authentication Method</p>
+<p><img alt="hadoop_register08" src="../_images/hadoop_register08.png" /></p>
+<ul class="simple">
+<li><p><strong>Authentication Method</strong>: Select Kerberos as the authentication method.</p></li>
+<li><p><strong>Realm Name</strong>: Fill in the Realm name used to configure Kerberos.</p></li>
+<li><p><strong>Realm KDC</strong>: The IP or the hostname of the Realm KDC server. The default port is 88. If the port number is the default value, you can leave it out. If the port number is not the default value, you must enter the value.</p></li>
+<li><p><strong>Realm Admin Server</strong>: The IP or the hostname of Realm Admin Server. The default port is 88. If the port number is the default value, you can leave it out. If the port number is not the default value, you must enter the value.</p></li>
+<li><p><strong>RPC API Principal</strong>: Fill in the RPC API Principal name.</p></li>
+<li><p><strong>REST API Principal</strong>: Fill in the REST API Principal name.</p></li>
+<li><p><strong>UDP Preference Limit</strong>: This parameter specifies the maximum value of UDP packets. Packets larger than the maximum value are transmitted using TCP. The default value is 1, and TCP is used by default. It should be adjusted according to the parameters in /etc/krb5.conf of KDC service.</p></li>
+<li><p><strong>krb5.keytab file</strong>: Upload the krb5.keytab file.</p></li>
+<li><p><strong>core-site.xml file</strong>: Upload the core-site.xml file of the cluster. To use Kerberos authentication, you must upload the file.</p></li>
+<li><p><strong>hdfs-site.xml file</strong>: Upload the hdfs-site.xml file of the cluster. To use Kerberos authentication, you must upload the file.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="activate-hadoop">
+<h3>Activate Hadoop<a class="headerlink" href="#activate-hadoop" title="Permalink to this heading">#</a></h3>
+<p>Activate the Hadoop cluster after it has been successfully added. Click <strong>Activate</strong>.</p>
+<p><img alt="hadoop_register04" src="../_images/hadoop_register04.png" /></p>
+<p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Activate XX Edition</strong>.</p>
+<p><img alt="hadoop_register05" src="../_images/hadoop_register05.png" /></p>
+<p>After the successful activation, authorize users to have permissions of the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="hadoop_register06" src="../_images/hadoop_register06.png" /></p>
+</section>
+<section id="modify-hadoop-cluster">
+<h3>Modify Hadoop Cluster<a class="headerlink" href="#modify-hadoop-cluster" title="Permalink to this heading">#</a></h3>
+<p>If the parameters of an added cluster, such as the Host, RPC API port, and Authentication Method, are changed, modify the cluster settings by clicking the <strong>Set up</strong> icon on the Resourbefore the Hadoop cluster continues to be used properly.</p>
+<p><img alt="hadoop_register07" src="../_images/hadoop_register07.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource on the list and its state is “Online”. If the resource is not available, see <em>Activate License and Assign Authorization</em> and <em>Add, Activate, and Modify Hadoop Cluster</em> for details.</p>
+<p><img alt="hadoop_resources01" src="../_images/hadoop_resources01.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and verify there is any storage pool available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="hadoop_storaged01" src="../_images/hadoop_storaged01.png" /></p>
+</section>
+</section>
+<section id="create-backup-jobs">
+<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to back up Hadoop. All Hadoop that have been added, registered, and authorized successfully are available for the backup operation.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You have installed the agent. For installation, please see <em>Install and Configure Agent</em>.</p></li>
+<li><p>The license has been activated and the resource has been authorized to users. For details, see <em>Activate License and Assign Authorization</em> and <em>Add, Activate, and Modify Hadoop Cluster</em>.</p></li>
+<li><p>Log in to ADPS console as the <em>operator</em>.</p></li>
+</ul>
+</section>
+<section id="create-full-backup-jobs">
+<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>(1) Click <strong>Backup</strong>. Select the Hadoop host and instance.</p>
+<p>(2) Select <strong>Full</strong> as the backup type. Select folders or files that you want to back up.</p>
+<p><img alt="hadoop_backup01" src="../_images/hadoop_backup01.png" /></p>
+<p>(3) Select <strong>Agent</strong>. Choose Hadoop_Proxy.</p>
+<p>(4) Select <strong>Backup Target</strong>. You can choose the standard storage pool, de-duplication storage pool, tape library pool, object storage service pool and LAN-Free pool.</p>
+<blockquote>
+<div><p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p>It is not supported to store full backups and incremental backups in different storage pools.</p></li>
+</ul>
+</div></blockquote>
+<p>(5) Go to <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
+<p>(6) Set <strong>Backup Options</strong>, including common options and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="hadoop_backup02" src="../_images/hadoop_backup02.png" /></p>
+<p><strong>Compression</strong>: <strong>Fast</strong> is enabled by default.</p>
+<ul class="simple">
+<li><p>None: No compression during the backup.</p></li>
+<li><p>Tunable: You can customize the compression level. This option requires activation of Advanced Compression feature.</p></li>
+<li><p>Fast: Use the fast compression algorithms during the backup.</p></li>
+</ul>
+<p><strong>Channels</strong>: Used to improve backup efficiency. The default value of Channels is 1, and the range is 1 to 255. For details, see <em>Channel Number Configuration</em>.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="hadoop_backup03" src="../_images/hadoop_backup03.png" /></p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p>(6) Set <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
+</section>
+<section id="create-incremental-backup-jobs">
+<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>An incremental backup only backs up data that has changed since the last backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week.</p>
+<ul>
+<li><p>Creating an incremental backup job is the same as creating a full backup job. Select <strong>Incremental</strong> as the backup type. Choose the full backup job as the base.</p>
+<p><img alt="hadoop_icr01" src="../_images/hadoop_icr01.png" /></p>
+</li>
+</ul>
+</section>
+<section id="create-synthetic-backup-jobs">
+<h3>Create Synthetic Backup Jobs<a class="headerlink" href="#create-synthetic-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Synthetic backup is the practice that ADPS synthesizes the existing full backup set as the base with subsequent incremental backup sets to generate a new synthetic backup set.</p>
+<p>Due to the use of the synthetic backup method, the storage device does not need to keep multiple copies of full backup data, correspondingly reducing pressure on storage space management and the storage cost caused by data growth.</p>
+<p>To restore the incremental backup set, ordinary backups need to refer to several different points in time, and then restore the data to be restored, which will inevitably lead to performance and time consumption. In contrast, synthetic backup only needs to refer to one backup point in time, improving the restore efficiency accordingly.</p>
+<p>Creating a synthetic backup job is similar to creating a full backup job.</p>
+<p>(1) Select <strong>Synthetic Backup</strong> as the backup type and choose file folders or files.</p>
+<p><img alt="hadoop_merge01" src="../_images/hadoop_merge01.png" /></p>
+<p>(2) Select <strong>Backup Target</strong>. You can only select the file synthetic pool as the backup target. If the file synthetic pool is not listed, please contact the admin to create one.</p>
+<p><img alt="hadoop_merge02" src="../_images/hadoop_merge02.png" /></p>
+</section>
+</section>
+<section id="create-restore-jobs">
+<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to restore Hadoop. According to the actual needs of users, ADPS provides a variety of restore types including timepoint restore, instant recovery, and recovery testing.</p>
+<section id="create-timepoint-restore-jobs">
+<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
+<p>When folders or files on HDFS are lost, timepoint restore can be used to restore files to the specified point-in-time state. It supports the restore to the source or different host, and the restore to the original or custom path.</p>
+<p>(1) Select the Hadoop host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Timepoint Restore</strong> and the Hadoop backup point in time required to restore. All incremental backup points in time are displayed under the full backup job as the base. Click <strong>Next</strong>.</p>
+<p><img alt="hadoop_restore01" src="../_images/hadoop_restore01.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>For the backups stored in the local storage, all backup points in time will be listed in the Restore Source box, but the backup source will not be displayed in the File box. You can select the backup point in time to restore the corresponding backup set.</p></li>
+</ul>
+</div></blockquote>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring to the source host, different host, Hadoop resource, and object storage resource. Click <strong>Next</strong>.</p>
+<p><img alt="hadoop_restore02" src="../_images/hadoop_restore02.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Some HDFS attributes cannot be restored to the OBS and POSIX file systems.</p></li>
+</ul>
+</div></blockquote>
+<p>(4) Select <strong>Agent</strong>. Select Hadoop_Proxy.</p>
+<p>(5) Set <strong>Restore Schedule</strong>. It only supports immediate and one-time restore schedules.</p>
+<p>(6) Set <strong>Restore Options</strong> including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="hadoop_restore03" src="../_images/hadoop_restore03.png" /></p>
+<p><strong>Channels</strong>: This option can improve backup efficiency. The default value is 1, and the range is 1 to 255. For details, please see <em>Channel Number Configuration</em>.</p>
+<p><strong>Incremental restore</strong>: Only incremental data at the selected point in time is restored. This option appears only if you select an incremental backup point in time.</p>
+<p><strong>Restore location</strong>: You can set the the original path or custom path as the restore location. Enter the custom path manually or click <strong>Browse</strong> to select the target folder in the pop-up box.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="hadoop_restore04" src="../_images/hadoop_restore04.png" /></p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p><strong>Illegal path processing</strong>: Choose how to deal with illegal paths. Four solutions are available: do not check and convert path legitimacy, skip paths with illegal characters, erase illegal characters, and escape illegal characters.</p>
+<p>(7) Set <strong>Job Name</strong>. Confirm the job information and submit the job.</p>
+</section>
+<section id="create-instant-recovery-jobs">
+<h3>Create Instant Recovery Jobs<a class="headerlink" href="#create-instant-recovery-jobs" title="Permalink to this heading">#</a></h3>
+<p>Hadoop Instant Recovery allows you to instantly recover Hadoop backup set in the storage server by mounting. It recovers data quickly, uses less resources, saves disk space, and increases the availability of backup sets.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Hadoop Instant Recovery requires the adps-nfsd package to be installed on the server where Storaged is located.</p></li>
+<li><p>Hadoop Instant Recovery currently only supports recovering backup sets from standard storage pools without multi-storage and data storage encryption enabled, and from file synthetic pools on Ubuntu.</p></li>
+</ul>
+</div></blockquote>
+<p>The interface provides the following two portals to create instant recovery jobs for cloning copies: <strong>Restore</strong> and <strong>CDM</strong>.</p>
+<section id="create-from-restore-page">
+<h4>Create from Restore Page<a class="headerlink" href="#create-from-restore-page" title="Permalink to this heading">#</a></h4>
+<p>(1) Enter the <strong>Restore</strong> page. Select the Hadoop host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Instant Recovery</strong> as the restore type, and select the Hadoop backup point in time. Click <strong>Next</strong>.</p>
+<p><img alt="hadoop_restore05" src="../_images/hadoop_restore05.png" /></p>
+<p>(3) On <strong>Export</strong> page, set the export directory and access control list of backup sets. Click <strong>Next</strong>.</p>
+<p><img alt="hadoop_restore06" src="../_images/hadoop_restore06.png" /></p>
+<p><strong>Export</strong>: Set the mount point to export.</p>
+<p><strong>Access control list</strong>: Refer to the list of clients that can mount access to the backup sets. It supports the specified IP or network. <strong>“*”</strong> indicates that any client can access the backup set.</p>
+<p><strong>Bridge</strong>: You can add a bridge to export the backup sets. Exporting over the network bridge can avoid conflicts with the system’s nfs services.</p>
+<p><strong>Path conversion type</strong>: UTF8 path encoding is used by default for Hadoop instant recovery.</p>
+<p>(4) Confirm whether the job information is correct, and submit the job after confirming that it is correct.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul>
+<li><p>Enter the fourth bit of the Bridge IP Address in the Advanced Options manually. This IP address must be a valid IP address that is not in use on that network.</p></li>
+<li><p>To set up the bridge, install bridge-utils and add the following to the configuration file in /etc/network/interfaces:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">br0</span>
+<span class="n">iface</span> <span class="n">br0</span> <span class="n">inet</span> <span class="n">static</span>
+<span class="n">address</span> <span class="mf">192.168.88.10</span>
+<span class="n">netmask</span> <span class="mf">255.255.255.0</span>
+<span class="n">gateway</span> <span class="mf">192.168.88.1</span>
+<span class="n">bridge_ports</span> <span class="n">eth0</span>
+<span class="n">bridge_stp</span> <span class="n">off</span>
+<span class="n">bridge_fd</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-from-cdm-page">
+<h4>Create from CDM Page<a class="headerlink" href="#create-from-cdm-page" title="Permalink to this heading">#</a></h4>
+<p>On the <strong>CDM</strong> page, you can view data copies generated after the synthetic backup job finished. You can use the <strong>Create Copy</strong> icon to create an instant recovery job.</p>
+<p>(1) Open <strong>CDM</strong> and filter out the relevant Hadoop data copies. Select a backup point in time that requires to restore, and click the <strong>Create Copy</strong> icon.</p>
+<p><img alt="hadoop_cdm01" src="../_images/hadoop_cdm01.png" /></p>
+<p>(2) Other operations such as <strong>Export</strong> and <strong>Finish</strong> are the same as those in the previous section.</p>
+</section>
+<section id="check-successful-recovery">
+<h4>Check Successful Recovery<a class="headerlink" href="#check-successful-recovery" title="Permalink to this heading">#</a></h4>
+<p>After the instant recovery is completed, go to the <strong>CDM</strong> page. You can find a mounted copy record under the corresponding data copy. If you need to mount the copy manually, click <strong>Help</strong> icon for reference.</p>
+<p><img alt="hadoop_cdm02" src="../_images/hadoop_cdm02.png" /></p>
+<ul class="simple">
+<li><p>Help: Click the <strong>Help</strong> icon to view the help page where you can follow the steps to mount or unmount manually.</p></li>
+<li><p>Edit: Click the <strong>Edit</strong> icon to modify the export directory and access control list.</p></li>
+<li><p>Delete: Click the <strong>Delete</strong> icon to delete the mounted copy.</p></li>
+</ul>
+</section>
+<section id="detach-copy">
+<h4>Detach Copy<a class="headerlink" href="#detach-copy" title="Permalink to this heading">#</a></h4>
+<p>You can detach the mounted data copies from the agent using the <strong>Detach</strong> icon.</p>
+<ol class="arabic simple">
+<li><p>Select a detached copy and click the <strong>Detach</strong> icon beside the copy record.</p></li>
+</ol>
+<p><img alt="hadoop_cdm03" src="../_images/hadoop_cdm03.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Before unmounting the copy, make sure the agent has been uninstalled, if not, you need to uninstall the agent first, then unmount the copy; otherwise, the agent will be undergoing a frozen state when accessing the mount directory.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Pay attention to the warning, enter the verification code, and click <strong>OK</strong>.</p></li>
+</ol>
+<p><img alt="hadoop_cdm04" src="../_images/hadoop_cdm04.png" /></p>
+</section>
+</section>
+<section id="create-recovery-testing-jobs">
+<h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
+<p>You can restore the latest backup sets of Hadoop to other instances on the source host or a different host hourly, daily, weekly, or monthly. It is used to verify that the backup set is available.</p>
+<p>(1) Select Hadoop host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Recovery Testing</strong> as the restore type, select the backup set point in time that you want to restore.</p>
+<p><img alt="hadoop_restore07" src="../_images/hadoop_restore07.png" /></p>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring to the source host or different host.</p>
+<p>(4) Select <strong>Agent</strong>. Select Hadoop_Proxy.</p>
+<p>(5) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p>
+<p>(6) Set <strong>Restore Options</strong>, including channels, restore location, reconnection time, speed limit, precondition, pre action and post action. Click <strong>Next</strong>.</p>
+<p><img alt="hadoop_restore08" src="../_images/hadoop_restore08.png" /></p>
+<p><strong>Channels</strong>: Set the value of Channels to restore. The maximum value cannot exceed the number of channels for the backup job.</p>
+<p><strong>Restore location</strong>: Set the original path or custom path as the restore location. The original path is not supported when you choose to restore to the source host.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p><strong>Processing illegal path</strong>: Choose how to deal with illegal paths. Four solutions are available: do not check and convert path legitimacy, skip paths with illegal characters, erase illegal characters, and escape illegal characters.</p>
+<p>(7) Confirm the job information. Click <strong>Submit</strong>.</p>
+<p>(8) Wait for the job cycle to be executed. The job will restore the latest backup sets of the source host.</p>
+</section>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>The <strong>Job</strong> page provides the job information of all agents. You can start, modify, clone, and delete the jobs.</p>
+<p><img alt="hadoop_job01" src="../_images/hadoop_job01.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="hadoop_job02" src="../_images/hadoop_job02.png" />to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="hadoop_job03" src="../_images/hadoop_job03.png" />to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
+<li><p>Delete: Click <img alt="hadoop_job04" src="../_images/hadoop_job04.png" />to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the current job creation.</p>
+<p><img alt="hadoop_time01" src="../_images/hadoop_time01.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="hadoop_time02" src="../_images/hadoop_time02.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>The actual execution time is:</strong></p>
+<ul class="simple">
+<li><p>If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday 17:00, the run time will be next Friday 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup-strategy-advice">
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<p>ADPS offers three backup types for Hadoop: full backup, incremental backup and synthetic backup. Full backup and incremental backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate:</p>
+<ol class="arabic simple">
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup window and ensure that you have at least one recoverable RPO every day.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Perform only full backups.</p></li>
+<li><p>Perform a full backup followed by all incremental backups.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="channel-number-configuration">
+<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Channel number for backup jobs</p>
+<p>Hadoop supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
+</li>
+<li><p>Channel number for restore jobs</p>
+<p>It is recommended that the channel number is not greater than that for the backup job.</p>
+</li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Interactive restore of files to Hadoop</p></td>
+<td><p>ADPS does not support restoring the Windows file backup sets to HDFS or the HDFS backup sets to Windows.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recovery testing</p></td>
+<td><p>ADPS supports recovery testing of Hadoop HDFS backup sets to Linux.  <br> ADPS does not support recovery testing of Hadoop HDFS backup sets to Windows. <br> ADPS does not support recovery testing of Hadoop HDFS backup sets to object storage.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fast compression</p></td>
+<td><p>Compress data during the backup using fast compression algorithm</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../mongodb/mongodb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guide for MongoDB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../obs/obs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for Object Storage</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-compatibility-list">Hadoop Compatibility List</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorize-user">Authorize User</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-activate-and-modify-hadoop-cluster">Add, Activate, and Modify Hadoop Cluster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-hadoop-cluster">Add Hadoop Cluster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-hadoop">Activate Hadoop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-hadoop-cluster">Modify Hadoop Cluster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-backup-jobs">Create Synthetic Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-instant-recovery-jobs">Create Instant Recovery Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-restore-page">Create from Restore Page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-cdm-page">Create from CDM Page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-recovery">Check Successful Recovery</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detach-copy">Detach Copy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2023 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

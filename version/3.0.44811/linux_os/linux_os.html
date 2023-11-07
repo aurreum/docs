@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User Guide for Linux OS &#8212; ADPS V3.0-2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'linux_os/linux_os';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for VMware" href="../vmware/vmware.html" />
+    <link rel="prev" title="User Guide for Exchange" href="../exchange/exchange.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sybase/sybase.html">User Guide for Sybase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Exchange</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>User Guide for Linux OS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux-os">Install and Configure Agent on Linux OS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-login">First Time Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recover-linux-os">Recover Linux OS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-linux-files">Restore Linux Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="user-guide-for-linux-os">
+<h1>User Guide for Linux OS<a class="headerlink" href="#user-guide-for-linux-os" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Linux operating system. This guide introduces how to properly use ADPS to back up and restore Linux OS.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id1">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup source</p></td>
+<td class="text-left"><p>Linux OS partition</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup type</p></td>
+<td class="text-left"><p>Full backup, incremental backup</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup target</p></td>
+<td class="text-left"><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup schedule</p></td>
+<td class="text-left"><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup compression</p></td>
+<td class="text-left"><p>None, fast</p></td>
+</tr>
+<tr class="row-odd"><td><p>Handling sparse files</p></td>
+<td class="text-left"><p>Handling sparse files is supported</p></td>
+</tr>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td class="text-left"><p>The job continues after the abnormal reset occurs in the network within the set time. The set time is 10 minutes by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Speed limit</p></td>
+<td class="text-left"><p>Limit data transfer speed or disk read and write speed</p></td>
+</tr>
+<tr class="row-even"><td><p>Pre/Post action</p></td>
+<td class="text-left"><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore type</p></td>
+<td class="text-left"><p>File-level restore, ISO image recovery</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore location</p></td>
+<td class="text-left"><p>Original host, different host</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore granularity</p></td>
+<td class="text-left"><p>Entire Linux OS, volume</p></td>
+</tr>
+<tr class="row-even"><td><p>D2T</p></td>
+<td class="text-left"><p>Back up data directly to object storage</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2C</p></td>
+<td class="text-left"><p>Back up data directly to tape library</p></td>
+</tr>
+<tr class="row-even"><td><p>LAN-Free</p></td>
+<td class="text-left"><p>Back up to and restore from LAN-Free storage pools</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage pool replication</p></td>
+<td class="text-left"><p>Replicate backup sets from the source storage pool to another pool</p></td>
+</tr>
+<tr class="row-even"><td><p>IPv6</p></td>
+<td class="text-left"><p>Transfer and manage data over IPv6 network</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access Key login</p></td>
+<td class="text-left"><p>Access Key login is supported</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of various Linux distributions, such as Debian, RedHat, and their derivatives. Before deploying the agent, check whether the OS is supported.</p>
+</section>
+<section id="download-agent-package">
+<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
+<p><img alt="linux-os_01" src="../_images/linux-os_01.png" /></p>
+</section>
+<section id="install-and-configure-agent-on-linux-os">
+<h3>Install and Configure Agent on Linux OS<a class="headerlink" href="#install-and-configure-agent-on-linux-os" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select <strong>Linux</strong> as the system and <strong>OS</strong> as the module. Copy an installation command.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_02.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Paste the command on the command line, and press Enter to execute the installation.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># curl -o- &quot;http://192.168.20.133:50305/d2/update/script?modules=bmr&amp;location=http%3A%2F%2F192.168.20.133%3A50305&amp;access_key=3545f35aea7e512e12ab517230a46270&amp;rm=&amp;tool=curl&quot; | sh</span>
+</pre></div>
+</div>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the successful installation, log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/linux-os_04.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-assign-authorization">
+<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See <em>Batch Activate</em> from <em>Administrator’s Guide</em> for more details.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and select the host that you need to activate. Click <strong>Register</strong> icon.</p>
+<p><img alt="" src="../_images/linux-os_05.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Active</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/linux-os_06.png" /></p>
+</section>
+<section id="assign-authorization">
+<h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
+<p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="" src="../_images/linux-os_07.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource on the list and its state is “Online”. Please refer to <em>Activate License and Assign Authorization</em> if the resource is not available.</p>
+<p><img alt="" src="../_images/linux-os_08.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and verify there is any storage pool available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="" src="../_images/linux-os_09.png" /></p>
+</section>
+</section>
+<section id="first-time-login">
+<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Before creating the first Linux OS backup and restore, you need to <strong>Login</strong> to OS first.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_10.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Linux supports the login by two authentication methods: <strong>OS Authentication</strong> and <strong>Access Key</strong>.</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>OS Authentication</strong>: Use the OS user account to log in.</p></li>
+<li><p><strong>Access Key</strong>: Log in with Access Key tied to the user who has been authorized to operate the resource. Data security risks exist when backup and restore jobs are carried out without the database password.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Select the <strong>Authentication</strong> method. Enter <strong>User</strong> and <strong>Password</strong>. Click <strong>Login</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_11.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong>:</p>
+<p>To use the Access Key authentication, the admin must enable Access Key Login Instance in Settings-&gt;Settings-&gt;Security.</p>
+</div></blockquote>
+</section>
+<section id="create-backup-jobs">
+<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to back up the Linux OS.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You have installed the agent. For installation, please refer to <em>Install and Configure Agent</em>.</p></li>
+<li><p>You have activated the agent and assigned the authorization. For details about the activation and authorization, see <em>Activate License and Assign Authorization</em>.</p></li>
+<li><p>Log in to ADPS as the <em>operator</em>.</p></li>
+</ul>
+</section>
+<section id="create-full-backup-jobs">
+<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>(1) Click <strong>Backup</strong>. Select the OS that you want to back up.</p>
+<p>(2) Select <strong>Full Backup</strong> as the <strong>Backup Type</strong>. Select the devices.</p>
+<p><img alt="" src="../_images/linux-os_12.png" /></p>
+<p>(3) Select <strong>Backup Target</strong>. You can choose the standard storage pool, local storage pool, de-duplication storage pool, tape library pool, and object storage service pool.</p>
+<p>(4) Go to <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
+<p>(5) Set <strong>Backup Options</strong>, including common options and advanced options.</p>
+<p><strong>Common options</strong>:</p>
+<p><img alt="" src="../_images/linux-os_13.png" /></p>
+<p><strong>Compression</strong>: <strong>Fast</strong> is enabled by default.</p>
+<ul class="simple">
+<li><p>None: No compression during the backup.</p></li>
+<li><p>Fast: Use the fast compression algorithm during the backup.</p></li>
+</ul>
+<p><strong>Handling sparse files</strong>: The option is enabled by default. Sparse files will be handled during the backup job.</p>
+<p><strong>Advanced options</strong>:</p>
+<p><img alt="" src="../_images/linux-os_14.png" /></p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p>(6) Set <strong>Job Name</strong>, and check whether the job information is correct. Click <strong>Submit</strong>.</p>
+<p><img alt="" src="../_images/linux-os_15.png" /></p>
+</section>
+<section id="create-incremental-backup-jobs">
+<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Creating an incremental backup is the same as creating a full backup. Select <strong>Incremental Backup</strong> as the backup type and a full backup job as the base.</p>
+<p><img alt="" src="../_images/linux-os_34.png" /></p>
+</section>
+</section>
+<section id="recover-linux-os">
+<h2>Recover Linux OS<a class="headerlink" href="#recover-linux-os" title="Permalink to this heading">#</a></h2>
+<p>To recover Linux OS, you need to boot a temporary system using the recovery media. Then, connect the temporary system to the backup server to obtain a backup set for recovery.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Make sure that the hard disk space on the restore target server is greater than or equal to that of the source system.</p></li>
+<li><p>If the source system has multiple hard disks, the restore target requires the same number of hard disks.</p></li>
+<li><p>With LVM configuration, you can recover Linux OS to a smaller volume group, but make sure that there is enough space to store the data.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Use burning software to burn adps_bootable_recovery-version.x86_64.iso to a media such as CD or DVD.</p></li>
+<li><p>Put the recovery media into the optical drive of your PC that executes the recovery job. To enter the Recovery UI to recover Linux OS, set the temporary system to boot from the recovery media, select the default item, and press Enter.</p></li>
+<li><p>After the temporary system starts, you can see the Recovery UI. On the page, you can select the language for the interface. The first Network Card starts by default, and the IP address is obtained automatically. If the IP cannot be obtained automatically, select <strong>Manual</strong> as the method, and fill in the <strong>Address</strong>, <strong>Netmask</strong>, and <strong>Default gateway</strong> options. Click <strong>Modify</strong> and the configurations take effect. Click <strong>Next</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_17.png" /></p>
+<ol class="arabic" start="4">
+<li><p>Select the recovery source. You can select the backup set from the backup server or the local device.</p>
+<p><img alt="" src="../_images/linux-os_18.png" /></p>
+</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Two types of backup server authentication are available: <strong>Backup server - Username and password authentication</strong> and <strong>Backup server - API Key authentication</strong>. After you log in successfully using one of the methods, the page will list all Linux backup sets that you have permission to restore.</p>
+<ul>
+<li><p>Backup server - Username and password authentication: This authentication type requires 2-Step verification via email. Enter the backup server address, username and password with the restore permission. Click <strong>OK</strong> to access the pop-up window, and fill in the verification code.</p></li>
+<li><p>Backup server - API Key authentication:  Enter the backup server address, username and API Key. Click <strong>OK</strong>.</p></li>
+</ul>
+</li>
+<li><p>When you select <strong>Device</strong>, all disc devices connected to the server will be automatically listed. Click the partition where the backup sets are stored, and select the relevant backup point in time.</p></li>
+</ul>
+</div></blockquote>
+<p><img alt="" src="../_images/linux-os_19.png" /></p>
+<ol class="arabic simple" start="5">
+<li><p>After you select the recovery source, click <strong>Next</strong>. Click <strong>Submit</strong> after confirming the job information is correct. You will see a progress bar of the recovery job on the page.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_20.png" /></p>
+<ol class="arabic simple" start="6">
+<li><p>After completing the recovery job, click <strong>Reboot</strong> in the bottom-left corner to restart your PC and eject the optical disc. You can assess the recovered OS after the PC reboots.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>To access the Recovery UI via the browser, enter the following IP address: http://IP/d2/agent/</p></li>
+<li><p>Press ALT + q on the Recovery UI to enter the command line of the temporary system, where you can view the recovery logs and the IP address. You can also use ssh to remote access the IP address. The default username and password is root/root.</p></li>
+<li><p>Use command LC_ALL=en.US.UTF8 /opt/aurreum/adps/bin/recovery_ui -qws to back to the Recovery UI from the command line.</p></li>
+<li><p>If two hosts are running at the same time after the recovery job, modify one of the host’s host_uuid to avoid conflicts caused by the same agent environment.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="restore-linux-files">
+<h2>Restore Linux Files<a class="headerlink" href="#restore-linux-files" title="Permalink to this heading">#</a></h2>
+<p>ADPS supports restoring Linux files or directories from backup sets.</p>
+<ol class="arabic simple">
+<li><p>Click <strong>Restore</strong>, select the Linux host and the OS resource.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_21.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Select a backup point in time that you need to restore. When a point in time is selected, the files backed up at that point in time are listed in the File panel below. Select the files or directories that you want to restore, and click <strong>Next</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_22.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Select the restore target. You can select the original host or a different host as the restore target. Click <strong>Next</strong>.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_23.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>Set the restore schedule. <strong>Immediate</strong> is selected by default.</p></li>
+<li><p>Set the restore options. Under the <strong>Common</strong> tab, you can set <strong>Restore Partition Information</strong> and <strong>Restore Location</strong>. If you check the Restore Partition Information option, the partition and files in the partition will be restored to the original path by default; if the option is unchecked, you can select a different path as the restore location.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_24.png" /></p>
+<p>Under the <strong>Advanced</strong> tab, you can set the reconnection time, resumption buffer size, speed limit and other options according to your need.</p>
+<p><img alt="" src="../_images/linux-os_25.png" /></p>
+<ol class="arabic simple" start="6">
+<li><p>Set <strong>Job Name</strong> and click <strong>Submit</strong> after confirming the job information is correct.</p></li>
+</ol>
+<p><img alt="" src="../_images/linux-os_26.png" /></p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Note:
+
+  - If the admin enables Job Approval function, the job will be executed after the admin approves the job.
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>On the <strong>Job</strong> interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
+<p><img alt="" src="../_images/linux-os_27.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="" src="../_images/linux-os_28.png" />to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="" src="../_images/linux-os_29.png" />to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="" src="../_images/linux-os_30.png" />to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="" src="../_images/linux-os_31.png" />to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
+<p><img alt="" src="../_images/linux-os_32.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
+</ul>
+<blockquote>
+<div><p>Example: Perform the job every two weeks on Friday at 18:00</p>
+</div></blockquote>
+<p><img alt="" src="../_images/linux-os_33.png" /></p>
+<blockquote>
+<div><p>The actual execution time is:</p>
+<ul class="simple">
+<li><p>If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday 17:00, the run time will be next Friday 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="backup-strategy-advice">
+<h2>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h2>
+<p>There are two types to back up Linux OS: full backup and incremental backup.</p>
+<ol class="arabic simple">
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
+</ol>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>The backup of the SUSE Linux Enterprise btrfs filesystem is not supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>File-level restore</p></td>
+<td><p>The restore of the LVM partition is not supported when you enable the Restore Partition Information option.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../exchange/exchange.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guide for Exchange</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../vmware/vmware.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for VMware</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux-os">Install and Configure Agent on Linux OS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-login">First Time Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recover-linux-os">Recover Linux OS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-linux-files">Restore Linux Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2023 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

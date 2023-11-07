@@ -1,0 +1,1517 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User Guide for File &#8212; ADPS V3.0-2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'file/file';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for MongoDB" href="../mongodb/mongodb.html" />
+    <link rel="prev" title="User Guide for MariaDB" href="../mariadb/mariadb.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sybase/sybase.html">User Guide for Sybase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for File</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Exchange</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>User Guide for File</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-list">Compatibility List</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">Install and Configure Agent on Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-installation-package">Download Installation Package</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-instance-for-the-first-time">Log in to Instance for the First Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-cumulative-incremental-backup-jobs">Create Cumulative Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-backup-jobs">Create Synthetic Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-instant-recovery-jobs">Create Instant Recovery Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-restore-menu">Create from Restore Menu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-cdm-menu">Create from CDM Menu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-recovery">Check Successful Recovery</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detach-copy">Detach Copy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="user-guide-for-file">
+<h1>User Guide for File<a class="headerlink" href="#user-guide-for-file" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of files. This guide introduces how to correctly use ADPS to back up and restore files.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id1">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup type</p></td>
+<td><p>Full backup: Back up directories or files on the operating system.  <br> Incremental backup: Back up data that has changed since the last backup point in time.  <br> Cumulative incremental backup: Back up all data changed after the most recent incremental backup.  <br> Synthetic backup: Full backup for the first time, followed by incremental backups.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Filter</p></td>
+<td><p>Exclusion: Do not back up selected files or directories.  <br> Inclusion: Back up selected files or directories.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup source</p></td>
+<td><p>One or more directory files</p></td>
+</tr>
+<tr class="row-odd"><td><p>Channels</p></td>
+<td><p>A positive integer between 1 and 255</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup target</p></td>
+<td><p>Standard storage pool, de-duplication storage pool, local storage pool, file synthetic pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Clone backup job</p></td>
+<td><p>Backup jobs can be cloned. The cloning will change an incremental backup job to a full backup job and relevant backup sets will be selected.</p></td>
+</tr>
+<tr class="row-even"><td><p>Stop jobs</p></td>
+<td><p>Stop a backup or restore job</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup compression</p></td>
+<td><p>None, fast, tunable</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup schedule</p></td>
+<td><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
+</tr>
+<tr class="row-odd"><td><p>VSS</p></td>
+<td><p>Support Windows</p></td>
+</tr>
+<tr class="row-even"><td><p>Sparse files</p></td>
+<td><p>Support Linux, Windows</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hard link</p></td>
+<td><p>Support Linux, UNIX</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore type</p></td>
+<td><p>Timepoint restore: Restore files to a specific timepoint.  <br> Instant recovery: Mount the backup sets of files in the storage server to achieve instant recovery.  <br> Recovery testing: Periodically restore the latest backup sets of files to the target or source host.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore location</p></td>
+<td><p>Support the restore to original path or custom path.  <br> Types to convert the custom path: strip directory and path transform.  <br> Methods to handle files with the same name: overwrite, skip, retain most recent, rename and save.</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore granularity</p></td>
+<td><p>Single, multiple</p></td>
+</tr>
+<tr class="row-odd"><td><p>Browse method</p></td>
+<td><p>Browse by timepoint or directory</p></td>
+</tr>
+<tr class="row-even"><td><p>Restore to different hosts</p></td>
+<td><p>Different hosts can be selected as restore targets, which support Linux and Windows.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reconnection time</p></td>
+<td><p>The job continues after the abnormal reset occurs in the network within the set time. The set time is 10 minutes by default.</p></td>
+</tr>
+<tr class="row-even"><td><p>Storage pool replication</p></td>
+<td><p>File backup sets support storage pool replication</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore from target Pool</p></td>
+<td><p>Restore from the target storage pool</p></td>
+</tr>
+<tr class="row-even"><td><p>Pre/Post action</p></td>
+<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Limit speed within different periods</p></td>
+<td><p>Limit data transfer speed or disk read and write speed within different periods.</p></td>
+</tr>
+<tr class="row-even"><td><p>D2C</p></td>
+<td><p>Back up data directly to object storage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2T</p></td>
+<td><p>Back up data directly to tape library.</p></td>
+</tr>
+<tr class="row-even"><td><p>LAN-Free</p></td>
+<td><p>Back up to and restore from LAN-Free storage pools.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modify backup target of a job</p></td>
+<td><p>Do not support modifying the backup target of a job.</p></td>
+</tr>
+<tr class="row-even"><td><p>IPv6</p></td>
+<td><p>Support the data transfer and management via IPv6.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access Key login</p></td>
+<td><p>Support using the operator’s Access Key to log in to files’ resources.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup retry count</p></td>
+<td><p>The number of times to retry a backup job. The backup retry count is 0 time by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup retry interval</p></td>
+<td><p>The interval to retry a backup job. The backup retry interval is 30 minutes by default.</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>ADPS supports synthetic backup on all platforms.  Character encoding conversion is available for the mount recovery job.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="install-and-configure-agent">
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<section id="verify-compatibility">
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of files. You should check whether the operating system (OS) is supported before deploying the agent.</p>
+<section id="compatibility-list">
+<h4>Compatibility List<a class="headerlink" href="#compatibility-list" title="Permalink to this heading">#</a></h4>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Compatibility List</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>OS</p></th>
+<th class="head"><p>CPU Architecture</p></th>
+<th class="head"><p>OS Bits</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Windows 2003 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2000 SP4</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows XP SP3</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2003 R2</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 2003 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 7</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 10</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2008</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 2008</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 2003 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2003 Sp2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 2012</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2008 SP2</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 2008 Sp2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2008 R2</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows 2012 R2</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows 2016</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 9</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Red Hat 4</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 4</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Red Hat 5</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Red Hat 6</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Red Hat 6.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 7</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Red Hat 7</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu 12.04</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Ubuntu 12.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu 14.04</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Ubuntu 14.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu 16.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Ubuntu 18.04</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>AIX 5.1</p></td>
+<td><p>POWER</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>AIX 5.3</p></td>
+<td><p>POWER</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>AIX 6.1</p></td>
+<td><p>POWER</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>AIX 7.1</p></td>
+<td><p>POWER</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>SLES 9</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>SLES 9</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>SLES 10</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>SLES 10</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>SLES 11</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>SLES 11</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>SLES 11</p></td>
+<td><p>s390/s390x</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>SLES 12</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Solaris 9</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Solaris 9</p></td>
+<td><p>SPARC</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Solaris 10</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Solaris 10</p></td>
+<td><p>SPARC</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Solaris 11</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Solaris 11</p></td>
+<td><p>SPARC</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>HP-UX B.11.11</p></td>
+<td><p>PA-RISC</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>HP-UX B.11.23</p></td>
+<td><p>PA-RISC</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>HP-UX B.11.31</p></td>
+<td><p>IA64</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Ubuntu 16.04</p></td>
+<td><p>ARM</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian 6.0</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian 6.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian 7.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian 7.6</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian 7.8</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian 8.0</p></td>
+<td><p>x86</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian 8.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian 8.3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian 9.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>OpenSUSE 10.3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>OpenSUSE 11.4</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CentOS 3.9</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CentOS 4.5</p></td>
+<td><p>i686</p></td>
+<td><p>32</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CentOS 4.6</p></td>
+<td><p>IA64</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CentOS 5.1</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CentOS 6.0</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CentOS 6.8</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CentOS 7.3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CentOS 7.5</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>SUSE 11 SP4</p></td>
+<td><p>POWER Linux</p></td>
+<td><p>64</p></td>
+<td><p>(Big Endian)</p></td>
+</tr>
+<tr class="row-even"><td><p>Red Hat 6.5</p></td>
+<td><p>POWER Linux</p></td>
+<td><p>64</p></td>
+<td><p>(Big Endian)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Server 7 SP3</p></td>
+<td><p>x86</p></td>
+<td><p>64</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="download-agent-package">
+<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h3>
+<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
+<p><img alt="file_agent01" src="../_images/file_agent01.png" /></p>
+</section>
+<section id="install-and-configure-agent-on-windows">
+<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
+<section id="download-installation-package">
+<h4>Download Installation Package<a class="headerlink" href="#download-installation-package" title="Permalink to this heading">#</a></h4>
+<p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong>.</p>
+<p><img alt="file_agent02" src="../_images/file_agent02.png" /></p>
+</section>
+<section id="install-agent-on-windows">
+<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Upload the installation package to the target host.</p></li>
+<li><p>Double-click the package to install it according to the wizard and click <strong>Next</strong>.</p></li>
+<li><p>This installation package is a collection of components. It checks the file resources, files, or applications installed on the host by default. Check the <strong>File</strong> and click <strong>Next</strong>.</p>
+<p><img alt="file_agent03" src="../_images/file_agent03.png" /></p>
+</li>
+<li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
+<p><img alt="file_agent04" src="../_images/file_agent04.png" /></p>
+</li>
+<li><p>Select <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
+</ol>
+</section>
+</section>
+<section id="install-and-configure-agent-on-linux">
+<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select <strong>Linux</strong> and <strong>File</strong>. Copy an installation command.</p></li>
+</ol>
+<p><img alt="file_agent05" src="../_images/file_agent05.png" /></p>
+<ol class="arabic" start="2">
+<li><p>Paste the command on the command line and press Enter to execute the installation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ubuntu1804</span><span class="p">:</span><span class="o">~</span><span class="c1"># curl -o- &quot;http://192.168.17.80:50305/d2/update/script?modules=file&amp;location=http%3A%2F%2F192.168.17.80%3A50305&amp;access_key=17dcab134000ef21d3784f3e8808a3dd&amp;rm=&amp;tool=curl&quot; | sh</span>
+<span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                              <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">100</span>  <span class="mi">7904</span>    <span class="mi">0</span>  <span class="mi">7904</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">2572</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2572</span><span class="n">k</span>
+<span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                              <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mf">47.5</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">47.5</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">99.3</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">99.3</span><span class="n">M</span>
+<span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                              <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">5575</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">5575</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">63.3</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">63.3</span><span class="n">M</span>
+<span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                              <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span>  <span class="mi">665</span><span class="n">k</span>  <span class="mi">100</span>  <span class="mi">665</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">16.2</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">16.2</span><span class="n">M</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="check-successful-installation">
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<p>After the successful installation, you can log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
+<p><img alt="file_license01" src="../_images/file_license01.png" /></p>
+</section>
+</section>
+<section id="activate-license-and-assign-authorization">
+<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
+<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to <em>Batch Activate</em> from <em>Administrator’s Guide</em> for more details.</p>
+<section id="register-host">
+<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and find the host that you need to activate. Click the <strong>Register</strong> icon.</p>
+<p><img alt="file_license02" src="../_images/file_license02.png" /></p>
+</section>
+<section id="activate-license">
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
+<p><img alt="file_license03" src="../_images/file_license03.png" /></p>
+</section>
+<section id="assign-authorization">
+<h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
+<p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
+<p><img alt="file_license04" src="../_images/file_license04.png" /></p>
+</section>
+</section>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<section id="check-resource">
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator, go to <strong>Resource</strong>, and check whether the activated and authorized resources are in the “Online” state. If the resource is not available, please refer to <em>Activate License and Assign Authorization</em>.</p>
+<p><img alt="file_login01" src="../_images/file_login01.png" /></p>
+</section>
+<section id="check-storage-pool">
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and check whether there is any storage pool. If a storage pool is not listed, please contact the admin to create one and assign permissions to the operator.</p>
+<p><img alt="file_storaged01" src="../_images/file_storaged01.png" /></p>
+</section>
+</section>
+<section id="log-in-to-instance-for-the-first-time">
+<h2>Log in to Instance for the First Time<a class="headerlink" href="#log-in-to-instance-for-the-first-time" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Before using File resources to create backup and restore jobs, you need to <strong>Login</strong> file first.</p></li>
+</ol>
+<p><img alt="file_login02" src="../_images/file_login02.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>File supports the login by two authentication methods: <strong>OS Authentication</strong>, and <strong>Access Key</strong>.</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>OS Authentication</strong>: Use the admin account to log in.</p></li>
+<li><p><strong>Access Key</strong>: Log in with the Access Key of the user who has the permission of the resource. You can run a job without a password, which has potential data security risks.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Select the <strong>Authentication</strong> method. Enter <strong>User</strong> and <strong>Password</strong>. Click <strong>Login</strong>.</p></li>
+</ol>
+<p><img alt="file_login03" src="../_images/file_login03.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p>To use the Access Key authentication, the admin must enable Access Key Login Instance in Settings-&gt;Settings-&gt;Security.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-backup-jobs">
+<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to use ADPS to back up files.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You have installed the agent. For installation, see <em>Install and Configure Agent</em>.</p></li>
+<li><p>You have activated the license and assigned the authorization. For details about the activation and authorization, see <em>Activate License and Assign Authorization</em>.</p></li>
+<li><p>Log in to ADPS as the <em>operator</em>.</p></li>
+</ul>
+</section>
+<section id="create-full-backup-jobs">
+<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>All files can execute backup jobs.</p>
+<p>(1) Click <strong>Backup</strong>. Select file host and instance.</p>
+<p>(2) Select <strong>Full</strong> as the backup type and choose file folders or files.</p>
+<p><img alt="file_backup01" src="../_images/file_backup01.png" /></p>
+<p>(3) Select <strong>Backup Target</strong>. You can choose standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, or LAN-Free pool.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>It’s not supported to store full backups, incremental backups, and cumulative incremental backups in different storage pools.</p></li>
+</ul>
+</div></blockquote>
+<p>(4) Go to <strong>Backup Schedule</strong> and set the run time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
+<p>(5) Set <strong>Backup Options</strong> including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="file_backup02" src="../_images/file_backup02.png" /></p>
+<p><strong>Compression</strong>: Fast is enabled by default.</p>
+<ul class="simple">
+<li><p>None: No compression during the backup.</p></li>
+<li><p>Tunable: You can customize the Compression Level, which requires the activation of the advanced features.</p></li>
+<li><p>Fast: Use the fast compression algorithm during the backup.</p></li>
+</ul>
+<p><strong>Channels</strong>: Used to improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, refer to <em>Channel Number Configuration</em>.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="file_backup03" src="../_images/file_backup03.png" /></p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p><strong>Snapshot</strong>: Enabled by default for consistent backups via snapshots when there are backup files in a locked state. Only available for Windows.</p>
+<p><strong>Pre/Post snapshot action</strong>: The pre snapshot action is called before resources are backed up or restored after the job starts. The post snapshot action is called after the resource has been backed up or restored. Ignore snapshot and action error by default. Only available for Windows.</p>
+<p><strong>Backup NTFS ADS and ACLs</strong>: Use the BackupRead API to back up NTFS Alternate Data Stream and Security Information. The option is enabled by default to prevents failures to CreateFile when backing up CIFS without ADS and ACL. Only available for Windows.</p>
+<p><strong>Backup retry count</strong>: The number of times to retry the backup if the backup fails due to network error or other reasons. The range is 0~10 times, the default is 0.</p>
+<p><strong>Backup retry interval</strong>: The time interval to retry the backup if the backup fails due to network error or other reasons. The range is 0~120 minutes, the default is 30 minutes.</p>
+<p><strong>Detect sparse files</strong>: Auto-detection by default, which detects sparse files with very small valid data. Only available for Linux.</p>
+<p><strong>Cross mount points</strong>: Only available for Linux.</p>
+<ul>
+<li><p>The option is enabled by default, which backs up all files in the selected directories.</p></li>
+<li><p>When it’s disabled, if you select multiple directories that belong to different file systems, only back up files in the file system where the parent directory of these directories is located.</p>
+<blockquote>
+<div><p>For example:</p>
+<ul class="simple">
+<li><p>With the option disabled, you select three directories: A, B, and C.</p></li>
+<li><p>Directory A and Directory B belong to the xfs file system, Directory C belongs to the tmpfs file system, and their parent directory belongs to the xfs file system.</p></li>
+<li><p>Since the parent directory, Directory A and Directory B are in the same file system, only files from Directory A and Directory B will be backed up.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Reparse Point Types</strong>: You need to select dedup when Windows enables the data deduplication feature.</p>
+<p>(6) Set <strong>Job Name</strong> and check whether the job information is correct. Click <strong>Submit</strong>.</p>
+</section>
+<section id="create-incremental-backup-jobs">
+<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>It is generally recommended to create file full backups regularly (such as weekly) or create file incremental backups at short intervals (such as daily). You can use the cumulative incremental backup to back up data that has changed since the last full backup so that you have at least one recoverable point in time every day.</p>
+<ul>
+<li><p>The steps are the same as steps to create a full backup. Select <strong>Incremental</strong> as the backup type, choose the full backup job for incremental backup, and perform the incremental backup according to the folders or files selected by full backup job.</p>
+<p><img alt="file_icr01" src="../_images/file_icr01.png" /></p>
+</li>
+</ul>
+</section>
+<section id="create-cumulative-incremental-backup-jobs">
+<h3>Create Cumulative Incremental Backup Jobs<a class="headerlink" href="#create-cumulative-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>It is generally recommended to create full file backups regularly (such as weekly) or create cumulative incremental backups at short intervals (such as daily). You can use the cumulative incremental backup to back up data that has changed after the most recent incremental backup so that you have at least one recoverable point in time every day.</p>
+<ul>
+<li><p>The steps are the same as steps to create a full backup. Select <strong>Cumulative Incremental Backup</strong> as the backup type and perform the cumulative incremental backup based on the folders or files selected by the full backup job.</p>
+<p><img alt="file_icr02" src="../_images/file_icr02.png" /></p>
+</li>
+</ul>
+</section>
+<section id="create-synthetic-backup-jobs">
+<h3>Create Synthetic Backup Jobs<a class="headerlink" href="#create-synthetic-backup-jobs" title="Permalink to this heading">#</a></h3>
+<p>Synthetic backup is the process of synthesizing the existing full backup sets as the base with subsequent incremental backups over a storage device. The synthetic result will produce new synthetic backup sets.</p>
+<p>Due to the use of synthetic backup, there is no need for the storage device to save multiple copies of full backup data, which correspondingly reduces the pressure of management and storage space caused by data growth, and the storage cost. In addition, when restoring incremental backup sets, ordinary backups need to refer to several different point in time backups, and then restore the backup sets to the data, which will inevitably lead to performance loss and time consumption. However, synthetic backups only need to refer to the backup at one point in time, so the restore efficiency is improved accordingly when performing restore jobs.</p>
+<p>(1) Creating a synthetic backup job is similar to creating a full backup job. Select <strong>Synthetic Backup</strong> as the backup type and choose file folders or files.</p>
+<p><img alt="file_merge01" src="../_images/file_merge01.png" /></p>
+<p>(2) Select <strong>Backup Target</strong>. The backup target can only be the file synthetic pool. If the file synthetic pool is not listed, please contact the admin to create one.</p>
+<p><img alt="file_merge02" src="../_images/file_merge02.png" /></p>
+</section>
+</section>
+<section id="create-restore-jobs">
+<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
+<p>This chapter introduces how to restore files. According to the actual needs of users, ADPS provides a variety of restore types including timepoint restore, instant recovery, and recovery testing.</p>
+<section id="create-timepoint-restore-jobs">
+<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
+<p>When folders or files are lost from the system, timepoint restore can be used to restore files to the specified point-in-time state. It supports the restore to local and different host, and the restore to the original location or to the custom path.</p>
+<p>(1) Select the File host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Timepoint Restore</strong> and the specified point in time of file backup sets. The timepoints of both the incremental and cumulative incremental backup sets are displayed under the full backup as the base. For the listed file directory tree, you can use the search box to further search the specific file resources that need to be restored. The search function supports wildcards (*[]?) search, and fuzzy search. Click <strong>Next</strong>.</p>
+<p><img alt="file_restore01" src="../_images/file_restore01.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>The search box supports searching matching files, but not directories. You can use multiple filters on Search.</p></li>
+<li><p>The Restore page does not list all the backup sets that are backed up to local storage in detail. You can restore the corresponding backup sets by selecting the time point of a job .</p></li>
+</ul>
+</div></blockquote>
+<p>(3) Set <strong>Restore Target</strong>. It supports the restore to the source host or different host, and the restore to Hadoop resource and object storage resource. Click <strong>Next</strong>.</p>
+<p><img alt="file_restore02" src="../_images/file_restore02.png" /></p>
+<p>(4) Set <strong>Restore Schedule</strong>. It only supports immediate and one-time restore schedules.<br>
+(5) Set <strong>Restore Options</strong> including common and advanced options.</p>
+<ul class="simple">
+<li><p><strong>Common options</strong>:</p></li>
+</ul>
+<p><img alt="file_restore03" src="../_images/file_restore03.png" /></p>
+<p><strong>Channels</strong>: This option can improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, please refer to <em>Channel Number Configuration</em>.</p>
+<p><strong>Restore location</strong>: You can set the restore location as the original path or custom path. The custom path can be entered manually or you can click <strong>Browse</strong> to select the target folder directly in the pop-up window.</p>
+<p><strong>How to handle files with the same name</strong>: Available options include “Overwrite”, “Skip”, “Retain most recent”, “Rename and save”.</p>
+<p><strong>Path conversion type</strong>: This option is only available when you set the restore location to the custom path. You can choose from strip directory and path transform.</p>
+<ul class="simple">
+<li><p><strong>Advanced options</strong>:</p></li>
+</ul>
+<p><img alt="file_restore04" src="../_images/file_restore04.png" /></p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p>(6) Confirm the restore content and submit the job. Click <strong>Submit</strong>.</p>
+</section>
+<section id="create-instant-recovery-jobs">
+<h3>Create Instant Recovery Jobs<a class="headerlink" href="#create-instant-recovery-jobs" title="Permalink to this heading">#</a></h3>
+<p>File Instant Recovery can instantly recover file backup sets from the storage server by mounting. File Instant Recovery has the advantages of fast recovery speed, low resource consumption, disk space saving and increased availability of backup sets.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>The file instant recovery requires the adps-nfsd package to be installed on the server where Storaged is located.</p></li>
+<li><p>File Instant Recovery currently only supports recovering backup sets from standard storage pools without multi-storage and data storage encryption enabled, and from file synthetic pools on Ubuntu.</p></li>
+</ul>
+</div></blockquote>
+<p>The interface provides the following two portals to create instant recovery jobs for cloning copies: <strong>Restore</strong> and <strong>CDM</strong>.</p>
+<section id="create-from-restore-menu">
+<h4>Create from Restore Menu<a class="headerlink" href="#create-from-restore-menu" title="Permalink to this heading">#</a></h4>
+<p>(1) Enter the <strong>Restore</strong> main menu. Select the File host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Instant Recovery</strong> as the restore type, and select the point in time of the file backup sets. Click <strong>Next</strong>.</p>
+<p><img alt="file_restore05" src="../_images/file_restore05.png" /></p>
+<p>(3) On <strong>Export</strong> page, set the export directory and access control list of backup sets. Click <strong>Next</strong>.</p>
+<p><img alt="file_restore06" src="../_images/file_restore06.png" /></p>
+<p><strong>Export</strong>: Set the mount point to export.</p>
+<p><strong>Access control list</strong>: The list of agents that can mount access to the backup sets. It supports the specified IP or network. <strong>“*”</strong> indicates that any agent can access.</p>
+<p><strong>Bridge</strong>: You can add bridge to export the backup sets and avoid conflict in nfsd usages.</p>
+<p><strong>Path conversion type</strong>: UTF8 path encoding is used by default for file instant recovery.</p>
+<p>(4) Confirm whether the job information is correct, and submit the job after confirming that it is correct.</p>
+<blockquote>
+<div><p>Note:</p>
+<ul>
+<li><p>You need to enter the fourth bit of the Bridged IP Address in the Advanced Options manually, and this IP address must be a valid IP address that is not in use on that network.</p></li>
+<li><p>To set up the bridge, you need to install bridge-utils and add the following to the configuration file in /etc/network/interfaces:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>auto<span class="w"> </span>br0
+iface<span class="w"> </span>br0<span class="w"> </span>inet<span class="w"> </span>static
+address<span class="w"> </span><span class="m">192</span>.168.88.10
+netmask<span class="w"> </span><span class="m">255</span>.255.255.0
+gateway<span class="w"> </span><span class="m">192</span>.168.88.1
+bridge_ports<span class="w"> </span>eth0
+bridge_stp<span class="w"> </span>off
+bridge_fd<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-from-cdm-menu">
+<h4>Create from CDM Menu<a class="headerlink" href="#create-from-cdm-menu" title="Permalink to this heading">#</a></h4>
+<p>The CDM interface is used to manage all the data copies on storage servers. You can view the corresponding data copies on a storage server and create instant recovery jobs to clone copies, which allows you use the same data in multiple business situations.</p>
+<p>(1) Enter <strong>CDM</strong> menu and filter out the relevant instances by file resource. To run an instant recovery job, select the corresponding host and instance, choose a point in time of a backup set, and click <strong>Create Copy</strong> icon.</p>
+<p><img alt="file_cdm01" src="../_images/file_cdm01.png" /></p>
+<p>(2) The other operations such as <strong>Export</strong>, and <strong>Finish</strong> are the same as the operations in the previous chapter.</p>
+</section>
+<section id="check-successful-recovery">
+<h4>Check Successful Recovery<a class="headerlink" href="#check-successful-recovery" title="Permalink to this heading">#</a></h4>
+<p>After the instant recovery is completed, enter the <strong>CDM</strong> menu. You can find a recovery record under the backup point in time of the corresponding host and instance. If you need to mount the copy manually, click <strong>Help</strong> icon for reference.</p>
+<p><img alt="file_cdm02" src="../_images/file_cdm02.png" /></p>
+<ul class="simple">
+<li><p>Help: Click the <strong>Help</strong> icon to view the help page where you can follow the steps to mount or unmount manually.</p></li>
+<li><p>Edit: Click the <strong>Edit</strong> icon to modify the export directory and access control list.</p></li>
+<li><p>Delete: Click the <strong>Delete</strong> icon to delete the mounted copy.</p></li>
+</ul>
+</section>
+<section id="detach-copy">
+<h4>Detach Copy<a class="headerlink" href="#detach-copy" title="Permalink to this heading">#</a></h4>
+<p>You can detach the mounted directory from the agent by clicking the <strong>Detach</strong> icon.</p>
+<ul>
+<li><p>Click the <strong>Detach</strong> icon beside the data copy record.</p>
+<p><img alt="file_cdm03" src="../_images/file_cdm03.png" /></p>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Before unmounting the copy, make sure the agent has been uninstalled, if not, you need to uninstall the agent first, then unmount the copy, otherwise the agent will be undergoing a state of Freeze when accessing the mount directory.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Pay attention to the warning and enter the verification code. Please operate with caution.</p>
+<p><img alt="file_cdm04" src="../_images/file_cdm04.png" /></p>
+</li>
+</ul>
+</section>
+</section>
+<section id="create-recovery-testing-jobs">
+<h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
+<p>With the hourly, daily, weekly, or monthly schedule, recovery testing can restore the latest file backup set to the target host or source host, used to verify that the backup set is available.</p>
+<p>(1) Select File host and instance. Click <strong>Next</strong>.</p>
+<p>(2) Select <strong>Recovery Testing</strong> as the restore type, select the point in time of the backup sets that you want to restore. Click <strong>Next</strong>.</p>
+<p><img alt="file_restore07" src="../_images/file_restore07.png" /></p>
+<p>(3) Set <strong>Restore Target</strong>. It supports restoring files to the source host or different host.</p>
+<p>(4) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedule types. Click <strong>Next</strong>.</p>
+<p>(5) Set <strong>Restore Options</strong>, including channels, restore location, how to handle files with the same name, dry-run, path conversion type, reconnection time, speed limit, precondition, pre action and post action. Click <strong>Next</strong>.</p>
+<p><img alt="file_restore08" src="../_images/file_restore08.png" /></p>
+<p><strong>Channels</strong>: Enter the value of Channels to restore. The maximum value cannot exceed the number of channels in the backup sets.</p>
+<p><strong>Restore location</strong>: Original path or custom path</p>
+<p><strong>How to handle files with the same name</strong>: Overwrite, skip, retain most recent, rename and save.</p>
+<p><strong>Dry-run</strong>: Enable dry-run to simulate execution results without specific testing operations. Dry-run log path can be the original path or custom path.</p>
+<p><strong>Path conversion type</strong>: Strip directory and path transform.</p>
+<p><strong>Reconnection time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
+<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
+<p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.</p>
+<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
+<p>(6) Confirm the recovery content and submit the job. Click <strong>Submit</strong>.</p>
+<p>(7) Wait for the job cycle to be executed, and the latest backup set of the source host will be restored when the restore job is executed.</p>
+</section>
+</section>
+<section id="manage-jobs">
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<p>On the <strong>Job</strong> page, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
+<p><img alt="file_job01" src="../_images/file_job01.png" /></p>
+<ul class="simple">
+<li><p>Start: Click <img alt="" src="../_images/file_job02.png" /> to start the job immediately.</p></li>
+<li><p>Modify: Click <img alt="" src="../_images/file_job03.png" /> to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
+<li><p>Clone: Click <img alt="" src="../_images/file_job04.png" /> to create multiple similar backup jobs.</p></li>
+<li><p>Delete: Click <img alt="" src="../_images/file_job05.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
+</ul>
+</section>
+<section id="backup-protection-strategy">
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<section id="backup-schedule-operation">
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
+<p><img alt="" src="../_images/file_time01.png" /></p>
+<ul class="simple">
+<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
+<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
+<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
+<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
+<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
+<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
+</ul>
+<blockquote>
+<div><p>Example: Run the job every two weeks on Friday at 18:00</p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="" src="../_images/file_time03.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p>Actual running hours are as follows:</p>
+<ul class="simple">
+<li><p>If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).</p></li>
+<li><p>If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).</p></li>
+<li><p>If the current time is Saturday 17:00, the run time will be next Friday 18:00.</p></li>
+<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup-strategy-advice">
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<p>There are four backup methods for File: full backup, incremental backup, cumulative incremental backup, and synthetic backup. Full backup, incremental backup, and cumulative incremental backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate:</p>
+<ol class="arabic simple">
+<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
+<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
+<li><p>You can run <strong>Cumulative Incremental Backup</strong> on demand.</p></li>
+</ol>
+<blockquote>
+<div><p>Note:</p>
+<ul class="simple">
+<li><p>Avoid using the strategies of all full backups or a full backup followed by cumulative incremental backups.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="channel-number-configuration">
+<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Channel number for backup jobs:</p>
+<p>File supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be consistent with that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
+</li>
+<li><p>Channel number for restore jobs:</p>
+<p>The number of channels used cannot exceed the number of channels configured for the backup job.</p>
+</li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Synthetic Backup</p></td>
+<td><p>The synthetic backup job of a single file under AIX system cannot be greater than 32Tb.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore</p></td>
+<td><p>Instant recovery only supports recovering backup sets in unencrypted standard storage pools with single-level storage and file synthesis pools.</p></td>
+</tr>
+<tr class="row-even"><td><p>Instant recovery</p></td>
+<td><p>Only available for Linux storage server.  <br> Support the non-encrypted standard storage pools with single-level storage.  <br> Support File synthetic pool.  <br> Do not support to run the mount recovery job to restore device files and character files.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore backup sets across OS platform</p></td>
+<td><p>Support restoring file backup sets from Linux to Windows.  <br> Support restoring file backup sets from Windows to Linux.  <br> The maximum file name for Windows NTFS file systems is 255 character.  <br> The maximum file name for Linux ext4 file systems is 255 character.</p></td>
+</tr>
+<tr class="row-even"><td><p>Recovery testing</p></td>
+<td><p>Do not support restoring backup sets of Linux file to the object storage.  <br> Do not support restoring backup sets of Windows file to Hadoop.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fast Compression</p></td>
+<td><p>Compress data during backup using fast compression algorithms.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../mariadb/mariadb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guide for MariaDB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../mongodb/mongodb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for MongoDB</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-list">Compatibility List</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">Install and Configure Agent on Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-installation-package">Download Installation Package</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-instance-for-the-first-time">Log in to Instance for the First Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-cumulative-incremental-backup-jobs">Create Cumulative Incremental Backup Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-backup-jobs">Create Synthetic Backup Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-instant-recovery-jobs">Create Instant Recovery Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-restore-menu">Create from Restore Menu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-cdm-menu">Create from CDM Menu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-recovery">Check Successful Recovery</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detach-copy">Detach Copy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2023 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

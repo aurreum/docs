@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Agent Installation Guide &#8212; ADPS V3.0-2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'agent_install/agent_install';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for Oracle" href="../oracle/oracle.html" />
+    <link rel="prev" title="User Guides" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sybase/sybase.html">User Guide for Sybase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Exchange</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Agent Installation Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-environments">Supported Environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-operating-systems">Supported Operating Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-resources">Supported Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-installation-packages">Prepare Installation Packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-aix">Linux &amp; AIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solaris">Solaris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hp">HP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent">Install Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-windows">Install on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-linux">Install on Linux</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-install">Local Install</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#centos-red-hat">CentOS &amp; Red Hat</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-debian">Ubuntu &amp; Debian</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#online-install">Online Install</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-configuration">Optional Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#reconfigure-agent">Reconfigure Agent</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-vmware">Configure VMware</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-hadoop">Configure Hadoop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-aix">Install on AIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-hp-ux">Install on HP-UX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-solaris">Install on Solaris</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstall-agent">Uninstall Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ubuntu &amp; Debian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">CentOS &amp; Red Hat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hp-ux">HP-UX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solaris</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="agent-installation-guide">
+<h1>Agent Installation Guide<a class="headerlink" href="#agent-installation-guide" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>This guide describes how to properly install Aurreum Data Protection Suite (ADPS) agents so that the ADPS backup server can perform unified operation and management of resources.</p>
+</section>
+<section id="supported-environments">
+<h2>Supported Environments<a class="headerlink" href="#supported-environments" title="Permalink to this heading">#</a></h2>
+<p>Before installation, check whether your operating systems and resources are supported by ADPS. Unsupported environments could result in problems such as installation failure, abnormal server startup, and unrecognized resources.</p>
+<section id="supported-operating-systems">
+<h3>Supported Operating Systems<a class="headerlink" href="#supported-operating-systems" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Windows OS</p>
+<ul>
+<li><p>Windows 2000/2003/2008/2012/2016/2019</p></li>
+<li><p>Windows XP SP3/7/8/10</p></li>
+</ul>
+</li>
+<li><p>Linux OS</p>
+<ul>
+<li><p>Red Hat Enterprise Linux 3.9/4/5/6/7/8</p></li>
+<li><p>Oracle Enterprise Linux 4/5/6/7/8</p></li>
+<li><p>CentOS 3.9/4/5/6/7/8</p></li>
+<li><p>SUSE Linux Enterprise Server 9/10/11/12</p></li>
+<li><p>openSUSE 10.3/11.4</p></li>
+<li><p>Ubuntu 12.04/14.04/16.04/18.04</p></li>
+<li><p>Debian 6.0/7.0/8.0/9.0</p></li>
+</ul>
+</li>
+<li><p>Unix OS</p>
+<ul>
+<li><p>AIX 5.1/5.3/6.1/7.1</p></li>
+<li><p>HP-UX 11.11/11.23/11.31</p></li>
+<li><p>Solaris 9/10/11</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="supported-resources">
+<h3>Supported Resources<a class="headerlink" href="#supported-resources" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Database</p>
+<ul>
+<li><p>Oracle 8i/9i/10g/11g/12c/18c/19c/21c</p></li>
+<li><p>SQL Server 2000/2005/2008/2012/2014/2016/2017/2019</p></li>
+<li><p>MySQL 4/5/6/8</p></li>
+<li><p>MariaDB 5.5/10.0/10.1/10.2/10.3/10.4/10.5</p></li>
+<li><p>Percona Server for MySQL 5.5/5.6/5.7</p></li>
+<li><p>DB2 8.1/9.1/9.5/9.7/10.1/10.5/11.1</p></li>
+<li><p>Sybase 12.5/15.5/15.7/16.0/16.5</p></li>
+<li><p>PostgreSQL 8.1/8.4/9.2/9.3/9.4/9.5/9.6/10/11/11.7/12.1/12.2/12.3/13/13.4/13.5/14/14.1</p></li>
+<li><p>Informix 11.5/11.7/12.1</p></li>
+<li><p>MongoDB 2.4/2.6/3.0/3.2/3.4/3.6/4.0/4.2/4.4/5.0</p></li>
+<li><p>Caché 2010/2016/2017/2018</p></li>
+<li><p>SAP HANA 1.00.112/1.00.122/2.00.030/2.00.045/20.00.056/2.00.060/2.0.062</p></li>
+</ul>
+</li>
+<li><p>Application</p>
+<ul>
+<li><p>Exchange 2000/2003/2007/2010/2013/2016/2019</p></li>
+<li><p>SharePoint 2007/2010/2013/2019</p></li>
+<li><p>Domino 6.0/6.5/8.0/8.5/9.0</p></li>
+</ul>
+</li>
+<li><p>Distributed file</p>
+<ul>
+<li><p>Hadoop (HDFS) 2.2/2.6.5/2.7.6/2.8.3/2.9/3.0.2/3.1.0</p></li>
+<li><p>CDH (HDFS) 6.0/6.1/6.2/6.3</p></li>
+</ul>
+</li>
+<li><p>NDMP V3 V4 protocol</p></li>
+<li><p>Virtualization platform</p>
+<ul>
+<li><p>VMware vSphere 4.1/5.0/5.1/5.5/6.0/6.5/6.7/7.0</p></li>
+</ul>
+</li>
+<li><p>Object storage</p>
+<ul>
+<li><p>AWS S3 https://aws.amazon.com/cn/s3/</p></li>
+<li><p>Microsoft Azure (Blob storage) https://www.azure.cn/home/features/storage/</p></li>
+<li><p>Google Cloud Storage https://cloud.google.com/storage/ss</p></li>
+<li><p>IBM Cloud Object Storage https://www.ibm.com/cloud/object-storage</p></li>
+<li><p>Backblaze B2 https://www.backblaze.com/b2/cloud-storage.html</p></li>
+<li><p>Other S3 object storage services</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="prepare-installation-packages">
+<h2>Prepare Installation Packages<a class="headerlink" href="#prepare-installation-packages" title="Permalink to this heading">#</a></h2>
+<p>You can go to the Aurreum official website or contact Aurreum technical support to get ADPS software packages. The version of the ADPS agent must be the same as the version of the ADPS backup server software. Mixed-version installation and use will lead to installation failure and abnormal function. Different operating systems require different agent packages.</p>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id4">
+<caption><span class="caption-text">Windows Package</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Software Package</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>adps_version.dbg.exe</p></td>
+<td><p>This package contains the backup and restore modules for various resources on Windows including File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linux-aix">
+<h3>Linux &amp; AIX<a class="headerlink" href="#linux-aix" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id5">
+<caption><span class="caption-text">Linux &amp; AIX Packages</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Software Package</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>adps-common-version.dbg.architecture.suffix</p></td>
+<td><p>Dependent package. It should be installed on all hosts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-version.dbg.architecture.suffix</p></td>
+<td><p>Agent base package. It should be installed on all hosts.</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-file-version.dbg.architecture.suffix</p></td>
+<td><p>For File backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-bmr-version.dbg.architecture.suffix</p></td>
+<td><p>For Operating System backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-db2-version.dbg.architecture.suffix</p></td>
+<td><p>For DB2 database backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-domino-version.dbg.architecture.suffix</p></td>
+<td><p>For Domino application backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-informix-version.dbg.architecture.suffix</p></td>
+<td><p>For Informix database backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-mongodb-version.dbg.architecture.suffix</p></td>
+<td><p>For MongoDB database backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-mysql-version.dbg.architecture.suffix</p></td>
+<td><p>For MySQL database backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-oracle-version.dbg.architecture.suffix</p></td>
+<td><p>For Oracle database backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-sybase-version.dbg.architecture.suffix</p></td>
+<td><p>For Sybase database backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-mssql-version.dbg.architecture.suffix</p></td>
+<td><p>For SQL Server database backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-postgres-version.dbg.architecture.suffix</p></td>
+<td><p>For PostgreSQL database backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-obs-version.dbg.architecture.suffix</p></td>
+<td><p>For OBS backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-hadoop-version.dbg.architecture.suffix</p></td>
+<td><p>For Hadoop backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>adps-agent-ndmp-version.dbg.architecture.suffix</p></td>
+<td><p>For NDMP backup and restore</p></td>
+</tr>
+<tr class="row-even"><td><p>adps-agent-vmware-version.dbg.architecture.suffix</p></td>
+<td><p>For VMware backup and restore</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="solaris">
+<h3>Solaris<a class="headerlink" href="#solaris" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id6">
+<caption><span class="caption-text">Solaris Package</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Software Package</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>adps-version-sol9-sparc64-local.gz</p></td>
+<td><p>This package contains the backup and restore modules of various resources on Solaris such as File and Oracle. You can select the resources and install the corresponding modules according to your needs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hp">
+<h3>HP<a class="headerlink" href="#hp" title="Permalink to this heading">#</a></h3>
+<table class="table" id="id7">
+<caption><span class="caption-text">HP Package</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Software Package</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>adps-version-ia64.depot.gz</p></td>
+<td><p>This package contains the backup and restore modules of various resources on HP such as File and Oracle. You can select the resources and install the corresponding modules according to your needs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="install-agent">
+<h2>Install Agent<a class="headerlink" href="#install-agent" title="Permalink to this heading">#</a></h2>
+<section id="install-on-windows">
+<h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Copy the agent installation package to a drive partition with enough space.</p></li>
+<li><p>Double-click the package to open the setup wizard.</p></li>
+<li><p>Select the resource modules.</p>
+<p>You can select the resource types to install their backup and restore modules. The databases or applications installed on the host are selected by default. Resource types include File, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange.</p>
+<p><img alt="" src="../_images/install-7.png" /></p>
+</li>
+<li><p>Enter the IP of the backup server, SSL encryption (optional), and Access Key (applicable to multi-tenant scenarios).</p>
+<p><img alt="" src="../_images/install-8.png" /></p>
+</li>
+<li><p>Select a Destination Folder.</p></li>
+<li><p>Wait for the installation.</p></li>
+<li><p>After the installation, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/install-12.png" /></p>
+</li>
+</ol>
+</section>
+<section id="install-on-linux">
+<h3>Install on Linux<a class="headerlink" href="#install-on-linux" title="Permalink to this heading">#</a></h3>
+<section id="local-install">
+<h4>Local Install<a class="headerlink" href="#local-install" title="Permalink to this heading">#</a></h4>
+<p>Upload the installation package to the target host for manual installation and configuration. Run the package with root privileges in the directory where the package resides.</p>
+<section id="centos-red-hat">
+<h5>CentOS &amp; Red Hat<a class="headerlink" href="#centos-red-hat" title="Permalink to this heading">#</a></h5>
+<ol class="arabic">
+<li><p>Install dependent packages and agent service software packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install resource backup and restore packages. Add the corresponding packages in the following command according to your needs. Take the File resource as an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># /etc/init.d/adps-agent config
+Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
+Please input Aurreum Data Protection Suite Backup Server port[50305]:
+Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
+Please input Aurreum Data Protection Suite Backup Server access key[]:
+Saving adps-agent config                                   [OK]
+Do you want to restart adps-agent? [Y]:
+Stopping adps-agent                                        [OK]
+Starting adps-agent                                        [OK]
+</pre></div>
+</div>
+</li>
+<li><p>After the configuration, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/install-13.png" /></p>
+</li>
+</ol>
+</section>
+<section id="ubuntu-debian">
+<h5>Ubuntu &amp; Debian<a class="headerlink" href="#ubuntu-debian" title="Permalink to this heading">#</a></h5>
+<ol class="arabic">
+<li><p>Install dependent packages and agent service software packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install resource backup and restore software packages. Add the corresponding package behind the following command according to your needs. Take the File resource as an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># sudo /etc/init.d/adps-agent config
+Please input Aurreum Data Protection Suite Backup Server host[192.168.18.110]: 192.168.18.110
+Please input Aurreum Data Protection Suite Backup Server port[50305]: 50305
+Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
+Please input Aurreum Data Protection Suite Backup Server access key[]:
+Saving adps-agent config *
+
+Do you want to restart adps-agent? [Y]:
+[ ok ] Restarting adps-agent (via systemctl): adps-agent.service.
+</pre></div>
+</div>
+</li>
+<li><p>After the configuration, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/install-5.png" /></p>
+</li>
+</ol>
+</section>
+</section>
+<section id="online-install">
+<h4>Online Install<a class="headerlink" href="#online-install" title="Permalink to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Open a browser and log in to the backup server as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can select the installation packages according to your needs.</p>
+<p><img alt="" src="../_images/install-2.png" /></p>
+</li>
+<li><p>Select Linux and modules. Copy an installation command.</p>
+<p><img alt="" src="../_images/install-3.png" /></p>
+</li>
+<li><p>Paste the command on the command line and press Enter to execute the installation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@rhel69 ~]# cux1-o-&quot;http://192.168.18.20:50305/d2/update/seript?modules=oracle&amp;location=http83A82F82F192.168.18.20%3A5
+0305&amp;accesskey=22446ab0094d412£84fcc6bf3bd8fele&amp;xm=&amp;tool=curl&quot; | sh
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="optional-configuration">
+<h4>Optional Configuration<a class="headerlink" href="#optional-configuration" title="Permalink to this heading">#</a></h4>
+<section id="reconfigure-agent">
+<h5>Reconfigure Agent<a class="headerlink" href="#reconfigure-agent" title="Permalink to this heading">#</a></h5>
+<p>Reconfigure the ADPS Agent when the backup and restore modules of Oracle, Informix, Sybase, PostgreSQL, Domino, and Caché are already installed but the instances cannot be detected automatically.</p>
+<p>Run the following commands:</p>
+<ul>
+<li><p>Configure Oracle Home directory: /etc/init.d/adps-agent config oracle</p></li>
+<li><p>Configure Informix Home directory: /etc/init.d/adps-agent config informix</p></li>
+<li><p>Configure Sybase username: /etc/init.d/adps-agent config sybase</p></li>
+<li><p>Configure PostgreSQL HOME directory: /etc/init.d/adps-agent config postgres</p></li>
+<li><p>Configure Domino config home and Domino program home:</p>
+<p>#/etc/init.d/adps-agent config domino</p>
+<p>Please input Domino config home[]:/local/notesdata/</p>
+<p>Please input Domino program home[]:/opt/ibm/domino/notes/latest/linux</p>
+</li>
+<li><p>Configure Caché HOME directory:</p>
+<p>#/etc/init.d/adps-agent config cachedb</p>
+<p>Please input InterSystems Caché home[]:/opt/cache</p>
+</li>
+</ul>
+</section>
+<section id="configure-vmware">
+<h5>Configure VMware<a class="headerlink" href="#configure-vmware" title="Permalink to this heading">#</a></h5>
+<ol class="arabic">
+<li><p>To back up and restore VMware, configure VDDK on the backup host. Add VDDK as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">vddk</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">aurreum</span><span class="o">/</span><span class="n">adps</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+<li><p>The unzipped directory contains the VDDK version. During the backup and restore, the VDDK version is automatically selected according to the ESXi version. You can also specify the VDDK version.</p>
+<ul class="simple">
+<li><p>VDDK:</p>
+<ul>
+<li><p>6.0</p></li>
+<li><p>6.5</p></li>
+<li><p>6.7</p></li>
+<li><p>7.0</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="configure-hadoop">
+<h5>Configure Hadoop<a class="headerlink" href="#configure-hadoop" title="Permalink to this heading">#</a></h5>
+<ol class="arabic">
+<li><p>In the Linux environment, install the Hadoop runtime environment before installing the Hadoop backup agent.</p>
+<ul class="simple">
+<li><p>Unzip the Hadoop runtime environment offline package:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">tar</span> <span class="o">-</span><span class="n">axf</span> <span class="n">hadoop</span><span class="o">-</span><span class="mf">2.10.0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Install OpenJDK:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openjdk</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">jre</span><span class="o">-</span><span class="n">headless</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>Note: Fill in the JRE installation directory and version. The default directory is under /usr/lib/jvm/</p>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p>Install and configure the Hadoop backup agent.</p>
+<ul>
+<li><p>Input JRE home. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">amd64</span><span class="o">/</span><span class="n">jre</span>
+</pre></div>
+</div>
+</li>
+<li><p>Input Hadoop home. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">hadoop</span><span class="o">-</span><span class="mf">2.10.0</span>
+</pre></div>
+</div>
+</li>
+<li><p>To reconfigure the Hadoop runtime environment, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">hadoop</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="install-on-aix">
+<h3>Install on AIX<a class="headerlink" href="#install-on-aix" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Install dependent packages and agent service software packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="o">--</span><span class="n">nodeps</span> <span class="o">--</span><span class="n">ignorearch</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">--</span><span class="n">version_pcc64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">version_pcc64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_pcc64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install resource backup and restore packages. Add the corresponding package in the following command according to your needs. Take the File resource as an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="o">--</span><span class="n">nodeps</span> <span class="o">--</span><span class="n">ignorearch</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_pcc64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the installation, configure the agent. Enter the IP address, port, SSL protocol, and Access Key to connect to the backup server. The Access Key identifies the user who can register and activate the agent. You can log in to ADPS and see the account’s Access Key in <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If you leave it blank, the Access Key of the admin is used by default, which means that only the admin has the privilege to register and activate the agent. If you enter the Access Key of a specific user, then the user will also be allowed to register and activate the agent.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#/etc/init.d/adps-agent config
+Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
+Please input Aurreum Data Protection Suite Backup Server port[50305]:
+Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
+Please input Aurreum Data Protection Suite Backup Server access key[]:
+Saving adps-agent config
+Do you want to restart adps-agent? [Y]:
+Stopping adps-agent
+0513-044 The adps-agent Subsystem was requested to stop.
+Waiting for adps-agent to stop.
+Starting adps-agent
+0513-059 The adps-agent Subsystem has been started. Subsystem PID is 18284820.
+</pre></div>
+</div>
+</li>
+<li><p>After the configuration, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/install-14.png" /></p>
+</li>
+</ol>
+</section>
+<section id="install-on-hp-ux">
+<h3>Install on HP-UX<a class="headerlink" href="#install-on-hp-ux" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>To unzip adps–version-ia64.depot.gz, run the following command with root privileges:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gunzip</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">ia64</span><span class="o">.</span><span class="n">depot</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enter the absolute path of the unzipped package (e.g., /tmp/) and add the module name that you want to install. For example, to install the Oracle module, run the command with root privileges as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swinstall</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">ia64</span><span class="o">.</span><span class="n">depot</span>  <span class="n">adps</span><span class="o">.</span><span class="n">agent</span><span class="o">-</span><span class="n">oracle</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the installation (or to change the current backup server), run the configuration command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the configuration, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/install-15.png" /></p>
+</li>
+</ol>
+</section>
+<section id="install-on-solaris">
+<h3>Install on Solaris<a class="headerlink" href="#install-on-solaris" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Select the corresponding installation package according to the Solaris system, bits, and resource. Take the Solaris 9 SPARC 64-bit as an example. Run the unzip command with root privileges:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gunzip</span> <span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">sol9</span><span class="o">-</span><span class="n">sparc64</span><span class="o">-</span><span class="n">local</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the following installation command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pkgadd</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">sol9</span><span class="o">-</span><span class="n">sparc64</span><span class="o">-</span><span class="n">local</span>
+</pre></div>
+</div>
+</li>
+<li><p>Select the modules that you want to install, e.g., AURREUMadps-common, AURREUMadps-agent, AURREUMadps-agent-oracle</p></li>
+<li><p>Enter y or press Enter to the next step according to the prompts.</p></li>
+<li><p>After the installation is completed, run the following configuration command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span>
+</pre></div>
+</div>
+<p>Follow the prompts to enter the IP address and port of the backup server.</p>
+</li>
+<li><p>Take the Oracle resource as an example. Configure Oracle Home directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span> <span class="n">oracle</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the configuration, log in to the backup server as the admin. The host is on the <strong>Resource</strong> list.</p>
+<p><img alt="" src="../_images/install-16.png" /></p>
+</li>
+</ol>
+</section>
+</section>
+<section id="uninstall-agent">
+<h2>Uninstall Agent<a class="headerlink" href="#uninstall-agent" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Ubuntu &amp; Debian<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>This method applies to uninstall the agent on Linux with the APT package manager.</p>
+<ul>
+<li><p>Run the command with root privileges to uninstall a module. For example, to uninstall the adps-agent-file module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">purge</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the command with root privileges to uninstall all ADPS components.</p>
+<blockquote>
+<div><p>Note: This command will completely remove the software packages and the configuration files.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">purge</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h3>CentOS &amp; Red Hat<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>This method applies to uninstall the agent on Linux with the PRM package manager.</p>
+<ul>
+<li><p>Run the command with root privileges to uninstall a module. For example, to uninstall the adps-agent-file module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">e</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the command with root privileges to uninstall all ADPS components.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rpm -e `rpm -qa | grep adps`
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="hp-ux">
+<h3>HP-UX<a class="headerlink" href="#hp-ux" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>Run the command with root privileges to uninstall the modules. For example, to uninstall adps-agent and adps-common:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swremove</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the command with root privileges to uninstall all ADPS components.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swremove</span> <span class="n">adps</span><span class="o">*</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3>Solaris<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Run the command with root privileges to uninstall the modules. For example, uninstall AURREUMadps-agent and AURREUMadps-common.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pkgrm</span> <span class="n">AURREUMadps</span><span class="o">-</span><span class="n">agent</span> <span class="n">AURREUMadps</span><span class="o">-</span><span class="n">common</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../oracle/oracle.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for Oracle</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-environments">Supported Environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-operating-systems">Supported Operating Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-resources">Supported Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-installation-packages">Prepare Installation Packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-aix">Linux &amp; AIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solaris">Solaris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hp">HP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent">Install Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-windows">Install on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-linux">Install on Linux</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-install">Local Install</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#centos-red-hat">CentOS &amp; Red Hat</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-debian">Ubuntu &amp; Debian</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#online-install">Online Install</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-configuration">Optional Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#reconfigure-agent">Reconfigure Agent</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-vmware">Configure VMware</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-hadoop">Configure Hadoop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-aix">Install on AIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-hp-ux">Install on HP-UX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-on-solaris">Install on Solaris</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstall-agent">Uninstall Agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ubuntu &amp; Debian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">CentOS &amp; Red Hat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hp-ux">HP-UX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solaris</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2023 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
