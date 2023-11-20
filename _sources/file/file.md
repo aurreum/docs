@@ -1,654 +1,758 @@
 # User Guide for File
 
-## Introduction
+## Overview
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of files. This guide introduces how to correctly use ADPS to back up and restore files.
+This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore files.
 
-## Features
+The backup and restore features supported by ADPS include:
 
-```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
+- Backup sources
+
+	Single or multiple directories and files
+
+- Backup types
+
+	Full backup, incremental backup, cumulative incremental backup, and synthetic backup
+
+- Backup targets
+
+	Standard storage pool, deduplication storage pool, local storage pool, file synthetic pool, tape library pool, object storage service pool, and LAN-free pool
+
+- Backup schedules
+
+	Immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Data processing
+
+	Data compression, data encryption, multiple channels, reconnection, speed limit, and replication
+
+- Restore types
+
+	Point-in-time restore, instant recovery, and recovery testing
+
+- Restore targets
+
+	Original host, different host, different operating system (restore between Windows and Linux), and different architecture (restore files from an operating system to object storage or Hadoop)
+
+- Restore options
+
+	Incremental restore, restore location (original path or customized path), dry-run, and handle files with the same name
+
+
+## Planning and preparation
+
+Before you install the agent, check the following prerequisites:
+
+1. You have already installed and configured other backup components, including the backup server and the storage server.
+2. You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.
+
+```{note}
+The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).
 ```
-```{table} Features
+
+## Install and configure the agent
+
+To back up and restore files, first install the ADPS agent on the host where files reside.
+
+### Verify the compatibility
+
+Before you install the agent, ensure that the environment of the host where files reside is on the Aurreum Data Protection Suite's compatibility lists.
+
+ADPS supports the backup and restore of files on multiple systems, including:
+
+- Windows XP/7/8/10/2000/2003/2008/2012/2016/2019
+- Ubuntu 12.04/14.04/16.04/18.04/20.04
+- Red Hat 4/5/6/7/8/9
+- CentOS 3/4/5/6/7
+- AIX 5/6/7
+- SLES 9/10/11/12
+- Solaris 9/10/11
+- HP-UX B.11
+- Debian 6/7/8/9
+- openSUSE 10/11
+```{only} scutech
+- Kylin V4/V10
+- NeoKylin 4/6/7
+- UOS V20
+- Asianux Server 3/4/7
+- openEuler 20.03
+- Linx, Inspur, iSoft, NFS-CHINA
+```
+
+### Install the agent
+
+The ADPS agent can be installed on Windows, Linux, and other operating systems. You can select the installation method according to your environment.
+
+#### Windows
+
+To install the agent, do the following:
+
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
+
+	(1) From the **Select system** list, select **Windows**.
+
+	(2) From the **Select file** list, select the package that you want to install.
+
+	(3) Click **Download**.
+
+5. Upload the package to the Windows host.
+6. Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click **Next**.
+7. At the **Select components** step, select **File** from the component list. Click **Next**.
+8. At the **Configure Aurreum Data Protection Suite agent** step, enter the following:
+
+	```{only} scutech
+	![](../images/Common/windows_install.png)
+	```
+
+	(1) In the **Backup server address** field, enter the IP or domain name of the backup server.
+
+	(2) In the **Backup server port** field, enter the port number. The default value is 50305. If you enable the **Use SSL secure connection** option, enter 60305 in the **Backup server port** field.
+
+	(3) The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
+
+	(4) Click **Next**.
+
+	```{note}
+	To get the access key of the user/tenant:
+	1. Log in to the ADPS console.
+	2. On the upper right corner, click your avatar, and go to **Personal settings** > **Account settings**.
+	3. On the **Preference** tab, click **View** to get the access key of the current user/tenant.
+	```
+
+9. Confirm the **Destination folder** or specify another folder. Click **Next**.
+10. Wait for the installation to complete.
+
+#### Linux
+
+For Linux OS, ADPS agent supports online and offline installation. We recommend online installation.
+
+1. Online installation:
+	ADPS provides `curl` and `wget` commands for installation.
+2. Offline installation:
+	See [Offline installation](../agent_install/agent_install.md#offline-installation) in Aurreum Data Protection Suite Agent Installation Guide.
+
+To install the agent online, do the following:
+
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
+
+	(1) From the **Select system** list, select **Linux**.
+
+	(2) From the **Component** list, select **File**. The `curl` and `wget` commands appear in the window.
+
+	(3) If you want to delete the downloaded package automatically after the installation, select the **Delete installation package** checkbox.
+
+	(4) If you enable **Ignore SSL errors**, the installation will ignore certificate errors and so on. If you disable the option, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.
+
+5. Click the **Copy** icon to copy the `curl` or `wget` command.
+6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
+
+	```{code-block} python
+	root@ubuntu:~# curl -o- "http://192.168.17.31:50305/d2/update/script?modules=file&location=http%3A%2F%2F192.168.17.31%3A50305&access_key=572bd4dbb395fd320a30fe9729a21db8&rm=&tool=curl" | sh
+	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+	                                 Dload  Upload   Total   Spent    Left  Speed
+	100  9204    0  9204    0     0  2247k      0 --:--:-- --:--:-- --:--:-- 2996k
+	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+	                                 Dload  Upload   Total   Spent    Left  Speed
+	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	100 51.1M  100 51.1M    0     0   141M      0 --:--:-- --:--:-- --:--:--  141M
+	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+	                                 Dload  Upload   Total   Spent    Left  Speed
+	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	100 5684k  100 5684k    0     0  48.6M      0 --:--:-- --:--:-- --:--:-- 99.0M
+	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+	                                 Dload  Upload   Total   Spent    Left  Speed
+	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	100  733k  100  733k    0     0  11.5M      0 --:--:-- --:--:-- --:--:-- 11.5M
+	```
+
+7. Wait for the installation to complete.
+
+#### Other operating systems
+
+Other operating systems include Solaris, AIX, Linux ARM, and domestic operating systems. For more information about installing agents on other operating systems, see [Install the agent](../agent_install/agent_install.md#install-the-agent) in Aurreum Data Protection Suite Agent Installation Guide.
+
+## Activate licenses and authorize users
+
+After the agent installation, go back to the **Resource** page. The host with the agent installed appears on the page. Before you back up and restore files, register the host, activate the file backup license, and authorize users.
+
+To activate licenses and authorize users, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. On the **Resource** page, select the host where the files reside. Click the **Register** icon. After the registration, the **Activate** window appears. Click **Submit**.
+
+	```{only} scutech
+	![](../images/Common/register_resources.png)
+	```
+
+3. After you activate the license, the **Configure** window appears. In the **Configure** window, do the following:
+
+	(1) In the **Name** field, enter a name for the host.
+
+	(2) From the **Data network** list, select a network from those added on the **Network** page as the data network.
+
+	(3) In the **Preferred egress network** field, enter an IP address for the preferred network traffic egress of the host's backup data. IPv4 and IPv6 are supported.
+
+	(4) From the **User group** list, select user groups to authorize access to the resource.
+
+	(5) Set the resource as **Protected** or not. The **Protected** resource cannot be the restore target or the data replication target unless the administrator removes the **Protected** label.
+
+    ```{only} scutech
+	![](../images/Common/configure_resources.png)
+  	```
+
+	```{note}
+	1. If you are prompted with "No enough licenses", contact the administrator to add licenses.
+	2. With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
+	```
+
+## Backup
+
+### Backup types
+
+ADPS provides three common backup types (full backup, incremental backup, and cumulative incremental backup) and one advanced (synthetic backup) for files.
+
+- Full backup
+
+	Backs up the directories or files on the operating system and copies all the directories and files at some point in time.
+
+- Incremental backup
+
+	Backs up only the files that have changed since the last backup (including the full backup, the incremental backup, and the cumulative incremental backup) with a full backup as the baseline.
+
+- Cumulative incremental backup
+
+	Backs up only the files that have changed since the last full backup with a full backup as the baseline.
+
+- Synthetic backup
+
+	The first synthetic backup is a full backup and the subsequent ones are incremental. When the synthesis condition is reached, the latest full backup and subsequent incremental backup will be synthesized to create a new full backup copy. Synthetic backups can improve the restore performance. You can directly mount the full backup copy to the target host through an instant recovery job without physical copies and additional storage space.
+
+### Backup policies
+
+ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Immediate: ADPS will immediately start the job after it is created.
+- One-time: ADPS will perform the job at the specified time once only.
+- Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.
+- Daily: ADPS will perform the job periodically at the specified time and day intervals.
+- Weekly: ADPS will perform the job periodically at the specified time and week intervals.
+- Monthly: ADPS will perform the job periodically at the specified dates and times.
+
+You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:
+
+1. Perform a **full backup** once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.
+2. Perform an **incremental backup** every day when the application traffic is relatively small (Example: at 2 a.m.) to ensure that you have a recoverable point in time every day, which can save storage space and backup time.
+3. Perform a **cumulative incremental backup** among incremental backups (Example: on Wednesday). The restore job may use a full backup and the latest cumulative incremental backup to raise the restore speed.
+
+To use the advanced synthetic backup, we recommend the following backup policy:
+
+- Perform a **synthetic backup** every day to ensure that you have a recoverable point in time every day.
+
+### Before you begin
+
+Before you back up and restore files, check whether any storage pools have been created and authorized.
+
+1. From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
+2. Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
+
+	```{note}
+	To use synthetic backups, ensure that your environment fulfills the following requirements:
+	- You have advanced licenses: File synthetic backup and File CDM.
+	- You have created a file synthetic pool for the current user.
+	```
+
+```{only} scutech
+![](../images/Common/storage_pool.png)
+```
+
+### Log in to the resource
+
+Before you create a backup or restore job, log in to the file resource. ADPS provides two authentication methods for files:
+
+- OS authentication
+
+	You can use the operating system (OS) user to log in to the resource.
+
+- Access key
+
+	You can use the access key of the current ADPS user to log in to the resource. This method is suitable for the following scenarios:
+
+	- You cannot get the OS user's username and password.
+	- The user's password changes frequently.
+
+	```{note}
+	1. Access key authentication is not enabled by default. To enable this feature, log in to the ADPS console, go to **Settings**, open the **Security** tab, and select the **Access key login instance** checkbox.
+	2. To get the access key, log in to the console, click **Personal settings** > **Account settings** on the upper right corner, find **Access key** on the **Preferences** tab, and click **View**.
+	```
+
+To log in to the resource, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. From the host list, find the host where the files reside. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.
+3. Click **Login** beside the resource. The **Login** window appears.
+
+	```{only} scutech
+	![](../images/Common/file_login.png)
+	```
+
+4. In the **Login** window, select an authentication method according to your needs.
+
+	- Select **OS authentication**, enter the **Username** and **Password** of the OS user, and click **Login**.
+	- Select **Access key**, enter the access key of the current ADPS user, and click **Login**.
+
+5. If your information is correct, you will be prompted that you have logged in to the resource successfully.
+
+### Create a backup job
+
+To create a backup job, do the following:
+
+1. From the menu, click **Backup**. The backup job wizard appears.
+2. At the **Hosts and resources** step, select the host where the files reside and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup source** step, do the following:
+
+	```{note}
+	For incremental and cumulative incremental backups, the **Backup source** step only requires a full backup selected as their baseline and there is no need to select the directories and files again.
+	```
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_backup_01.png)
+	```
+
+	(1) From the **Backup type** list, select a backup type.
+
+	(2) In the **Backup source** section, click + to expand folders and select the files or folders that you want to back up.
+
+	(3) If you want to filter the selected files and folders in the **Backup source**, click **Filter** below the **Backup source** field. The **Filter** window appears.
+
+	```{note}
+	Some directories and files are forced to be excluded from the backup source while some are excluded by default. For those default excluded directories and files, you can click x to remove them from the exclusion so that they can be backed up.
+
+	On Linux:
+	- The following directories are forced to be excluded from the **Backup source**: `/proc`, `/sys`, `/etc/opt/aurreum`, `/var/opt/aurreum`.
+	- The following directories are excluded by default: `/tmp`, `/var/tmp`, `/var/run`, `/run`, and `/dev/shm`.
+
+	On Windows:
+	- The following directories are forced to be excluded from the **Backup source**: `pagefiles`, `System Volume Information`.
+	- The following files are excluded by default: `*.tmp`.
+	```
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_backup_03.png)
+	```
+
+	In the **Filter** window, you can do the following:
+	- The **Exclusion** option is enabled. You can deselect the checkbox to disable the filter. If you want to exclude some directories or files from the backup job, enter the directories and files in this field.
+	- You can select the **Inclusion** checkbox and enter the directories and files in case their parent directories are listed in the **Exclusion** field.
+
+	```{note}
+	For example, there are directories `/data` and `/test`. `/test` has hundreds of files. Some are `.txt`, some are `.dat`, and so on. The whole directory `/data` and all the `.txt` files under the directory `/test` need to be backed up.
+	1. First select `/test` and `/data` in the **Backup source**. Then open the **Filter** window.
+	2. Enter `/test` in the **Exclusion**.
+	3. Select the **Inclusion** checkbox and enter `*.txt` in the field.
+	4. The backup result will be `/data` with all the data and `/test` with only `.txt` files.
+	```
+
+	Here is an example of using the wildcard `*` in **Filter**. Assume that the backup source includes the following directories and files:
+
+	```{code-block} python
+	root@ubuntu:/# tree /backup/
+	/backup/
+	└── test
+    	├── group_1
+		│   └── sub_group
+    	│       ├── file1.dat
+    	│       └── file1.txt
+    	├── group_2
+    	│   └── sub_group
+    	│       ├── file2.dat
+    	│       └── file2.txt
+    	└── no_group
+	```
+
+	```{tabularcolumns} |\Y{0.2}|\Y{0.25}|\Y{0.55}|
+	```
+	```{table} Filter example
+	---
+	class: longtable
+	---
+	|Exclusion|Inclusion|Result|
+	| --- | --- | --- |
+	|`/backup/*`|`/backup/test/group_*/*`|Directories `group_1` and `group_2` and all their subdirectories are backed up|
+	|`/backup/*`|`*.txt`|`.txt` files, their directories, and the directory `no_group` are backed up|
+	|`*.txt`||All the directories and files except `.txt` files are backed up|
+	```
+
+4. At the **Backup target** step, select a storage pool. Click **Next**.
+
+	```{note}
+	Incremental and cumulative incremental backups do not have the **Backup target** step because their backup target is the same as their baseline full backup selected at the **Backup source** step.
+	```
+
+5. At the **Backup schedule** step, set the job schedule. For details, see [Backup policies](#backup-policies). Click **Next**.
+
+	- Select **Immediate**. ADPS performs the job immediately after it is created.
+	- Select **One time** and set the start time for the job.
+	- Select **Hourly**. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
+
+6. At the **Backup options** step, set the common and advanced options according to your needs. For details, see [Backup options](#backup-options). Click **Next**.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_backup_02.png)
+	```
+
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page automatically. On this page, you can start, modify, clone, and delete the job.
+
+### Backup options
+
+ADPS provides the following backup options for files:
+
+- Common options
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Backup common options
 ---
 class: longtable
 ---
-| Feature                              | Description                                                  |
-| ------------------------------------ | ------------------------------------------------------------ |
-| Backup type                          | Full backup: Back up directories or files on the operating system. {{ br }}Incremental backup: Back up data that has changed since the last backup point in time. {{ br }}Cumulative incremental backup: Back up all data changed after the most recent incremental backup. {{ br }}Synthetic backup: Full backup for the first time, followed by incremental backups. |
-| Filter                               | Exclusion: Do not back up selected files or directories. {{ br }}Inclusion: Back up selected files or directories. |
-| Backup source                        | One or more directory files                           |
-| Channels                             | A positive integer between 1 and 255                         |
-| Backup target                        | Standard storage pool, de-duplication storage pool, local storage pool, file synthetic pool, tape library pool, object storage service pool, LAN-Free pool |
-| Clone backup job                     | Backup jobs can be cloned. The cloning will change an incremental backup job to a full backup job and relevant backup sets will be selected. |
-| Stop jobs                            | Stop a backup or restore job                                 |
-| Backup compression                   | None, fast, tunable                                          |
-| Backup schedule                      | Immediate, one-time, minutely, hourly, daily, weekly, monthly |
-| VSS                                  | Support Windows                                              |
-| Sparse files                         | Support Linux, Windows                                       |
-| Hard link                            | Support Linux, UNIX                                          |
-| Restore type                         | Timepoint restore: Restore files to a specific timepoint. {{ br }}Instant recovery: Mount the backup sets of files in the storage server to achieve instant recovery. {{ br }}Recovery testing: Periodically restore the latest backup sets of files to the target or source host. |
-| Restore location                     | Support the restore to original path or custom path. {{ br }}Types to convert the custom path: strip directory and path transform. {{ br }}Methods to handle files with the same name: overwrite, skip, retain most recent, rename and save. |
-| Restore granularity                  | Single, multiple                                             |
-| Browse method                        | Browse by timepoint or directory                             |
-| Restore to different hosts           | Different hosts can be selected as restore targets, which support Linux and Windows. |
-| Reconnection time                    | The job continues after the abnormal reset occurs in the network within the set time. The set time is 10 minutes by default. |
-| Storage pool replication             | File backup sets support storage pool replication            |
-| Restore from target Pool             | Restore from the target storage pool                         |
-| Pre/Post action                      | The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored. |
-| Limit speed within different periods | Limit data transfer speed or disk read and write speed within different periods. |
-| D2C                                  | Back up data directly to object storage.                     |
-| D2T                                  | Back up data directly to tape library.                       |
-| LAN-Free                             | Back up to and restore from LAN-Free storage pools.          |
-| Modify backup target of a job        | Do not support modifying the backup target of a job.         |
-| IPv6                                 | Support the data transfer and management via IPv6.           |
-| Access Key login                     | Support using the operator's Access Key to log in to files' resources. |
-| Backup retry count                   | The number of times to retry a backup job. The backup retry count is 0 time by default. |
-| Backup retry interval                | The interval to retry a backup job. The backup retry interval is 30 minutes by default. |
+|Feature|Description|Limitations|
+| --- | --- | --- |
+|Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Uses the fast compression algorithms to compress data during the backup job.||
+|Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 255.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.|Only available for full backup and synthetic backup jobs.|
 ```
-> Note:
->
-> - ADPS supports synthetic backup on all platforms.  Character encoding conversion is available for the mount recovery job.
 
-## Install and Configure Agent
+- Advanced options
 
-### Verify Compatibility
-
-ADPS supports the backup and restore of files. You should check whether the operating system (OS) is supported before deploying the agent.
-
-#### Compatibility List
-
-```{table} Compatibility List
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Backup advanced options
 ---
 class: longtable
 ---
-| OS                   | CPU Architecture | OS Bits | Note         |
-| -------------------- | ---------------- | ------- | ------------ |
-| Windows 2003 SP2     | x86              | 32      |              |
-| Windows 2000 SP4     | x86              | 32      |              |
-| Windows XP SP3       | x86              | 32      |              |
-| Windows 2003 R2      | x86              | 32      |              |
-| Windows 2003 R2      | x86              | 64      |              |
-| Windows 7            | x86              | 32      |              |
-| Windows 7            | x86              | 64      |              |
-| Windows 8            | x86              | 64      |              |
-| Windows 10           | x86              | 64      |              |
-| Windows 2008         | x86              | 32      |              |
-| Windows 2008         | x86              | 64      |              |
-| Windows 2008 R2      | x86              | 64      |              |
-| Windows 2003 SP2     | x86              | 32      |              |
-| Windows 2003 Sp2     | x86              | 64      |              |
-| Windows 2012         | x86              | 64      |              |
-| Windows 2008 SP2     | x86              | 32      |              |
-| Windows 2008 Sp2     | x86              | 64      |              |
-| Windows 2008 R2      | x86              | 32      |              |
-| Windows 2012 R2      | x86              | 64      |              |
-| Windows 2016         | x86              | 64      |              |
-| Red Hat 9            | x86              | 32      |              |
-| Red Hat 4            | x86              | 32      |              |
-| Red Hat 4            | x86              | 64      |              |
-| Red Hat 5            | x86              | 32      |              |
-| Red Hat 5            | x86              | 64      |              |
-| Red Hat 6            | x86              | 32      |              |
-| Red Hat 6            | x86              | 64      |              |
-| Red Hat 6.5          | x86              | 64      |              |
-| Red Hat 7            | x86              | 32      |              |
-| Red Hat 7            | x86              | 64      |              |
-| Red Hat 8            | x86              | 64      |              |
-| Ubuntu 12.04         | x86              | 32      |              |
-| Ubuntu 12.04         | x86              | 64      |              |
-| Ubuntu 14.04         | x86              | 32      |              |
-| Ubuntu 14.04         | x86              | 64      |              |
-| Ubuntu 16.04         | x86              | 64      |              |
-| Ubuntu 18.04         | x86              | 64      |              |
-| AIX 5.1              | POWER            | 64      |              |
-| AIX 5.3              | POWER            | 64      |              |
-| AIX 6.1              | POWER            | 64      |              |
-| AIX 7.1              | POWER            | 64      |              |
-| SLES 9               | x86              | 32      |              |
-| SLES 9               | x86              | 64      |              |
-| SLES 10              | x86              | 32      |              |
-| SLES 10              | x86              | 64      |              |
-| SLES 11              | x86              | 32      |              |
-| SLES 11              | x86              | 64      |              |
-| SLES 11              | s390/s390x       | 64      |              |
-| SLES 12              | x86              | 64      |              |
-| Solaris 9            | x86              | 64      |              |
-| Solaris 9            | SPARC            | 64      |              |
-| Solaris 10           | x86              | 64      |              |
-| Solaris 10           | SPARC            | 64      |              |
-| Solaris 11           | x86              | 64      |              |
-| Solaris 11           | SPARC            | 64      |              |
-| HP-UX B.11.11        | PA-RISC          | 64      |              |
-| HP-UX B.11.23        | PA-RISC          | 64      |              |
-| HP-UX B.11.31        | IA64             | 64      |              |
-| Ubuntu 16.04         | ARM              | 64      |              |
-| Debian 6.0           | x86              | 32      |              |
-| Debian 6.0           | x86              | 64      |              |
-| Debian 7.0           | x86              | 32      |              |
-| Debian 7.0           | x86              | 64      |              |
-| Debian 7.5           | x86              | 32      |              |
-| Debian 7.6           | x86              | 32      |              |
-| Debian 7.6           | x86              | 64      |              |
-| Debian 7.8           | x86              | 32      |              |
-| Debian 8.0           | x86              | 32      |              |
-| Debian 8.0           | x86              | 64      |              |
-| Debian 8.3           | x86              | 64      |              |
-| Debian 9.0           | x86              | 64      |              |
-| OpenSUSE 10.3        | x86              | 64      |              |
-| OpenSUSE 11.4        | x86              | 64      |              |
-| CentOS 3.9           | x86              | 64      |              |
-| CentOS 4.5           | i686             | 32      |              |
-| CentOS 4.6           | IA64             | 64      |              |
-| CentOS 5.1           | x86              | 64      |              |
-| CentOS 6.0           | x86              | 64      |              |
-| CentOS 6.8           | x86              | 64      |              |
-| CentOS 7.3           | x86              | 64      |              |
-| CentOS 7.5           | x86              | 64      |              |
-| SUSE 11 SP4          | POWER Linux      | 64      | (Big Endian) |
-| Red Hat 6.5          | POWER Linux      | 64      | (Big Endian) |
-| Server 7 SP3         | x86              | 64      |              |
+|Feature|Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Snapshot|Enabled by default. Snapshots are used for consistent backups when some files are locked.|Only available for Windows OS.|
+|Pre-/Post-script for snapshot|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up. The Ignore errors in snapshots and scripts option is enabled by default.  |Only available for Windows OS.|
+|Backup NTFS ADS and ACLs|Enabled by default. BackupRead API will be used to back up NTFS Alternate Data Stream and Security Information. It can prevent CreateFile failures encountered when a CIFS file system without ADS and ACLs is being backed up.|Only available for Windows OS.|
+|Backup retry count|Number of retries after the backup fails due to some reasons including network errors. The value ranges from 0 to 10. 0 means no retries.||
+|Backup retry interval|Time interval between backup retries after the backup fails due to some reasons including network errors. The value ranges from 0 to 120 minutes. The default value is 30 minutes.||
+|Detect sparse files|Auto is selected by default. It will detect sparse files with a small amount of valid data.||
+|Cross mount points|Enabled by default. Files in the selected directories will not be skipped. When the option is disabled, the job will only back up files that are stored in the same file system as the parent directory. Example: There are three directories: a, b, and c. Directory a and directory b is in the XFS file system. Directory c is in tmpfs. Their parent directory is in XFS. If you disable the option, the job will only back up directory a and directory b because they are stored in the same file system as their parent directory. ||
+|Reparse Point types|Select dedup when Data Deduplication is enabled on Windows OS.|Only available for Windows OS.|
 ```
 
-### Download Agent Package
+## Restore
 
-Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
+### Restore types
 
-![file_agent01](../images/01-agent/file/file_agent01.png)
+For different needs, ADPS provides several restore types for files, including:
 
-### Install and Configure Agent on Windows
+- Point-in-time restore
 
-#### Download Installation Package
+	Restores the folders or files to a specified point in time. The restore target can be the original host, a different host, the original path, and a customized path.
 
-Select **Windows** and click **Download Windows agent**.
+- Instant recovery
 
-![file_agent02](../images/01-agent/file/file_agent02.png)
+	Achieves fast recovery by mounting the file backup sets from the storage server with the following advantages: fast recovery speed, little resource consumption, reduced disk space, and improved availability of backup sets.
 
+- Recovery testing
 
+	Restores the latest backup sets to another path on the original host or a different host hourly, daily, weekly, and monthly.
 
-#### Install Agent on Windows
+### Before you begin
 
- 1. Upload the installation package to the target host.
+To restore files to a different host, install the agent on that host, activate the licenses, and authorize user access to the resource.
 
- 2. Double-click the package to install it according to the wizard and click **Next**.
+### Create a point-in-time restore job
 
- 3. This installation package is a collection of components. It checks the file resources, files, or applications installed on the host by default. Check the **File** and click **Next**.
+To create a point-in-time restore job, do the following:
 
-    ![file_agent03](../images/01-agent/file/file_agent03.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the host where the files reside and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
- 4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_timepoint_restore_01.png)
+	```
 
-    ![file_agent04](../images/01-agent/file/file_agent04.png)
+	(1) From the **Storage pool** list, select a storage pool with backup sets, including the source and target pools with pool replication relation. **Default** refers to the one where the selected backup sets reside.
 
- 5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
+	(2) From the **Restore type** list, select **Point-in-time restore**.
 
-###  Install and Configure Agent on Linux
+	(3) In the **Restore source** section, select a point in time for the restore job.
 
-1. Select **Linux** and **File**. Copy an installation command.
+	(4) In the **File** section, select files for the restore job. All the files in the backup set will be selected by default. You can select or deselect the files, and search files in the search bar. Note that files in backup sets from local storage pools and LAN-free pools cannot be listed in the **File** field.
 
-![file_agent05](../images//01-agent/file/file_agent05.png)
+    ```{note}
+    The search bar supports:
+	- File name but not directory name
+	- Multiple rules at one time
+	- `?` and `*`. `?` matches one character, and `*` matches multiple characters
 
-2. Paste the command on the command line and press Enter to execute the installation.
+	Example:
 
-   ```
-   root@ubuntu1804:~# curl -o- "http://192.168.17.80:50305/d2/update/script?modules=file&location=http%3A%2F%2F192.168.17.80%3A50305&access_key=17dcab134000ef21d3784f3e8808a3dd&rm=&tool=curl" | sh
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   100  7904    0  7904    0     0  2572k      0 --:--:-- --:--:-- --:--:-- 2572k
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 47.5M  100 47.5M    0     0  99.3M      0 --:--:-- --:--:-- --:--:-- 99.3M
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 5575k  100 5575k    0     0  63.3M      0 --:--:-- --:--:-- --:--:-- 63.3M
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100  665k  100  665k    0     0  16.2M      0 --:--:-- --:--:-- --:--:-- 16.2M
-   ```
+	There are five files: `test_1.txt`, `test_2.txt`, `1_test.txt`, `2_test.txt`, and `file.txt`. Enter `test*txt ?_test.txt file.txt` in the search bar will match all the five files.
+    ```
 
+	(5) Click **Next**.
 
-### Check Successful Installation
+4. At the **Restore target** step, select a host and resource as the target. The wizard goes to the next step automatically.
 
-After the successful installation, you can log in to ADPS as the admin and see that the host is on the **Resource** list.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-![file_license01](../images/02-license/file/file_license01.png)
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-## Activate License and Assign Authorization
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to *Batch Activate* from *Administrator's Guide* for more details.
+### Create an instant recovery job
 
-### Register Host
+```{note}
+1. The `adps-nfsd` package should be installed on the storage server for file instant recovery.
+2. File instant recovery only supports backup sets from standard storage pools (with neither **Multi-storage** nor **Data storage encryption** enabled) and file synthetic pools.
+```
 
-Log in to ADPS as the admin, go to **Resource**, and find the host that you need to activate. Click the **Register** icon.
+To create an instant recovery job, do the following:
 
-![file_license02](../images/02-license/file/file_license02.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the host where the files reside and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
-### Activate License
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_instant_recovery_01.png)
+	```
 
-In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
+	(1) From the **Storage pool** list, select a storage pool with backup sets, including the source and target pools with pool replication relation. **Default** refers to the one where the selected backup sets reside.
 
-![file_license03](../images/02-license/file/file_license03.png)
+	(2) From the **Restore type** list, select **Instant recovery**.
 
-### Assign Authorization
+	(3) In the **Restore source** section, select a point in time for the restore job.
 
-After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window.
+	(4) Click **Next**.
 
-![file_license04](../images/02-license/file/file_license04.png)
+4. At the **Export** step, do the following:
 
-## Before You Begin
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_instant_recovery_02.png)
+	```
 
-### Check Resource
+	(1) In the **Export** field, set the mount point for the export. The path must begin with / and can be 2-30 characters with letters or numbers.
 
-Log in to ADPS as the operator, go to **Resource**, and check whether the activated and authorized resources are in the "Online" state. If the resource is not available, please refer to *Activate License and Assign Authorization*.
+	(2) In the **Access control list** field, add the agents that can mount and access the backup set. It supports IP addresses and network segments. * means all agents can access the backup set.
 
-![file_login01](../images/03-file/file_login01.png)
+	(3) From the **Conversion path coding** list, select None, GBK, GB18030, or BIG5. None is selected by default, in which UTF8 is used for instant recovery.
 
-### Check Storage Pool
+	(4) Expand the **Advanced options**. From the **Bridge** list, select whether to use a network bridge or not. **None** is selected by default. You can use the network bridge to export backup sets to avoid conflicts with the NFS service of the operating system.
 
-Log in to ADPS as the operator, go to **Storage Pool**, and check whether there is any storage pool. If a storage pool is not listed, please contact the admin to create one and assign permissions to the operator.
+    ```{note}
+	1. To use a network bridge, enter the IP address, subnet mask, and default gateway. The IP address must be a valid address that is not used in this network segment.
+	2. Install `bridge-utils` on the storage server for bridge settings, with which ADPS can recognize the network bridge after it is started. Add the following content to the configuration file `/etc/network/interfaces`:
+		```{code-block}
+		auto br0
+		iface br0 inet static
+		address 192.168.88.10
+		netmask 255.255.255.0
+		gateway 192.168.88.1
+		bridge_ports bond0
+		bridge_stp off
+		bridge_fd 9
+		bridge_hello 2
+		bridge_maxage 12
+		```
+	```
 
-![file_storaged01](../images/03-file/file_storaged01.png)
+5. At the **Finish** step, confirm the job information and click **Submit**.
+6. After the submission, you will be redirected to the help page. Mount the files manually according to the procedure. On the **CDM** page, a copy with a mounted state is added below the selected point in time. For more details, see [View a copy](#view-a-copy).
 
-## Log in to Instance for the First Time
+### Create a recovery testing job
 
-1. Before using File resources to create backup and restore jobs, you need to **Login** file first.
+To create a recovery testing job, do the following:
 
-![file_login02](../images/03-file/file_login02.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the host where the files reside and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_recovery_testing_01.png)
+	```
 
-2. File supports the login by two authentication methods: **OS Authentication**, and **Access Key**.
+	(1) From the **Storage pool** list, select a storage pool with backup sets, including the source and target pools with pool replication relation. **Default** refers to the one where the selected backup sets reside.
 
-- **OS Authentication**: Use the admin account to log in.
-- **Access Key**: Log in with the Access Key of the user who has the permission of the resource. You can run a job without a password, which has potential data security risks.
+	(2) From the **Restore type** list, select **Recovery testing**.
 
-3. Select the **Authentication** method. Enter **User** and **Password**. Click **Login**.
+	(3) In the **Restore source** section, select a point in time for the restore job.
 
-![file_login03](../images/03-file/file_login03.png)
+	(4) In the **File** section, select files for the restore job. All the files in the backup set will be selected by default. You can select or deselect the files, and search files in the search bar. Note that files in backup sets from local storage pools and LAN-free pools cannot be listed in the **File** field.
 
-> **Note**:
->
-> - To use the Access Key authentication, the admin must enable Access Key Login Instance in Settings->Settings->Security.
+    ```{note}
+    The search bar supports:
+	- File name but not directory name
+	- Multiple rules at one time
+	- `?` and `*`. `?` matches one character, and `*` matches multiple characters
 
-## Create Backup Jobs
+	Example:
 
-This chapter introduces how to use ADPS to back up files.
+	There are five files: `test_1.txt`, `test_2.txt`, `1_test.txt`, `2_test.txt`, and `file.txt`. Enter `test*txt ?_test.txt file.txt` in the search bar will match all five files.
+    ```
 
-### Prerequisites
+	(5) Click **Next**.
 
-- You have installed the agent. For installation, see *Install and Configure Agent*.
-- You have activated the license and assigned the authorization. For details about the activation and authorization, see *Activate License and Assign Authorization*.
-- Log in to ADPS as the *operator*.
+4. At the **Restore target** step, select a host and resource as the target. The wizard goes to the next step automatically.
 
-### Create Full Backup Jobs
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-All files can execute backup jobs.
+	- Select **Hourly**. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
 
-(1) Click **Backup**. Select file host and instance.
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-(2) Select **Full** as the backup type and choose file folders or files.
+### Restore options
 
-![file_backup01](../images/03-file/file_backup01.png)
+ADPS provides the following restore options for files:
 
-(3) Select **Backup Target**. You can choose standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, or LAN-Free pool.
+- Common options:
 
->  Note:
->
->  - It's not supported to store full backups, incremental backups, and cumulative incremental backups in different storage pools.
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Restore common options
+---
+class: longtable
+---
+|Feature |Description|Limitations|
+| --- | --- | --- |
+|Channels|It can improve restore efficiency. The default value is 1. The value cannot exceed that of the backup set.||
+|Restore location|You can set the restore location to the original location or a specified location. To specify a location, enter the path manually or click Browse to select the target folder.||
+|Handle files with the same name|Overwrite, skip, retain most recent, rename and save||
+|Path conversion type|Only when you specify a restore location can you set the path conversion type, including **Strip directory** and **Path transform**. {{ br }}- **Strip directory levels**: Set directory levels that you want to strip. Example: There is a directory A/B/C in the backup set and the value of **Strip directory levels** is 2. Then A and B will be stripped and only C will be restored. The files under directories A and B will be restored to the specified restore location. {{ br }}- **Path transform**: Rename the directory in the backup set. Example: There is a directory A/B/C. You can change A into D.||
+|Incremental restore|Only when you select an incremental backup set for the restore will this option become available. It is disabled by default. If you enable this feature, the job will only restore the incremental data at the selected point in time.|Only available for point-in-time restore jobs.|
+|dry-run|For simulating the execution results without specific recovery testing operations. If enabled, it requires a path for dry-run logs.|Only available for recovery testing jobs.|
+```
 
-(4) Go to **Backup Schedule** and set the run time of the backup job. For details, see *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis.
+- Advanced options:
 
-(5) Set **Backup Options** including common and advanced options.
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Feature |Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Use uid/gid for restore|If enabled, it will use uid/gid for the restore job if the target system does not have user/group names.|Not available for Windows OS.|
+```
 
-- **Common options**:
+## Copy data management
 
-![file_backup02](../images/03-file/file_backup02.png)
+On the **CDM** page, you can manage the copies generated by instant recovery and synthetic backup jobs, including viewing, cloning, unmounting, and deleting copies.
 
-**Compression**: Fast is enabled by default.
+### View a copy
 
-- None: No compression during the backup.
-- Tunable: You can customize the Compression Level, which requires the activation of the advanced features.
-- Fast: Use the fast compression algorithm during the backup.
+To view copies, do the following:
 
-**Channels**: Used to improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, refer to *Channel Number Configuration*.
+1. From the menu, click **CDM**. The **CDM** page appears.
+2. From the toolbar, select the resource and the period when copies are created. The display area shows copies of this resource in this period. Copies are named by the creation time.
+3. Click the copy name. The details of this copy appear on the right side of the page. Different icons represent different copy types.
 
-- **Advanced options**:
+	- Full copy: A data copy created by a synthetic backup.
+	- Mounted copy: A data copy created by an instant recovery.
 
-![file_backup03](../images/03-file/file_backup03.png)
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_cdm_01.png)
+	```
 
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
+### Clone a copy
 
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
+You can click the **Clone copy** icon to create an instant recovery job for the synthetic copy to create a new mounted copy.
 
-**Precondition**: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met.
+To clone copies, do the following:
 
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
+1. From the menu, click **CDM**. The **CDM** page appears.
+2. From the toolbar, select the resource and the period when copies are created. The display area shows the copies in this period.
+3. On the display area, click a full copy under the resource. The **Clone copy** icon appears on the right of the copy.
 
-**Snapshot**: Enabled by default for consistent backups via snapshots when there are backup files in a locked state. Only available for Windows.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_cdm_02.png)
+	```
 
-**Pre/Post snapshot action**: The pre snapshot action is called before resources are backed up or restored after the job starts. The post snapshot action is called after the resource has been backed up or restored. Ignore snapshot and action error by default. Only available for Windows.
+4. Click the **Clone copy** button. You will be redirected to the **Backup sets** step. See [Create an instant recovery job](#create-an-instant-recovery-job) to configure the job.
 
-**Backup NTFS ADS and ACLs**: Use the BackupRead API to back up NTFS Alternate Data Stream and Security Information. The option is enabled by default to prevents failures to CreateFile when backing up CIFS without ADS and ACL. Only available for Windows.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_cdm_03.png)
+	```
 
-**Backup retry count**: The number of times to retry the backup if the backup fails due to network error or other reasons. The range is 0~10 times, the default is 0.
+5. After the instant recovery, a copy with a mounted state is added below the selected point in time on the **CDM** page.
 
-**Backup retry interval**: The time interval to retry the backup if the backup fails due to network error or other reasons. The range is 0~120 minutes, the default is 30 minutes.
+### Unmount a copy
 
-**Detect sparse files**: Auto-detection by default, which detects sparse files with very small valid data. Only available for Linux.
+You can click the **Unmount** icon to unmount the mounted copies. This operation will make the mounted directory on the restore target inaccessible.
 
-**Cross mount points**: Only available for Linux.
+To unmount a copy, do the following:
 
-- The option is enabled by default, which backs up all files in the selected directories.
+1. From the menu, click **CDM**. The **CDM** page appears.
+2. From the toolbar, select the resource and the period when copies are created. The display area shows the copies in this period.
+3. Expand the full backup copy and select a mounted copy. The **Unmount** icon appears on the right of the copy.
 
-- When it's disabled, if you select multiple directories that belong to different file systems, only back up files in the file system where the parent directory of these directories is located.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/File/file_cdm_04.png)
+	```
 
-  > For example:
-  >
-  > - With the option disabled, you select three directories: A, B, and C.
-  > - Directory A and Directory B belong to the xfs file system, Directory C belongs to the tmpfs file system, and their parent directory belongs to the xfs file system.
-  > - Since the parent directory, Directory A and Directory B are in the same file system, only files from Directory A and Directory B will be backed up.
-
-**Reparse Point Types**: You need to select dedup when Windows enables the data deduplication feature.
-
-(6) Set **Job Name** and check whether the job information is correct. Click **Submit**.
-
-### Create Incremental Backup Jobs
-
-It is generally recommended to create file full backups regularly (such as weekly) or create file incremental backups at short intervals (such as daily). You can use the cumulative incremental backup to back up data that has changed since the last full backup so that you have at least one recoverable point in time every day.
-
-- The steps are the same as steps to create a full backup. Select **Incremental** as the backup type, choose the full backup job for incremental backup, and perform the incremental backup according to the folders or files selected by full backup job.
-
-  ![file_icr01](../images/03-file/file_icr01.png)
-
-
-### Create Cumulative Incremental Backup Jobs
-
-It is generally recommended to create full file backups regularly (such as weekly) or create cumulative incremental backups at short intervals (such as daily). You can use the cumulative incremental backup to back up data that has changed after the most recent incremental backup so that you have at least one recoverable point in time every day.
-
-- The steps are the same as steps to create a full backup. Select **Cumulative Incremental Backup** as the backup type and perform the cumulative incremental backup based on the folders or files selected by the full backup job.
-
-  ![file_icr02](../images/03-file/file_icr02.png)
-
-### Create Synthetic Backup Jobs
-
-Synthetic backup is the process of synthesizing the existing full backup sets as the base with subsequent incremental backups over a storage device. The synthetic result will produce new synthetic backup sets.
-
-Due to the use of synthetic backup, there is no need for the storage device to save multiple copies of full backup data, which correspondingly reduces the pressure of management and storage space caused by data growth, and the storage cost. In addition, when restoring incremental backup sets, ordinary backups need to refer to several different point in time backups, and then restore the backup sets to the data, which will inevitably lead to performance loss and time consumption. However, synthetic backups only need to refer to the backup at one point in time, so the restore efficiency is improved accordingly when performing restore jobs.
-
-(1) Creating a synthetic backup job is similar to creating a full backup job. Select **Synthetic Backup** as the backup type and choose file folders or files.
-
-![file_merge01](../images/03-file/file_merge01.png)
-
-(2) Select **Backup Target**. The backup target can only be the file synthetic pool. If the file synthetic pool is not listed, please contact the admin to create one.
-
-![file_merge02](../images/03-file/file_merge02.png)
-
-## Create Restore Jobs
-
-This chapter introduces how to restore files. According to the actual needs of users, ADPS provides a variety of restore types including timepoint restore, instant recovery, and recovery testing.
-
-### Create Timepoint Restore Jobs
-
-When folders or files are lost from the system, timepoint restore can be used to restore files to the specified point-in-time state. It supports the restore to local and different host, and the restore to the original location or to the custom path.
-
-(1) Select the File host and instance. Click **Next**.
-
-(2) Select **Timepoint Restore** and the specified point in time of file backup sets. The timepoints of both the incremental and cumulative incremental backup sets are displayed under the full backup as the base. For the listed file directory tree, you can use the search box to further search the specific file resources that need to be restored. The search function supports wildcards (*[]?) search, and fuzzy search. Click **Next**.
-
-![file_restore01](../images/03-file/file_restore01.png)
-
->Note:
->
->- The search box supports searching matching files, but not directories. You can use multiple filters on Search.
->- The Restore page does not list all the backup sets that are backed up to local storage in detail. You can restore the corresponding backup sets by selecting the time point of a job .
-
-(3) Set **Restore Target**. It supports the restore to the source host or different host, and the restore to Hadoop resource and object storage resource. Click **Next**.
-
-![file_restore02](../images/03-file/file_restore02.png)
-
-(4) Set **Restore Schedule**. It only supports immediate and one-time restore schedules.<br>
-(5) Set **Restore Options** including common and advanced options.
-
-- **Common options**:
-
-![file_restore03](../images/03-file/file_restore03.png)
-
-**Channels**: This option can improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
-
-**Restore location**: You can set the restore location as the original path or custom path. The custom path can be entered manually or you can click **Browse** to select the target folder directly in the pop-up window.
-
-**How to handle files with the same name**: Available options include "Overwrite", "Skip", "Retain most recent", "Rename and save".
-
-**Path conversion type**: This option is only available when you set the restore location to the custom path. You can choose from strip directory and path transform.
-
-- **Advanced options**:
-
-![file_restore04](../images/03-file/file_restore04.png)
-
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
-
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
-
-**Precondition**: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.
-
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-(6) Confirm the restore content and submit the job. Click **Submit**.
-
-### Create Instant Recovery Jobs
-
-File Instant Recovery can instantly recover file backup sets from the storage server by mounting. File Instant Recovery has the advantages of fast recovery speed, low resource consumption, disk space saving and increased availability of backup sets.
-
-> Note:
->
-> - The file instant recovery requires the adps-nfsd package to be installed on the server where Storaged is located.
-> - File Instant Recovery currently only supports recovering backup sets from standard storage pools without multi-storage and data storage encryption enabled, and from file synthetic pools on Ubuntu.
-
-The interface provides the following two portals to create instant recovery jobs for cloning copies: **Restore** and **CDM**.
-
-#### Create from Restore Menu
-
-(1) Enter the **Restore** main menu. Select the File host and instance. Click **Next**.
-
-(2) Select **Instant Recovery** as the restore type, and select the point in time of the file backup sets. Click **Next**.
-
-![file_restore05](../images/03-file/file_restore05.png)
-
-(3) On **Export** page, set the export directory and access control list of backup sets. Click **Next**.
-
-![file_restore06](../images/03-file/file_restore06.png)
-
-**Export**: Set the mount point to export.
-
-**Access control list**: The list of agents that can mount access to the backup sets. It supports the specified IP or network. **"*"** indicates that any agent can access.
-
-**Bridge**: You can add bridge to export the backup sets and avoid conflict in nfsd usages.
-
-**Path conversion type**: UTF8 path encoding is used by default for file instant recovery.
-
-(4) Confirm whether the job information is correct, and submit the job after confirming that it is correct.
-
-> Note:
->
-> - You need to enter the fourth bit of the Bridged IP Address in the Advanced Options manually, and this IP address must be a valid IP address that is not in use on that network.
->
-> - To set up the bridge, you need to install bridge-utils and add the following to the configuration file in /etc/network/interfaces:
->
->   ```bash
->   auto br0
->   iface br0 inet static
->   address 192.168.88.10
->   netmask 255.255.255.0
->   gateway 192.168.88.1
->   bridge_ports eth0
->   bridge_stp off
->   bridge_fd 0
->   ```
-
-#### Create from CDM Menu
-
-The CDM interface is used to manage all the data copies on storage servers. You can view the corresponding data copies on a storage server and create instant recovery jobs to clone copies, which allows you use the same data in multiple business situations.
-
-(1) Enter **CDM** menu and filter out the relevant instances by file resource. To run an instant recovery job, select the corresponding host and instance, choose a point in time of a backup set, and click **Create Copy** icon.
-
-![file_cdm01](../images/03-file/file_cdm01.png)
-
-(2) The other operations such as **Export**, and **Finish** are the same as the operations in the previous chapter.
-
-#### Check Successful Recovery
-
-After the instant recovery is completed, enter the **CDM** menu. You can find a recovery record under the backup point in time of the corresponding host and instance. If you need to mount the copy manually, click **Help** icon for reference.
-
-![file_cdm02](../images/03-file/file_cdm02.png)
-
-- Help: Click the **Help** icon to view the help page where you can follow the steps to mount or unmount manually.
-
-- Edit: Click the **Edit** icon to modify the export directory and access control list.
-- Delete: Click the **Delete** icon to delete the mounted copy.
-
-#### Detach Copy
-
-You can detach the mounted directory from the agent by clicking the **Detach** icon.
-
-- Click the **Detach** icon beside the data copy record.
-
-  ![file_cdm03](../images/03-file/file_cdm03.png)
-
-  > Note:
-  >
-  > - Before unmounting the copy, make sure the agent has been uninstalled, if not, you need to uninstall the agent first, then unmount the copy, otherwise the agent will be undergoing a state of Freeze when accessing the mount directory.
-
-- Pay attention to the warning and enter the verification code. Please operate with caution.
-
-  ![file_cdm04](../images/03-file/file_cdm04.png)
-
-### Create Recovery Testing Jobs
-
-With the hourly, daily, weekly, or monthly schedule, recovery testing can restore the latest file backup set to the target host or source host, used to verify that the backup set is available.
-
-(1) Select File host and instance. Click **Next**.
-
-(2) Select **Recovery Testing** as the restore type, select the point in time of the backup sets that you want to restore. Click **Next**.
-
-![file_restore07](../images/03-file/file_restore07.png)
-
-(3) Set **Restore Target**. It supports restoring files to the source host or different host.
-
-(4) Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
-
-(5) Set **Restore Options**, including channels, restore location, how to handle files with the same name, dry-run, path conversion type, reconnection time, speed limit, precondition, pre action and post action. Click **Next**.
-
-![file_restore08](../images/03-file/file_restore08.png)
-
-**Channels**: Enter the value of Channels to restore. The maximum value cannot exceed the number of channels in the backup sets.
-
-**Restore location**: Original path or custom path
-
-**How to handle files with the same name**: Overwrite, skip, retain most recent, rename and save.
-
-**Dry-run**: Enable dry-run to simulate execution results without specific testing operations. Dry-run log path can be the original path or custom path.
-
-**Path conversion type**: Strip directory and path transform.
-
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
-
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
-
-**Precondition**: The precondition is executed before the job starts. The job execution is aborted when the precondition is not met and the job will be in idle state.
-
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-(6) Confirm the recovery content and submit the job. Click **Submit**.
-
-(7) Wait for the job cycle to be executed, and the latest backup set of the source host will be restored when the restore job is executed.
-
-## Manage Jobs
-
-On the **Job** page, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.
-
-![file_job01](../images/03-file/file_job01.png)
-
-
-- Start: Click ![](../images/03-file/file_job02.png) to start the job immediately.
-- Modify: Click ![](../images/03-file/file_job03.png) to modify the basic job information, the backup/restore schedule, and the backup/restore options.
-- Clone: Click ![](../images/03-file/file_job04.png) to create multiple similar backup jobs.
-- Delete: Click ![](../images/03-file/file_job05.png) to access the confirmation window. Click **OK** to delete the job.
-
-## Backup Protection Strategy
-
-###  Backup Schedule Operation
-
-ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
-
-![](../images/03-file/file_time01.png)
-
-- Immediate: The job immediately starts to run after it is submitted.
-- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
-- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
-- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
-
->  Example: Run the job every two weeks on Friday at 18:00
-
-> ![](../images/03-file/file_time03.png)
-
-> Actual running hours are as follows:
->
-> - If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).
-> - If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).
-> - If the current time is Saturday 17:00, the run time will be next Friday 18:00.
-> - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
-
-### Backup Strategy Advice
-
-There are four backup methods for File: full backup, incremental backup, cumulative incremental backup, and synthetic backup. Full backup, incremental backup, and cumulative incremental backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate:
-
-1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
-2. After that, you can run an **Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
-3. You can run **Cumulative Incremental Backup** on demand.
-
-> Note:
->
-> - Avoid using the strategies of all full backups or a full backup followed by cumulative incremental backups.
-
-## Channel Number Configuration
-
-- Channel number for backup jobs:
-
-  File supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be consistent with that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
-
-- Channel number for restore jobs:
-
-  The number of channels used cannot exceed the number of channels configured for the backup job.
+4. Click the **Unmount** icon. A confirmation window appears.
+5. Confirm the warning and enter the verification code. Click **OK**.
+6. After the unmounting, you can see no such mounted copy record under the full copy.
 
 ## Limitations
 
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
 ```
 ```{table} Limitations
 ---
 class: longtable
 ---
-| Function                               | Limitations                                       |
-| -------------------------------------- | ------------------------------------------------------------ |
-| Synthetic Backup                       | The synthetic backup job of a single file under AIX system cannot be greater than 32Tb. |
-| Restore                                | Instant recovery only supports recovering backup sets in unencrypted standard storage pools with single-level storage and file synthesis pools. |
-| Instant recovery                       | Only available for Linux storage server. {{ br }}Support the non-encrypted standard storage pools with single-level storage. {{ br }}Support File synthetic pool. {{ br }}Do not support to run the mount recovery job to restore device files and character files. |
-| Restore backup sets across OS platform | Support restoring file backup sets from Linux to Windows. {{ br }}Support restoring file backup sets from Windows to Linux. {{ br }}The maximum file name for Windows NTFS file systems is 255 character. {{ br }}The maximum file name for Linux ext4 file systems is 255 character. |
-| Recovery testing                       | Do not support restoring backup sets of Linux file to the object storage. {{ br }}Do not support restoring backup sets of Windows file to Hadoop. |
+|Feature|Limitations|
+| --- | --- |
+|Synthetic backup|A file synthetic backup job for the AIX system cannot be larger than 32T.|
+|Instant recovery|Only Linux storage server supports instant recovery. {{ br }}It supports standard storage pools with neither Data storage encryption nor Multi-storage enabled.{{ br }}It supports file synthetic pools.{{ br }}It does not support character device files and block device files.|
+|Cross-system restore|ADPS supports restoring file backup sets from Linux to Windows.{{ br }}ADPS supports restoring file backup sets from Windows to Linux.{{ br }}The maximum file name for the NTFS file system on Windows is 255 characters.{{ br }}The maximum file name for the ext4 file system on Linux is 255 bytes.|
+|Recovery testing|It does not support recovering file backup sets from Linux to object storage.{{ br }}It does not support recovering file backup sets from Windows to Hadoop.|
 ```
 
 ## Glossary
 
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
 ```
 ```{table} Glossary
 ---
 class: longtable
 ---
-| Term             | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
-| Fast Compression | Compress data during backup using fast compression algorithms. |
+|Term|Description|
+| --- | --- |
+|fast compression|A compression method that uses fast compression algorithms to compress data during the backup job.|
+|cross-system restore|A restore method that restores files from Windows to Linux and vice versa.|
+|different-architecture restore|A restore method that restores files from operating systems to object storage or Hadoop.|
+|dry-run|A method that manipulates execution results without specific recovery testing operations. A path for dry-run logs must be specified.|
 ```

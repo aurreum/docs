@@ -1,597 +1,737 @@
 # User Guide for Hadoop
 
-## Introduction
+## Overview
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Hadoop. This guide introduces how to properly use ADPS to back up and restore Hadoop.
+This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore Hadoop.
 
-## Features
-```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
-```
-```{table} Features
----
-class: longtable
----
-| Feature                      | Description                                                  |
-| ---------------------------- | ------------------------------------------------------------ |
-| Authentication method        | Simple, Kerberos                                             |
-| Backup type                  | Full backup: Back up HDFS directories or files. {{ br }}Incremental backup: Back up data that has changed since the last backup point in time.{{ br }}Synthetic backup: Full backup for the first time, followed by incremental backups. |
-| Backup source                | HDFS directories or files (single, multiple)                 |
-| Filter                       | Exclusion: Do not back up selected files or directories. {{ br }}Inclusion: Back up selected files or directories.{{ br }} |
-| Backup target                | Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool |
-| Backup compression           | None, fast, tunable                                          |
-| Backup schedule              | Immediate, one-time, minutely, hourly, daily, weekly, monthly |
-| Restore type                 | Timepoint restore: Restore one or more files to a specific point-in-time state.{{ br }}Instant recovery: Recover data instantly by mounting the Hadoop backup set in the storage server.{{ br }}Recovery testing: Restore the latest Hadoop backup set to the target or source host periodically. |
-| Restore granularity          | HDFS directories or files (single, multiple)                 |
-| Restore location             | Original path, custom path, different host                   |
-| Reconnection time            | The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes. |
-| Storage pool replication     | Hadoop backup sets support storage pool replication.         |
-| Restore from target pools    | Restoring backup sets from the target storage pool is supported. |
-| Pre/Post action              | The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored. |
-| Speed limit                  | The data transfer speed or disk read and write speed in different periods can be limited. |
-| D2C                          | Data can be backed up directly to object storage services.   |
-| D2T                          | Data can be backed up directly to tape libraries.            |
-| LAN-Free                     | Backing up data to and restoring data from LAN-Free storage pools are supported. |
-| Modify a job's backup target | Modifying a job’s backup target is supported.                |
-```
+The backup and restore features supported by ADPS include:
 
-**Note**:
+- Backup sources
 
-- Applicable to Hadoop (HDFS) and CDH (HDFS)
+	Single or multiple directories and files on Hadoop Distributed File System (HDFS)
 
-## Install and Configure Agent
+- Backup types
 
-### Verify Compatibility
+	Full backup, incremental backup, and synthetic backup
 
-ADPS supports the backup and restore of Hadoop. Before deploying the agent, check whether the operating system (OS) is supported. See the following for supported OS versions:
+- Backup targets
 
-#### Hadoop Compatibility List
-```{tabularcolumns} |\Y{0.2}|\Y{0.1}|\Y{0.2}|\Y{0.2}|\Y{0.1}|\Y{0.2}|
-```
-```{table} Hadoop Compatibility List
----
-class: longtable
----
-| Distributed Application | Version | Application Bits | OS       | CPU Architecture | OS Bits |
-| ----------------------- | ------- | ---------------- | ------------ | -------------------- | ----------- |
-| Hadoop                  | 2.2.0   | 64               | Red Hat 6.5  | x86                  | 64          |
-| Hadoop                  | 2.6.0   | 64               | Ubuntu 14.04 | x86                  | 64          |
-| Hadoop                  | 2.6.5   | 64               | Ubuntu 16.04 | x86                  | 64          |
-| Hadoop                  | 2.7.3   | 64               | Red Hat 6.5  | x86                  | 64          |
-| Hadoop                  | 2.7.6   | 64               | CentOS 6.5   | x86                  | 64          |
-| Hadoop                  | 2.7.6   | 64               | Ubuntu 16.04 | x86                  | 64          |
-| Hadoop                  | 2.8.3   | 64               | Ubuntu 16.04 | x86                  | 64          |
-| Hadoop                  | 2.9.0   | 64               | Ubuntu 16.04 | x86                  | 64          |
-| Hadoop                  | 3.0.0   | 64               | Red Hat 7.5  | x86                  | 64          |
-| Hadoop                  | 3.0.2   | 64               | Ubuntu 16.04 | x86                  | 64          |
-| Hadoop                  | 3.1.0   | 64               | Ubuntu 16.04 | x86                  | 64          |
-| Hadoop                  | 3.2.1   | 64               | CentOS 8.3   | x86                  | 64          |
-| Hadoop                  | 3.2.2   | 64               | CentOS 7.8   | x86                  | 64          |
-| CDH                     | 6.0     | 64               | CentOS 7.0   | x86                  | 64          |
-| CDH                     | 6.1     | 64               | CentOS 7.0   | x86                  | 64          |
-| CDH                     | 6.2     | 64               | CentOS 7.0   | x86                  | 64          |
-| CDH                     | 6.3     | 64               | CentOS 7.0   | x86                  | 64          |
+	Standard storage pool, deduplication storage pool, local storage pool, file synthetic pool, tape library pool, object storage service pool, and LAN-free pool
+
+- Backup schedules
+
+	Immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Data processing
+
+	Data compression, data encryption, multiple channels, reconnection, speed limit, and replication
+
+- Restore types
+
+	Point-in-time restore, instant recovery, and recovery testing
+
+- Restore targets
+
+	Original host, different host, different system (restore files between Hadoop and Linux), and different architecture (restore files from Hadoop to an operating system or object storage)
+
+- Restore options
+
+	Incremental restore, restore location (original path or customized path), and process invalid paths
+
+
+## Planning and preparation
+
+Before you install the agent, check the following prerequisites:
+
+1. You have already installed and configured other backup components, including the backup server and the storage server.
+2. You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.
+
+```{note}
+The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).
 ```
 
-### Download Agent Package
+## Install and configure the agent
 
-Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
+To back up and restore Hadoop, first install the ADPS agent on a host that can communicate with Hadoop.
 
-![hadoop_agent01](../images/01-agent/hadoop/hadoop_agent01.png)
+### Verify the compatibility
 
-###  Install and Configure Agent on Linux
+Before you install the agent, ensure that the Hadoop environment is on the Aurreum Data Protection Suite's compatibility lists.
 
-1. Install the Hadoop runtime environment before installing the agent.
+ADPS supports the backup and restore of Hadoop of multiple versions, including:
 
-- Unzip the offline package for Hadoop runtime environment:
-
+- Hadoop 2.2.x/2.6.x/2.7.x/2.8.x/2.9.x/3.0.x/3.1.x/3.2.x
+- CDH 6.0/6.1/6.2/6.3
+```{only} scutech
+- FusionInsight HD V100R002C50/V100R002C60/V100R002C70/V100R002C80
 ```
-  $ sudo tar -axf hadoop-2.10.0.tar.xz
-```
 
-  After unzipping, you will see a hadoop-2.10.0 directory.
+### Install the agent
+
+The ADPS agent can be installed on Linux and supports online and offline installation. We recommend online installation.
+
+1. Online installation:
+	ADPS provides `curl` and `wget` commands for installation.
+2. Offline installation:
+	See [Offline installation](../agent_install/agent_install.md#offline-installation) in Aurreum Data Protection Suite Agent Installation Guide.
+
+Before you install the Hadoop backup agent, install the Hadoop runtime environment on the backup host.
+
+- Unzip the Hadoop runtime environment offline package to a directory (C, in this example):
+
+	```
+	$ sudo tar -axf hadoop-2.10.0.tar.xz -C <dir>
+	```
+
+	`hadoop-2.10.0` appears in directory C.
 
 - Install OpenJDK:
 
-  ```
-  $ sudo apt-get install openjdk-8-jre-headless
-  ```
+	```
+	$ sudo tar -axf Ubuntu20.04-OpenJDK11-AMD64.tar.gz
+	```
 
-  > Note:
-  >
-  > - Select the version and set the directory according to your needs. The default directory is in the /usr/lib/jvm/ directory.
+	`openjdk11` appears in the directory.
 
-2. Select **Linux** as the system and **Hadoop** as the module. Copy an installation command.
+	Only install the `openjdk-11-jre-headless` environment:
 
-![](../images/01-agent/hadoop/hadoop_agent02.png)
+	```
+	$ sudo dpkg -i openjdk11/*.deb
+	```
 
-3. Paste the command on the command line, and press Enter to execute the installation.
+```{note}
+Fill in the JRE directory and version. The default directory is `/usr/lib/jvm/jre`.
+```
 
-![](../images/01-agent/hadoop/hadoop_agent03.png)
+To install the agent online, do the following:
 
-- Follow the instructions to complete the configuration.
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
 
-  - input jre home
+	(1) From the **Select system** list, select **Linux**.
 
-  ```
-    Enter the absolute path of OpenJDK.
-    For example: /usr/lib/jvm/java-8-openjdk-amd64/jre
-  ```
+	(2) From the **Component** list, select **Hadoop**. The `curl` and `wget` commands appear in the window.
 
-    ![hadoop_agent04](../images/01-agent/hadoop/hadoop_agent04.png)
+	(3) If you want to delete the downloaded package automatically after the installation, select the **Delete installation package** check box.
 
-  - input hadoop home
+	(4) If you enable **Ignore SSL errors**, the installation will ignore certificate errors and so on. If you disable the option, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.
 
+5. Click the **Copy** icon to copy the `curl` or `wget` command.
+6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
+
+	```{code-block} python
+	root@ubuntu:~# curl -o- "http://192.168.17.90:50305/d2/update/script?modules=hadoop&location=http%3A%2F%2F192.168.17.90%3A50305&access_key=929a401135dc8f06efbc29c3ea86e3f9&rm=yes&tool=curl" | sh
+	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+	100  9205    0  9205    0     0  1797k      0 --:--:-- --:--:-- --:--:-- 2247k
+	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+	0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	100 52.3M  100 52.3M    0     0   297M      0 --:--:-- --:--:-- --:--:--  297M
+	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+	0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	100 5730k  100 5730k    0     0  81.1M      0 --:--:-- --:--:-- --:--:-- 81.1M
+	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+	0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	100 1576k  100 1576k    0     0  7690k      0 --:--:-- --:--:-- --:--:-- 7690k
+	```
+
+7. Wait for the installation to complete.
+
+## Activate licenses and authorize users
+
+After the agent installation, go back to the **Resource** page. The host with the agent installed appears on the page. Before you back up and restore Hadoop, register the host, activate the Hadoop backup license, and authorize users.
+
+To activate licenses and authorize users, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. On the **Resource** page, select the host where the Hadoop_Proxy resides. Click the **Register** icon. After the registration, the **Activate** window appears. Click **Submit**.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/register_hadoop_proxy.png)
+	```
+
+3. After you activate the license, the **Configure** window appears. In the **Configure** window, do the following:
+
+	(1) In the **Name** field, enter a name for the host.
+
+	(2) From the **Data network** list, select a network from those added on the **Network** page as the data network.
+
+	(3) In the **Preferred egress network** field, enter an IP address for the preferred network traffic egress of the host's backup data. IPv4 and IPv6 are supported.
+
+	(4) From the **User group** list, select user groups to authorize access to the resource.
+
+    ```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/configure_hadoop_proxy.png)
+  	```
+
+	```{note}
+	1. If you are prompted with "No enough licenses", contact the administrator to add licenses.
+	2. With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
+	```
+
+## Add and activate a Hadoop cluster
+
+### Add a Hadoop cluster
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. From the toolbar, click the "+" icon and select **Hadoop cluster**. The **Add Hadoop cluster** window appears.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_01.png)
+	```
+
+3. ADPS supports two authentication methods for Hadoop clusters: Simple and Kerberos. If you have configured your Hadoop cluster with the Kerberos authentication service, select Kerberos when adding the cluster. If your Hadoop cluster does not have the Kerberos service, you can use the default Simple authentication. You can click the "+" icon in the bottom left corner of the window to add multiple NameNodes.
+
+	In the **Add Hadoop cluster** window, do the following:
+
+	(1) Create the Hadoop resource.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_02.png)
+	```
+
+	- In the **Name** field, enter a name for the cluster.
+	- From the **Backup host** list, select a host to list backup content and as the default host for backups and restores.
+	- In the **Host** field, enter the IP or the name of the host where the NameNode resides. If you have created Principal using the hostname when configuring the Kerberos authentication, then enter the hostname in the **Name** field, and add the IP and corresponding hostname in the `hosts` file on the selected backup host.
+	- Enable **SSL** only when the Hadoop cluster has configured and enabled the HTTPS service. Otherwise, deselect the option.
+	- In the **REST API port** field, enter the port number. The default number for HTTP is 50070, and for HTTPS is 50470. Modify the port number according to your cluster configuration. You can check whether a port number is configured for the `dfs.namenode.http(s)-address` parameter in the `hdfs-site.xml` file. If no port number is configured, use the default number in this field.
+	- In the **RPC API port** field, enter the port number. The default number is 8020. Modify the port number according to your cluster configuration. You can check whether a port number is configured for the `fs.defaultFS` parameter in the `core-site.xml` file. If no port number is configured, use the default number in this field.
+	- In the **User** field, enter an HDFS user. If HDFS is configured with the Kerberos authentication, enter the user of Principal authenticated in the `keytab` file. Example: There is a Principal user `test@HADOOP.COM`. Then enter `test` in this field.
+
+	(2) Simple authentication
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_03.png)
+	```
+
+	- From the **Authentication method** list, select **Simple**.
+	- In the **`core-site.xml` file** field, upload the `core-site.xml` file of the cluster. This option is not required for the **Simple** authentication.
+	- In the **`hdfs-site.xml` file** field, upload the `hdfs-site.xml` file of the cluster. This option is not required for the **Simple** authentication.
+
+	(3) Kerberos authentication
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_04.png)
+	```
+
+	- From the **Authentication method** list, select **Kerberos**.
+	- In the **Realm name** field, enter the Realm name that you configured for Kerberos.
+	- In the **Realm KDC server** field, enter the IP or hostname of the Realm KDC server. The default port number is 88. Add the number if your port is different from the default number.
+	- In the **Realm Admin server** field, enter the IP or hostname of the Realm Admin server. The default port number is 88. Add the number if your port is different from the default number.
+	- In the **RPC API Principal** field, enter the name of the PRC API Principal. You can check the name in the `keytab` file. Example: `klist -k -t test.keytab`.
+	- In the **REST API Principal** field, enter the name of the REST API Principal. You can check the name in the `keytab` file. Example: `klist -k -t test.keytab`.
+	- In the **UDP preference limit** field, set the maximum value for the UDP transport package. When the data package exceeds this value, TCP will be used for the transport. The default value is 1, with which TCP is used for the transport. Adjust this value according to the parameter in the `/etc/krb5.conf` file of the KDC service.
+	- For the **`krb5.keytab` file** field, get the `keytab` file and copy it to a safe location on the host that has access to the ADPS console.
+	- In the **`core-site.xml` file** field, upload the `core-site.xml` file of the cluster. This option is required for the **Kerberos** authentication.
+	- In the **`hdfs-site.xml` file** field, upload the `hdfs-site.xml` file of the cluster. This option is required for the **Kerberos** authentication.
+
+### Activate the Hadoop license
+
+To activate the Hadoop license and authorize users, do the following:
+
+1. After you add the Hadoop cluster, a window to activate the Hadoop license appears. Click **Activate**.
+
+2. After activation, click **Authorize** beside the Hadoop resource. The **Authorize** window appears.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_05.png)
+	```
+
+3. In the **Authorize** window, do the following:
+
+    (1) From the **User group** list, select user groups to authorize access to the resource.
+
+    (2) Set the resource as **Protected** or not. The **Protected** resource cannot be the restore target or the data replication target unless the administrator removes the **Protected** label.
+
+    ```{only} scutech
+    ![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_06.png)
     ```
-    Enter the absolute path of hadoop-2.10.0
-    For example:/home/user/hadoop-2.10.0
+
+	```{note}
+	If you are prompted with "No enough licenses", contact the administrator to add licenses.
+	```
+
+If the parameters of the added cluster have changed, including the IP, port, and authentication method, you can click **Configure** to modify the configuration.
+
+```{only} scutech
+![](../images/Backup_Restore/DBackup3/Hadoop/add_hadoop_resources_07.png)
+```
+
+## Backup
+
+### Backup types
+
+ADPS provides two common backup types (full backup and incremental backup) and one advanced (synthetic backup) for Hadoop.
+
+- Full backup
+
+	Backs up the Hadoop directories or files and copies all the directories and files at some point in time.
+
+- Incremental backup
+
+	Backs up only the files that have changed since the last backup (including the full backup and the incremental backup) with a full backup as the baseline.
+
+- Synthetic backup
+
+	The first synthetic backup is a full backup and the subsequent ones are incremental. When the synthesis condition is reached, the latest full backup and subsequent incremental backup will be synthesized to create a new full backup copy. Synthetic backups can improve the restore performance. You can directly mount the full backup copy to the target host through an instant recovery job without physical copies and additional storage space.
+
+### Backup policies
+
+ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Immediate: ADPS will immediately start the job after it is created.
+- One-time: ADPS will perform the job at the specified time once only.
+- Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.
+- Daily: ADPS will perform the job periodically at the specified time and day intervals.
+- Weekly: ADPS will perform the job periodically at the specified time and week intervals.
+- Monthly: ADPS will perform the job periodically at the specified dates and times.
+
+You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:
+
+1. Perform a **full backup** once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.
+2. Perform an **incremental backup** every day when the application traffic is relatively small (Example: at 2 a.m.) to ensure that you have a recoverable point in time every day, which can save storage space and backup time.
+
+To use the advanced synthetic backup, we recommend the following backup policy:
+
+- Perform a **synthetic backup** every day to ensure that you have a recoverable point in time every day.
+
+### Before you begin
+
+Before you back up and restore Hadoop, check whether any storage pools have been created and authorized.
+
+1. From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
+2. Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
+
+	```{note}
+	To use synthetic backups, ensure that your environment fulfills the following requirements:
+	- You have advanced licenses: Hadoop synthetic backup and Hadoop CDM.
+	- You have created a file synthetic pool for the current user.
+	```
+
+```{only} scutech
+![](../images/Common/storage_pool.png)
+```
+
+### Create a backup job
+
+To create a backup job, do the following:
+
+1. From the menu, click **Backup**. The backup job wizard appears.
+2. At the **Hosts and resources** step, select the Hadoop host and resource. The wizard goes to the next step automatically.
+3. At the **Backup source** step, do the following:
+
+	```{note}
+	For incremental backups, the **Backup source** step only requires a full backup selected as their baseline and there is no need to select the directories and files again.
+	```
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_backup_01.png)
+	```
+
+	(1) From the **Backup type** list, select a backup type.
+
+	(2) In the **Backup source** section, click + to expand folders and select the files or folders that you want to back up.
+
+	(3) If you want to filter the selected files and folders in the **Backup source**, click **Filter** below the **Backup source** field. The **Filter** window appears.
+
+	- The **Exclusion** option is disabled by default. If you want to exclude some directories or files from the backup job, enter the directories and files in this field.
+	- You can select the **Inclusion** checkbox and enter directories and files in case their parent directories are listed in the **Exclusion** field.
+
+	```{note}
+	For example, there are directories `/data` and `/test`. `/test` has hundreds of files. Some are `.txt`, some are `.dat`, and so on. The whole directory `/data` and all the `.txt` files under the directory `/test` need to be backed up.
+	1. First select `/test` and `/data` in the **Backup source**. Then open the **Filter** window.
+	2. Enter `/test` in the **Exclusion**.
+	3. Select the **Inclusion** checkbox and enter `*.txt` in the field.
+	4. The backup result will be `/data` with all the data and `/test` with only `.txt` files.
+	```
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_backup_02.png)
+	```
+
+	Here is an example of using the wildcard `*` in **Filter**. Assume that the backup source includes the following directories and files:
+
+	```{code-block} python
+	root@ubuntu:/# tree /backup/
+	/backup/
+	└── test
+    	├── group_1
+		│   └── sub_group
+    	│       ├── file1.dat
+    	│       └── file1.txt
+    	├── group_2
+    	│   └── sub_group
+    	│       ├── file2.dat
+    	│       └── file2.txt
+    	└── no_group
+	```
+
+	```{tabularcolumns} |\Y{0.2}|\Y{0.25}|\Y{0.55}|
+	```
+	```{table} Filter example
+	---
+	class: longtable
+	---
+	|Exclusion|Inclusion|Result|
+	| --- | --- | --- |
+	|`/backup/*`|`/backup/test/group_*/*`|Directories `group_1` and `group_2` and all their subdirectories are backed up|
+	|`/backup/*`|`*.txt`|`.txt` files, their directories, and the directory `no_group` are backed up|
+	|`*.txt`||All the directories and files except `.txt` files are backed up|
+	```
+
+4. At the **Backup host** step, select a backup host and resource. The wizard goes to the next step automatically.
+5. At the **Backup target** step, select a storage pool. Click **Next**.
+
+	```{note}
+	Incremental backups do not have the **Backup target** step because their backup target is the same as the selected full backup at the **Backup source** step.
+	```
+
+6. At the **Backup schedule** step, set the job schedule. For details, see [Backup policies](#backup-policies). Click **Next**.
+
+	- Select **Immediate**. ADPS performs the job immediately after it is created.
+	- Select **One time** and set the start time for the job.
+	- Select **Hourly**. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
+
+7. At the **Backup options** step, set the common and advanced options according to your needs. For details, see [Backup options](#backup-options). Click **Next**.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_backup_03.png)
+	```
+
+8. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+9. After the submission, you will be redirected to the **Job** page automatically. On this page, you can start, modify, and delete the job.
+
+### Backup options
+
+ADPS provides the following backup options for Hadoop:
+
+- Common options
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Backup common options
+---
+class: longtable
+---
+|Feature|Description|Limitations|
+| --- | --- | --- |
+|Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Uses the fast compression algorithms to compress data during the backup job.||
+|Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 255.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.|Only available for full backup and synthetic backup jobs.|
+|Snapshot|Enable this option to perform Hadoop snapshot backups. It is disabled by default.|Only available for full backup and synthetic backup jobs. The setting of incremental backups is the same as that of the baseline full backup.|
+```
+
+- Advanced options
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Backup advanced options
+---
+class: longtable
+---
+|Feature|Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+```
+
+## Restore
+
+### Restore types
+
+For different needs, ADPS provides several restore types for Hadoop, including:
+
+- Point-in-time restore
+
+	Restores the Hadoop folders or files to a specified point in time. The restore target can be the original host, a different host, the original path, and a customized path.
+
+- Instant recovery
+
+	Achieves fast recovery by mounting the Hadoop backup sets from the storage server with the following advantages: fast recovery speed, little resource consumption, reduced disk space, and improved availability of backup sets.
+
+- Recovery testing
+
+	Restores the latest backup sets to another path on the original host or a different host hourly, daily, weekly, and monthly.
+
+### Before you begin
+
+To restore Hadoop to a different host, install the agent on that host or register the Hadoop resource, activate the licenses, and authorize user access to the resource.
+
+### Create a point-in-time restore job
+
+To create a point-in-time restore job, do the following:
+
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the Hadoop host and resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_timepoint_restore_01.png)
+	```
+
+	(1) From the **Storage pool** list, select a storage pool with backup sets, including the source and target pools with pool replication relation. **Default** refers to the one where the selected backup sets reside.
+
+	(2) From the **Restore type** list, select **Point-in-time restore**.
+
+	(3) In the **Restore source** section, select a point in time for the restore job.
+
+	(4) In the **File** section, select files for the restore job. All the files in the backup set will be selected by default. You can select or deselect the files.
+
+    ```{note}
+    Files in backup sets from local storage pools and LAN-free pools cannot be listed in the **File** field.
     ```
 
-    ![hadoop_agent05](../images/01-agent/hadoop/hadoop_agent05.png)
+	(5) Click **Next**.
 
-- If you need to reconfigure the hadoop runtime environment, enter the following command:
+4. At the **Restore target** step, select a host and resource as the target. The wizard goes to the next step automatically.
 
-  ```
-  sudo dpkg-reconfigure adps-agent-hadoop
-  ```
+	```{note}
+	If you select a Hadoop or object storage resource as the restore target, the wizard will go to the **Backup host** step. After you select a backup host, the wizard goes to the next step automatically.
+	```
 
-### Check Successful Installation
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-After the successful installation, log in to the ADPS console as the admin and go to the **Resource** page. The host with the agent installed will be available on the **Resource** list.
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-![hadoop_license01](../images/02-license/hadoop/hadoop_license01.png)
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-## Activate License and Assign Authorization
+### Create an instant recovery job
 
-This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See Batch Activate from *Administrator's Guide* for more details.
+```{note}
+1. The `adps-nfsd` package should be installed on the storage server for Hadoop instant recovery.
+2. Hadoop instant recovery only supports backup sets from standard storage pools (with neither **Multi-storage** nor **Data storage encryption** enabled) and file synthetic pools.
+```
 
-### Register Host
+To create an instant recovery job, do the following:
 
-Log in to ADPS as the admin, go to **Resource**, and select the host that you need to activate. Click the **Register** icon.
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the Hadoop host and resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
-![hadoop_license02](../images/02-license/hadoop/hadoop_license02.png)
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_instant_recovery_01.png)
+	```
 
-### Activate License
+	(1) From the **Storage pool** list, select a storage pool with backup sets, including the source and target pools with pool replication relation. **Default** refers to the one where the selected backup sets reside.
 
-In the pop-up **Activate** window, select the Hadoop resource that you want to activate. Click **Submit**.
+	(2) From the **Restore type** list, select **Instant recovery**.
 
-![hadoop_license03](../images/02-license/hadoop/hadoop_license03.png)
+	(3) In the **Restore source** section, select a point in time for the restore job.
 
-### Authorize User
+	(4) Click **Next**.
 
-After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window.
+4. At the **Export** step, do the following:
 
-![hadoop_license04](../images/02-license/hadoop/hadoop_license04.png)
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_instant_recovery_02.png)
+	```
 
-## Add, Activate, and Modify Hadoop Cluster
+	(1) In the **Export** field, set the mount point for the export. The path must begin with / and can be 2-30 characters with letters or numbers.
 
-### Add Hadoop Cluster
+	(2) In the **Access control list** field, add the agents that can mount and access the backup set. It supports IP addresses and network segments. * means all agents can access the backup set.
 
-1. Click the **"+"** icon and select **Hadoop Cluster** on the Resource->Resource page to add the Hadoop Cluster.
+	(3) From the **Conversion path coding** list, select **None**, **GBK**, **GB18030**, or **BIG5**. **None** is selected by default, in which UTF8 is used for instant recovery.
 
-![hadoop_register01](../images/03-hadoop/hadoop_register01.png)
+	(4) Expand the **Advanced options**. From the **Bridge** list, select whether to use a network bridge or not. **None** is selected by default. You can use the network bridge to export backup sets to avoid conflicts with the NFS service of the operating system.
 
-2. Two authentication methods are available for adding Hadoop Cluster: Simple and Kerberos.
+    ```{note}
+	1. To use a network bridge, enter the IP address, subnet mask, and default gateway. The IP address must be a valid address that is not used in this network segment.
+	2. Install `bridge-utils` on the storage server for bridge settings, with which ADPS can recognize the network bridge after it is started. Add the following content to the configuration file `/etc/network/interfaces`:
+		```{code-block}
+		auto br0
+		iface br0 inet static
+		address 192.168.88.10
+		netmask 255.255.255.0
+		gateway 192.168.88.1
+		bridge_ports bond0
+		bridge_stp off
+		bridge_fd 9
+		bridge_hello 2
+		bridge_maxage 12
+		```
+	```
 
-   If the Hadoop cluster you are adding is configured with Kerberos, select **Kerberos**. If the Hadoop cluster to be added is not configured with Kerberos authentication, you can use the default **Simple** authentication method.
+5. At the **Finish** step, confirm the job information and click **Submit**.
+6. After the submission, you will be redirected to the help page. Mount the files manually according to the procedure. On the **CDM** page, a copy with a mounted state is added below the selected point in time. For more details, see [View a copy](#view-a-copy).
 
-   Click the “**+**” icon in the lower left corner on the **Add Hadoop Cluster** page to add multiple NameNodes (HA).
+### Create a recovery testing job
 
-- Options for adding Hadoop Cluster
+To create a recovery testing job, do the following:
 
-  ![hadoop_register02](../images/03-hadoop/hadoop_register02.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the Hadoop host and resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
-  - **Name**: Enter the name for the Hadoop Cluster.
-  - **Host**: Enter the IP or the name of the NameNode host. If the Principal is created using a hostname when Kerberos is configured, the hostname must be specified in this field. The IP address of the host and the corresponding hostname resolution must be added to the hosts file of the machine where the agent is installed.
-  - **SSL**: To use SSL, it is required to enable HTTPS for the Hadoop cluster. The option is checked by default.
-  - **RPC API Port**: The default value is 8020. The value needs to be modified according to the actual port if the cluster is configured with other port.
-  - **REST API Port**: The default value is 50470 for HTTPS. When the SSL is not checked, the value is 50070 for HTTP. The value needs to be modified according to the actual port if the cluster is configured with other port.
-  - **User**: HDFS user. For the Hadoop cluster that uses Kerberos, fill in the authenticated user in the keytab file.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_recovery_testing_01.png)
+	```
 
-- Options for the Simple Authentication Method
+	(1) From the **Storage pool** list, select a storage pool with backup sets, including the source and target pools with pool replication relation. **Default** refers to the one where the selected backup sets reside.
 
-  ![hadoop_register03](../images/03-hadoop/hadoop_register03.png)
+	(2) From the **Restore type** list, select **Recovery testing**.
 
-  - **Authentication Method**: Simple is selected by default.
-  - **core-site.xml file**: Upload the core-site.xml file of the cluster. The Simple authentication method does not require file uploading.
-  - **hdfs-site.xml file**: Upload the hdfs-site.xml file of the cluster. The Simple authentication method does not require file uploading.
+	(3) In the **Restore source** section, select a point in time for the restore job.
 
-- Options for the Kerberos Authentication Method
+	(4) In the **File** section, select files for the restore job. All the files in the backup set will be selected by default. You can select or deselect the files.
 
-  ![hadoop_register08](../images/03-hadoop/hadoop_register08.png)
+    ```{note}
+    Files in backup sets from local storage pools and LAN-free pools cannot be listed in the **File** section.
+    ```
 
-  - **Authentication Method**: Select Kerberos as the authentication method.
-  - **Realm Name**: Fill in the Realm name used to configure Kerberos.
-  - **Realm KDC**: The IP or the hostname of the Realm KDC server. The default port is 88. If the port number is the default value, you can leave it out. If the port number is not the default value, you must enter the value.
-  - **Realm Admin Server**: The IP or the hostname of Realm Admin Server. The default port is 88. If the port number is the default value, you can leave it out. If the port number is not the default value, you must enter the value.
-  - **RPC API Principal**: Fill in the RPC API Principal name.
-  - **REST API Principal**: Fill in the REST API Principal name.
-  - **UDP Preference Limit**: This parameter specifies the maximum value of UDP packets. Packets larger than the maximum value are transmitted using TCP. The default value is 1, and TCP is used by default. It should be adjusted according to the parameters in /etc/krb5.conf of KDC service.
-  - **krb5.keytab file**: Upload the krb5.keytab file.
-  - **core-site.xml file**: Upload the core-site.xml file of the cluster. To use Kerberos authentication, you must upload the file.
-  - **hdfs-site.xml file**: Upload the hdfs-site.xml file of the cluster. To use Kerberos authentication, you must upload the file.
+	(5) Click **Next**.
 
-### Activate Hadoop
+4. At the **Restore target** step, select a host and resource as the target. The wizard goes to the next step automatically.
 
-Activate the Hadoop cluster after it has been successfully added. Click **Activate**.
+	```{note}
+	If you select a Hadoop or object storage resource as the restore target, the wizard will go to the **Backup host** step. After you select a backup host, the wizard goes to the next step automatically.
+	```
 
-![hadoop_register04](../images/03-hadoop/hadoop_register04.png)
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-In the pop-up **Activate** window, select the resource you want to activate. Click **Activate XX Edition**.
+	- Select **Hourly**. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
 
-![hadoop_register05](../images/03-hadoop/hadoop_register05.png)
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-After the successful activation, authorize users to have permissions of the resource in the pop-up **Authorize** window.
+### Restore options
 
-![hadoop_register06](../images/03-hadoop/hadoop_register06.png)
+ADPS provides the following restore options for Hadoop:
 
-### Modify Hadoop Cluster
+- Common options:
 
-If the parameters of an added cluster, such as the Host, RPC API port, and Authentication Method, are changed, modify the cluster settings by clicking the **Set up** icon on the Resourbefore the Hadoop cluster continues to be used properly.
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Restore common options
+---
+class: longtable
+---
+|Feature |Description|Limitations|
+| --- | --- | --- |
+|Channels|It can improve restore efficiency. The default value is 1. The value cannot exceed that of the backup set.||
+|Restore location|You can set the restore location to the original location or a specified location. To specify a location, enter the path manually or click Browse to select the target folder.||
+|Incremental restore|Only when you select an incremental backup set for the restore will this option become available. It is disabled by default. If you enable this feature, the job will only restore the incremental data at the selected point in time.|Only available for point-in-time restore jobs.|
+```
 
-![hadoop_register07](../images/03-hadoop/hadoop_register07.png)
+- Advanced options:
 
-## Before You Begin
+```{tabularcolumns} |\Y{0.2}|\Y{0.6}|\Y{0.2}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Feature |Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Process invalid paths|- Do not check and convert paths{{ br }}- Ignore paths with illegal characters{{ br }}- Erase illegal characters{{ br }}- Escape illegal characters||
+```
 
-### Check Resource
+## Copy data management
 
-Log in to ADPS as the operator and go to **Resource**. You can see the activated and authorized resource on the list and its state is "Online". If the resource is not available, see *Activate License and Assign Authorization* and *Add, Activate, and Modify Hadoop Cluster* for details.
+On the **CDM** page, you can manage the copies generated by instant recovery and synthetic backup jobs, including viewing, cloning, unmounting, and deleting copies.
 
-![hadoop_resources01](../images/03-hadoop/hadoop_resources01.png)
+### View a copy
 
-### Check Storage Pool
+To view copies, do the following:
 
-Log in to ADPS as the operator, go to **Storage Pool**, and verify there is any storage pool available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.
+1. From the menu, click **CDM**. The **CDM** page appears.
+2. From the toolbar, select the resource and the period when copies are created. The display area shows copies of this resource in this period. Copies are named by the creation time.
+3. Click the copy name. The details of this copy appear on the right side of the page. Different icons represent different copy types.
 
-![hadoop_storaged01](../images/03-hadoop/hadoop_storaged01.png)
+	- Full copy: A data copy created by a synthetic backup.
+	- Mounted copy: A data copy created by an instant recovery.
 
-## Create Backup Jobs
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_cdm_01.png)
+	```
 
-This chapter introduces how to back up Hadoop. All Hadoop that have been added, registered, and authorized successfully are available for the backup operation.
+### Clone a copy
 
-### Prerequisites
+You can click the **Clone copy** icon to create an instant recovery job for the synthetic copy to create a new mounted copy.
 
-- You have installed the agent. For installation, please see *Install and Configure Agent*.
-- The license has been activated and the resource has been authorized to users. For details, see *Activate License and Assign Authorization* and *Add, Activate, and Modify Hadoop Cluster*.
-- Log in to ADPS console as the *operator*.
+To clone a copy, do the following:
 
-### Create Full Backup Jobs
+1. From the menu, click **CDM**. The **CDM** page appears.
+2. From the toolbar, select the resource and the period when copies are created. The display area shows the copies in this period.
+3. On the display area, click a full copy under the resource. The **Clone copy** icon appears on the right of the copy.
 
-(1) Click **Backup**. Select the Hadoop host and instance.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_cdm_02.png)
+	```
 
-(2) Select **Full** as the backup type. Select folders or files that you want to back up.
+4. Click the **Clone copy** button. You will be redirected to the **Backup sets** step. See [Create an instant recovery job](#create-an-instant-recovery-job) to configure the job.
 
-![hadoop_backup01](../images/03-hadoop/hadoop_backup01.png)
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_cdm_03.png)
+	```
 
-(3) Select **Agent**. Choose Hadoop_Proxy.
+5. After the instant recovery, a copy with a mounted state is added below the selected point in time on the **CDM** page.
 
-(4) Select **Backup Target**. You can choose the standard storage pool, de-duplication storage pool, tape library pool, object storage service pool and LAN-Free pool.
+### Unmount a copy
 
->  **Note**:
->
->  - It is not supported to store full backups and incremental backups in different storage pools.
+You can click the **Unmount** icon to unmount the mounted copies. This operation will make the mounted directory on the restore target inaccessible.
 
-(5) Go to **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis.
+To unmount a copy, do the following:
 
-(6) Set **Backup Options**, including common options and advanced options.
+1. From the menu, click **CDM**. The **CDM** page appears.
+2. From the toolbar, select the resource and the period when copies are created. The display area shows the copies in this period.
+3. Expand the full backup copy and select a mounted copy. The **Unmount** icon appears on the right of the copy.
 
-- **Common options**:
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Hadoop/hadoop_cdm_04.png)
+	```
 
-![hadoop_backup02](../images/03-hadoop/hadoop_backup02.png)
-
-**Compression**: **Fast** is enabled by default.
-
-- None: No compression during the backup.
-- Tunable: You can customize the compression level. This option requires activation of Advanced Compression feature.
-- Fast: Use the fast compression algorithms during the backup.
-
-**Channels**: Used to improve backup efficiency. The default value of Channels is 1, and the range is 1 to 255. For details, see *Channel Number Configuration*.
-
-- **Advanced options**:
-
-![hadoop_backup03](../images/03-hadoop/hadoop_backup03.png)
-
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
-
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
-
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
-
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-(6) Set **Job Name** and confirm the job information. Click **Submit**.
-
-### Create Incremental Backup Jobs
-
-An incremental backup only backs up data that has changed since the last backup. It is recommended to create incremental backup jobs at short intervals (such as daily) to ensure that you have at least one recoverable RTO every week.
-
-- Creating an incremental backup job is the same as creating a full backup job. Select **Incremental** as the backup type. Choose the full backup job as the base.
-
-  ![hadoop_icr01](../images/03-hadoop/hadoop_icr01.png)
-
-
-### Create Synthetic Backup Jobs
-
-Synthetic backup is the practice that ADPS synthesizes the existing full backup set as the base with subsequent incremental backup sets to generate a new synthetic backup set.
-
-Due to the use of the synthetic backup method, the storage device does not need to keep multiple copies of full backup data, correspondingly reducing pressure on storage space management and the storage cost caused by data growth.
-
-To restore the incremental backup set, ordinary backups need to refer to several different points in time, and then restore the data to be restored, which will inevitably lead to performance and time consumption. In contrast, synthetic backup only needs to refer to one backup point in time, improving the restore efficiency accordingly.
-
-Creating a synthetic backup job is similar to creating a full backup job.
-
-(1) Select **Synthetic Backup** as the backup type and choose file folders or files.
-
-![hadoop_merge01](../images/03-hadoop/hadoop_merge01.png)
-
-(2) Select **Backup Target**. You can only select the file synthetic pool as the backup target. If the file synthetic pool is not listed, please contact the admin to create one.
-
-![hadoop_merge02](../images/03-hadoop/hadoop_merge02.png)
-
-## Create Restore Jobs
-
-This chapter introduces how to restore Hadoop. According to the actual needs of users, ADPS provides a variety of restore types including timepoint restore, instant recovery, and recovery testing.
-
-### Create Timepoint Restore Jobs
-
-When folders or files on HDFS are lost, timepoint restore can be used to restore files to the specified point-in-time state. It supports the restore to the source or different host, and the restore to the original or custom path.
-
-(1) Select the Hadoop host and instance. Click **Next**.
-
-(2) Select **Timepoint Restore** and the Hadoop backup point in time required to restore. All incremental backup points in time are displayed under the full backup job as the base. Click **Next**.
-
-![hadoop_restore01](../images/03-hadoop/hadoop_restore01.png)
-
->Note:
->
->- For the backups stored in the local storage, all backup points in time will be listed in the Restore Source box, but the backup source will not be displayed in the File box. You can select the backup point in time to restore the corresponding backup set.
-
-(3) Set **Restore Target**. It supports restoring to the source host, different host, Hadoop resource, and object storage resource. Click **Next**.
-
-![hadoop_restore02](../images/03-hadoop/hadoop_restore02.png)
-
-> Note:
->
-> - Some HDFS attributes cannot be restored to the OBS and POSIX file systems.
-
-(4) Select **Agent**. Select Hadoop_Proxy.
-
-(5) Set **Restore Schedule**. It only supports immediate and one-time restore schedules.
-
-(6) Set **Restore Options** including common and advanced options.
-
-- **Common options**:
-
-![hadoop_restore03](../images/03-hadoop/hadoop_restore03.png)
-
-**Channels**: This option can improve backup efficiency. The default value is 1, and the range is 1 to 255. For details, please see *Channel Number Configuration*.
-
-**Incremental restore**: Only incremental data at the selected point in time is restored. This option appears only if you select an incremental backup point in time.
-
-**Restore location**: You can set the the original path or custom path as the restore location. Enter the custom path manually or click **Browse** to select the target folder in the pop-up box.
-
-- **Advanced options**:
-
-![hadoop_restore04](../images/03-hadoop/hadoop_restore04.png)
-
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
-
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
-
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
-
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-**Illegal path processing**: Choose how to deal with illegal paths. Four solutions are available: do not check and convert path legitimacy, skip paths with illegal characters, erase illegal characters, and escape illegal characters.
-
-(7) Set **Job Name**. Confirm the job information and submit the job.
-
-### Create Instant Recovery Jobs
-
-Hadoop Instant Recovery allows you to instantly recover Hadoop backup set in the storage server by mounting. It recovers data quickly, uses less resources, saves disk space, and increases the availability of backup sets.
-
-> Note:
->
-> - Hadoop Instant Recovery requires the adps-nfsd package to be installed on the server where Storaged is located.
-> - Hadoop Instant Recovery currently only supports recovering backup sets from standard storage pools without multi-storage and data storage encryption enabled, and from file synthetic pools on Ubuntu.
-
-The interface provides the following two portals to create instant recovery jobs for cloning copies: **Restore** and **CDM**.
-
-#### Create from Restore Page
-
-(1) Enter the **Restore** page. Select the Hadoop host and instance. Click **Next**.
-
-(2) Select **Instant Recovery** as the restore type, and select the Hadoop backup point in time. Click **Next**.
-
-![hadoop_restore05](../images/03-hadoop/hadoop_restore05.png)
-
-(3) On **Export** page, set the export directory and access control list of backup sets. Click **Next**.
-
-![hadoop_restore06](../images/03-hadoop/hadoop_restore06.png)
-
-**Export**: Set the mount point to export.
-
-**Access control list**: Refer to the list of clients that can mount access to the backup sets. It supports the specified IP or network. **"\*"** indicates that any client can access the backup set.
-
-**Bridge**: You can add a bridge to export the backup sets. Exporting over the network bridge can avoid conflicts with the system's nfs services.
-
-**Path conversion type**: UTF8 path encoding is used by default for Hadoop instant recovery.
-
-(4) Confirm whether the job information is correct, and submit the job after confirming that it is correct.
-
-> Note:
->
-> - Enter the fourth bit of the Bridge IP Address in the Advanced Options manually. This IP address must be a valid IP address that is not in use on that network.
->
-> - To set up the bridge, install bridge-utils and add the following to the configuration file in /etc/network/interfaces:
->
->   ```
->   auto br0
->   iface br0 inet static
->   address 192.168.88.10
->   netmask 255.255.255.0
->   gateway 192.168.88.1
->   bridge_ports eth0
->   bridge_stp off
->   bridge_fd 0
->   ```
->
-
-#### Create from CDM Page
-
-On the **CDM** page, you can view data copies generated after the synthetic backup job finished. You can use the **Create Copy** icon to create an instant recovery job.
-
-(1) Open **CDM** and filter out the relevant Hadoop data copies. Select a backup point in time that requires to restore, and click the **Create Copy** icon.
-
-![hadoop_cdm01](../images/03-hadoop/hadoop_cdm01.png)
-
-(2) Other operations such as **Export** and **Finish** are the same as those in the previous section.
-
-#### Check Successful Recovery
-
-After the instant recovery is completed, go to the **CDM** page. You can find a mounted copy record under the corresponding data copy. If you need to mount the copy manually, click **Help** icon for reference.
-
-![hadoop_cdm02](../images/03-hadoop/hadoop_cdm02.png)
-
-- Help: Click the **Help** icon to view the help page where you can follow the steps to mount or unmount manually.
-
-- Edit: Click the **Edit** icon to modify the export directory and access control list.
-- Delete: Click the **Delete** icon to delete the mounted copy.
-
-#### Detach Copy
-
-You can detach the mounted data copies from the agent using the **Detach** icon.
-
-1. Select a detached copy and click the **Detach** icon beside the copy record.
-
-![hadoop_cdm03](../images/03-hadoop/hadoop_cdm03.png)
-
-> Note:
->
-> - Before unmounting the copy, make sure the agent has been uninstalled, if not, you need to uninstall the agent first, then unmount the copy; otherwise, the agent will be undergoing a frozen state when accessing the mount directory.
->
-
-2. Pay attention to the warning, enter the verification code, and click **OK**.
-
-![hadoop_cdm04](../images/03-hadoop/hadoop_cdm04.png)
-
-### Create Recovery Testing Jobs
-
-You can restore the latest backup sets of Hadoop to other instances on the source host or a different host hourly, daily, weekly, or monthly. It is used to verify that the backup set is available.
-
-(1) Select Hadoop host and instance. Click **Next**.
-
-(2) Select **Recovery Testing** as the restore type, select the backup set point in time that you want to restore.
-
-![hadoop_restore07](../images/03-hadoop/hadoop_restore07.png)
-
-(3) Set **Restore Target**. It supports restoring to the source host or different host.
-
-(4) Select **Agent**. Select Hadoop_Proxy.
-
-(5) Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
-
-(6) Set **Restore Options**, including channels, restore location, reconnection time, speed limit, precondition, pre action and post action. Click **Next**.
-
-![hadoop_restore08](../images/03-hadoop/hadoop_restore08.png)
-
-**Channels**: Set the value of Channels to restore. The maximum value cannot exceed the number of channels for the backup job.
-
-**Restore location**: Set the original path or custom path as the restore location. The original path is not supported when you choose to restore to the source host.
-
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
-
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
-
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
-
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-**Processing illegal path**: Choose how to deal with illegal paths. Four solutions are available: do not check and convert path legitimacy, skip paths with illegal characters, erase illegal characters, and escape illegal characters.
-
-(7) Confirm the job information. Click **Submit**.
-
-(8) Wait for the job cycle to be executed. The job will restore the latest backup sets of the source host.
-
-## Manage Jobs
-
-The **Job** page provides the job information of all agents. You can start, modify, clone, and delete the jobs.
-
-![hadoop_job01](../images/03-hadoop/hadoop_job01.png)
-
-
-- Start: Click ![hadoop_job02](../images/03-hadoop/hadoop_job02.png)to start the job immediately.
-- Modify: Click ![hadoop_job03](../images/03-hadoop/hadoop_job03.png)to modify the basic job information, the backup/restore schedule, and the backup/restore options.
-- Delete: Click ![hadoop_job04](../images/03-hadoop/hadoop_job04.png)to access the confirmation window. Click **OK** to delete the job.
-
-## Backup Protection Strategy
-
-###  Backup Schedule Operation
-
-ADPS provides 6 types of backup schedules. The schedule type selected is only valid for the current job creation.
-
-![hadoop_time01](../images/03-hadoop/hadoop_time01.png)
-
-- Immediate: The job immediately starts to run after it is submitted.
-- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
-- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
-- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
-
->  **Example: Perform the job every two weeks on Friday at 18:00**
-
-> ![hadoop_time02](../images/03-hadoop/hadoop_time02.png)
-
-> **The actual execution time is:**
->
-> - If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).
-> - If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).
-> - If the current time is Saturday 17:00, the run time will be next Friday 18:00.
-> - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
-
-### Backup Strategy Advice
-
-ADPS offers three backup types for Hadoop: full backup, incremental backup and synthetic backup. Full backup and incremental backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate:
-
-1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
-2. After that, you can run an **Incremental Backup** every day to reduce the backup window and ensure that you have at least one recoverable RPO every day.
-
-> Note:
->
-> - Perform only full backups.
-> - Perform a full backup followed by all incremental backups.
-
-## Channel Number Configuration
-
-- Channel number for backup jobs
-
-  Hadoop supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
-
-- Channel number for restore jobs
-
-  It is recommended that the channel number is not greater than that for the backup job.
+4. Click the **Unmount** icon. A confirmation window appears.
+5. Confirm the warning and enter the verification code. Click **OK**.
+6. After the unmounting, you can see no such mounted copy record under the full copy.
 
 ## Limitations
+
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
 ```{table} Limitations
 ---
 class: longtable
 ---
-| Function                               | Limitations                                                   |
-| -------------------------------------- | ------------------------------------------------------------ |
-| Interactive restore of files to Hadoop | ADPS does not support restoring the Windows file backup sets to HDFS or the HDFS backup sets to Windows. |
-| Recovery testing                       | ADPS supports recovery testing of Hadoop HDFS backup sets to Linux. {{ br }}ADPS does not support recovery testing of Hadoop HDFS backup sets to Windows.{{ br }}ADPS does not support recovery testing of Hadoop HDFS backup sets to object storage. |
+|Feature|Limitations|
+| --- | --- |
+|Point-in-time restore|Hadoop backup sets cannot be restored to Windows and vice versa.|
+|instant recovery|Only Linux storage server supports instant recovery. {{ br }}It supports standard storage pools with neither **Data storage encryption** nor **Multi-storage** enabled.{{ br }}It supports file synthetic pools.|
+|Recovery testing|It does not support recovering Hadoop backup sets to Windows.{{ br }}It does not support recovering Hadoop backup sets to object storage.|
 ```
 
 ## Glossary
+
 ```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 ```
 ```{table} Glossary
 ---
 class: longtable
 ---
-| Term       | Description                                             |
-| ---------------- | ------------------------------------------------------------ |
-| Fast compression | Compress data during the backup using fast compression algorithm |
+|Term|Description|
+| --- | --- |
+|fast compression|A compression method that uses fast compression algorithms to compress data during the backup job.|
+|cross-system restore|A restore method that restores files from Hadoop to Linux and vice versa.|
+|different-architecture restore|A restore method that restores files from Hadoop to an operating system or object storage.|
 ```
