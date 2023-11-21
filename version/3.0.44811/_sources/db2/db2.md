@@ -81,18 +81,18 @@ Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** ico
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 100  814k  100  814k    0     0  9465k      0 --:--:-- --:--:-- --:--:-- 9465k
-warning: adps-common-V3.0-2-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
+warning: adps-common-V3.0.44811-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
-	package adps-common-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
-warning: adps-agent-V3.0-2-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
+	package adps-common-V3.0.44811-1.1eebb99.dbg.x86_64 is already installed
+warning: adps-agent-V3.0.44811-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
-	package adps-agent-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
-warning: adps-agent-file-V3.0-2-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
+	package adps-agent-V3.0.44811-1.1eebb99.dbg.x86_64 is already installed
+warning: adps-agent-file-V3.0.44811-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
-	package adps-agent-file-V3.0-2-1.1eebb99.dbg.x86_64 is already installed
+	package adps-agent-file-V3.0.44811-1.1eebb99.dbg.x86_64 is already installed
 Restarting adps-agent (via systemctl):  [  OK  ]
 [root@kylinv10x86 ~]#
 ```
