@@ -272,86 +272,48 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-list">Compatibility List</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#single-instance">Single Instance</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">Install and Configure Agent on Windows</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-installation-package">Download Installation Package</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-type">Backup type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-instance">Log in to the instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-mysql-instance-manually">Add a MySQL instance manually</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-point-in-time-restore-job">Create a point-in-time restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-logical-recovery-job">Create a logical recovery job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-instant-recovery-job">Create an instant recovery job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-log-restore-job">Create a log restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-recovery-testing-job">Create a recovery testing job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-data-management">Copy data management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-a-copy">View a copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-a-copy">Clone a copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unmount-a-copy">Unmount a copy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-database-state">Check Database State</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login-resource">Login Resource</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login-instance-for-the-first-time">Login Instance for the First Time</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-mysql-instance-manually">Add MySQL Instance Manually</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-backup-jobs">Create Log Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-continuous-log-backup-jobs">Create Continuous Log Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-backup-jobs">Create Logical Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-backup-jobs">Create Synthetic Backup Jobs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-restore-jobs">Create Logical Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-instant-recovery-jobs">Create Instant Recovery Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-restore-menu">Create from Restore Menu</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-recovery">Check Successful Recovery</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detach-copy">Detach Copy</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-restore-jobs">Create Log Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mysql-cluster">MySQL Cluster</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#master-slave-replication">Master-Slave Replication</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-binding">Cluster Binding</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#master-master-replication">Master-Master Replication</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cluster Binding</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Backup and Restore</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mysql-cluster-backup-and-restore">MySQL cluster backup and restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind-nodes-into-a-cluster">Bind nodes into a cluster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-backup-and-restore">Cluster backup and restore</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
@@ -369,1493 +331,950 @@ document.write(`
                   
   <section id="user-guide-for-mysql">
 <h1>User Guide for MySQL<a class="headerlink" href="#user-guide-for-mysql" title="Permalink to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of MySQL databases. This guide introduces how to properly use ADPS to back up and restore MySQL databases.</p>
-</section>
-<section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
-<table class="longtable table" id="id4">
-<caption><span class="caption-text">Features</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Feature</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Backup source</p></td>
-<td><p>Database (single, multiple), instance</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup type</p></td>
-<td><p>Full backup: Back up an entire copy of the data source. <br> Incremental backup: Back up data blocks that have changed since the last full backup. <br> Log backup: Back up the binary logs of the database instance.  <br> Continuous log backup: Back up binary log files to a real-time backup pool continously.  <br> Logical backup: Back up one or more databases.  <br> Synthetic backup: Full backup for the first time, followed by incremental backups.</p></td>
-</tr>
-<tr class="row-even"><td><p>Backup target</p></td>
-<td><p>Standard storage pool, de-duplication storage pool, database synthetic pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool, real-time backup pool</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup compression</p></td>
-<td><p>None, fast</p></td>
-</tr>
-<tr class="row-even"><td><p>Channels</p></td>
-<td><p>A positive integer between 1-255.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup schedule</p></td>
-<td><p>Immediate, one-time, minutely, hourly, daily, weekly, monthly</p></td>
-</tr>
-<tr class="row-even"><td><p>Clone backup jobs</p></td>
-<td><p>Cloning backup jobs is supported.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Acquiring database global lock timeout</p></td>
-<td><p>Available for full backups, incremental backups, and synthetic backups. The default value is 1 minute.</p></td>
-</tr>
-<tr class="row-even"><td><p>Lock retry count</p></td>
-<td><p>Available for full backups, incremental backups, and synthetic backups. The default value is 1.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Long query threshold</p></td>
-<td><p>Available for full backups, incremental backups, and synthetic backups. The default value is 0, indicating no delay.</p></td>
-</tr>
-<tr class="row-even"><td><p>Long query timeout</p></td>
-<td><p>Available for full backups, incremental backups, and synthetic backups. The default value is 0, indicating no delay.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Log copy interval</p></td>
-<td><p>Available for full backups, incremental backups, and synthetic backups. The default value is 1000 milliseconds.</p></td>
-</tr>
-<tr class="row-even"><td><p>Backup retry count</p></td>
-<td><p>Available for full backups, incremental backups, and synthetic backups. The default value is 1.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup retry interval</p></td>
-<td><p>Available for full backups, incremental backups, synthetic backups. The default value is 30 minutes.</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore type</p></td>
-<td><p>Timepoint restore: Restore database instance to a specific timepoint state including backup state (shortest recovery time), point in time, and GTID. <br> Logical recovery: Restore one or more databases.  <br> Instant recovery (mounting recovery): Mount synthetic backup sets to reduce the recovery time. <br> Log restore: Download the backed-up logs to a specified directory on the agent. <br> Recovery testing: Periodically restore the latest backup sets to another database or instance.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Restore location</p></td>
-<td><p>Original path, custom path</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore target</p></td>
-<td><p>Overwrite the source database, create a new database</p></td>
-</tr>
-<tr class="row-odd"><td><p>Restore granularity</p></td>
-<td><p>Entire database (single, multiple), instance, log</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore to different hosts</p></td>
-<td><p>Restore to a different host with the same version or from an old version to a new version.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre/Post action</p></td>
-<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
-</tr>
-<tr class="row-even"><td><p>Speed limit</p></td>
-<td><p>Limit data transfer speed or disk read and write speed. Synthetic backup and instant recovery do not support this function.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Reconnection time</p></td>
-<td><p>The job continues after the abnormal reset occurs in the network within the set time. The set time is 10 minutes by default. Synthetic backup and instant recovery do not support this function.</p></td>
-</tr>
-<tr class="row-even"><td><p>Stop jobs</p></td>
-<td><p>Stop the backup or restore of a job.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Storage pool replication</p></td>
-<td><p>Replicate backup sets from the source storage pool to another pool.</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore from target pool</p></td>
-<td><p>Restore backup sets from the target storage pool.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Custom database startup/stop script</p></td>
-<td><p>Custom start and stop scripts is supported.</p></td>
-</tr>
-<tr class="row-even"><td><p>Skip grant tables while applying binlog</p></td>
-<td><p>Available for timepoint restore and instant recovery.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Force applying binlog</p></td>
-<td><p>Available for timepoint restore and instant recovery.</p></td>
-</tr>
-<tr class="row-even"><td><p>Keep the mount point even if job fails</p></td>
-<td><p>Available for instant recovery.</p></td>
-</tr>
-<tr class="row-odd"><td><p>MySQL service startup timeout</p></td>
-<td><p>Available for timepoint restore and instant recovery.</p></td>
-</tr>
-<tr class="row-even"><td><p>D2C</p></td>
-<td><p>Back up data directly to object storage.</p></td>
-</tr>
-<tr class="row-odd"><td><p>D2T</p></td>
-<td><p>Back up data directly to tape library.</p></td>
-</tr>
-<tr class="row-even"><td><p>LAN-Free</p></td>
-<td><p>Back up to and restore from LAN-Free storage pools.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Cluster</p></td>
-<td><p>Master-slave replication and dual-master replication is supported.</p></td>
-</tr>
-<tr class="row-even"><td><p>Modify the backup source and target</p></td>
-<td><p>Modify the backup source and backup target of a job.</p></td>
-</tr>
-<tr class="row-odd"><td><p>IPv6</p></td>
-<td><p>Transfer and manage data over IPv6 network.</p></td>
-</tr>
-<tr class="row-even"><td><p>Add MySQL instance</p></td>
-<td><p>Manually adding MySQL instance is supported.</p></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>Physical backup and synthetic backup only support the Linux MySQL 5.1.38 or later (with the MySQL InnoDb Plugin installation package).</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="install-and-configure-agent">
-<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
-<section id="verify-compatibility">
-<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
-<p>ADPS supports the backup and restore of single instance, multiple instances, master-slave, dual-master replication cluster of MySQL databases. Before deploying the agent, it’s necessary to check whether the operating system (OS) and database version are supported. For details, please refer to <em>Compatibility List</em>.</p>
-<section id="compatibility-list">
-<h4>Compatibility List<a class="headerlink" href="#compatibility-list" title="Permalink to this heading">#</a></h4>
-<section id="single-instance">
-<h5>Single Instance<a class="headerlink" href="#single-instance" title="Permalink to this heading">#</a></h5>
-<table class="longtable table" id="id5">
-<caption><span class="caption-text">Single Instance</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Database Version</p></th>
-<th class="head"><p>Database Bits</p></th>
-<th class="head"><p>OS</p></th>
-<th class="head"><p>CPU Architecture</p></th>
-<th class="head"><p>OS Bits</p></th>
-<th class="head"><p>Note</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>4.1.22</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2003</p></td>
-<td><p>x86</p></td>
-<td><p>32</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>4.1.22</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2003</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>4.1.22</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>4.1.22</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2012</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>4.1.22</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 4.6</p></td>
-<td><p>IA64</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>4.1.22</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>POWER Linux</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-even"><td><p>4.1.22</p></td>
-<td><p>64</p></td>
-<td><p>SUSE 11 SP4</p></td>
-<td><p>POWER Linux</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 5.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2000</p></td>
-<td><p>x86</p></td>
-<td><p>32</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2003</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>Windwos 2003</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2008</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>Windwos 2008</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>Ubuntu 12.10</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>SLSE 10</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>64</p></td>
-<td><p>Ubuntu 11.10</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.0.67</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 5</p></td>
-<td><p>x86</p></td>
-<td><p>32</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.0.86</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.0.86</p></td>
-<td><p>64</p></td>
-<td><p>SUSE 11 SP4</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-even"><td><p>5.1.17</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.1.39</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-even"><td><p>5.1.39</p></td>
-<td><p>64</p></td>
-<td><p>SUSE 11 SP4</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.1.40</p></td>
-<td><p>64</p></td>
-<td><p>SUSE 11 SP4</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-even"><td><p>5.1.40</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.1.71</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.1.73</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.1.73</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.4.2</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.4.2</p></td>
-<td><p>64</p></td>
-<td><p>SUSE 11 SP4</p></td>
-<td><p>POWER</p></td>
-<td><p>64</p></td>
-<td><p>(Big Endian)</p></td>
-</tr>
-<tr class="row-even"><td><p>5.5</p></td>
-<td><p>64</p></td>
-<td><p>Ubuntu 12.04</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.5</p></td>
-<td><p>64</p></td>
-<td><p>Ubuntu 14.04</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.5</p></td>
-<td><p>64</p></td>
-<td><p>Debian 7.8</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.5</p></td>
-<td><p>64</p></td>
-<td><p>Debian 8.3</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.5.48</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.5.21</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.5.48</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.5.58</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.25</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.25</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.30</p></td>
-<td><p>32</p></td>
-<td><p>Red Hat 5.0</p></td>
-<td><p>x86</p></td>
-<td><p>32</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.30</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 5.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.30</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.30</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.31</p></td>
-<td><p>64</p></td>
-<td><p>Ubuntu 14.04</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.36</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.36</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.31</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.39</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.10</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.7.13</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.16</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.7.19</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.18</p></td>
-<td><p>64</p></td>
-<td><p>Ubuntu 16.04</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>5.7.21</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.21</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>6</p></td>
-<td><p>32</p></td>
-<td><p>Windows 2003</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2012</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>6.0.11</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.0</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2008 R2</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.0</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 6.7</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.11</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.11</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.19</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.19</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2016</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.21</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.21</p></td>
-<td><p>64</p></td>
-<td><p>Windows 2016</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.22</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.23</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.24</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.25</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.26</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cluster">
-<h5>Cluster<a class="headerlink" href="#cluster" title="Permalink to this heading">#</a></h5>
-<table class="longtable table" id="id6">
-<caption><span class="caption-text">Cluster</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Database Version</p></th>
-<th class="head"><p>Database Bits</p></th>
-<th class="head"><p>OS</p></th>
-<th class="head"><p>CPU Architecture</p></th>
-<th class="head"><p>OS Bits</p></th>
-<th class="head"><p>Note</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>5.7.21</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.21</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>5.7.21</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>Dual masters</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.21</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>5.7.25</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>Single node cluster</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.39</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.39</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 6.5</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.6.39</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>5.6.39</p></td>
-<td><p>64</p></td>
-<td><p>Red Hat 6.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.13</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.13</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>Dual masters</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.7.30</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>(MySQL InnoDb Cluster) One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>5.7.30</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.0</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>(MySQL InnoDb Cluster) Multiple masters</p></td>
-</tr>
-<tr class="row-odd"><td><p>8.0.16</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>(MySQL InnoDb Cluster) One master, two slaves</p></td>
-</tr>
-<tr class="row-even"><td><p>8.0.16</p></td>
-<td><p>64</p></td>
-<td><p>CentOS 7.6</p></td>
-<td><p>x86</p></td>
-<td><p>64</p></td>
-<td><p>(MySQL InnoDb Cluster) Multiple masters</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-</section>
-<section id="download-agent-package">
-<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h3>
-<p>Open a browser and log in to ADPS as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can download the installation packages according to your needs.</p>
-<p><img alt="agent-1" src="../_images/agent-13.png" /></p>
-</section>
-<section id="install-and-configure-agent-on-windows">
-<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
-<section id="download-installation-package">
-<h4>Download Installation Package<a class="headerlink" href="#download-installation-package" title="Permalink to this heading">#</a></h4>
-<p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong>.</p>
-<p><img alt="agent-2" src="../_images/agent-23.png" /></p>
-</section>
-<section id="install-agent-on-windows">
-<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
-<ol class="arabic">
-<li><p>Upload the installation package to the target host.</p></li>
-<li><p>Double-click the package to launch the setup wizard and click <strong>Next</strong>.</p></li>
-<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Check the <strong>MySQL</strong> component and click <strong>Next</strong>.</p>
-<p><img alt="agent-3" src="../_images/agent-33.png" /></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore MySQL.</p>
+<p>The backup and restore features supported by ADPS include:</p>
+<ul>
+<li><p>Backup sources</p>
+<p>Single or multiple databases, instances</p>
 </li>
-<li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
-<p><img alt="agent-4" src="../_images/agent-42.png" /></p>
+<li><p>Backup types</p>
+<p>Full backup, incremental backup, log backup, continuous log backup, logical backup, and synthetic backup</p>
 </li>
-</ol>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>The Access Key is used to identify users of the agent. On Personal Settings -&gt; Settings -&gt; Home page, you can view the user account’s Access Key.</p></li>
-<li><p>If the backup server is a non-tenant version, it is not required to configure Access Key. If the backup server is a tenant version, then an Access Key is required. If you leave it blank, the resource will be bound to the admin. If you enter the Access Key, the resource will be bound to the corresponding tenant.</p></li>
+<li><p>Backup targets</p>
+<p>Standard storage pool, deduplication storage pool, data synthetic pool, local storage pool, tape library pool, LAN-free pool, and real-time backup pool</p>
+</li>
+<li><p>Backup schedules</p>
+<p>Immediate, one-time, hourly, daily, weekly, and monthly</p>
+</li>
+<li><p>Data processing</p>
+<p>Data compression, data encryption, multiple channels, reconnection, speed limit, replication, lock retry, and backup retry</p>
+</li>
+<li><p>Restore types</p>
+<p>Point-in-time restore, logical recovery, instant recovery, log restore and recovery testing</p>
+</li>
+<li><p>Restore targets</p>
+<p>Original host and different host</p>
+</li>
+<li><p>Restore options</p>
+<p>Database service startup/stop script, binlog applying, MySQL service startup timeout, cache directory, keep the mount point even if job fails</p>
+</li>
 </ul>
-</div></blockquote>
-<ol class="arabic simple" start="5">
-<li><p>Select <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
-</ol>
 </section>
-</section>
-<section id="install-and-configure-agent-on-linux">
-<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<section id="planning-and-preparation">
+<h2>Planning and preparation<a class="headerlink" href="#planning-and-preparation" title="Permalink to this heading">#</a></h2>
+<p>Before you install the agent, check the following prerequisites:</p>
 <ol class="arabic simple">
-<li><p>Select <strong>Linux</strong> and <strong>MySQL</strong>. Copy an installation command.</p></li>
+<li><p>You have already installed and configured all the backup components, including the backup server and the storage server.</p></li>
+<li><p>You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.</p></li>
 </ol>
-<p><img alt="agent-5" src="../_images/agent-51.png" /></p>
-<ol class="arabic" start="2">
-<li><p>Paste the command on the command line and press Enter to execute the installation.</p>
-<p><img alt="agent-6" src="../_images/agent-61.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).</p>
+</div>
+</section>
+<section id="install-and-configure-the-agent">
+<h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Permalink to this heading">#</a></h2>
+<p>To back up and restore MySQL, first install the agent on the host where MySQL resides.</p>
+<section id="verify-the-compatibility">
+<h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Permalink to this heading">#</a></h3>
+<p>Before you install the agent, ensure that the environment of the host where MySQL resides is on the Aurreum Data Protection Suite’s compatibility lists.</p>
+<p>The ADPS supports the backup and restore of MySQL, including standalone single instance, standalone multiple instances, source-replica replication, and source-source replication.</p>
+<p>Supported MySQL versions include:</p>
+<p>MySQL 4.1/5.0/5.1/5.4/5.5/5.6/5.7/8.0</p>
+</section>
+<section id="install-the-agent">
+<h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Permalink to this heading">#</a></h3>
+<p>ADPS agent can be installed on Windows and Linux. You can select the installation method according to your environment.</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h4>
+<p>To install the agent, do the following:</p>
+<ol class="arabic">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>In the <strong>Install agent</strong> window, do the following:</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Windows</strong>.</p>
+<p>(2) From the <strong>Select file</strong> list, select the package that you want to install.</p>
+<p>(3) Click <strong>Download</strong>.</p>
 </li>
+<li><p>Upload the package to the Windows host.</p></li>
+<li><p>Log in to the Windows host with administrative privileges. Double-click the package and open the installation wizard. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Select components</strong> step, select <strong>MySQL</strong> from the component list. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Configure Aurreum Data Protection Suite agent</strong> step, enter the following:</p>
+<p>(1) In the <strong>Backup server address</strong> field, enter the IP or domain name of the backup server.</p>
+<p>(2) In the <strong>Backup server port</strong> field, enter the port number. The default value is 50305. If you enable the <strong>Use SSL secure connection</strong> option, enter 60305 in the <strong>Backup server port</strong> field.</p>
+<p>(3) The <strong>Access key</strong> field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the access key of the user/tenant:</p>
+<ol class="arabic simple">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>On the upper right corner, click your avatar, and go to <strong>Personal settings</strong> &gt; <strong>Account settings</strong>.</p></li>
+<li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Confirm the <strong>Destination folder</strong> or specify another folder. Click <strong>Next</strong>.</p></li>
+<li><p>Wait for the installation to complete.</p></li>
 </ol>
 </section>
-<section id="check-successful-installation">
-<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
-<p>After the successful installation, you can log in to ADPS as the admin and see that the host is on the <strong>Resource</strong> list.</p>
-<p><img alt="license-1" src="../_images/license-13.png" /></p>
+<section id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">#</a></h4>
+<p>For Linux OS, ADPS agent supports online and local installation. We recommend online installation.</p>
+<ol class="arabic simple">
+<li><p>Online installation:
+ADPS provides <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">wget</span></code> commands for installation.</p></li>
+<li><p>Local installation:
+See <a class="reference internal" href="../agent_install/agent_install.html#offline-installation"><span class="std std-ref">Offline installation</span></a> in Aurreum Data Protection Suite Agent Installation Guide.</p></li>
+</ol>
+<p>To install the agent online, do the following:</p>
+<ol class="arabic">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>In the <strong>Install agent</strong> window, do the following:</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Linux</strong>.</p>
+<p>(2) From the <strong>Component</strong> list, select <strong>MySQL</strong>. The <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">wget</span></code> commands appear in the window.</p>
+<p>(3) If you want to delete the downloaded package automatically after the installation, select the <strong>Delete installation package</strong> check box.</p>
+<p>(4) If you enable <strong>Ignore SSL errors</strong>, the installation will ignore certificate errors and so on. If you disable the feature, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.</p>
+</li>
+<li><p>Click the <strong>Copy</strong> icon to copy the <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> command.</p></li>
+<li><p>Log in to the Linux host as user root. Paste the command in the terminal and press Enter to start the installation. Example:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># curl -o- &quot;http://192.168.17.31:50305/d2/update/script?modules=mysql&amp;location=http%3A%2F%2F192.168.17.31%3A50305&amp;access_key=572bd4dbb395fd320a30fe9729a21db8&amp;rm=&amp;tool=curl&quot; | sh</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                   <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">100</span>  <span class="mi">9204</span>    <span class="mi">0</span>  <span class="mi">9204</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">2247</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2996</span><span class="n">k</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                   <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+  <span class="mi">100</span> <span class="mf">51.1</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">51.1</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>   <span class="mi">141</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>  <span class="mi">141</span><span class="n">M</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                   <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+  <span class="mi">100</span> <span class="mi">5684</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">5684</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">48.6</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">99.0</span><span class="n">M</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                   <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+  <span class="mi">100</span>  <span class="mi">733</span><span class="n">k</span>  <span class="mi">100</span>  <span class="mi">733</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">11.5</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">11.5</span><span class="n">M</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Wait for the installation to complete.</p></li>
+</ol>
 </section>
 </section>
-<section id="activate-license-and-assign-authorization">
-<h2>Activate License and Assign Authorization<a class="headerlink" href="#activate-license-and-assign-authorization" title="Permalink to this heading">#</a></h2>
-<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches.</p>
-<section id="register-host">
-<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the admin, go to <strong>Resource</strong>, and find the host that you need to activate. Click <strong>Register</strong> icon.</p>
-<p><img alt="license-2" src="../_images/license-22.png" /></p>
 </section>
-<section id="activate-license">
-<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
-<p>In the pop-up <strong>Activate</strong> window, select the resource you want to activate. Click <strong>Submit</strong>.</p>
-<p><img alt="license-3" src="../_images/license-32.png" /></p>
+<section id="activate-licenses-and-authorize-users">
+<h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Permalink to this heading">#</a></h2>
+<p>After the agent installation, go back to the <strong>Resource</strong> page. The host with the agent installed appears on the page. Before you back up and restore MySQL, register the host, activate the backup license, and authorize users.</p>
+<p>To activate licenses and authorize users, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>On the <strong>Resource</strong> page, select the host where MySQL resides. Click the <strong>Register</strong> icon. Then the <strong>Activate</strong> window appears.</p>
+</li>
+<li><p>In the <strong>Activate</strong> window, select the MySQL backup license, and click <strong>Submit</strong>. After the activation is completed, the <strong>Authorization</strong> window appears.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are prompted with “No enough licenses”, contact the administrator to add licenses.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>In the <strong>Authorization</strong> window, select user groups to authorize access to the resource. Click <strong>Submit</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With many agents, install them first, then <strong>batch register</strong>, <strong>batch activate</strong>, and <strong>batch authorize</strong> the agents and resources for convenience. For details, see <a class="reference internal" href="#../manager/manager.md#batch-registerbatch-activatebatch-authorize"><span class="xref myst">Batch register/Batch activate/Batch authorize</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</div>
 </section>
-<section id="assign-authorization">
-<h3>Assign Authorization<a class="headerlink" href="#assign-authorization" title="Permalink to this heading">#</a></h3>
-<p>After the successful activation, you can authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
-<p><img alt="license-4" src="../_images/license-42.png" /></p>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this heading">#</a></h2>
+<section id="backup-type">
+<h3>Backup type<a class="headerlink" href="#backup-type" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides four common backup types (full backup, incremental backup, log backup, and logical backup) and two advanced (continuous log backup and synthetic backup) for MySQL.</p>
+<ul>
+<li><p>Full backup</p>
+<p>Backs up all data of database instances.</p>
+</li>
+<li><p>Incremental backup</p>
+<p>Backs up only the data that has changed since the last backup with a full backup as the baseline.</p>
+</li>
+<li><p>Log backup</p>
+<p>Backs up the binary logs of database instances with a full backup as the baseline. To perform a log backup, the database instance needs to have binary logging enabled.</p>
+</li>
+<li><p>Logical backup</p>
+<p>Backs up all data of one or more databases.</p>
+</li>
+<li><p>Continuous log backup</p>
+<p>Backs up the binary log files constantly, with a full backup as the baseline, to the real-time backup pool. To perform a continuous log backup job, the database needs to have binary logging enabled and server_id configured.</p>
+<p>One instance can only run one continuous log backup job at one time. When a full backup job runs, the continuous log backup job will be waiting.</p>
+<p>Continuous log backups have the following requirements:</p>
+<p>(1) You have the advanced license: MySQL continuous log backup.</p>
+<p>(2) You have created a real-time backup pool for the current user.</p>
+</li>
+<li><p>Synthetic backup</p>
+<p>The first synthetic backup is a full backup, and the subsequent ones are incremental. When the synthesis condition is reached, the latest full backup and subsequent incremental backup will be synthesized to create a new full backup copy. Synthetic backups can improve the restore performance. You can directly mount the full backup copy to the target host through an instant recovery job without physical copies and additional storage space.</p>
+<p>Synthetic backups have the following requirements:</p>
+<p>(1) You have the advanced licenses: MySQL synthetic backup and MySQL Copy Data Management.</p>
+<p>(2) The data disks of the storage server use the ZFS file system.</p>
+<p>(3) You have configured the iSCSI or FC link between the backup server and the host with the agent installed.</p>
+<p>(4) You have created a data synthetic pool for the current user.</p>
+</li>
+</ul>
 </section>
+<section id="backup-policies">
+<h3>Backup policies<a class="headerlink" href="#backup-policies" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides 6 types of backup schedules, including immediate, one-time, hourly, daily, weekly, and monthly.</p>
+<ul class="simple">
+<li><p>Immediate: ADPS will immediately start the job after it is created.</p></li>
+<li><p>One-time: ADPS will perform the job at the specified time once only.</p></li>
+<li><p>Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.</p></li>
+<li><p>Daily: ADPS will perform the job periodically at the specified time and day intervals.</p></li>
+<li><p>Weekly: ADPS will perform the job periodically at the specified time and week intervals.</p></li>
+<li><p>Monthly: ADPS will perform the job periodically at the specified dates and times.</p></li>
+</ul>
+<p>You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:</p>
+<ol class="arabic simple">
+<li><p>Perform a <strong>full backup</strong> once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.</p></li>
+<li><p>Perform an <strong>incremental backup</strong> every day when the application traffic is relative small (Example: at 2 a.m.) to ensure that you have a recoverable point in time every day, which can save storage space and backup time.</p></li>
+<li><p>Perform a <strong>log backup</strong> hourly if your database supports log backups to achieve the precise point-in-time restore and ensure that the restore granularity can reach the second level.</p></li>
+</ol>
+<p>To use the advanced synthetic backup, we recommend the following backup policy:</p>
+<ol class="arabic simple">
+<li><p>Perform a <strong>synthetic backup</strong> every day to ensure that you have a recoverable point in time every day.</p></li>
+<li><p>Perform a <strong>log backup</strong> hourly based on the synthetic backup to achieve the precise point-in-time instant recovery.</p></li>
+</ol>
 </section>
 <section id="before-you-begin">
-<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
-<section id="check-database-state">
-<h3>Check Database State<a class="headerlink" href="#check-database-state" title="Permalink to this heading">#</a></h3>
-<p>Check the MySQL service state of the agent. The MySQL database service should be in the “Started” state for the backup and restore.</p>
-<ul class="simple">
-<li><p>Check the MySQL service on Windows:</p></li>
-</ul>
-<p><img alt="database-1" src="../_images/database-1.png" /></p>
-<ul class="simple">
-<li><p>Check the MySQL service on Linux:</p></li>
-</ul>
-<p><img alt="database-2" src="../_images/database-2.png" /></p>
-</section>
-<section id="check-resource">
-<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the operator, go to <strong>Resource</strong>, and you can see the activated and authorized resource on the list and its state is “Online”. If the resource is not available, please check <em>Activate License and Assign Authorization</em>.</p>
-<p><img alt="login-1" src="../_images/login-12.png" /></p>
-</section>
-<section id="check-storage-pool">
-<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
-<p>Log in to ADPS as the operator, go to <strong>Storage Pool</strong>, and check whether there is any storage pool. If a storage pool is not listed, please contact the admin to create one and assign permissions to the operator.</p>
-<p><img alt="storaged-1" src="../_images/storaged-12.png" /></p>
-</section>
-</section>
-<section id="login-resource">
-<h2>Login Resource<a class="headerlink" href="#login-resource" title="Permalink to this heading">#</a></h2>
-<section id="login-instance-for-the-first-time">
-<h3>Login Instance for the First Time<a class="headerlink" href="#login-instance-for-the-first-time" title="Permalink to this heading">#</a></h3>
+<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h3>
+<p>Before you back up and restore MySQL, do the following:</p>
 <ol class="arabic simple">
-<li><p>Before creating the first backup and restore job for the MySQL databases, you need to <strong>Login</strong> to MySQL first.</p></li>
-</ol>
-<p><img alt="login-2" src="../_images/login-23.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>Enter the MySQL username and password.</p></li>
-</ol>
-<p><img alt="login-3" src="../_images/login-32.png" /></p>
-</section>
-<section id="add-mysql-instance-manually">
-<h3>Add MySQL Instance Manually<a class="headerlink" href="#add-mysql-instance-manually" title="Permalink to this heading">#</a></h3>
-<p>If MySQL resource is not available on the <strong>Resource</strong> page, you can add MySQL instance manually.</p>
-<p>This method is applicable to the following scenarios: the agent cannot be installed in some environments, and the agent instance cannot be recognized, resulting in backup failure, such as:</p>
-<ul class="simple">
-<li><p>MySQL instance in container;</p></li>
-<li><p>Unrecognized MySQL instance;</p></li>
-<li><p>MySQL derivative version;</p></li>
-<li><p>Instance without port open;</p></li>
-<li><p>Inaccurate configuration of recognized MySQL instance;</p></li>
-<li><p>…</p></li>
-</ul>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>Only the admin can manually add MySQL instances.</p></li>
-</ul>
-</div></blockquote>
-<ol class="arabic simple">
-<li><p>Click <strong>Resource</strong> on the left-side menu, select the MySQL database host, and click the “<strong>+</strong>” icon to add MySQL instance.</p></li>
-</ol>
-<p><img alt="login-4" src="../_images/login-4.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>Enter the username and password of the host in the pop-up window.</p></li>
-</ol>
-<p><img alt="login-5" src="../_images/login-5.png" /></p>
-<ol class="arabic simple" start="3">
-<li><p>Enter <strong>Add MySQL Instance</strong> page. The first step is <strong>Database Connection</strong>. You can select <strong>TCP/IP</strong> or <strong>Local Socket</strong> to connect the database.</p></li>
+<li><p>Check the MySQL instance status:</p></li>
 </ol>
 <ul>
-<li><p><strong>TCP/IP</strong></p>
-<p>If you select <strong>TCP/IP</strong>, you need to fill in the host IP, database port, database username and password.</p>
+<li><p>Windows:</p>
+<p>Log in to the host and open the service list. Check whether the MySQL service status is Started or not.</p>
+</li>
+<li><p>Linux:</p>
+<p>Open the terminal on the host and use the <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code> command to check the MySQL service status.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>[root@centos7 ~]# systemctl status mysql
+● mysql.service - LSB: start and stop MySQL
+ Loaded: loaded (/etc/rc.d/init.d/mysql; bad; vendor preset: disabled)
+ Active: active (running) since Wed 2023-05-10 11:34:08 CST; 5 days ago
+   Docs: man:systemd-sysv-generator(8)
+ CGroup: /system.slice/mysql.service
+        ├─3339 /bin/sh /usr/local/mysql//bin/mysqld_safe --datadir=/usr/local/mysql/data --pid-file=/usr/local/mysql/data/centos7.4.pid
+        └─3567 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql//lib/plugin --user=m...
+
+May 10 11:34:07 centos7.4 systemd[1]: Starting LSB: start and stop MySQL...
+May 10 11:34:08 centos7.4 mysql[3255]: Starting MySQL SUCCESS!
+May 10 11:34:08 centos7.4 systemd[1]: Started LSB: start and stop MySQL.
+</pre></div>
+</div>
 </li>
 </ul>
-<p><img alt="login-6" src="../_images/login-6.png" /></p>
-<ul>
-<li><p><strong>Local Socket</strong></p>
-<p>If you select <strong>Local Socket</strong>, you need to fill in socket path, database username and password.</p>
-</li>
-</ul>
-<p><img alt="login-7" src="../_images/login-7.png" /></p>
-<ol class="arabic simple" start="4">
-<li><p>After <strong>Database Connection</strong>, configuring parameters is required. You can select <strong>Logical</strong> or <strong>Physical</strong> as the parameter type.</p></li>
-</ol>
-<ul>
-<li><p><strong>Logical</strong></p>
-<p>If you select <strong>Logical</strong>, fill in instance name, mysql command-line tool path, mysqldump path, mysqlpump path and version. This instance can only be used for logical backup and restore.</p>
-</li>
-</ul>
-<p><img alt="login-8" src="../_images/login-8.png" /></p>
-<ul>
-<li><p><strong>Physical</strong></p>
-<p>If you select <strong>Physical</strong>, fill in instance name, data directory, mysql command-line tool path, mysqldump path, mysql.cnf path, binlog path and version. This instance can be used for logical and physical backup and restore.</p>
-</li>
-</ul>
-<p><img alt="login-9" src="../_images/login-9.png" /></p>
-<ol class="arabic simple" start="5">
-<li><p>After <strong>Parameters</strong>, activating database resource is required. The license type is checked by default. You need to authorize the resources to the corresponding user group. Click <strong>Submit</strong> to add the MySQL instance.</p></li>
-</ol>
-<p><img alt="login-10" src="../_images/login-10.png" /></p>
-</section>
-</section>
-<section id="create-backup-jobs">
-<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
-<p>This chapter introduces how to back up the MySQL databases.</p>
-<section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
-<ul>
-<li><p>You have installed the agent. For installation, please refer to <em>Install and Configure Agent</em>.</p></li>
-<li><p>You have activated the license and assigned the authorization. For details about the activation and authorization, see <em>Activate License and Assign Authorization</em>.</p></li>
-<li><p>Log in to ADPS as the <em>operator</em>.</p></li>
-<li><p>Least privilege for the database user to preform the backup:</p>
-<table class="longtable table" id="id7">
-<caption><span class="caption-text">Least Privilege for the User</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Linux hosts that do not support the aforementioned method, use the command <code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">[mysql_service_name]</span> <span class="pre">status</span></code> to check MySQL service status.</p>
+</div>
+<ol class="arabic" start="2">
+<li><p>Check storage pools.</p>
+<p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
+<p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Storage pool required for backups</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Back Type</p></th>
-<th class="head"><p>Least Privilege for the User</p></th>
+<tr class="row-odd"><th class="head"><p>Backup types</p></th>
+<th class="head"><p>Storage pool types required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Full backup, incremental backup, log backup, and logical backup</p></td>
+<td><p>Standard storage pool, deduplication storage pool, local storage pool, tape library pool, object storage service pool, and LAN-free pool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Synthetic backup</p></td>
+<td><p>Data synthetic pool</p></td>
+</tr>
+<tr class="row-even"><td><p>Continuous log backup</p></td>
+<td><p>Real-time backup pool</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</section>
+<section id="log-in-to-the-instance">
+<h3>Log in to the instance<a class="headerlink" href="#log-in-to-the-instance" title="Permalink to this heading">#</a></h3>
+<p>Before you create a backup or restore job, log in to the MySQL resource.</p>
+<p>To log in to the resource, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the host list, find the host where MySQL resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.</p></li>
+<li><p>Click <strong>Login</strong> beside the resource. The <strong>Login</strong> window appears.</p>
+</li>
+<li><p>Enter the correct username and password, and click <strong>Login</strong>.</p></li>
+<li><p>Check the minimum required privileges for the database user to perform backups:</p></li>
+</ol>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Minimum privileges required for the database user</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Backup type</p></th>
+<th class="head"><p>Minimum privileges required for the database user</p></th>
 <th class="head"><p>Note</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Physical backup</p></td>
-<td><p>SELECT, RELOAD, PROCESS, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT, (SUPER)</p></td>
-<td><p>Require BACKUP_ADMIN for MySQL8.0</p></td>
+<td><p>RELOAD, PROCESS, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT</p></td>
+<td><p>BACKUP_ADMIN required for MySQL 8.0 and above</p></td>
 </tr>
-<tr class="row-odd"><td><p>Logical backup (Single channel)</p></td>
-<td><p>SELECT</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>Logical backup (Multiple channels)</p></td>
-<td><p>SELECT, RELOAD, EXECUTE, SHOW VIEW, EVENT, LOCK TABLES</p></td>
+<tr class="row-odd"><td><p>Logical backup</p></td>
+<td><p>SELECT, RELOAD, EVENT, EXECUTE, SHOW VIEW, LOCK TABLES, TRIGGER</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
 </section>
-<section id="create-full-backup-jobs">
-<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>(1) Click <strong>Backup</strong>, select the MySQL database host and instance.</p>
-<p>(2) Select <strong>Full</strong> as the <strong>Backup Type</strong>, select the database instance to be backed up and click <strong>Next</strong>.</p>
-<p><img alt="full_backup-1" src="../_images/full_backup-1.png" /></p>
-<p>(3) Select <strong>Backup Target</strong>. The target can be a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool.</p>
-<blockquote>
-<div><p>Note:</p>
+<section id="add-a-mysql-instance-manually">
+<h3>Add a MySQL instance manually<a class="headerlink" href="#add-a-mysql-instance-manually" title="Permalink to this heading">#</a></h3>
+<p>On the <strong>Resource</strong> page, if ADPS fails to identify the MySQL resource, you may manually add the MySQL instance.</p>
+<p>This method is applicable to the following scenarios: The agent cannot be installed in some environments. And the instance on the agent host cannot be unidentified, resulting in backup failure. Unidentified instances include:</p>
 <ul class="simple">
-<li><p>It is not supported to store full backups, incremental backups and log backups in different storage pools.</p></li>
+<li><p>MySQL instance in the container</p></li>
+<li><p>MySQL derivatives</p></li>
+<li><p>Instance without port open</p></li>
+<li><p>Identified MySQL instance with incorrect configuration</p></li>
+<li><p>…</p></li>
 </ul>
-</div></blockquote>
-<p>(4) Go to <strong>Backup Schedule</strong> to set the run time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
-<p>(5) Set <strong>Backup Options</strong>, including common options and advanced options.</p>
-<ul class="simple">
-<li><p><strong>Common options</strong>:</p></li>
-</ul>
-<p><img alt="full_backup-2" src="../_images/full_backup-2.png" /></p>
-<p><strong>Compression</strong>: Fast compression is enabled by default.</p>
-<p><strong>Channels</strong>: This option can improve backup efficiency. The default number of channels is 1 and the range is 1 to 255. For details, please refer to <em>Channel Number Configuration</em>.</p>
-<p><strong>binlog</strong>: You can enable this option to restore to a specific time point.  This operation requires to restart the database. Please operate with caution.</p>
-<p><strong>File name</strong>: Set the base name for binary logs. You can specify a path, but MySQL must have access to the specified path.</p>
-<p><strong>Format</strong>: Set the format of binary logs, including ROW, STATEMENT or MIXED.</p>
-<p><strong>Synchronizing binary log number</strong>: In this field, set the number of transactions that need to be committed to synchronize the binary logs from the cache to the disk. When the transaction commits reach the set number, the logs will be flushed to the disk. The value ranges from 0 to 4294967295. 0 indicates that the synchronous flushing is disabled, and the timing of the synchronization is determined by the operating system. The number affects database efficiency and data consistency. The larger the value, the higher the efficiency and the lower the data consistency.</p>
-<ul class="simple">
-<li><p><strong>Advanced options</strong>:</p></li>
-</ul>
-<p><img alt="full_backup-3_1" src="../_images/full_backup-3_1.png" /></p>
-<p><img alt="full_backup-3_2" src="../_images/full_backup-3_2.png" /></p>
-<p><strong>Reconnection time</strong>: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time. The unit is minute.</p>
-<p><strong>Speed limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits in different times.</p>
-<p><strong>Precondition</strong>: The precondition is executed before the job starts. The job execution is aborted and in the idle state when the precondition is invalid.</p>
-<p><strong>Pre/Post action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
-<p><strong>Acquiring database global lock timeout</strong>: Set the time to wait for the acquisition of the database global lock. 0 means no timeout. The default unit is minute.</p>
-<p><strong>Long query threshold</strong>: Do not add a lock until the long query over this threshold is finished. 0 means no delay. The default unit is second.</p>
-<p><strong>Long query timeout</strong>: Set the time to wait for the completion of a long query. 0 means no delay.</p>
-<p><strong>Log copy interval</strong>: The time interval for copying transaction logs. The unit is millisecond.</p>
-<p><strong>Backup retry count</strong>: When the DDL operation is not written to the transaction log, backup will be retried for the specified times. 0 means no retry.</p>
-<p><strong>Backup retry interval</strong>: When the DDL operation is not written to the transaction log, backup will be retried for the specified times. The unit is minute.</p>
-<p>(6) Set <strong>Job Name</strong>, check whether the job information is correct, and click <strong>Submit</strong>.</p>
-</section>
-<section id="create-incremental-backup-jobs">
-<h3>Create Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>It is recommended to create full backup jobs regularly (such as weekly), or create incremental backup jobs at short intervals (such as daily), which ensure that you have at least one recoverable time point every day by only backing up data that has changed since the last backup.</p>
-<ul>
-<li><p>Creating an incremental backup is the same as creating a full backup. Select <strong>Incremental</strong> as the backup type and choose database instances.</p>
-<p><img alt="icr_backup-1" src="../_images/icr_backup-1.png" /></p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>If the database has never been fully backed up, or has not been fully backed up after restore, the first incremental backup will be run as a full backup by default.</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</section>
-<section id="create-log-backup-jobs">
-<h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>Based on periodic full and incremental backups, you can also add frequent log backups to back up only the binary logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. Frequent log backups also have the advantage of increasing the frequency of log truncation, making log files smaller.</p>
-<ul>
-<li><p>Creating a log backup is similar to creating a full backup. Select <strong>Log</strong> as the backup type and choose database instances.</p>
-<p><img alt="log_backup-1" src="../_images/log_backup-1.png" /></p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>It’s necessary to enable the binlog in MySQL before creating a log backup.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p><strong>Backup Options</strong> -&gt; <strong>Common</strong> provides <strong>Backed-up binary logs</strong> option.</p>
-<p><img alt="log_backup-2" src="../_images/log_backup-2.png" /></p>
-</li>
-</ul>
-<p><strong>Delete after backup</strong>: Only log backup and continuous log backup have this backup option.</p>
-<ul class="simple">
-<li><p>Checked: Delete the backed-up binary logs when the log backup is completed or after the continuous log backup is stopped.</p></li>
-<li><p>Unchecked: When the log backup is completed or the continuous log backup is stopped, the backed-up binary logs will be automatically deleted by MySQL according to configuration.</p></li>
-</ul>
-</section>
-<section id="create-continuous-log-backup-jobs">
-<h3>Create Continuous Log Backup Jobs<a class="headerlink" href="#create-continuous-log-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>Continuous log backup can constantly back up MySQL binary log files to the real-time backup pool. It requires the following conditions:</p>
-<ul class="simple">
-<li><p>The binary log is enabled in MySQL.</p></li>
-<li><p>server_id of MySQL is configured.</p></li>
-<li><p>The database has a full backup set as the base.</p></li>
-</ul>
-<p>One instance can only run a continuous log backup job at one time. When a full backup job runs, a continuous log backup job will be in the waiting state. After a completed restore job, a full backup job should be first performed on the MySQL host before a continuous log backup job.</p>
-<ul>
-<li><p>Creating a continuous log backup is similar to creating a log backup. Select <strong>Continuous Backup</strong> as the backup type and choose database instances.</p>
-<p><img alt="con_backup-1" src="../_images/con_backup-1.png" /></p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>Only the real-time backup pool can be selected as the backup target pool for MySQL continuous log backup.</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</section>
-<section id="create-logical-backup-jobs">
-<h3>Create Logical Backup Jobs<a class="headerlink" href="#create-logical-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>Logical backup jobs can back up one or more databases.</p>
-<ul>
-<li><p>Creating a logical backup is the same as creating a full backup. Select <strong>Logical</strong> as the backup type and choose one or more databases.</p>
-<p><img alt="logical-1" src="../_images/logical-11.png" /></p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>MySQL on Windows only supports logical backup.</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</section>
-<section id="create-synthetic-backup-jobs">
-<h3>Create Synthetic Backup Jobs<a class="headerlink" href="#create-synthetic-backup-jobs" title="Permalink to this heading">#</a></h3>
-<p>The first MySQL synthetic backup is a full backup and each subsequent backup is an incremental backup. Each incremental backup is synthesized with its dependent full backup to generate a new synthetic backup set. iSCSI and FC storage types are supported.</p>
-<p>Prerequisites for creating a synthetic backup:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When manually adding a MySQL instance, note that:</p>
 <ol class="arabic simple">
-<li><p>The data disk of the storage server requires the ZFS file system. For installation, please refer to the <em>Server Requirements</em> in <em>Installation Guide</em>.</p></li>
-<li><p>Before use, you need to configure the iSCSI/FC connections between the agent and the storage server.</p></li>
-<li><p>The admin has the advanced <strong>License</strong> of MySQL Synthetic Backup and MySQL Copy Data Management.</p></li>
-<li><p>The admin has created and assigned a database synthetic pool to the operator.</p></li>
+<li><p>Only users with administrative privileges can manually add MySQL instances.</p></li>
+<li><p>Logical backup and restore are available for cloud-based MySQL.</p></li>
 </ol>
-<p>(1) Select <strong>Synthetic Backup</strong> as the backup type and choose database instances.</p>
-<p><img alt="merge-1" src="../_images/merge-11.png" /></p>
-<p>(2) Select <strong>Backup Target</strong>. The backup target can only be a database synthetic pool. If no database synthetic pool is available, please contact the admin to create one.</p>
-<p><img alt="merge-2" src="../_images/merge-21.png" /></p>
-<p>(3) Select <strong>Backup Schedule</strong> to set the run time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a synthetic backup on a daily basis.</p>
-<p>(4) Set <strong>Backup Options</strong>, including common options and advanced options. The advanced options are similar to those in full backups but without reconnection time, resumption buffer size, and speed limit.</p>
-<p><img alt="merge-3" src="../_images/merge-31.png" /></p>
-<p><img alt="merge-4" src="../_images/merge-41.png" /></p>
-<p>(5) Set <strong>Job Name</strong>, check whether the job information is correct, and click <strong>Submit</strong>.</p>
-</section>
-</section>
-<section id="create-restore-jobs">
-<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
-<p>This chapter introduces how to restore MySQL databases. ADPS provides a variety of restore types including timepoint restore, logical recovery, instant recovery, restore logs and recovery testing.</p>
-<blockquote>
-<div><p>Note:</p>
+</div>
+<p>To add a MySQL instance manually, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>, select the MySQL database host, and click <strong>Add MySQL instance</strong> icon. The <strong>Login agent</strong> window appears.</p></li>
+<li><p>In the <strong>Login agent</strong> window, enter the username and password of the agent host. The <strong>Add MySQL instance</strong> page appears.</p></li>
+<li><p>On the <strong>Add MySQL instance</strong> page, at the <strong>Database connection</strong> step, select the connection method.</p>
 <ul class="simple">
-<li><p>MySQL timepoint restore jobs will restart the MySQL service and overwrite the data of the source database. Therefore, you need to reset the original scheduled job, and execute a full database backup before the next log backup.</p></li>
-<li><p>If the recovered resource is a MySQL cluster, after the physical restore, check whether the master-slave replication of the cluster can be started normally. If it is not started, you need to start it manually.</p></li>
+<li><p>If you select <strong>TCP/IP</strong>, enter the required fields: <strong>Host</strong> and <strong>Port</strong>. The <strong>Username</strong> and <strong>Password</strong> fields are optional. Click <strong>Next</strong>.</p></li>
+<li><p>If you select <strong>Local socket</strong>, enter the <strong>Socket path</strong>. The <strong>Username</strong> and <strong>Password</strong> fields are optional. Click <strong>Next</strong>.</p></li>
 </ul>
-</div></blockquote>
+</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>At the <strong>Parameters</strong> step, select the parameter type.</p>
+<ul class="simple">
+<li><p>If select <strong>Logical</strong>, enter the <strong>Instance name</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysql</span></code>Command-line tool path</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysqldump</span></code> Path</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysqlpump</span></code> Path</strong>. When the parameter is logical, and the instance is successfully added, only the logical backup, logical restore, and recovery testing are available. Click <strong>Next</strong>.</p></li>
+<li><p>If select <strong>Physical</strong>, enter the <strong>Instance name</strong>, <strong>Data directory</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysql</span></code>Command-line tool path</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysqldump</span></code> Path</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysqlpump</span></code> Path</strong>, <strong><code class="docutils literal notranslate"><span class="pre">mysql.cnf</span></code> Path</strong>, <strong><code class="docutils literal notranslate"><span class="pre">binlog</span></code> Path</strong>.  When the parameter is physical, and the instance is successfully added, all MySQL backup and restore types are available. Click <strong>Next</strong>.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>At the <strong>Activate</strong> step, the license type is selected by default. After granting database resources to user groups, click <strong>Submit</strong>. The instance is successfully added.</p></li>
+</ol>
+</section>
+<section id="create-a-backup-job">
+<h3>Create a backup job<a class="headerlink" href="#create-a-backup-job" title="Permalink to this heading">#</a></h3>
+<p>To create a backup job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Backup</strong>. The backup job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where MySQL resides and select the resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup source</strong> step, do the following:</p>
+<p>(1) From the <strong>Backup type</strong> list, select a backup type.</p>
+<p>(2) From the <strong>Backup source</strong> list, select the databases that you want to back up.</p>
+</li>
+<li><p>At the <strong>Backup target</strong> step, select a storage pool. Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Incremental backups and log backups must have the same backup target as their baseline backups.</p>
+</div>
+</li>
+<li><p>At the <strong>Backup schedule</strong> step, set the job schedule. For details, see <a class="reference internal" href="#backup-policies">Backup policies</a>. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select Immediate. ADPS performs the job immediately after it is created.</p></li>
+<li><p>Select One time and set the start time for the job.</p></li>
+<li><p>Select Hourly. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).</p></li>
+<li><p>Select Daily. Set the start time and enter the time interval for job execution. The unit is day(s).</p></li>
+<li><p>Select Weekly. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.</p></li>
+<li><p>Select Monthly. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Backup schedule</strong> step is not available for continuous log backups. When a continuous log backup job is created, the binary log files are being backed up constantly to a real-time backup pool.</p>
+</div>
+</li>
+<li><p>At the <strong>Backup options</strong> step, set the common and advanced options according to your needs. For details, see <a class="reference internal" href="#backup-options">Backup options</a>. Click <strong>Next</strong>.</p></li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After submission, you will be redirected to the <strong>Job</strong> page automatically. On this page, you can start, edit, clone, and delete the job.</p></li>
+</ol>
+</section>
+<section id="backup-options">
+<h3>Backup options<a class="headerlink" href="#backup-options" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides the following backup options for MySQL:</p>
+<ul class="simple">
+<li><p>Common options</p></li>
+</ul>
+<table class="longtable table" id="id5">
+<caption><span class="caption-text">Common options</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Compression</p></td>
+<td><p>Fast is enabled by default. <br>  - None: No compression during backup. <br>  - Tunable: Customizes the compression level. The Advanced Compression license is required.  <br>  - Fast: Uses the fast compression algorithms to compress data during the backup job.</p></td>
+<td><p>Not available for continuous log backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Channels</p></td>
+<td><p>It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 255. <br> We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.</p></td>
+<td><p>Not available for log and continuous log backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>binlog</p></td>
+<td><p>This option is only displayed when the database does not enable binlog. <br> Enabling binlog allows for a specific point-in-time restore. This operation requires to restart the database.</p></td>
+<td><p>Only available for full and incremental backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>File name</p></td>
+<td><p>The option appears together with the binlog option. <br> Set the base name for the binary log. You can specify the path where the binary files are stored, but the storage directory requires MySQL user access privileges.</p></td>
+<td><p>Only available for full and incremental backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Format</p></td>
+<td><p>The option appears together with the binlog option. <br> Set the format for binary logs, including ROW, STATEMENT or MIXED. <br>  - ROW: Records row changes to the database. <br>  - STATEMENT: Records SQL statements. <br>  - MIXED: MySQL automatically changes the format from STATEMENT to ROW.</p></td>
+<td><p>Only available for full and incremental backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sync_binlog</p></td>
+<td><p>The option appears together with the binlog option. <br> Sets the number of transactions that need to be committed to synchronize the binary logs from the cache to the disk. When the transaction commits reach the set number, the logs will be flushed to the disk. The value ranges from 0 to 4294967295. 0 indicates that the synchronous flushing is disabled, and the timing of the synchronization is determined by the operating system. The number affects database efficiency and data consistency. The larger the value, the higher the efficiency and the lower the data consistency.</p></td>
+<td><p>Only available for full and incremental backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backed-up binary logs</p></td>
+<td><p>The option is enabled by default. <br>  - Enable: Deletes the backed-up binary logs after the log backup job is completed or the continuous log backup is stopped. <br>  - Disable: After the log backup job is completed or the continuous log backup is stopped, the backed-up binary log files are not immediately deleted. Instead, MySQL automatically deletes them based on the configuration.</p></td>
+<td><p>Only available for log and continuous log backup jobs.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options</p></li>
+</ul>
+<table class="longtable table" id="id6">
+<caption><span class="caption-text">Advanced options</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
+<td><p>Not available for synthetic backup jobs and the backup jobs with a LAN-free pool selected as the backup target.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
+<td><p>Not available for synthetic backup jobs and the backup jobs with a LAN-free pool selected as the backup target.</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
+<td><p>Not available for synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Acquiring database global lock timeout</p></td>
+<td><p>The job will be stopped if acquiring database global lock timeout. 0 means no timeout. The default unit is minute.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Lock retry count</p></td>
+<td><p>Count of retries to acquire locks.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Slow query threshold</p></td>
+<td><p>Don’t add lock before slow queries over this threshold are finished. 0 means no waiting. The default unit is second.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Slow query timeout</p></td>
+<td><p>Timeout to wait slow query to finish. 0 means no waiting.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Log copy interval</p></td>
+<td><p>Time interval between transaction log copying. The unit is millisecond.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Backup retry count</p></td>
+<td><p>Number of attempts to restart the backup when an optimized (without redo logging) DDL operation is performed. 0 means no retries.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup retry interval</p></td>
+<td><p>Time interval between backup retries when an optimized (without redo logging) DDL operation is performed. The unit is minute.</p></td>
+<td><p>Only available for full, incremental and synthetic backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Connection compression</p></td>
+<td><p>Uses compression algorithm to connect to MySQL. <br>  - For MySQL versions below 8.0.18, the available compression algorithms are zlib and none. The default compression algorithm is none. <br>  - For MySQL version 8.0.18 and above, the available compression algorithms are zlib, zstd, and none. The default compression algorithm is zstd.</p></td>
+<td><p>Only available for logical backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Additional parameters</p></td>
+<td><p>The parameters passed to mysqldump. To enter multiple parameters, separate them by space.</p></td>
+<td><p>Only available for logical backup jobs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Permalink to this heading">#</a></h2>
+<p>For different needs, ADPS provides several restore type for MySQL, including:</p>
+<ul>
+<li><p>Point-in-time restore</p>
+<p>When a logical error or disaster occurs in a MySQL database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state.</p>
+</li>
+<li><p>Logical recovery</p>
+<p>When data loss occurs in a MySQL database such as data files damaged or deleted by mistake, you can perform a logical recovery job to recover the databases or files to the latest state.</p>
+</li>
+<li><p>Instant recovery</p>
+<p>When a disaster occurs in a MySQL database, you can perform an instant recovery job to create a database copy using the synthetic backup set and mount the copy directly to a host with the agent installed, with which the database can become online quickly. The data can be recovered quickly to reduce the recovery time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Instant recovery jobs require that you have performed a synthetic backup.</p>
+</div>
+</li>
+<li><p>Log restore</p>
+<p>The restore type does not conduct a database restore; instead, it only downloads the binary logs to the specified directory on the agent host.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Log restore jobs require that you have performed a log backup or continuous log backup.</p>
+</div>
+</li>
+<li><p>Recovery resting</p>
+<p>Restores the latest backup sets to another path on the original host or to another host hourly, daily, weekly, and monthly.</p>
+</li>
+</ul>
 <section id="id1">
-<h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Before you begin<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>To restore MySQL to a different host, install the agent on that host, activate the licenses, and authorize the resource to the current ADPS user.</p>
+</section>
+<section id="create-a-point-in-time-restore-job">
+<h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Permalink to this heading">#</a></h3>
+<p>To create a point-in-time restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where the MySQL resides and select the database. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Point-in-time restore</strong>.</p>
+<p>(2) In the <strong>Restore point in time</strong> section, specify a point in time for the restore job.</p>
 <ul class="simple">
-<li><p>You have a completed backup job. See <em>Create Backup Jobs</em>.</p></li>
-<li><p>To restore to another host, it’s required to install the agent on that host, activate its license and assign the authorization.</p></li>
+<li><p>Select <strong>Restore to point in time</strong>. The default setting is to restore the database to the latest point in time of the newest backup set. You can click the time beside the option. In the pop-up window, select a point in time or time range. If a time range is selected, drag the slider to specify or enter a point in time for the restore. This option is only available for databases with successful log or continuous log backups.</p></li>
+<li><p>Select <strong>Restore to GTID</strong>. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID.</p></li>
 </ul>
-</section>
-<section id="create-timepoint-restore-jobs">
-<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
-<p>When a logical error occurs in a MySQL database or a disaster occurs in the database, you can use timepoint restore to restore the database to a specified point-in-time state. MySQL timepoint restore supports restoring to the source host or a different host.</p>
-<p>(1) Select the MySQL database host and instance, and click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Timepoint Restore</strong> as the restore type, select the database instance to be restored, and click <strong>Next</strong>. ADPS provides three timepoint types including point in time, GTID, and backup state (shortest recovery time).</p>
-<p><strong>Restore to Point-in-time</strong></p>
-<p>If you have executed a log backup or a continuous log backup job, you can run the timepoint restore job by dragging the slider control or manually entering to specify the point in time of the database that needs to be restored.</p>
-<p><img alt="time_restore-1" src="../_images/time_restore-1.png" /></p>
-<p><strong>Restore to GTID</strong></p>
-<p>When you choose <strong>Restore to GTID</strong>, the restore job is performed using the Restore Branch and the specified GTID.</p>
-<p>The <strong>Restore to GTID</strong> option is only displayed when the following conditions are met:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Restore to GTID</strong> is only displayed when the following conditions are met:</p>
 <ul class="simple">
-<li><p>You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to <a class="reference external" href="https://dev.mysql.com/doc/">MySQL official website</a> and check relevant documents.</p></li>
-<li><p>A  log backup or continuous log backup job has been completed.</p></li>
+<li><p>You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to MySQL official website and check the relevant documents.</p></li>
+<li><p>A log backup or continuous log backup job has been completed.</p></li>
 </ul>
-<p><img alt="time_restore-2" src="../_images/time_restore-2.png" /></p>
-<p><strong>Restore to Backup State (shortest recovery time)</strong></p>
-<p>This option can restore full backup sets, incremental backup sets, and synthetic backup sets, but it cannot restore binlog.</p>
-<p><img alt="time_restore-3" src="../_images/time_restore-3.png" /></p>
-<blockquote>
-<div><p>Note:</p>
+</div>
 <ul class="simple">
-<li><p>If the host to be restored is MySQL cluster, you can select the log backup sets of all nodes in the cluster. Before the log backup starts, the full backup sets and incremental backup sets will be displayed in the drop-down box in the form of time points. After the log backup completes, ADPS will automatically merge the full backup set, incremental backup set and log backup to become a time point. You can restore the instance to data at a specific point in time from the last full or incremental backup to the last log backup by selecting a point in time on the slider control.</p></li>
-<li><p>If the host to be restored is MySQL cluster, the Backup Sets page will have a filter option. When the log restore is performed, you can use the option to filter specific databases.</p></li>
+<li><p>Select <strong>Restore to backup state (shortest recovery time)</strong>. It restores data to the latest state of the most recent backup set. Then from the <strong>Backup sets</strong> list, select a backup set. The restore job will restore the data to the latest state of the selected backup set, but will not restore the binlog.</p></li>
 </ul>
-</div></blockquote>
-<p>(3) Set <strong>Restore Target</strong>. The restore target can be MySQL single host or cluster. When the restore target is a cluster, all nodes of the cluster will run the restore job.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. Timepoint restore only supports immediate and one-time restore schedules. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>. The restore options have common options and advanced options.</p>
-<ul>
-<li><p><strong>Common options</strong>:</p>
-<p>You can set the database username and password of the restore target.</p>
-</li>
-</ul>
-<p><img alt="time_restore-4" src="../_images/time_restore-4.png" /></p>
-<ul>
-<li><p><strong>Advanced options</strong>:</p>
-<p>You can set reconnection time, resumption buffer size, speed limit, precondition, pre/post action, database service startup script, database service stop script, skip grant tables while applying binlog, accelerate applying binglog, force apply binlog, MySQL service startup timeout, and cache directory.</p>
-</li>
-</ul>
-<p><img alt="time_restore-5_1" src="../_images/time_restore-5_1.png" /></p>
-<p><img alt="time_restore-5_2" src="../_images/time_restore-5_2.png" /></p>
-<p><strong>Skip grant tables while applying binlog</strong>: You can enable this option to avoid the problem of forbidden access to the binary logs due to insufficient permissions when restoring the logs.</p>
-<p><strong>Accelerate applying binlog</strong>: Accelerate the speed of restoring binlog.</p>
-<p><strong>Force apply binlog</strong>: You can enable this option to continue applying binlog when an error occurs.</p>
-<p><strong>Cache directory</strong>: When restoring incremental backup sets, if you set cache directory, timepoint restore will first download the incremental backup sets to the cache directory, then restore the sets. If you do not set cache directory, the incremental backup sets will be directly restored to the data directory of MySQL.</p>
-<p>(6) Confirm whether the restored content is correct, and submit the job after confirming that it is correct.</p>
-</section>
-<section id="create-logical-restore-jobs">
-<h3>Create Logical Restore Jobs<a class="headerlink" href="#create-logical-restore-jobs" title="Permalink to this heading">#</a></h3>
-<p>When data loss occurs in a MySQL database such as data files damaged or deleted by mistake, the database or some data files can be restored to the latest state through the logical restore function.</p>
-<blockquote>
-<div><p>Note:</p>
+<p>(3) Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the host to be restored is MySQL cluster:</p>
 <ul class="simple">
-<li><p>The least privileges required for a database user to start a logical restore are CREATE, DROP, SUPER, INSERT.</p></li>
+<li><p>Log backup sets of all nodes in the cluster can be selected. If no log backups are performed, full and incremental backup sets will be displayed as points in time. After performing log backups, full, incremental and log backup sets will be automatically merged into a time range.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, <strong>Filter</strong> is provided. The filter allows for the exclusion of specific databases from the restore process.</p></li>
 </ul>
-</div></blockquote>
-<p>(1) Select <strong>MySQL</strong> database host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Logical Recovery</strong> as the restore type, select the database to be restored, and click <strong>Next</strong>.</p>
-<p><img alt="logical_restore-1" src="../_images/logical_restore-1.png" /></p>
-<p>(3) Set <strong>Restore Schedule</strong>. Logical restore only supports immediate and one-time restore schedules. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Options</strong>. The restore options have common options and advanced options.</p>
-<ul>
-<li><p><strong>Common options</strong>:</p>
-<p>In common options, you can set restore database methods, and overwrite the original database is set by default, or you can restore to the new database by entering the new database name.</p>
+</div>
 </li>
-</ul>
-<p><img alt="logical_restore-2" src="../_images/logical_restore-2.png" /></p>
-<ul>
-<li><p><strong>Advanced options</strong>:</p>
-<p>In advanced options, you can set reconnnection time, resumption buffer size, speed limit, precondition, pre/post action and additional parameters.</p>
-</li>
-</ul>
-<p><img alt="logical_restore-3" src="../_images/logical_restore-3.png" /></p>
-<p>(5) After confirming the restore content, click <strong>Submit</strong> and allow the job to be executed.</p>
-</section>
-<section id="create-instant-recovery-jobs">
-<h3>Create Instant Recovery Jobs<a class="headerlink" href="#create-instant-recovery-jobs" title="Permalink to this heading">#</a></h3>
-<p>nstant recovery can only be performed on the MySQL databases with synthetic backup sets.</p>
-<blockquote>
-<div><p>Note:</p>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
 <ul class="simple">
-<li><p>If the storage pool storing synthetic backup sets is of the iSCSI type, then the iSCSI Initiator should be installed on the host where you perform the restore job.</p></li>
-<li><p>If the storage pool storing synthetic backup sets is of the FC type, the HBA API Driver corresponding to the HBA card should be installed on the host where you perform the restore job.</p></li>
-<li><p>When the target of instant recovery is cluster, all nodes of the cluster will run instant recovery job at the same time. ADPS mounts different LUNs on every node.</p></li>
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
 </ul>
-</div></blockquote>
-<p>The interface offers two portals to create instant recovery jobs and clone copies: <strong>Restore</strong> and <strong>CDM</strong>.</p>
-<section id="create-from-restore-menu">
-<h4>Create from Restore Menu<a class="headerlink" href="#create-from-restore-menu" title="Permalink to this heading">#</a></h4>
-<p>(1) Go to the <strong>Restore</strong> page, select MySQL database host and instance, and click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Instant Recovery</strong> as the restore type. ADPS provides three timepoint types including point in time, GTID, and backup state (shortest recovery time). Click <strong>Next</strong>.</p>
-<p><strong>Restore to Point-in-time</strong></p>
-<p>If you have executed a log backup or a continuous log backup job, you can run the instant recovery job by dragging the slider control or manually entering to specify the point in time of the database that needs to be restored.</p>
-<p><img alt="instant_restore-1" src="../_images/instant_restore-11.png" /></p>
-<p><strong>Restore to GTID</strong></p>
-<p>When you choose <strong>Restore to GTID</strong>, the restore job is performed using the Restore Branch and the specified GTID.</p>
-<p>The <strong>Restore to GTID</strong> option is only displayed when the following conditions are met:</p>
-<ul class="simple">
-<li><p>You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to <a class="reference external" href="https://dev.mysql.com/doc/">MySQL official website</a> and check relevant documents.</p></li>
-<li><p>A  log backup or continuous log backup job has been completed.</p></li>
-</ul>
-<p><img alt="instant_restore-2" src="../_images/instant_restore-21.png" /></p>
-<p><strong>Restore to Backup State (shortest recovery time)</strong></p>
-<p>This option can restore full backup sets, incremental backup sets, and synthetic backup sets, but it cannot restore binlog.</p>
-<p><img alt="instant_restore-3" src="../_images/instant_restore-3.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. You can restore data to another instance on the source or a different host. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. You can choose immediate or one-time restore schedules. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>, including common options and advanced options.</p>
-<ul>
-<li><p><strong>Common options</strong>:</p>
-<p>In common options, you can set the configuration file of MySQL database, and username and password for the backup source.</p>
 </li>
-</ul>
-<p><img alt="instant_restore-4" src="../_images/instant_restore-41.png" /></p>
-<p><strong>Database configuration file</strong>: Click <strong>Browse</strong> or manually enter the MySQL database configuration file path. If you leave it blank, the default configuration file will be used.</p>
-<p><strong>Database username for the backup source</strong>: Enter the username for the backup source database. If you leave it blank, it will use the username of the current logged-in resource (i.e., the target database).</p>
-<p><strong>Database password for the backup source</strong>: Enter the database password for the backup source manually. If you leave it blank, it will use the password of the current logged-in resource (i.e., the target database).</p>
-<ul>
-<li><p><strong>Advanced options</strong>:</p>
-<p>In advanced options, you can set precondition, pre/post action, database service startup/stop script, storage protocol, skip grant tables while applying binlog, accelerate applying binlog, force apply binlog, keep the mount point even if job fails, and MySQL service startup timeout.</p>
-</li>
-</ul>
-<p><img alt="instant_restore-5_1" src="../_images/instant_restore-5_11.png" /></p>
-<p><img alt="instant_restore-5_2" src="../_images/instant_restore-5_21.png" /></p>
-<p><strong>Database service start script</strong>: You can set the command used to start the MySQL service. The database service script starts with this command by default.</p>
-<p><strong>Database service stop script</strong>: You can set the command used to stop the MySQL service. The database service script stops with this command by default.</p>
-<p><strong>Storage protocol</strong>: You can create a new FC Target or iSCSI Target to run instant recovery. Backup sets that are backed up to an iSCSI database synthetic pool can be restored instantly if the FC is used and vice versa. This function requires that the operator has the administrative permission.</p>
-<p><strong>Keep the mount point even if job fails</strong>: This option allows the job to retain the mount point even if the job fails.</p>
-<p><strong>MySQL service startup timeout</strong>: The duration to wait for the target MySQL database to start when the instant recovery job is running.</p>
-<p>(6) Set <strong>Job Name</strong>, check whether the job information is correct, and click <strong>Submit</strong>.</p>
-</section>
-<section id="check-successful-recovery">
-<h4>Check Successful Recovery<a class="headerlink" href="#check-successful-recovery" title="Permalink to this heading">#</a></h4>
-<p>After the instant recovery is completed, enter the <strong>CDM</strong> menu. You can find a recovery history record under the backup point in time of the corresponding host and instance.</p>
-<p><img alt="cdm-1" src="../_images/cdm-1.png" /></p>
-</section>
-<section id="detach-copy">
-<h4>Detach Copy<a class="headerlink" href="#detach-copy" title="Permalink to this heading">#</a></h4>
-<p>You can detach the mounted data copies from the agent using the <strong>Detach</strong> icon. Note that if the mounted directory has data files being applied, the files will also be deleted.</p>
-<ul>
-<li><p>Click the <strong>Detach</strong> icon beside the data copy record.</p>
-<p><img alt="cdm-2" src="../_images/cdm-21.png" /></p>
-</li>
-<li><p>Pay attention to the warning and enter the verification code.</p>
-<p><img alt="cdm-3" src="../_images/cdm-31.png" /></p>
-</li>
-</ul>
-</section>
-</section>
-<section id="create-log-restore-jobs">
-<h3>Create Log Restore Jobs<a class="headerlink" href="#create-log-restore-jobs" title="Permalink to this heading">#</a></h3>
-<p>Log restore jobs can only be applied when the database has log backups or continuous log backups. They only download the binary logs to the specified directory on the agent but do not perform the database restore.</p>
-<p>(1) Select MySQL database host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Restore Archived Logs</strong> as the restore type and select <strong>Restore to Point-in-time</strong> or <strong>Restore to GTID</strong>. Click <strong>Next</strong>.</p>
-<p><strong>Restore to Point-in-time</strong></p>
-<p>You can run the restore logs job by dragging the slider control or manually entering to specify the point in time of the database that needs to be restored.</p>
-<p><img alt="log_restore-1" src="../_images/log_restore-11.png" /></p>
-<p><strong>Restore to GTID</strong></p>
-<p>When you choose <strong>Restore to GTID</strong>, the restore job is performed using the Restore Branch and the specified GTID.</p>
-<p>The <strong>Restore to GTID</strong> option is only displayed when the following conditions are met:</p>
-<ul class="simple">
-<li><p>You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to <a class="reference external" href="https://dev.mysql.com/doc/">MySQL official website</a> and check relevant documents.</p></li>
-<li><p>A  log backup or continuous log backup job has been completed.</p></li>
-</ul>
-<p><img alt="log_restore-2" src="../_images/log_restore-2.png" /></p>
-<p>(3) Set <strong>Restore Schedule</strong>. It only supports immediate and one-time schedules. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Options</strong>, including common options and advanced options.</p>
-<ul>
-<li><p><strong>Common options</strong>:</p>
-<p>In common options, you can set binlog destination.</p>
-</li>
-</ul>
-<p><img alt="log_restore-3" src="../_images/log_restore-31.png" /></p>
-<ul>
-<li><p><strong>Advanced options</strong>:</p>
-<p>In advanced options, you can set reconnection time, resumption buffer size, speed limit, precondition and pre/post action.</p>
-</li>
-</ul>
-<p><img alt="log_restore-4" src="../_images/log_restore-41.png" /></p>
-<p>(5) Confirm the job settings, click <strong>Submit</strong> and wait for the job to be executed.</p>
-</section>
-<section id="create-recovery-testing-jobs">
-<h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Permalink to this heading">#</a></h3>
-<p>Recovery testing verifies the integrity and availability of backup sets. With the hourly, daily, weekly, or monthly schedule, it can restore the latest backup sets of MySQL to other instances on target host or source host. It is required that the target host and the storage server where the backup sets are located can communicate with each other.</p>
-<p>(1) Select MySQL database host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Recovery Testing</strong> as the restore type, select the instance or database to be restored, and click <strong>Submit</strong>. You can click the <strong>Rename</strong> icon and specify the restored database name.</p>
-<p><img alt="exercise-1" src="../_images/exercise-1.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. The target can be the source or a different host. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. It supports hourly, daily, weekly, and monthly schedules. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>, including reconnection time, speed limit, pre action and post action. Click <strong>Next</strong>.</p>
-<p>(6) Confirm the job settings and click <strong>Submit</strong>.</p>
-<p>(7) Wait for the job to be executed. The job will restore the latest backup sets of the source host.</p>
-</section>
-</section>
-<section id="manage-jobs">
-<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
-<p>On the <strong>Job</strong> interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.</p>
-<p><img alt="job-1" src="../_images/job-12.png" /></p>
-<ul class="simple">
-<li><p>Start: Click  <img alt="job-2" src="../_images/job-22.png" /> to start the job immediately.</p></li>
-<li><p>Modify: Click <img alt="job-3" src="../_images/job-32.png" /> to modify the basic job information, the backup/restore schedule, and the backup/restore options.</p></li>
-<li><p>Clone: Click <img alt="job-4" src="../_images/job-42.png" /> to create multiple similar backup jobs.</p></li>
-<li><p>Delete: Click <img alt="job-5" src="../_images/job-52.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
-</ul>
-</section>
-<section id="backup-protection-strategy">
-<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
-<section id="backup-schedule-operation">
-<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
-<p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
-<p><img alt="time-1" src="../_images/time-12.png" /></p>
-<ul class="simple">
-<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
-<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
-<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
-<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
-<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
-</ul>
-<blockquote>
-<div><p><strong>Example: Perform the job every two weeks on Friday at 18:00</strong></p>
-</div></blockquote>
-<p><img alt="time-3" src="../_images/time-32.png" /></p>
-<blockquote>
-<div><p><strong>The actual execution time is:</strong></p>
-<ul class="simple">
-<li><p>If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).</p></li>
-<li><p>If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).</p></li>
-<li><p>If the current time is Saturday 17:00, the run time will be next Friday 18:00.</p></li>
-<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="backup-strategy-advice">
-<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
-<p>There are six methods to back up MySQL: full backup, incremental backup, log backup, continuous log backup, logical backup and synthetic backup. Full backup, incremental backup, and log backup can be used together. Synthetic backup and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, edit, and delete the job.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ol class="arabic simple">
-<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
-<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
-<li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> every few hours to reach a second-level RPO. For example, you can run a log backup every 2 hours.</p></li>
+<li><p>Performing point-in-time restore jobs requires restarting the MySQL service, which results in the overwriting of the database data. If the restore target has a periodic log backup job, you need to perform a full backup job on the restore target after a point-in-time restore and before the next log backup.</p></li>
+<li><p>After completing the point-in-time restore job for a MySQL cluster, it is important to verify the correctness of the replication relationships within the cluster. If any replication issues arise, manual configuration of the cluster’s replication will be necessary.</p></li>
 </ol>
-<blockquote>
-<div><p>Note:</p>
-<p>Avoid using the following strategies:</p>
+</div>
+</section>
+<section id="create-a-logical-recovery-job">
+<h3>Create a logical recovery job<a class="headerlink" href="#create-a-logical-recovery-job" title="Permalink to this heading">#</a></h3>
+<p>To create a logical recovery job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where MySQL resides and select the resource. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Logical recovery</strong>.</p>
+<p>(2) From the <strong>Restore source</strong> list, select a database and point in time.</p>
+<p>(3) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
 <ul class="simple">
-<li><p>Perform only full backups.</p></li>
-<li><p>Perform a full backup followed by all incremental or log backups.</p></li>
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
 </ul>
-</div></blockquote>
-</section>
-</section>
-<section id="channel-number-configuration">
-<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
-<ul>
-<li><p>Channel number for backup jobs</p>
-<p>MySQL supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. The number of channels is generally recommended to be consistent with that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
 </li>
-<li><p>Channel number for restore jobs</p>
-<p>The channel number for a restore job is the same as that for the backup job. The restore page does not have the Channel option by default.</p>
-</li>
-</ul>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, edit, and delete the job.</p></li>
+</ol>
 </section>
-<section id="mysql-cluster">
-<h2>MySQL Cluster<a class="headerlink" href="#mysql-cluster" title="Permalink to this heading">#</a></h2>
-<p>ADPS supports MySQL master-slave and dual-master replication. Before the first backup and restore, bind the MySQL nodes into clusters.</p>
-<section id="master-slave-replication">
-<h3>Master-Slave Replication<a class="headerlink" href="#master-slave-replication" title="Permalink to this heading">#</a></h3>
-<p>The deployment of each node in the cluster is required. For details, see <em>Install and Configure Agent</em> as well as <em>Activate License and Assign Authorization</em>.</p>
-<section id="cluster-binding">
-<h4>Cluster Binding<a class="headerlink" href="#cluster-binding" title="Permalink to this heading">#</a></h4>
+<section id="create-an-instant-recovery-job">
+<h3>Create an instant recovery job<a class="headerlink" href="#create-an-instant-recovery-job" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ol class="arabic simple">
-<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click <strong>Cluster Binding</strong>.</p></li>
+<li><p>If the storage pool storing synthetic backup sets is of the iSCSI type, you must install the iSCSI Initiator on the host where you perform the restore job.</p></li>
+<li><p>If the storage pool storing synthetic backup sets is of the FC type, you must install the HBA API Driver corresponding to the HBA card on the host where you perform the restore job.</p></li>
+<li><p>When the restore target for an instant recovery job is a cluster, all nodes in the cluster will run the job at the same time. ADPS mounts different LUNs on every node.</p></li>
 </ol>
-<p><img alt="cluster-1" src="../_images/cluster-11.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>Customize the cluster name. Select the active node as the <strong>Primary Node</strong>, <strong>Master Slave Replication</strong> as the <strong>Type</strong>, and the inactive node as the <strong>Nodes</strong>. You can set the <strong>Keepalived Configuration File</strong> and <strong>Preferred Backup Node</strong> according to your needs. Click <strong>Submit</strong>.</p></li>
-</ol>
-<p><img alt="cluster-2" src="../_images/cluster-21.png" /></p>
-</section>
-<section id="backup-and-restore">
-<h4>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading">#</a></h4>
+</div>
+<p>To create an instant recovery job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where MySQL resides and select the instance. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Instant recovery</strong>.</p>
+<p>(2) In the <strong>Restore point in time</strong> section, specify a point in time for the restore job.</p>
 <ul class="simple">
-<li><p>MySQL master-slave has the same backup and restore types as the single instance.</p></li>
-<li><p>On the <strong>Backup</strong> page, you can only see the active nodes of MySQL master-slave cluster. Select the active nodes as the backup resource. The remaining steps are similar to <em>Create Backup Jobs</em>.</p></li>
-<li><p>If a switchover occurs in the nodes of the MySQL master-slave cluster, the new active node will automatically take over the backup job.</p></li>
+<li><p>Select <strong>Restore to point in time</strong>. The default setting is to restore the database to the latest point in time of the newest backup set. You can click the time beside the option. In the pop-up window, select a point in time or time range. If a time range is selected, drag the slider to specify or enter a point in time for the restore. This option is only available for databases with successful log or continuous log backups.</p></li>
+<li><p>Select <strong>Restore to GTID</strong>. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Restore to GTID</strong> is only displayed when the following conditions are met:</p>
+<ul class="simple">
+<li><p>You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to MySQL official website and check relevant documents.</p></li>
+<li><p>A log backup or continuous log backup job has been completed.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>Select <strong>Restore to backup state (shortest recovery time)</strong>. It will restore data to the latest state of the most recent backup set by default. Then from the <strong>Backup sets</strong> list, select a backup set. The restore job will restore the data to the latest state of the selected backup set, but will not restore the binlog.</p></li>
+</ul>
+<p>(3) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the instant recovery, go to the <strong>CDM</strong> page. A mounted copy is added below the full copy. See <a class="reference internal" href="#view-a-copy">View a copy</a>.</p></li>
+</ol>
+</section>
+<section id="create-a-log-restore-job">
+<h3>Create a log restore job<a class="headerlink" href="#create-a-log-restore-job" title="Permalink to this heading">#</a></h3>
+<p>To create a log restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where MySQL resides and select the resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Log restore</strong>.</p>
+<p>(2) In the <strong>Restore point in time</strong> section, specify a point in time for the restore job.</p>
+<ul class="simple">
+<li><p>Select <strong>Restore to point in time</strong>. The default setting is to restore the database to the latest point in time of the newest backup set. You can click the time beside the option. In the pop-up window, select a point in time or time range. If a time range is selected, drag the slider to specify or enter a point in time for the restore. This option is only available for databases with successful log or continuous log backups.</p></li>
+<li><p>Select <strong>Restore to GTID</strong>. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Restore to GTID</strong> is only displayed when the following conditions are met:</p>
+<ul class="simple">
+<li><p>You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to MySQL official website and check relevant documents.</p></li>
+<li><p>A log backup or continuous log backup job has been completed.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>Select <strong>Restore to backup state (shortest recovery time)</strong>. It restore data to the latest state of the most recent backup set. Then from the <strong>Backup sets</strong> list, select a backup set. The restore job will restore the data to the latest state of the selected backup set, but will not restore the binlog.</p></li>
+</ul>
+<p>(3) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, edit, and delete the job.</p></li>
+</ol>
+</section>
+<section id="create-a-recovery-testing-job">
+<h3>Create a recovery testing job<a class="headerlink" href="#create-a-recovery-testing-job" title="Permalink to this heading">#</a></h3>
+<p>To create a recovery testing:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where MySQL resides and select the instance. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Recovery testing</strong>.</p>
+<p>(2) In the <strong>Restore to</strong> field, set a time for the restore job. You can restore to the latest time, or restore to N minutes/hours/days/weeks/months before the start time of the restore job.</p>
+<p>(3) In the <strong>Restore source</strong> section, select a database or instance. If you want to rename the restore source, click the database. The Rename icon appears beside the name. Click the icon and specify a name in the pop-up window.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For performing recovery testing jobs on Windows, only the database can be selected in <strong>Restore source</strong> section.</p>
+</div>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step. The restore target supports other instances on the original or a different host.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Hourly</strong>. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).</p></li>
+<li><p>Select <strong>Daily</strong>. Set the start time and enter the time interval for job execution. The unit is day(s).</p></li>
+<li><p>Select <strong>Weekly</strong>. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.</p></li>
+<li><p>Select <strong>Monthly</strong>. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, edit, and delete the job.</p></li>
+</ol>
+</section>
+<section id="restore-options">
+<h3>Restore options<a class="headerlink" href="#restore-options" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides the following restore options for MySQL:</p>
+<ul class="simple">
+<li><p>Common options:</p></li>
+</ul>
+<table class="longtable table" id="id7">
+<caption><span class="caption-text">Restore common options</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Restore database</p></td>
+<td><p>You can set the database restore method. The default option is Overwrite the original database. Alternatively, you can input a new database name to restore the data to a new database.</p></td>
+<td><p>Only available for logical recovery jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Database configuration file</p></td>
+<td><p>Click <strong>Browse</strong> or manually enter the MySQL configuration file path. If you leave it blank, the default configuration file will be used.</p></td>
+<td><p>Only available for instant recovery jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>binlog destination</p></td>
+<td><p>Click <strong>Browse</strong> or manually enter the file path to restore the logs to the specified directory on the agent host. The field is required.</p></td>
+<td><p>Only available for log restore jobs.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options:</p></li>
+</ul>
+<table class="longtable table" id="id8">
+<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id8" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Restrictions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
+<td><p>Not available for instant recovery jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
+<td><p>Not available for instant recovery jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Database service startup/stop script</p></td>
+<td><p>When the database’s start and stop scripts are not the common methods (such as using service or systemctl), you need to manually enter the start and stop scripts.</p></td>
+<td><p>Only available for point-in-time restore, instant recovery and recovery testing jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Skip grant tables while applying binlog</p></td>
+<td><p>Enabling this option can prevent issues with binary logs encountering forbidden access due to insufficient privileges during a log restore job is running.</p></td>
+<td><p>Only available for point-in-time restore and instant recovery jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Accelerate applying binlog</p></td>
+<td><p>Enabling this option speeds up the restore of binlogs.</p></td>
+<td><p>Only available for point-in-time restore and instant recovery jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Force applying binlog</p></td>
+<td><p>Enabling this option allows the continued application of binlogs even in the presence of errors.</p></td>
+<td><p>Only available for point-in-time restore and instant recovery jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MySQL service startup timeout</p></td>
+<td><p>The duration to wait for the target MySQL database to start when a restore job is running.</p></td>
+<td><p>Only available for point-in-time restore and instant recovery jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cache directory</p></td>
+<td><p>When restoring an incremental backup set, if a cache directory is configured, the incremental backup set is first downloaded to the cache directory before being restored. If no cache directory is set, the incremental backup set is restored directly to MySQL’s data directory.</p></td>
+<td><p>Only available for point-in-time restore and recovery testing jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Keep the mount point even if job fails</p></td>
+<td><p>It is used to manually start a MySQL instance on a mount point or to check why a job failed.</p></td>
+<td><p>Only available for instant recovery jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Additional parameters</p></td>
+<td><p>The parameters passed to MySQL. Multiple parameters should be separated by space.</p></td>
+<td><p>Only available for logical recovery jobs.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
-<section id="master-master-replication">
-<h3>Master-Master Replication<a class="headerlink" href="#master-master-replication" title="Permalink to this heading">#</a></h3>
+<section id="copy-data-management">
+<h2>Copy data management<a class="headerlink" href="#copy-data-management" title="Permalink to this heading">#</a></h2>
+<p>On the <strong>CDM</strong> page, you can manage the copies generated by instant recovery and synthetic backup jobs, including viewing, cloning, unmounting, and deleting copies.</p>
+<section id="view-a-copy">
+<h3>View a copy<a class="headerlink" href="#view-a-copy" title="Permalink to this heading">#</a></h3>
+<p>To view copies, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>CDM</strong>. The <strong>CDM</strong> page appears.</p></li>
+<li><p>From the toolbar, select the resource and the period when copies are created. The display area shows copies of this resource in this period. Copies are named by the creation time.</p></li>
+<li><p>Click the copy name. The details of this copy appear on the right side of the page. Different icons represent different copy types.</p>
+<ul class="simple">
+<li><p>Full copy: A data copy created by a synthetic backup.</p></li>
+<li><p>Mounted copy: A data copy created by an instant recovery.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="clone-a-copy">
+<h3>Clone a copy<a class="headerlink" href="#clone-a-copy" title="Permalink to this heading">#</a></h3>
+<p>You can click the <strong>Clone copy</strong> icon to create an instant recovery job for the synthetic copy to create a new mounted copy.</p>
+<p>To clone copies, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>CDM</strong>. The <strong>CDM</strong> page appears.</p></li>
+<li><p>From the toolbar, select the resource and the period when copies are created. The display area shows the copies in this period.</p></li>
+<li><p>On the display area, click the name of the MySQL instance. The <strong>Clone copy</strong> icon appears on the right of the instance.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Click the <strong>Clone copy</strong> button. You will be redirected to the <strong>Backup sets</strong> step. See <a class="reference internal" href="#create-an-instant-recovery-job">Create an instant recovery job</a> to configure the job.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>After the instant recovery, a copy with a mounted state is added below the selected point in time on the <strong>CDM</strong> page.</p></li>
+</ol>
+</section>
+<section id="unmount-a-copy">
+<h3>Unmount a copy<a class="headerlink" href="#unmount-a-copy" title="Permalink to this heading">#</a></h3>
+<p>You can click the <strong>Unmount</strong> icon to unmount the mounted copies. This operation will make the mounted directory on the restore target inaccessible.</p>
+<p>To unmount a copy, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>CDM</strong>. The <strong>CDM</strong> page appears.</p></li>
+<li><p>From the toolbar, select the resource and the period when copies are created. The display area shows the copies in this period.</p></li>
+<li><p>Expand the full backup copy and select a mounted copy. The <strong>Unmount</strong> icon appears on the right of the copy.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Click the <strong>Unmount</strong> icon. A confirmation window appears.</p></li>
+<li><p>Confirm the warning and enter the verification code. Click <strong>OK</strong>.</p></li>
+<li><p>After the unmounting, you can see no such mounted copy record under the full copy.</p></li>
+</ol>
+</section>
+</section>
+<section id="mysql-cluster-backup-and-restore">
+<h2>MySQL cluster backup and restore<a class="headerlink" href="#mysql-cluster-backup-and-restore" title="Permalink to this heading">#</a></h2>
+<p>ADPS supports the backup and restore of MySQL clusters. Before you back up and restore the MySQL cluster, bind nodes into a cluster on the console.</p>
 <section id="id2">
-<h4>Cluster Binding<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<h3>Before you begin<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>See <a class="reference internal" href="#install-and-configure-the-agent">Install and configure the agent</a> and <a class="reference internal" href="#activate-licenses-and-authorize-users">Activate license and authorize users</a> to complete the environment deployment on each node.</p>
+</section>
+<section id="bind-nodes-into-a-cluster">
+<h3>Bind nodes into a cluster<a class="headerlink" href="#bind-nodes-into-a-cluster" title="Permalink to this heading">#</a></h3>
+<p>To bind nodes into a cluster on the console, do the following:</p>
 <ol class="arabic simple">
-<li><p>Go to <strong>Resource</strong> -&gt; <strong>Cluster</strong>. Click the <strong>Cluster Binding</strong> icon.</p></li>
-<li><p>Customize the cluster name. Select a master node in the cluster as the <strong>Primary Node</strong>, <strong>Dual-master Replication</strong> as the <strong>Type</strong>, and other master nodes of the cluster as the <strong>Nodes</strong>. You can set the <strong>Keepalived Configuration File</strong> and <strong>Preferred Backup Node</strong> according to your needs. Click <strong>Submit</strong>.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Cluster</strong>. The <strong>Cluster</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>+</strong> icon. The <strong>Cluster binding</strong> window appears.</p></li>
 </ol>
-<p><img alt="cluster-3" src="../_images/cluster-31.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>In the <strong>Cluster binding</strong> window, do the following:</p></li>
+</ol>
+<ul>
+<li><p>To bind the source-replica replication cluster:</p>
+<p>(1) In the <strong>Name</strong> field, enter the name for the cluster.</p>
+<p>(2) From the <strong>Primary node</strong> list, select the primary node in the source-replica replication cluster.</p>
+<p>(3) From the <strong>Type</strong> list, select <strong>Master-slave replication</strong>.</p>
+<p>(4) From the <strong>Nodes</strong> list, select the replica node in the cluster.</p>
+<p>(5) In the <strong>Keepalived configuration file</strong> field, select a configuration file. The keepalived primary node is chosen based on the configuration file. If the configuration file is not available, you may not select it.</p>
+<p>(6) From <strong>Preferred backup node</strong> list, select the MySQL cluster node that needs to be prioritized for backup. Not selected by default.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ADPS will select the cluster backup node based on the priority order of <strong>Preferred backup node</strong> &gt; <strong>Keepalived configuration file</strong> &gt; No configuration.</p>
+</div>
+<p>(7) Click <strong>Submit</strong>. The binding is successful.</p>
+</li>
+<li><p>The steps to bind nodes in a source-source replication cluster are similar to binding nodes in a source-replica replication cluster. However, note that when performing the binding, select the <strong>Dual-master replication</strong> from the <strong>Type</strong> list.</p></li>
+</ul>
 </section>
-<section id="id3">
-<h4>Backup and Restore<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
-<p>When creating a backup job, select the primary node of MySQL as the backup source. The remaining steps are similar to <em>Create Backup Jobs</em>.</p>
-</section>
+<section id="cluster-backup-and-restore">
+<h3>Cluster backup and restore<a class="headerlink" href="#cluster-backup-and-restore" title="Permalink to this heading">#</a></h3>
+<p>When a switchover occurs, the new primary node will take over the backup job automatically. To create a MySQL cluster backup/restore job, see <a class="reference internal" href="#create-a-backup-job">Create a backup job</a>.</p>
 </section>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
-<table class="longtable table" id="id8">
-<caption><span class="caption-text">Limitation</span><a class="headerlink" href="#id8" title="Permalink to this table">#</a></caption>
+<table class="longtable table" id="id9">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id9" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Function</p></th>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Limitations</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Resource</p></td>
-<td><p>· Do not support MySQL cluster environment on Windows.  <br> · After cluster binding, all nodes should be online so that you can create jobs.  <br> · After cluster binding, you cannot change the primary node unless you delete the cluster.</p></td>
+<td><p>- ADPS does not support MySQL cluster on Windows. <br> - After cluster binding, all nodes must be online for job creation. <br> - Once the cluster is bound, the primary node cannot be changed unless the entire cluster is deleted.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Backup</p></td>
-<td><p>· MySQL on Windows only supports logical backups.   <br> · To run physical backup on MySQL 5.1, it’s necessary to install InnoDb Plugin engine.     <br> · Do not support running incremental backups for databases with MyISAM storage engine. If you run incremental backups on those databases, it will run full backups by default.      <br> · If the type of database synthetic pool is iSCSI, it’s necessary to install iscsi-initiator-utils on the agent. If the type of database synthetic pool is FC, it’s necessary to insert HBA card and install the corresponding HBA API Driver on the agent.   <br> · Synthetic backups do not support reconnection time, resumption buffer size and speed limit.</p></td>
+<td><p>- ADPS only supports MySQL logical backup on Windows.  <br> - To execute physical backups and synthetic backups, MySQL version 5.138 or above (with the MySQL InnoDB Plugin installation package) on Linux is required.  <br> - MySQL 5.1 requires the installation of the InnoDB plugin for performing physical backups and synthetic backups. <br> - ADPS does not support incremental backups for MySQL using the MyISAM engine. By default, incremental backups for MySQL with the MyISAM engine will be performed as the full backup. <br> - For iSCSI-based data synthetic pools, the agent host requires the installation of iscsi-initiator-utils. For FC-based data synthetic pools, the agent host needs to have an HBA card installed with the corresponding HBA API Driver. <br> - Reconnection time, resumption buffer size and speed limit are not available for synthetic backups.</p></td>
 </tr>
 <tr class="row-even"><td><p>Restore</p></td>
-<td><p>· When ADPS is running physical restore jobs, it’s necessary to enter corresponding scripts in the options of Database Start/Stop Scripts if MySQL service is started unconventionally.   <br> · You can set cache directory when use timepoint restore to restore incremental backup sets.  <br> · If you select Restore to Backup State (shortest recovery time) on timepoint restore, you can restore full backup sets, incremental backup sets and synthetic backup sets. If you select Restore to Backup State (shortest recovery time) on instant recovery, you can only restore synthetic backup sets. When you select Restore to Backup State (shortest recovery time), you cannot restore binlog.  <br> · Instant recovery does not support reconnection time, resumption buffer size and speed limit.  <br> · During instant recovery, if apparmor or selinux is enabled on the agent, you need to add “/mnt/iscsi_disk/r, /mnt/iscsi_disk/** rwk, “ to the configuration file /etc/apparmor.d/usr.sbin.mysqld, then execute the command “/etc/init.d/apparmor reload”.   <br> · When you run a restore job for a MySQL cluster, the filter can only be used for log recovery, and the ignored database must be a database with records in the log backup sets.   <br> · After the MySQL cluster is physically restored, the group replication relationship of the cluster will not be automatically restored. You need to manually execute the command “start group_replication” to start group replication.</p></td>
+<td><p>- When creating the point-in-time restore, instant recovery, and recovery testing jobs, if MySQL is started in a non-standard way, inputting the corresponding scripts or commands in the Database service startup/stop script restore options is required. <br> - For point-in-time restore jobs, selecting Restore to Backup State (shortest recovery time) allows for the restore of full, incremental, and synthetic backup sets. For instant recovery jobs, selecting Restore to backup state (shortest recovery time) only allows for the recovery of synthetic backup sets. When selecting Restore to backup state (shortest recovery time), binlog restore will not be performed. <br> - Reconnection time, resumption buffer size and speed limit are not available for instant recovery jobs. <br> - When performing an instant recovery job, if the agent host has apparmor or selinux enabled, you need to add <code class="docutils literal notranslate"><span class="pre">/mnt/iscsi_disk/</span> <span class="pre">r,</span> <span class="pre">/mnt/iscsi_disk/**</span> <span class="pre">rwk,</span></code> to the configuration file <code class="docutils literal notranslate"><span class="pre">/etc/apparmor.d/usr.sbin.mysqld</span></code>. Afterward, execute the command <code class="docutils literal notranslate"><span class="pre">/etc/init.d/apparmor</span> <span class="pre">reload</span></code>. <br> - When configuring a restore job for a MySQL cluster, the Filter option is only applicable to the log restore job. Additionally, ensure that the databases specified for exclusion have corresponding records within the log backup set. <br> - After performing a point-in-time restore job on a MySQL cluster, the group replication relationship of the cluster will not be automatically restored. Therefore, you need to manually execute the command <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">group_replication</span></code> to initiate group replication.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="glossary">
 <h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
-<table class="longtable table" id="id9">
-<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id9" title="Permalink to this table">#</a></caption>
+<table class="longtable table" id="id10">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id10" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
 <th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Fast compression</p></td>
-<td><p>Compress data during backup using fast compression algorithms.</p></td>
+<tr class="row-even"><td><p>fast compression</p></td>
+<td><p>A compression method that uses fast compression algorithms to compress data during the backup job.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1910,86 +1329,48 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-list">Compatibility List</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#single-instance">Single Instance</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows">Install and Configure Agent on Windows</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-installation-package">Download Installation Package</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-type">Backup type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-instance">Log in to the instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-mysql-instance-manually">Add a MySQL instance manually</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux">Install and Configure Agent on Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-point-in-time-restore-job">Create a point-in-time restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-logical-recovery-job">Create a logical recovery job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-instant-recovery-job">Create an instant recovery job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-log-restore-job">Create a log restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-recovery-testing-job">Create a recovery testing job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-assign-authorization">Activate License and Assign Authorization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-authorization">Assign Authorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-data-management">Copy data management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-a-copy">View a copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-a-copy">Clone a copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unmount-a-copy">Unmount a copy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-database-state">Check Database State</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login-resource">Login Resource</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login-instance-for-the-first-time">Login Instance for the First Time</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-mysql-instance-manually">Add MySQL Instance Manually</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-jobs">Create Incremental Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-backup-jobs">Create Log Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-continuous-log-backup-jobs">Create Continuous Log Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-backup-jobs">Create Logical Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-backup-jobs">Create Synthetic Backup Jobs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-logical-restore-jobs">Create Logical Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-instant-recovery-jobs">Create Instant Recovery Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-restore-menu">Create from Restore Menu</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-recovery">Check Successful Recovery</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detach-copy">Detach Copy</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-restore-jobs">Create Log Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-number-configuration">Channel Number Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mysql-cluster">MySQL Cluster</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#master-slave-replication">Master-Slave Replication</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-binding">Cluster Binding</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#master-master-replication">Master-Master Replication</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cluster Binding</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Backup and Restore</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mysql-cluster-backup-and-restore">MySQL cluster backup and restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind-nodes-into-a-cluster">Bind nodes into a cluster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-backup-and-restore">Cluster backup and restore</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>

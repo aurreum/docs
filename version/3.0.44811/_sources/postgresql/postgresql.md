@@ -1,523 +1,617 @@
 # User Guide for PostgreSQL
 
-## Introduction
+This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore PostgreSQL.
 
-Aurreum Data Protection Suite (ADPS) can back up and restore PostgreSQL databases. This guide introduces how to properly use ADPS to back up and restore PostgreSQL databases.
+The backup and restore features supported by ADPS include:
 
-## Features
+- Backup sources
 
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
-```
-```{table} Features
----
-class: longtable
----
-| Feature                                 | Description                                                  |
-| --------------------------------------- | ------------------------------------------------------------ |
-| Backup type                             | Full backup: Back up all the databases on the instance.{{ br }}Incremental backup: Back up data blocks that have changed since the last backup.{{ br }}Log backup: Back up the archived logs of database instances.{{ br }}Logical backup: Back up one or more databases, schemas, and tables. |
-| Backup schedule                         | Immediate, one-time, hourly, daily, weekly, monthly          |
-| Backup compression                      | None, fast, tunable                                          |
-| Backup target                           | Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool |
-| Reconnection time                       | The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes. |
-| Multiple channels                       | The backup and restore with multiple channels are supported. |
-| Restore type                            | Timepoint restore: Restore a database instance to a specified point-in-time state, including a backup state (shortest recovery time) and a specified point in time.{{ br }}Logical recovery: recover one or more databases, schemas, and tables.{{ br }}Restore archived logs: Download the backed-up logs to a specified directory of the agent. {{ br }}Recovery testing: Periodically restore the latest backup set to another instance. |
-| Restore location                        | Original path, specified path                                |
-| Restore target                          | Overwrite the source database, create a new database         |
-| Restore granularity                     | Entire database (single, multiple), schema, table, instance, log |
-| Restore to different hosts              | Restoring to another host with different minor versions is supported. |
-| Storage pool replication                | PostgreSQL backup sets support storage pool replication.     |
-| Restore from target pools               | Restoring backup sets from a target storage pool is supported. |
-| Pre/Post action                         | The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored. |
-| Speed limit                             | The data transfer speed or disk read and write speed can be limited. |
-| D2C                                     | Data can be backed up to an object storage service directly. |
-| D2T                                     | Data can be backed up to a tape library directly.            |
-| LAN-Free                                | Backing up data to and restoring data from LAN-Free storage pools are supported. |
-| Modify a job's backup source and target | Modifying a job's backup source and backup target is supported. |
-| IPv6                                    | Data transfer and management over IPv6 network are supported. |
-```
+	Database, schema, and table
 
-## Install and Configure Agent
+- Backup types
 
-### Verify Compatibility
+	Full backup, incremental backup, log backup, and logical backup
 
-ADPS supports the backup and restore of PostgreSQL single host and cluster. Before deploying the agent, check whether your operating system (OS) and database versions are supported. Please refer to *Compatibility List* for details.
+- Backup targets
 
-#### Compatibility List
+	Standard storage pool, deduplication storage pool, local storage pool, tape library pool, object storage service pool, and LAN-free pool
 
-##### Single Host
+- Backup schedules
 
-```{tabularcolumns} |\Y{0.18}|\Y{0.18}|\Y{0.2}|\Y{0.18}|\Y{0.13}|\Y{0.13}|
-```
-```{table} Single Host
----
-class: longtable
----
-| Database Version | Database Bits | OS              | CPU Architecture | OS Bits | Note |
-| ---------------- | ------------- | --------------- | ---------------- | ------- | ---- |
-| 8.1              | 64            | Red Hat 5       | x86              | 64      |      |
-| 8.4              | 64            | Windows 2003    | x86              | 64      |      |
-| 8.4              | 64            | Windows 2008 R2 | x86              | 64      |      |
-| 8.4              | 64            | Red Hat 6       | x86              | 64      |      |
-| 8.4              | 64            | CentOS 6.1      | x86              | 64      |      |
-| 8.4.11           | 64            | CentOS 5.8      | x86              | 64      |      |
-| 9.1              | 64            | Debian 7.8      | x86              | 64      |      |
-| 9.2              | 64            | Windows 2003    | x86              | 64      |      |
-| 9.2              | 64            | Windows 2008 R2 | x86              | 64      |      |
-| 9.2              | 64            | Red Hat 7       | x86              | 64      |      |
-| 9.3              | 64            | Windows 2008 R2 | x86              | 64      |      |
-| 9.4.23           | 64            | Red Hat 6.5     | x86              | 64      |      |
-| 9.5.5            | 64            | CentOS 6.7      | x86              | 64      |      |
-| 9.6.12           | 64            | Red Hat 6.5     | x86              | 64      |      |
-| 9.6.12           | 64            | Red Hat 7.2     | x86              | 64      |      |
-| 9.6.12           | 64            | Red Hat 7.4     | x86              | 64      |      |
-| 9.6.24           | 64            | Windows 2012    | x86              | 64      |      |
-| 10.19            | 64            | Windows 2016    | x86              | 64      |      |
-| 10.6             | 64            | CentOS 7.6      | x86              | 64      |      |
-| 10.8             | 64            | Red Hat 6.5     | x86              | 64      |      |
-| 11.0             | 64            | CentOS 7.0      | x86              | 64      |      |
-| 11.0             | 64            | Windows 2012    | x86              | 64      |      |
-| 11.1             | 64            | CentOS 7.2      | x86              | 64      |      |
-| 11.7             | 64            | CentOS 7.6      | x86              | 64      |      |
-| 12.1             | 64            | CentOS 7.6      | x86              | 64      |      |
-| 12.2             | 64            | CentOS 7.6      | x86              | 64      |      |
-| 12.3             | 64            | CentOS 7.6      | x86              | 64      |      |
-| 12.9             | 64            | Windows 2016    | x86              | 64      |      |
-| 13.0             | 64            | CentOS 7.5      | x86              | 64      |      |
-| 13.4             | 64            | CentOS 7.5      | x86              | 64      |      |
-| 13.4             | 64            | CentOS 8.0      | x86              | 64      |      |
-| 13.5             | 64            | Windows 2016    | x86              | 64      |      |
-| 13.5             | 64            | Windows 2019    | x86              | 64      |      |
-| 14.0             | 64            | CentOS 7.5      | x86              | 64      |      |
-| 14.0             | 64            | CentOS 8.0      | x86              | 64      |      |
-| 14.1             | 64            | Windows 2016    | x86              | 64      |      |
-| 14.1             | 64            | Windows 2019    | x86              | 64      |      |
+	Immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Data processing
+
+	Data compression, data encryption, multiple channels, reconnection, speed limit, and replication
+
+- Restore types
+
+	Point-in-time restore, logical recovery, log restore, and recovery testing
+
+- Restore targets
+
+	Original host and different host (ADPS supports cross-machine restore of PostgreSQL with varying minor versions.)
+	
+- Restore options
+
+	Channels, restore database (origin or new), open database after restore, archive log destination, database configuration file
+
+## Planning and preparation
+
+Before you install the agent, check the following prerequisites:
+
+1. You have already installed and configured other backup components, including the backup server and the storage server.
+2. You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.
+
+```{note}
+The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).
 ```
 
-##### Cluster
+## Install and configure the agent
 
-```{tabularcolumns} |\Y{0.18}|\Y{0.18}|\Y{0.15}|\Y{0.18}|\Y{0.13}|\Y{0.18}|
-```
-```{table} Cluster
----
-class: longtable
----
-| Database Version | Database Bits | OS         | CPU Architecture | OS Bits | Note                  |
-| ---------------- | ------------- | ---------- | ---------------- | ------- | --------------------- |
-| 9.4              | 64            | CentOS 7.3 | x86              | 64      | One master one slave  |
-| 10.8             | 64            | CentOS 7.3 | x86              | 64      | One master one slave  |
-| 13.4             | 64            | CentOS 7.5 | x86              | 64      | One master one slave  |
-| 14.1             | 64            | CentOS 7.5 | x86              | 64      | One master two slaves |
-```
+To back up and restore PostgreSQL, first install the ADPS agent on the host where PostgreSQL resides.
 
-### Download Agent Package
+### Verify the compatibility
 
-Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon and download the installation packages according to your needs.
+Before you install the agent, ensure that the environment of the host where PostgreSQL resides is on the Aurreum Data Protection Suite's compatibility lists.
 
-![](../images/01-agent/postgres/postgres_agent01.png)
+ADPS supports the backup and restore of PostgreSQL, including standalone single instance, standalone multiple instances, and Master-Slave replication. Supported versions include:
 
-### Install and Configure Agent on Windows
+- PostgreSQL 8.1/8.4
+- PostgreSQL 9.1/9.2/9.3/9.4/9.5/9.6
+- PostgreSQL 10.6/10.8/10.19
+- PostgreSQL 11.0/11.1/11.7
+- PostgreSQL 12.1/12.2/12.3/12.9
+- PostgreSQL 13.0/13.4/13.5/13.8
+- PostgreSQL 14.0/14.1/14.2/14.3/14.4/14.5/14.6
+- PostgreSQL 15.0/15.1
 
-#### Download Installation Package
+### Install the agent
 
-Select **Windows** as the system and choose a file. Click **Download Windows agent**.
+The ADPS agent can be installed on Windows and Linux. You can select the installation method according to your environment.
 
-![](../images/01-agent/postgres/postgres_agent02.png)
+#### Windows
 
-#### Install Agent on Windows
+To install the agent, do the following:
 
-1. Upload the agent package to the target host.
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
 
-2. Double-click the package to install it according to the setup wizard and click **Next**.
+	(1) From the **Select system** list, select **Windows**.
 
-3. This installation package selects the database resources, files, or applications installed on the host by default. Select the **PostgreSQL** component and click **Next**.
+	(2) From the **Select file** list, select the package that you want to install.
 
-	![](../images/01-agent/postgres/postgres_agent03.png)
+	(3) Click **Download**.
 
-4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
+5. Upload the package to the Windows host.
+6. Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click **Next**.
+7. At the **Select components** step, select **PostgreSQL** from the component list. Click **Next**.
+8. At the **Configure Aurreum Data Protection Suite agent** step, enter the following:
 
-	![](../images/01-agent/postgres/postgres_agent04.png)
-
-5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
-
-###  Install and Configure Agent on Linux
-
-1. Select **Linux** as the system and **PostgreSQL** as the module. Copy an installation command.
-
-	![](../images/01-agent/postgres/postgres_agent05.png)
-
-2. Paste the command on the command line and press Enter to execute the installation.
-
-	```
-	[root@13 ~]# curl -o- "http://192.168.20.85:50305/d2/update/script?modules=postgres&location=http%3A%2F%2F192.168.20.85%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
-	 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	100  7908    0  7908    0     0  1939k      0 --:--:-- --:--:-- --:--:-- 2574k
-	 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 58.7M  100 58.7M    0     0  72.3M      0 --:--:-- --:--:-- --:--:--  100M
-	 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	 0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 6728k  100 6728k    0     0  44.5M      0 --:--:-- --:--:-- --:--:-- 44.5M
-	 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	 0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 3304k  100 3304k    0     0  31.7M      0 --:--:-- --:--:-- --:--:-- 31.7M
+	```{only} scutech
+	![](../images/Common/windows_install.png)
 	```
 
-### Check Successful Installation
+	(1) In the **Backup server address** field, enter the IP or domain name of the backup server.
 
-After the successful installation, log in to ADPS as the admin and see that the host is on the **Resource** list.
+	(2) In the **Backup server port** field, enter the port number. The default value is 50305. If you enable the **Use SSL secure connection** option, enter 60305 in the **Backup server port** field.
 
-![](../images/02-license/postrges/postgres_license01.png)
+	(3) The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
 
-## Activate License and Assign Authorization
+	(4) Click **Next**.
 
-This chapter is applicable to the operation of a single agent. If you have multiple agents, you can deploy them first, then carry out batch activation and authorization. Please refer to *Batch Register/Activate/Authorize* for more details.
+	```{note}
+	To get the access key of the user/tenant:
+	1. Log in to the ADPS console.
+	2. On the upper right corner, click your avatar, and go to **Personal settings** > **Account settings**.
+	3. On the **Preference** tab, click **View** to get the access key of the current user/tenant.
+	```
 
-### Register Host
+9. Confirm the **Destination folder** or specify another folder. Click **Next**.
+10. Wait for the installation to complete.
 
-Log in to ADPS as the admin, go to **Resource**, and select the host that you want to activate. Click the **Register** icon.
+#### Linux
 
-![](../images/02-license/postrges/postgres_license02.png)
+For Linux OS, ADPS agent supports online and offline installation. We recommend online installation.
 
-### Activate License
+1. Online installation:
+	ADPS provides `curl` and `wget` commands for installation.
+2. Offline installation:
+	See [Offline installation](../agent_install/agent_install.md#offline-installation) in Aurreum Data Protection Suite Agent Installation Guide.
 
-In the pop-up **Activate** window, select the resource you want to activate. Click **Submit**.
+To install the agent online, do the following:
 
-![](../images/02-license/postrges/postgres_license03.png)
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
 
-### Assign Authorization
+	(1) From the **Select system** list, select **Linux**.
 
-After the successful activation, authorize users to operate the resource in the pop-up **Authorize** window.
+	(2) From the **Component** list, select **PostgreSQL**. The `curl` and `wget` commands appear in the window.
 
-![](../images/02-license/postrges/postgres_license04.png)
+	(3) If you want to delete the downloaded package automatically after the installation, select the **Delete installation package** checkbox.
 
-## Before You Begin
+	(4) If you enable **Ignore SSL errors**, the installation will ignore certificate errors and so on. If you disable the feature, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.
 
-### Check Database State
+5. Click the **Copy** icon to copy the `curl` or `wget` command.
+6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-Check the PostgreSQL service state of the agent. The PostgreSQL database service should be in the "Running" state for backup and restore.
+  ```{code-block} python
+  root@ubuntu:~# curl -o- "http://192.168.20.192:50305/d2/update/script?modules=postgres&location=http%3A%2F%2F192.168.20.192%3A50305&access_key=acaa24b49fbf2655de1a5dae72a4b56e&rm=&tool=curl" | sh
+  	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+  	100  9210    0  9210    0     0  1697k      0 --:--:-- --:--:-- --:--:-- 2998k
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+      100 68.7M  100 68.7M    0     0  80.7M      0 --:--:-- --:--:-- --:--:-- 71.7M
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+      100 7890k  100 7890k    0     0  60.2M      0 --:--:-- --:--:-- --:--:-- 60.2M
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+      100 5913k  100 5913k    0     0  60.2M      0 --:--:-- --:--:-- --:--:-- 60.2M
+  ```
 
+7. Wait for the installation to complete.
+
+## Activate licenses and authorize users
+
+After the agent installation, go back to the **Resource** page. The host with the agent installed appears on the page. Before you back up and restore PostgreSQL, register the host, activate the backup license, and authorize users.
+
+To activate licenses and authorize users, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. On the **Resource** page, select the host where PostgreSQL resides. Click the **Register** icon. After the registration, the **Activate** window appears. 
+
+```{only} scutech
+![](../images/Backup_Restore/DBackup3/PostgreSQL/postgres_license01.png)
 ```
--bash-4.2$ /usr/pgsql-13/bin/pg_ctl -D /var/lib/pgsql/13/data/ -l logfile status
-pg_ctl: server is running (PID: 18378)
-/usr/pgsql-13/bin/postgres "-D" "/var/lib/pgsql/13/data/"
+
+3. In the **Activate** window, select the PostgreSQL backup license, and click **Submit**. After the activation, the **Authorize** window appears.
+
+	```{note}
+	If you are prompted with "No enough licenses", contact the administrator to add licenses.
+	```
+
+4. In the **Authorize** window, select user groups to authorize access to the resource. Click **Submit**.
+
+	```{note}
+	With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
+	```
+
+## Backup
+
+### Backup types
+
+ADPS provides four common backup types for PostgreSQL.
+
+- Full backup
+
+	Backs up all the databases on the instance.
+
+- Incremental backup
+
+	 Backs up data blocks that have changed since the last backup, with a full backup as the baseline. If the database has not been fully backed up, or has not been fully backed up after the restore, the first incremental backup will be performed as a full backup by default.
+
+- Log backup
+
+	 Backs up the archive logs of database instances, with a full backup as the baseline.
+
+- Logical backup
+
+	Backs up one or more databases, schemas, and tables. Currently, you can select only one of the following types for a logical backup job: database, schema, and table.
+
+
+### Backup policies
+
+ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Immediate: ADPS will immediately start the job after it is created.
+- One-time: ADPS will perform the job at the specified time once only.
+- Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.
+- Daily: ADPS will perform the job periodically at the specified time and day intervals.
+- Weekly: ADPS will perform the job periodically at the specified time and week intervals.
+- Monthly: ADPS will perform the job periodically at the specified dates and times.
+
+You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:
+
+1. Perform a **full backup** once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.
+2. Perform an **incremental backup** every day when the application traffic is relatively small (Example: at 2 a.m.) to ensure that you have a recoverable point in time every day, which can save storage space and backup time.
+3. Perform a **log backup** hourly if your database supports log backups to achieve the precise point-in-time restore and ensure that the restore granularity can reach the second level.
+
+Avoid using the following strategies: Only perform full backups or perform a full backup followed by all incremental or log backups.
+
+### Before you begin
+
+Before you back up and restore PostgreSQL, check the following:
+
+1. Check the PostgreSQL instance status
+
+  - Windows
+
+	Log in to the host and open the service list. Check whether the PostgreSQL service status is *Running* or not.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/PostgreSQL/postgres_database01.png)
+	```
+
+  - Linux
+
+	The PostgreSQL database service should be in the “Running” state for backup and restore.
+
+  ```{code-block} shell
+  -bash-4.2$ /usr/pgsql-13/bin/pg_ctl -D /var/lib/pgsql/13/data/ -l logfile status
+   pg_ctl: server is running (PID: 18378)
+   /usr/pgsql-13/bin/postgres "-D" "/var/lib/pgsql/13/data/"
+  ```
+
+2. Check storage pools.
+
+	(1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
+
+	(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
+
+3. Check the minimum privileges required for a database user to do backups. 
+
+```{tabularcolumns} |\Y{0.13}|\Y{0.62}|\Y{0.25}|
+```
+```{table} Minimum privileges required  
+---
+class: longtable
+---
+   | Backup types   | Minimum privileges required                      | Database versions required                  |
+   | --------- | ---------------------------------------- | ------------------------ |
+   |Physical backup|grant execute on function pg_start_backup(text,boolean,boolean) to <user_name>;{{ br }}grant execute on function pg_stop_backup() to <user_name>;{{ br }}grant pg_read_all_settings to <user_name>;|PostgreSQL 10.0 and later|
+   |Physical backup|alter user <user_name> with superuser;|Versions prior to PostgreSQL 10.0 |
+   |Log backup|grant execute on function pg_switch_wal() to <user_name>;|PostgreSQL 10.0 and later|
+   |Log backup|grant execute on function pg_switch_xlog() to <user_name>;|Versions prior to PostgreSQL 10.0|
+   |Logical backup|grant connect on database <database_name> to <user_name>;{{ br }}grant usage on schema <schema_name> to <user_name>; {{ br }}grant select on all tables in schema <schema_name> to <user_name>;{{ br }}grant select on all sequences in schema <schema_name> to <user_name>; | |
 ```
 
-### Check Resource
+### Log in to the resource
 
-Log in to ADPS as the operator and go to **Resource**. You can see the activated and authorized resource with an "Online" state on the list. If the resource is not present, please check *Activate License and Assign Authorization*.
+Before you create a backup or restore job, log in to the PostgreSQL on the console. 
 
-![](../images/03-postgres/postgres_login01.png)
+To log in to the resource, do the following:
 
-### Check Storage Pool
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
 
-Log in to ADPS as the operator, go to **Storage Pool**, and verify a storage pool is available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.
+2. From the host list, find the host where PostgreSQL resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.
 
-![](../images/03-postgres/postgres_storage01.png)
+3. Click **Login** beside the resource. The **Login** window appears.
 
-## First Time Login
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/PostgreSQL/postgres_login01.png)
+	```
 
-Before creating the first PostgreSQL backup and restore, go to **Resource** and log in to PostgreSQL.
+4. In the **Login** window, enter the **Username** and **Password**, and click **Login**.
 
-![](../images/03-postgres/postgres_login02.png)
+5. If your information is correct, you will be prompted that you have logged in to the resource successfully.
 
-## Create Backup Jobs
 
-This chapter introduces how to back up the PostgreSQL databases.
 
-### Prerequisites
+## Create a backup job
 
-- An agent has been installed. For installation, please refer to *Install and Configure Agent*.
-- You have activated the agent and assigned the authorization. For details, see *Activate License and Assign Authorization*.
-- Log in to ADPS as the *operator*.
+To create a backup job, do the following:
 
-### Create Full Backup Jobs
+1. From the menu, click **Backup**. The backup job wizard appears.
+2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
+3. At the **Backup source** step, do the following:
 
-1. Click **Backup**. Select the PostgreSQL host and instance.
+	(1) From the **Backup type** list, select a backup type.
 
-2. Select **Full** as the backup type.
+	(2) In the **Backup source** section, select the databases that you want to back up.
 
-	![](../images/03-postgres/postgres_backup01.png)
+4. At the **Backup target** step, select a storage pool. Click **Next**.
 
-3. Select a **Backup Target**.
+5. At the **Backup schedule** step, set the job schedule. For details, see [Backup policies](#backup-policies). Click **Next**.
 
-4. Go to **Backup Schedule** and set the execution time of the backup job. For details, please refer to *Backup Schedule Operation*.
+	- Select **Immediate**. ADPS performs the job immediately after it is created.
+	- Select **One time** and set the start time for the job.
+	- Select **Hourly**. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
 
-5. Set **Backup Options** including common and advanced options. Enable the archive mode in PostgreSQL and set the archive log directory first if the database is not in archive mode.
+6. At the **Backup options** step, set the common and advanced options according to your needs. For details, see [Backup options](#backup-options). Click **Next**.
 
-	- **Common options**:
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page automatically. On this page, you can start, modify, and delete the job.
 
-	![](../images/03-postgres/postgres_backup02.png)
+### Backup options
 
-	**Compression**: The **Fast** option is enabled by default.
+ADPS provides the following backup options for PostgreSQL:
 
-	> - None: During the backup, the data will not be compressed.
-	> - Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.
-	> - Fast: During the backup, the data will be compressed by fast compression algorithms.
+- Common options
 
-	**Channels**: This option can improve backup efficiency. The default value is 1 and the range is 1 to 255. For details, please refer to *Channel Number Configuration*.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Backup common options
+---
+class: longtable
+---
+|Feature|Description|Limitations|
+| --- | --- | --- |
+|Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Use the fast compression algorithms to compress data during the backup job.|Not available for synthetic backup jobs.|
+|Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 64.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.{{ br }}The value for synthetic backup jobs ranges from 1 to 255.|Only available for full backup jobs.|
+|Archive log directory|Set the archive log directory that the PostgreSQL login user has permission to operate on. The archive directory for the PostgreSQL cluster needs to be manually enabled.|Not available for logical backup jobs.|
+|Delete archive logs|{{ Product }} provides the following options to delete archive logs that are backed up. {{ br }}- Delete all backed-up archive logs. {{ br }}- Delete archive logs older than 7 day(s)/hour(s). {{ br }}- Do not delete archive logs.|Not available for logical backup jobs.|
+```
 
-	**Reserve archive logs**: Specify whether to delete the archive logs in the database after the backup. The **Delete all archive logs** option is enabled by default.
+- Advanced options
 
-	> - Delete all archive logs: Delete all the backed-up archive logs after the backup.
-	> - Reserve archive logs for N days/hours: Delete the backed-up archive logs that exist for longer than the specified N days/hours.
-	> - Do not delete archive logs: Do not delete the backed-up archive logs after the backup.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Backup advanced options
+---
+class: longtable
+---
+|Feature|Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|Not available for synthetic backup jobs.|
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|Not available for synthetic backup jobs.|
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+```
 
-	- **Advanced options**:
+## Restore
 
-	![](../images/03-postgres/postgres_backup03.png)
+### Restore types
 
-	**Reconnection Time**: This option supports 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time. The unit is minute.
+For different needs, ADPS provides several restore types for PostgreSQL, including:
 
-	**Speed Limit**: You can set the limit for data transfer speed or disk read and write speed. The unit is MiB/s.
+- Point-in-time restore
 
-	**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
+  When a logical error or disaster occurs in a PostgreSQL database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state. You can restore to the original or a different host.
 
-	**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
+- Logical recovery
 
-6. Set a **Job Name** and check whether the job information is correct. Click **Submit**.
+  When a database, schema, or table in PostgreSQL loses data, such as files damaged or deleted by mistake, you can restore them to the latest state through Logical Recovery.
 
-### Create Incremental Backup Jobs
+- Log restore
 
-An incremental backup job is created based on a full backup. It only backs up data that has changed since the last backup.
+  A log restore job can only be executed when a log backup set exists. It only downloads archive logs to the specified directory on the target host, and does not perform the restore operation.
 
-- Creating a cumulative incremental backup is the same as creating a full backup. Select **Incremental** as the backup type.
+- Recovery testing
 
-![](../images/03-postgres/postgres_backup04.png)
+  Restores the latest backup sets to another instance on the original host or to another host hourly, daily, weekly, and monthly.
 
-> Note:
->
-> - If the database has not been fully backed up, or has not been fully backed up after the restore, the first incremental backup will be performed as a full backup by default.
-> - After you change the backup target of the incremental backup to a new storage pool, ensure that the new pool has a full backup by one of the following methods:
->   - Create and perform a new full backup with the pool as the backup target.
->   - Change the backup target of the base full backup to the pool and perform the modified job.
+### Before you begin
 
-### Create Log Backup Jobs
+To restore PostgreSQL to a different host, install the agent on that host, activate the licenses, and authorize user access to the resource.
 
-Based on periodic full and incremental backups, you can add frequent log backups only to back up the archived logs. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be enough. But if your business requires minimizing the work-loss risk, consider running log backups more frequently. More frequent log backups can increase the frequency of log truncation, resulting in smaller log files.
+### Create a point-in-time restore job
 
-- Creating a log backup is similar to creating a full backup. Select **Log** as the backup type and choose databases.
+To create a point-in-time restore job, do the following:
 
-![](../images/03-postgres/postgres_backup05.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-> Note:
->
-> After you change the backup target of a log backup job to a new storage pool, ensure that the new pool has a full backup by one of the following methods:
->
-> - Create and perform a new full backup with the pool as the backup target.
-> - Change the backup target of the base full backup to the pool and perform the modified job.
+2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
-### Create Logical Backup Jobs
+3. At the **Backup sets** step, do the following:
 
-PostgreSQL logical backup jobs can back up one or more databases, schemas, and tables.
+	(1) From the **Restore type** list, select **Point-in-time restore**.
+	
+	(2) In the **Restore point in time** section, specify a point in time for the restore job.
 
-- Creating a logical backup is similar to creating a full backup. Select **Logical** as the backup type and choose databases, schemas, or tables that you want to back up.
+	- Select **Restore to point in time**. If you have performed a log backup job, you can specify the restore point in time by entering the date and time or dragging the slider control. 
+	- Select **Restore to backup state (shortest recovery time)**. You can select a backup set in the **Backup sets** section to restore to its latest backup state.
 
-![](../images/03-postgres/postgres_backup06.png)
+	(3) Click **Next**.
 
-> Note:
->
-> - Currently, you can select only one of the following types for a logical backup job: database, schema, and table.
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step.
 
-## Create Restore Jobs
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-This chapter introduces how to restore PostgreSQL databases. ADPS provides various restore types for different needs including timepoint restore, logical recovery, restore archived logs, and recovery testing.
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-### Prerequisites
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
 
-- A backup job has been completed. See *Create Backup Jobs*.
-- To restore to another host, install an agent on that host, activate its license and assign the authorization.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
-### Create Timepoint Restore Jobs
+8. After submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-When a logical error or disaster occurs in a PostgreSQL database, you can restore the database to a specified point-in-time state using **Timepoint Restore**.
+### Create a logical recovery job
 
-1. Select the PostgreSQL host and instance. Click **Next**.
+To create an instant recovery job, do the following:
 
-2. Select **Timepoint Restore**. Then specify a restore point in time by selecting the Restore to point in time or Restore to backup state (shortest recovery time) option. Click **Next**.
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-	- **Restore to point in time**:
+2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
-	If you have performed log backup jobs, you can specify the restore point in time manually or by dragging the slider control.
+3. At the **Backup sets** step, do the following:
+	
+	(1) From the **Restore type** list, select **Instant recovery**.
 
-	![](../images/03-postgres/postgres_restore01.png)
+	(2) From the **Recovery type** list, select a data recovery type for the restore job.
 
-	- **Restore to backup state (shortest recovery time)**:
+	(3) In the **Restore source** section, select a database and a point in time.
 
-	When choosing Restore to backup state (shortest recovery time), you can select full backup sets and incremental backup sets for the restore job.
+	(4) Click **Next**.
 
-	![](../images/03-postgres/postgres_restore09.png)
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step.
 
-3. Select a **Restore Target**. The target can be the source host and a different host with or without activated resources. Click **Next**.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-4. Select a **Restore Schedule**. It supports immediate and one-time restore schedules. Click **Next**.
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-5. Set **Restore Options**. You can set channels in the common options and set reconnection time, speed limit, precondition, pre/post action, as well as database configuration file in advanced options. Click **Next**.
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
 
-	- **Common options**:
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
-	**Open database after restore**: This option is enabled by default. If it is disabled, the database will not be started after the successful restore.
+8. After the instant recovery, go to the **CDM** page. A mounted copy is added below the full copy. See [View a copy](#view-a-copy).
 
-	![](../images/03-postgres/postgres_restore02.png)
 
-	- **Advanced options**:
+### Create a log restore job
 
-	**Database configuration file**: Click Browse... to select the path of the configuration file or enter the path manually. If you leave it blank, the default configuration file will be used.
+To create a log restore job, do the following:
 
-	![](../images/03-postgres/postgres_restore03.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-6. Confirm the job information and click **Submit**.
+2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
-### Create Logical Recovery Jobs
+3. At the **Backup sets** step, do the following:
+	
+	(1) From the **Restore type** list, select **Log restore**.
+	
+	(2) In the **Time range** section, click the time next to the option and a window pops up. In the pop-up window, select a time range. You can also drag the slider control or enter the time to specify a time range for the restore job.
+	
+	(3) Click **Next**.
 
-When a database, schema, or table in PostgreSQL loses data, such as a data file is damaged or deleted by mistake, you can restore them to the latest state through Logical Recovery.
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The target can be a standalone PostgreSQL or a cluster. When the restore target is a cluster, the restore job will be run on all the nodes in the cluster. 
 
-1. Select the PostgreSQL host and instance. Click **Next**.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-2. Select **Logical Recovery** and a type (database, schema, or table). Then select a point in time of the backup set that you want to restore. Click **Next**.
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-	![](../images/03-postgres/postgres_restore04.png)
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
 
-3. Select a **Restore Target**. You can restore the backup set to the source or a different host. Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
-4. Select a **Restore Schedule**. It supports immediate and one-time restore schedules.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-5. Set **Restore Options** including reconnection time, speed limit, pre action, and post action. You can set these options according to your needs.
+### Create a recovery testing job
 
-	![](../images/03-postgres/postgres_restore05.png)
+To create a recovery testing job, do the following:
 
-	**Restore Database**: Set the method to restore the database. If you leave it blank, it will overwrite the original database by default. Or you can fill in the name of a new database and restore the backup set to it.
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-6. Confirm whether the information is correct and then submit the job.
+2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
-### Create Restore Archived Logs Jobs
+3. At the **Backup sets** step, do the following:
+	
+   (1) From the **Restore type** list, select **Recovery testing**.
 
-With the **Restore Archived Logs** function, you can restore only the archived logs to a specified directory of the agent with no need to recover the entire database. But the premise is that the database has one or more completed log backup jobs.
+   (2) In the **Restore source** section, select databases for the restore job. If you want to rename the restore source, click the database. The **Rename** icon appears beside the name. Click the icon and specify a name in the pop-up window.
 
-1. Select the PostgreSQL host and instance. Click **Next**.
+   (3) Click **Next**.
 
-2. Select **Restore Archived Logs** and a point in time. Click **Next**.
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The restore target supports other instances on the original or a different host.
 
-	![](../images/03-postgres/postgres_restore06.png)
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-3. Select a **Restore Target**. The target can be a single host or cluster of PostgreSQL. When the restore target is a cluster, the restore job will run on all the nodes on the cluster. Click **Next**.
+   - Select **Hourly**. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).
+   - Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+   - Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+   - Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
 
-4. Select a **Restore Schedule**. It supports immediate and one-time schedule types. Click **Next**.
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
 
-5. Set **Restore Options**. You can set archived logs destination in common options and reconnection time, speed limit, pre action, and post action in advanced options. Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
-	![](../images/03-postgres/postgres_restore07.png)
+8. After submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-6. Confirm the job information and click **Submit**.
+### Restore options
 
-### Create Recovery Testing Jobs
+ADPS provides the following restore options for PostgreSQL:
 
-Recovery testing jobs can restore the latest backup sets of PostgreSQL to another instance on the source or a different host hourly, daily, weekly, or monthly.
+- Common options:
 
-> Note:
->
-> - Recovery testing requires logical backup sets. Ensure that the database has logical backup sets before the recovery testing.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Feature |Description|Limitations|
+| --- | --- | --- |
+|Channels|It can improve backup efficiency. The default value is 1. The maximum value for the range should not exceed the maximum number of channels set in the selected backup set.|Only available for point-in-time restore jobs.|
+|Open database after restore|After this option is enabled, the database will automatically start upon successful recovery. It is checked by default.|Only available for point-in-time restore jobs.|
+|Restore database|Leave the field blank to overwrite the original database. To restore to a new database, enter the new database name.|Only available for logical recovery jobs.|
+|Archive log destination|Set the restore directory for archive logs.|Only available for log restore jobs.|
+```
 
-1. Select the PostgreSQL host and instance. Click **Next**.
+- Advanced options:
 
-2. Select **Recovery Testing** as the restore type and databases as the restore source. You can specify the restored database name by the **Rename** operation. Click **Next**.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Feature |Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Database configuration file|Click **Browse** to select a path or manually enter the path for the PostgreSQL configuration file of the restore target. If the option is left blank, the configuration file from the backup set will be used by default.|Only available for point-in-time restore jobs.|
+```
 
-	![](../images/03-postgres/postgres_restore08.png)
+## Cluster backup and restore
 
-3. Select a **Restore Target**. The target can be another PostgreSQL instance on the source host or a different host. Click **Next**.
+ADPS supports the backup and restore of PostgreSQL master-slave clusters. Before you back up and restore the PostgreSQL cluster, bind nodes into a cluster on the console.
 
-4. Select a **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
+### Before you begin
 
-5. Set **Restore Options** according to your needs including reconnection time, speed limit, pre action, and post action. Click **Next**.
+See [Install and configure the agent](#install-and-configure-the-agent) and [Activate license and authorize users](#activate-licenses-and-authorize-users) to complete the environment deployment on each node.
 
-6. Confirm the job information and click **Submit**.
+### Bind nodes into a cluster
 
-7. Wait for the job to be executed. The job will restore the latest backup sets of the source host.
+To bind nodes into a cluster on the console, do the following:
 
-## Manage Jobs
+1. From the menu, click **Resource** > **Cluster**. The **Cluster** page appears.
 
-On the **Job** interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.
+2. From the toolbar, click the **+** icon. The **Cluster binding** window appears.
 
-![](../images/03-postgres/postgres_job01.png)
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/PostgreSQL/postgres_cluster01.png)
+	```
 
-- Start: Click ![](../images/03-postgres/postgres_job02.png) to start the job immediately.
-- Modify: Click ![](../images/03-postgres/postgres_job03.png) to modify the basic job information, backup/restore schedule, and backup/restore options.
-- Clone: Click ![](../images/03-postgres/postgres_job04.png) to create multiple similar backup jobs.
-- Delete: Click ![](../images/03-postgres/postgres_job05.png) to access the confirmation window. Click **OK** to delete the job.
+3. In the **Cluster binding** window, do the following:
 
-## Backup Protection Strategy
+	(1) In the **Name** field, enter a name for the cluster.
 
-### Backup Schedule Operation
+	(2) From the **Primary node** list, select the active node in the cluster.
 
-ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
+	(3) From the **Type** list, select **Master slave replication**.
 
-![](../images/03-postgres/postgres_time01.png)
+	(4) From the **Nodes** list, select the inactive node in the cluster. You can click **x** to remove the selected node.
 
-- Immediate: The job immediately starts to run after it is submitted.
-- One Time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
-- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
-- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
+	(5) Click **Submit**.
 
->  **Example: Run the job every two weeks on Friday at 18:00**
 
-> ![](../images/03-postgres/postgres_time03.png)
+### Backup and restore
 
-> **The execution time wull be:**
->
-> - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
-> - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).
-> - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
-> - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
+When a switchover occurs, the new primary node will take over the backup job automatically. To create a PostgreSQL cluster backup/restore job, see [Create a backup job](#create-a-backup-job) and [Restore](#restore). Note that:
 
-### Backup Strategy Advice
+1. On the backup job wizard, only the active nodes of the PostgreSQL cluster are displayed. 
+2. In the event of a switchover within the PostgreSQL cluster, the new active node automatically takes over the backup job.
+3. On the restore job wizard, one instance or cluster can be selected as the restore target.
 
-ADPS offers four PostgreSQL backup types: full backup, incremental backup, log backup, and logical backup. Full backup, incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
+## Limitations
 
-1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable point in time every week.
-2. After that, you can run an **Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable point in time every day.
-3. If the database supports log backup, you can run a **Log Backup** hourly to ensure that the restore granularity RPO can reach the second level. For example, you can run a log backup every 2 hours.
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
+```
+```{table} Limitations
+---
+class: longtable
+---
+|Feature|Limitations|
+| --- | --- |
+|Resources|- ADPS does not support PostgreSQL cluster on Windows.{{ br }}- After cluster binding, all nodes must be online for job creation.{{ br }}- Once the cluster is configured, the primary node cannot be changed unless the entire cluster is deleted.|
+```
 
-> Avoid using the following strategies:
->
-> - Only perform full backups.
-> - Perform a full backup followed by all incremental or log backups.
+## Glossary
 
-## Channel Number Configuration
-
-- Description of the channel number for backup jobs
-
-PostgreSQL supports up to 255 channels. You can set the number of channels for backup and restore jobs according to your environment. A reasonable number can improve job performance. The number of channels is generally recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.
-
-- Description of the channel number for restore jobs
-
-You can set the **Channels** option on the restore page. If you use multiple channels to restore the backup set generated by one channel, the restore job will be automatically downgraded to a single-channel restore.
-
-## PostgreSQL Cluster
-
-ADPS supports PostgreSQL clusters. Before backup and restore, bind the PostgreSQL nodes into a cluster. Each node of the cluster is required to be deployed according to *Install and Configure Agent* as well as *Activate License and Assign Authorization*.
-
-> Note:
->
-> - Log in to all the nodes before cluster binding.
-
-### Cluster Binding
-
-1. Go to **Resource** -> **Cluster**. Click the **Cluster Binding** icon.
-
-	![](../images/03-postgres/postgres_cluster01.png)
-
-2. Customize the cluster name. Select the active node as the **Primary Node**, Master Slave Replication as the **Type**, and the inactive node as the **Nodes**. Click **Submit**.
-
-	![](../images/03-postgres/postgres_cluster02.png)
-
-### Backup and Restore
-
-PostgreSQL cluster has the same backup and restore types as the single instance.
-
-- When a switchover occurs in the nodes of the PostgreSQL cluster, the new active node will automatically take over the backup job.
-- When creating a restore job, you can select a single instance or cluster as the restore target.
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
+```
+```{table} Glossary
+---
+class: longtable
+---
+|Term|Description|
+| --- | --- |
+|fast compression|A compression method that uses fast compression algorithms to compress data during the backup job.|
+```
