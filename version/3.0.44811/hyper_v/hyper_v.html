@@ -159,7 +159,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for OBS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage Service</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
@@ -271,28 +271,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-compatibility-list">Platform Compatibility List</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-compatibility-list">Environment Compatibility List</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-resource">Register Resource</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job">Job</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-up-hyper-v">Back Up Hyper-V</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-hyper-v">Restore Hyper-V</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-virtual-machines">Restore Virtual Machines</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overwrite-and-restore-to-original-path">Overwrite and Restore to Original Path</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-path-on-original-host">Restore to New Path on Original Host</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-path-on-another-host">Restore to New Path on Another Host</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-virtual-disks">Restore Virtual Disks</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overwrite-and-restore-to-original-disk">Overwrite and Restore to Original Disk</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-disk-on-original-vm">Restore to New Disk on Original VM</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-disk-on-another-host">Restore to New Disk on Another Host</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-machine-restore-job">Create a virtual machine restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-a-new-path">Restore to a new path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-disk-restore-job">Create a virtual disk restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
@@ -309,465 +308,449 @@ document.write(`
                   
   <section id="user-guide-for-hyper-v">
 <h1>User Guide for Hyper-V<a class="headerlink" href="#user-guide-for-hyper-v" title="Permalink to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Aurreum Data Protection Suite (ADPS) supports the backup and restore of virtual machines (VMs) running on Windows Servers or bare-metal Hyper-V Servers. It is easy to deploy the Hyper-V agent of ADPS. The Hyper-V agent should be installed on the Hyper-V server. This guide describes how to install the agent and how to use ADPS to back up and restore Hyper-V virtual machines.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>ADPS supports the backup and restore of Hyper-V virtual machines (VMs) running on Windows Servers or bare metal servers. The Hyper-V agent of ADPS should be installed on the Hyper-V server. This guide describes how to install the agent and how to use ADPS to back up and restore Hyper-V virtual machines.</p>
+<p>The backup and restore features supported by ADPS include:</p>
+<ul>
+<li><p>Backup types</p>
+<p>Full backup, incremental backup</p>
+</li>
+<li><p>Transport modes</p>
+<p>Network, SAN</p>
+</li>
+<li><p>Backup sources</p>
+<p>Virtual machines, hosts</p>
+</li>
+<li><p>Backup targets</p>
+<p>Standard storage pool, deduplication storage pool, tape library pool, object storage pool, LAN-free pool</p>
+</li>
+<li><p>Backup schedules</p>
+<p>Immediate, one-time, hourly, daily, weekly, and monthly</p>
+</li>
+<li><p>Data processing</p>
+<p>Data compression, multiple channels, reconnection, speed limit, and replication</p>
+</li>
+<li><p>Restore types</p>
+<p>Virtual machine restore, virtual disk restore</p>
+</li>
+<li><p>Network protocols</p>
+<p>IPv4, IPv6</p>
+</li>
+</ul>
 </section>
-<section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
-<table class="longtable table" id="id1">
-<caption><span class="caption-text">Features</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<section id="planning-and-preparation">
+<h2>Planning and preparation<a class="headerlink" href="#planning-and-preparation" title="Permalink to this heading">#</a></h2>
+<p>Before you install the agent, check the following prerequisites:</p>
+<ol class="arabic simple">
+<li><p>You have already installed and configured other backup components, including the backup server and the storage server.</p></li>
+<li><p>You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).</p>
+</div>
+</section>
+<section id="install-and-configure-the-agent">
+<h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Permalink to this heading">#</a></h2>
+<p>To back up and restore Hyper-V, first install the ADPS agent on the host where Hyper-V resides.</p>
+<section id="install-the-agent">
+<h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Permalink to this heading">#</a></h3>
+<p>To install the agent, do the following:</p>
+<ol class="arabic">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>In the <strong>Install agent</strong> window, do the following:</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Windows</strong>.</p>
+<p>(2) From the <strong>Select file</strong> list, select the package that you want to install.</p>
+<p>(3) Click <strong>Download</strong>.</p>
+</li>
+<li><p>Upload the package to the Windows host.</p></li>
+<li><p>Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Select components</strong> step, select <strong>Hyper-V</strong> from the component list. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Configure Aurreum Data Protection Suite agent</strong> step, enter the following:</p>
+<p>(1) In the <strong>Backup server address</strong> field, enter the IP or domain name of the backup server.</p>
+<p>(2) In the <strong>Backup server port</strong> field, enter the port number. The default value is 50305. If you enable the <strong>Use SSL secure connection</strong> option, enter 60305 in the <strong>Backup server port</strong> field.</p>
+<p>(3) The <strong>Access key</strong> field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the access key of the user/tenant:</p>
+<ol class="arabic simple">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>On the upper right corner, click your avatar, and go to <strong>Personal settings</strong> &gt; <strong>Account settings</strong>.</p></li>
+<li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Confirm the <strong>Destination folder</strong> or specify another folder. Click <strong>Next</strong>.</p></li>
+<li><p>Wait for the installation to complete.</p></li>
+</ol>
+</section>
+</section>
+<section id="activate-licenses-and-authorize-users">
+<h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Permalink to this heading">#</a></h2>
+<p>After the agent installation, go back to the <strong>Resource</strong> page. The host with the agent installed appears on the page. Before you back up and restore Hyper-V, register the host, activate the Hyper-V backup license, and authorize users.</p>
+<p>To activate licenses and authorize users, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>On the <strong>Resource</strong> page, select the host where Hyper-V resides. Click the <strong>Register</strong> icon. After the registration, the <strong>Activate</strong> window appears. Click <strong>Submit</strong>.</p>
+</li>
+<li><p>After you activate the license, the <strong>Configure</strong> window appears. In the <strong>Configure</strong> window, do the following:</p>
+<p>(1) In the <strong>Name</strong> field, enter a name for the host.</p>
+<p>(2) From the <strong>Data network</strong> list, select a network from those added on the <strong>Network</strong> page as the data network.</p>
+<p>(3) In the <strong>Preferred egress network</strong> field, enter an IP address for the preferred network traffic egress of the host’s backup data. IPv4 and IPv6 are supported.</p>
+<p>(4) From the <strong>User group</strong> list, select user groups to authorize access to the resource.</p>
+<p>(5) Set the resource as <strong>Protected</strong> or not. The <strong>Protected</strong> resource cannot be the restore target or the data replication target unless the administrator removes the <strong>Protected</strong> label.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>If you are prompted with “No enough licenses”, contact the administrator to add licenses.</p></li>
+<li><p>With many agents, install them first, then <strong>batch register</strong>, <strong>batch activate</strong>, and <strong>batch authorize</strong> the agents and resources for convenience. For details, see <a class="reference internal" href="#../manager/manager.md#batch-registerbatch-activatebatch-authorize"><span class="xref myst">Batch register/Batch activate/Batch authorize</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p></li>
+</ol>
+</div>
+</li>
+</ol>
+</section>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this heading">#</a></h2>
+<section id="backup-types">
+<h3>Backup types<a class="headerlink" href="#backup-types" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides full backup and incremental backup for Hyper-V.</p>
+<ul>
+<li><p>Full backup</p>
+<p>Backs up all the disks and disk files on virtual machines at some point in time.</p>
+</li>
+<li><p>Incremental backup</p>
+<p>Backs up only the disks and disk files that have changed since the last backup (including full backup and incremental backup) with a full backup as the baseline.</p>
+</li>
+</ul>
+</section>
+<section id="backup-policies">
+<h3>Backup policies<a class="headerlink" href="#backup-policies" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.</p>
+<ul class="simple">
+<li><p>Immediate: ADPS will immediately start the job after it is created.</p></li>
+<li><p>One-time: ADPS will perform the job at the specified time once only.</p></li>
+<li><p>Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.</p></li>
+<li><p>Daily: ADPS will perform the job periodically at the specified time and day intervals.</p></li>
+<li><p>Weekly: ADPS will perform the job periodically at the specified time and week intervals.</p></li>
+<li><p>Monthly: ADPS will perform the job periodically at the specified dates and times.</p></li>
+</ul>
+<p>You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:</p>
+<ol class="arabic simple">
+<li><p>Perform a <strong>full backup</strong> once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.</p></li>
+<li><p>Perform an <strong>incremental backup</strong> every day when the application traffic is relatively small (Example: at 2 a.m.) to ensure that you have a recoverable point in time every day, which can save storage space and backup time.</p></li>
+</ol>
+</section>
+<section id="before-you-begin">
+<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h3>
+<p>Before you back up and restore Hyper-V, check the following:</p>
+<ol class="arabic">
+<li><p>Check the resource</p>
+<p>(1) Click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p>
+<p>(2) Check whether the backup host and the Hyper-V resource are on the page with an <em>Online</em> state. If no, see <a class="reference internal" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a>.</p>
+</li>
+<li><p>Check storage pools</p>
+<p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
+<p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</li>
+</ol>
+</section>
+<section id="create-a-backup-job">
+<h3>Create a backup job<a class="headerlink" href="#create-a-backup-job" title="Permalink to this heading">#</a></h3>
+<p>To create a backup job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Backup</strong>. The backup job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the Hyper-V host and resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup source</strong> step, do the following:</p>
+<p>(1) From the <strong>Backup type</strong> list, select a backup type.</p>
+<p>(2) In the <strong>Backup source</strong> section, click the “+” icon. The <strong>Add backup source</strong> window appears. You can enter the virtual machine name in the search box for accurate search (keyword query is supported) or expand the backup source by clusters, hosts, resource pools, virtual machines, or folders. Select the virtual machines that you want to back up and click <strong>Submit</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use Ctrl and Shift to select multiple items. Confirm the range that you want, select the checkbox of the first item in the range, press Ctrl or Shift, and click the checkbox of the last item in the range. All the items between the first and the last are selected automatically.</p>
+</div>
+<p>(3) Confirm the selected backup source. You can use the <strong>Filter</strong> to exclude virtual machines that you do not want to back up. Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Backup target</strong> step, select a storage pool. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Backup schedule</strong> step, set the job schedule. For details, see <a class="reference internal" href="#backup-policies">Backup policies</a>. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS performs the job immediately after it is created.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+<li><p>Select <strong>Hourly</strong>. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).</p></li>
+<li><p>Select <strong>Daily</strong>. Set the start time and enter the time interval for job execution. The unit is day(s).</p></li>
+<li><p>Select <strong>Weekly</strong>. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.</p></li>
+<li><p>Select <strong>Monthly</strong>. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Backup options</strong> step, set the common and advanced options according to your needs. For details, see <a class="reference internal" href="#backup-options">Backup options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page automatically. On this page, you can start, modify, and delete the job.</p></li>
+</ol>
+</section>
+<section id="backup-options">
+<h3>Backup options<a class="headerlink" href="#backup-options" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides the following backup options:</p>
+<ul class="simple">
+<li><p>Common options</p></li>
+</ul>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Backup common options</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Backup source</p></td>
-<td><p>Virtual machine, host</p></td>
+<tr class="row-even"><td><p>Compression</p></td>
+<td><p>Fast is enabled by default. Backup data is compressed at the source side for transmission. It can reduce the backup time, improve backup efficiency, and save backup space.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Backup type</p></td>
-<td><p>Full backup: Back up all the data on the VMs. <br> Incremental backup: Back up the data that has changed since the last backup.</p></td>
+<tr class="row-odd"><td><p>Concurrent backup of VMs</p></td>
+<td><p>The maximum number of virtual machines that can be backed up simultaneously. The default value is 8. We recommend that the value is no more than the number of CPU cores. If it exceeds, the efficiency will not be improved obviously.</p></td>
 </tr>
-<tr class="row-even"><td><p>Backup target</p></td>
-<td><p>Standard storage pool, de-duplication storage pool, object storage service pool, tape library pool</p></td>
+<tr class="row-even"><td><p>Concurrent disks per VM</p></td>
+<td><p>The maximum number of disks per VM that can be processed concurrently. Note that a high value will lead to a high VM IO usage.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Backup compression</p></td>
-<td><p>None, fast</p></td>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options</p></li>
+</ul>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Backup advanced options</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
-<tr class="row-even"><td><p>Multiple channels</p></td>
-<td><p>A positive integer from 1 to 32</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup schedule</p></td>
-<td><p>Immediate, one-time, hourly, daily, weekly, monthly</p></td>
-</tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>Reconnection time</p></td>
-<td><p>The default value is 10 minutes.</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Restore type</p></td>
-<td><p>Virtual machine restore, virtual disk restore</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore location</p></td>
-<td><p>Original host, other hosts</p></td>
-</tr>
-<tr class="row-odd"><td><p>Restore granularity</p></td>
-<td><p>Disk or virtual machine</p></td>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
 </tr>
 <tr class="row-even"><td><p>Speed limit</p></td>
-<td><p>The data transfer speed or disk write and read speed can be limited.</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
 </tr>
-<tr class="row-odd"><td><p>D2C</p></td>
-<td><p>Data can be backed up directly to object storage.</p></td>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
 </tr>
-<tr class="row-even"><td><p>D2T</p></td>
-<td><p>Data can be backed up directly to the tape library.</p></td>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Standard checkpoint</p></td>
-<td><p>Standard checkpoints (i.e., crash-consistent checkpoints) can be created.</p></td>
+<tr class="row-odd"><td><p>Checkpoint consistency level</p></td>
+<td><p>- Crash consistent: Creates application-consistent checkpoints that capture the current state of applications. <br> - Application consistent: Uses the backup technology in the guest operating system to create data-consistent checkpoints that do not contain information about running applications. <br> - Automatic: Application consistent is used by default. If it fails, Crash consistent will be used instead.</p></td>
 </tr>
-<tr class="row-even"><td><p>Production checkpoint</p></td>
-<td><p>Production checkpoints (i.e., application-consistent checkpoints) can be created.</p></td>
+</tbody>
+</table>
+</section>
+</section>
+<section id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Permalink to this heading">#</a></h2>
+<p>ADPS provides several restore types for Hyper-V, including:</p>
+<ul>
+<li><p>Virtual machine restore</p>
+<p>When a disaster occurs in the virtual machine, a virtual machine restore job can help you to restore the entire machine. It supports restoring to another virtual center, another host, the original path, and a new path.</p>
+</li>
+<li><p>Virtual disk restore</p>
+<p>When a disaster occurs in some disks of the virtual machine, a virtual disk restore job can restore those disks to the target virtual machine. You can overwrite the existing disks, or create new disks.</p>
+</li>
+</ul>
+<section id="id1">
+<h3>Before you begin<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>You have a completed backup job. See <a class="reference internal" href="#create-a-backup-job">Create a backup job</a>.</p></li>
+<li><p>To restore to another virtual center, deploy the backup host, register and activate that virtual center, and authorize user access to the resource.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can restore to a target host with the same version as or a higher version than the source host. If the target host has a lower version, the restore may fail.</p>
+</div>
+</section>
+<section id="create-a-virtual-machine-restore-job">
+<h3>Create a virtual machine restore job<a class="headerlink" href="#create-a-virtual-machine-restore-job" title="Permalink to this heading">#</a></h3>
+<p>To create a virtual machine restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the Hyper-V host and resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Storage pool</strong> list, select a storage pool with backup sets, including the source and target pools with pool replication relation. With the <strong>Default</strong> option, the <strong>Restore source</strong> section shows the backup sets from all storage pools.</p>
+<p>(2) From the <strong>Restore type</strong> list, select <strong>Virtual machine restore</strong>.</p>
+<p>(3) In the <strong>Restore source</strong> section, expand the resource and select points in time under virtual machines for the restore. You can search the name or GUID to find the virtual machine.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the <strong>Restore location</strong> option:</p>
+<ul class="simple">
+<li><p>Original path: The virtual machine will be restored to its original path with its original name and configuration.</p></li>
+<li><p>New path: The virtual machine will be restored to a customized path with its configuration modified. If you click the icon beside <strong>New path</strong>, a wizard will appear. For more details, see <a class="reference internal" href="#restore-to-a-new-path">Restore to a new path</a>.</p></li>
+</ul>
+</div>
+</li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="restore-to-a-new-path">
+<h3>Restore to a new path<a class="headerlink" href="#restore-to-a-new-path" title="Permalink to this heading">#</a></h3>
+<p>When you select <strong>New path</strong> at the <strong>Restore options</strong> step, a wizard appears. Follow the wizard to set the new restore location.</p>
+<p>To restore the virtual machine to a new path, do the following:</p>
+<ol class="arabic">
+<li><p>At the <strong>VM</strong> step, do the following:</p>
+<p>(1) Click the name in the <strong>New VM name</strong> column. The <strong>Rename</strong> window appears.</p>
+<p>(2) In the <strong>Rename</strong> window, set a new name, add a prefix, or add a suffix for the virtual machine. Click <strong>Submit</strong>.</p>
+<p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To rename a batch of virtual machines, select their checkboxes and click <strong>Batch rename</strong>.</p>
+</div>
+</li>
+<li><p>At the <strong>Datastore</strong> step, do the following:</p>
+<p>(1) Click the value in the <strong>Storage directory</strong> column. The <strong>Set up storage directory</strong> window appears.</p>
+<p>(2) In the <strong>Set up storage directory</strong> window, select the target datastore for the virtual machine. Click <strong>Submit</strong>.</p>
+<p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To set the same storage directory for a batch of files, select their checkboxes and click <strong>Set storage directories in batch</strong>.</p>
+</div>
+</li>
+<li><p>At the <strong>Network</strong> step, do the following:</p>
+<p>(1) Click the name in the <strong>Virtual switch</strong> column. The <strong>Set up virtual switch</strong> window appears.</p>
+<p>(2) In the <strong>Set up virtual switch</strong> window, select the target virtual switch. Click <strong>Submit</strong>.</p>
+<p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You can click <strong>Add network</strong> beside the virtual machine and click <strong>Configure</strong> to select a virtual switch.</p></li>
+<li><p>To set a batch of networks, select their checkboxes and click <strong>Batch set up virtual switch</strong>.</p></li>
+</ul>
+</div>
+</li>
+<li><p>Click <strong>Submit</strong> and go back to the <strong>Restore options</strong> step.</p></li>
+<li><p>You can click the <strong>Set up</strong> icon beside the <strong>New path</strong> to modify your previous settings.</p></li>
+</ol>
+</section>
+<section id="create-a-virtual-disk-restore-job">
+<h3>Create a virtual disk restore job<a class="headerlink" href="#create-a-virtual-disk-restore-job" title="Permalink to this heading">#</a></h3>
+<p>To create a virtual disk restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the Hyper-V host and resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Storage pool</strong> list, select a storage pool with backup sets, including the source and target pools with pool replication relation. With the <strong>Default</strong> option, the <strong>Restore source</strong> section shows the backup sets from all storage pools.</p>
+<p>(2) From the <strong>Restore type</strong> list, select <strong>Virtual disk restore</strong>.</p>
+<p>(3) In the <strong>Restore source</strong> section, expand the resource and select disks under points in time for the restore. You can search the name or UUID to find the virtual machine.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the <strong>Restore location</strong> option:</p>
+<ul class="simple">
+<li><p>Original path: The virtual machine will be restored to its original path with its original name and configuration.</p></li>
+<li><p>New path: The virtual machine will be restored to a customized path with its configuration modified. If you click the icon beside <strong>New path</strong>, a wizard will appear. Select a storage directory for the disk.</p></li>
+</ul>
+</div>
+</li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="restore-options">
+<h3>Restore options<a class="headerlink" href="#restore-options" title="Permalink to this heading">#</a></h3>
+<p>ADPS provides the following restore options:</p>
+<ul class="simple">
+<li><p>Common options</p></li>
+</ul>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Restore common options</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Restore location</p></td>
+<td><p>See the respective job section for more details.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Concurrent recovery of VMs</p></td>
+<td><p>The maximum number of virtual machines that can be restored simultaneously. The default value is 8. We recommend that the value is no more than the number of CPU cores. If it exceeds, the efficiency cannot be improved obviously.</p></td>
+</tr>
+<tr class="row-even"><td><p>Concurrent disks per VM</p></td>
+<td><p>The maximum number of disks per VM that can be processed concurrently. Note that a high value will lead to a high VM IO usage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Existing VMs</p></td>
+<td><p>You can select Add timestamp suffix for new VMs, Overwrite existing VMs, or Skip the restore of existing VMs. If you select Skip the restore of existing VMs and all the VMs to be restored exist on the restore target, the restore job will fail.</p></td>
+</tr>
+<tr class="row-even"><td><p>Start virtual machine after restore</p></td>
+<td><p>The restored virtual machines are automatically started after the successful restore job.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore the network adapter</p></td>
-<td><p>The network adapter of the VM can be restored.</p></td>
-</tr>
-<tr class="row-even"><td><p>Pool replication</p></td>
-<td><p>D2D2D, D2D2C, D2D2T</p></td>
-</tr>
-<tr class="row-odd"><td><p>Restore from target pools</p></td>
-<td><p>Restoring from target storage pools is supported.</p></td>
-</tr>
-<tr class="row-even"><td><p>Transport mode</p></td>
-<td><p>Network mode: Transport data over the TCP/IP network. <br> SAN mode: Read backup data directly over SAN not LAN. This mode requires the backup server to read the backup data directly through SAN.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Start virtual machine after restoring</p></td>
-<td><p>The restored VMs can be started after the restore job is completed.</p></td>
-</tr>
-<tr class="row-even"><td><p>Browse type</p></td>
-<td><p>The backup set list is in decending order based on the point in time</p></td>
+<td><p>You can restore the network adapter of the original virtual machine.</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="platform-compatibility-list">
-<h2>Platform Compatibility List<a class="headerlink" href="#platform-compatibility-list" title="Permalink to this heading">#</a></h2>
-<table class="table" id="id2">
-<caption><span class="caption-text">Platform Compatibility List</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<ul class="simple">
+<li><p>Advanced options:</p></li>
+</ul>
+<table class="longtable table" id="id5">
+<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Virtualization Platform Version</p></th>
-<th class="head"><p>Support</p></th>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Windows Server 2008 R2</p></td>
-<td><p>Yes</p></td>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Windows Server 2012 R2</p></td>
-<td><p>Yes</p></td>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
 </tr>
-<tr class="row-even"><td><p>Windows Server 2016</p></td>
-<td><p>Yes</p></td>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Windows Server 2019</p></td>
-<td><p>Yes</p></td>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
 </tr>
-<tr class="row-even"><td><p>Windows Server 2022</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-odd"><td><p>Hyper-V Server 2008 R2</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-even"><td><p>Hyper-V Server 2012 R2</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-odd"><td><p>Hyper-V Server 2016</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-even"><td><p>Hyper-V Server 2019</p></td>
-<td><p>Yes</p></td>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="environment-compatibility-list">
-<h2>Environment Compatibility List<a class="headerlink" href="#environment-compatibility-list" title="Permalink to this heading">#</a></h2>
-<table class="table" id="id3">
-<caption><span class="caption-text">Environment Compatibility List</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Operating System</p></th>
-<th class="head"><p>Operating System Bits</p></th>
-<th class="head"><p>Support</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Ubuntu 16.04</p></td>
-<td><p>x86_64</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ubuntu 18.04</p></td>
-<td><p>x86_64</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-even"><td><p>Ubuntu 20.04</p></td>
-<td><p>x86_64</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-odd"><td><p>CentOS 7.6</p></td>
-<td><p>x86_64</p></td>
-<td><p>Yes</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="download-agent-package">
-<h2>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Log in to the ADPS console as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. The <strong>Install agent</strong> window appears.</p>
-<p><img alt="" src="../_images/license1.png" /></p>
-</li>
-<li><p>Select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
-<p><img alt="" src="../_images/agent.png" /></p>
-</li>
-</ol>
-</section>
-<section id="install-and-configure-agent">
-<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Double-click the package to launch the setup wizard.</p></li>
-<li><p>Select the Hyper-V component manually. You can select other resources according to your needs. If you select a resource, its backup and restore module will be enabled.</p>
-<p><img alt="" src="../_images/install1.png" /></p>
-</li>
-<li><p>Enter the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. The Access Key identifies the operator of the agent. You can log in to the ADPS console and see the account’s Access Key on the <strong>Personal Settings</strong> -&gt; <strong>Settings</strong>. If the backup server is a non-tenant version, then it is not required to configure the Access Key.</p>
-<p><img alt="" src="../_images/install2.png" /></p>
-</li>
-<li><p>Set the <strong>Destination Folder</strong> for the backup agent.</p></li>
-<li><p>After the configuration, follow the wizard to complete the installation.</p></li>
-</ol>
-</section>
-<section id="register-resource">
-<h2>Register Resource<a class="headerlink" href="#register-resource" title="Permalink to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Log in to the ADPS console and open <strong>Resource</strong>. Click the <strong>Register</strong> icon to register the Hyper-V resource.</p>
-<p><img alt="" src="../_images/register0.png" /></p>
-</li>
-<li><p>Select the check box to activate the resource.</p>
-<p><img alt="" src="../_images/register1.png" /></p>
-</li>
-<li><p>Assign the resource to user groups.</p>
-<p><img alt="" src="../_images/register2.png" /></p>
-</li>
-<li><p>Click the <strong>Modify</strong> icon to assign the data network to the resource.</p>
-<p><img alt="" src="../_images/register3.png" /></p>
-</li>
-<li><p>Click <strong>Login</strong>. Enter the user name and password of the host’s operating system.</p>
-<p><img alt="" src="../_images/register4.png" /></p>
-</li>
-</ol>
-</section>
-<section id="job">
-<h2>Job<a class="headerlink" href="#job" title="Permalink to this heading">#</a></h2>
-<p>Log in to the ADPS console and go to the <strong>Job</strong> page.</p>
-<p><img alt="" src="../_images/task1.png" /></p>
-<ul>
-<li><p>View the job detail: You can click a <strong>Job Name</strong> to view the job’s detailed information.</p>
-<p><img alt="" src="../_images/task2.png" /></p>
-</li>
-<li><p>Start: Select a non-running job and click <img alt="" src="../_images/task3.png" /> to start the job.</p></li>
-<li><p>Stop: Select a running job and click <img alt="" src="../_images/task4.png" /> to stop the job.</p></li>
-<li><p>Modify: Select a non-running job and click <img alt="" src="../_images/task5.png" /> to modify the job.</p></li>
-<li><p>Delete: Select a non-running job and click <img alt="" src="../_images/task6.png" /> to delete the job.</p></li>
-<li><p>Disable: Select a non-running scheduled job and click <img alt="" src="../_images/task7.png" /> to disable the scheduled job.</p></li>
-</ul>
-</section>
-<section id="back-up-hyper-v">
-<h2>Back Up Hyper-V<a class="headerlink" href="#back-up-hyper-v" title="Permalink to this heading">#</a></h2>
-<p>Go to the <strong>Backup</strong> page.</p>
-<p><img alt="" src="../_images/backup0.png" /></p>
-<p>The steps to create a backup job are:</p>
-<ol class="arabic">
-<li><p><strong>Hosts and Resources</strong>: Select the host and Hyper-V that you want to back up. Click <strong>Next</strong>.</p></li>
-<li><p><strong>Backup Source</strong>: Select <strong>Full Backup</strong> or <strong>Incremental Backup</strong>. Choose virtual machines or the host that you want to back up. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/backup1.png" /></p>
-<p><img alt="" src="../_images/backup7.png" /></p>
-<p><img alt="" src="../_images/backup8.png" /></p>
-<p>Backup type:</p>
-<ul class="simple">
-<li><p>Full backup: Back up all the data on the VMs.</p></li>
-<li><p>Incremental backup: Back up the data that has changed since the last backup (no matter what type of the last backup is, the data that has changed will be backed up).</p></li>
-</ul>
-<p>Backup source:</p>
-<ul class="simple">
-<li><p>Virtual machine: You can select the specific VMs that you want to back up.</p></li>
-<li><p>Host: You can select the host to back up all the VMs on it.</p></li>
-</ul>
-</li>
-<li><p><strong>Backup Target</strong>: Select a storage pool. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/backup2.png" /></p>
-</li>
-</ol>
-<ul class="simple">
-<li><p>It supports standard storage pool, de-duplication storage pool, object storage service pool, and tape library pool.</p></li>
-</ul>
-<ol class="arabic" start="4">
-<li><p><strong>Backup Schedule</strong>: Select a schedule type according to your needs. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/backup3.png" /></p>
-</li>
-<li><p><strong>Backup Options</strong>: Set backup options according to your needs. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/backup4.png" /></p>
-<p>Common options:</p>
-<ul class="simple">
-<li><p>Compression: You can select fast compression.</p></li>
-<li><p>Channels: It refers to the maximum number of virtual disks to be backed up at the same time.</p></li>
-</ul>
-<p><img alt="" src="../_images/backup5.png" /></p>
-<p>Advanced options:</p>
-<ul class="simple">
-<li><p>Reconnection time: The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes and the unit is minute.</p></li>
-<li><p>Resumption buffer size: You can set the resumption buffer size. The default value is 10 MiB.</p></li>
-<li><p>Speed limit: You can set different backup speeds for different time periods.</p></li>
-<li><p>Precondition: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p></li>
-<li><p>Pre/Post action: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></li>
-<li><p>Checkpoint consistency level:</p>
-<ul>
-<li><p>Crash consistent: Create application-consistent checkpoints that capture the current state of applications.</p></li>
-<li><p>Application consistent: Use backup technology in the guest operating system to create data-consistent checkpoints that do not contain information about running applications.</p></li>
-<li><p>Automatic: Application Consistent is used by default. If it fails, Crash Consistent will be used instead.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Finish</strong>: Enter the job name and click <strong>Submit</strong>.</p>
-<p><img alt="" src="../_images/backup6.png" /></p>
-</li>
-</ol>
-</section>
-<section id="restore-hyper-v">
-<h2>Restore Hyper-V<a class="headerlink" href="#restore-hyper-v" title="Permalink to this heading">#</a></h2>
-<p>Go to the <strong>Restore</strong> page.</p>
-<p><img alt="" src="../_images/recovery0.png" /></p>
-<p>The steps to create a restore job are:</p>
-<ol class="arabic">
-<li><p><strong>Hosts and Resources</strong>: Select the host and Hyper-V that you want to restore. Click <strong>Next</strong>.</p></li>
-<li><p><strong>Backup Sets</strong>: Select <strong>Virtual Machine Restore</strong> or <strong>Virtual Disk</strong> as the restore type. Select the restore source. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery1.png" /></p>
-<p><img alt="" src="../_images/recovery2.png" /></p>
-</li>
-<li><p><strong>Restore Target</strong>: Select a restore target. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery3.png" /></p>
-</li>
-<li><p><strong>Restore Schedule</strong>: Select a schedule type according to your needs. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery4.png" /></p>
-</li>
-<li><p><strong>Restore Options</strong>: Set restore options according to your needs. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery5.png" /></p>
-<p>Common options:</p>
-<ul class="simple">
-<li><p>Restore location:</p>
-<ul>
-<li><p>Original path: The location of the restored configuration file and disk is the same as the original location, i.e. to overwrite and restore to the original path.</p></li>
-<li><p>New path: New virtual machines or virtual disks will be created. It is required to set the name, configuration, and storage directory of the new virtual machines.</p></li>
-</ul>
-</li>
-<li><p>Channels: It refers to the number of virtual disks that can be restored at the same time.</p></li>
-<li><p>Start virtual machine after restoring: The virtual machine will be started automatically after the restore job.</p></li>
-<li><p>Restore the network adapter: The network adapter of the VM can be restored.</p></li>
-</ul>
-<p><img alt="" src="../_images/recovery6.png" /></p>
-<p>Advanced options:</p>
-<ul class="simple">
-<li><p>Reconnection time: The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes and the unit is minute.</p></li>
-<li><p>Resumption buffer size: You can set the resumption buffer size. The default value is 10 MiB.</p></li>
-<li><p>Speed limit: You can set different restore speeds for different time periods.</p></li>
-<li><p>Precondition: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p></li>
-<li><p>Pre/Post action: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></li>
-</ul>
-</li>
-<li><p><strong>Finish</strong>: Enter the job name and click <strong>Submit</strong>.</p>
-<p><img alt="" src="../_images/recovery7.png" /></p>
-</li>
-</ol>
-<section id="restore-virtual-machines">
-<h3>Restore Virtual Machines<a class="headerlink" href="#restore-virtual-machines" title="Permalink to this heading">#</a></h3>
-<p>You can select <strong>Virtual Machine Restore</strong> to create a VM restore job.</p>
-<p><img alt="" src="../_images/recovery1.png" /></p>
-<section id="overwrite-and-restore-to-original-path">
-<h4>Overwrite and Restore to Original Path<a class="headerlink" href="#overwrite-and-restore-to-original-path" title="Permalink to this heading">#</a></h4>
-<p>To overwrite and restore to the original path, select the original host as the restore target and the <strong>Original Path</strong> as the restore location.</p>
-<p><img alt="" src="../_images/recovery8.png" /></p>
-</section>
-<section id="restore-to-new-path-on-original-host">
-<h4>Restore to New Path on Original Host<a class="headerlink" href="#restore-to-new-path-on-original-host" title="Permalink to this heading">#</a></h4>
-<p>Select the original host as the restore target and the <strong>New Path</strong> as the restore location. Set the new VM name and storage directory.</p>
-<p><img alt="" src="../_images/recovery9.png" /></p>
-<p>The steps to set a new path:</p>
-<ol class="arabic">
-<li><p>Rename the new VM:</p>
-<p>(1) Click the VM name to access the <strong>Rename</strong> window.</p>
-<p><img alt="" src="../_images/recovery10.png" /></p>
-<p>(2) Rename the VM directly or add a prefix and suffix. Click <strong>Submit</strong>.</p>
-<p><img alt="" src="../_images/recovery11.png" /></p>
-<p>(3) Confirm the new VM name and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery12.png" /></p>
-</li>
-<li><p>Set the storage directory:</p>
-<p>The steps to set the directories in a batch are:</p>
-<p>(1) Select all the files and click the <strong>Set Storage Directories in batch</strong> option.</p>
-<p><img alt="" src="../_images/recovery13.png" /></p>
-<p>(2) Select the storage directory and click <strong>OK</strong>.</p>
-<p><img alt="" src="../_images/recovery14.png" /></p>
-<p>(3) Confirm the directory and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery15.png" /></p>
-<p>The steps to set one directory are:</p>
-<p>(1) Click the storage directory of a specific disk.</p>
-<p><img alt="" src="../_images/recovery16.png" /></p>
-<p>(2) Select the storage directory and click <strong>OK</strong>.</p>
-<p><img alt="" src="../_images/recovery17.png" /></p>
-<p>(3) Confirm the directory and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery18.png" /></p>
-</li>
-</ol>
-</section>
-<section id="restore-to-new-path-on-another-host">
-<h4>Restore to New Path on Another Host<a class="headerlink" href="#restore-to-new-path-on-another-host" title="Permalink to this heading">#</a></h4>
-<p>Select another host as the restore target and the <strong>New Path</strong> as the restore location.</p>
-<p><img alt="" src="../_images/recovery25.png" /></p>
-<p>Set the new VM name and storage directory.</p>
-<p><img alt="" src="../_images/recovery19.png" /></p>
-<p>The steps to create a new path are:</p>
-<ol class="arabic">
-<li><p>Rename the new VM:</p>
-<p>(1) Click the VM name to access the <strong>Rename</strong> window.</p>
-<p><img alt="" src="../_images/recovery10.png" /></p>
-<p>(2) Rename the VM directly or add a prefix and suffix. Click <strong>Submit</strong>.</p>
-<p><img alt="" src="../_images/recovery11.png" /></p>
-<p>(3) Confirm the new VM name and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery12.png" /></p>
-</li>
-<li><p>Set the storage directory:</p>
-<p>The steps to set the directories in a batch are:</p>
-<p>(1) Select all the files and click the <strong>Set Storage Directories in batch</strong> option.</p>
-<p><img alt="" src="../_images/recovery13.png" /></p>
-<p>(2) Select the storage directory and click <strong>OK</strong>.</p>
-<p><img alt="" src="../_images/recovery20.png" /></p>
-<p>(3) Confirm the directory and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery21.png" /></p>
-<p>The steps to set one directory are:</p>
-<p>(1) Click the storage directory of a specific disk.</p>
-<p><img alt="" src="../_images/recovery22.png" /></p>
-<p>(2) Select the storage directory and click <strong>OK</strong>.</p>
-<p><img alt="" src="../_images/recovery23.png" /></p>
-<p>(3) Confirm the directory and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery24.png" /></p>
-</li>
-</ol>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>Restore to a new path on another host: To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.</p></li>
-</ul>
-</div></blockquote>
-</section>
-</section>
-<section id="restore-virtual-disks">
-<h3>Restore Virtual Disks<a class="headerlink" href="#restore-virtual-disks" title="Permalink to this heading">#</a></h3>
-<p>You can select <strong>Virtual Disk</strong> to create a virtual disk restore job.</p>
-<p><img alt="" src="../_images/recovery2.png" /></p>
-<section id="overwrite-and-restore-to-original-disk">
-<h4>Overwrite and Restore to Original Disk<a class="headerlink" href="#overwrite-and-restore-to-original-disk" title="Permalink to this heading">#</a></h4>
-<p>To overwrite and restore to the original disk, select the original host as the restore target and the <strong>Original Path</strong> as the restore location.</p>
-<p><img alt="" src="../_images/recovery26.png" /></p>
-</section>
-<section id="restore-to-new-disk-on-original-vm">
-<h4>Restore to New Disk on Original VM<a class="headerlink" href="#restore-to-new-disk-on-original-vm" title="Permalink to this heading">#</a></h4>
-<p>Select the original host as the restore target and the <strong>New Path</strong> as the restore location. Set the storage directory of the new disk.</p>
-<p><img alt="" src="../_images/recovery38.png" /></p>
-<p>The steps to create a new path are:</p>
-<ol class="arabic">
-<li><p>Set the storage directory:</p>
-<p>(1) Select all the files and click the <strong>Set Storage Directories in batch</strong> option, or click the storage directory of a specific disk.</p>
-<p><img alt="" src="../_images/recovery27.png" /></p>
-<p>(2) Select the storage directory and click <strong>OK</strong>.</p>
-<p><img alt="" src="../_images/recovery28.png" /></p>
-<p>(3) Confirm the directory and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery29.png" /></p>
-</li>
-</ol>
-</section>
-<section id="restore-to-new-disk-on-another-host">
-<h4>Restore to New Disk on Another Host<a class="headerlink" href="#restore-to-new-disk-on-another-host" title="Permalink to this heading">#</a></h4>
-<p>Select another host as the restore target and the <strong>New Path</strong> as the restore location.</p>
-<p><img alt="" src="../_images/recovery25.png" /></p>
-<p>Then, set the storage directory of the new disk.</p>
-<p><img alt="" src="../_images/recovery39.png" /></p>
-<p>The steps to create a new path are:</p>
-<ol class="arabic">
-<li><p>Set the storage directory:</p>
-<p>(1) Select all the files and click the <strong>Set Storage Directories in batch</strong> option, or click the storage directory of a specific disk.</p>
-<p><img alt="" src="../_images/recovery27.png" /></p>
-<p>(2) Select the storage directory and click <strong>OK</strong>.</p>
-<p><img alt="" src="../_images/recovery40.png" /></p>
-<p>(3) Confirm the directory and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/recovery41.png" /></p>
-</li>
-</ol>
-</section>
 </section>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
-<table class="longtable table" id="id4">
-<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<table class="longtable table" id="id6">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Function</p></th>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Limitations</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Backup</p></td>
-<td><p>Differential backup is not supported.  <br> VM grouping is not supported.  <br> If the VM to be backed up is overwritten and restored, the backup jobs will be unavailable and should be recreated. <br> Under the following conditions, the backup job cannot be stopped: The agent is creating checkpoints, or the agent is using a LAN-Free storage pool and mounting the disks. <br> Checkpoints include crash-consistent checkpoints and application-consistent checkpoints. The default checkpoint is application-consistent. <br> On Windows Server 2016 and later versions, Hyper-V backup jobs will not reserve checkpoints after the job completion.  <br> A host can only run one backup or restore job at a time. A backup job can back up multiple VMs in parallel, while a restore job can only restore VMs one by one.</p></td>
+<td><p>Differential backup is not supported.  <br> VM grouping is not supported.  <br> If the VM to be backed up is overwritten and restored, the old backup jobs will be unavailable and should be recreated. <br> Under the following conditions, the backup job cannot be stopped: The agent is creating checkpoints; or the agent is using a LAN-free pool and mounting the disks. <br> Checkpoints include crash-consistent checkpoints and application-consistent checkpoints. The default checkpoint is application-consistent. <br> On Windows Server 2016 and later versions, Hyper-V backup jobs will not reserve checkpoints after the job completion.  <br> A host can only run one backup or restore job at a time. A backup job can back up multiple VMs in parallel, while a restore job can only restore VMs one by one.  <br>  Hyper-V LAN-free backup and restore only supports SAN transport mode.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Restore</p></td>
-<td><p>Mount recovery is not supported. <br> The interface cannot display the restore progress of a single virtual disk.  <br> To overwrite and restore to the disk, ensure that the original host is shut down and no checkpoints remain. <br> To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.  <br> When the agent is merging subdisks, the restore job cannot be stopped. <br> ADPS cannot restore the Ubuntu/CentOS Generation 2 virtual machines on Hyper-V 2012 series. <br> ADPS cannot restore the virtual disks on Ubuntu/CentOS Generation 2 virtual machines.  <br> The Generation 1 virtual machines can only be booted from the IDE controller. The Generation 2 virtual machines can only be booted from the SCSI controller.</p></td>
+<td><p>Mount recovery is not supported. <br> The interface cannot display the restore progress of a single virtual disk.  <br> To overwrite and restore to the disk, ensure that the original host is shut down and no checkpoints remain. <br> To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.  <br> When the agent is merging subdisks, the restore job cannot be stopped. <br> ADPS cannot restore the Ubuntu/CentOS Generation 2 virtual machines on the Hyper-V 2012 series. <br> ADPS cannot restore the virtual disks on Ubuntu/CentOS Generation 2 virtual machines.  <br> The Generation 1 virtual machines can only be booted from the IDE controller. The Generation 2 virtual machines can only be booted from the SCSI controller.</p></td>
 </tr>
 </tbody>
 </table>
@@ -813,28 +796,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-compatibility-list">Platform Compatibility List</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-compatibility-list">Environment Compatibility List</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-resource">Register Resource</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job">Job</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-up-hyper-v">Back Up Hyper-V</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-hyper-v">Restore Hyper-V</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-virtual-machines">Restore Virtual Machines</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overwrite-and-restore-to-original-path">Overwrite and Restore to Original Path</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-path-on-original-host">Restore to New Path on Original Host</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-path-on-another-host">Restore to New Path on Another Host</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-virtual-disks">Restore Virtual Disks</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overwrite-and-restore-to-original-disk">Overwrite and Restore to Original Disk</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-disk-on-original-vm">Restore to New Disk on Original VM</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-new-disk-on-another-host">Restore to New Disk on Another Host</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-machine-restore-job">Create a virtual machine restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-a-new-path">Restore to a new path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-disk-restore-job">Create a virtual disk restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>

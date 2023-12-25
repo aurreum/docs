@@ -160,7 +160,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for OBS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage Service</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
@@ -536,13 +536,16 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <li><p>Synthetic backup</p>
 <p>The first synthetic backup is a full backup and the subsequent ones are incremental. When the synthesis condition is reached, the latest full backup and subsequent incremental backup will be synthesized to create a new full backup copy. Synthetic backups can improve the restore performance. You can directly mount the full backup copy to the target host through an instant recovery job without physical copies and additional storage space.</p>
 <p>Synthetic backups have the following requirements:</p>
-<p>(1) You have the advanced licenses: Oracle synthetic backup and Oracle CDM.</p>
+<p>(1) You have the advanced licenses: Oracle Synthetic Backup and Oracle Copy Data Management.</p>
 <p>(2) You have configured the iSCSI or FC link between the backup server and the host with the agent installed.</p>
 <p>(3) The data disks of the storage server use the ZFS file system.</p>
 <p>(4) You have created a data synthetic pool for the current user.</p>
 </li>
 <li><p>Continuous log backup</p>
 <p>Continuously backs up Oracle online redo logs and archive logs to a real-time storage pool. After a continuous log backup job is created, the job is always running (except for job suspension caused by external factors).</p>
+<p>The continuous log backup has the following requirements:</p>
+<p>(1) You have the advanced licenses: Oracle Continuous Log Backup.</p>
+<p>(2) You have created a real-time backup pool for the current user.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -903,6 +906,7 @@ alter<span class="w"> </span>system<span class="w"> </span><span class="nb">set<
 </li>
 <li><p>Table restore</p>
 <p>Supports exporting a user’s single table to a point-in-time state. Oracle table restore jobs are supported for Oracle 10.2.0.5 and later versions.</p>
+<p>Before you create a table restore job, ensure that you have the Oracle Table Level Restore license.</p>
 </li>
 <li><p>Logical import</p>
 <p>Includes two restore type: Data Pump import and traditional import, and supports importing databases, tablespaces, and schemas. Importing databases and tablespaces requires a user with <code class="docutils literal notranslate"><span class="pre">DBA</span></code> privileges (such as <code class="docutils literal notranslate"><span class="pre">SYSTEM</span></code>, but the user cannot be <code class="docutils literal notranslate"><span class="pre">SYS</span></code>). Importing schema requires the corresponding user or <code class="docutils literal notranslate"><span class="pre">SYSTEM</span></code>.</p>
@@ -1339,7 +1343,10 @@ impdp<span class="w"> </span><span class="se">\&quot;</span>sys/password<span cl
 <h3>Create a log analysis job<a class="headerlink" href="#create-a-log-analysis-job" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before you create a log analysis job, enable the <strong>Minimal supplemental log</strong> option in the backup options: Only the logs generated after you enable this option can be used for log analysis jobs.</p>
+<ul class="simple">
+<li><p>Ensure that you have the Oracle LogMiner license.</p></li>
+<li><p>Before you create a log analysis job, enable the <strong>Minimal supplemental log</strong> option in the backup options: Only the logs generated after you enable this option can be used for log analysis jobs.</p></li>
+</ul>
 </div>
 <p>To create a log analysis job, do the following:</p>
 <ol class="arabic">

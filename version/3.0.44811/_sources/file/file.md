@@ -263,7 +263,7 @@ Before you back up and restore files, check whether any storage pools have been 
 
 	```{note}
 	To use synthetic backups, ensure that your environment fulfills the following requirements:
-	- You have advanced licenses: File synthetic backup and File CDM.
+	- You have advanced licenses: File Synthetic Backup and File Copy Data Management.
 	- You have created a file synthetic pool for the current user.
 	```
 

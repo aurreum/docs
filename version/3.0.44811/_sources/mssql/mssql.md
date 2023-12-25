@@ -200,7 +200,7 @@ ADPS provides three common backup types (full backup, cumulative incremental bac
 
 	Synthetic backups have the following requirements:
 
-	(1) You have the advanced licenses: SQL Server synthetic backup and SQL Server CDM.
+	(1) You have the advanced licenses: MS SQL Server Synthetic Backup and MS SQL Server Copy Data Management.
 
 	(2) You have configured the iSCSI or FC link between the backup server and the host with the agent installed.
 

@@ -160,7 +160,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for OBS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage Service</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
@@ -506,7 +506,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <li><p>Synthetic backup</p>
 <p>The first synthetic backup is a full backup, and the subsequent ones are incremental. When the synthesis condition is reached, the latest full backup and subsequent incremental backup will be synthesized to create a new full backup copy. Synthetic backups can improve the restore performance. You can directly mount the full backup copy to the target host through an instant recovery job without physical copies and additional storage space.</p>
 <p>Synthetic backups have the following requirements:</p>
-<p>(1) You have the advanced licenses: SQL Server synthetic backup and SQL Server CDM.</p>
+<p>(1) You have the advanced licenses: MS SQL Server Synthetic Backup and MS SQL Server Copy Data Management.</p>
 <p>(2) You have configured the iSCSI or FC link between the backup server and the host with the agent installed.</p>
 <p>(3) The data disks of the storage server use the ZFS file system.</p>
 <p>(4) You have created a data synthetic pool for the current user.</p>

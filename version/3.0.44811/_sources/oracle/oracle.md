@@ -223,7 +223,7 @@ ADPS provides five common backup types (full backup, incremental backup, cumulat
 
 	Synthetic backups have the following requirements:
 
-	(1) You have the advanced licenses: Oracle synthetic backup and Oracle CDM.
+	(1) You have the advanced licenses: Oracle Synthetic Backup and Oracle Copy Data Management.
 
 	(2) You have configured the iSCSI or FC link between the backup server and the host with the agent installed.
 
@@ -234,6 +234,12 @@ ADPS provides five common backup types (full backup, incremental backup, cumulat
 - Continuous log backup
 
 	Continuously backs up Oracle online redo logs and archive logs to a real-time storage pool. After a continuous log backup job is created, the job is always running (except for job suspension caused by external factors).
+
+	The continuous log backup has the following requirements:
+
+	(1) You have the advanced licenses: Oracle Continuous Log Backup.
+
+	(2) You have created a real-time backup pool for the current user.
 
 	```{note}
 	- Before you create a continuous log backup job, perform a full backup first.
@@ -491,6 +497,8 @@ For different needs, ADPS provides several restore types for Oracle, including:
 - Table restore
 
 	Supports exporting a user’s single table to a point-in-time state. Oracle table restore jobs are supported for Oracle 10.2.0.5 and later versions.
+
+	Before you create a table restore job, ensure that you have the Oracle Table Level Restore license.
 
 - Logical import
 
@@ -1022,7 +1030,8 @@ To create a Live Recovery job, do the following:
 ### Create a log analysis job
 
 ```{note}
-Before you create a log analysis job, enable the **Minimal supplemental log** option in the backup options: Only the logs generated after you enable this option can be used for log analysis jobs.
+- Ensure that you have the Oracle LogMiner license.
+- Before you create a log analysis job, enable the **Minimal supplemental log** option in the backup options: Only the logs generated after you enable this option can be used for log analysis jobs.
 ```
 
 To create a log analysis job, do the following:

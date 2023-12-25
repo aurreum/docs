@@ -309,7 +309,7 @@ Before you back up and restore Hadoop, check whether any storage pools have been
 
 	```{note}
 	To use synthetic backups, ensure that your environment fulfills the following requirements:
-	- You have advanced licenses: Hadoop synthetic backup and Hadoop CDM.
+	- You have advanced licenses: Hadoop Synthetic Backup and Hadoop Copy Data Management.
 	- You have created a file synthetic pool for the current user.
 	```
 

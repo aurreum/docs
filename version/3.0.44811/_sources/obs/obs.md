@@ -1,8 +1,8 @@
-# User Guide for OBS
+# User Guide for Object Storage Service
 
 ## Overview
 
-This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore object storage (OBS).
+This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore object storage service (OBS).
 
 The backup and restore features supported by ADPS include:
 
@@ -274,7 +274,7 @@ Before you back up and restore OBS, check whether any storage pools have been cr
 
 	```{note}
 	To use synthetic backups, ensure that your environment fulfills the following requirements:
-	- You have advanced licenses: OBS synthetic backup and OBS CDM.
+	- You have advanced licenses: Object Storage Service Synthetic Backup and Object Storage Service Copy Data Management.
 	- You have created a file synthetic pool for the current user.
 	```
 
