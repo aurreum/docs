@@ -149,7 +149,7 @@ After the agent installation, go back to the **Resource** page. The host with th
 To activate licenses and authorize users, do the following:
 
 1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
-2. On the **Resource** page, select the host where the Hadoop_Proxy resides. Click the **Register** icon. After the registration, the **Activate** window appears. Click **Submit**.
+2. On the **Resource** page, select the backup host. Click the **Register** icon. After the registration, the **Activate** window appears. Click **Submit**.
 
 	```{only} scutech
 	![](../images/Backup_Restore/DBackup3/Hadoop/register_hadoop_proxy.png)

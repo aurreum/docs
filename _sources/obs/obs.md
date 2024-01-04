@@ -137,7 +137,7 @@ After the agent installation, go back to the **Resource** page. The backup host 
 To activate licenses and authorize users, do the following:
 
 1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
-2. On the **Resource** page, select the host where the OBS backup module resides. Click the **Register** icon. After the registration, the **Activate** window appears. Click **Submit**.
+2. On the **Resource** page, select the backup host. Click the **Register** icon. After the registration, the **Activate** window appears. Click **Submit**.
 3. After you activate the license, the **Authorize** window appears. From the **User group** list, select user groups to authorize access to the resource. Click **Submit**.
 
 	```{only} scutech

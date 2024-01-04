@@ -188,7 +188,7 @@ After the agent installation, go back to the **Resource** page. The backup host 
 To activate licenses and authorize users, do the following:
 
 1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
-2. On the **Resource** page, select the host where the OBS backup module resides. Click the **Register** icon. Then the **Activate** window appears.
+2. On the **Resource** page, select the backup host. Click the **Register** icon. Then the **Activate** window appears.
 3. In the **Activate** window, select the resource and click **Submit**.
 4. After you activate the license, the **Authorize** window appears. From the **User group** list, select user groups to authorize access to the resource. Click **Submit**.
 
@@ -588,9 +588,7 @@ To restore the virtual machine to a new path, do the following:
 
    (3) The display area shows the new setting. Click **Submit**. The wizard goes to the next step.
 
-   ```{note}
    To set the same host/cluster for a batch of virtual machines, select their checkboxes and click **Batch set up host/cluster**.
-   ```
 
 2. At the **Resource pool/vApp** step, do the following:
 
@@ -600,9 +598,7 @@ To restore the virtual machine to a new path, do the following:
 
    (3) The display area shows the new setting. Click **Next**. The wizard goes to the next step.
 
-   ```{note}
    To set the same resource pool/vApp for a batch of virtual machines, select their checkboxes and click **Batch set up resource pool/vApp**.
-   ```
 
 3. At the **Folder** step, do the following:
 
@@ -616,9 +612,7 @@ To restore the virtual machine to a new path, do the following:
 
    (5) The display area shows the new settings. Click **Next**. The wizard goes to the next step.
 
-   ```{note}
    To rename a batch of virtual machines or set the same folder for them, select their checkboxes, click **Batch rename** or **Batch set up folder**.
-   ```
 
 4. At the **Datastore** step, do the following:
 
@@ -632,9 +626,7 @@ To restore the virtual machine to a new path, do the following:
 
    (5) The display area shows the new settings. Click **Next**. The wizard goes to the next step.
 
-   ```{note}
    To set the same datastore or disk provisioning for a batch of virtual machines, select their checkboxes, click **Batch set up datastore** or **Batch set up disk provisioning**.
-   ```
 
 5. At the **Redirect snapshot** step, if you want to redirect the snapshot, do the following:
 
@@ -650,9 +642,7 @@ To restore the virtual machine to a new path, do the following:
 
    (4) The display area shows the new setting. Click **Next**. The wizard goes to the next step.
 
-   ```{note}
    To set the same datastore for a batch of virtual machines, select their checkboxes and click **Batch set up network**.
-   ```
 
 6. At the **Network** step, do the following:
 
@@ -662,9 +652,7 @@ To restore the virtual machine to a new path, do the following:
 
    (3) The display area shows the new setting. Click **Next**. The wizard goes to the next step.
 
-   ```{note}
    To set a batch of virtual machines with the same network, select their checkboxes and click **Batch set up network**.
-   ```
 
 7. At the **Advanced** step, do the following:
 
@@ -678,9 +666,7 @@ To restore the virtual machine to a new path, do the following:
 
    (5) The display area shows the new settings.
 
-   ```{note}
    To set the CPU and memory for a batch of virtual machines, select their checkboxes, click **Batch set up CPU** or **Batch set up memory**.
-   ```
 
 8. Click **Submit** and go back to the **Restore options** step.
 9. You can click the **Set up** icon beside the **New path** to modify your previous settings.
