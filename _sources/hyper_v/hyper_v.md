@@ -219,11 +219,10 @@ ADPS provides the following backup options:
 ---
 class: longtable
 ---
-|Feature|Description|
+|Option|Description|
 |---|-----|
 |Compression|Fast is enabled by default. Backup data is compressed at the source side for transmission. It can reduce the backup time, improve backup efficiency, and save backup space.|
-|Concurrent backup of VMs|The maximum number of virtual machines that can be backed up simultaneously. The default value is 8. We recommend that the value is no more than the number of CPU cores. If it exceeds, the efficiency will not be improved obviously.|
-|Concurrent disks per VM|The maximum number of disks per VM that can be processed concurrently. Note that a high value will lead to a high VM IO usage.|
+|Channels|Defines the maximum number of concurrent processes in one job based on the backup host's CPU cores and the virtual load capacity. The default value is 2.|
 ```
 
 - Advanced options
@@ -234,7 +233,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature|Description|
+|Option|Description|
 |---|-----|
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|
@@ -392,8 +391,7 @@ class: longtable
 |Option|Description|
 |---|-----|
 |Restore location|See the respective job section for more details. |
-|Concurrent recovery of VMs|The maximum number of virtual machines that can be restored simultaneously. The default value is 8. We recommend that the value is no more than the number of CPU cores. If it exceeds, the efficiency cannot be improved obviously.|
-|Concurrent disks per VM|The maximum number of disks per VM that can be processed concurrently. Note that a high value will lead to a high VM IO usage.|
+|Channels|Defines the maximum number of concurrent processes in one job based on the backup host's CPU cores and the virtual load capacity. The default value is 8.|
 |Existing VMs|You can select Add timestamp suffix for new VMs, Overwrite existing VMs, or Skip the restore of existing VMs. If you select Skip the restore of existing VMs and all the VMs to be restored exist on the restore target, the restore job will fail.|
 |Start virtual machine after restore|The restored virtual machines are automatically started after the successful restore job.|
 |Restore the network adapter|You can restore the network adapter of the original virtual machine.|

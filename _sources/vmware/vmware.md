@@ -120,20 +120,20 @@ Before you back up and restore VMware, install the agent on the backup host and 
 Ensure that your environment is in the following compatibility list:
 
 ```{table} Backup host compatibility
-| Operating system     | OS bits | Support |
-| ----------------  | --------------------- | ------- |
-| Ubuntu 16.04      | x86_64                |Yes      |
-| Ubuntu 18.04      | x86_64                |Yes      |
-| Ubuntu 20.04      | x86_64                |Yes      |
-| CentOS 7.4        | x86_64                |Yes      |
-| CentOS 7.6        | x86_64                |Yes      |
-| CentOS 7.9        | x86_64                |Yes      |
-| CentOS 8.5        | x86_64                |Yes      |
-| Red Hat 7.6       | x86_64                |Yes      |
-| Red Hat 7.9       | x86_64                |Yes      |
-| Red Hat 8.2       | x86_64                |Yes      |
-| Red Hat 8.6       | x86_64                |Yes      |
-| Red Hat 9.0       | x86_64                |Yes      |
+| Operating system     | OS bits |
+| ----------------  | --------------------- |
+| Ubuntu 16.04      | x86_64                |
+| Ubuntu 18.04      | x86_64                |
+| Ubuntu 20.04      | x86_64                |
+| CentOS 7.4        | x86_64                |
+| CentOS 7.6        | x86_64                |
+| CentOS 7.9        | x86_64                |
+| CentOS 8.5        | x86_64                |
+| Red Hat 7.6       | x86_64                |
+| Red Hat 7.9       | x86_64                |
+| Red Hat 8.2       | x86_64                |
+| Red Hat 8.6       | x86_64                |
+| Red Hat 9.0       | x86_64                |
 ```
 
 ### Install the agent
@@ -360,7 +360,7 @@ ADPS provides the following backup options:
 ---
 class: longtable
 ---
-|Feature|Description|
+|Option|Description|
 |---|-----|
 |Compression|Fast is enabled by default. Backup data is compressed at the source side for transmission. It can reduce the backup time, improve backup efficiency, and save backup space.|
 |Concurrent backup of VMs|The maximum number of virtual machines that can be backed up simultaneously. The default value is 8. We recommend that the value is no more than the number of CPU cores. If it exceeds, the efficiency will not be improved obviously.|
@@ -385,7 +385,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature|Description|
+|Option|Description|
 |---|-----|
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|

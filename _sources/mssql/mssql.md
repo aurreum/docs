@@ -366,7 +366,7 @@ ADPS provides the following backup options for SQL Server:
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Uses the fast compression algorithms to compress data during the backup job.|Not available for synthetic backup jobs.|
 |Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 64.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.{{ br }}The value for synthetic backup jobs ranges from 1 to 255.||
@@ -384,7 +384,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|Not available for synthetic backup jobs.|
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|Not available for synthetic backup jobs.|
@@ -622,7 +622,7 @@ ADPS provides the following restore options for SQL Server:
 ---
 class: longtable
 ---
-|Feature |Description|Limitations|
+|Option |Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||

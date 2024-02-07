@@ -31,7 +31,7 @@ The backup and restore features supported by ADPS include:
 - Restore targets
 
 	Original host and different host (ADPS supports cross-machine restore of PostgreSQL with varying minor versions.)
-	
+
 - Restore options
 
 	Channels, restore database (origin or new), open database after restore, archive log destination, database configuration file
@@ -167,7 +167,7 @@ After the agent installation, go back to the **Resource** page. The host with th
 To activate licenses and authorize users, do the following:
 
 1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
-2. On the **Resource** page, select the host where PostgreSQL resides. Click the **Register** icon. After the registration, the **Activate** window appears. 
+2. On the **Resource** page, select the host where PostgreSQL resides. Click the **Register** icon. After the registration, the **Activate** window appears.
 
 ```{only} scutech
 ![](../images/Backup_Restore/DBackup3/PostgreSQL/postgres_license01.png)
@@ -257,11 +257,11 @@ Before you back up and restore PostgreSQL, check the following:
 
 	(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
 
-3. Check the minimum privileges required for a database user to do backups. 
+3. Check the minimum privileges required for a database user to do backups.
 
 ```{tabularcolumns} |\Y{0.13}|\Y{0.62}|\Y{0.25}|
 ```
-```{table} Minimum privileges required  
+```{table} Minimum privileges required
 ---
 class: longtable
 ---
@@ -276,7 +276,7 @@ class: longtable
 
 ### Log in to the resource
 
-Before you create a backup or restore job, log in to the PostgreSQL on the console. 
+Before you create a backup or restore job, log in to the PostgreSQL on the console.
 
 To log in to the resource, do the following:
 
@@ -336,7 +336,7 @@ ADPS provides the following backup options for PostgreSQL:
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Use the fast compression algorithms to compress data during the backup job.|Not available for synthetic backup jobs.|
 |Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 64.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.{{ br }}The value for synthetic backup jobs ranges from 1 to 255.|Only available for full backup jobs.|
@@ -352,7 +352,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|Not available for synthetic backup jobs.|
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|Not available for synthetic backup jobs.|
@@ -398,10 +398,10 @@ To create a point-in-time restore job, do the following:
 3. At the **Backup sets** step, do the following:
 
 	(1) From the **Restore type** list, select **Point-in-time restore**.
-	
+
 	(2) In the **Restore point in time** section, specify a point in time for the restore job.
 
-	- Select **Restore to point in time**. If you have performed a log backup job, you can specify the restore point in time by entering the date and time or dragging the slider control. 
+	- Select **Restore to point in time**. If you have performed a log backup job, you can specify the restore point in time by entering the date and time or dragging the slider control.
 	- Select **Restore to backup state (shortest recovery time)**. You can select a backup set in the **Backup sets** section to restore to its latest backup state.
 
 	(3) Click **Next**.
@@ -428,7 +428,7 @@ To create an instant recovery job, do the following:
 2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
 3. At the **Backup sets** step, do the following:
-	
+
 	(1) From the **Restore type** list, select **Instant recovery**.
 
 	(2) From the **Recovery type** list, select a data recovery type for the restore job.
@@ -460,14 +460,14 @@ To create a log restore job, do the following:
 2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
 3. At the **Backup sets** step, do the following:
-	
+
 	(1) From the **Restore type** list, select **Log restore**.
-	
+
 	(2) In the **Time range** section, click the time next to the option and a window pops up. In the pop-up window, select a time range. You can also drag the slider control or enter the time to specify a time range for the restore job.
-	
+
 	(3) Click **Next**.
 
-4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The target can be a standalone PostgreSQL or a cluster. When the restore target is a cluster, the restore job will be run on all the nodes in the cluster. 
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The target can be a standalone PostgreSQL or a cluster. When the restore target is a cluster, the restore job will be run on all the nodes in the cluster.
 
 5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
@@ -489,7 +489,7 @@ To create a recovery testing job, do the following:
 2. At the **Hosts and resources** step, select the host where PostgreSQL resides and select the instance. The wizard goes to the next step automatically.
 
 3. At the **Backup sets** step, do the following:
-	
+
    (1) From the **Restore type** list, select **Recovery testing**.
 
    (2) In the **Restore source** section, select databases for the restore job. If you want to rename the restore source, click the database. The **Rename** icon appears beside the name. Click the icon and specify a name in the pop-up window.
@@ -523,7 +523,7 @@ ADPS provides the following restore options for PostgreSQL:
 ---
 class: longtable
 ---
-|Feature |Description|Limitations|
+|Option |Description|Limitations|
 | --- | --- | --- |
 |Channels|It can improve backup efficiency. The default value is 1. The maximum value for the range should not exceed the maximum number of channels set in the selected backup set.|Only available for point-in-time restore jobs.|
 |Open database after restore|After this option is enabled, the database will automatically start upon successful recovery. It is checked by default.|Only available for point-in-time restore jobs.|
@@ -539,7 +539,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature |Description|Limitations|
+|Option |Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
@@ -586,7 +586,7 @@ To bind nodes into a cluster on the console, do the following:
 
 When a switchover occurs, the new primary node will take over the backup job automatically. To create a PostgreSQL cluster backup/restore job, see [Create a backup job](#create-a-backup-job) and [Restore](#restore). Note that:
 
-1. On the backup job wizard, only the active nodes of the PostgreSQL cluster are displayed. 
+1. On the backup job wizard, only the active nodes of the PostgreSQL cluster are displayed.
 2. In the event of a switchover within the PostgreSQL cluster, the new active node automatically takes over the backup job.
 3. On the restore job wizard, one instance or cluster can be selected as the restore target.
 

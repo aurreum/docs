@@ -378,7 +378,7 @@ ADPS provides the following backup options for OBS:
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Uses the fast compression algorithms to compress data during the backup job.||
 |Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 255.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.|Only available for full backup and synthetic backup jobs.|
@@ -392,7 +392,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
@@ -592,7 +592,7 @@ ADPS provides the following restore options for object storage:
 ---
 class: longtable
 ---
-|Feature |Description|Limitations|
+|Option |Description|Limitations|
 | --- | --- | --- |
 |Channels|It can improve restore efficiency. The default value is 1. The value cannot exceed that of the backup set.||
 |Restore location|You can set the restore location to the original location or a specified location. To specify a location, enter the path manually or click Browse to select the target folder.||
@@ -608,7 +608,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature |Description|Limitations|
+|Option |Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||

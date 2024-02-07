@@ -1,4 +1,4 @@
-# User Guide for MySQL 
+# User Guide for MySQL
 
 ## Overview
 
@@ -80,9 +80,9 @@ To install the agent, do the following:
 4. In the **Install agent** window, do the following:
 
 	(1) From the **Select system** list, select **Windows**.
-	
+
 	(2) From the **Select file** list, select the package that you want to install.
-	
+
 	(3) Click **Download**.
 
 5. Upload the package to the Windows host.
@@ -98,11 +98,11 @@ To install the agent, do the following:
 	```
 
 	(1) In the **Backup server address** field, enter the IP or domain name of the backup server.
-	
+
 	(2) In the **Backup server port** field, enter the port number. The default value is 50305. If you enable the **Use SSL secure connection** option, enter 60305 in the **Backup server port** field.
-	
+
 	(3) The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
-	
+
 	(4) Click **Next**.
 
 
@@ -120,7 +120,7 @@ To install the agent, do the following:
 
 For Linux OS, ADPS agent supports online and local installation. We recommend online installation.
 
-1. Online installation: 
+1. Online installation:
 ADPS provides `curl` and `wget` commands for installation.
 2. Local installation:
 See [Offline installation](../agent_install/agent_install.md#offline-installation) in Aurreum Data Protection Suite Agent Installation Guide.
@@ -136,11 +136,11 @@ To install the agent online, do the following:
 4. In the **Install agent** window, do the following:
 
 	(1) From the **Select system** list, select **Linux**.
-	
+
 	(2) From the **Component** list, select **MySQL**. The `curl` and `wget` commands appear in the window.
-	
+
 	(3) If you want to delete the downloaded package automatically after the installation, select the **Delete installation package** check box.
-	
+
 	(4) If you enable **Ignore SSL errors**, the installation will ignore certificate errors and so on. If you disable the feature, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.
 
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
@@ -176,7 +176,7 @@ After the agent installation, go back to the **Resource** page. The host with th
 To activate licenses and authorize users, do the following:
 
 1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
-2. On the **Resource** page, select the host where MySQL resides. Click the **Register** icon. Then the **Activate** window appears. 
+2. On the **Resource** page, select the host where MySQL resides. Click the **Register** icon. Then the **Activate** window appears.
 
     ```{only} scutech
 	![](../images/Common/register_resources.png)
@@ -213,11 +213,11 @@ ADPS provides four common backup types (full backup, incremental backup, log bac
 
 - Logical backup
 
-	Backs up all data of one or more databases. 
+	Backs up all data of one or more databases.
 
 - Continuous log backup
 
-	Backs up the binary log files constantly, with a full backup as the baseline, to the real-time backup pool. To perform a continuous log backup job, the database needs to have binary logging enabled and server_id configured. 
+	Backs up the binary log files constantly, with a full backup as the baseline, to the real-time backup pool. To perform a continuous log backup job, the database needs to have binary logging enabled and server_id configured.
 
 	One instance can only run one continuous log backup job at one time. When a full backup job runs, the continuous log backup job will be waiting.
 
@@ -235,10 +235,10 @@ ADPS provides four common backup types (full backup, incremental backup, log bac
 
 	(1) You have the advanced licenses: MySQL synthetic backup and MySQL Copy Data Management.
 
-	(2) The data disks of the storage server use the ZFS file system. 
+	(2) The data disks of the storage server use the ZFS file system.
 
 	(3) You have configured the iSCSI or FC link between the backup server and the host with the agent installed.
-	
+
 	(4) You have created a data synthetic pool for the current user.
 
 ### Backup policies
@@ -286,7 +286,7 @@ Before you back up and restore MySQL, do the following:
 	  CGroup: /system.slice/mysql.service
 	         ├─3339 /bin/sh /usr/local/mysql//bin/mysqld_safe --datadir=/usr/local/mysql/data --pid-file=/usr/local/mysql/data/centos7.4.pid
 	         └─3567 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql//lib/plugin --user=m...
-	
+
 	 May 10 11:34:07 centos7.4 systemd[1]: Starting LSB: start and stop MySQL...
 	 May 10 11:34:08 centos7.4 mysql[3255]: Starting MySQL SUCCESS!
 	 May 10 11:34:08 centos7.4 systemd[1]: Started LSB: start and stop MySQL.
@@ -301,7 +301,7 @@ For Linux hosts that do not support the aforementioned method, use the command `
 	(1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 
 	(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
-	
+
 	```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
 	```
 	```{table} Storage pool required for backups
@@ -330,7 +330,7 @@ To log in to the resource, do the following:
 	![](../images/Backup_Restore/DBackup3/MySQL/mysql_login_01.png)
    ```
 
- 4. Enter the correct username and password, and click **Login**. 
+ 4. Enter the correct username and password, and click **Login**.
 
  5. Check the minimum required privileges for the database user to perform backups:
 
@@ -364,12 +364,12 @@ This method is applicable to the following scenarios: The agent cannot be instal
 ```{note}
 When manually adding a MySQL instance, note that:
 1. Only users with administrative privileges can manually add MySQL instances.
-2. Logical backup and restore are available for cloud-based MySQL. 
+2. Logical backup and restore are available for cloud-based MySQL.
 ```
 
 To add a MySQL instance manually, do the following:
 
- 1. From the menu, click **Resource** > **Resource**, select the MySQL database host, and click **Add MySQL instance** icon. The **Login agent** window appears. 
+ 1. From the menu, click **Resource** > **Resource**, select the MySQL database host, and click **Add MySQL instance** icon. The **Login agent** window appears.
  2. In the **Login agent** window, enter the username and password of the agent host. The **Add MySQL instance** page appears.
  3. On the **Add MySQL instance** page, at the **Database connection** step, select the connection method.
 
@@ -411,11 +411,11 @@ To create a backup job, do the following:
 	(1) From the **Backup type** list, select a backup type.
 
 	(2) From the **Backup source** list, select the databases that you want to back up.
-	
+
 	```{only} scutech
 	 ![](../images/Backup_Restore/DBackup3/MySQL/mysql_backup_01.png)
 	```
-	
+
 4. At the **Backup target** step, select a storage pool. Click **Next**.
 
 	```{note}
@@ -456,7 +456,7 @@ ADPS provides the following backup options for MySQL:
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Compression|Fast is enabled by default.{{ br }} - None: No compression during backup.{{ br }} - Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }} - Fast: Uses the fast compression algorithms to compress data during the backup job.|Not available for continuous log backup jobs.|
 |Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 255.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.|Not available for log and continuous log backup jobs.|
@@ -475,7 +475,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature|Description|Limitations|
+|Option|Description|Limitations|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|Not available for synthetic backup jobs and the backup jobs with a LAN-free pool selected as the backup target.|
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|Not available for synthetic backup jobs and the backup jobs with a LAN-free pool selected as the backup target.|
@@ -499,11 +499,11 @@ For different needs, ADPS provides several restore type for MySQL, including:
 
 - Point-in-time restore
 
-	When a logical error or disaster occurs in a MySQL database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state. 
+	When a logical error or disaster occurs in a MySQL database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state.
 
 - Logical recovery
 
-	When data loss occurs in a MySQL database such as data files damaged or deleted by mistake, you can perform a logical recovery job to recover the databases or files to the latest state. 
+	When data loss occurs in a MySQL database such as data files damaged or deleted by mistake, you can perform a logical recovery job to recover the databases or files to the latest state.
 
 - Instant recovery
 
@@ -549,7 +549,7 @@ To create a point-in-time restore job, do the following:
 
 	- Select **Restore to point in time**. The default setting is to restore the database to the latest point in time of the newest backup set. You can click the time beside the option. In the pop-up window, select a point in time or time range. If a time range is selected, drag the slider to specify or enter a point in time for the restore. This option is only available for databases with successful log or continuous log backups.
 
-	- Select **Restore to GTID**. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID. 
+	- Select **Restore to GTID**. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID.
 	```{note}
 	The **Restore to GTID** is only displayed when the following conditions are met:
 	 - You have enabled GTIDs in MySQL configuration files. For the GTID configuration method, please go to MySQL official website and check the relevant documents.
@@ -562,9 +562,9 @@ To create a point-in-time restore job, do the following:
 
 	```{note}
 	If the host to be restored is MySQL cluster:
-	
-	- Log backup sets of all nodes in the cluster can be selected. If no log backups are performed, full and incremental backup sets will be displayed as points in time. After performing log backups, full, incremental and log backup sets will be automatically merged into a time range.  
-	
+
+	- Log backup sets of all nodes in the cluster can be selected. If no log backups are performed, full and incremental backup sets will be displayed as points in time. After performing log backups, full, incremental and log backup sets will be automatically merged into a time range.
+
 	- At the **Backup sets** step, **Filter** is provided. The filter allows for the exclusion of specific databases from the restore process.
 	```
 
@@ -606,7 +606,7 @@ To create a logical recovery job, do the following:
 
 	(3) Click **Next**.
 
- 4. At the **Restore target** step, select a restore target. Click **Next**. 
+ 4. At the **Restore target** step, select a restore target. Click **Next**.
 
  5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
@@ -642,7 +642,7 @@ To create an instant recovery job, do the following:
 
 	- Select **Restore to point in time**. The default setting is to restore the database to the latest point in time of the newest backup set. You can click the time beside the option. In the pop-up window, select a point in time or time range. If a time range is selected, drag the slider to specify or enter a point in time for the restore. This option is only available for databases with successful log or continuous log backups.
 
-	- Select **Restore to GTID**. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID. 
+	- Select **Restore to GTID**. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID.
 
 	```{note}
 	The **Restore to GTID** is only displayed when the following conditions are met:
@@ -687,7 +687,7 @@ To create a log restore job, do the following:
 
 	- Select **Restore to point in time**. The default setting is to restore the database to the latest point in time of the newest backup set. You can click the time beside the option. In the pop-up window, select a point in time or time range. If a time range is selected, drag the slider to specify or enter a point in time for the restore. This option is only available for databases with successful log or continuous log backups.
 
-	- Select **Restore to GTID**. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID. 
+	- Select **Restore to GTID**. It restores the latest GTID of the most recent backup set by using the restore branch and the specified GTID.
 
 	```{note}
 	The **Restore to GTID** is only displayed when the following conditions are met:
@@ -727,11 +727,11 @@ To create a recovery testing:
 	```
 
 	(1) From the **Restore type** list, select **Recovery testing**.
-	
+
 	(2) In the **Restore to** field, set a time for the restore job. You can restore to the latest time, or restore to N minutes/hours/days/weeks/months before the start time of the restore job.
-	
+
 	(3) In the **Restore source** section, select a database or instance. If you want to rename the restore source, click the database. The Rename icon appears beside the name. Click the icon and specify a name in the pop-up window.
-	
+
 	(4) Click **Next**.
 
 	```{note}
@@ -764,7 +764,7 @@ ADPS provides the following restore options for MySQL:
 ---
 class: longtable
 ---
-|Feature |Description|Limitations|
+|Option |Description|Limitations|
 | --- | --- | --- |
 |Restore database|You can set the database restore method. The default option is Overwrite the original database. Alternatively, you can input a new database name to restore the data to a new database.|Only available for logical recovery jobs.|
 |Database configuration file|Click **Browse** or manually enter the MySQL configuration file path. If you leave it blank, the default configuration file will be used.|Only available for instant recovery jobs.|
@@ -779,7 +779,7 @@ class: longtable
 ---
 class: longtable
 ---
-|Feature |Description|Restrictions|
+|Option |Description|Restrictions|
 | --- | --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|Not available for instant recovery jobs.|
@@ -885,17 +885,17 @@ To bind nodes into a cluster on the console, do the following:
 3. In the **Cluster binding** window, do the following:
 
 - To bind the source-replica replication cluster:
-	
+
 	(1) In the **Name** field, enter the name for the cluster.
-	
-	(2) From the **Primary node** list, select the primary node in the source-replica replication cluster. 
-	
+
+	(2) From the **Primary node** list, select the primary node in the source-replica replication cluster.
+
 	(3) From the **Type** list, select **Master-slave replication**.
-	
+
 	(4) From the **Nodes** list, select the replica node in the cluster.
-	
+
 	(5) In the **Keepalived configuration file** field, select a configuration file. The keepalived primary node is chosen based on the configuration file. If the configuration file is not available, you may not select it.
-	
+
 	(6) From **Preferred backup node** list, select the MySQL cluster node that needs to be prioritized for backup. Not selected by default.
 
 	```{note}
@@ -908,7 +908,7 @@ To bind nodes into a cluster on the console, do the following:
 
 ### Cluster backup and restore
 
-When a switchover occurs, the new primary node will take over the backup job automatically. To create a MySQL cluster backup/restore job, see [Create a backup job](#create-a-backup-job). 
+When a switchover occurs, the new primary node will take over the backup job automatically. To create a MySQL cluster backup/restore job, see [Create a backup job](#create-a-backup-job).
 
 ## Limitations
 
