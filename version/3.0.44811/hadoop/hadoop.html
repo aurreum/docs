@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en-US" data-content_root="" >
+<html lang="en-US" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,29 +18,29 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css?v=84d92f63" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=bab5cb78"></script>
+    <script src="../_static/documentation_options.js?v=6da122b0"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'hadoop/hadoop';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,10 +55,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -99,11 +98,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -137,7 +139,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul class="nav bd-sidenav">
@@ -334,12 +347,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="user-guide-for-hadoop">
-<h1>User Guide for Hadoop<a class="headerlink" href="#user-guide-for-hadoop" title="Permalink to this heading">#</a></h1>
+<h1>User Guide for Hadoop<a class="headerlink" href="#user-guide-for-hadoop" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore Hadoop.</p>
 <p>The backup and restore features supported by ADPS include:</p>
 <ul>
@@ -370,7 +383,7 @@ document.write(`
 </ul>
 </section>
 <section id="planning-and-preparation">
-<h2>Planning and preparation<a class="headerlink" href="#planning-and-preparation" title="Permalink to this heading">#</a></h2>
+<h2>Planning and preparation<a class="headerlink" href="#planning-and-preparation" title="Link to this heading">#</a></h2>
 <p>Before you install the agent, check the following prerequisites:</p>
 <ol class="arabic simple">
 <li><p>You have already installed and configured other backup components, including the backup server and the storage server.</p></li>
@@ -382,10 +395,10 @@ document.write(`
 </div>
 </section>
 <section id="install-and-configure-the-agent">
-<h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Permalink to this heading">#</a></h2>
+<h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Link to this heading">#</a></h2>
 <p>To back up and restore Hadoop, first install the ADPS agent on a host that can communicate with Hadoop.</p>
 <section id="verify-the-compatibility">
-<h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Permalink to this heading">#</a></h3>
+<h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Link to this heading">#</a></h3>
 <p>Before you install the agent, ensure that the Hadoop environment is on the Aurreum Data Protection Suite’s compatibility lists.</p>
 <p>ADPS supports the backup and restore of Hadoop of multiple versions, including:</p>
 <ul class="simple">
@@ -394,7 +407,7 @@ document.write(`
 </ul>
 </section>
 <section id="install-the-agent">
-<h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Permalink to this heading">#</a></h3>
+<h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Link to this heading">#</a></h3>
 <p>The ADPS agent can be installed on Linux and supports online and offline installation. We recommend online installation.</p>
 <ol class="arabic simple">
 <li><p>Online installation:
@@ -462,7 +475,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 </section>
 <section id="activate-licenses-and-authorize-users">
-<h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Permalink to this heading">#</a></h2>
+<h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Link to this heading">#</a></h2>
 <p>After the agent installation, go back to the <strong>Resource</strong> page. The host with the agent installed appears on the page. Before you back up and restore Hadoop, register the host, activate the Hadoop backup license, and authorize users.</p>
 <p>To activate licenses and authorize users, do the following:</p>
 <ol class="arabic">
@@ -485,9 +498,9 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="add-and-activate-a-hadoop-cluster">
-<h2>Add and activate a Hadoop cluster<a class="headerlink" href="#add-and-activate-a-hadoop-cluster" title="Permalink to this heading">#</a></h2>
+<h2>Add and activate a Hadoop cluster<a class="headerlink" href="#add-and-activate-a-hadoop-cluster" title="Link to this heading">#</a></h2>
 <section id="add-a-hadoop-cluster">
-<h3>Add a Hadoop cluster<a class="headerlink" href="#add-a-hadoop-cluster" title="Permalink to this heading">#</a></h3>
+<h3>Add a Hadoop cluster<a class="headerlink" href="#add-a-hadoop-cluster" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
 <li><p>From the toolbar, click the “+” icon and select <strong>Hadoop cluster</strong>. The <strong>Add Hadoop cluster</strong> window appears.</p>
@@ -527,7 +540,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="activate-the-hadoop-license">
-<h3>Activate the Hadoop license<a class="headerlink" href="#activate-the-hadoop-license" title="Permalink to this heading">#</a></h3>
+<h3>Activate the Hadoop license<a class="headerlink" href="#activate-the-hadoop-license" title="Link to this heading">#</a></h3>
 <p>To activate the Hadoop license and authorize users, do the following:</p>
 <ol class="arabic">
 <li><p>After you add the Hadoop cluster, a window to activate the Hadoop license appears. Click <strong>Activate</strong>.</p></li>
@@ -546,9 +559,9 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 </section>
 <section id="backup">
-<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this heading">#</a></h2>
+<h2>Backup<a class="headerlink" href="#backup" title="Link to this heading">#</a></h2>
 <section id="backup-types">
-<h3>Backup types<a class="headerlink" href="#backup-types" title="Permalink to this heading">#</a></h3>
+<h3>Backup types<a class="headerlink" href="#backup-types" title="Link to this heading">#</a></h3>
 <p>ADPS provides two common backup types (full backup and incremental backup) and one advanced (synthetic backup) for Hadoop.</p>
 <ul>
 <li><p>Full backup</p>
@@ -563,7 +576,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ul>
 </section>
 <section id="backup-policies">
-<h3>Backup policies<a class="headerlink" href="#backup-policies" title="Permalink to this heading">#</a></h3>
+<h3>Backup policies<a class="headerlink" href="#backup-policies" title="Link to this heading">#</a></h3>
 <p>ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.</p>
 <ul class="simple">
 <li><p>Immediate: ADPS will immediately start the job after it is created.</p></li>
@@ -584,7 +597,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ul>
 </section>
 <section id="before-you-begin">
-<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h3>
+<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
 <p>Before you back up and restore Hadoop, check whether any storage pools have been created and authorized.</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p></li>
@@ -601,7 +614,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="create-a-backup-job">
-<h3>Create a backup job<a class="headerlink" href="#create-a-backup-job" title="Permalink to this heading">#</a></h3>
+<h3>Create a backup job<a class="headerlink" href="#create-a-backup-job" title="Link to this heading">#</a></h3>
 <p>To create a backup job, do the following:</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Backup</strong>. The backup job wizard appears.</p></li>
@@ -629,22 +642,22 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </div>
 <p>Here is an example of using the wildcard <code class="docutils literal notranslate"><span class="pre">*</span></code> in <strong>Filter</strong>. Assume that the backup source includes the following directories and files:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>root@ubuntu:/# tree /backup/
-/backup/
-└── test
-	├── group_1
-	│   └── sub_group
-	│       ├── file1.dat
-	│       └── file1.txt
-	├── group_2
-	│   └── sub_group
-	│       ├── file2.dat
-	│       └── file2.txt
-	└── no_group
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="c1"># tree /backup/</span>
+<span class="o">/</span><span class="n">backup</span><span class="o">/</span>
+<span class="err">└──</span> <span class="n">test</span>
+	<span class="err">├──</span> <span class="n">group_1</span>
+	<span class="err">│</span>   <span class="err">└──</span> <span class="n">sub_group</span>
+	<span class="err">│</span>       <span class="err">├──</span> <span class="n">file1</span><span class="o">.</span><span class="n">dat</span>
+	<span class="err">│</span>       <span class="err">└──</span> <span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
+	<span class="err">├──</span> <span class="n">group_2</span>
+	<span class="err">│</span>   <span class="err">└──</span> <span class="n">sub_group</span>
+	<span class="err">│</span>       <span class="err">├──</span> <span class="n">file2</span><span class="o">.</span><span class="n">dat</span>
+	<span class="err">│</span>       <span class="err">└──</span> <span class="n">file2</span><span class="o">.</span><span class="n">txt</span>
+	<span class="err">└──</span> <span class="n">no_group</span>
 </pre></div>
 </div>
 <table class="longtable table" id="id2">
-<caption><span class="caption-text">Filter example</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Filter example</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Exclusion</p></th>
 <th class="head"><p>Inclusion</p></th>
@@ -691,13 +704,13 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="backup-options">
-<h3>Backup options<a class="headerlink" href="#backup-options" title="Permalink to this heading">#</a></h3>
+<h3>Backup options<a class="headerlink" href="#backup-options" title="Link to this heading">#</a></h3>
 <p>ADPS provides the following backup options for Hadoop:</p>
 <ul class="simple">
 <li><p>Common options</p></li>
 </ul>
 <table class="longtable table" id="id3">
-<caption><span class="caption-text">Backup common options</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Backup common options</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Option</p></th>
 <th class="head"><p>Description</p></th>
@@ -723,7 +736,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <li><p>Advanced options</p></li>
 </ul>
 <table class="longtable table" id="id4">
-<caption><span class="caption-text">Backup advanced options</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Backup advanced options</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Option</p></th>
 <th class="head"><p>Description</p></th>
@@ -756,9 +769,9 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 </section>
 <section id="restore">
-<h2>Restore<a class="headerlink" href="#restore" title="Permalink to this heading">#</a></h2>
+<h2>Restore<a class="headerlink" href="#restore" title="Link to this heading">#</a></h2>
 <section id="restore-types">
-<h3>Restore types<a class="headerlink" href="#restore-types" title="Permalink to this heading">#</a></h3>
+<h3>Restore types<a class="headerlink" href="#restore-types" title="Link to this heading">#</a></h3>
 <p>For different needs, ADPS provides several restore types for Hadoop, including:</p>
 <ul>
 <li><p>Point-in-time restore</p>
@@ -773,11 +786,11 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ul>
 </section>
 <section id="id1">
-<h3>Before you begin<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Before you begin<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>To restore Hadoop to a different host, install the agent on that host or register the Hadoop resource, activate the licenses, and authorize user access to the resource.</p>
 </section>
 <section id="create-a-point-in-time-restore-job">
-<h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Permalink to this heading">#</a></h3>
+<h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Link to this heading">#</a></h3>
 <p>To create a point-in-time restore job, do the following:</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
@@ -811,7 +824,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="create-an-instant-recovery-job">
-<h3>Create an instant recovery job<a class="headerlink" href="#create-an-instant-recovery-job" title="Permalink to this heading">#</a></h3>
+<h3>Create an instant recovery job<a class="headerlink" href="#create-an-instant-recovery-job" title="Link to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ol class="arabic simple">
@@ -860,7 +873,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="create-a-recovery-testing-job">
-<h3>Create a recovery testing job<a class="headerlink" href="#create-a-recovery-testing-job" title="Permalink to this heading">#</a></h3>
+<h3>Create a recovery testing job<a class="headerlink" href="#create-a-recovery-testing-job" title="Link to this heading">#</a></h3>
 <p>To create a recovery testing job, do the following:</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
@@ -896,13 +909,13 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="restore-options">
-<h3>Restore options<a class="headerlink" href="#restore-options" title="Permalink to this heading">#</a></h3>
+<h3>Restore options<a class="headerlink" href="#restore-options" title="Link to this heading">#</a></h3>
 <p>ADPS provides the following restore options for Hadoop:</p>
 <ul class="simple">
 <li><p>Common options:</p></li>
 </ul>
 <table class="longtable table" id="id5">
-<caption><span class="caption-text">Restore common options</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Restore common options</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Option</p></th>
 <th class="head"><p>Description</p></th>
@@ -928,7 +941,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <li><p>Advanced options:</p></li>
 </ul>
 <table class="longtable table" id="id6">
-<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Option</p></th>
 <th class="head"><p>Description</p></th>
@@ -965,10 +978,10 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 </section>
 <section id="copy-data-management">
-<h2>Copy data management<a class="headerlink" href="#copy-data-management" title="Permalink to this heading">#</a></h2>
+<h2>Copy data management<a class="headerlink" href="#copy-data-management" title="Link to this heading">#</a></h2>
 <p>On the <strong>CDM</strong> page, you can manage the copies generated by instant recovery and synthetic backup jobs, including viewing, cloning, unmounting, and deleting copies.</p>
 <section id="view-a-copy">
-<h3>View a copy<a class="headerlink" href="#view-a-copy" title="Permalink to this heading">#</a></h3>
+<h3>View a copy<a class="headerlink" href="#view-a-copy" title="Link to this heading">#</a></h3>
 <p>To view copies, do the following:</p>
 <ol class="arabic simple">
 <li><p>From the menu, click <strong>CDM</strong>. The <strong>CDM</strong> page appears.</p></li>
@@ -982,7 +995,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="clone-a-copy">
-<h3>Clone a copy<a class="headerlink" href="#clone-a-copy" title="Permalink to this heading">#</a></h3>
+<h3>Clone a copy<a class="headerlink" href="#clone-a-copy" title="Link to this heading">#</a></h3>
 <p>You can click the <strong>Clone copy</strong> icon to create an instant recovery job for the synthetic copy to create a new mounted copy.</p>
 <p>To clone a copy, do the following:</p>
 <ol class="arabic simple">
@@ -996,7 +1009,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </ol>
 </section>
 <section id="unmount-a-copy">
-<h3>Unmount a copy<a class="headerlink" href="#unmount-a-copy" title="Permalink to this heading">#</a></h3>
+<h3>Unmount a copy<a class="headerlink" href="#unmount-a-copy" title="Link to this heading">#</a></h3>
 <p>You can click the <strong>Unmount</strong> icon to unmount the mounted copies. This operation will make the mounted directory on the restore target inaccessible.</p>
 <p>To unmount a copy, do the following:</p>
 <ol class="arabic simple">
@@ -1011,9 +1024,9 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
 <table class="longtable table" id="id7">
-<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Limitations</p></th>
@@ -1033,9 +1046,9 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </table>
 </section>
 <section id="glossary">
-<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h2>
+<h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h2>
 <table class="longtable table" id="id8">
-<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id8" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id8" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
 <th class="head"><p>Description</p></th>
@@ -1093,6 +1106,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1182,8 +1196,8 @@ By Aurreum
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

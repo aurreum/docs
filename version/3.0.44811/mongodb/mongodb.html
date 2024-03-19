@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en-US" data-content_root="" >
+<html lang="en-US" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,29 +18,29 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css?v=84d92f63" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=bab5cb78"></script>
+    <script src="../_static/documentation_options.js?v=6da122b0"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'mongodb/mongodb';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,10 +55,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -99,11 +98,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -137,7 +139,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul class="nav bd-sidenav">
@@ -349,18 +362,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="user-guide-for-mongodb">
-<h1>User Guide for MongoDB<a class="headerlink" href="#user-guide-for-mongodb" title="Permalink to this heading">#</a></h1>
+<h1>User Guide for MongoDB<a class="headerlink" href="#user-guide-for-mongodb" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Aurreum Data Protection Suite (ADPS) provides the capability for the MongoDB backup and restore. This guide describes how to deploy the ADPS agent and how to use ADPS to back up and restore MongoDB.</p>
 </section>
 <section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h2>
 <table class="longtable table" id="id4">
-<caption><span class="caption-text">Features</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Description</p></th>
@@ -440,12 +453,12 @@ document.write(`
 </table>
 </section>
 <section id="install-and-configure-agent">
-<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Permalink to this heading">#</a></h2>
+<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Link to this heading">#</a></h2>
 <section id="verify-compatibility">
-<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Permalink to this heading">#</a></h3>
+<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Link to this heading">#</a></h3>
 <p>ADPS supports the backup and restore for standalone MongoDB instances and replica sets. Before you deploy the agent, check whether your operating systems and database versions are supported.</p>
 <table class="longtable table" id="id5">
-<caption><span class="caption-text">Compatibility List</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Compatibility List</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Database Version</p></th>
 <th class="head"><p>Database Bits</p></th>
@@ -681,19 +694,19 @@ document.write(`
 </table>
 </section>
 <section id="download-agent-package">
-<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Permalink to this heading">#</a></h3>
+<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Link to this heading">#</a></h3>
 <p>Open a browser and log in to the ADPS console as an admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon. You can select the software package according to your needs.</p>
 <p><img alt="" src="../_images/mongodb_agent01.png" /></p>
 </section>
 <section id="install-and-configure-agent-on-windows">
-<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Permalink to this heading">#</a></h3>
+<h3>Install and Configure Agent on Windows<a class="headerlink" href="#install-and-configure-agent-on-windows" title="Link to this heading">#</a></h3>
 <section id="id1">
-<h4>Download Agent Package<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4>Download Agent Package<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> as the system and click <strong>Download Windows agent</strong>.</p>
 <p><img alt="" src="../_images/mongodb_agent02.png" /></p>
 </section>
 <section id="install-agent-on-windows">
-<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Permalink to this heading">#</a></h4>
+<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Link to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>Copy the package to the target host.</p></li>
 <li><p>Double-click the package to launch the setup wizard. Click <strong>Next</strong>.</p></li>
@@ -708,7 +721,7 @@ document.write(`
 </section>
 </section>
 <section id="install-and-configure-agent-on-linux">
-<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Permalink to this heading">#</a></h3>
+<h3>Install and Configure Agent on Linux<a class="headerlink" href="#install-and-configure-agent-on-linux" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>In the <strong>Install agent</strong> window, select <strong>Linux</strong> as the system and <strong>MongoDB</strong> as the module. Copy an installation command.</p>
 <p><img alt="" src="../_images/mongodb_agent05.png" /></p>
@@ -719,50 +732,50 @@ document.write(`
 </ol>
 </section>
 <section id="check-successful-installation">
-<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Permalink to this heading">#</a></h3>
+<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Link to this heading">#</a></h3>
 <p>After the installation, log in to the ADPS console as an admin and open the <strong>Resource</strong> page. The target host with the agent installed is available on the list.</p>
 <p><img alt="" src="../_images/mongodb_lincense01.png" /></p>
 </section>
 </section>
 <section id="activate-license-and-authorize-user">
-<h2>Activate License and Authorize User<a class="headerlink" href="#activate-license-and-authorize-user" title="Permalink to this heading">#</a></h2>
+<h2>Activate License and Authorize User<a class="headerlink" href="#activate-license-and-authorize-user" title="Link to this heading">#</a></h2>
 <p>This chapter is applicable to configuring one agent. If you have multiple agents, you can install them first and then carry out activation and authorization in batches. For details, refer to <em>Batch Register/Activate/Authorize</em> in <em>Administrator’s Guide</em>.</p>
 <section id="register-host">
-<h3>Register Host<a class="headerlink" href="#register-host" title="Permalink to this heading">#</a></h3>
+<h3>Register Host<a class="headerlink" href="#register-host" title="Link to this heading">#</a></h3>
 <p>Log in to the ADPS console as an admin and open <strong>Resource</strong> from the sidebar. Select the host that you want to activate. Click the <strong>Register</strong> icon beside the host. The progress automatically advances to the <strong>Activate</strong> step.</p>
 <p><img alt="" src="../_images/mongodb_lincense02.png" /></p>
 </section>
 <section id="activate-license">
-<h3>Activate License<a class="headerlink" href="#activate-license" title="Permalink to this heading">#</a></h3>
+<h3>Activate License<a class="headerlink" href="#activate-license" title="Link to this heading">#</a></h3>
 <p>In the pop-up <strong>Activate</strong> window, select the check box of the resource and click <strong>Submit</strong>. The progress automatically advances to the <strong>Activate</strong> step.</p>
 <p><img alt="" src="../_images/mongodb_lincense03.png" /></p>
 </section>
 <section id="authorize-user">
-<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Permalink to this heading">#</a></h3>
+<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Link to this heading">#</a></h3>
 <p>In the pop-up <strong>Authorize</strong> window, authorize users to operate the resource.</p>
 <p><img alt="" src="../_images/mongodb_lincense04.png" /></p>
 </section>
 </section>
 <section id="before-you-begin">
-<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h2>
 <section id="verify-database-status">
-<h3>Verify Database Status<a class="headerlink" href="#verify-database-status" title="Permalink to this heading">#</a></h3>
+<h3>Verify Database Status<a class="headerlink" href="#verify-database-status" title="Link to this heading">#</a></h3>
 <p>Verify the MongoDB status on the host. The database should be in the “running” status.</p>
 <p><img alt="" src="../_images/mongodb_database01.png" /></p>
 </section>
 <section id="check-resource">
-<h3>Check Resource<a class="headerlink" href="#check-resource" title="Permalink to this heading">#</a></h3>
+<h3>Check Resource<a class="headerlink" href="#check-resource" title="Link to this heading">#</a></h3>
 <p>Log in to the ADPS console as an operator and open the <strong>Resource</strong> page. The activated and authorized resource is listed on the page with an “Online” state. If the resource is not available, see <em>Activate License and Authorize User</em>.</p>
 <p><img alt="" src="../_images/mongodb_login01.png" /></p>
 </section>
 <section id="check-storage-pool">
-<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Permalink to this heading">#</a></h3>
+<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Link to this heading">#</a></h3>
 <p>Log in to the ADPS console as an operator, open the <strong>Storage Pool</strong> page, and check whether the operator has been assigned any storage pools. If no storage pool is present, contact the admin to create one and assign it to the operator.</p>
 <p><img alt="" src="../_images/mongodb_storaged01.png" /></p>
 </section>
 </section>
 <section id="first-time-login">
-<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Permalink to this heading">#</a></h2>
+<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Link to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Before you create the first MongoDB backup and restore, MongoDB login is required. On the <strong>Resource</strong> page, click <strong>Login</strong> beside the resource. The <strong>Login</strong> window appears.</p>
 <p><img alt="" src="../_images/mongodb_login02.png" /></p>
@@ -787,9 +800,9 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="add-instance-manually">
-<h2>Add Instance Manually<a class="headerlink" href="#add-instance-manually" title="Permalink to this heading">#</a></h2>
+<h2>Add Instance Manually<a class="headerlink" href="#add-instance-manually" title="Link to this heading">#</a></h2>
 <section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>You have two or more hosts with MongoDB databases.</p></li>
 <li><p>One of the hosts has been installed with the agent and connected to the backup server. For agent installation, see <em>Install and Configure Agent</em>.</p></li>
@@ -798,7 +811,7 @@ document.write(`
 </ul>
 </section>
 <section id="add-mongodb-instance">
-<h3>Add MongoDB Instance<a class="headerlink" href="#add-mongodb-instance" title="Permalink to this heading">#</a></h3>
+<h3>Add MongoDB Instance<a class="headerlink" href="#add-mongodb-instance" title="Link to this heading">#</a></h3>
 <p>The steps to add a MongoDB instance are:</p>
 <ol class="arabic">
 <li><p>On the <strong>Resource</strong> page, click the “+” icon beside the host. The <strong>Add MongoDB Instance</strong> window appears.</p>
@@ -825,7 +838,7 @@ document.write(`
 </section>
 </section>
 <section id="create-backup-jobs">
-<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Permalink to this heading">#</a></h2>
+<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Link to this heading">#</a></h2>
 <p>This chapter covers how to back up MongoDB databases. ADPS provides the following backup types:</p>
 <ul class="simple">
 <li><p>Full backup: This type will back up the whole database, including enough logs to recover the database.</p></li>
@@ -845,7 +858,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 <li><p>Logical backup: This type can back up specified databases.</p></li>
 </ul>
 <section id="id2">
-<h3>Prerequisites<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Prerequisites<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>An agent has been installed. For details, see <em>Install and Configure Agent</em>.</p></li>
 <li><p>The license has been activated and the resource has been authorized to users. For details, see <em>Activate License and Authorize User</em>.</p></li>
@@ -853,7 +866,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </ul>
 </section>
 <section id="create-full-backup-jobs">
-<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Permalink to this heading">#</a></h3>
+<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Link to this heading">#</a></h3>
 <p>The steps to create a full backup job are:</p>
 <ol class="arabic">
 <li><p>Open the <strong>Backup</strong> page. At the first step, select the host and MongoDB instance. Click <strong>Next</strong>.</p></li>
@@ -889,7 +902,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </ol>
 </section>
 <section id="create-log-backup-jobs">
-<h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Permalink to this heading">#</a></h3>
+<h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Link to this heading">#</a></h3>
 <p>Based on periodic full backups, you can add frequent log backups to back up only the oplog. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the log backup number that you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be enough. But if your business requires minimizing the work-loss risk, consider running log backups more frequently. More frequent log backups can increase the frequency of log truncation, resulting in smaller log files.</p>
 <p>The steps to create a log backup job are:</p>
 <ol class="arabic">
@@ -925,7 +938,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </ol>
 </section>
 <section id="create-logical-backup-jobs">
-<h3>Create Logical Backup Jobs<a class="headerlink" href="#create-logical-backup-jobs" title="Permalink to this heading">#</a></h3>
+<h3>Create Logical Backup Jobs<a class="headerlink" href="#create-logical-backup-jobs" title="Link to this heading">#</a></h3>
 <p>You can specify one or more databases for the logical backup.</p>
 <ol class="arabic">
 <li><p>Open the <strong>Backup</strong> page. At the first step, select the host and MongoDB instance. Click <strong>Next</strong>.</p></li>
@@ -962,21 +975,21 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </section>
 </section>
 <section id="create-restore-jobs">
-<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Permalink to this heading">#</a></h2>
+<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Link to this heading">#</a></h2>
 <p>This chapter introduces how to restore MongoDB databases. ADPS provides various restore types for different needs, including:</p>
 <ul class="simple">
 <li><p>Timepoint restore: With full backups, this type can only restore to the full backup point. While with log backups, it can restore to a specified point in time.</p></li>
 <li><p>Logical recovery: This type can recover databases from logical backups. You can select the backup point in time under the <strong>Database</strong> directory on the <strong>Backup Sets</strong> page.</p></li>
 </ul>
 <section id="id3">
-<h3>Prerequisites<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Prerequisites<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A backup job has been completed.</p></li>
 <li><p>To restore to another host, install an agent on that host, activate the license, and authorize it to users.</p></li>
 </ul>
 </section>
 <section id="create-timepoint-restore-jobs">
-<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Permalink to this heading">#</a></h3>
+<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Link to this heading">#</a></h3>
 <p>When a logical error or disaster occurs in a MongoDB database, you can restore the database to a specified point-in-time state using <strong>Timepoint Restore</strong>.</p>
 <blockquote>
 <div><p>Note:</p>
@@ -1030,7 +1043,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </ol>
 </section>
 <section id="create-logical-recovery-jobs">
-<h3>Create Logical Recovery Jobs<a class="headerlink" href="#create-logical-recovery-jobs" title="Permalink to this heading">#</a></h3>
+<h3>Create Logical Recovery Jobs<a class="headerlink" href="#create-logical-recovery-jobs" title="Link to this heading">#</a></h3>
 <p>When a logical error or a disaster occurs in the MongoDB databases, you can create a logical recovery job to restore one or more databases to the latest backup state.</p>
 <p>The steps to create a logical recovery job are:</p>
 <ol class="arabic">
@@ -1077,7 +1090,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </section>
 </section>
 <section id="manage-jobs">
-<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Permalink to this heading">#</a></h2>
+<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Link to this heading">#</a></h2>
 <p>The <strong>Job</strong> page provides the job information of all agents. You can start, modify, clone, and delete the jobs.</p>
 <p><img alt="" src="../_images/mongodb_job01.png" /></p>
 <ul class="simple">
@@ -1088,9 +1101,9 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </ul>
 </section>
 <section id="backup-protection-strategy">
-<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Permalink to this heading">#</a></h2>
+<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Link to this heading">#</a></h2>
 <section id="backup-schedule-operation">
-<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Permalink to this heading">#</a></h3>
+<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Link to this heading">#</a></h3>
 <p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
 <p><img alt="" src="../_images/mongodb_time01.png" /></p>
 <ul class="simple">
@@ -1112,7 +1125,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </ul>
 </section>
 <section id="backup-strategy-advice">
-<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Permalink to this heading">#</a></h3>
+<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Link to this heading">#</a></h3>
 <p>ADPS offers three MongoDB backup types: full backup, log backup, and logical backup. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of data loss that you can tolerate.</p>
 <ol class="arabic simple">
 <li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a day to ensure that you have a recoverable point in time every day.</p></li>
@@ -1121,13 +1134,13 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
 </section>
 </section>
 <section id="channel-number-configuration">
-<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Permalink to this heading">#</a></h2>
+<h2>Channel Number Configuration<a class="headerlink" href="#channel-number-configuration" title="Link to this heading">#</a></h2>
 <p>MongoDB supports up to 64 channels. You can set the number of channels for backup and restore jobs according to your environment. A reasonable number can improve job performance. The number of channels is recommended to be the same as that of CPU cores. The efficiency improvement will not be obvious if the number of channels exceeds that of CPU cores.</p>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
 <table class="longtable table" id="id6">
-<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Function</p></th>
 <th class="head"><p>Limitations</p></th>
@@ -1179,6 +1192,7 @@ When the above situation occurs, return the mongorestore version to 3.2.8, then 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1283,8 +1297,8 @@ By Aurreum
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

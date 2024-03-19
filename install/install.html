@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en-US" data-content_root="" >
+<html lang="en-US" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,29 +18,29 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css?v=84d92f63" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=bab5cb78"></script>
+    <script src="../_static/documentation_options.js?v=6da122b0"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'install/install';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,10 +55,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -99,11 +98,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -137,7 +139,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul class="current nav bd-sidenav">
@@ -343,24 +356,24 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="installation-guide">
-<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this heading">#</a></h1>
+<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>This guide describes how to properly install the ADPS backup server and storage server.</p>
 <p><img alt="" src="../_images/install-1.png" /></p>
 </section>
 <section id="adps-components">
-<h2>ADPS components<a class="headerlink" href="#adps-components" title="Permalink to this heading">#</a></h2>
+<h2>ADPS components<a class="headerlink" href="#adps-components" title="Link to this heading">#</a></h2>
 <p>ADPS components include Backup Server, Storage Server, and Agent.</p>
 <p><strong>Backup Server</strong>: Responsible for managing the connections and business information of Agents and the Storage Servers.</p>
 <p><strong>Storage Server</strong>: Responsible for receiving and storing data as well as processing the recycling mechanisms of backup data. Backup Server and Storage Server components can be installed on the same or different machines. One backup server can manage multiple storage servers to achieve storage scalability.</p>
 <p><strong>Agent</strong>: Responsible for responding to the commands of the backup console and performing the backup/restore jobs. The Agent is installed on the server where users store business data. It will be managed by the backup server after their connection.</p>
 </section>
 <section id="installation-process">
-<h2>Installation process<a class="headerlink" href="#installation-process" title="Permalink to this heading">#</a></h2>
+<h2>Installation process<a class="headerlink" href="#installation-process" title="Link to this heading">#</a></h2>
 <p>This document introduces the process of deploying a new ADPS system in which the backup server and the storage server are on the same machine (all-in-one configuration). Please follow the steps below.</p>
 <p>Step 1. Prepare the environment</p>
 <p>Step 2. Update the kernel</p>
@@ -373,7 +386,7 @@ document.write(`
 <p>Step 9. Open access ports</p>
 <p>Step 10. Check the service state</p>
 <section id="server-requirements">
-<h3>Server requirements<a class="headerlink" href="#server-requirements" title="Permalink to this heading">#</a></h3>
+<h3>Server requirements<a class="headerlink" href="#server-requirements" title="Link to this heading">#</a></h3>
 <p>The followings are the hardware requirements for the ADPS backup/storage server. You can refer to the server configuration of the Aurreum Data Protection Appliance (ADPA). If you use an outdated server, problems such as incompatibility may occur.</p>
 <ol class="arabic">
 <li><p>Architecture</p>
@@ -381,7 +394,7 @@ document.write(`
 </li>
 <li><p>Memory</p>
 <table class="table" id="id9">
-<caption><span class="caption-text">Memory</span><a class="headerlink" href="#id9" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Memory</span><a class="headerlink" href="#id9" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Standard configuration</p></th>
@@ -406,7 +419,7 @@ document.write(`
 <li><p>Storage</p>
 <p>The storage of the all-in-one appliance should be divided into root partition and data partition. Please prepare at least two disks for installation.</p>
 <table class="table" id="id10">
-<caption><span class="caption-text">Storage</span><a class="headerlink" href="#id10" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Storage</span><a class="headerlink" href="#id10" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Storage</p></th>
 <th class="head"><p>Recommendation</p></th>
@@ -432,7 +445,7 @@ document.write(`
 <li><p>Operating system</p>
 <p>The following operating systems are supported for the backup/storage server:</p>
 <table class="table" id="id11">
-<caption><span class="caption-text">Operating system</span><a class="headerlink" href="#id11" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Operating system</span><a class="headerlink" href="#id11" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operating system</p></th>
 <th class="head"><p>CPUarchitecture</p></th>
@@ -455,7 +468,7 @@ document.write(`
 <p>(1) Root disk</p>
 <p>Use the Logical Volume Manager (LVM) to create a volume group (VG) (<code class="docutils literal notranslate"><span class="pre">systemvg</span></code>) on the system disk and then create a logical volume (LV) on the <code class="docutils literal notranslate"><span class="pre">systemvg</span></code>. The recommended system partitions are:</p>
 <table class="table" id="id12">
-<caption><span class="caption-text">Root disk</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Root disk</span><a class="headerlink" href="#id12" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Partition</p></th>
 <th class="head"><p>Mount point</p></th>
@@ -486,7 +499,7 @@ document.write(`
 <p><strong>XFS file system</strong></p>
 <p>Use LVM to create a VG (<code class="docutils literal notranslate"><span class="pre">datakistvg</span></code>) on the data disk and create a LV (<code class="docutils literal notranslate"><span class="pre">datakistlv</span></code>) on <code class="docutils literal notranslate"><span class="pre">datakistvg</span></code>.</p>
 <table class="table" id="id13">
-<caption><span class="caption-text">XFS file system</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">XFS file system</span><a class="headerlink" href="#id13" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Partition</p></th>
 <th class="head"><p>Mount point</p></th>
@@ -505,7 +518,7 @@ document.write(`
 <p><strong>ZFS file system</strong></p>
 <p>To create a ZFS file system on the data disk, configure JBOD mode (pass-through mode) on the RAID controller. Use the zpool create command to create a pool (<code class="docutils literal notranslate"><span class="pre">datakist</span></code>) on the data disk and then mount the pool to the <code class="docutils literal notranslate"><span class="pre">/datakist</span></code> directory.</p>
 <table class="table" id="id14">
-<caption><span class="caption-text">ZFS file system</span><a class="headerlink" href="#id14" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">ZFS file system</span><a class="headerlink" href="#id14" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>ZFS pool</p></th>
 <th class="head"><p>Mount point</p></th>
@@ -569,10 +582,10 @@ document.write(`
 </ol>
 </section>
 <section id="prepare-software-packages">
-<h3>Prepare software packages<a class="headerlink" href="#prepare-software-packages" title="Permalink to this heading">#</a></h3>
+<h3>Prepare software packages<a class="headerlink" href="#prepare-software-packages" title="Link to this heading">#</a></h3>
 <p>You can go to the Aurreum website or contact our technical support to get the required ADPS packages. The product versions installed on all components must be the same. Mixed version installation may result in abnormal Web access and functions. The following table shows the packages and their functions:</p>
 <table class="table" id="id15">
-<caption><span class="caption-text">Prepare Software Packages</span><a class="headerlink" href="#id15" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Prepare Software Packages</span><a class="headerlink" href="#id15" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Software package</p></th>
 <th class="head"><p>Description</p></th>
@@ -616,7 +629,7 @@ document.write(`
 </table>
 </section>
 <section id="update-the-kernel">
-<h3>Update the kernel<a class="headerlink" href="#update-the-kernel" title="Permalink to this heading">#</a></h3>
+<h3>Update the kernel<a class="headerlink" href="#update-the-kernel" title="Link to this heading">#</a></h3>
 <p>If the data disk of the operating system uses the ZFS file system, you must update the kernel to the internal source version (not the public source version) before installing the ADPS software. Otherwise, it will affect the normal use of LAN-free and synthetic backup. To update the kernel, do the following:</p>
 <ul>
 <li><p>Ubuntu</p>
@@ -644,7 +657,7 @@ rpm<span class="w"> </span>-Uvh<span class="w"> </span>kernel/*
 </div>
 </section>
 <section id="install-mariadb">
-<h3>Install MariaDB<a class="headerlink" href="#install-mariadb" title="Permalink to this heading">#</a></h3>
+<h3>Install MariaDB<a class="headerlink" href="#install-mariadb" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Installation method</p>
 <ul class="simple">
@@ -701,9 +714,9 @@ MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</
 </ol>
 </section>
 <section id="install-the-adps-software">
-<h3>Install the ADPS software<a class="headerlink" href="#install-the-adps-software" title="Permalink to this heading">#</a></h3>
+<h3>Install the ADPS software<a class="headerlink" href="#install-the-adps-software" title="Link to this heading">#</a></h3>
 <section id="ubuntu">
-<h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">#</a></h4>
+<h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Link to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>In the directory where the installation package is located, run the following commands in sequence with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">common_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">backupd_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">storaged_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">nginx_version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">datakist_version_amd64</span><span class="o">.</span><span class="n">deb</span><span class="o">||</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">f</span> <span class="n">install</span>
@@ -727,7 +740,7 @@ MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</
 </div>
 </section>
 <section id="centos">
-<h4>CentOS<a class="headerlink" href="#centos" title="Permalink to this heading">#</a></h4>
+<h4>CentOS<a class="headerlink" href="#centos" title="Link to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>In the directory where the installation package is located, install the packages in sequence with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">common_version_x86_64</span><span class="o">.</span><span class="n">rpm</span>  <span class="n">adps</span><span class="o">-</span><span class="n">backupd_version_x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">storaged_version_x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">nginx_version_x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">datakist_version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
@@ -749,7 +762,7 @@ Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span
 </section>
 </section>
 <section id="connect-catalog-to-mariadb">
-<h3>Connect catalog to MariaDB<a class="headerlink" href="#connect-catalog-to-mariadb" title="Permalink to this heading">#</a></h3>
+<h3>Connect catalog to MariaDB<a class="headerlink" href="#connect-catalog-to-mariadb" title="Link to this heading">#</a></h3>
 <p>The ADPS catalog should be connected to the MariaDB database.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo /etc/init.d/adps-backupd config mysql
 Please input mysql host[]: 127.0.0.1
@@ -766,12 +779,12 @@ Do you want to restart backupd? [Y]: y
 </section>
 </section>
 <section id="install-optional-modules">
-<h2>Install optional modules<a class="headerlink" href="#install-optional-modules" title="Permalink to this heading">#</a></h2>
+<h2>Install optional modules<a class="headerlink" href="#install-optional-modules" title="Link to this heading">#</a></h2>
 <section id="install-the-lan-free-module">
-<h3>Install the LAN-Free module<a class="headerlink" href="#install-the-lan-free-module" title="Permalink to this heading">#</a></h3>
+<h3>Install the LAN-Free module<a class="headerlink" href="#install-the-lan-free-module" title="Link to this heading">#</a></h3>
 <p>If the data disk of the operating system uses the ZFS file system, you should install the adps-storaged-lanfree software package on the storage server to realize LAN-free backups and synthetic backups through iSCSI/FC Target. The installation commands are:</p>
 <section id="id1">
-<h4>Ubuntu<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4>Ubuntu<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>Install the lio-utils and zfsutils-linux dependent packages.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span><span class="m">5</span>.4.0-132_zfs0.8.6_ubuntu2004_amd64_aurreum.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/aurreum/<span class="w">  </span><span class="c1">#If you do not have the /home/aurreum directory, use the command sudo mkdir /home/aurreum to create the directory first</span>
@@ -789,7 +802,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 </ol>
 </section>
 <section id="id2">
-<h4>CentOS<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<h4>CentOS<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <ol class="arabic">
 <li><p>Install the lio-utils and zfsutils-linux dependent packages.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-zvxf<span class="w"> </span><span class="m">5</span>.4.0-115_zfs0.8.6_ubuntu2004_amd64.tar.gz
@@ -807,32 +820,32 @@ rpm<span class="w"> </span>-ivh<span class="w"> </span>lio-zfs-utils/zfs-utils/*
 </section>
 </section>
 <section id="install-the-tape-library-controller-module">
-<h3>Install the Tape Library Controller module<a class="headerlink" href="#install-the-tape-library-controller-module" title="Permalink to this heading">#</a></h3>
+<h3>Install the Tape Library Controller module<a class="headerlink" href="#install-the-tape-library-controller-module" title="Link to this heading">#</a></h3>
 <p>To back up data to the tape library, install the adps-controller package on a server and make the server the tape library controller. The tape library controller must be connected to the tape library over the IP-SAN or FC-SAC network. adps-controller handles all requests from the agent to the tape library. The installation commands are:</p>
 <section id="id3">
-<h4>Ubuntu<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<h4>Ubuntu<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller_version_amd64</span><span class="o">.</span><span class="n">deb</span>
 </pre></div>
 </div>
 </section>
 <section id="id4">
-<h4>CentOS<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<h4>CentOS<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller_version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="install-the-file-instant-recovery-module">
-<h3>Install the File Instant Recovery Module<a class="headerlink" href="#install-the-file-instant-recovery-module" title="Permalink to this heading">#</a></h3>
+<h3>Install the File Instant Recovery Module<a class="headerlink" href="#install-the-file-instant-recovery-module" title="Link to this heading">#</a></h3>
 <p>To achieve file instant recovery, install the adps-nfsd package on the storage server. Then the file backup sets in storage pools can be mounted to the host with the agent installed. The installation commands are:</p>
 <section id="id5">
-<h4>Ubuntu<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<h4>Ubuntu<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">nfsd_version_amd64</span><span class="o">.</span><span class="n">deb</span>
 </pre></div>
 </div>
 </section>
 <section id="id6">
-<h4>CentOS<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<h4>CentOS<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">nfs_version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
@@ -840,14 +853,14 @@ rpm<span class="w"> </span>-ivh<span class="w"> </span>lio-zfs-utils/zfs-utils/*
 </section>
 </section>
 <section id="install-auxiliary-tools">
-<h2>Install auxiliary tools<a class="headerlink" href="#install-auxiliary-tools" title="Permalink to this heading">#</a></h2>
+<h2>Install auxiliary tools<a class="headerlink" href="#install-auxiliary-tools" title="Link to this heading">#</a></h2>
 <p>We recommend installing auxiliary tools such as lzop, zip, sqlite3, and rpm gnupg to facilitate subsequent system operation and maintenance.</p>
 </section>
 <section id="open-access-ports">
-<h2>Open access ports<a class="headerlink" href="#open-access-ports" title="Permalink to this heading">#</a></h2>
+<h2>Open access ports<a class="headerlink" href="#open-access-ports" title="Link to this heading">#</a></h2>
 <p>For the safe running of the system, open the firewall and set the access ports according to the following list.</p>
 <table class="table" id="id16">
-<caption><span class="caption-text">Open Access Ports List</span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">Open Access Ports List</span><a class="headerlink" href="#id16" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Port</p></th>
 <th class="head"><p>Function</p></th>
@@ -935,7 +948,7 @@ rpm<span class="w"> </span>-ivh<span class="w"> </span>lio-zfs-utils/zfs-utils/*
 </table>
 </section>
 <section id="check-the-service-state">
-<h2>Check the service state<a class="headerlink" href="#check-the-service-state" title="Permalink to this heading">#</a></h2>
+<h2>Check the service state<a class="headerlink" href="#check-the-service-state" title="Link to this heading">#</a></h2>
 <p>After the installation, check whether the following ADPS services are running normally:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adps</span><span class="o">-</span><span class="n">backupd</span>
 <span class="n">adps</span><span class="o">-</span><span class="n">storaged</span>
@@ -960,18 +973,18 @@ May 17 13:54:37 ubuntu2004 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 </div>
 </section>
 <section id="web-console">
-<h2>Web console<a class="headerlink" href="#web-console" title="Permalink to this heading">#</a></h2>
+<h2>Web console<a class="headerlink" href="#web-console" title="Link to this heading">#</a></h2>
 <p>After the installation, enter the IP or domain name on the browser. If you can access the ADPS Web console, the installation is successful.</p>
 <p><img alt="" src="../_images/install-6.png" /></p>
 <p>You must import a product license to use the Web console. Download the “Request License” file and send it to Aurreum technical support. We will send you a file with a license certificate after approval. For details, see the <a class="reference internal" href="../administrator/administrator.html"><span class="std std-doc">Administrator’s Guide</span></a>.</p>
 </section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h2>
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">#</a></h2>
 <section id="uninstall-the-software">
-<h3>Uninstall the software<a class="headerlink" href="#uninstall-the-software" title="Permalink to this heading">#</a></h3>
+<h3>Uninstall the software<a class="headerlink" href="#uninstall-the-software" title="Link to this heading">#</a></h3>
 <p>Before you uninstall the software, please confirm that you want to uninstall it. You cannot retrieve relevant data after uninstallation.</p>
 <section id="id7">
-<h4>Ubuntu<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<h4>Ubuntu<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <ul>
 <li><p>Uninstall a module. For example, to uninstall the controller module, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">purge</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller</span>
@@ -995,7 +1008,7 @@ May 17 13:54:37 ubuntu2004 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 </ul>
 </section>
 <section id="id8">
-<h4>CentOS<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<h4>CentOS<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <ul>
 <li><p>Uninstall a module. For example, to uninstall the controller module, run the following command with root privileges:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">e</span> <span class="n">adps</span><span class="o">-</span><span class="n">controller</span>
@@ -1016,7 +1029,7 @@ May 17 13:54:37 ubuntu2004 adps-backupd[6064]: Created &#39;dev_poll&#39; reacto
 </section>
 </section>
 <section id="reconfigure-storaged">
-<h3>Reconfigure storaged<a class="headerlink" href="#reconfigure-storaged" title="Permalink to this heading">#</a></h3>
+<h3>Reconfigure storaged<a class="headerlink" href="#reconfigure-storaged" title="Link to this heading">#</a></h3>
 <p>You can run the following commands to reconfigure adps-storaged when the server address is changed or you have inputted the wrong backup server address, port, and protocol.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/etc/init.d/adps-storaged config
 Please input Aurreum Data Protection Suite Backup Server host[192.168.20.115]: 192.168.87.115
@@ -1030,9 +1043,9 @@ Do you want to restart adps-storaged? [Y]:
 </div>
 </section>
 <section id="supported-fc-hba-list">
-<h3>Supported FC HBA List<a class="headerlink" href="#supported-fc-hba-list" title="Permalink to this heading">#</a></h3>
+<h3>Supported FC HBA List<a class="headerlink" href="#supported-fc-hba-list" title="Link to this heading">#</a></h3>
 <table class="table" id="id17">
-<caption><span class="caption-text">QLogic</span><a class="headerlink" href="#id17" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">QLogic</span><a class="headerlink" href="#id17" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>Port</p></th>
@@ -1107,6 +1120,7 @@ Do you want to restart adps-storaged? [Y]:
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1205,8 +1219,8 @@ By Aurreum
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
