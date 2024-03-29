@@ -248,7 +248,7 @@ class: longtable
 ---
 | Software package             | Description                                     |
 | -------------------------------------- | ---------------------------------------- |
-| {{ package_prefix }}_version.dbg.exe | A plugin pack that contains the backup and restore modules for various resources on Windows, including file, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs. |
+| adps_version.dbg.exe | A plugin pack that contains the backup and restore modules for various resources on Windows, including file, Oracle, Microsoft SQL Server, MySQL, DB2, Informix, PostgreSQL, MongoDB, Sybase, SharePoint, Domino, and Exchange. You can select the resources and install the corresponding modules according to your needs. |
 ```
 
 ### Packages for Linux
@@ -262,32 +262,32 @@ class: longtable
 ---
 | Software package             | Description                                     |
 | -------------------------------------- | ---------------------------------------- |
-| {{ package_prefix }}-common-version-.dbg_architecture.suffix         | A dependent package that must be installed           |
-| {{ package_prefix }}-agent-version-.dbg_architecture.suffix          | A base package that must be installed     |
-| {{ package_prefix }}-agent-file-version-.dbg_architecture.suffix     | A package for file backups and restores                  |
-| {{ package_prefix }}-agent-bmr-version-.dbg_architecture.suffix      | A package for Linux operating system (OS) backups and restores             |
-| {{ package_prefix }}-agent-db2-version-.dbg_architecture.suffix      | A package for DB2 backups and restores                 |
-| {{ package_prefix }}-agent-domino-version-.dbg_architecture.suffix   | A package for Domino backups and restores              |
-| {{ package_prefix }}-agent-informix-version-.dbg_architecture.suffix | A package for Informix backups and restores          |
-| {{ package_prefix }}-agent-mongodb-version-.dbg_architecture.suffix  | A package for MongoDB database backups and restores          |
-| {{ package_prefix }}-agent-mysql-version-.dbg_architecture.suffix    | A package for MySQL backups and restores            |
-| {{ package_prefix }}-agent-openstack-version-.dbg_architecture.suffix   | A package for OpenStack backups and restores                |
-| {{ package_prefix }}-agent-hana-version.dbg.architecture.suffix   | A package for SAP HANA backups and restores                |
-| {{ package_prefix }}-agent-oracle-version-.dbg_architecture.suffix   | A package for Oracle backups and restores           |
-| {{ package_prefix }}-agent-mssql-version-.dbg_architecture.suffix    | A package for Microsoft SQL Server backups and restores |
-| {{ package_prefix }}-agent-sybase-version-.dbg_architecture.suffix   | A package for Sybase backups and restores           |
-| {{ package_prefix }}-agent-postgres-version-.dbg_architecture.suffix | A package for PostgreSQL backups and restores       |
-| {{ package_prefix }}-agent-obs-version-.dbg_architecture.suffix      | A package for OBS backups and restores              |
-| {{ package_prefix }}-agent-hadoop-version-.dbg_architecture.suffix   | A package for Hadoop backups and restores           |
-| {{ package_prefix }}-agent-ndmp-version-.dbg_architecture.suffix     | A package for NDMP backups and restores             |
-| {{ package_prefix }}-agent-exchange-version-.dbg_architecture.suffix   | A package for Exchange backups and restores                |
-| {{ package_prefix }}-agent-vmware-version-.dbg_architecture.suffix   | A package for VMware backups and restores                |
-| {{ package_prefix }}-agent-cachedb-version-.dbg_architecture.suffix   | A package for Caché backups and restores                |
-| {{ package_prefix }}-agent-dmdb-version-.dbg_architecture.suffix   | A package for DMDB backups and restores                |
-| {{ package_prefix }}-agent-gaussdb-version-.dbg_architecture.suffix   | A package for GaussDB backups and restores                |
-| {{ package_prefix }}-agent-oscar-version-.dbg_architecture.suffix   | A package for ShenTong backups and restores                |
-| {{ package_prefix }}-agent-fusioncompute-version-.dbg_architecture.suffix   | A package for FusionCompute backups and restores                |
-| {{ package_prefix }}-agent-h3c-cas-version-.dbg_architecture.suffix   | A package for H3C CAS backups and restores                |
+| adps-common-version-.dbg_architecture.suffix         | A dependent package that must be installed           |
+| adps-agent-version-.dbg_architecture.suffix          | A base package that must be installed     |
+| adps-agent-file-version-.dbg_architecture.suffix     | A package for file backups and restores                  |
+| adps-agent-bmr-version-.dbg_architecture.suffix      | A package for Linux operating system (OS) backups and restores             |
+| adps-agent-db2-version-.dbg_architecture.suffix      | A package for DB2 backups and restores                 |
+| adps-agent-domino-version-.dbg_architecture.suffix   | A package for Domino backups and restores              |
+| adps-agent-informix-version-.dbg_architecture.suffix | A package for Informix backups and restores          |
+| adps-agent-mongodb-version-.dbg_architecture.suffix  | A package for MongoDB database backups and restores          |
+| adps-agent-mysql-version-.dbg_architecture.suffix    | A package for MySQL backups and restores            |
+| adps-agent-openstack-version-.dbg_architecture.suffix   | A package for OpenStack backups and restores                |
+| adps-agent-hana-version.dbg.architecture.suffix   | A package for SAP HANA backups and restores                |
+| adps-agent-oracle-version-.dbg_architecture.suffix   | A package for Oracle backups and restores           |
+| adps-agent-mssql-version-.dbg_architecture.suffix    | A package for Microsoft SQL Server backups and restores |
+| adps-agent-sybase-version-.dbg_architecture.suffix   | A package for Sybase backups and restores           |
+| adps-agent-postgres-version-.dbg_architecture.suffix | A package for PostgreSQL backups and restores       |
+| adps-agent-obs-version-.dbg_architecture.suffix      | A package for OBS backups and restores              |
+| adps-agent-hadoop-version-.dbg_architecture.suffix   | A package for Hadoop backups and restores           |
+| adps-agent-ndmp-version-.dbg_architecture.suffix     | A package for NDMP backups and restores             |
+| adps-agent-exchange-version-.dbg_architecture.suffix   | A package for Exchange backups and restores                |
+| adps-agent-vmware-version-.dbg_architecture.suffix   | A package for VMware backups and restores                |
+| adps-agent-cachedb-version-.dbg_architecture.suffix   | A package for Caché backups and restores                |
+| adps-agent-dmdb-version-.dbg_architecture.suffix   | A package for DMDB backups and restores                |
+| adps-agent-gaussdb-version-.dbg_architecture.suffix   | A package for GaussDB backups and restores                |
+| adps-agent-oscar-version-.dbg_architecture.suffix   | A package for ShenTong backups and restores                |
+| adps-agent-fusioncompute-version-.dbg_architecture.suffix   | A package for FusionCompute backups and restores                |
+| adps-agent-h3c-cas-version-.dbg_architecture.suffix   | A package for H3C CAS backups and restores                |
 ```
 ````
 
@@ -300,27 +300,27 @@ class: longtable
 ---
 | Software package             | Description                                     |
 | -------------------------------------- | ---------------------------------------- |
-| {{ package_prefix }}-common-version-.dbg_architecture.suffix         | A dependent package that must be installed           |
-| {{ package_prefix }}-agent-version-.dbg_architecture.suffix          | A base package that must be installed     |
-| {{ package_prefix }}-agent-file-version-.dbg_architecture.suffix     | A package for file backups and restores                  |
-| {{ package_prefix }}-agent-bmr-version-.dbg_architecture.suffix      | A package for Linux operating system (OS) backups and restores             |
-| {{ package_prefix }}-agent-db2-version-.dbg_architecture.suffix      | A package for DB2 backups and restores                 |
-| {{ package_prefix }}-agent-domino-version-.dbg_architecture.suffix   | A package for Domino backups and restores              |
-| {{ package_prefix }}-agent-informix-version-.dbg_architecture.suffix | A package for Informix backups and restores          |
-| {{ package_prefix }}-agent-mongodb-version-.dbg_architecture.suffix  | A package for MongoDB database backups and restores          |
-| {{ package_prefix }}-agent-mysql-version-.dbg_architecture.suffix    | A package for MySQL backups and restores            |
-| {{ package_prefix }}-agent-openstack-version-.dbg_architecture.suffix   | A package for OpenStack backups and restores                |
-| {{ package_prefix }}-agent-hana-version.dbg.architecture.suffix   | A package for SAP HANA backups and restores                |
-| {{ package_prefix }}-agent-oracle-version-.dbg_architecture.suffix   | A package for Oracle backups and restores           |
-| {{ package_prefix }}-agent-mssql-version-.dbg_architecture.suffix    | A package for Microsoft SQL Server backups and restores |
-| {{ package_prefix }}-agent-sybase-version-.dbg_architecture.suffix   | A package for Sybase backups and restores           |
-| {{ package_prefix }}-agent-postgres-version-.dbg_architecture.suffix | A package for PostgreSQL backups and restores       |
-| {{ package_prefix }}-agent-obs-version-.dbg_architecture.suffix      | A package for OBS backups and restores              |
-| {{ package_prefix }}-agent-hadoop-version-.dbg_architecture.suffix   | A package for Hadoop backups and restores           |
-| {{ package_prefix }}-agent-ndmp-version-.dbg_architecture.suffix     | A package for NDMP backups and restores             |
-| {{ package_prefix }}-agent-exchange-version-.dbg_architecture.suffix   | A package for Exchange backups and restores                |
-| {{ package_prefix }}-agent-vmware-version-.dbg_architecture.suffix   | A package for VMware backups and restores                |
-| {{ package_prefix }}-agent-cachedb-version-.dbg_architecture.suffix   | A package for Caché backups and restores                |
+| adps-common-version-.dbg_architecture.suffix         | A dependent package that must be installed           |
+| adps-agent-version-.dbg_architecture.suffix          | A base package that must be installed     |
+| adps-agent-file-version-.dbg_architecture.suffix     | A package for file backups and restores                  |
+| adps-agent-bmr-version-.dbg_architecture.suffix      | A package for Linux operating system (OS) backups and restores             |
+| adps-agent-db2-version-.dbg_architecture.suffix      | A package for DB2 backups and restores                 |
+| adps-agent-domino-version-.dbg_architecture.suffix   | A package for Domino backups and restores              |
+| adps-agent-informix-version-.dbg_architecture.suffix | A package for Informix backups and restores          |
+| adps-agent-mongodb-version-.dbg_architecture.suffix  | A package for MongoDB database backups and restores          |
+| adps-agent-mysql-version-.dbg_architecture.suffix    | A package for MySQL backups and restores            |
+| adps-agent-openstack-version-.dbg_architecture.suffix   | A package for OpenStack backups and restores                |
+| adps-agent-hana-version.dbg.architecture.suffix   | A package for SAP HANA backups and restores                |
+| adps-agent-oracle-version-.dbg_architecture.suffix   | A package for Oracle backups and restores           |
+| adps-agent-mssql-version-.dbg_architecture.suffix    | A package for Microsoft SQL Server backups and restores |
+| adps-agent-sybase-version-.dbg_architecture.suffix   | A package for Sybase backups and restores           |
+| adps-agent-postgres-version-.dbg_architecture.suffix | A package for PostgreSQL backups and restores       |
+| adps-agent-obs-version-.dbg_architecture.suffix      | A package for OBS backups and restores              |
+| adps-agent-hadoop-version-.dbg_architecture.suffix   | A package for Hadoop backups and restores           |
+| adps-agent-ndmp-version-.dbg_architecture.suffix     | A package for NDMP backups and restores             |
+| adps-agent-exchange-version-.dbg_architecture.suffix   | A package for Exchange backups and restores                |
+| adps-agent-vmware-version-.dbg_architecture.suffix   | A package for VMware backups and restores                |
+| adps-agent-cachedb-version-.dbg_architecture.suffix   | A package for Caché backups and restores                |
 ```
 ````
 
@@ -335,15 +335,15 @@ class: longtable
 ---
 | Software package             | Description                                     |
 | -------------------------------------- | ---------------------------------------- |
-| {{ package_prefix }}-common-version-.dbg_architecture.rpm         | A dependent package that must be installed           |
-| {{ package_prefix }}-agent-version-.dbg_architecture.rpm          | A base package that must be installed                |
-| {{ package_prefix }}-agent-file-version-.dbg_architecture.rpm     | A package for file backups and restores              |
-| {{ package_prefix }}-agent-db2-version-.dbg_architecture.rpm      | A package for DB2 backups and restores               |
-| {{ package_prefix }}-agent-domino-version-.dbg_architecture.rpm   | A package for Domino backups and restores            |
-| {{ package_prefix }}-agent-informix-version-.dbg_architecture.rpm | A package for Informix backups and restores          |
-| {{ package_prefix }}-agent-oracle-version-.dbg_architecture.rpm   | A package for Oracle backups and restores            |
-| {{ package_prefix }}-agent-sybase-version-.dbg_architecture.rpm   | A package for Sybase backups and restores            |
-| {{ package_prefix }}-agent-cachedb-version-.dbg_architecture.rpm  | A package for Caché backups and restores             |
+| adps-common-version-.dbg_architecture.rpm         | A dependent package that must be installed           |
+| adps-agent-version-.dbg_architecture.rpm          | A base package that must be installed                |
+| adps-agent-file-version-.dbg_architecture.rpm     | A package for file backups and restores              |
+| adps-agent-db2-version-.dbg_architecture.rpm      | A package for DB2 backups and restores               |
+| adps-agent-domino-version-.dbg_architecture.rpm   | A package for Domino backups and restores            |
+| adps-agent-informix-version-.dbg_architecture.rpm | A package for Informix backups and restores          |
+| adps-agent-oracle-version-.dbg_architecture.rpm   | A package for Oracle backups and restores            |
+| adps-agent-sybase-version-.dbg_architecture.rpm   | A package for Sybase backups and restores            |
+| adps-agent-cachedb-version-.dbg_architecture.rpm  | A package for Caché backups and restores             |
 ```
 
 ### Packages for Solaris
@@ -356,7 +356,7 @@ class: longtable
 ---
 | Software package              | Description                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
-| {{ package_prefix }}-version-sol9-sparc64-local.gz | A plugin pack that contains the backup and restore modules of various resources on Solaris such as file and Oracle. You can select the resources and install the corresponding modules according to your needs. |
+| adps-version-sol9-sparc64-local.gz | A plugin pack that contains the backup and restore modules of various resources on Solaris such as file and Oracle. You can select the resources and install the corresponding modules according to your needs. |
 ```
 
 ### Packages for HP
@@ -369,7 +369,7 @@ class: longtable
 ---
 | Software package      | Description                                                        |
 | -------------------------- | ------------------------------------------------------------ |
-| {{ package_prefix }}-version-ia64.depot.gz | A plugin pack that contains the backup and restore modules of various resources on HP such as file and Oracle. You can select the resources and install the corresponding modules according to your needs. |
+| adps-version-ia64.depot.gz | A plugin pack that contains the backup and restore modules of various resources on HP such as file and Oracle. You can select the resources and install the corresponding modules according to your needs. |
 ```
 
 ### Packages for Kubernetes
@@ -382,7 +382,7 @@ class: longtable
 ---
 | Software package             | Description                                     |
 | -------------------------------------- | ---------------------------------------- |
-| {{ package_prefix }}-agent-k8s_version-architecture.tar   | A package for Kubernetes (K8s) backups and restores                |
+| adps-agent-k8s_version-architecture.tar   | A package for Kubernetes (K8s) backups and restores                |
 ```
 
 ## Install the agent
@@ -428,13 +428,13 @@ To install the agent on CentOS & Red Hat, do the following:
 1. Install the dependent and base packages.
 
    ```{code-block} python
-   rpm -ivh {{ package_prefix }}-common-version.x86_64.rpm {{ package_prefix }}-agent-version_x86_64.rpm
+   rpm -ivh adps-common-version.x86_64.rpm adps-agent-version_x86_64.rpm
    ```
 
 2. Install packages for resource backups and restores according to your needs. Add the corresponding packages in the following command. Take the file resource as an example:
 
    ```{code-block} python
-   rpm -ivh {{ package_prefix }}-agent-file-version_x86_64.rpm
+   rpm -ivh adps-agent-file-version_x86_64.rpm
    ```
 
 3. After the installation, configure the agent. Enter the IP address, port, SSL protocol, and access key to connect to the backup server. The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
@@ -467,13 +467,13 @@ To install the agent on Ubuntu & Debian, do the following:
 1. Install the dependent and base packages.
 
    ```{code-block} python
-   dpkg -i {{ package_prefix }}-common-version_amd64.deb {{ package_prefix }}-agent-version_amd64.deb
+   dpkg -i adps-common-version_amd64.deb adps-agent-version_amd64.deb
    ```
 
 2. Install packages for resource backups and restores according to your needs. Add the corresponding packages behind the following command. Take the file resource as an example:
 
    ```{code-block} python
-   dpkg -i {{ package_prefix }}-agent-file-version_amd64.deb
+   dpkg -i adps-agent-file-version_amd64.deb
    ```
 
 3. After the installation, configure the agent. Enter the IP address, port, SSL protocol, and access key to connect to the backup server. The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
@@ -582,13 +582,13 @@ To install the agent on AIX, do the following:
 1. Install the dependent and base packages.
 
    ```{code-block} python
-   rpm -ivh --nodeps --ignorearch {{ package_prefix }}-common--version_pcc64.rpm {{ package_prefix }}-agent-version_pcc64.rpm
+   rpm -ivh --nodeps --ignorearch adps-common--version_pcc64.rpm adps-agent-version_pcc64.rpm
    ```
 
 2. Install packages for resource backups and restores according to your needs. Add the corresponding packages behind the following command. Take the file resource as an example:
 
    ```{code-block} python
-   rpm -ivh --nodeps --ignorearch {{ package_prefix }}-agent-file-version_pcc64.rpm
+   rpm -ivh --nodeps --ignorearch adps-agent-file-version_pcc64.rpm
    ```
 
 3. After the installation, configure the agent. Enter the IP address, port, SSL protocol, and access key to connect to the backup server. The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
@@ -623,16 +623,16 @@ To install the agent on HP-UX, do the following:
 
 1. Log in to the HP-UX host as user *root*.
 
-2. Run the following command to unzip `{{ package_prefix }}–version-ia64.depot.gz`:
+2. Run the following command to unzip `adps–version-ia64.depot.gz`:
 
    ```{code-block} python
-   gunzip /tmp/{{ package_prefix }}-version-ia64.depot.gz
+   gunzip /tmp/adps-version-ia64.depot.gz
    ```
 
 3. Enter the absolute path of the unzipped package (Example: `/tmp/`) and add the module name that you want to install. Take the Oracle resource as an example:
 
    ```{code-block} python
-   swinstall -s /tmp/{{ package_prefix }}-version-ia64.depot {{ package_prefix }}.agent-oracle
+   swinstall -s /tmp/adps-version-ia64.depot adps.agent-oracle
    ```
 
 4. After the installation (or to change the backup server), connect the agent to the backup server. Run the following configuration command:
@@ -652,16 +652,16 @@ To install the agent on Solaris, do the following:
 2. Select the corresponding installation package according to the Solaris system, bits, and resources. Take the Solaris 9 SPARC 64-bit as an example. Run the unzip command:
 
    ```{code-block} python
-   sudo gunzip {{ package_prefix }}-version-sol9-sparc64-local.gz
+   sudo gunzip adps-version-sol9-sparc64-local.gz
    ```
 
 3. Run the following installation command:
 
    ```{code-block} python
-   sudo pkgadd -d /tmp/{{ package_prefix }}-version-sol9-sparc64-local
+   sudo pkgadd -d /tmp/adps-version-sol9-sparc64-local
    ```
 
-4. Select the modules that you want to install. Example: `AURREUM{{ package_prefix }}-common`, `AURREUM{{ package_prefix }}-agent`, `AURREUM{{ package_prefix }}-agent-oracle`.
+4. Select the modules that you want to install. Example: `AURREUMadps-common`, `AURREUMadps-agent`, `AURREUMadps-agent-oracle`.
 
 5. Enter y or press Enter to the next step according to the prompts.
 
@@ -683,10 +683,10 @@ To install the agent on Solaris, do the following:
 
 To install the agent on Kubernetes, do the following:
 
-1. Upload the `{{ package_prefix }}-agent-k8s_version-architecture.tar` to all the K8s nodes and run the following command to load the image.
+1. Upload the `adps-agent-k8s_version-architecture.tar` to all the K8s nodes and run the following command to load the image.
 
    ```{code-block} python
-   docker load -i {{ package_prefix }}-agent-k8s_version-architecture.tar
+   docker load -i adps-agent-k8s_version-architecture.tar
    ```
 
    Load the image on all K8s nodes. After loading, you can check the result by using the `docker images` or `ctr image ls` command.
@@ -823,7 +823,7 @@ To install the agent on Kubernetes, do the following:
 
 To uninstall the agent from Windows, do the following:
 
-1. From the **Start** menu, double-click the `uninstall-{{ package_prefix }}` application.
+1. From the **Start** menu, double-click the `uninstall-adps` application.
 
 2. Select the **Agent** module. Click the **Uninstall** button.
 
@@ -833,13 +833,13 @@ To uninstall the agent from Windows, do the following:
 
 This method applies to Linux with the APT package manager. Run the following commands with root privileges to uninstall modules or all components.
 
-- Uninstall a module. For example, to uninstall the `{{ package_prefix }}-agent-file` module:
+- Uninstall a module. For example, to uninstall the `adps-agent-file` module:
 
    ```
    sudo apt-get purge adps-agent-file
    ```
 
-- Uninstall all {{ package_prefix }} components.
+- Uninstall all adps components.
 
    ```{note}
    The command will delete the whole software including configuration files.
@@ -853,13 +853,13 @@ This method applies to Linux with the APT package manager. Run the following com
 
 This method applies to Linux with the PRM package manager and AIX. Run the following commands with root privileges to uninstall modules or all components.
 
-- Uninstall a module. For example, to uninstall the `{{ package_prefix }}-agent-file` module:
+- Uninstall a module. For example, to uninstall the `adps-agent-file` module:
 
    ```
    rpm -e adps-agent-file
    ```
 
-- Uninstall all {{ package_prefix }} components.
+- Uninstall all adps components.
 
    ```
    rpm -e $(rpm -qa | grep adps)
