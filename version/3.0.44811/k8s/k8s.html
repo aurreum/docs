@@ -657,24 +657,24 @@ Main PID: 1169 (kubelet)
 <li><p>the Ceph version is later than v14.0</p></li>
 <li><p>the kernel version is later than or equal to 5.1</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@k8s-master-106 ~]# ceph -s
-  cluster:
-  id:     948d9908-dd20-4866-beea-e798e82f0252
-  health: HEALTH_OK
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># ceph -s</span>
+  <span class="n">cluster</span><span class="p">:</span>
+  <span class="nb">id</span><span class="p">:</span>     <span class="mi">948</span><span class="n">d9908</span><span class="o">-</span><span class="n">dd20</span><span class="o">-</span><span class="mi">4866</span><span class="o">-</span><span class="n">beea</span><span class="o">-</span><span class="n">e798e82f0252</span>
+  <span class="n">health</span><span class="p">:</span> <span class="n">HEALTH_OK</span>
 
-services:
-  mon: 1 daemons，quorum k8s-master-106 (age 24h)
-  mgr: k8s-master-106(active，since 24h)
-  osd: 3 osds: 3 up (since 24h)，3 in (since 5d)
+<span class="n">services</span><span class="p">:</span>
+  <span class="n">mon</span><span class="p">:</span> <span class="mi">1</span> <span class="n">daemons</span><span class="p">,</span> <span class="n">quorum</span> <span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="p">(</span><span class="n">age</span> <span class="mi">24</span><span class="n">h</span><span class="p">)</span>
+  <span class="n">mgr</span><span class="p">:</span> <span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span><span class="p">(</span><span class="n">active</span><span class="p">,</span> <span class="n">since</span> <span class="mi">24</span><span class="n">h</span><span class="p">)</span>
+  <span class="n">osd</span><span class="p">:</span> <span class="mi">3</span> <span class="n">osds</span><span class="p">:</span> <span class="mi">3</span> <span class="n">up</span> <span class="p">(</span><span class="n">since</span> <span class="mi">24</span><span class="n">h</span><span class="p">),</span> <span class="mi">3</span> <span class="ow">in</span> <span class="p">(</span><span class="n">since</span> <span class="mi">5</span><span class="n">d</span><span class="p">)</span>
 
-data:
-  pools:   1 pools，128 pgs
-  objects: 825 objects，2.3 GiB
-  usage:   9.8 GiB used，590 GiB / 600 GiB avail
-  pgs:     128 active+clean
+<span class="n">data</span><span class="p">:</span>
+  <span class="n">pools</span><span class="p">:</span>   <span class="mi">1</span> <span class="n">pools</span><span class="p">,</span> <span class="mi">128</span> <span class="n">pgs</span>
+  <span class="n">objects</span><span class="p">:</span> <span class="mi">825</span> <span class="n">objects</span><span class="p">,</span> <span class="mf">2.3</span> <span class="n">GiB</span>
+  <span class="n">usage</span><span class="p">:</span>   <span class="mf">9.8</span> <span class="n">GiB</span> <span class="n">used</span><span class="p">,</span> <span class="mi">590</span> <span class="n">GiB</span> <span class="o">/</span> <span class="mi">600</span> <span class="n">GiB</span> <span class="n">avail</span>
+  <span class="n">pgs</span><span class="p">:</span>     <span class="mi">128</span> <span class="n">active</span><span class="o">+</span><span class="n">clean</span>
 
-io:
-  client:   62 KiB/s wr，0 op/s rd，4 op/s wr
+<span class="n">io</span><span class="p">:</span>
+  <span class="n">client</span><span class="p">:</span>   <span class="mi">62</span> <span class="n">KiB</span><span class="o">/</span><span class="n">s</span> <span class="n">wr</span><span class="p">,</span> <span class="mi">0</span> <span class="n">op</span><span class="o">/</span><span class="n">s</span> <span class="n">rd</span><span class="p">,</span> <span class="mi">4</span> <span class="n">op</span><span class="o">/</span><span class="n">s</span> <span class="n">wr</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -770,25 +770,20 @@ io:
 <thead>
 <tr class="row-odd"><th class="head"><p>Option</p></th>
 <th class="head"><p>Description</p></th>
-<th class="head"><p>Limitations</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Reconnection time</p></td>
 <td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
-<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>Speed limit</p></td>
 <td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
-<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>Precondition</p></td>
 <td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
-<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>Pre-/Post-script</p></td>
 <td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
-<td><p></p></td>
 </tr>
 </tbody>
 </table>

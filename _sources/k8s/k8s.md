@@ -333,18 +333,18 @@ Before you back up and restore Kubernetes, check the following:
     health: HEALTH_OK
 
   services:
-    mon: 1 daemons，quorum k8s-master-106 (age 24h)
-    mgr: k8s-master-106(active，since 24h)
-    osd: 3 osds: 3 up (since 24h)，3 in (since 5d)
+    mon: 1 daemons, quorum k8s-master-106 (age 24h)
+    mgr: k8s-master-106(active, since 24h)
+    osd: 3 osds: 3 up (since 24h), 3 in (since 5d)
 
   data:
-    pools:   1 pools，128 pgs
-    objects: 825 objects，2.3 GiB
-    usage:   9.8 GiB used，590 GiB / 600 GiB avail
+    pools:   1 pools, 128 pgs
+    objects: 825 objects, 2.3 GiB
+    usage:   9.8 GiB used, 590 GiB / 600 GiB avail
     pgs:     128 active+clean
 
   io:
-    client:   62 KiB/s wr，0 op/s rd，4 op/s wr
+    client:   62 KiB/s wr, 0 op/s rd, 4 op/s wr
   ```
 
 ```{note}
@@ -424,8 +424,8 @@ class: longtable
 ---
 class: longtable
 ---
-|Option|Description|Limitations|
-| --- | --- | --- |
+|Option|Description|
+| --- | --- |
 |Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.|
 |Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.|
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.|
