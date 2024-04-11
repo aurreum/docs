@@ -52,7 +52,7 @@ The data transport modes for VMware backups and restores include NBD, NBDSSL, SA
 
 ### NBD & NBDSSL transport
 
-During the backup, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of VMware with simple deployment, simple IP network, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:
+During the backup, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of VMware with simple deployment, simple IP networks, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:
 
 - The backup host, backup server, and storage server can reside on the same host.
 - The backup host can reside on a Linux server that has network connectivity with the backup server and storage server. The Linux server can be physical or virtual.
@@ -652,7 +652,7 @@ To restore the virtual machine to a new path, do the following:
 
    (3) The display area shows the new setting. Click **Next**. The wizard goes to the next step.
 
-   To set a batch of virtual machines with the same network, select their checkboxes and click **Batch set up network**.
+   To set up a batch of virtual machines with the same network, select their checkboxes and click **Batch set up network**.
 
 7. At the **Advanced** step, do the following:
 
@@ -717,7 +717,7 @@ class: longtable
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|
 |Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.|
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.|
-|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.|
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.|
 |NBD/NBDSSL transport compression algorithm|You can use zlib, fastlz, skipz, or none for the NBD or NBDSSL transport mode. Different compression algorithms may lead to different backup efficiency.|
 |VDDK write buffer size|Defines the data block size that VDDK writes each time. The default size is 1 MiB. Values include 64 KiB, 128 KIB, …, and 64 MiB.|
 |VDDK transport log level|Includes Panic, Error, Warning, Audit, Info, Verbose, and Trivia. VDDK transport logs above the Audit level are printed to `agent.log` by default.|

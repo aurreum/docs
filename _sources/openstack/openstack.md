@@ -50,7 +50,7 @@ The administrator role can install and configure agents, activate licenses, and 
 To configure the backup host, note that:
 
 - Use an independent virtual machine on OpenStack as the backup host. Ensure that the backup host can communicate with the ADPS.
-- Configure the `/etc/hosts endpoint` domain mapping on the backup host.
+- Ensure that the backup host can access API URL. If the host address in the URL is a domain name, you can configure the domain mapping in `/etc/hosts`.
 
 ```{only} scutech
 ![](../images/Backup_Restore/DBackup3/OpenStack/openstack_host1.png)
@@ -457,7 +457,7 @@ class: longtable
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|
 |Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.|
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.|
-|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.|
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.|
 |Request retry|- Request timeout seconds: Specifies the maximum time in seconds for a request to complete. If a request times out, it will be terminated.{{ br }}- Request try times: Specifies the maximum number of request retries to connect to OpenStack when a request fails. If the retries exceed the value, the request will be terminated.|
 |Target virtual machine|You can create a new user or modify the password of an existing user for the target VM. If you leave it blank, only the original user information will be restored by default. To ensure that the settings can take effect, the tool `cloudbase-init` (Windows) or `cloud-init` (Linux) must be installed on the original VM before backup. Without the tool, the settings will not take effect and only the original user information will be restored.|
 |Operating system|Please confirm whether the VM is Windows or not. If you do not select the check box, the VM will be regarded as a Linux VM. Because Windows and Linux have different methods of setting the username and password, a wrong selection will lead to the invalidity of the settings.|

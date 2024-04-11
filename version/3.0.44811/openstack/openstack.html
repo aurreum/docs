@@ -195,6 +195,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../k8s/k8s.html">User Guide for Kubernetes</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
@@ -387,7 +391,7 @@ document.write(`
 <p>To configure the backup host, note that:</p>
 <ul class="simple">
 <li><p>Use an independent virtual machine on OpenStack as the backup host. Ensure that the backup host can communicate with the ADPS.</p></li>
-<li><p>Configure the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span> <span class="pre">endpoint</span></code> domain mapping on the backup host.</p></li>
+<li><p>Ensure that the backup host can access API URL. If the host address in the URL is a domain name, you can configure the domain mapping in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>.</p></li>
 </ul>
 <section id="verify-the-compatibility">
 <h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Link to this heading">#</a></h3>
@@ -825,7 +829,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
 </tr>
 <tr class="row-even"><td><p>Pre-/Post-script</p></td>
-<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Request retry</p></td>
 <td><p>- Request timeout seconds: Specifies the maximum time in seconds for a request to complete. If a request times out, it will be terminated. <br> - Request try times: Specifies the maximum number of request retries to connect to OpenStack when a request fails. If the retries exceed the value, the request will be terminated.</p></td>

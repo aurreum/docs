@@ -45,7 +45,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="User Guide for OpenStack" href="../openstack/openstack.html" />
-    <link rel="prev" title="User Guide for Linux OS" href="../linux_os/linux_os.html" />
+    <link rel="prev" title="User Guide for Kubernetes" href="../k8s/k8s.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
   </head>
@@ -194,6 +194,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../k8s/k8s.html">User Guide for Kubernetes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
 <ul class="current nav bd-sidenav">
@@ -411,7 +415,7 @@ document.write(`
 <p>The data transport modes for VMware backups and restores include NBD, NBDSSL, SAN, HotAdd, NAS, and Adaptive. Before you back up VMs, set the network among the backup server, the storage server, the backup host, and the virtualization platform. This section explains VMware data transport modes.</p>
 <section id="nbd-nbdssl-transport">
 <h3>NBD &amp; NBDSSL transport<a class="headerlink" href="#nbd-nbdssl-transport" title="Link to this heading">#</a></h3>
-<p>During the backup, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of VMware with simple deployment, simple IP network, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:</p>
+<p>During the backup, data flows over the LAN network from the virtualization platform to the backup host and then from the backup host to the storage server. SSL encryption (NBDSSL) is also supported. These transport modes are suitable for the protection of VMware with simple deployment, simple IP networks, small production data, and low transport performance requirements. The backup host supports flexible deployment in the following ways:</p>
 <ul class="simple">
 <li><p>The backup host, backup server, and storage server can reside on the same host.</p></li>
 <li><p>The backup host can reside on a Linux server that has network connectivity with the backup server and storage server. The Linux server can be physical or virtual.</p></li>
@@ -1034,7 +1038,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <p>(1) Click the name in the <strong>Target network</strong> column. The <strong>Set up network</strong> window appears.</p>
 <p>(2) In the <strong>Set up network</strong> window, select the target network. Click <strong>Submit</strong>.</p>
 <p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
-<p>To set a batch of virtual machines with the same network, select their checkboxes and click <strong>Batch set up network</strong>.</p>
+<p>To set up a batch of virtual machines with the same network, select their checkboxes and click <strong>Batch set up network</strong>.</p>
 </li>
 <li><p>At the <strong>Advanced</strong> step, do the following:</p>
 <p>(1) Click the value in the <strong>Number of cores</strong> or <strong>CPU cores per socket</strong> column. The <strong>Set up CPU</strong> window appears.</p>
@@ -1133,7 +1137,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
 </tr>
 <tr class="row-even"><td><p>Pre-/Post-script</p></td>
-<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.</p></td>
 </tr>
 <tr class="row-odd"><td><p>NBD/NBDSSL transport compression algorithm</p></td>
 <td><p>You can use zlib, fastlz, skipz, or none for the NBD or NBDSSL transport mode. Different compression algorithms may lead to different backup efficiency.</p></td>
@@ -1325,12 +1329,12 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../linux_os/linux_os.html"
+       href="../k8s/k8s.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">User Guide for Linux OS</p>
+        <p class="prev-next-title">User Guide for Kubernetes</p>
       </div>
     </a>
     <a class="right-next"

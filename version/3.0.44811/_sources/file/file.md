@@ -446,7 +446,7 @@ class: longtable
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
 |Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
 |Snapshot|Enabled by default. Snapshots are used for consistent backups when some files are locked.|Only available for Windows OS.|
-|Pre-/Post-script for snapshot|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up. The Ignore errors in snapshots and scripts option is enabled by default.  |Only available for Windows OS.|
+|Pre-/Post-script for snapshot|The pre-script is executed after the job starts and before a snapshot is taken for the resource. The post-script is executed after a snapshot is taken for the resource. The Ignore errors in snapshots and scripts option is enabled by default.  |Only available for Windows OS.|
 |Backup NTFS ADS and ACLs|Enabled by default. BackupRead API will be used to back up NTFS Alternate Data Stream and Security Information. It can prevent CreateFile failures encountered when a CIFS file system without ADS and ACLs is being backed up.|Only available for Windows OS.|
 |Backup retry count|Number of retries after the backup fails due to some reasons including network errors. The value ranges from 0 to 10. 0 means no retries.||
 |Backup retry interval|Time interval between backup retries after the backup fails due to some reasons including network errors. The value ranges from 0 to 120 minutes. The default value is 30 minutes.||
@@ -662,7 +662,7 @@ class: longtable
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
 |Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
-|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.||
 |Use uid/gid for restore|If enabled, it will use uid/gid for the restore job if the target system does not have user/group names.|Not available for Windows OS.|
 ```
 

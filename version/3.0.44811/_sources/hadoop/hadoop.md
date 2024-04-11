@@ -643,7 +643,7 @@ class: longtable
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
 |Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
-|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.||
 |Process invalid paths|- Do not check and convert paths{{ br }}- Ignore paths with illegal characters{{ br }}- Erase illegal characters{{ br }}- Escape illegal characters||
 ```
 
