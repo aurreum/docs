@@ -189,7 +189,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Microsoft Exchange Server</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
 <ul class="nav bd-sidenav">
@@ -304,55 +304,38 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux-os">Install and Configure Agent on Linux OS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows-os">Install and Configure Agent on Windows OS</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-windows-installation-package">Download Windows Installation Package</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-authorize-user">Activate License and Authorize User</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorize-user">Authorize User</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-resource">Log in to the resource</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-database-state">Check Database State</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-login">First Time Login</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-cumulative-incremental-backup-jobs">Create Incremental Backup / Cumulative Incremental Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-backup-jobs">Create Log Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-automatic-archiving-log-backup-jobs">Create Automatic Archiving Log Backup Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-types">Restore types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-point-in-time-restore-job">Create a point-in-time restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-log-restore-job">Create an log restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-recovery-testing-job">Create a recovery testing job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-archived-logs-jobs">Create Restore Archived Logs Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelism-sessions-number-configuration">Parallelism/Sessions Number Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
 </ul>
@@ -368,512 +351,598 @@ document.write(`
                   
   <section id="user-guide-for-db2">
 <h1>User Guide for DB2<a class="headerlink" href="#user-guide-for-db2" title="Link to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of DB2 databases. This guide introduces how to properly use ADPS to back up and restore DB2 databases.</p>
-</section>
-<section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h2>
-<table class="longtable table" id="id2">
-<caption><span class="caption-text">Features</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Feature</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Backup type</p></td>
-<td><p>Full backup, incremental backup, cumulative incremental backup, automatic archiving log backup, log backup</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup source</p></td>
-<td><p>Database (single, multiple)</p></td>
-</tr>
-<tr class="row-even"><td><p>Backup target</p></td>
-<td><p>Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool</p></td>
-</tr>
-<tr class="row-odd"><td><p>Reconnection time</p></td>
-<td><p>The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes.</p></td>
-</tr>
-<tr class="row-even"><td><p>Backup compression</p></td>
-<td><p>Fast, none, tunable</p></td>
-</tr>
-<tr class="row-odd"><td><p>Backup schedule</p></td>
-<td><p>Immediate, one time, minutely, hourly, daily, weekly, monthly</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore type</p></td>
-<td><p>Timepoint restore, restore archived logs, recovery testing</p></td>
-</tr>
-<tr class="row-odd"><td><p>Restore location</p></td>
-<td><p>Original path, custom path</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore granularity</p></td>
-<td><p>Entire database</p></td>
-</tr>
-<tr class="row-odd"><td><p>Restore to different hosts</p></td>
-<td><p>Restoring to a different host requires the same OS and database versions.</p></td>
-</tr>
-<tr class="row-even"><td><p>Disaster recovery</p></td>
-<td><p>Restore a single or multiple databases to the latest backup state simultaneously</p></td>
-</tr>
-<tr class="row-odd"><td><p>Storage pool replication</p></td>
-<td><p>Replicate backup sets from the source storage pool to another pool</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore from target pools</p></td>
-<td><p>Restore backup sets from the target storage pool</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre/Post action</p></td>
-<td><p>The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p></td>
-</tr>
-<tr class="row-even"><td><p>Stop jobs</p></td>
-<td><p>Stop backup and restore jobs</p></td>
-</tr>
-<tr class="row-odd"><td><p>Speed limit</p></td>
-<td><p>Limit data transfer speed or disk read and write speed at different times</p></td>
-</tr>
-<tr class="row-even"><td><p>D2C</p></td>
-<td><p>Back up data directly to the object storage</p></td>
-</tr>
-<tr class="row-odd"><td><p>D2T</p></td>
-<td><p>Back up data directly to the tape libraries</p></td>
-</tr>
-<tr class="row-even"><td><p>LAN-Free</p></td>
-<td><p>Back up to and restore from LAN-Free storage pools</p></td>
-</tr>
-<tr class="row-odd"><td><p>Modify the backup source and target</p></td>
-<td><p>Modify the backup source and backup target of a job</p></td>
-</tr>
-<tr class="row-even"><td><p>IPv6</p></td>
-<td><p>Transfer and manage data over IPv6 network</p></td>
-</tr>
-<tr class="row-odd"><td><p>Access key login</p></td>
-<td><p>Login with Access Key is supported</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="install-and-configure-agent">
-<h2>Install and Configure Agent<a class="headerlink" href="#install-and-configure-agent" title="Link to this heading">#</a></h2>
-<section id="verify-compatibility">
-<h3>Verify Compatibility<a class="headerlink" href="#verify-compatibility" title="Link to this heading">#</a></h3>
-<p>Before deploying the agent, check whether your operating system (OS) and database version are supported. See the following information for mainly supported database and OS versions:</p>
-<ul class="simple">
-<li><p>DB2 version: 8.1/9.1/9.5/9.7/10.1/10.5/11.1</p></li>
-<li><p>OS version:</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore DB2.</p>
+<p>The backup and restore features supported by ADPS include:</p>
 <ul>
+<li><p>Backup sources</p>
+<p>Database (single or multiple)</p>
+</li>
+<li><p>Backup types</p>
+<p>Full backup, incremental backup, cumulative incremental backup, log backup, and log backup (on demand)</p>
+</li>
+<li><p>Backup targets</p>
+<p>Standard storage pool, deduplication storage pool, local storage pool, tape library pool, object storage pool, and LAN-free pool</p>
+</li>
+<li><p>Backup schedules</p>
+<p>Immediate, one-time, hourly, daily, weekly, and monthly</p>
+</li>
+<li><p>Data processing</p>
+<p>Data compression, data encryption, sessions, parallelism, reconnection, speed limit, and replication</p>
+</li>
+<li><p>Restore types</p>
+<p>Point-in-time restore, log restore, and recovery testing</p>
+</li>
+<li><p>Restore targets</p>
+<p>Source host and different host</p>
+</li>
+</ul>
+</section>
+<section id="planning-and-preparation">
+<h2>Planning and preparation<a class="headerlink" href="#planning-and-preparation" title="Link to this heading">#</a></h2>
+<p>Before you install the agent, check the following prerequisites:</p>
+<ol class="arabic simple">
+<li><p>You have already installed and configured other backup components, including the backup server and the storage server.</p></li>
+<li><p>You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).</p>
+</div>
+</section>
+<section id="install-and-configure-the-agent">
+<h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Link to this heading">#</a></h2>
+<p>To back up and restore DB2, first install the ADPS agent on the host where DB2 resides.</p>
+<section id="verify-the-compatibility">
+<h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Link to this heading">#</a></h3>
+<p>Before you install the agent, ensure that the environment of the host where DB2 resides is on the Aurreum Data Protection Suite’s compatibility lists.</p>
+<p>ADPS supports the backup and restore of DB2 on multiple systems, including:</p>
+<ul class="simple">
 <li><p>Windows 2003/2008/2008 R2/2012</p></li>
 <li><p>Linux 6/7/8</p></li>
 <li><p>AIX 6.1/7.1</p></li>
 </ul>
-</li>
+<p>Supported DB2 versions include:</p>
+<ul class="simple">
+<li><p>DB2 8.1/9.1/9.5/9.7/10.1/10.5/11.1</p></li>
 </ul>
 </section>
-<section id="download-agent-package">
-<h3>Download Agent Package<a class="headerlink" href="#download-agent-package" title="Link to this heading">#</a></h3>
-<p>Log in to ADPS console as the admin. Click <strong>Resource</strong> -&gt; <strong>Install Agent</strong> icon and download the installation packages according to your needs.</p>
-<p><img alt="db2_agent01" src="../_images/db2_agent01.png" /></p>
-</section>
-<section id="install-and-configure-agent-on-linux-os">
-<h3>Install and Configure Agent on Linux OS<a class="headerlink" href="#install-and-configure-agent-on-linux-os" title="Link to this heading">#</a></h3>
+<section id="install-the-agent">
+<h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Link to this heading">#</a></h3>
+<p>The ADPS agent can be installed on Windows and Linux. You can select the installation method according to your environment.</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<p>To install the agent, do the following:</p>
+<ol class="arabic">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>In the <strong>Install agent</strong> window, do the following:</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Windows</strong>.</p>
+<p>(2) From the <strong>Select file</strong> list, select the package that you want to install.</p>
+<p>(3) Click <strong>Download</strong>.</p>
+</li>
+<li><p>Upload the package to the Windows host.</p></li>
+<li><p>Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Select components</strong> step, select <strong>DB2</strong> from the component list. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Configure Aurreum Data Protection Suite agent</strong> step, enter the following:</p>
+<p>(1) In the <strong>Backup server address</strong> field, enter the IP or domain name of the backup server.</p>
+<p>(2) In the <strong>Backup server port</strong> field, enter the port number. The default value is 50305. If you enable the <strong>Use SSL secure connection</strong> option, enter 60305 in the <strong>Backup server port</strong> field.</p>
+<p>(3) The <strong>Access key</strong> field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the access key of the user/tenant:</p>
 <ol class="arabic simple">
-<li><p>Select <strong>Linux</strong> as the system and <strong>DB2</strong> as the module. Copy an installation command.</p></li>
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>On the upper right corner, click your avatar, and go to <strong>Personal settings</strong> &gt; <strong>Account settings</strong>.</p></li>
+<li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
 </ol>
-<p><img alt="" src="../_images/db2_agent02.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>Paste and run the command in the terminal of the target host to execute the installation.</p></li>
+</div>
+</li>
+<li><p>Confirm the <strong>Destination folder</strong> or specify another folder. Click <strong>Next</strong>.</p></li>
+<li><p>Wait for the installation to complete.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="p">[</span><span class="n">root</span><span class="nd">@kylinv10x86</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.18.57:50305/d2/update/script?modules=file&amp;location=http%3A%2F%2F192.168.18.57%3A50305&amp;access_key=b448e47a5e5ae07c5a4a77bf97c383f5&amp;rm=&amp;tool=curl&quot; | sh</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
-<span class="mi">100</span>  <span class="mi">7912</span>    <span class="mi">0</span>  <span class="mi">7912</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">3863</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">3863</span><span class="n">k</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
-  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
-<span class="mi">100</span> <span class="mf">57.2</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">57.2</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">22.1</span><span class="n">M</span>      <span class="mi">0</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">24.8</span><span class="n">M</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
-  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
-<span class="mi">100</span> <span class="mi">6175</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">6175</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">97.2</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">97.2</span><span class="n">M</span>
-  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
-                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
-  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
-<span class="mi">100</span>  <span class="mi">814</span><span class="n">k</span>  <span class="mi">100</span>  <span class="mi">814</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">9465</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">9465</span><span class="n">k</span>
-<span class="n">warning</span><span class="p">:</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">V3</span><span class="mf">.0.44811</span><span class="o">-</span><span class="mf">1.</span><span class="n">b6392da</span><span class="o">.</span><span class="n">dbg</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span><span class="p">:</span> <span class="n">Header</span> <span class="n">V3</span> <span class="n">RSA</span><span class="o">/</span><span class="n">SHA1</span> <span class="n">Signature</span><span class="p">,</span> <span class="n">key</span> <span class="n">ID</span> <span class="mi">378</span><span class="n">aae6a</span><span class="p">:</span> <span class="n">NOKEY</span>
-<span class="n">Verifying</span><span class="o">...</span>                          <span class="c1">################################# [100%]</span>
-<span class="n">Preparing</span><span class="o">...</span>                          <span class="c1">################################# [100%]</span>
-	<span class="n">package</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">V3</span><span class="mf">.0.44811</span><span class="o">-</span><span class="mf">1.1</span><span class="n">eebb99</span><span class="o">.</span><span class="n">dbg</span><span class="o">.</span><span class="n">x86_64</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">installed</span>
-<span class="n">warning</span><span class="p">:</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">V3</span><span class="mf">.0.44811</span><span class="o">-</span><span class="mf">1.</span><span class="n">b6392da</span><span class="o">.</span><span class="n">dbg</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span><span class="p">:</span> <span class="n">Header</span> <span class="n">V3</span> <span class="n">RSA</span><span class="o">/</span><span class="n">SHA1</span> <span class="n">Signature</span><span class="p">,</span> <span class="n">key</span> <span class="n">ID</span> <span class="mi">378</span><span class="n">aae6a</span><span class="p">:</span> <span class="n">NOKEY</span>
-<span class="n">Verifying</span><span class="o">...</span>                          <span class="c1">################################# [100%]</span>
-<span class="n">Preparing</span><span class="o">...</span>                          <span class="c1">################################# [100%]</span>
-	<span class="n">package</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">V3</span><span class="mf">.0.44811</span><span class="o">-</span><span class="mf">1.1</span><span class="n">eebb99</span><span class="o">.</span><span class="n">dbg</span><span class="o">.</span><span class="n">x86_64</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">installed</span>
-<span class="n">warning</span><span class="p">:</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">V3</span><span class="mf">.0.44811</span><span class="o">-</span><span class="mf">1.</span><span class="n">b6392da</span><span class="o">.</span><span class="n">dbg</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span><span class="p">:</span> <span class="n">Header</span> <span class="n">V3</span> <span class="n">RSA</span><span class="o">/</span><span class="n">SHA1</span> <span class="n">Signature</span><span class="p">,</span> <span class="n">key</span> <span class="n">ID</span> <span class="mi">378</span><span class="n">aae6a</span><span class="p">:</span> <span class="n">NOKEY</span>
-<span class="n">Verifying</span><span class="o">...</span>                          <span class="c1">################################# [100%]</span>
-<span class="n">Preparing</span><span class="o">...</span>                          <span class="c1">################################# [100%]</span>
-	<span class="n">package</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">V3</span><span class="mf">.0.44811</span><span class="o">-</span><span class="mf">1.1</span><span class="n">eebb99</span><span class="o">.</span><span class="n">dbg</span><span class="o">.</span><span class="n">x86_64</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">installed</span>
-<span class="n">Restarting</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="p">(</span><span class="n">via</span> <span class="n">systemctl</span><span class="p">):</span>  <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
-<span class="p">[</span><span class="n">root</span><span class="nd">@kylinv10x86</span> <span class="o">~</span><span class="p">]</span><span class="c1">#</span>
+</section>
+<section id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h4>
+<p>For Linux OS, ADPS agent supports online and offline installation. We recommend online installation.</p>
+<ol class="arabic simple">
+<li><p>Online installation:
+ADPS provides <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">wget</span></code> commands for installation.</p></li>
+<li><p>Offline installation:
+See <a class="reference internal" href="../agent_install/agent_install.html#offline-installation"><span class="std std-ref">Offline installation</span></a> in Aurreum Data Protection Suite Agent Installation Guide.</p></li>
+</ol>
+<p>To install the agent online, do the following:</p>
+<ol class="arabic">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>In the <strong>Install agent</strong> window, do the following:</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Linux</strong>.</p>
+<p>(2) From the <strong>Component</strong> list, select <strong>DB2</strong>. The <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">wget</span></code> commands appear in the window.</p>
+<p>(3) If you want to delete the downloaded package automatically after the installation, select the <strong>Delete installation package</strong> checkbox.</p>
+<p>(4) If you enable <strong>Ignore SSL errors</strong>, the installation will ignore certificate errors and so on. If you disable the feature, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.</p>
+</li>
+<li><p>Click the <strong>Copy</strong> icon to copy the <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> command.</p></li>
+<li><p>Log in to the Linux host as user <em>root</em>. Paste the command in the terminal and press Enter to start the installation. Example:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="p">[</span><span class="n">root</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.18.57:50305/d2/update/script?modules=db2&amp;location=http%3A%2F%2F192.168.18.57%3A50305&amp;access_key=b448e47a5e5ae07c5a4a77bf97c383f5&amp;rm=&amp;tool=curl&quot; | sh</span>
 </pre></div>
 </div>
-</section>
-<section id="install-and-configure-agent-on-windows-os">
-<h3>Install and Configure Agent on Windows OS<a class="headerlink" href="#install-and-configure-agent-on-windows-os" title="Link to this heading">#</a></h3>
-<section id="download-windows-installation-package">
-<h4>Download Windows Installation Package<a class="headerlink" href="#download-windows-installation-package" title="Link to this heading">#</a></h4>
-<p>In the <strong>Install agent</strong> window, select <strong>Windows</strong> and click <strong>Download Windows agent</strong> to download the package.</p>
-<p><img alt="" src="../_images/db2_install01.png" /></p>
-</section>
-<section id="install-agent-on-windows">
-<h4>Install Agent on Windows<a class="headerlink" href="#install-agent-on-windows" title="Link to this heading">#</a></h4>
-<ol class="arabic">
-<li><p>Upload the installation package to the target host.</p></li>
-<li><p>Double-click the package to launch the setup wizard and click <strong>Next</strong>.</p></li>
-<li><p>This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the <strong>DB2</strong> component and click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/db2_windows_install02.png" /></p>
-</li>
-<li><p>Set the <strong>Backup Server Host</strong>, <strong>Backup Server Port</strong>, and <strong>Access Key</strong>. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/db2_windows_install01.png" /></p>
-</li>
-<li><p>Select <strong>Destination Folder</strong> and click <strong>Next</strong> to install the software. Wait for the installation to complete.</p></li>
+<ol class="arabic simple" start="7">
+<li><p>Wait for the installation to complete.</p></li>
 </ol>
 </section>
 </section>
-<section id="check-successful-installation">
-<h3>Check Successful Installation<a class="headerlink" href="#check-successful-installation" title="Link to this heading">#</a></h3>
-<p>After the successful installation, log in to ADPS console as the admin and go to the <strong>Resource</strong> page. The host with the agent installed will be available on the Resource list.</p>
-<p><img alt="" src="../_images/db2_agent04.png" /></p>
 </section>
+<section id="activate-licenses-and-authorize-users">
+<h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Link to this heading">#</a></h2>
+<p>After the agent installation, go back to the <strong>Resource</strong> page. The host with the agent installed appears on the page. Before you back up and restore DB2, register the host, activate the backup license, and authorize users.</p>
+<p>To activate licenses and authorize users, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>On the <strong>Resource</strong> page, select the host where DB2 resides. Click the <strong>Register</strong> icon. After the registration, the <strong>Activate</strong> window appears.</p></li>
+<li><p>In the <strong>Activate</strong> window, select the DB2 backup license, and click <strong>Submit</strong>. After the activation, the <strong>Authorize</strong> window appears.</p></li>
+<li><p>In the <strong>Authorize</strong> window, do the following:</p>
+<p>(1) In the <strong>Name</strong> field, enter a name for the host.</p>
+<p>(2) From the <strong>Data network</strong> list, select a network from those added on the <strong>Network</strong> page as the data network.</p>
+<p>(3) In the <strong>Preferred egress network</strong> field, enter an IP address for the preferred network traffic egress of the host’s backup data. IPv4 and IPv6 are supported.</p>
+<p>(4) From the <strong>User group</strong> list, select user groups to authorize access to the resource.</p>
+<p>(5) Set the resource as <strong>Protected</strong> or not. The <strong>Protected</strong> resource cannot be the restore target or the data replication target unless the administrator removes the <strong>Protected</strong> label.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>If you are prompted with “No enough licenses”, contact the administrator to add licenses.</p></li>
+<li><p>With many agents, install them first, then <strong>batch register</strong>, <strong>batch activate</strong>, and <strong>batch authorize</strong> the agents and resources for convenience. For details, see <a class="reference internal" href="#../manager/manager.md#batch-registerbatch-activatebatch-authorize"><span class="xref myst">Batch register/Batch activate/Batch authorize</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p></li>
+</ol>
+</div>
+</li>
+</ol>
 </section>
-<section id="activate-license-and-authorize-user">
-<h2>Activate License and Authorize User<a class="headerlink" href="#activate-license-and-authorize-user" title="Link to this heading">#</a></h2>
-<p>This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out activation and authorization in batches. See <em>Batch Register/Activate/Authorize</em> from <em>Administrator’s Guide</em> for more details.</p>
-<section id="register-host">
-<h3>Register Host<a class="headerlink" href="#register-host" title="Link to this heading">#</a></h3>
-<p>Log in to ADPS console as the admin, go to <strong>Resource</strong>, and select the host that you want to activate. Click the <strong>Register</strong> icon.</p>
-<p><img alt="" src="../_images/db2_agent05.png" /></p>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Link to this heading">#</a></h2>
+<section id="backup-types">
+<h3>Backup types<a class="headerlink" href="#backup-types" title="Link to this heading">#</a></h3>
+<p>ADPS provides five common backup types for DB2:</p>
+<ul>
+<li><p>Full backup</p>
+<p>Backs up all data in one or more databases, including corresponding archive logs for data restore.</p>
+</li>
+<li><p>Incremental backup</p>
+<p>Backs up only the data that has changed since the last backup with the last backup as the baseline.</p>
+</li>
+<li><p>Cumulative incremental backup</p>
+<p>Backs up only the data that have changed since the last full backup with a full backup as the baseline.</p>
+</li>
+<li><p>Log backup</p>
+<p>Backs up the newly generated archive files of the current database. It requires enabling either the LOGRETAIN or DISK archiving method in the database.</p>
+</li>
+<li><p>Log backup (on demand)</p>
+<p>When a log backup (on demand) job is created, it will remain in an idle state. If new archive files are generated locally in the database, the job will be triggered automatically. Before a log backup (on demand) job is created, you need to perform a full backup first, and enable the DISK archiving method in the database.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You can only initiate either a log backup or a log backup (on demand) job at a time. It is not possible to initiate both simultaneously.</p></li>
+</ul>
+</div>
 </section>
-<section id="activate-license">
-<h3>Activate License<a class="headerlink" href="#activate-license" title="Link to this heading">#</a></h3>
-<p>In the pop-up <strong>Activate</strong> window, select the resource that you want to activate. Click <strong>Submit</strong>.</p>
-<p><img alt="" src="../_images/db2_agent06.png" /></p>
-</section>
-<section id="authorize-user">
-<h3>Authorize User<a class="headerlink" href="#authorize-user" title="Link to this heading">#</a></h3>
-<p>After the activation, authorize users to operate the resource in the pop-up <strong>Authorize</strong> window.</p>
-<p><img alt="" src="../_images/db2_agent07.png" /></p>
-</section>
+<section id="backup-policies">
+<h3>Backup policies<a class="headerlink" href="#backup-policies" title="Link to this heading">#</a></h3>
+<p>ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.</p>
+<ul class="simple">
+<li><p>Immediate: ADPS will immediately start the job after it is created.</p></li>
+<li><p>One-time: ADPS will perform the job at the specified time once only.</p></li>
+<li><p>Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.</p></li>
+<li><p>Daily: ADPS will perform the job periodically at the specified time and day intervals.</p></li>
+<li><p>Weekly: ADPS will perform the job periodically at the specified time and week intervals.</p></li>
+<li><p>Monthly: ADPS will perform the job periodically at the specified dates and times.</p></li>
+</ul>
+<p>You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:</p>
+<ol class="arabic simple">
+<li><p>Perform a <strong>full backup</strong> based on requirements. For example, perform a full backup job once every Sunday.</p></li>
+<li><p>Perform a <strong>full backup</strong> on Sunday and <strong>incremental backup</strong> daily from Monday to Saturday. If data corruption occurs on Saturday, the full backup from Sunday along with all incremental backups from Monday through Friday are used for restore. The restore job restores the full backup from Sunday first, followed by incremental backups from Monday to Friday, which involves a total of six restores. This backup strategy requires less time for data backup but more time for data restore.</p></li>
+<li><p>Perform a <strong>full backup</strong> on Sunday and <strong>cumulative incremental backup</strong> from Monday to Saturday. If data corruption occurs on Saturday, the full backup from Sunday along with all cumulative incremental backups from Monday through Friday are used for restore. The restore job restores the full backup from Sunday first, followed by cumulative incremental backups from Monday to Friday, which involves a total of two restores. This backup strategy requires less time for data backup but more time for data restore.</p></li>
+<li><p>Perform a <strong>log backup</strong> hourly to ensure that you have a second-level point in time available.</p></li>
+</ol>
 </section>
 <section id="before-you-begin">
-<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h2>
-<section id="check-database-state">
-<h3>Check Database State<a class="headerlink" href="#check-database-state" title="Link to this heading">#</a></h3>
-<p>Check the DB2 service state. The DB2 database service should be in the “Active – Up” state for backup and restore.</p>
-<p><img alt="" src="../_images/db2_agent18.png" /></p>
+<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
+<p>Before you back up and restore DB2, check the following:</p>
+<ol class="arabic">
+<li><p>Check the DB2 instance status</p>
+<p>(1) The DB2 database service should be in the “Active – Up” status for backup and restore.</p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Check storage pools</p>
+<p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
+<p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</li>
+</ol>
 </section>
-<section id="check-resource">
-<h3>Check Resource<a class="headerlink" href="#check-resource" title="Link to this heading">#</a></h3>
-<p>Log in to ADPS console as the operator and go to <strong>Resource</strong>. You can see the activated and authorized resource with an “Online” state on the list. Please check <em>Activate License and Assign Authorization</em> if the resource is unavailable.</p>
-<p><img alt="" src="../_images/db2_agent08.png" /></p>
-</section>
-<section id="check-storage-pool">
-<h3>Check Storage Pool<a class="headerlink" href="#check-storage-pool" title="Link to this heading">#</a></h3>
-<p>Log in to ADPS console as the operator, go to <strong>Storage Pool</strong>, and verify the presence of storage pools. If no storage pool is available, please contact the admin to create one and assign permissions to the operator.</p>
-<p><img alt="" src="../_images/db2_agent09.png" /></p>
-</section>
-</section>
-<section id="first-time-login">
-<h2>First Time Login<a class="headerlink" href="#first-time-login" title="Link to this heading">#</a></h2>
+<section id="log-in-to-the-resource">
+<h3>Log in to the resource<a class="headerlink" href="#log-in-to-the-resource" title="Link to this heading">#</a></h3>
+<p>Before you create a backup or restore job, log in to the DB2 resource on the console. ADPS provides two authentication methods for DB2:</p>
+<ul>
+<li><p>Database authentication</p>
+<p>You can use the DB2 installation user account of the operating system to log in to the resource.</p>
+</li>
+<li><p>Access Key</p>
+<p>You can use the access key of the ADPS user who is authorized with access to the resource. This method is suitable for the following scenarios:</p>
+<ul class="simple">
+<li><p>You cannot get the OS user’s username and password.</p></li>
+<li><p>The user’s password changes frequently.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ol class="arabic simple">
-<li><p>Before creating the first DB2 backup and restore, go to <strong>Resource</strong> and click <strong>Login</strong> next to the resource to log in to DB2.</p></li>
+<li><p>Access key authentication is not enabled by default. To enable this feature, log in to the ADPS console, go to <strong>Settings</strong>, open the <strong>Security</strong> tab, and select the <strong>Access key login instance</strong> checkbox.</p></li>
+<li><p>To get the access key, log in to the console, click <strong>Personal settings</strong> &gt; <strong>Account settings</strong> on the upper right corner, find <strong>Access key</strong> on the <strong>Preferences</strong> tab, and click <strong>View</strong>.</p></li>
 </ol>
-<p><img alt="" src="../_images/db2_agent10.png" /></p>
-<ol class="arabic simple" start="2">
-<li><p>You can use <strong>OS Authentication</strong> or <strong>Access Key</strong> to log in to your DB2 database.</p></li>
+</div>
+</li>
+</ul>
+<p>To log in to the resource, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the host list, find the host where DB2 resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.</p></li>
+<li><p>Click <strong>Login</strong> beside the resource. The <strong>Login</strong> window appears.</p></li>
+<li><p>In the <strong>Login</strong> window, select an authentication method according to your needs.</p>
+<ul class="simple">
+<li><p>Select <strong>Database authentication</strong>, enter the <strong>Username</strong> and <strong>Password</strong>, and click <strong>Login</strong>.</p></li>
+<li><p>Select <strong>Access key</strong>, enter the access key of the current ADPS user, and click <strong>Login</strong>.</p></li>
+</ul>
+</li>
+<li><p>If your information is correct, you will be prompted that you have logged in to the resource successfully.</p></li>
 </ol>
+</section>
+</section>
+<section id="create-a-backup-job">
+<h2>Create a backup job<a class="headerlink" href="#create-a-backup-job" title="Link to this heading">#</a></h2>
+<p>To create a backup job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Backup</strong>. The backup job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where DB2 resides and select the instance. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup source</strong> step, do the following:</p>
+<p>(1) From the <strong>Backup type</strong> list, select a backup type.</p>
+<p>(2) In the <strong>Backup source</strong> section, select the databases that you want to back up.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To back up multiple databases at a time, select databases with the same code page settings.</p>
+</div>
+</li>
+<li><p>At the <strong>Backup target</strong> step, select a storage pool. Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Incremental backups, cumulative incremental backups and log backups must have the same backup target as their baseline backups.</p>
+</div>
+</li>
+<li><p>At the <strong>Backup schedule</strong> step, set the job schedule. For details, see <a class="reference internal" href="#backup-policies">Backup policies</a>. Click <strong>Next</strong>.</p>
 <ul class="simple">
-<li><p><strong>OS Authentication</strong>: For OS account login requirements, see <em>Limitation</em>.</p></li>
-<li><p><strong>Access Key</strong>: Log in with Access Key tied to the user who has been authorized the resource. Data security risks exist when backup and restore jobs are carried out without the database password.</p></li>
+<li><p>Select <strong>Immediate</strong>. ADPS performs the job immediately after it is created.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+<li><p>Select <strong>Hourly</strong>. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).</p></li>
+<li><p>Select <strong>Daily</strong>. Set the start time and enter the time interval for job execution. The unit is day(s).</p></li>
+<li><p>Select <strong>Weekly</strong>. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.</p></li>
+<li><p>Select <strong>Monthly</strong>. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.</p></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li><p>Select <strong>Authentication</strong>. Enter <strong>User</strong> and <strong>Password</strong>. Click <strong>Login</strong>.</p></li>
+</li>
+<li><p>At the <strong>Backup options</strong> step, set the common and advanced options according to your needs. For details, see <a class="reference internal" href="#backup-options">Backup options</a>. Click <strong>Next</strong>.</p></li>
 </ol>
-<p><img alt="" src="../_images/db2_agent11.png" /></p>
-<blockquote>
-<div><p>Note:</p>
+<ol class="arabic simple" start="7">
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page automatically. On this page, you can start, modify, and delete the job.</p></li>
+</ol>
+<section id="backup-options">
+<h3>Backup options<a class="headerlink" href="#backup-options" title="Link to this heading">#</a></h3>
+<p>ADPS provides the following backup options for DB2:</p>
 <ul class="simple">
-<li><p>To use the Access Key authentication, it is required that the admin enable the Access Key Login Instance option in Settings -&gt; Security.</p></li>
+<li><p>Common options</p></li>
 </ul>
-<p><img alt="" src="../_images/db2_agent20.png" /></p>
-</div></blockquote>
-</section>
-<section id="create-backup-jobs">
-<h2>Create Backup Jobs<a class="headerlink" href="#create-backup-jobs" title="Link to this heading">#</a></h2>
-<p>This chapter introduces how to back up DB2 databases.</p>
-<section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Backup common options</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Compression</p></td>
+<td><p>Fast is enabled by default. <br> - None: No compression during the backup job. <br> - Tunable: Customizes the compression level. The Advanced Compression license is required.  <br> - Fast: Uses the fast compression algorithms to compress data during the backup job.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>When the database is in NOARCHIVELOG mode</p></td>
+<td><p>It only appears when the database is configured archive logging, and the following operations are provided for the backup job:  <br> - Send an alert message and cancel the job  <br> - Allow offline backup  <br> - Enable ARCHIVELOG</p></td>
+<td><p>Only available for full, incremental and cumulative incremental backup jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Log archive method</p></td>
+<td><p>Enables log archive method for the databases to be backed up.</p></td>
+<td><p>Only available for log backup (on demand) jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Delete archive logs</p></td>
+<td><p>ADPS provides the following methods to remove archive logs: <br> - Delete all backed-up archive logs.  <br> - Delete archive logs in the last X days/hours.  <br> - Do not delete archive logs.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Incremental Backup</p></td>
+<td><p>It modifies the database “trackmod” parameter to “Yes”, which allows the database to perform incremental backups. The first incremental backup will be an offline backup.</p></td>
+<td><p>Only available for full backup jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sessions</p></td>
+<td><p>Specifies the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than the number of logical CPU cores on the host.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Parallelism</p></td>
+<td><p>Defines the number of tablespaces to be read in parallel, and assigns each process or thread to a tablespace. It is recommended that the number of parallelism is not greater than the number of tablespaces in the database.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 <ul class="simple">
-<li><p>The agent has been installed. For installation, see <em>Install and Configure Agent</em>.</p></li>
-<li><p>The license has been activated, and the resource has been authorized to users. For details, see <em>Activate License and Authorize User</em>.</p></li>
-<li><p>Log in to the ADPS console as the <em>operator</em> with resource permissions.</p></li>
+<li><p>Advanced options</p></li>
 </ul>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Backup advanced options</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="create-full-backup-jobs">
-<h3>Create Full Backup Jobs<a class="headerlink" href="#create-full-backup-jobs" title="Link to this heading">#</a></h3>
-<p>(1) Click <strong>Backup</strong>. Select the DB2 host and instance.</p>
-<p>(2) Select <strong>Full</strong> as the backup type and choose the databases to be backed up.</p>
-<blockquote>
-<div><p>Note:</p>
+</section>
+<section id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Link to this heading">#</a></h2>
+<section id="restore-types">
+<h3>Restore types<a class="headerlink" href="#restore-types" title="Link to this heading">#</a></h3>
+<p>For different needs, ADPS provides several restore types for DB2, including:</p>
 <ul>
-<li><p>To back up multiple databases simultaneously, select databases with the same code page setting.</p>
-<p><img alt="" src="../_images/db2_agent12.png" /></p>
+<li><p>Point-in-time restore</p>
+<p>When a logical error or disaster occurs in a database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state. Restoring to the source or a different host is supported.</p>
+</li>
+<li><p>Log restore</p>
+<p>Restores archived log files within a specified range to either the original or a remote database’s archive log directory. This restore type is applicable to the databases with archive logging configured.</p>
+</li>
+<li><p>Recovery testing</p>
+<p>Restores the latest backup sets to another instance on the source host or to another host hourly, daily, weekly, and monthly.</p>
 </li>
 </ul>
-</div></blockquote>
-<p>(3) Select <strong>Backup Target</strong>. You can choose a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool.</p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>It is not supported to store full backups, incremental backups/cumulative incremental backups, and log backups in different storage pools.</p></li>
-</ul>
-</div></blockquote>
-<p>(4) Go to <strong>Backup Schedule</strong> to set the execution time of the backup job. For details, see <em>Backup Schedule Operation</em>. It is generally recommended to run a full backup on a weekly basis.</p>
-<p>(5) Set <strong>Backup Options</strong>, including common and advanced options.</p>
-<ul class="simple">
-<li><p><strong>Common options</strong>:</p></li>
-</ul>
-<p><img alt="" src="../_images/db2_agent13.png" /></p>
-<p><strong>Compression</strong>: <strong>Fast</strong> is enabled by default.</p>
-<ul class="simple">
-<li><p>None: No data compression during the backup.</p></li>
-<li><p>Tunable: You can customize the compression level, which requires the activated feature of Advanced Compression.</p></li>
-<li><p>Fast: Use the fast compression algorithms during the backup.</p></li>
-</ul>
-<p><strong>Reserve Archive Logs</strong>: Set the retention policy for archive logs. You can choose to delete, retain all archive logs, or choose how long to retain archive logs before the automatic deletion.</p>
-<p><strong>Number of Parallelism</strong>: Define the number of tablespaces to be read in parallel, and assign each process or thread to the tablespace. It is recommended that the number of parallelism is not greater than the number of tablespaces in the database.</p>
-<p><strong>Number of Sessions</strong>: Specify the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than the number of the host logical CPU.</p>
-<p><img alt="" src="../_images/db2_agent19_en.png" /></p>
-<ul class="simple">
-<li><p><strong>Advanced options</strong>:</p></li>
-</ul>
-<p><img alt="" src="../_images/db2_agent14.png" /></p>
-<p><strong>Reconnection Time</strong>: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).</p>
-<p><strong>Speed Limit</strong>: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.</p>
-<p><strong>Precondition</strong>: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.</p>
-<p><strong>Pre/Post Action</strong>: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.</p>
-<p>(6) Set the <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
 </section>
-<section id="create-incremental-backup-cumulative-incremental-backup-jobs">
-<h3>Create Incremental Backup / Cumulative Incremental Backup Jobs<a class="headerlink" href="#create-incremental-backup-cumulative-incremental-backup-jobs" title="Link to this heading">#</a></h3>
-<p>It is generally recommended to create full backups regularly (such as weekly) or create incremental backups / cumulative incremental backups at short intervals (such as daily) so that you have at least one recoverable point in time every day.</p>
-<ul>
-<li><p>Creating an incremental backup or a cumulative incremental backup is the same as creating a full backup. Select <strong>Incremental Backup</strong> / <strong>Cumulative Incremental Backup</strong> as the backup type and choose databases.</p>
-<p><img alt="" src="../_images/db2_agent15.png" /></p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup / cumulative incremental backup will be performed as a full backup by default.</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</section>
-<section id="create-log-backup-jobs">
-<h3>Create Log Backup Jobs<a class="headerlink" href="#create-log-backup-jobs" title="Link to this heading">#</a></h3>
-<p>Based on periodic full and incremental backups, you can also add frequent log backups to back up only the binary logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.</p>
-<ul>
-<li><p>Creating a log backup is similar to creating a full backup. Select <strong>Log</strong> as the backup type and choose databases.</p>
-<p><img alt="" src="../_images/db2_agent16.png" /></p>
-</li>
-</ul>
-</section>
-<section id="create-automatic-archiving-log-backup-jobs">
-<h3>Create Automatic Archiving Log Backup Jobs<a class="headerlink" href="#create-automatic-archiving-log-backup-jobs" title="Link to this heading">#</a></h3>
-<p>When you create an automatic archiving log backup job, the job will be in an idle state. The job will be executed when the logical logs get full or when you manually execute the log switch command.</p>
-<p>You can only create one automatic archiving log backup job on one database instance. Delete the old automatic archiving log backup job first before creating a new automatic archiving log backup job.</p>
-<ul class="simple">
-<li><p>Creating an automatic archiving log backup job is the same as creating a full backup job. Select <strong>On Demand</strong> as the backup type.</p></li>
-</ul>
-<p><img alt="" src="../_images/db2_agent17.png" /></p>
-<blockquote>
-<div><p>Note:</p>
-<ul class="simple">
-<li><p>Prerequisites for an automatic archiving log backup job:</p>
-<ul>
-<li><p>You have executed a full backup job and the full backup set exists;</p></li>
-<li><p>You have selected to archive log files to disk for the database. For example: LOGARCHMETH1 = DISK:/home/db2inst1/arch</p></li>
-</ul>
-</li>
-<li><p>Differences between log backup and automatic archiving log backup:</p>
-<ul>
-<li><p>The database server triggers an automatic archiving log backup when the logical logs are full or when you manually execute the log switch command. To avoid the constant log archiving failures and database hang issues due to the inaccessible storage server, it is recommended that FAILARCHPATH should also be configured for the database when you create the automatic archiving log backup.</p></li>
-<li><p>A log backup is initiated and executed by ADPS, and is generally set to execute periodically.</p></li>
-</ul>
-</li>
-<li><p>Log backups and automatic archiving log backups do not back up database schema. If a new table is created and only log backups are performed later instead of the database-level backups (full backups, incremental backups, and cumulative incremental backups), the new table data cannot be restored. Therefore, it is not suggested that only one database-level backup be performed followed by log backups/automatic archiving log backups. For backup strategy details, see <em>Backup Protection Strategy</em>.</p></li>
-</ul>
-</div></blockquote>
-</section>
-</section>
-<section id="create-restore-jobs">
-<h2>Create Restore Jobs<a class="headerlink" href="#create-restore-jobs" title="Link to this heading">#</a></h2>
-<p>This chapter introduces how to restore DB2 databases. ADPS provides a variety of restore types for different needs, including timepoint restore, restore archived logs, and recovery testing.</p>
 <section id="id1">
-<h3>Prerequisites<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>Before you begin<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>To restore DB2 to a different host, install the agent on that host, activate the licenses, and authorize user access to the resource.</p>
+</section>
+<section id="create-a-point-in-time-restore-job">
+<h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Link to this heading">#</a></h3>
+<p>To create a point-in-time restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where DB2 resides and select the resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Point-in-time restore</strong>.</p>
+<p>(2) From the <strong>Database</strong> list, select a database for the restore job.</p>
+<p>(3) In the <strong>Restore to point in time</strong> section, specify a point in time for the restore job.</p>
+<p>To specify a point in time for the restore, you can click the time beside the slider control and enter a point in time, or you can drag the slider to specify a point in time.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step.</p>
+<p>The restore target can be the source host or a different host.</p>
 <ul class="simple">
-<li><p>A backup job has been completed successfully. See <em>Create Backup Jobs</em>.</p></li>
-<li><p>To restore to another host, install the agent on that host, activate its license, and assign the resource to users.</p></li>
+<li><p><strong>Source host</strong>: The source host is selected by default.</p></li>
+<li><p><strong>Different host</strong>: Restoring to a different host requires the same OS versions and the same DB2 versions.</p></li>
 </ul>
-</section>
-<section id="create-timepoint-restore-jobs">
-<h3>Create Timepoint Restore Jobs<a class="headerlink" href="#create-timepoint-restore-jobs" title="Link to this heading">#</a></h3>
-<p>When a logical error or a disaster occurs in a DB2 database, timepoint restore allows you to restore the database to a specified point-in-time state.</p>
-<p>(1) Select the DB2 <strong>Host</strong> and <strong>Instance</strong>. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Timepoint Restore</strong> as the restore type, and select the <strong>Database</strong>. You can select a backup set by clicking the time displayed next to the <strong>Restore to Point-in-time</strong> option, and specify a point in time by dragging the slider control. Click <strong>Next</strong>.</p>
-<p><img alt="" src="../_images/db2_recovery_01.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. The restore target can be the source host or a different host. Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
 <ul class="simple">
-<li><p>Source host: The Restore Target page selects the source host by default.</p></li>
-<li><p>Different host: On the Restore Target page, you can select a different host. Restoring to a different host requires the same OS version and the same DB2 version.</p></li>
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
 </ul>
-<p>(4) Set <strong>Restore Schedule</strong>. Only immediate and one-time schedule types are supported.</p>
-<p>(5) Set <strong>Restore Options</strong>. You can set restore database, number of sessions, without Rolling forward in common options, and reconnection time, resumption buffer size, speed limit, precondition, pre/post action and serial restore in advanced options.</p>
-<p><strong>Restore database</strong>: You can overwrite the source database or create a new database. To overwrite the source database, leave the field blank; to restore to a new database, the following options will appear automatically when you fill out the field.</p>
-<ul class="simple">
-<li><p><strong>Database location</strong>: Set the location where the database manager stores database control files.</p></li>
-<li><p><strong>Log location</strong>: Set the location of the database active log files.</p></li>
-<li><p><strong>Non-automatic storage containers location</strong>: Set the location of the non-automatic storage containers. The option is displayed only when non-automatic storage tablespace containers exist in the database to be restored. It is required to modify all non-automatic storage container paths.</p></li>
-<li><p><strong>Automatic storage containers location</strong>: By checking Enable, set the database storage location where the database manager stores the automatic storage tablespace containers. When the container is a raw device, and no same raw device is available on the restore host, ADPS will automatically redirect and restore to DMS. You can create multiple storage containers locations by clicking the “<strong>+</strong>” icon.</p></li>
-</ul>
-<p><strong>Number of Sessions</strong>: Specify the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than that of host logical CPU.</p>
-<p><strong>Without Rolling forward</strong>: When you enable the option, the database will keep “Pending” after the timepoint restore job is executed successfully.</p>
-<p>(6)  Confirm the job information and submit the job.</p>
-</section>
-<section id="create-restore-archived-logs-jobs">
-<h3>Create Restore Archived Logs Jobs<a class="headerlink" href="#create-restore-archived-logs-jobs" title="Link to this heading">#</a></h3>
-<p>This restore type is applicable when you enable ARCHIVELOG. You can restore archived logs in the specified range to the database archive log directory of the source host or the different host.</p>
-<p>(1) Select the DB2 host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Restore Archived Logs</strong> as the restore type. Select the <strong>Database</strong> and <strong>Restore Branch</strong>.</p>
-<p><img alt="" src="../_images/db2_recovery_02.png" /></p>
-<p><strong>Log ranges</strong>: When you select <strong>Time Range</strong>, drag the slider control to specify a time range; when you select <strong>Log Sequence Range</strong>, select the range to start and end.</p>
-<p>(3) Set <strong>Restore Target</strong>. Select the source host or a different host as the restore target. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. Only immediate and one-time schedule types are supported. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>. It is required to set <strong>Archived Logs Destination</strong> in the common options. Click <strong>Next</strong>.</p>
-<p>(6) Set <strong>Job Name</strong> and confirm the job information. Click <strong>Submit</strong>.</p>
-</section>
-<section id="create-recovery-testing-jobs">
-<h3>Create Recovery Testing Jobs<a class="headerlink" href="#create-recovery-testing-jobs" title="Link to this heading">#</a></h3>
-<p>Recovery testing verifies the integrity and availability of the backup set. With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest DB2 backup set to another instance on the source host or a different host.</p>
-<p>(1) Select the DB2 host and instance. Click <strong>Next</strong>.</p>
-<p>(2) Select <strong>Recovery Testing</strong> and select the databases. You can specify the database name by clicking the <strong>Rename</strong> icon next to the selected database.</p>
-<p><img alt="" src="../_images/db2_recovery_03.png" /></p>
-<p>(3) Set <strong>Restore Target</strong>. Select the source host or a different host as the restore target. Click <strong>Next</strong>.</p>
-<p>(4) Set <strong>Restore Schedule</strong>. You can set an hourly, daily, weekly, or monthly schedule. Click <strong>Next</strong>.</p>
-<p>(5) Set <strong>Restore Options</strong>. Click <strong>Next</strong>.</p>
-<p>(6) Confirm the job information. Click <strong>Submit</strong>.</p>
-<p>(7) Wait for the job cycle to be executed. The job will restore the latest backup sets of the source host.</p>
-</section>
-</section>
-<section id="manage-jobs">
-<h2>Manage Jobs<a class="headerlink" href="#manage-jobs" title="Link to this heading">#</a></h2>
-<p>The Job page provides the job information of all agents. You can start, modify, and delete the jobs.</p>
-<p><img alt="" src="../_images/db2_job.png" /></p>
-<ul class="simple">
-<li><p>Start: Click <img alt="" src="../_images/db2_job_start.png" /> to start the job immediately.</p></li>
-<li><p>Modify: Click <img alt="" src="../_images/db2_job_modify.png" />to modify the basic job information, backup / restore schedule and options.</p></li>
-<li><p>Delete: Click <img alt="" src="../_images/db2_job_delete.png" /> to access the confirmation window. Click <strong>OK</strong> to delete the job.</p></li>
-</ul>
-</section>
-<section id="backup-protection-strategy">
-<h2>Backup Protection Strategy<a class="headerlink" href="#backup-protection-strategy" title="Link to this heading">#</a></h2>
-<section id="backup-schedule-operation">
-<h3>Backup Schedule Operation<a class="headerlink" href="#backup-schedule-operation" title="Link to this heading">#</a></h3>
-<p>ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.</p>
-<p><img alt="" src="../_images/db2_time01.png" /></p>
-<ul class="simple">
-<li><p>Immediate: The job immediately starts to run after it is submitted.</p></li>
-<li><p>One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.</p></li>
-<li><p>Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.</p></li>
-<li><p>Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.</p></li>
-<li><p>Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.</p></li>
-<li><p>Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.</p></li>
-</ul>
-<blockquote>
-<div><p><strong>Example: Run the job every two weeks on Friday at 18:00</strong></p>
-</div></blockquote>
-<blockquote>
-<div><p><img alt="" src="../_images/db2_time02.png" /></p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>The actual execution time will be</strong>:</p>
-<ul class="simple">
-<li><p>If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).</p></li>
-<li><p>If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).</p></li>
-<li><p>If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.</p></li>
-<li><p>After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="backup-strategy-advice">
-<h3>Backup Strategy Advice<a class="headerlink" href="#backup-strategy-advice" title="Link to this heading">#</a></h3>
-<p>There are five types to back up DB2: full backup, incremental backup, cumulative incremental backup, log backup, and automatic archiving log backup. Full backup, incremental backup/cumulative incremental backup, and log backup/automatic archiving log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.</p>
-<ol class="arabic simple">
-<li><p>When the application traffic is relatively small, run a <strong>Full Backup</strong> once a week to ensure that you have at least one recoverable RTO every week.</p></li>
-<li><p>After that, you can run an <strong>Incremental Backup</strong> every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.</p></li>
-<li><p>If the database supports log backup, you can run a <strong>Log Backup</strong> every few hours to ensure that the restore granularity RPO can reach the second level.</p></li>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, modify, and delete the job.</p></li>
 </ol>
-<blockquote>
-<div><p>Note:</p>
+</section>
+<section id="create-an-log-restore-job">
+<h3>Create an log restore job<a class="headerlink" href="#create-an-log-restore-job" title="Link to this heading">#</a></h3>
+<p>To create a log restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where DB2 resides and select the instance. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Log restore</strong>.</p>
+<p>(2) From the <strong>Database</strong> list, select a database for the restore job.</p>
+<p>(3) In the <strong>Restore branch</strong> list, select a branch for the restore job.</p>
+<p>(4) In the <strong>Log range</strong> section, specify a log range for the restore job.</p>
 <ul class="simple">
-<li><p>Avoid using the following strategies:</p>
-<ul>
-<li><p>Perform only full backups.</p></li>
-<li><p>Perform a full backup followed by all incremental or log backups.</p></li>
+<li><p>Select <strong>Time range</strong>. Drag the slider control to specify a time range.</p></li>
+<li><p>Select <strong>Log sequence range</strong>. Select the range to start and end.</p></li>
+</ul>
+<p>(5) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step. The restore target can be the source host or a different host.</p>
+<ul class="simple">
+<li><p><strong>Source host</strong>: The source host is selected by default.</p></li>
+<li><p><strong>Different host</strong>: Restoring to a different host requires the same OS versions and the same DB2 versions.</p></li>
 </ul>
 </li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
 </ul>
-</div></blockquote>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, modify, and delete the job.</p></li>
+</ol>
 </section>
-</section>
-<section id="parallelism-sessions-number-configuration">
-<h2>Parallelism/Sessions Number Configuration<a class="headerlink" href="#parallelism-sessions-number-configuration" title="Link to this heading">#</a></h2>
-<ul>
-<li><p>Parallelism/Sessions number for backup jobs</p>
-<p>DB2 supports up to 255 sessions. You can set the number of parallelism and sessions for backup jobs according to the actual environment. A reasonable number can improve job performance. It is recommended that the number of sessions is not greater than that of host logical CPU, and the number of parallelism is not greater than that of tablespaces.</p>
+<section id="create-a-recovery-testing-job">
+<h3>Create a recovery testing job<a class="headerlink" href="#create-a-recovery-testing-job" title="Link to this heading">#</a></h3>
+<p>To create a recovery testing job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where DB2 resides and select the instance. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Restore type</strong> list, select <strong>Recovery testing</strong>.</p>
+<p>(2) In the <strong>Restore source</strong> section, select databases for the restore job.</p>
+<p>(3) Click <strong>Next</strong>.</p>
 </li>
-<li><p>Parallelism/Sessions number for restore jobs</p>
-<p>The restore job does not provide the setting for the parallelism number. It is recommended that the sessions number is not greater than the number of host logical CPU.</p>
-</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step. The restore target supports other instances on the source or a different host.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Hourly</strong>. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).</p></li>
+<li><p>Select <strong>Daily</strong>. Set the start time and enter the time interval for job execution. The unit is day(s).</p></li>
+<li><p>Select <strong>Weekly</strong>. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.</p></li>
+<li><p>Select <strong>Monthly</strong>. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.</p></li>
 </ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, modify, and delete the job.</p></li>
+</ol>
+</section>
+<section id="restore-options">
+<h3>Restore options<a class="headerlink" href="#restore-options" title="Link to this heading">#</a></h3>
+<p>ADPS provides the following restore options for DB2:</p>
+<ul class="simple">
+<li><p>Common options:</p></li>
+</ul>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Restore database</p></td>
+<td><p>You can overwrite the source database or create a new database. To overwrite the source database, leave the field blank; to restore to a new database, fill out the field.</p></td>
+<td><p>Only available for point-in-time restore jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Database location</p></td>
+<td><p>Sets the location where the database manager stores database control files.</p></td>
+<td><p>Only available for point-in-time restore jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Non-automatic storage containers location</p></td>
+<td><p>Sets the location for the non-automatic storage containers. The option is displayed only when non-automatic storage tablespace containers exist in the database to be restored. It is required to modify all non-automatic storage container paths.</p></td>
+<td><p>Only available for point-in-time restore jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Automatic storage containers location</p></td>
+<td><p>Sets the database storage location where the database manager stores the automatic storage tablespace containers. When the container is a raw device, and no same raw device is available on the restore host, ADPS will automatically redirect and restore to DMS. You can create multiple storage containers locations by clicking the “+” icon.</p></td>
+<td><p>Only available for point-in-time restore jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sessions</p></td>
+<td><p>Specifies the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than that of the host logical CPU.</p></td>
+<td><p>Only available for pint-in-time restore and recovery testing jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Without rolling forward</p></td>
+<td><p>When you enable the option, the database will keep “Pending” after the point-in-time restore job is executed successfully.</p></td>
+<td><p>Only available for recovery testing jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Archive log destination</p></td>
+<td><p>Sets the archive directory path for restoring archive log files. This directory is a required field.</p></td>
+<td><p>Only available for log restore jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restart instance after recovery</p></td>
+<td><p>Selects to restart the instance or not after the restore job is completed.</p></td>
+<td><p>Only available for recovery testing jobs.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options:</p></li>
+</ul>
+<table class="longtable table" id="id5">
+<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
-<table class="longtable table" id="id3">
-<caption><span class="caption-text">Limitation</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<table class="longtable table" id="id6">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Function</p></th>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Limitations</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Backup</p></td>
-<td><p>To log in to the DB2 database via the OS authentication method, Linux requires the DB2 instance user account whereas Windows requires a Windows administrator account. If you want to log in to the database using the domain user on Windows, fill in the domain name to successfully log in to the database resource and back up the databases.</p></td>
+<td><p>To log in to the DB2 database via the OS authentication method, use the DB2 instance user account on Linux; while on Windows use the Windows administrator account. If you want to log in to the database using the domain user on Windows, fill in the domain name to successfully log in to the database resource and back up the databases.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="glossary">
 <h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h2>
-<table class="longtable table" id="id4">
-<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<table class="longtable table" id="id7">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
 <th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Fast Compression</p></td>
-<td><p>Compress data during backup using fast compression algorithms.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Log truncation</p></td>
-<td><p>Log truncation can remove inactive virtual log files from the logical transaction logs in a DB2 database to free up space in the logical logs for reuse by the physical transaction logs.</p></td>
+<tr class="row-even"><td><p>fast compression</p></td>
+<td><p>A compression method that uses fast compression algorithms to compress data during the backup job.</p></td>
 </tr>
 </tbody>
 </table>
@@ -925,55 +994,38 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent">Install and Configure Agent</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-compatibility">Verify Compatibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-agent-package">Download Agent Package</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-linux-os">Install and Configure Agent on Linux OS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-agent-on-windows-os">Install and Configure Agent on Windows OS</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-windows-installation-package">Download Windows Installation Package</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent-on-windows">Install Agent on Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-successful-installation">Check Successful Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license-and-authorize-user">Activate License and Authorize User</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-host">Register Host</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-license">Activate License</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorize-user">Authorize User</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-resource">Log in to the resource</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before You Begin</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-database-state">Check Database State</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-resource">Check Resource</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-storage-pool">Check Storage Pool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-login">First Time Login</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-backup-jobs">Create Backup Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-full-backup-jobs">Create Full Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-incremental-backup-cumulative-incremental-backup-jobs">Create Incremental Backup / Cumulative Incremental Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-log-backup-jobs">Create Log Backup Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-automatic-archiving-log-backup-jobs">Create Automatic Archiving Log Backup Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-types">Restore types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-point-in-time-restore-job">Create a point-in-time restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-log-restore-job">Create an log restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-recovery-testing-job">Create a recovery testing job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-jobs">Create Restore Jobs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-timepoint-restore-jobs">Create Timepoint Restore Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-restore-archived-logs-jobs">Create Restore Archived Logs Jobs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-recovery-testing-jobs">Create Recovery Testing Jobs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-jobs">Manage Jobs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-protection-strategy">Backup Protection Strategy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-schedule-operation">Backup Schedule Operation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-strategy-advice">Backup Strategy Advice</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelism-sessions-number-configuration">Parallelism/Sessions Number Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
 </ul>

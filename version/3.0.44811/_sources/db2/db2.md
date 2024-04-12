@@ -1,459 +1,557 @@
 # User Guide for DB2
 
-## Introduction
+## Overview
 
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of DB2 databases. This guide introduces how to properly use ADPS to back up and restore DB2 databases.
+This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore DB2.
 
-## Features
-```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
+The backup and restore features supported by ADPS include:
+
+- Backup sources
+
+	Database (single or multiple)
+
+- Backup types
+
+	Full backup, incremental backup, cumulative incremental backup, log backup, and log backup (on demand)
+
+- Backup targets
+
+	Standard storage pool, deduplication storage pool, local storage pool, tape library pool, object storage pool, and LAN-free pool
+
+- Backup schedules
+
+	Immediate, one-time, hourly, daily, weekly, and monthly
+
+- Data processing
+
+	Data compression, data encryption, sessions, parallelism, reconnection, speed limit, and replication
+
+- Restore types
+
+	Point-in-time restore, log restore, and recovery testing
+
+- Restore targets
+
+	Source host and different host
+
+## Planning and preparation
+
+Before you install the agent, check the following prerequisites:
+
+1. You have already installed and configured other backup components, including the backup server and the storage server.
+2. You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.
+
+```{note}
+The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).
 ```
-```{table} Features
+
+## Install and configure the agent
+
+To back up and restore DB2, first install the ADPS agent on the host where DB2 resides.
+
+### Verify the compatibility
+
+Before you install the agent, ensure that the environment of the host where DB2 resides is on the Aurreum Data Protection Suite's compatibility lists.
+
+ADPS supports the backup and restore of DB2 on multiple systems, including:
+
+- Windows 2003/2008/2008 R2/2012
+- Linux 6/7/8
+- AIX 6.1/7.1
+
+Supported DB2 versions include:
+
+- DB2 8.1/9.1/9.5/9.7/10.1/10.5/11.1
+
+### Install the agent
+
+The ADPS agent can be installed on Windows and Linux. You can select the installation method according to your environment.
+
+#### Windows
+
+To install the agent, do the following:
+
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
+
+	(1) From the **Select system** list, select **Windows**.
+
+	(2) From the **Select file** list, select the package that you want to install.
+
+	(3) Click **Download**.
+
+5. Upload the package to the Windows host.
+6. Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click **Next**.
+7. At the **Select components** step, select **DB2** from the component list. Click **Next**.
+8. At the **Configure Aurreum Data Protection Suite agent** step, enter the following:
+
+	(1) In the **Backup server address** field, enter the IP or domain name of the backup server.
+
+	(2) In the **Backup server port** field, enter the port number. The default value is 50305. If you enable the **Use SSL secure connection** option, enter 60305 in the **Backup server port** field.
+
+	(3) The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
+
+	(4) Click **Next**.
+
+	```{note}
+	To get the access key of the user/tenant:
+	1. Log in to the ADPS console.
+	2. On the upper right corner, click your avatar, and go to **Personal settings** > **Account settings**.
+	3. On the **Preference** tab, click **View** to get the access key of the current user/tenant.
+	```
+	
+9. Confirm the **Destination folder** or specify another folder. Click **Next**.
+10. Wait for the installation to complete.
+
+#### Linux
+
+For Linux OS, ADPS agent supports online and offline installation. We recommend online installation.
+
+1. Online installation:
+	ADPS provides `curl` and `wget` commands for installation.
+2. Offline installation:
+	See [Offline installation](../agent_install/agent_install.md#offline-installation) in Aurreum Data Protection Suite Agent Installation Guide.
+
+To install the agent online, do the following:
+
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
+
+	(1) From the **Select system** list, select **Linux**.
+
+	(2) From the **Component** list, select **DB2**. The `curl` and `wget` commands appear in the window.
+
+	(3) If you want to delete the downloaded package automatically after the installation, select the **Delete installation package** checkbox.
+
+	(4) If you enable **Ignore SSL errors**, the installation will ignore certificate errors and so on. If you disable the feature, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.
+
+5. Click the **Copy** icon to copy the `curl` or `wget` command.
+6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
+
+  ```{code-block} python
+    [root@localhost ~]# curl -o- "http://192.168.18.57:50305/d2/update/script?modules=db2&location=http%3A%2F%2F192.168.18.57%3A50305&access_key=b448e47a5e5ae07c5a4a77bf97c383f5&rm=&tool=curl" | sh
+  ```
+
+7. Wait for the installation to complete.
+
+## Activate licenses and authorize users
+
+After the agent installation, go back to the **Resource** page. The host with the agent installed appears on the page. Before you back up and restore DB2, register the host, activate the backup license, and authorize users.
+
+To activate licenses and authorize users, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. On the **Resource** page, select the host where DB2 resides. Click the **Register** icon. After the registration, the **Activate** window appears. 
+
+3. In the **Activate** window, select the DB2 backup license, and click **Submit**. After the activation, the **Authorize** window appears.
+
+4. In the **Authorize** window, do the following:
+
+	(1) In the **Name** field, enter a name for the host.
+	
+	(2) From the **Data network** list, select a network from those added on the **Network** page as the data network.
+	
+	(3) In the **Preferred egress network** field, enter an IP address for the preferred network traffic egress of the host's backup data. IPv4 and IPv6 are supported.
+	
+	(4) From the **User group** list, select user groups to authorize access to the resource.
+	
+	(5) Set the resource as **Protected** or not. The **Protected** resource cannot be the restore target or the data replication target unless the administrator removes the **Protected** label.
+
+	```{note}
+	1. If you are prompted with "No enough licenses", contact the administrator to add licenses.
+	2. With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
+	```
+
+## Backup
+
+### Backup types
+
+ADPS provides five common backup types for DB2:
+
+- Full backup
+
+	Backs up all data in one or more databases, including corresponding archive logs for data restore.
+
+- Incremental backup
+
+	Backs up only the data that has changed since the last backup with the last backup as the baseline. 
+  
+- Cumulative incremental backup
+
+	Backs up only the data that have changed since the last full backup with a full backup as the baseline.
+
+- Log backup
+
+	Backs up the newly generated archive files of the current database. It requires enabling either the LOGRETAIN or DISK archiving method in the database.
+
+- Log backup (on demand)
+
+	When a log backup (on demand) job is created, it will remain in an idle state. If new archive files are generated locally in the database, the job will be triggered automatically. Before a log backup (on demand) job is created, you need to perform a full backup first, and enable the DISK archiving method in the database.
+
+```{note}
+- You can only initiate either a log backup or a log backup (on demand) job at a time. It is not possible to initiate both simultaneously.
+```
+
+### Backup policies
+
+ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Immediate: ADPS will immediately start the job after it is created.
+- One-time: ADPS will perform the job at the specified time once only.
+- Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.
+- Daily: ADPS will perform the job periodically at the specified time and day intervals.
+- Weekly: ADPS will perform the job periodically at the specified time and week intervals.
+- Monthly: ADPS will perform the job periodically at the specified dates and times.
+
+You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:
+
+1. Perform a **full backup** based on requirements. For example, perform a full backup job once every Sunday.
+2. Perform a **full backup** on Sunday and **incremental backup** daily from Monday to Saturday. If data corruption occurs on Saturday, the full backup from Sunday along with all incremental backups from Monday through Friday are used for restore. The restore job restores the full backup from Sunday first, followed by incremental backups from Monday to Friday, which involves a total of six restores. This backup strategy requires less time for data backup but more time for data restore. 
+3. Perform a **full backup** on Sunday and **cumulative incremental backup** from Monday to Saturday. If data corruption occurs on Saturday, the full backup from Sunday along with all cumulative incremental backups from Monday through Friday are used for restore. The restore job restores the full backup from Sunday first, followed by cumulative incremental backups from Monday to Friday, which involves a total of two restores. This backup strategy requires less time for data backup but more time for data restore. 
+3. Perform a **log backup** hourly to ensure that you have a second-level point in time available.
+
+### Before you begin
+
+Before you back up and restore DB2, check the following:
+
+1. Check the DB2 instance status
+
+	(1) The DB2 database service should be in the “Active – Up” status for backup and restore.
+
+  ```{only} scutech
+  ![](../images/Backup_Restore/DBackup3/DB2/db2_service.png)
+  ```
+
+2. Check storage pools
+
+	(1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
+
+	(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
+
+
+### Log in to the resource
+
+Before you create a backup or restore job, log in to the DB2 resource on the console. ADPS provides two authentication methods for DB2:
+
+- Database authentication
+
+	You can use the DB2 installation user account of the operating system to log in to the resource.
+
+- Access Key
+
+	You can use the access key of the ADPS user who is authorized with access to the resource. This method is suitable for the following scenarios:
+
+	- You cannot get the OS user's username and password.
+	- The user's password changes frequently.
+
+	```{note}
+	1. Access key authentication is not enabled by default. To enable this feature, log in to the ADPS console, go to **Settings**, open the **Security** tab, and select the **Access key login instance** checkbox.
+	2. To get the access key, log in to the console, click **Personal settings** > **Account settings** on the upper right corner, find **Access key** on the **Preferences** tab, and click **View**.
+	```
+
+To log in to the resource, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+
+2. From the host list, find the host where DB2 resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.
+
+3. Click **Login** beside the resource. The **Login** window appears.
+
+4. In the **Login** window, select an authentication method according to your needs.
+
+	- Select **Database authentication**, enter the **Username** and **Password**, and click **Login**.
+	- Select **Access key**, enter the access key of the current ADPS user, and click **Login**.
+	
+5. If your information is correct, you will be prompted that you have logged in to the resource successfully.
+
+## Create a backup job
+
+To create a backup job, do the following:
+
+1. From the menu, click **Backup**. The backup job wizard appears.
+
+2. At the **Hosts and resources** step, select the host where DB2 resides and select the instance. The wizard goes to the next step automatically.
+
+3. At the **Backup source** step, do the following:
+
+	(1) From the **Backup type** list, select a backup type.
+
+	(2) In the **Backup source** section, select the databases that you want to back up.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/DB2/db2_backup_01.png)
+	```
+	
+	```{note}
+	To back up multiple databases at a time, select databases with the same code page settings. 
+	```
+	
+4. At the **Backup target** step, select a storage pool. Click **Next**.
+
+	```{note}
+   Incremental backups, cumulative incremental backups and log backups must have the same backup target as their baseline backups.
+	```
+   
+5. At the **Backup schedule** step, set the job schedule. For details, see [Backup policies](#backup-policies). Click **Next**.
+
+	- Select **Immediate**. ADPS performs the job immediately after it is created.
+	- Select **One time** and set the start time for the job.
+	- Select **Hourly**. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
+
+6. At the **Backup options** step, set the common and advanced options according to your needs. For details, see [Backup options](#backup-options). Click **Next**.
+
+```{only} scutech
+![](../images/Backup_Restore/DBackup3/DB2/db2_backup_02.png)
+```
+
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+
+8. After the submission, you will be redirected to the **Job** page automatically. On this page, you can start, modify, and delete the job.
+
+### Backup options
+
+ADPS provides the following backup options for DB2:
+
+- Common options
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Backup common options
 ---
 class: longtable
 ---
-| Feature                             | Description                                                  |
-| ----------------------------------- | ------------------------------------------------------------ |
-| Backup type                         | Full backup, incremental backup, cumulative incremental backup, automatic archiving log backup, log backup |
-| Backup source                       | Database (single, multiple)                                  |
-| Backup target                       | Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool |
-| Reconnection time                   | The job continues after the abnormal reset occurs in the network within the set time. The default value is 10 minutes. |
-| Backup compression                  | Fast, none, tunable                                          |
-| Backup schedule                     | Immediate, one time, minutely, hourly, daily, weekly, monthly |
-| Restore type                        | Timepoint restore, restore archived logs, recovery testing   |
-| Restore location                    | Original path, custom path                                   |
-| Restore granularity                 | Entire database                                              |
-| Restore to different hosts          | Restoring to a different host requires the same OS and database versions. |
-| Disaster recovery                   | Restore a single or multiple databases to the latest backup state simultaneously |
-| Storage pool replication            | Replicate backup sets from the source storage pool to another pool |
-| Restore from target pools           | Restore backup sets from the target storage pool             |
-| Pre/Post action                     | The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored. |
-| Stop jobs                           | Stop backup and restore jobs                                 |
-| Speed limit                         | Limit data transfer speed or disk read and write speed at different times |
-| D2C                                 | Back up data directly to the object storage                  |
-| D2T                                 | Back up data directly to the tape libraries                  |
-| LAN-Free                            | Back up to and restore from LAN-Free storage pools           |
-| Modify the backup source and target | Modify the backup source and backup target of a job          |
-| IPv6                                | Transfer and manage data over IPv6 network                   |
-| Access key login                    |  Login with Access Key is supported     |
-```
-## Install and Configure Agent
-
-### Verify Compatibility
-
-Before deploying the agent, check whether your operating system (OS) and database version are supported. See the following information for mainly supported database and OS versions:
-
-- DB2 version: 8.1/9.1/9.5/9.7/10.1/10.5/11.1
-
-- OS version:
-  - Windows 2003/2008/2008 R2/2012
-  - Linux 6/7/8
-  - AIX 6.1/7.1
-
-
-### Download Agent Package
-
-Log in to ADPS console as the admin. Click **Resource** -> **Install Agent** icon and download the installation packages according to your needs.
-
-![db2_agent01](../images/01-agent/db2/db2_agent01.png)
-
-###  Install and Configure Agent on Linux OS
-
-1. Select **Linux** as the system and **DB2** as the module. Copy an installation command.
-
-![](../images/01-agent/db2/db2_agent02.png)
-
-2. Paste and run the command in the terminal of the target host to execute the installation.
-
-```
-  [root@kylinv10x86 ~]# curl -o- "http://192.168.18.57:50305/d2/update/script?modules=file&location=http%3A%2F%2F192.168.18.57%3A50305&access_key=b448e47a5e5ae07c5a4a77bf97c383f5&rm=&tool=curl" | sh
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  7912    0  7912    0     0  3863k      0 --:--:-- --:--:-- --:--:-- 3863k
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 57.2M  100 57.2M    0     0  22.1M      0  0:00:02  0:00:02 --:--:-- 24.8M
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 6175k  100 6175k    0     0  97.2M      0 --:--:-- --:--:-- --:--:-- 97.2M
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  814k  100  814k    0     0  9465k      0 --:--:-- --:--:-- --:--:-- 9465k
-warning: adps-common-V3.0.44811-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
-Verifying...                          ################################# [100%]
-Preparing...                          ################################# [100%]
-	package adps-common-V3.0.44811-1.1eebb99.dbg.x86_64 is already installed
-warning: adps-agent-V3.0.44811-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
-Verifying...                          ################################# [100%]
-Preparing...                          ################################# [100%]
-	package adps-agent-V3.0.44811-1.1eebb99.dbg.x86_64 is already installed
-warning: adps-agent-file-V3.0.44811-1.b6392da.dbg.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID 378aae6a: NOKEY
-Verifying...                          ################################# [100%]
-Preparing...                          ################################# [100%]
-	package adps-agent-file-V3.0.44811-1.1eebb99.dbg.x86_64 is already installed
-Restarting adps-agent (via systemctl):  [  OK  ]
-[root@kylinv10x86 ~]#
+|Option|Description|Limitations|
+| --- | --- | --- |
+|Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Uses the fast compression algorithms to compress data during the backup job.||
+|When the database is in NOARCHIVELOG mode|It only appears when the database is configured archive logging, and the following operations are provided for the backup job: {{ br }}- Send an alert message and cancel the job {{ br }}- Allow offline backup {{ br }}- Enable ARCHIVELOG  |Only available for full, incremental and cumulative incremental backup jobs.|
+|Log archive method|Enables log archive method for the databases to be backed up.|Only available for log backup (on demand) jobs.|
+|Delete archive logs|ADPS provides the following methods to remove archive logs:{{ br }}- Delete all backed-up archive logs. {{ br }}- Delete archive logs in the last X days/hours. {{ br }}- Do not delete archive logs.||
+|Incremental Backup|It modifies the database "trackmod" parameter to "Yes", which allows the database to perform incremental backups. The first incremental backup will be an offline backup.|Only available for full backup jobs.|
+|Sessions|Specifies the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than the number of logical CPU cores on the host.||
+|Parallelism| Defines the number of tablespaces to be read in parallel, and assigns each process or thread to a tablespace. It is recommended that the number of parallelism is not greater than the number of tablespaces in the database.||
 ```
 
-   ### Install and Configure Agent on Windows OS
+- Advanced options
 
-   #### Download Windows Installation Package
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Backup advanced options
+---
+class: longtable
+---
+|Option|Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+```
 
-In the **Install agent** window, select **Windows** and click **Download Windows agent** to download the package.
+## Restore
 
-   ![](../images/01-agent/db2/db2_install01.png)
+### Restore types
 
-   #### Install Agent on Windows
+For different needs, ADPS provides several restore types for DB2, including:
 
-   1. Upload the installation package to the target host.
+- Point-in-time restore
 
- 2. Double-click the package to launch the setup wizard and click **Next**.
+	When a logical error or disaster occurs in a database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state. Restoring to the source or a different host is supported.
 
-   3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the **DB2** component and click **Next**.
+- Log restore
 
-      ![](../images/01-agent/db2/db2_windows_install02.png)
+	Restores archived log files within a specified range to either the original or a remote database's archive log directory. This restore type is applicable to the databases with archive logging configured.
 
-   4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
+- Recovery testing
 
-      ![](../images/01-agent/db2/db2_windows_install01.png)
+	Restores the latest backup sets to another instance on the source host or to another host hourly, daily, weekly, and monthly.
 
-   5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
+### Before you begin
 
-### Check Successful Installation
+To restore DB2 to a different host, install the agent on that host, activate the licenses, and authorize user access to the resource.
 
-After the successful installation, log in to ADPS console as the admin and go to the **Resource** page. The host with the agent installed will be available on the Resource list.
+### Create a point-in-time restore job
 
-![](../images/01-agent/db2/db2_agent04.png)
+To create a point-in-time restore job, do the following:
 
-## Activate License and Authorize User
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first, then carry out activation and authorization in batches. See *Batch Register/Activate/Authorize* from *Administrator's Guide* for more details.
+2. At the **Hosts and resources** step, select the host where DB2 resides and select the resource. The wizard goes to the next step automatically.
 
-### Register Host
+3. At the **Backup sets** step, do the following:
 
-Log in to ADPS console as the admin, go to **Resource**, and select the host that you want to activate. Click the **Register** icon.
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/DB2/db2_timepoint_restore_01.png)
+	```
 
-![](../images/01-agent/db2/db2_agent05.png)
+	(1) From the **Restore type** list, select **Point-in-time restore**.
 
-### Activate License
+	(2) From the **Database** list, select a database for the restore job.
 
-In the pop-up **Activate** window, select the resource that you want to activate. Click **Submit**.
+	(3) In the **Restore to point in time** section, specify a point in time for the restore job.
 
-![](../images/01-agent/db2/db2_agent06.png)
+	To specify a point in time for the restore, you can click the time beside the slider control and enter a point in time, or you can drag the slider to specify a point in time.
 
-### Authorize User
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step.
 
-After the activation, authorize users to operate the resource in the pop-up **Authorize** window.
+	The restore target can be the source host or a different host.
+	- **Source host**: The source host is selected by default.
+	- **Different host**: Restoring to a different host requires the same OS versions and the same DB2 versions.
 
-![](../images/01-agent/db2/db2_agent07.png)
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-## Before You Begin
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-### Check Database State
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
 
-Check the DB2 service state. The DB2 database service should be in the "Active -- Up" state for backup and restore.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
-![](../images/01-agent/db2/db2_agent18.png)
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-### Check Resource
+### Create an log restore job
 
-Log in to ADPS console as the operator and go to **Resource**. You can see the activated and authorized resource with an "Online" state on the list. Please check *Activate License and Assign Authorization* if the resource is unavailable.
+To create a log restore job, do the following:
 
-![](../images/01-agent/db2/db2_agent08.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-### Check Storage Pool
+2. At the **Hosts and resources** step, select the host where DB2 resides and select the instance. The wizard goes to the next step automatically.
 
-Log in to ADPS console as the operator, go to **Storage Pool**, and verify the presence of storage pools. If no storage pool is available, please contact the admin to create one and assign permissions to the operator.
+3. At the **Backup sets** step, do the following:
 
-![](../images/01-agent/db2/db2_agent09.png)
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/DB2/db2_log_restore_01.png)
+	```
 
-## First Time Login
+	(1) From the **Restore type** list, select **Log restore**.
 
-1. Before creating the first DB2 backup and restore, go to **Resource** and click **Login** next to the resource to log in to DB2.
+	(2) From the **Database** list, select a database for the restore job.
 
-![](../images/01-agent/db2/db2_agent10.png)
+	(3) In the **Restore branch** list, select a branch for the restore job.
 
-2. You can use **OS Authentication** or **Access Key** to log in to your DB2 database.
+	(4) In the **Log range** section, specify a log range for the restore job.
 
-- **OS Authentication**: For OS account login requirements, see *Limitation*.
-- **Access Key**: Log in with Access Key tied to the user who has been authorized the resource. Data security risks exist when backup and restore jobs are carried out without the database password.
+	- Select **Time range**. Drag the slider control to specify a time range.
+	- Select **Log sequence range**. Select the range to start and end.
+	
+	(5) Click **Next**.
+	
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The restore target can be the source host or a different host.
+
+   - **Source host**: The source host is selected by default.
+   - **Different host**: Restoring to a different host requires the same OS versions and the same DB2 versions.
+
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
+
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
+
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
+
+### Create a recovery testing job
+
+To create a recovery testing job, do the following:
+
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the host where DB2 resides and select the instance. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
+
+	(1) From the **Restore type** list, select **Recovery testing**.
+	
+	(2) In the **Restore source** section, select databases for the restore job. 
+	
+	(3) Click **Next**.
+
+```{only} scutech
+![](../images/Backup_Restore/DBackup3/DB2/db2_recovery_testing_01.png)
+```
+
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The restore target supports other instances on the source or a different host.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
+
+	- Select **Hourly**. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
+
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
+
+### Restore options
+
+ADPS provides the following restore options for DB2:
+
+- Common options:
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Option |Description|Limitations|
+| --- | --- | --- |
+|Restore database|You can overwrite the source database or create a new database. To overwrite the source database, leave the field blank; to restore to a new database, fill out the field.|Only available for point-in-time restore jobs.|
+|Database location|Sets the location where the database manager stores database control files.|Only available for point-in-time restore jobs.|
+|Non-automatic storage containers location|Sets the location for the non-automatic storage containers. The option is displayed only when non-automatic storage tablespace containers exist in the database to be restored. It is required to modify all non-automatic storage container paths.|Only available for point-in-time restore jobs.|
+|Automatic storage containers location| Sets the database storage location where the database manager stores the automatic storage tablespace containers. When the container is a raw device, and no same raw device is available on the restore host, ADPS will automatically redirect and restore to DMS. You can create multiple storage containers locations by clicking the “+” icon.|Only available for point-in-time restore jobs.|
+|Sessions|Specifies the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than that of the host logical CPU.|Only available for pint-in-time restore and recovery testing jobs.|
+|Without rolling forward|When you enable the option, the database will keep “Pending” after the point-in-time restore job is executed successfully.|Only available for recovery testing jobs.|
+|Archive log destination|Sets the archive directory path for restoring archive log files. This directory is a required field.|Only available for log restore jobs.|
+|Restart instance after recovery|Selects to restart the instance or not after the restore job is completed.|Only available for recovery testing jobs.|
+```
+
+- Advanced options:
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Option |Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+```
 
-3. Select **Authentication**. Enter **User** and **Password**. Click **Login**.
-
-![](../images/01-agent/db2/db2_agent11.png)
-
-> Note:
->
-> - To use the Access Key authentication, it is required that the admin enable the Access Key Login Instance option in Settings -> Security.
->
-> ![](../images/01-agent/db2/db2_agent20.png)
-
-## Create Backup Jobs
-
-This chapter introduces how to back up DB2 databases.
-
-### Prerequisites
-
-- The agent has been installed. For installation, see *Install and Configure Agent*.
-- The license has been activated, and the resource has been authorized to users. For details, see *Activate License and Authorize User*.
-- Log in to the ADPS console as the *operator* with resource permissions.
-
-### Create Full Backup Jobs
-
-(1) Click **Backup**. Select the DB2 host and instance.
-
-(2) Select **Full** as the backup type and choose the databases to be backed up.
-
->  Note:
->
->  - To back up multiple databases simultaneously, select databases with the same code page setting.
->
->    ![](../images/01-agent/db2/db2_agent12.png)
-
-(3) Select **Backup Target**. You can choose a standard storage pool, de-duplication storage pool, tape library pool, object storage service pool, and LAN-Free pool.
-
->  Note:
->
->  - It is not supported to store full backups, incremental backups/cumulative incremental backups, and log backups in different storage pools.
-
-(4) Go to **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis.
-
-(5) Set **Backup Options**, including common and advanced options.
-
-- **Common options**:
-
-![](../images/01-agent/db2/db2_agent13.png)
-
-**Compression**: **Fast** is enabled by default.
-
-- None: No data compression during the backup.
-- Tunable: You can customize the compression level, which requires the activated feature of Advanced Compression.
-- Fast: Use the fast compression algorithms during the backup.
-
-**Reserve Archive Logs**: Set the retention policy for archive logs. You can choose to delete, retain all archive logs, or choose how long to retain archive logs before the automatic deletion.
-
-**Number of Parallelism**: Define the number of tablespaces to be read in parallel, and assign each process or thread to the tablespace. It is recommended that the number of parallelism is not greater than the number of tablespaces in the database.
-
-**Number of Sessions**: Specify the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than the number of the host logical CPU.
-
-![](../images/01-agent/db2/db2_agent19_en.png)
-
-- **Advanced options**:
-
-![](../images/01-agent/db2/db2_agent14.png)
-
-**Reconnection Time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
-
-**Speed Limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
-
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
-
-**Pre/Post Action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-(6) Set the **Job Name** and confirm the job information. Click **Submit**.
-
-### Create Incremental Backup / Cumulative Incremental Backup Jobs
-
-It is generally recommended to create full backups regularly (such as weekly) or create incremental backups / cumulative incremental backups at short intervals (such as daily) so that you have at least one recoverable point in time every day.
-
-- Creating an incremental backup or a cumulative incremental backup is the same as creating a full backup. Select **Incremental Backup** / **Cumulative Incremental Backup** as the backup type and choose databases.
-
-  ![](../images/01-agent/db2/db2_agent15.png)
-
-  > Note:
-  >
-  > - If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup / cumulative incremental backup will be performed as a full backup by default.
-
-### Create Log Backup Jobs
-
-Based on periodic full and incremental backups, you can also add frequent log backups to back up only the binary logs of the database. The appropriate log backup frequency depends on the balance between your tolerance for the risk of work loss and the number of log backups you can store, manage, and potentially restore. Performing a log backup every 15 to 30 minutes may be sufficient. But if your business requires minimizing the risk of work loss, consider running more frequent log backups. More frequent log backups also increase the frequency of log truncation, making log files smaller.
-
-- Creating a log backup is similar to creating a full backup. Select **Log** as the backup type and choose databases.
-
-  ![](../images/01-agent/db2/db2_agent16.png)
-
-### Create Automatic Archiving Log Backup Jobs
-
-When you create an automatic archiving log backup job, the job will be in an idle state. The job will be executed when the logical logs get full or when you manually execute the log switch command.
-
-You can only create one automatic archiving log backup job on one database instance. Delete the old automatic archiving log backup job first before creating a new automatic archiving log backup job.
-
-- Creating an automatic archiving log backup job is the same as creating a full backup job. Select **On Demand** as the backup type.
-
-![](../images/01-agent/db2/db2_agent17.png)
-
->Note:
->- Prerequisites for an automatic archiving log backup job:
->   - You have executed a full backup job and the full backup set exists;
->   - You have selected to archive log files to disk for the database. For example: LOGARCHMETH1 = DISK:/home/db2inst1/arch
->- Differences between log backup and automatic archiving log backup:
->   - The database server triggers an automatic archiving log backup when the logical logs are full or when you manually execute the log switch command. To avoid the constant log archiving failures and database hang issues due to the inaccessible storage server, it is recommended that FAILARCHPATH should also be configured for the database when you create the automatic archiving log backup.
->   - A log backup is initiated and executed by ADPS, and is generally set to execute periodically.
->- Log backups and automatic archiving log backups do not back up database schema. If a new table is created and only log backups are performed later instead of the database-level backups (full backups, incremental backups, and cumulative incremental backups), the new table data cannot be restored. Therefore, it is not suggested that only one database-level backup be performed followed by log backups/automatic archiving log backups. For backup strategy details, see *Backup Protection Strategy*.
-
-## Create Restore Jobs
-
-This chapter introduces how to restore DB2 databases. ADPS provides a variety of restore types for different needs, including timepoint restore, restore archived logs, and recovery testing.
-
-### Prerequisites
-
-- A backup job has been completed successfully. See *Create Backup Jobs*.
-- To restore to another host, install the agent on that host, activate its license, and assign the resource to users.
-
-### Create Timepoint Restore Jobs
-
-When a logical error or a disaster occurs in a DB2 database, timepoint restore allows you to restore the database to a specified point-in-time state.
-
-(1) Select the DB2 **Host** and **Instance**. Click **Next**.
-
-(2) Select **Timepoint Restore** as the restore type, and select the **Database**. You can select a backup set by clicking the time displayed next to the **Restore to Point-in-time** option, and specify a point in time by dragging the slider control. Click **Next**.
-
-![](../images/01-agent/db2/db2_recovery_01.png)
-
-(3) Set **Restore Target**. The restore target can be the source host or a different host. Click **Next**.
-
-- Source host: The Restore Target page selects the source host by default.
-- Different host: On the Restore Target page, you can select a different host. Restoring to a different host requires the same OS version and the same DB2 version.
-
-(4) Set **Restore Schedule**. Only immediate and one-time schedule types are supported.
-
-(5) Set **Restore Options**. You can set restore database, number of sessions, without Rolling forward in common options, and reconnection time, resumption buffer size, speed limit, precondition, pre/post action and serial restore in advanced options.
-
-**Restore database**: You can overwrite the source database or create a new database. To overwrite the source database, leave the field blank; to restore to a new database, the following options will appear automatically when you fill out the field.
-
-- **Database location**: Set the location where the database manager stores database control files.
-- **Log location**: Set the location of the database active log files.
-- **Non-automatic storage containers location**: Set the location of the non-automatic storage containers. The option is displayed only when non-automatic storage tablespace containers exist in the database to be restored. It is required to modify all non-automatic storage container paths.
-- **Automatic storage containers location**: By checking Enable, set the database storage location where the database manager stores the automatic storage tablespace containers. When the container is a raw device, and no same raw device is available on the restore host, ADPS will automatically redirect and restore to DMS. You can create multiple storage containers locations by clicking the "**+**" icon.
-
-**Number of Sessions**: Specify the number of parallel data streams used to write data. It is recommended that the number of sessions is not greater than that of host logical CPU.
-
-**Without Rolling forward**: When you enable the option, the database will keep "Pending" after the timepoint restore job is executed successfully.
-
-(6)  Confirm the job information and submit the job.
-
-### Create Restore Archived Logs Jobs
-
-This restore type is applicable when you enable ARCHIVELOG. You can restore archived logs in the specified range to the database archive log directory of the source host or the different host.
-
-(1) Select the DB2 host and instance. Click **Next**.
-
-(2) Select **Restore Archived Logs** as the restore type. Select the **Database** and **Restore Branch**.
-
-![](../images/01-agent/db2/db2_recovery_02.png)
-
-**Log ranges**: When you select **Time Range**, drag the slider control to specify a time range; when you select **Log Sequence Range**, select the range to start and end.
-
-(3) Set **Restore Target**. Select the source host or a different host as the restore target. Click **Next**.
-
-(4) Set **Restore Schedule**. Only immediate and one-time schedule types are supported. Click **Next**.
-
-(5) Set **Restore Options**. It is required to set **Archived Logs Destination** in the common options. Click **Next**.
-
-(6) Set **Job Name** and confirm the job information. Click **Submit**.
-
-### Create Recovery Testing Jobs
-
-Recovery testing verifies the integrity and availability of the backup set. With the hourly, daily, weekly, or monthly schedule, you can use recovery testing to restore the latest DB2 backup set to another instance on the source host or a different host.
-
-(1) Select the DB2 host and instance. Click **Next**.
-
-(2) Select **Recovery Testing** and select the databases. You can specify the database name by clicking the **Rename** icon next to the selected database.
-
-![](../images/01-agent/db2/db2_recovery_03.png)
-
-(3) Set **Restore Target**. Select the source host or a different host as the restore target. Click **Next**.
-
-(4) Set **Restore Schedule**. You can set an hourly, daily, weekly, or monthly schedule. Click **Next**.
-
-(5) Set **Restore Options**. Click **Next**.
-
-(6) Confirm the job information. Click **Submit**.
-
-(7) Wait for the job cycle to be executed. The job will restore the latest backup sets of the source host.
-
-## Manage Jobs
-
-The Job page provides the job information of all agents. You can start, modify, and delete the jobs.
-
-![](../images/01-agent/db2/db2_job.png)
-
-
-- Start: Click ![](../images/01-agent/db2/db2_job_start.png) to start the job immediately.
-- Modify: Click ![](../images/01-agent/db2/db2_job_modify.png)to modify the basic job information, backup / restore schedule and options.
-- Delete: Click ![](../images/01-agent/db2/db2_job_delete.png) to access the confirmation window. Click **OK** to delete the job.
-
-## Backup Protection Strategy
-###  Backup Schedule Operation
-ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
-
-![](../images/01-agent/db2/db2_time01.png)
-
-- Immediate: The job immediately starts to run after it is submitted.
-- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
-- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
-- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
-
->  **Example: Run the job every two weeks on Friday at 18:00**
-
-> ![](../images/01-agent/db2/db2_time02.png)
-
-> **The actual execution time will be**:
->
-> - If the current time is Friday at 17:00, the execution time will be Friday at 18:00 (the current day).
-> - If the current time is Thursday at 17:00, the execution time will be Friday at 18:00 (the next day).
-> - If the current time is Saturday at 17:00, the execution time will be next Friday at 18:00.
-> - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
-
-### Backup Strategy Advice
-
-There are five types to back up DB2: full backup, incremental backup, cumulative incremental backup, log backup, and automatic archiving log backup. Full backup, incremental backup/cumulative incremental backup, and log backup/automatic archiving log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
-
-1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
-2. After that, you can run an **Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
-3. If the database supports log backup, you can run a **Log Backup** every few hours to ensure that the restore granularity RPO can reach the second level.
-
-> Note:
->
-> - Avoid using the following strategies:
->   - Perform only full backups.
->   - Perform a full backup followed by all incremental or log backups.
-
-## Parallelism/Sessions Number Configuration
-
-- Parallelism/Sessions number for backup jobs
-
-  DB2 supports up to 255 sessions. You can set the number of parallelism and sessions for backup jobs according to the actual environment. A reasonable number can improve job performance. It is recommended that the number of sessions is not greater than that of host logical CPU, and the number of parallelism is not greater than that of tablespaces.
-
-- Parallelism/Sessions number for restore jobs
-
-  The restore job does not provide the setting for the parallelism number. It is recommended that the sessions number is not greater than the number of host logical CPU.
 
 ## Limitations
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
 ```
-```{table} Limitation
+```{table} Limitations
 ---
 class: longtable
 ---
-| Function | Limitations                                                   |
-| -------- | ------------------------------------------------------------ |
-| Backup   | To log in to the DB2 database via the OS authentication method, Linux requires the DB2 instance user account whereas Windows requires a Windows administrator account. If you want to log in to the database using the domain user on Windows, fill in the domain name to successfully log in to the database resource and back up the databases. |
+|Feature|Limitations|
+| --- | --- |
+|Backup|To log in to the DB2 database via the OS authentication method, use the DB2 instance user account on Linux; while on Windows use the Windows administrator account. If you want to log in to the database using the domain user on Windows, fill in the domain name to successfully log in to the database resource and back up the databases.|
 ```
 
 ## Glossary
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
 ```
 ```{table} Glossary
 ---
 class: longtable
 ---
-| Term             | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
-| Fast Compression | Compress data during backup using fast compression algorithms. |
-| Log truncation                | Log truncation can remove inactive virtual log files from the logical transaction logs in a DB2 database to free up space in the logical logs for reuse by the physical transaction logs. |
+|Term|Description|
+| --- | --- |
+|fast compression|A compression method that uses fast compression algorithms to compress data during the backup job.|
 ```

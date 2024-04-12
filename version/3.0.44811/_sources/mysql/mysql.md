@@ -286,7 +286,7 @@ Before you back up and restore MySQL, do the following:
 	  CGroup: /system.slice/mysql.service
 	         ├─3339 /bin/sh /usr/local/mysql//bin/mysqld_safe --datadir=/usr/local/mysql/data --pid-file=/usr/local/mysql/data/centos7.4.pid
 	         └─3567 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql//lib/plugin --user=m...
-
+	
 	 May 10 11:34:07 centos7.4 systemd[1]: Starting LSB: start and stop MySQL...
 	 May 10 11:34:08 centos7.4 mysql[3255]: Starting MySQL SUCCESS!
 	 May 10 11:34:08 centos7.4 systemd[1]: Started LSB: start and stop MySQL.
@@ -785,7 +785,7 @@ class: longtable
 |Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.|Not available for instant recovery jobs.|
 |Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.|Not available for instant recovery jobs.|
 |Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
-|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.||
 |Database service startup/stop script|When the database's start and stop scripts are not the common methods (such as using service or systemctl), you need to manually enter the start and stop scripts.|Only available for point-in-time restore, instant recovery and recovery testing jobs.|
 |Skip grant tables while applying binlog|Enabling this option can prevent issues with binary logs encountering forbidden access due to insufficient privileges during a log restore job is running.|Only available for point-in-time restore and instant recovery jobs.|
 |Accelerate applying binlog|Enabling this option speeds up the restore of binlogs.|Only available for point-in-time restore and instant recovery jobs.|
