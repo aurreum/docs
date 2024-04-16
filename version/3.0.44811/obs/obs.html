@@ -177,6 +177,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
 <ul class="nav bd-sidenav">
@@ -378,7 +379,7 @@ document.write(`
 <p>Point-in-time restore, instant recovery, and recovery testing</p>
 </li>
 <li><p>Restore targets</p>
-<p>Original host, different host, different system (restore files between object storage and Linux), and different architecture (restore files from OBS to an operating system or Hadoop)</p>
+<p>Original host, different host, different system (restore files between object storage and Linux), and different architecture (restore files from object storage to an operating system or Hadoop)</p>
 </li>
 <li><p>Restore options</p>
 <p>Restore location (original path or customized path), handle files with the same name</p>
@@ -399,7 +400,7 @@ document.write(`
 </section>
 <section id="install-and-configure-the-agent">
 <h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Link to this heading">#</a></h2>
-<p>To back up and restore OBS, first install the ADPS agent on a host that can communicate with OBS.</p>
+<p>To back up and restore object storage, first install the ADPS agent on a host that can communicate with object storage.</p>
 <section id="verify-the-compatibility">
 <h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Link to this heading">#</a></h3>
 <p>ADPS supports the backup and restore of the following object storage:</p>
@@ -532,7 +533,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <h2>Backup<a class="headerlink" href="#backup" title="Link to this heading">#</a></h2>
 <section id="backup-types">
 <h3>Backup types<a class="headerlink" href="#backup-types" title="Link to this heading">#</a></h3>
-<p>ADPS provides two common backup types (full backup and incremental backup) and one advanced (synthetic backup) for OBS.</p>
+<p>ADPS provides two common backup types (full backup and incremental backup) and one advanced (synthetic backup) for object storage.</p>
 <ul>
 <li><p>Full backup</p>
 <p>Backs up one or multiple files and buckets.</p>
@@ -568,7 +569,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 <section id="before-you-begin">
 <h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
-<p>Before you back up and restore OBS, check whether any storage pools have been created and authorized.</p>
+<p>Before you back up and restore object storage, check whether any storage pools have been created and authorized.</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p></li>
 <li><p>Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
@@ -675,7 +676,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 <section id="backup-options">
 <h3>Backup options<a class="headerlink" href="#backup-options" title="Link to this heading">#</a></h3>
-<p>ADPS provides the following backup options for OBS:</p>
+<p>ADPS provides the following backup options for object storage:</p>
 <ul class="simple">
 <li><p>Common options</p></li>
 </ul>
@@ -738,7 +739,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <h2>Restore<a class="headerlink" href="#restore" title="Link to this heading">#</a></h2>
 <section id="restore-types">
 <h3>Restore types<a class="headerlink" href="#restore-types" title="Link to this heading">#</a></h3>
-<p>For different needs, ADPS provides several restore types for OBS, including:</p>
+<p>For different needs, ADPS provides several restore types for object storage, including:</p>
 <ul>
 <li><p>Point-in-time restore</p>
 <p>Restores the OBS folders or files to a specified point in time.</p>
@@ -753,7 +754,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 </section>
 <section id="id1">
 <h3>Before you begin<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>To restore OBS to a different host, install the agent on that host or register the resource, activate the licenses, and authorize user access to the resource.</p>
+<p>To restore to a different host, install the agent on that host or register the resource, activate the licenses, and authorize user access to the resource.</p>
 </section>
 <section id="create-a-point-in-time-restore-job">
 <h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Link to this heading">#</a></h3>

@@ -284,7 +284,7 @@ Before you back up and restore Oracle, check the following:
 	OPEN
 	```
 
-2. Check storage pools
+2. Check storage pools.
 
 	(1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 

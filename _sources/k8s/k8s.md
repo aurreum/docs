@@ -108,7 +108,7 @@ The agent can be installed through images. To install the agent, do the followin
 
   ```
 
-6. Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched over among nodes. When you deploy multiple agents, they may be scheduled to the same node.)
+6. Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched among nodes. When you deploy multiple agents, they may be scheduled to the same node.)
 
   ```
   apiVersion: apps/v1
@@ -246,13 +246,13 @@ Perform a full backup once a week when the application traffic is relatively sma
 
 Before you back up and restore Kubernetes, check the following:
 
-1. Check the resource status
+1. Check the resource status.
 
   (1) Click **Resource** > **Resource**. The **Resource** page appears.
 
   (2) Check whether the host and the Kubernetes resource are on the page with an *Online* state. If they are offline, check whether the agent service and the Kubernetes service are running.
 
-2. Check storage pools
+2. Check storage pools.
 
   (1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 
@@ -264,9 +264,9 @@ Before you back up and restore Kubernetes, check the following:
   2. Run the `/usr/sbin/iscsid` command in the agent pod.
   ```
 
-3. Check the Kubernetes cluster status
+3. Check the Kubernetes cluster status.
 
-  Here provides the Linux command to check the Kubernetes cluster status.
+  Here is the Linux command to check the Kubernetes cluster status.
 
   (1) Use the `systemctl status kubelet` command to check whether the kubelet service is active (running).
 
@@ -348,7 +348,7 @@ Before you back up and restore Kubernetes, check the following:
   ```
 
 ```{note}
-1. Since Kubernetes v1.20, Kubernetes removes the `metadata.selfLink` by default but some applications still use it, for example, nfs-client-provisioner. To use these applications, enable `metadata.selfLink`. Modify the `/etc/kubernetes/manifests/kube-apiserver.yaml` file, add a line `- --feature-gates=RemoveSelfLink=false` in the start parameter, and run `kubectl apply -f kube-apiserver.yaml`.
+1. Since Kubernetes v1.20, Kubernetes removes the `metadata.selfLink` by default but some applications still use it, such as nfs-client-provisioner. To use these applications, enable `metadata.selfLink`. Modify the `/etc/kubernetes/manifests/kube-apiserver.yaml` file, add a line `- --feature-gates=RemoveSelfLink=false` in the start parameter, and run `kubectl apply -f kube-apiserver.yaml`.
 2. CSI reference: [ceph-csi.git](https://github.com/ceph/ceph-csi.git)
 3. Snapshot reference: [external-snapshotter.git](https://github.com/kubernetes-csi/external-snapshotter.git)
 ```
@@ -372,7 +372,7 @@ Before you create a backup or restore job, log in to the Kubernetes instance and
 To log in to the resource, do the following:
 
 1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
-2. From the host list, find the host where the files reside. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.
+2. From the host list, find the host where the K8s resource resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.
 3. Click **Login** beside the resource. The **Login** window appears.
 4. In the **Login** window, enter the access key of the current ADPS user, and click **Login**.
 5. If your information is correct, you will be prompted that you have logged in to the resource successfully.
@@ -449,7 +449,7 @@ To restore the instance to a different host, install the agent on that Kubernete
 To create a point-in-time restore job, do the following:
 
 1. From the menu, click **Restore**. The restore job wizard appears.
-2. At the **Hosts and resources** step, select the host where the files reside and select the resource. The wizard goes to the next step automatically.
+2. At the **Hosts and resources** step, select the host and the Kubernetes resource. The wizard goes to the next step automatically.
 3. At the **Backup sets** step, do the following:
 
   (1) From the **Restore type** list, select **Point-in-time restore**.
@@ -536,14 +536,14 @@ class: longtable
 |ConfigMap|An API object used to store non-confidential data in key-value pairs|
 |ServiceAccount|Provides an identity for processes that run in a Pod, and maps to a ServiceAccount object.|
 |LimitRange|A policy to constrain the resource allocations (limits and requests) that you can specify for each applicable object kind (such as Pod or PersistentVolumeClaim) in a namespace.|
-|CSI|Container Storage Interface. A industry standard interface rule created by community members including Kubernetes, Mesos, and Docker. CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Container Orchestration Systems (COs).|
-|Clone|Creates a copy of the existing Kubernetes volumes. The copy can be used as any other standard volumes. Clone only supports CSI driver.|
+|CSI|Container Storage Interface. An industry standard interface rule created by community members including Kubernetes, Mesos, and Docker. CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Container Orchestration Systems (COs).|
+|Clone|Creates a copy of the existing Kubernetes volumes. The copy can be used as any other standard volume. Clone only supports CSI driver.|
 |ReplicationController|Abbreviated as RC. It can create and manage a specified number of pod replicas.|
 |ReplicaSet|Abbreviated as RS. It maintains a stable set of replica Pods running at any given time and can replace RC.|
 |Deployment|Can be regarded as a superset of RC. In addition to providing functions such as Pod management, it also provides new features such as rollback and version recording. Generally, we do not create RC/RS directly, but create higher-level Deployment resources to automatically create RC/RS.|
-|ApiServer|Provides HTTP Rest interfaces for creating, deleting, reading, updating, and monitoring various K8S resource objects (Pod, RC, Service, etc.), and is the data bus and data center of the entire system.ApiServer|
+|ApiServer|Provides HTTP Rest interfaces for creating, deleting, reading, updating, and monitoring various K8S resource objects (Pod, RC, Service, and so on), and is the data bus and data center of the entire system.ApiServer|
 |metadata|This document uses metadata to define the resource data other than persistent volume storage data in namespaces.|
 |DaemonSet|Ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created. |
 |StatefulSet|Manages the deployment and scaling of a set of Pods and provides guarantees about the ordering and uniqueness of these Pods.|
-|kubectl|The command line tool (CLI) of Kubernetes. It is the requied mangement tool for Kubernetes users and administrators.|
+|kubectl|The command line tool (CLI) of Kubernetes. It is the required management tool for Kubernetes users and administrators.|
 ```

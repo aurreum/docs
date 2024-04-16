@@ -177,6 +177,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
 <ul class="nav bd-sidenav">
@@ -445,7 +446,7 @@ document.write(`
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
-<li><p>Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched over among nodes. When you deploy multiple agents, they may be scheduled to the same node.)</p></li>
+<li><p>Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched among nodes. When you deploy multiple agents, they may be scheduled to the same node.)</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">apps</span><span class="o">/</span><span class="n">v1</span>
 <span class="n">kind</span><span class="p">:</span> <span class="n">StatefulSet</span>
@@ -586,12 +587,12 @@ document.write(`
 <h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
 <p>Before you back up and restore Kubernetes, check the following:</p>
 <ol class="arabic simple">
-<li><p>Check the resource status</p></li>
+<li><p>Check the resource status.</p></li>
 </ol>
 <p>(1) Click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p>
 <p>(2) Check whether the host and the Kubernetes resource are on the page with an <em>Online</em> state. If they are offline, check whether the agent service and the Kubernetes service are running.</p>
 <ol class="arabic simple" start="2">
-<li><p>Check storage pools</p></li>
+<li><p>Check storage pools.</p></li>
 </ol>
 <p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
 <p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
@@ -604,9 +605,9 @@ document.write(`
 </ol>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Check the Kubernetes cluster status</p></li>
+<li><p>Check the Kubernetes cluster status.</p></li>
 </ol>
-<p>Here provides the Linux command to check the Kubernetes cluster status.</p>
+<p>Here is the Linux command to check the Kubernetes cluster status.</p>
 <p>(1) Use the <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">kubelet</span></code> command to check whether the kubelet service is active (running).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@k8s-master-106 ~]# systemctl status kubelet
 ● kubelet.service - kubelet: The Kubernetes Node Agent
@@ -680,7 +681,7 @@ Main PID: 1169 (kubelet)
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ol class="arabic simple">
-<li><p>Since Kubernetes v1.20, Kubernetes removes the <code class="docutils literal notranslate"><span class="pre">metadata.selfLink</span></code> by default but some applications still use it, for example, nfs-client-provisioner. To use these applications, enable <code class="docutils literal notranslate"><span class="pre">metadata.selfLink</span></code>. Modify the <code class="docutils literal notranslate"><span class="pre">/etc/kubernetes/manifests/kube-apiserver.yaml</span></code> file, add a line <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">--feature-gates=RemoveSelfLink=false</span></code> in the start parameter, and run <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">kube-apiserver.yaml</span></code>.</p></li>
+<li><p>Since Kubernetes v1.20, Kubernetes removes the <code class="docutils literal notranslate"><span class="pre">metadata.selfLink</span></code> by default but some applications still use it, such as nfs-client-provisioner. To use these applications, enable <code class="docutils literal notranslate"><span class="pre">metadata.selfLink</span></code>. Modify the <code class="docutils literal notranslate"><span class="pre">/etc/kubernetes/manifests/kube-apiserver.yaml</span></code> file, add a line <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">--feature-gates=RemoveSelfLink=false</span></code> in the start parameter, and run <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">kube-apiserver.yaml</span></code>.</p></li>
 <li><p>CSI reference: <a class="reference external" href="https://github.com/ceph/ceph-csi.git">ceph-csi.git</a></p></li>
 <li><p>Snapshot reference: <a class="reference external" href="https://github.com/kubernetes-csi/external-snapshotter.git">external-snapshotter.git</a></p></li>
 </ol>
@@ -711,7 +712,7 @@ Main PID: 1169 (kubelet)
 <p>To log in to the resource, do the following:</p>
 <ol class="arabic simple">
 <li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
-<li><p>From the host list, find the host where the files reside. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.</p></li>
+<li><p>From the host list, find the host where the K8s resource resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.</p></li>
 <li><p>Click <strong>Login</strong> beside the resource. The <strong>Login</strong> window appears.</p></li>
 <li><p>In the <strong>Login</strong> window, enter the access key of the current ADPS user, and click <strong>Login</strong>.</p></li>
 <li><p>If your information is correct, you will be prompted that you have logged in to the resource successfully.</p></li>
@@ -806,7 +807,7 @@ Main PID: 1169 (kubelet)
 <p>To create a point-in-time restore job, do the following:</p>
 <ol class="arabic simple">
 <li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
-<li><p>At the <strong>Hosts and resources</strong> step, select the host where the files reside and select the resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host and the Kubernetes resource. The wizard goes to the next step automatically.</p></li>
 <li><p>At the <strong>Backup sets</strong> step, do the following:</p></li>
 </ol>
 <p>(1) From the <strong>Restore type</strong> list, select <strong>Point-in-time restore</strong>.</p>
@@ -946,10 +947,10 @@ Main PID: 1169 (kubelet)
 <td><p>A policy to constrain the resource allocations (limits and requests) that you can specify for each applicable object kind (such as Pod or PersistentVolumeClaim) in a namespace.</p></td>
 </tr>
 <tr class="row-odd"><td><p>CSI</p></td>
-<td><p>Container Storage Interface. A industry standard interface rule created by community members including Kubernetes, Mesos, and Docker. CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Container Orchestration Systems (COs).</p></td>
+<td><p>Container Storage Interface. An industry standard interface rule created by community members including Kubernetes, Mesos, and Docker. CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Container Orchestration Systems (COs).</p></td>
 </tr>
 <tr class="row-even"><td><p>Clone</p></td>
-<td><p>Creates a copy of the existing Kubernetes volumes. The copy can be used as any other standard volumes. Clone only supports CSI driver.</p></td>
+<td><p>Creates a copy of the existing Kubernetes volumes. The copy can be used as any other standard volume. Clone only supports CSI driver.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReplicationController</p></td>
 <td><p>Abbreviated as RC. It can create and manage a specified number of pod replicas.</p></td>
@@ -961,7 +962,7 @@ Main PID: 1169 (kubelet)
 <td><p>Can be regarded as a superset of RC. In addition to providing functions such as Pod management, it also provides new features such as rollback and version recording. Generally, we do not create RC/RS directly, but create higher-level Deployment resources to automatically create RC/RS.</p></td>
 </tr>
 <tr class="row-even"><td><p>ApiServer</p></td>
-<td><p>Provides HTTP Rest interfaces for creating, deleting, reading, updating, and monitoring various K8S resource objects (Pod, RC, Service, etc.), and is the data bus and data center of the entire system.ApiServer</p></td>
+<td><p>Provides HTTP Rest interfaces for creating, deleting, reading, updating, and monitoring various K8S resource objects (Pod, RC, Service, and so on), and is the data bus and data center of the entire system.ApiServer</p></td>
 </tr>
 <tr class="row-odd"><td><p>metadata</p></td>
 <td><p>This document uses metadata to define the resource data other than persistent volume storage data in namespaces.</p></td>
@@ -973,7 +974,7 @@ Main PID: 1169 (kubelet)
 <td><p>Manages the deployment and scaling of a set of Pods and provides guarantees about the ordering and uniqueness of these Pods.</p></td>
 </tr>
 <tr class="row-even"><td><p>kubectl</p></td>
-<td><p>The command line tool (CLI) of Kubernetes. It is the requied mangement tool for Kubernetes users and administrators.</p></td>
+<td><p>The command line tool (CLI) of Kubernetes. It is the required management tool for Kubernetes users and administrators.</p></td>
 </tr>
 </tbody>
 </table>

@@ -163,13 +163,13 @@ You can set an appropriate backup policy based on your situation and requirement
 
 Before you back up and restore Hyper-V, check the following:
 
-1. Check the resource
+1. Check the resource.
 
    (1) Click **Resource** > **Resource**. The **Resource** page appears.
 
    (2) Check whether the backup host and the Hyper-V resource are on the page with an *Online* state. If no, see [Activate licenses and authorize users](#activate-licenses-and-authorize-users).
 
-2. Check storage pools
+2. Check storage pools.
 
    (1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 

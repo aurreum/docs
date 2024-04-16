@@ -262,7 +262,7 @@ Before you back up and restore SQL Server, check the following:
 	2022-05-31 04:55:30 localhost.localdomain systemd[1]: Starting Microsoft SQL Server Database Engine...
 	```
 
-2. Check storage pools
+2. Check storage pools.
 
 	(1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 

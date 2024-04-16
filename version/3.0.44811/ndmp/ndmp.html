@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User Guide for Hyper-V &#8212; ADPS V3.0.44811</title>
+    <title>User Guide for NDMP &#8212; ADPS V3.0.44811</title>
   
   
   
@@ -41,10 +41,11 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'hyper_v/hyper_v';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ndmp/ndmp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="User Guide for OpenStack" href="../openstack/openstack.html" />
+    <link rel="next" title="User Guide for MongoDB" href="../mongodb/mongodb.html" />
+    <link rel="prev" title="User Guide for File" href="../file/file.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-US"/>
   </head>
@@ -174,9 +175,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for NDMP</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
 <ul class="nav bd-sidenav">
@@ -200,10 +201,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../k8s/k8s.html">User Guide for Kubernetes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../openstack/openstack.html">User Guide for OpenStack</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for Hyper-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
 </ul>
 
     </div>
@@ -294,7 +295,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>User Guide for Hyper-V</h1>
+    <h1>User Guide for NDMP</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -311,6 +312,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-and-configure-the-ndmp-host">Add and configure the NDMP host</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-ndmp-host">Add the NDMP host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-ndmp-license-and-authorize-users">Activate the NDMP license and authorize users</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
@@ -320,14 +327,13 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-types">Restore types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-machine-restore-job">Create a virtual machine restore job</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-a-new-path">Restore to a new path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-disk-restore-job">Create a virtual disk restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-point-in-time-restore-job">Create a point-in-time restore job</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
 </ul>
             </nav>
         </div>
@@ -339,36 +345,39 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="user-guide-for-hyper-v">
-<h1>User Guide for Hyper-V<a class="headerlink" href="#user-guide-for-hyper-v" title="Link to this heading">#</a></h1>
+  <section id="user-guide-for-ndmp">
+<h1>User Guide for NDMP<a class="headerlink" href="#user-guide-for-ndmp" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>ADPS supports the backup and restore of Hyper-V virtual machines (VMs) running on Windows Servers or bare metal servers. The Hyper-V agent of ADPS should be installed on the Hyper-V server. This guide describes how to install the agent and how to use ADPS to back up and restore Hyper-V virtual machines.</p>
+<p>This guide introduces how to install and configure the ADPS agent, and how to properly use ADPS to back up and restore NDMP hosts.</p>
 <p>The backup and restore features supported by ADPS include:</p>
 <ul>
+<li><p>Backup sources</p>
+<p>Volume</p>
+</li>
 <li><p>Backup types</p>
 <p>Full backup, incremental backup</p>
 </li>
-<li><p>Transport modes</p>
-<p>Network, SAN</p>
-</li>
-<li><p>Backup sources</p>
-<p>Virtual machines, hosts</p>
-</li>
 <li><p>Backup targets</p>
-<p>Standard storage pool, deduplication storage pool, tape library pool, object storage pool, LAN-free pool</p>
+<p>Standard storage pool, deduplication storage pool, tape library pool, and object storage service pool</p>
 </li>
 <li><p>Backup schedules</p>
-<p>Immediate, one-time, hourly, daily, weekly, and monthly</p>
+<p>Immediate, one-time, hourly, daily, weekly, and monthly.</p>
 </li>
 <li><p>Data processing</p>
-<p>Data compression, multiple channels, reconnection, speed limit, and replication</p>
+<p>Data compression, data encryption, reconnection, speed limit, and replication</p>
 </li>
 <li><p>Restore types</p>
-<p>Virtual machine restore, virtual disk restore</p>
+<p>Point-in-time restore</p>
 </li>
-<li><p>Network protocols</p>
-<p>IPv4, IPv6</p>
+<li><p>Restore targets</p>
+<p>Original volume, new volume</p>
+</li>
+<li><p>Restore options</p>
+<p>Restore location (original path or customized path)</p>
+</li>
+<li><p>Protocols</p>
+<p>V3, V4</p>
 </li>
 </ul>
 </section>
@@ -381,61 +390,64 @@ document.write(`
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).</p>
+<p>The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can log in to the resource, create backup and restore jobs.</p>
 </div>
 </section>
 <section id="install-and-configure-the-agent">
 <h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Link to this heading">#</a></h2>
-<p>To back up and restore Hyper-V, first install the ADPS agent on the host where Hyper-V resides.</p>
 <section id="install-the-agent">
 <h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Link to this heading">#</a></h3>
-<p>To install the agent, do the following:</p>
+<p>The ADPS agent can be installed on Linux and supports online and offline installation. We recommend online installation.</p>
+<ol class="arabic simple">
+<li><p>Online installation:
+ADPS provides <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">wget</span></code> commands for installation.</p></li>
+<li><p>Offline installation:
+See <a class="reference internal" href="../agent_install/agent_install.html#offline-installation"><span class="std std-ref">Offline installation</span></a> in Aurreum Data Protection Suite Agent Installation Guide.</p></li>
+</ol>
+<p>To install the agent online, do the following:</p>
 <ol class="arabic">
 <li><p>Log in to the ADPS console.</p></li>
 <li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
 <li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
 <li><p>In the <strong>Install agent</strong> window, do the following:</p>
-<p>(1) From the <strong>Select system</strong> list, select <strong>Windows</strong>.</p>
-<p>(2) From the <strong>Select file</strong> list, select the package that you want to install.</p>
-<p>(3) Click <strong>Download</strong>.</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Linux</strong>.</p>
+<p>(2) From the <strong>Component</strong> list, select <strong>NDMP</strong>. The <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">wget</span></code> commands appear in the window.</p>
+<p>(3) If you want to delete the downloaded package automatically after the installation, select the <strong>Delete installation package</strong> check box.</p>
+<p>(4) If you enable <strong>Ignore SSL errors</strong>, the installation will ignore certificate errors and so on. If you disable the option, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.</p>
 </li>
-<li><p>Upload the package to the Windows host.</p></li>
-<li><p>Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click <strong>Next</strong>.</p></li>
-<li><p>At the <strong>Select components</strong> step, select <strong>Hyper-V</strong> from the component list. Click <strong>Next</strong>.</p></li>
-<li><p>At the <strong>Configure Aurreum Data Protection Suite agent</strong> step, enter the following:</p>
-<p>(1) In the <strong>Backup server address</strong> field, enter the IP or domain name of the backup server.</p>
-<p>(2) In the <strong>Backup server port</strong> field, enter the port number. The default value is 50305. If you enable the <strong>Use SSL secure connection</strong> option, enter 60305 in the <strong>Backup server port</strong> field.</p>
-<p>(3) The <strong>Access key</strong> field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.</p>
-<p>(4) Click <strong>Next</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To get the access key of the user/tenant:</p>
-<ol class="arabic simple">
-<li><p>Log in to the ADPS console.</p></li>
-<li><p>On the upper right corner, click your avatar, and go to <strong>Personal settings</strong> &gt; <strong>Account settings</strong>.</p></li>
-<li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
-</ol>
+<li><p>Click the <strong>Copy</strong> icon to copy the <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> command.</p></li>
+<li><p>Log in to the Linux host as user <em>root</em>. Paste the command in the terminal and press Enter to start the installation. Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># curl -o- &quot;http://192.168.17.6:50305/d2/update/script?modules=ndmp&amp;location=http%3A%2F%2F192.168.17.6%3A50305&amp;ignore_ssl_error=&amp;access_key=3c6befb8b91bf283373737bd71a05365&amp;rm=&amp;tool=curl&quot; | sh</span>
+<span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">100</span>  <span class="mi">9204</span>    <span class="mi">0</span>  <span class="mi">9204</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">2247</span><span class="n">k</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2996</span><span class="n">k</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mf">51.1</span><span class="n">M</span>  <span class="mi">100</span> <span class="mf">51.1</span><span class="n">M</span>    <span class="mi">0</span>     <span class="mi">0</span>   <span class="mi">141</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>  <span class="mi">141</span><span class="n">M</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span> <span class="mi">5684</span><span class="n">k</span>  <span class="mi">100</span> <span class="mi">5684</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">48.6</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">99.0</span><span class="n">M</span>
+  <span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                                 <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+  <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span>     <span class="mi">0</span>
+<span class="mi">100</span>  <span class="mi">733</span><span class="n">k</span>  <span class="mi">100</span>  <span class="mi">733</span><span class="n">k</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mf">11.5</span><span class="n">M</span>      <span class="mi">0</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mf">11.5</span><span class="n">M</span>
+</pre></div>
 </div>
 </li>
-<li><p>Confirm the <strong>Destination folder</strong> or specify another folder. Click <strong>Next</strong>.</p></li>
 <li><p>Wait for the installation to complete.</p></li>
 </ol>
 </section>
 </section>
 <section id="activate-licenses-and-authorize-users">
 <h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Link to this heading">#</a></h2>
-<p>After the agent installation, go back to the <strong>Resource</strong> page. The host with the agent installed appears on the page. Before you back up and restore Hyper-V, register the host, activate the Hyper-V backup license, and authorize users.</p>
+<p>After the agent installation, go back to the <strong>Resource</strong> page. The backup host with the agent installed appears on the page.</p>
 <p>To activate licenses and authorize users, do the following:</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
-<li><p>On the <strong>Resource</strong> page, select the host where Hyper-V resides. Click the <strong>Register</strong> icon. After the registration, the <strong>Activate</strong> window appears. Click <strong>Submit</strong>.</p>
-</li>
-<li><p>After you activate the license, the <strong>Configure</strong> window appears. In the <strong>Configure</strong> window, do the following:</p>
-<p>(1) In the <strong>Name</strong> field, enter a name for the host.</p>
-<p>(2) From the <strong>Data network</strong> list, select a network from those added on the <strong>Network</strong> page as the data network.</p>
-<p>(3) In the <strong>Preferred egress network</strong> field, enter an IP address for the preferred network traffic egress of the host’s backup data. IPv4 and IPv6 are supported.</p>
-<p>(4) From the <strong>User group</strong> list, select user groups to authorize access to the resource.</p>
-<p>(5) Set the resource as <strong>Protected</strong> or not. The <strong>Protected</strong> resource cannot be the restore target or the data replication target unless the administrator removes the <strong>Protected</strong> label.</p>
+<li><p>On the <strong>Resource</strong> page, select the backup host. Click the <strong>Register</strong> icon. After the registration, the <strong>Activate</strong> window appears. Click <strong>Submit</strong>.</p></li>
+<li><p>After you activate the license, the <strong>Authorize</strong> window appears. From the <strong>User group</strong> list, select user groups to authorize access to the resource. Click <strong>Submit</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ol class="arabic simple">
@@ -446,23 +458,76 @@ document.write(`
 </li>
 </ol>
 </section>
+<section id="add-and-configure-the-ndmp-host">
+<h2>Add and configure the NDMP host<a class="headerlink" href="#add-and-configure-the-ndmp-host" title="Link to this heading">#</a></h2>
+<p>To back up and restore NDMP, first install the ADPS agent on a host that can communicate with NDMP hosts.</p>
+<section id="verify-the-compatibility">
+<h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Link to this heading">#</a></h3>
+<p>ADPS supports the backup and restore of the following NDMP hosts:</p>
+<ul class="simple">
+<li><p>ONTAP 8.3 (node-scoped mode)/9.0 (node-scoped mode, SVM-scoped mode)</p></li>
+<li><p>OneFS 8.1.0.2</p></li>
+<li><p>EMC VNX5500</p></li>
+<li><p>NetApp FAS3240</p></li>
+</ul>
+</section>
+<section id="add-the-ndmp-host">
+<h3>Add the NDMP host<a class="headerlink" href="#add-the-ndmp-host" title="Link to this heading">#</a></h3>
+<p>To add an NDMP host, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the “+” icon and select <strong>NDMP host</strong>. The <strong>Add NDMP host</strong> window appears.</p></li>
+<li><p>In the window, do the following:</p>
+<ul class="simple">
+<li><p>In the <strong>Name</strong> field, enter a name for the NDMP host.</p></li>
+<li><p>In the <strong>Address</strong> field, enter the address of the NDMP host. For NetApp Clustered Data ONTAP, enter the address of the storage virtual machine (SVM).</p></li>
+<li><p>In the <strong>Port</strong> field, enter the port of the NDMP host.</p></li>
+<li><p>From the <strong>Authentication method</strong> list, select an authentication method.</p>
+<ul>
+<li><p>NONE: No password authentication.</p></li>
+<li><p>TEXT: Log in with the username and password of NDMP. The password is transmitted in clear text.</p></li>
+<li><p>MD5: Log in with the username and password of NDMP. The password is transmitted encrypted.</p></li>
+</ul>
+</li>
+<li><p>From the <strong>Backup host</strong> list, select a host to list backup content and as the default host for backups and restores.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="activate-the-ndmp-license-and-authorize-users">
+<h3>Activate the NDMP license and authorize users<a class="headerlink" href="#activate-the-ndmp-license-and-authorize-users" title="Link to this heading">#</a></h3>
+<p>To activate the license and authorize users, do the following:</p>
+<ol class="arabic">
+<li><p>After you add the NDMP host, a window to activate the NDMP license appears. Click <strong>Activate</strong>.</p></li>
+<li><p>After activation, the <strong>Authorize</strong> window appears.</p></li>
+<li><p>In the <strong>Authorize</strong> window, do the following:</p>
+<p>(1) From the <strong>User group</strong> list, select user groups to authorize access to the resource.</p>
+<p>(2) Set the resource as <strong>Protected</strong> or not. The <strong>Protected</strong> resource cannot be the restore target or the data replication target unless the administrator removes the <strong>Protected</strong> label.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are prompted with “No enough licenses”, contact the administrator to add licenses.</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
 <section id="backup">
 <h2>Backup<a class="headerlink" href="#backup" title="Link to this heading">#</a></h2>
 <section id="backup-types">
 <h3>Backup types<a class="headerlink" href="#backup-types" title="Link to this heading">#</a></h3>
-<p>ADPS provides full backup and incremental backup for Hyper-V.</p>
+<p>ADPS provides two common backup types for NDMP hosts.</p>
 <ul>
 <li><p>Full backup</p>
-<p>Backs up all the disks and disk files on virtual machines at some point in time.</p>
+<p>Backs up the whole volume.</p>
 </li>
 <li><p>Incremental backup</p>
-<p>Backs up only the disks and disk files that have changed since the last backup (including full backup and incremental backup) with a full backup as the baseline.</p>
+<p>Backs up only the data that has changed since the last backup (including the full backup and the incremental backup) with a full backup as the baseline.</p>
 </li>
 </ul>
 </section>
 <section id="backup-policies">
 <h3>Backup policies<a class="headerlink" href="#backup-policies" title="Link to this heading">#</a></h3>
-<p>ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.</p>
+<p>ADPS provides six types of backup schedules: immediate, one-time, hourly, daily, weekly, and monthly.</p>
 <ul class="simple">
 <li><p>Immediate: ADPS will immediately start the job after it is created.</p></li>
 <li><p>One-time: ADPS will perform the job at the specified time once only.</p></li>
@@ -479,13 +544,12 @@ document.write(`
 </section>
 <section id="before-you-begin">
 <h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
-<p>Before you back up and restore Hyper-V, check the following:</p>
+<p>Before you back up and restore NDMP hosts, check the following:</p>
 <ol class="arabic">
-<li><p>Check the resource.</p>
-<p>(1) Click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p>
-<p>(2) Check whether the backup host and the Hyper-V resource are on the page with an <em>Online</em> state. If no, see <a class="reference internal" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a>.</p>
+<li><p>Check the NDMP host status.</p>
+<p>Log in to the ADPS console as an operator. On the <strong>Resource</strong> page, check whether the activated and authorized NDMP host exists on the host list with an Online state.</p>
 </li>
-<li><p>Check storage pools.</p>
+<li><p>Check the storage pool.</p>
 <p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
 <p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
 </li>
@@ -496,16 +560,21 @@ document.write(`
 <p>To create a backup job, do the following:</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Backup</strong>. The backup job wizard appears.</p></li>
-<li><p>At the <strong>Hosts and resources</strong> step, select the Hyper-V host and resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the NDMP host and resource. The wizard goes to the next step automatically.</p></li>
 <li><p>At the <strong>Backup source</strong> step, do the following:</p>
 <p>(1) From the <strong>Backup type</strong> list, select a backup type.</p>
-<p>(2) In the <strong>Backup source</strong> section, click the “+” icon. The <strong>Add backup source</strong> window appears. You can enter the virtual machine name in the search box for accurate search (keyword query is supported) or expand the backup source by clusters, hosts, resource pools, virtual machines, or folders. Select the virtual machines that you want to back up and click <strong>Submit</strong>.</p>
+<p>(2) From the <strong>Backup method</strong> list, select a backup method. Different vendors support different methods. Generally, they all support <strong>dump</strong>.</p>
+<p>(3) In the <strong>Backup source</strong> section, select the volume that you want to back up.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can use Ctrl and Shift to select multiple items. Confirm the range that you want, select the checkbox of the first item in the range, press Ctrl or Shift, and click the checkbox of the last item in the range. All the items between the first and the last are selected automatically.</p>
+<p>To back up NetApp FAS volume using smtape, the volume should be put in restricted state for restore. To restrict a volume, do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vol</span> <span class="n">restrict</span> <span class="o">/</span><span class="n">vol</span><span class="o">/</span><span class="n">vol1</span>
+</pre></div>
 </div>
-<p>(3) Confirm the selected backup source. You can use the <strong>Filter</strong> to exclude virtual machines that you do not want to back up. Click <strong>Next</strong>.</p>
+<p>Since the primary volume cannot be restricted, you can use the <strong>dump</strong> method to back it up.</p>
+</div>
 </li>
+<li><p>At the <strong>Backup host</strong> step, select a backup host and resource. The wizard goes to the next step automatically.</p></li>
 <li><p>At the <strong>Backup target</strong> step, select a storage pool. Click <strong>Next</strong>.</p></li>
 <li><p>At the <strong>Backup schedule</strong> step, set the job schedule. For details, see <a class="reference internal" href="#backup-policies">Backup policies</a>. Click <strong>Next</strong>.</p>
 <ul class="simple">
@@ -524,7 +593,7 @@ document.write(`
 </section>
 <section id="backup-options">
 <h3>Backup options<a class="headerlink" href="#backup-options" title="Link to this heading">#</a></h3>
-<p>ADPS provides the following backup options:</p>
+<p>ADPS provides the following backup options for NDMP:</p>
 <ul class="simple">
 <li><p>Common options</p></li>
 </ul>
@@ -537,10 +606,7 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Compression</p></td>
-<td><p>Fast is enabled by default. Backup data is compressed at the source side for transmission. It can reduce the backup time, improve backup efficiency, and save backup space.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Channels</p></td>
-<td><p>Defines the maximum number of concurrent processes in one job based on the backup host’s CPU cores and the virtual load capacity. The default value is 2.</p></td>
+<td><p>Fast is enabled by default. <br> - None: No compression during the backup job. <br> - Tunable: Customizes the compression level. The Advanced Compression license is required.  <br> - Fast: Uses the fast compression algorithms to compress data during the backup job.</p></td>
 </tr>
 </tbody>
 </table>
@@ -555,23 +621,20 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Reconnection time</p></td>
-<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<tr class="row-even"><td><p>Resumption buffer size</p></td>
 <td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
 </tr>
-<tr class="row-even"><td><p>Speed limit</p></td>
+<tr class="row-odd"><td><p>Speed limit</p></td>
 <td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Precondition</p></td>
+<tr class="row-even"><td><p>Precondition</p></td>
 <td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
 </tr>
-<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<tr class="row-odd"><td><p>Pre-/Post-script</p></td>
 <td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Checkpoint consistency level</p></td>
-<td><p>- Crash consistent: Creates application-consistent checkpoints that capture the current state of applications. <br> - Application consistent: Uses the backup technology in the guest operating system to create data-consistent checkpoints that do not contain information about running applications. <br> - Automatic: Application consistent is used by default. If it fails, Crash consistent will be used instead.</p></td>
+<tr class="row-even"><td><p>NDMP envrionment variable</p></td>
+<td><p>Specifies the environment variable for the backup process.</p></td>
 </tr>
 </tbody>
 </table>
@@ -579,134 +642,43 @@ document.write(`
 </section>
 <section id="restore">
 <h2>Restore<a class="headerlink" href="#restore" title="Link to this heading">#</a></h2>
-<p>ADPS provides several restore types for Hyper-V, including:</p>
+<section id="restore-types">
+<h3>Restore types<a class="headerlink" href="#restore-types" title="Link to this heading">#</a></h3>
+<p>For different needs, ADPS provides the point-in-time restore for NDMP.</p>
 <ul>
-<li><p>Virtual machine restore</p>
-<p>When a disaster occurs in the virtual machine, a virtual machine restore job can help you to restore the entire machine. It supports restoring to another virtual center, another host, the original path, and a new path.</p>
-</li>
-<li><p>Virtual disk restore</p>
-<p>When a disaster occurs in some disks of the virtual machine, a virtual disk restore job can restore those disks to the target virtual machine. You can overwrite the existing disks, or create new disks.</p>
+<li><p>Point-in-time restore</p>
+<p>When the folders or files are missing in the volume, you can perform a point-in-time restore job to restore the volume to a specified point in time. It can restore to the original or a new volume and can restore to the original or a specified path.</p>
 </li>
 </ul>
+</section>
 <section id="id1">
 <h3>Before you begin<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>You have a completed backup job. See <a class="reference internal" href="#create-a-backup-job">Create a backup job</a>.</p></li>
-<li><p>To restore to another virtual center, deploy the backup host, register and activate that virtual center, and authorize user access to the resource.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can restore to a target host with the same version as or a higher version than the source host. If the target host has a lower version, the restore may fail.</p>
-</div>
+<p>To restore to a different host, install the agent on that host or register the resource, activate the licenses, and authorize user access to the resource.</p>
 </section>
-<section id="create-a-virtual-machine-restore-job">
-<h3>Create a virtual machine restore job<a class="headerlink" href="#create-a-virtual-machine-restore-job" title="Link to this heading">#</a></h3>
-<p>To create a virtual machine restore job, do the following:</p>
+<section id="create-a-point-in-time-restore-job">
+<h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Link to this heading">#</a></h3>
+<p>To create a point-in-time restore job, do the following:</p>
 <ol class="arabic">
 <li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
-<li><p>At the <strong>Hosts and resources</strong> step, select the Hyper-V host and resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the NDMP host and resource. The wizard goes to the next step automatically.</p></li>
 <li><p>At the <strong>Backup sets</strong> step, do the following:</p>
-<p>(1) From the <strong>Storage pool</strong> list, select a storage pool with backup sets, including the source and target pools with pool replication relation. With the <strong>Default</strong> option, the <strong>Restore source</strong> section shows the backup sets from all storage pools.</p>
-<p>(2) From the <strong>Restore type</strong> list, select <strong>Virtual machine restore</strong>.</p>
-<p>(3) In the <strong>Restore source</strong> section, expand the resource and select points in time under virtual machines for the restore. You can search the name or GUID to find the virtual machine.</p>
-<p>(4) Click <strong>Next</strong>.</p>
+<p>(1) In the <strong>Restore source</strong> section, select a point in time for the restore job.</p>
+<p>(2) In the <strong>File</strong> section, select a volume for the restore job.</p>
+<p>(3) Click <strong>Next</strong>.</p>
 </li>
-<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step.</p></li>
-<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
-<ul class="simple">
-<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
-<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
-</ul>
-</li>
-<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For the <strong>Restore location</strong> option:</p>
-<ul class="simple">
-<li><p>Original path: The virtual machine will be restored to its original path with its original name and configuration.</p></li>
-<li><p>New path: The virtual machine will be restored to a customized path with its configuration modified. If you click the icon beside <strong>New path</strong>, a wizard will appear. For more details, see <a class="reference internal" href="#restore-to-a-new-path">Restore to a new path</a>.</p></li>
-</ul>
-</div>
-</li>
+<li><p>At the <strong>Restore target</strong> step, select a host and resource as the target. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup host</strong> step, select a backup host and an IP address.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
 <li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
-</ol>
-</section>
-<section id="restore-to-a-new-path">
-<h3>Restore to a new path<a class="headerlink" href="#restore-to-a-new-path" title="Link to this heading">#</a></h3>
-<p>When you select <strong>New path</strong> at the <strong>Restore options</strong> step, a wizard appears. Follow the wizard to set the new restore location.</p>
-<p>To restore the virtual machine to a new path, do the following:</p>
-<ol class="arabic">
-<li><p>At the <strong>VM</strong> step, do the following:</p>
-<p>(1) Click the name in the <strong>New VM name</strong> column. The <strong>Rename</strong> window appears.</p>
-<p>(2) In the <strong>Rename</strong> window, set a new name, add a prefix, or add a suffix for the virtual machine. Click <strong>Submit</strong>.</p>
-<p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To rename a batch of virtual machines, select their checkboxes and click <strong>Batch rename</strong>.</p>
-</div>
-</li>
-<li><p>At the <strong>Datastore</strong> step, do the following:</p>
-<p>(1) Click the value in the <strong>Storage directory</strong> column. The <strong>Set up storage directory</strong> window appears.</p>
-<p>(2) In the <strong>Set up storage directory</strong> window, select the target datastore for the virtual machine. Click <strong>Submit</strong>.</p>
-<p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To set the same storage directory for a batch of files, select their checkboxes and click <strong>Set storage directories in batch</strong>.</p>
-</div>
-</li>
-<li><p>At the <strong>Network</strong> step, do the following:</p>
-<p>(1) Click the name in the <strong>Virtual switch</strong> column. The <strong>Set up virtual switch</strong> window appears.</p>
-<p>(2) In the <strong>Set up virtual switch</strong> window, select the target virtual switch. Click <strong>Submit</strong>.</p>
-<p>(3) The display area shows the new setting. Click <strong>Next</strong>. The wizard goes to the next step.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>You can click <strong>Add network</strong> beside the virtual machine and click <strong>Configure</strong> to select a virtual switch.</p></li>
-<li><p>To set a batch of networks, select their checkboxes and click <strong>Batch set up virtual switch</strong>.</p></li>
-</ul>
-</div>
-</li>
-<li><p>Click <strong>Submit</strong> and go back to the <strong>Restore options</strong> step.</p></li>
-<li><p>You can click the <strong>Set up</strong> icon beside the <strong>New path</strong> to modify your previous settings.</p></li>
-</ol>
-</section>
-<section id="create-a-virtual-disk-restore-job">
-<h3>Create a virtual disk restore job<a class="headerlink" href="#create-a-virtual-disk-restore-job" title="Link to this heading">#</a></h3>
-<p>To create a virtual disk restore job, do the following:</p>
-<ol class="arabic">
-<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
-<li><p>At the <strong>Hosts and resources</strong> step, select the Hyper-V host and resource. The wizard goes to the next step automatically.</p></li>
-<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
-<p>(1) From the <strong>Storage pool</strong> list, select a storage pool with backup sets, including the source and target pools with pool replication relation. With the <strong>Default</strong> option, the <strong>Restore source</strong> section shows the backup sets from all storage pools.</p>
-<p>(2) From the <strong>Restore type</strong> list, select <strong>Virtual disk restore</strong>.</p>
-<p>(3) In the <strong>Restore source</strong> section, expand the resource and select disks under points in time for the restore. You can search the name or UUID to find the virtual machine.</p>
-<p>(4) Click <strong>Next</strong>.</p>
-</li>
-<li><p>At the <strong>Restore target</strong> step, select a restore target. The wizard automatically goes to the next step.</p></li>
-<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
-<ul class="simple">
-<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
-<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
-</ul>
-</li>
-<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For the <strong>Restore location</strong> option:</p>
-<ul class="simple">
-<li><p>Original path: The virtual machine will be restored to its original path with its original name and configuration.</p></li>
-<li><p>New path: The virtual machine will be restored to a customized path with its configuration modified. If you click the icon beside <strong>New path</strong>, a wizard will appear. Select a storage directory for the disk.</p></li>
-</ul>
-</div>
-</li>
-<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, modify, and delete the job.</p></li>
 </ol>
 </section>
 <section id="restore-options">
 <h3>Restore options<a class="headerlink" href="#restore-options" title="Link to this heading">#</a></h3>
-<p>ADPS provides the following restore options:</p>
+<p>ADPS provides the following restore options for NDMP:</p>
 <ul class="simple">
-<li><p>Common options</p></li>
+<li><p>Common options:</p></li>
 </ul>
 <table class="longtable table" id="id4">
 <caption><span class="caption-text">Restore common options</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
@@ -717,19 +689,7 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Restore location</p></td>
-<td><p>See the respective job section for more details.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Channels</p></td>
-<td><p>Defines the maximum number of concurrent processes in one job based on the backup host’s CPU cores and the virtual load capacity. The default value is 8.</p></td>
-</tr>
-<tr class="row-even"><td><p>Existing VMs</p></td>
-<td><p>You can select Add timestamp suffix for new VMs, Overwrite existing VMs, or Skip the restore of existing VMs. If you select Skip the restore of existing VMs and all the VMs to be restored exist on the restore target, the restore job will fail.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Start virtual machine after restore</p></td>
-<td><p>The restored virtual machines are automatically started after the successful restore job.</p></td>
-</tr>
-<tr class="row-even"><td><p>Restore the network adapter</p></td>
-<td><p>You can restore the network adapter of the original virtual machine.</p></td>
+<td><p>You can set the restore location to the original location or a specified location. To specify a location, enter the path manually or click Browse to select the target folder.</p></td>
 </tr>
 </tbody>
 </table>
@@ -744,40 +704,40 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Reconnection time</p></td>
-<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<tr class="row-even"><td><p>Resumption buffer size</p></td>
 <td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
 </tr>
-<tr class="row-even"><td><p>Speed limit</p></td>
+<tr class="row-odd"><td><p>Speed limit</p></td>
 <td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Precondition</p></td>
+<tr class="row-even"><td><p>Precondition</p></td>
 <td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
 </tr>
-<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<tr class="row-odd"><td><p>Pre-/Post-script</p></td>
 <td><p>The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.</p></td>
+</tr>
+<tr class="row-even"><td><p>NDMP envrionment variable</p></td>
+<td><p>Specifies the environment variable for the restore process.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
-<section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h2>
 <table class="longtable table" id="id6">
-<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Feature</p></th>
-<th class="head"><p>Limitations</p></th>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Backup</p></td>
-<td><p>Differential backup is not supported.  <br> VM grouping is not supported.  <br> If the VM to be backed up is overwritten and restored, the old backup jobs will be unavailable and should be recreated. <br> Under the following conditions, the backup job cannot be stopped: The agent is creating checkpoints; or the agent is using a LAN-free pool and mounting the disks. <br> Checkpoints include crash-consistent checkpoints and application-consistent checkpoints. The default checkpoint is application-consistent. <br> On Windows Server 2016 and later versions, Hyper-V backup jobs will not reserve checkpoints after the job completion.  <br> A host can only run one backup or restore job at a time. A backup job can back up multiple VMs in parallel, while a restore job can only restore VMs one by one.  <br>  Hyper-V LAN-free backup and restore only supports SAN transport mode.</p></td>
+<tr class="row-even"><td><p>fast compression</p></td>
+<td><p>A compression method that uses fast compression algorithms to compress data during the backup job.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Restore</p></td>
-<td><p>Mount recovery is not supported. <br> The interface cannot display the restore progress of a single virtual disk.  <br> To overwrite and restore to the disk, ensure that the original host is shut down and no checkpoints remain. <br> To restore between hosts with different versions, ADPS only supports restoring from a low version to a high version.  <br> When the agent is merging subdisks, the restore job cannot be stopped. <br> ADPS cannot restore the Ubuntu/CentOS Generation 2 virtual machines on the Hyper-V 2012 series. <br> ADPS cannot restore the virtual disks on Ubuntu/CentOS Generation 2 virtual machines.  <br> The Generation 1 virtual machines can only be booted from the IDE controller. The Generation 2 virtual machines can only be booted from the SCSI controller.</p></td>
+<tr class="row-odd"><td><p>restricted</p></td>
+<td><p>The restricted state only allows operations such as parity rebuild, but does not allow data access.</p></td>
 </tr>
 </tbody>
 </table>
@@ -796,13 +756,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../openstack/openstack.html"
+       href="../file/file.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">User Guide for OpenStack</p>
+        <p class="prev-next-title">User Guide for File</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../mongodb/mongodb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for MongoDB</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -827,6 +796,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-and-configure-the-ndmp-host">Add and configure the NDMP host</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-ndmp-host">Add the NDMP host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-ndmp-license-and-authorize-users">Activate the NDMP license and authorize users</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
@@ -836,14 +811,13 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-types">Restore types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-machine-restore-job">Create a virtual machine restore job</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-to-a-new-path">Restore to a new path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-disk-restore-job">Create a virtual disk restore job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-point-in-time-restore-job">Create a point-in-time restore job</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
 </ul>
   </nav></div>
 

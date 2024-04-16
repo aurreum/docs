@@ -32,7 +32,7 @@ The backup and restore features supported by ADPS include:
 
 - Restore targets
 
-	Original host, different host, different system (restore files between object storage and Linux), and different architecture (restore files from OBS to an operating system or Hadoop)
+	Original host, different host, different system (restore files between object storage and Linux), and different architecture (restore files from object storage to an operating system or Hadoop)
 
 - Restore options
 
@@ -52,7 +52,7 @@ The administrator role can install and configure agents, activate licenses, and 
 
 ## Install and configure the agent
 
-To back up and restore OBS, first install the ADPS agent on a host that can communicate with OBS.
+To back up and restore object storage, first install the ADPS agent on a host that can communicate with object storage.
 
 ### Verify the compatibility
 
@@ -231,7 +231,7 @@ To activate the license and authorize users, do the following:
 
 ### Backup types
 
-ADPS provides two common backup types (full backup and incremental backup) and one advanced (synthetic backup) for OBS.
+ADPS provides two common backup types (full backup and incremental backup) and one advanced (synthetic backup) for object storage.
 
 - Full backup
 
@@ -267,7 +267,7 @@ To use the advanced synthetic backup, we recommend the following backup policy:
 
 ### Before you begin
 
-Before you back up and restore OBS, check whether any storage pools have been created and authorized.
+Before you back up and restore object storage, check whether any storage pools have been created and authorized.
 
 1. From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 2. Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
@@ -368,7 +368,7 @@ To create a backup job, do the following:
 
 ### Backup options
 
-ADPS provides the following backup options for OBS:
+ADPS provides the following backup options for object storage:
 
 - Common options
 
@@ -405,7 +405,7 @@ class: longtable
 
 ### Restore types
 
-For different needs, ADPS provides several restore types for OBS, including:
+For different needs, ADPS provides several restore types for object storage, including:
 
 - Point-in-time restore
 
@@ -421,7 +421,7 @@ For different needs, ADPS provides several restore types for OBS, including:
 
 ### Before you begin
 
-To restore OBS to a different host, install the agent on that host or register the resource, activate the licenses, and authorize user access to the resource.
+To restore to a different host, install the agent on that host or register the resource, activate the licenses, and authorize user access to the resource.
 
 ### Create a point-in-time restore job
 

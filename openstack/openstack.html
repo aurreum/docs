@@ -177,6 +177,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
 <ul class="nav bd-sidenav">
@@ -582,11 +583,11 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
 <p>Before you back up and restore OpenStack, check the following:</p>
 <ol class="arabic">
-<li><p>Check the resource</p>
+<li><p>Check the resource.</p>
 <p>(1) Click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p>
 <p>(2) Check whether the backup host and the OpenStack resource are on the page with an <em>Online</em> state. If no, see <a class="reference internal" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a>.</p>
 </li>
-<li><p>Check storage pools</p>
+<li><p>Check storage pools.</p>
 <p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
 <p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
 </li>
@@ -740,7 +741,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <li><p>Original path: The virtual machine will be restored to its original path with its original name and configuration.</p></li>
 <li><p>New path: The virtual machine will be restored to a customized path with its configuration modified. If you click the icon beside <strong>New path</strong>, a wizard will appear.</p>
 <ol class="arabic simple">
-<li><p>At the <strong>Virtual machine</strong> step, configure a new virtual machine name, the target availability zone, target project, a key pair, a security group, and an instance type ID. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Virtual machine</strong> step, configure a new virtual machine name, the target availability zone, the target project, a key pair, a security group, and an instance type ID. Click <strong>Next</strong>.</p></li>
 <li><p>At the <strong>Datastore</strong> step, configure the volume type. Click <strong>Next</strong>.</p></li>
 <li><p>At the <strong>Network</strong> step, configure the MAC address, IP address, and NIC. Click <strong>Next</strong>.</p></li>
 </ol>
@@ -838,7 +839,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <td><p>You can create a new user or modify the password of an existing user for the target VM. If you leave it blank, only the original user information will be restored by default. To ensure that the settings can take effect, the tool <code class="docutils literal notranslate"><span class="pre">cloudbase-init</span></code> (Windows) or <code class="docutils literal notranslate"><span class="pre">cloud-init</span></code> (Linux) must be installed on the original VM before backup. Without the tool, the settings will not take effect and only the original user information will be restored.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Operating system</p></td>
-<td><p>Please confirm whether the VM is Windows or not. If you do not select the check box, the VM will be regarded as a Linux VM. Because Windows and Linux have different methods of setting the username and password, a wrong selection will lead to the invalidity of the settings.</p></td>
+<td><p>Please confirm whether the VM is Windows or not. If you do not select the check box, the VM will be regarded as a Linux VM. Because Windows and Linux have different methods of setting the username and password, a wrong selection will lead to invalid settings.</p></td>
 </tr>
 </tbody>
 </table>

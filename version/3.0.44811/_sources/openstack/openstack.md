@@ -252,13 +252,13 @@ Perform a full backup once a week when the application traffic is relatively sma
 
 Before you back up and restore OpenStack, check the following:
 
-1. Check the resource
+1. Check the resource.
 
    (1) Click **Resource** > **Resource**. The **Resource** page appears.
 
    (2) Check whether the backup host and the OpenStack resource are on the page with an *Online* state. If no, see [Activate licenses and authorize users](#activate-licenses-and-authorize-users).
 
-2. Check storage pools
+2. Check storage pools.
 
    (1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
 
@@ -386,7 +386,7 @@ To create a virtual machine restore job, do the following:
    For the **Restore location** option:
    - Original path: The virtual machine will be restored to its original path with its original name and configuration.
    - New path: The virtual machine will be restored to a customized path with its configuration modified. If you click the icon beside **New path**, a wizard will appear.
-      1. At the **Virtual machine** step, configure a new virtual machine name, the target availability zone, target project, a key pair, a security group, and an instance type ID. Click **Next**.
+      1. At the **Virtual machine** step, configure a new virtual machine name, the target availability zone, the target project, a key pair, a security group, and an instance type ID. Click **Next**.
       2. At the **Datastore** step, configure the volume type. Click **Next**.
       3. At the **Network** step, configure the MAC address, IP address, and NIC. Click **Next**.
    ```
@@ -460,7 +460,7 @@ class: longtable
 |Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.|
 |Request retry|- Request timeout seconds: Specifies the maximum time in seconds for a request to complete. If a request times out, it will be terminated.{{ br }}- Request try times: Specifies the maximum number of request retries to connect to OpenStack when a request fails. If the retries exceed the value, the request will be terminated.|
 |Target virtual machine|You can create a new user or modify the password of an existing user for the target VM. If you leave it blank, only the original user information will be restored by default. To ensure that the settings can take effect, the tool `cloudbase-init` (Windows) or `cloud-init` (Linux) must be installed on the original VM before backup. Without the tool, the settings will not take effect and only the original user information will be restored.|
-|Operating system|Please confirm whether the VM is Windows or not. If you do not select the check box, the VM will be regarded as a Linux VM. Because Windows and Linux have different methods of setting the username and password, a wrong selection will lead to the invalidity of the settings.|
+|Operating system|Please confirm whether the VM is Windows or not. If you do not select the check box, the VM will be regarded as a Linux VM. Because Windows and Linux have different methods of setting the username and password, a wrong selection will lead to invalid settings.|
 ```
 
 ````{note}
