@@ -396,37 +396,32 @@ document.write(`
 <h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Link to this heading">#</a></h3>
 <p>ADPS supports the backup and restore of Kubernetes clusters on Linux.</p>
 <p>The agent can be installed through images. To install the agent, do the following:</p>
-<ol class="arabic simple">
-<li><p>Take the master node for example. If you cannot operate on the master node, copy the <code class="docutils literal notranslate"><span class="pre">admin.conf</span></code> file from the master node to the target node.</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Take the master node for example. If you cannot operate on the master node, copy the <code class="docutils literal notranslate"><span class="pre">admin.conf</span></code> file from the master node to the target node.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>/etc/kubernetes/admin.conf<span class="w"> </span>root@&lt;node<span class="w"> </span>IP&gt;:/etc/kubernetes/
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export KUBECONFIG=/etc/kubernetes/admin.conf&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
 <span class="nb">source</span><span class="w"> </span>~/.bash_profile
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Load the image (all nodes require this step).</p></li>
-</ol>
+</li>
+<li><p>Load the image (all nodes require this step).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">load</span> <span class="o">-</span><span class="n">i</span> <span class="n">agent</span><span class="o">-</span><span class="n">k8s</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="n">tar</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Check the image.</p></li>
-</ol>
+</li>
+<li><p>Check the image.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">images</span><span class="o">|</span> <span class="n">grep</span> <span class="n">k8s</span> <span class="c1"># Or use the ctr images ls | grep k8s command</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Create a namespace and specify the <code class="docutils literal notranslate"><span class="pre">hostid</span></code>.</p></li>
-</ol>
+</li>
+<li><p>Create a namespace and specify the <code class="docutils literal notranslate"><span class="pre">hostid</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">create</span> <span class="n">ns</span> <span class="n">backup</span>
 
 <span class="n">uuidgen</span> <span class="o">-</span><span class="n">r</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;s/-//g&quot;</span>   <span class="c1"># Specify the hostid in the configmap by yourself</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Configure the <code class="docutils literal notranslate"><span class="pre">cluster.yaml</span></code> as follows:</p></li>
-</ol>
+</li>
+<li><p>Configure the <code class="docutils literal notranslate"><span class="pre">cluster.yaml</span></code> as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">rbac</span><span class="o">.</span><span class="n">authorization</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">v1</span>
 <span class="n">kind</span><span class="p">:</span> <span class="n">ClusterRoleBinding</span>
 <span class="n">metadata</span><span class="p">:</span>
@@ -445,9 +440,8 @@ document.write(`
 
 </pre></div>
 </div>
-<ol class="arabic simple" start="6">
-<li><p>Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched among nodes. When you deploy multiple agents, they may be scheduled to the same node.)</p></li>
-</ol>
+</li>
+<li><p>Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched among nodes. When you deploy multiple agents, they may be scheduled to the same node.)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">apps</span><span class="o">/</span><span class="n">v1</span>
 <span class="n">kind</span><span class="p">:</span> <span class="n">StatefulSet</span>
 <span class="n">metadata</span><span class="p">:</span>
@@ -499,7 +493,7 @@ document.write(`
       <span class="n">securityContext</span><span class="p">:</span>
         <span class="n">privileged</span><span class="p">:</span> <span class="n">true</span>
       <span class="n">volumeMounts</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">adps</span>
+      <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">adps</span>
           <span class="n">name</span><span class="p">:</span> <span class="n">log</span><span class="o">-</span><span class="n">volume</span>
         <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">aurreum</span><span class="o">/</span><span class="n">adps</span><span class="o">/</span><span class="n">agent</span>
           <span class="n">name</span><span class="p">:</span> <span class="n">opt</span><span class="o">-</span><span class="n">volume</span>
@@ -530,14 +524,15 @@ document.write(`
       <span class="n">name</span><span class="p">:</span> <span class="n">log</span><span class="o">-</span><span class="n">volume</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="7">
-<li><p>After the installation, use the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pod</span> <span class="pre">-n</span> <span class="pre">backup</span></code> command to check whether the agent is running or not (<code class="docutils literal notranslate"><span class="pre">backup</span></code> is an example of the namespace, change it according to your settings).</p></li>
-</ol>
+</li>
+<li><p>After the installation, use the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pod</span> <span class="pre">-n</span> <span class="pre">backup</span></code> command to check whether the agent is running or not (<code class="docutils literal notranslate"><span class="pre">backup</span></code> is an example of the namespace. Change it according to your settings).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># kubectl get pod -n backup</span>
 <span class="n">NAME</span>             <span class="n">READY</span>   <span class="n">STATUS</span>    <span class="n">RESTARTS</span>   <span class="n">AGE</span>
 <span class="n">backup</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mi">0</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>   <span class="mi">3</span>          <span class="mi">7</span><span class="n">h46m</span>
 </pre></div>
 </div>
+</li>
+</ol>
 </section>
 </section>
 <section id="activate-licenses-and-authorize-users">
@@ -586,14 +581,12 @@ document.write(`
 <section id="before-you-begin">
 <h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
 <p>Before you back up and restore Kubernetes, check the following:</p>
-<ol class="arabic simple">
-<li><p>Check the resource status.</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Check the resource status.</p>
 <p>(1) Click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p>
 <p>(2) Check whether the host and the Kubernetes resource are on the page with an <em>Online</em> state. If they are offline, check whether the agent service and the Kubernetes service are running.</p>
-<ol class="arabic simple" start="2">
-<li><p>Check storage pools.</p></li>
-</ol>
+</li>
+<li><p>Check storage pools.</p>
 <p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
 <p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="#../manager/manager.md#add-a-storage-pool"><span class="xref myst">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
 <div class="admonition note">
@@ -604,9 +597,8 @@ document.write(`
 <li><p>Run the <code class="docutils literal notranslate"><span class="pre">/usr/sbin/iscsid</span></code> command in the agent pod.</p></li>
 </ol>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Check the Kubernetes cluster status.</p></li>
-</ol>
+</li>
+<li><p>Check the Kubernetes cluster status.</p>
 <p>Here is the Linux command to check the Kubernetes cluster status.</p>
 <p>(1) Use the <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">kubelet</span></code> command to check whether the kubelet service is active (running).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@k8s-master-106 ~]# systemctl status kubelet
@@ -678,6 +670,8 @@ Main PID: 1169 (kubelet)
   <span class="n">client</span><span class="p">:</span>   <span class="mi">62</span> <span class="n">KiB</span><span class="o">/</span><span class="n">s</span> <span class="n">wr</span><span class="p">,</span> <span class="mi">0</span> <span class="n">op</span><span class="o">/</span><span class="n">s</span> <span class="n">rd</span><span class="p">,</span> <span class="mi">4</span> <span class="n">op</span><span class="o">/</span><span class="n">s</span> <span class="n">wr</span>
 </pre></div>
 </div>
+</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ol class="arabic simple">
@@ -689,13 +683,9 @@ Main PID: 1169 (kubelet)
 </section>
 <section id="log-in-to-the-resource">
 <h3>Log in to the resource<a class="headerlink" href="#log-in-to-the-resource" title="Link to this heading">#</a></h3>
-<p>Before you create a backup or restore job, log in to the Kubernetes instance and authenticate the identity. ADPS provides one authentication method:</p>
-<ul>
-<li><p>Access key</p>
-<p>You can use the access key of the current ADPS user to log in to the resource. This method is suitable for the following scenarios:</p>
-<ul>
-<li><p>You cannot get the OS user’s username and password.</p>
+<p>Before you create a backup or restore job, log in to the Kubernetes instance and authenticate the identity. You can use the access key of the current ADPS user to log in to the resource. This method is suitable for the following scenarios:</p>
 <ul class="simple">
+<li><p>You cannot get the OS user’s username and password.</p></li>
 <li><p>The user’s password changes frequently.</p></li>
 </ul>
 <div class="admonition note">
@@ -705,10 +695,6 @@ Main PID: 1169 (kubelet)
 <li><p>To get the access key, log in to the console, click <strong>Personal settings</strong> &gt; <strong>Account settings</strong> on the upper right corner, find <strong>Access key</strong> on the <strong>Preferences</strong> tab, and click <strong>View</strong>.</p></li>
 </ol>
 </div>
-</li>
-</ul>
-</li>
-</ul>
 <p>To log in to the resource, do the following:</p>
 <ol class="arabic simple">
 <li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
@@ -805,15 +791,14 @@ Main PID: 1169 (kubelet)
 <section id="create-a-point-in-time-restore-job">
 <h3>Create a point-in-time restore job<a class="headerlink" href="#create-a-point-in-time-restore-job" title="Link to this heading">#</a></h3>
 <p>To create a point-in-time restore job, do the following:</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
 <li><p>At the <strong>Hosts and resources</strong> step, select the host and the Kubernetes resource. The wizard goes to the next step automatically.</p></li>
-<li><p>At the <strong>Backup sets</strong> step, do the following:</p></li>
-</ol>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
 <p>(1) From the <strong>Restore type</strong> list, select <strong>Point-in-time restore</strong>.</p>
 <p>(2) In the <strong>Restore source</strong> section, select a backup set for the restore job.</p>
 <p>(3) Click <strong>Next</strong>.</p>
-<ol class="arabic simple" start="4">
+</li>
 <li><p>At the <strong>Restore target</strong> step, select a host and resource as the target. The wizard goes to the next step automatically.</p></li>
 <li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
 <ul class="simple">

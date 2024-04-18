@@ -55,7 +55,7 @@ Before you install the agent, ensure that the environment of the host where SAP 
 
 ADPS supports the backup and restore of SAP HANA single-tenant, multi-tenant, and cluster environments, including:
 
-SAP HANA 1.00.112.00/1.00.112.03/1.00.112.21/1.00.122.00/2.00.000.00/2.00.030.00/2.00.045.00/2.00.056.00/2.00.062.00/2.00.070.00
+- SAP HANA 1.00.112.00 / 1.00.112.03 / 1.00.112.21 / 1.00.122.00 / 2.00.000.00 / 2.00.030.00 / 2.00.045.00 / 2.00.056.00 / 2.00.062.00 / 2.00.070.00
 
 ### Install the agent
 
