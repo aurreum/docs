@@ -98,7 +98,7 @@ Before installation, check whether your operating systems and resources are supp
    - AntDB-PG 11.10 / AntDB-PG 6.3.8 centralized cluster / AntDB-MySQL 10.4.8
    - TBase 2.09 / 2.15
    - SinoDB 12.10
-   - Vastbase G100 V2.2
+   - Vastbase G100 V2.2.4/V2.2.10/V2.2.15
    ```
 
 2. Applications
