@@ -1,4 +1,4 @@
-# User Guide for Object Storage Service
+# User Guide for Object Storage
 
 ## Overview
 
@@ -58,11 +58,6 @@ To back up and restore object storage, first install the ADPS agent on a host th
 
 ADPS supports the backup and restore of the following object storage:
 
-- Amazon Web Services S3 (AWS S3)
-- Microsoft Azure (Blob storage)
-- IBM Cloud Object Storage
-- Google Cloud (GCS)
-- Backblaze B2
 ```{only} scutech
 - Alibaba Cloud (OSS)
 - Kingsoft Cloud (KS3)
@@ -80,6 +75,11 @@ ADPS supports the backup and restore of the following object storage:
 - Alibaba CloudBox
 - XSKY
 ```
+- Amazon Web Services S3 (AWS S3)
+- Microsoft Azure (Blob storage)
+- IBM Cloud Object Storage
+- Google Cloud (GCS)
+- Backblaze B2
 - Other S3 object storage
 
 ### Install the agent
