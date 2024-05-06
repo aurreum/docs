@@ -405,130 +405,129 @@ document.write(`
 </div>
 </li>
 <li><p>Load the image (all nodes require this step).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">load</span> <span class="o">-</span><span class="n">i</span> <span class="n">agent</span><span class="o">-</span><span class="n">k8s</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="n">tar</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>load<span class="w"> </span>-i<span class="w"> </span>agent-k8s-version.tar
 </pre></div>
 </div>
 </li>
 <li><p>Check the image.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">images</span><span class="o">|</span> <span class="n">grep</span> <span class="n">k8s</span> <span class="c1"># Or use the ctr images ls | grep k8s command</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>images<span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>k8s<span class="w"> </span><span class="c1"># Or use the ctr images ls | grep k8s command</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create a namespace and specify the <code class="docutils literal notranslate"><span class="pre">hostid</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">create</span> <span class="n">ns</span> <span class="n">backup</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>create<span class="w"> </span>ns<span class="w"> </span>backup
 
-<span class="n">uuidgen</span> <span class="o">-</span><span class="n">r</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;s/-//g&quot;</span>   <span class="c1"># Specify the hostid in the configmap by yourself</span>
+uuidgen<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s/-//g&quot;</span><span class="w">   </span><span class="c1"># Specify the hostid in the configmap by yourself</span>
 </pre></div>
 </div>
 </li>
 <li><p>Configure the <code class="docutils literal notranslate"><span class="pre">cluster.yaml</span></code> as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">rbac</span><span class="o">.</span><span class="n">authorization</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">v1</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">ClusterRoleBinding</span>
-<span class="n">metadata</span><span class="p">:</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">backup</span><span class="o">-</span><span class="n">k8s</span>
-<span class="n">roleRef</span><span class="p">:</span>
-  <span class="n">apiGroup</span><span class="p">:</span> <span class="n">rbac</span><span class="o">.</span><span class="n">authorization</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">io</span>
-  <span class="n">kind</span><span class="p">:</span> <span class="n">ClusterRole</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">cluster</span><span class="o">-</span><span class="n">admin</span>
-<span class="n">subjects</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">kind</span><span class="p">:</span> <span class="n">ServiceAccount</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">default</span>
-  <span class="n">namespace</span><span class="p">:</span> <span class="n">backup</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apiVersion:<span class="w"> </span>rbac.authorization.k8s.io/v1
+kind:<span class="w"> </span>ClusterRoleBinding
+metadata:
+<span class="w">  </span>name:<span class="w"> </span>backup-k8s
+roleRef:
+<span class="w">  </span>apiGroup:<span class="w"> </span>rbac.authorization.k8s.io
+<span class="w">  </span>kind:<span class="w"> </span>ClusterRole
+<span class="w">  </span>name:<span class="w"> </span>cluster-admin
+subjects:
+-<span class="w"> </span>kind:<span class="w"> </span>ServiceAccount
+<span class="w">  </span>name:<span class="w"> </span>default
+<span class="w">  </span>namespace:<span class="w"> </span>backup
 
 
-<span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="n">cluster</span><span class="o">.</span><span class="n">yaml</span>
-
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>cluster.yaml
 </pre></div>
 </div>
 </li>
 <li><p>Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched among nodes. When you deploy multiple agents, they may be scheduled to the same node.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">apps</span><span class="o">/</span><span class="n">v1</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">StatefulSet</span>
-<span class="n">metadata</span><span class="p">:</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">backup</span><span class="o">-</span><span class="n">agent</span>
-<span class="n">namespace</span><span class="p">:</span> <span class="n">backup</span>
-<span class="n">spec</span><span class="p">:</span>
-<span class="n">selector</span><span class="p">:</span>
-  <span class="n">matchLabels</span><span class="p">:</span>
-    <span class="n">app</span><span class="p">:</span> <span class="n">backup</span><span class="o">-</span><span class="n">agent</span>
-<span class="n">serviceName</span><span class="p">:</span> <span class="n">backup</span><span class="o">-</span><span class="n">agent</span>
-<span class="n">replicas</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># Replica number</span>
-<span class="n">template</span><span class="p">:</span>
-<span class="n">metadata</span><span class="p">:</span>
-  <span class="n">labels</span><span class="p">:</span>
-    <span class="n">app</span><span class="p">:</span> <span class="n">backup</span><span class="o">-</span><span class="n">agent</span>
-<span class="n">spec</span><span class="p">:</span>
-  <span class="n">containers</span><span class="p">:</span>
-    <span class="o">-</span> <span class="n">env</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">BACKUPD_HOST</span>
-          <span class="n">value</span><span class="p">:</span> <span class="mf">172.16.30.197</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">BACKUPD_PORT</span>
-          <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;50305&quot;</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">HOSTID_0</span>  <span class="c1"># Specify the hostid from number 0</span>
-          <span class="n">value</span><span class="p">:</span> <span class="mf">9e26580745</span><span class="n">ab41fea2f80bf96e739186</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">BACKUPD_SSL</span>
-          <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">POD_IMAGE</span>
-          <span class="c1"># Modify the value. You can use the docker images | grep pause command to check the value</span>
-          <span class="n">value</span><span class="p">:</span> <span class="n">registry</span><span class="o">.</span><span class="n">aliyuncs</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">k8sxio</span><span class="o">/</span><span class="n">pause</span><span class="p">:</span><span class="mf">3.2</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">POD_NAME</span>
-          <span class="n">value</span><span class="p">:</span> <span class="n">backup</span><span class="o">-</span><span class="n">pod</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">DEPLOY_METHOD</span>
-          <span class="n">value</span><span class="p">:</span> <span class="n">statefulset</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">HOSTNAME</span>
-          <span class="n">valueFrom</span><span class="p">:</span>
-            <span class="n">fieldRef</span><span class="p">:</span>
-              <span class="n">fieldPath</span><span class="p">:</span> <span class="n">metadata</span><span class="o">.</span><span class="n">name</span>
-      <span class="c1"># - name: BACKUPD_ACCESS_KEY</span>
-      <span class="c1">#   value: &quot;42fff1271225cf15198e55a886e78945&quot;</span>
-      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">BACKUP_NODE</span>
-          <span class="n">valueFrom</span><span class="p">:</span>
-            <span class="n">fieldRef</span><span class="p">:</span>
-              <span class="n">fieldPath</span><span class="p">:</span> <span class="n">spec</span><span class="o">.</span><span class="n">nodeName</span>
-      <span class="c1"># Modify the image name. You can use the docker images or ctr image ls command to check the image name</span>
-      <span class="n">image</span><span class="p">:</span> <span class="n">registry</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">aurreum</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">focal</span><span class="o">/</span><span class="n">agent</span><span class="o">-</span><span class="n">k8s</span><span class="p">:</span><span class="n">version</span>
-      <span class="n">imagePullPolicy</span><span class="p">:</span> <span class="n">IfNotPresent</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">agent</span>
-      <span class="n">resources</span><span class="p">:</span> <span class="p">{}</span>
-      <span class="n">securityContext</span><span class="p">:</span>
-        <span class="n">privileged</span><span class="p">:</span> <span class="n">true</span>
-      <span class="n">volumeMounts</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">adps</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">log</span><span class="o">-</span><span class="n">volume</span>
-        <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">aurreum</span><span class="o">/</span><span class="n">adps</span><span class="o">/</span><span class="n">agent</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">opt</span><span class="o">-</span><span class="n">volume</span>
-        <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">kubelet</span><span class="o">/</span><span class="n">pods</span>
-          <span class="n">mountPropagation</span><span class="p">:</span> <span class="n">HostToContainer</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">pods</span><span class="o">-</span><span class="n">path</span>
-        <span class="o">-</span> <span class="n">mountPath</span><span class="p">:</span> <span class="o">/</span><span class="n">dev</span>
-          <span class="n">mountPropagation</span><span class="p">:</span> <span class="n">HostToContainer</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">dev</span>
-  <span class="n">hostIPC</span><span class="p">:</span> <span class="n">true</span>
-  <span class="n">hostNetwork</span><span class="p">:</span> <span class="n">true</span>
-  <span class="n">hostPID</span><span class="p">:</span> <span class="n">true</span>
-  <span class="c1">#nodeName: k8s-master-85  # This field is not required by default, but if you use LAN-free pools, you must specify the node.</span>
-  <span class="c1">#nodeSelector:</span>
-  <span class="c1">#     kubernetes.io/hostname: k8s-master-85  # This field is not required by default, but if you use LAN-free pools, you must specify the node.</span>
-  <span class="n">volumes</span><span class="p">:</span>
-    <span class="o">-</span> <span class="n">hostPath</span><span class="p">:</span>
-        <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">kubelet</span><span class="o">/</span><span class="n">pods</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">pods</span><span class="o">-</span><span class="n">path</span>
-    <span class="o">-</span> <span class="n">hostPath</span><span class="p">:</span>
-        <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">dev</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">dev</span>
-    <span class="o">-</span> <span class="n">hostPath</span><span class="p">:</span>
-        <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">opt_volume</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">opt</span><span class="o">-</span><span class="n">volume</span>
-    <span class="o">-</span> <span class="n">hostPath</span><span class="p">:</span>
-        <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">log_volume</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">log</span><span class="o">-</span><span class="n">volume</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apiVersion:<span class="w"> </span>apps/v1
+kind:<span class="w"> </span>StatefulSet
+metadata:
+name:<span class="w"> </span>backup-agent
+namespace:<span class="w"> </span>backup
+spec:
+selector:
+<span class="w">  </span>matchLabels:
+<span class="w">    </span>app:<span class="w"> </span>backup-agent
+serviceName:<span class="w"> </span>backup-agent
+replicas:<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c1"># Replica number</span>
+template:
+metadata:
+<span class="w">  </span>labels:
+<span class="w">    </span>app:<span class="w"> </span>backup-agent
+spec:
+<span class="w">  </span>containers:
+<span class="w">    </span>-<span class="w"> </span>env:
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>BACKUPD_HOST
+<span class="w">          </span>value:<span class="w"> </span><span class="m">172</span>.16.30.197
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>BACKUPD_PORT
+<span class="w">          </span>value:<span class="w"> </span><span class="s2">&quot;50305&quot;</span>
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>HOSTID_0<span class="w">  </span><span class="c1"># Specify the hostid from number 0</span>
+<span class="w">          </span>value:<span class="w"> </span>9e26580745ab41fea2f80bf96e739186
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>BACKUPD_SSL
+<span class="w">          </span>value:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>POD_IMAGE
+<span class="w">          </span><span class="c1"># Modify the value. You can use the docker images | grep pause command to check the value</span>
+<span class="w">          </span>value:<span class="w"> </span>registry.aliyuncs.com/k8sxio/pause:3.2
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>POD_NAME
+<span class="w">          </span>value:<span class="w"> </span>backup-pod
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>DEPLOY_METHOD
+<span class="w">          </span>value:<span class="w"> </span>statefulset
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>HOSTNAME
+<span class="w">          </span>valueFrom:
+<span class="w">            </span>fieldRef:
+<span class="w">              </span>fieldPath:<span class="w"> </span>metadata.name
+<span class="w">      </span><span class="c1"># - name: BACKUPD_ACCESS_KEY</span>
+<span class="w">      </span><span class="c1">#   value: &quot;42fff1271225cf15198e55a886e78945&quot;</span>
+<span class="w">      </span>-<span class="w"> </span>name:<span class="w"> </span>BACKUP_NODE
+<span class="w">          </span>valueFrom:
+<span class="w">            </span>fieldRef:
+<span class="w">              </span>fieldPath:<span class="w"> </span>spec.nodeName
+<span class="w">      </span><span class="c1"># Modify the image name. You can use the docker images or ctr image ls command to check the image name</span>
+<span class="w">      </span>image:<span class="w"> </span>registry.docker.aurreum.com/stable/focal/agent-k8s:version
+<span class="w">      </span>imagePullPolicy:<span class="w"> </span>IfNotPresent
+<span class="w">      </span>name:<span class="w"> </span>agent
+<span class="w">      </span>resources:<span class="w"> </span><span class="o">{}</span>
+<span class="w">      </span>securityContext:
+<span class="w">        </span>privileged:<span class="w"> </span><span class="nb">true</span>
+<span class="w">      </span>volumeMounts:
+<span class="w">      </span>-<span class="w"> </span>mountPath:<span class="w"> </span>/var/log/adps
+<span class="w">          </span>name:<span class="w"> </span>log-volume
+<span class="w">        </span>-<span class="w"> </span>mountPath:<span class="w"> </span>/var/opt/aurreum/adps/agent
+<span class="w">          </span>name:<span class="w"> </span>opt-volume
+<span class="w">        </span>-<span class="w"> </span>mountPath:<span class="w"> </span>/var/lib/kubelet/pods
+<span class="w">          </span>mountPropagation:<span class="w"> </span>HostToContainer
+<span class="w">          </span>name:<span class="w"> </span>pods-path
+<span class="w">        </span>-<span class="w"> </span>mountPath:<span class="w"> </span>/dev
+<span class="w">          </span>mountPropagation:<span class="w"> </span>HostToContainer
+<span class="w">          </span>name:<span class="w"> </span>dev
+<span class="w">  </span>hostIPC:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span>hostNetwork:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span>hostPID:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span><span class="c1">#nodeName: k8s-master-85  # This field is not required by default, but if you use LAN-free pools, you must specify the node.</span>
+<span class="w">  </span><span class="c1">#nodeSelector:</span>
+<span class="w">  </span><span class="c1">#     kubernetes.io/hostname: k8s-master-85  # This field is not required by default, but if you use LAN-free pools, you must specify the node.</span>
+<span class="w">  </span>volumes:
+<span class="w">    </span>-<span class="w"> </span>hostPath:
+<span class="w">        </span>path:<span class="w"> </span>/var/lib/kubelet/pods
+<span class="w">      </span>name:<span class="w"> </span>pods-path
+<span class="w">    </span>-<span class="w"> </span>hostPath:
+<span class="w">        </span>path:<span class="w"> </span>/dev
+<span class="w">      </span>name:<span class="w"> </span>dev
+<span class="w">    </span>-<span class="w"> </span>hostPath:
+<span class="w">        </span>path:<span class="w"> </span>/opt/data/opt_volume
+<span class="w">      </span>name:<span class="w"> </span>opt-volume
+<span class="w">    </span>-<span class="w"> </span>hostPath:
+<span class="w">        </span>path:<span class="w"> </span>/opt/data/log_volume
+<span class="w">      </span>name:<span class="w"> </span>log-volume
 </pre></div>
 </div>
 </li>
 <li><p>After the installation, use the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pod</span> <span class="pre">-n</span> <span class="pre">backup</span></code> command to check whether the agent is running or not (<code class="docutils literal notranslate"><span class="pre">backup</span></code> is an example of the namespace. Change it according to your settings).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># kubectl get pod -n backup</span>
-<span class="n">NAME</span>             <span class="n">READY</span>   <span class="n">STATUS</span>    <span class="n">RESTARTS</span>   <span class="n">AGE</span>
-<span class="n">backup</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mi">0</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>   <span class="mi">3</span>          <span class="mi">7</span><span class="n">h46m</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@k8s-master-106<span class="w"> </span>~<span class="o">]</span><span class="c1"># kubectl get pod -n backup</span>
+NAME<span class="w">             </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
+backup-agent-0<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">3</span><span class="w">          </span>7h46m
 </pre></div>
 </div>
 </li>
@@ -601,47 +600,47 @@ document.write(`
 <li><p>Check the Kubernetes cluster status.</p>
 <p>Here is the Linux command to check the Kubernetes cluster status.</p>
 <p>(1) Use the <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">kubelet</span></code> command to check whether the kubelet service is active (running).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@k8s-master-106 ~]# systemctl status kubelet
-● kubelet.service - kubelet: The Kubernetes Node Agent
-  Loaded: loaded (/usr/lib/systemd/system/kubelet.service; enabled; vendor preset: disabled)
-  Drop-In: /usr/lib/systemd/system/kubelet.service.d
-          └─10-kubeadm.conf
-  Active: active (running) since Thu 2022-10-20 16:47:15 CST; 53min ago
-    Docs: https://kubernetes.io/docs/
-Main PID: 1169 (kubelet)
-    Tasks: 29
-  Memory: 161.6M
-  CGroup: /system.slice/kubelet.service
-          └─1169 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml --network-plugin...
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@k8s-master-106<span class="w"> </span>~<span class="o">]</span><span class="c1"># systemctl status kubelet</span>
+●<span class="w"> </span>kubelet.service<span class="w"> </span>-<span class="w"> </span>kubelet:<span class="w"> </span>The<span class="w"> </span>Kubernetes<span class="w"> </span>Node<span class="w"> </span>Agent
+<span class="w">  </span>Loaded:<span class="w"> </span>loaded<span class="w"> </span><span class="o">(</span>/usr/lib/systemd/system/kubelet.service<span class="p">;</span><span class="w"> </span>enabled<span class="p">;</span><span class="w"> </span>vendor<span class="w"> </span>preset:<span class="w"> </span>disabled<span class="o">)</span>
+<span class="w">  </span>Drop-In:<span class="w"> </span>/usr/lib/systemd/system/kubelet.service.d
+<span class="w">          </span>└─10-kubeadm.conf
+<span class="w">  </span>Active:<span class="w"> </span>active<span class="w"> </span><span class="o">(</span>running<span class="o">)</span><span class="w"> </span>since<span class="w"> </span>Thu<span class="w"> </span><span class="m">2022</span>-10-20<span class="w"> </span><span class="m">16</span>:47:15<span class="w"> </span>CST<span class="p">;</span><span class="w"> </span>53min<span class="w"> </span>ago
+<span class="w">    </span>Docs:<span class="w"> </span>https://kubernetes.io/docs/
+Main<span class="w"> </span>PID:<span class="w"> </span><span class="m">1169</span><span class="w"> </span><span class="o">(</span>kubelet<span class="o">)</span>
+<span class="w">    </span>Tasks:<span class="w"> </span><span class="m">29</span>
+<span class="w">  </span>Memory:<span class="w"> </span><span class="m">161</span>.6M
+<span class="w">  </span>CGroup:<span class="w"> </span>/system.slice/kubelet.service
+<span class="w">          </span>└─1169<span class="w"> </span>/usr/bin/kubelet<span class="w"> </span>--bootstrap-kubeconfig<span class="o">=</span>/etc/kubernetes/bootstrap-kubelet.conf<span class="w"> </span>--kubeconfig<span class="o">=</span>/etc/kubernetes/kubelet.conf<span class="w"> </span>--config<span class="o">=</span>/var/lib/kubelet/config.yaml<span class="w"> </span>--network-plugin...
 </pre></div>
 </div>
 <p>(2) Use the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-owide</span></code> command to check the version of the Kubernetes cluster and whether all nodes are Ready. Ensure that the versions of all nodes are not older than v1.17.0. Otherwise, the CSI driver is not supported.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># kubectl get nodes -owide</span>
-<span class="n">NAME</span>             <span class="n">STATUS</span>   <span class="n">ROLES</span>    <span class="n">AGE</span>   <span class="n">VERSION</span>   <span class="n">INTERNAL</span><span class="o">-</span><span class="n">IP</span>     <span class="n">EXTERNAL</span><span class="o">-</span><span class="n">IP</span>   <span class="n">OS</span><span class="o">-</span><span class="n">IMAGE</span>                <span class="n">KERNEL</span><span class="o">-</span><span class="n">VERSION</span>                <span class="n">CONTAINER</span><span class="o">-</span><span class="n">RUNTIME</span>
-<span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span>   <span class="n">Ready</span>    <span class="n">master</span>   <span class="mi">30</span><span class="n">d</span>   <span class="n">v1</span><span class="mf">.19.5</span>   <span class="mf">172.16.12.106</span>   <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>        <span class="n">CentOS</span> <span class="n">Linux</span> <span class="mi">7</span> <span class="p">(</span><span class="n">Core</span><span class="p">)</span>   <span class="mf">5.4.219</span><span class="o">-</span><span class="mf">1.</span><span class="n">el7</span><span class="o">.</span><span class="n">elrepo</span><span class="o">.</span><span class="n">x86_64</span>   <span class="n">docker</span><span class="p">:</span><span class="o">//</span><span class="mf">19.3.11</span>
-<span class="n">k8s</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="mi">107</span>     <span class="n">Ready</span>    <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>   <span class="mi">30</span><span class="n">d</span>   <span class="n">v1</span><span class="mf">.19.5</span>   <span class="mf">172.16.12.107</span>   <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>        <span class="n">CentOS</span> <span class="n">Linux</span> <span class="mi">7</span> <span class="p">(</span><span class="n">Core</span><span class="p">)</span>   <span class="mf">5.4.219</span><span class="o">-</span><span class="mf">1.</span><span class="n">el7</span><span class="o">.</span><span class="n">elrepo</span><span class="o">.</span><span class="n">x86_64</span>   <span class="n">docker</span><span class="p">:</span><span class="o">//</span><span class="mf">19.3.11</span>
-<span class="n">k8s</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="mi">108</span>     <span class="n">Ready</span>    <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>   <span class="mi">30</span><span class="n">d</span>   <span class="n">v1</span><span class="mf">.19.5</span>   <span class="mf">172.16.12.108</span>   <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>        <span class="n">CentOS</span> <span class="n">Linux</span> <span class="mi">7</span> <span class="p">(</span><span class="n">Core</span><span class="p">)</span>   <span class="mf">5.4.219</span><span class="o">-</span><span class="mf">1.</span><span class="n">el7</span><span class="o">.</span><span class="n">elrepo</span><span class="o">.</span><span class="n">x86_64</span>   <span class="n">docker</span><span class="p">:</span><span class="o">//</span><span class="mf">19.3.11</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@k8s-master-106<span class="w"> </span>~<span class="o">]</span><span class="c1"># kubectl get nodes -owide</span>
+NAME<span class="w">             </span>STATUS<span class="w">   </span>ROLES<span class="w">    </span>AGE<span class="w">   </span>VERSION<span class="w">   </span>INTERNAL-IP<span class="w">     </span>EXTERNAL-IP<span class="w">   </span>OS-IMAGE<span class="w">                </span>KERNEL-VERSION<span class="w">                </span>CONTAINER-RUNTIME
+k8s-master-106<span class="w">   </span>Ready<span class="w">    </span>master<span class="w">   </span>30d<span class="w">   </span>v1.19.5<span class="w">   </span><span class="m">172</span>.16.12.106<span class="w">   </span>&lt;none&gt;<span class="w">        </span>CentOS<span class="w"> </span>Linux<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">(</span>Core<span class="o">)</span><span class="w">   </span><span class="m">5</span>.4.219-1.el7.elrepo.x86_64<span class="w">   </span>docker://19.3.11
+k8s-node-107<span class="w">     </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>30d<span class="w">   </span>v1.19.5<span class="w">   </span><span class="m">172</span>.16.12.107<span class="w">   </span>&lt;none&gt;<span class="w">        </span>CentOS<span class="w"> </span>Linux<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">(</span>Core<span class="o">)</span><span class="w">   </span><span class="m">5</span>.4.219-1.el7.elrepo.x86_64<span class="w">   </span>docker://19.3.11
+k8s-node-108<span class="w">     </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>30d<span class="w">   </span>v1.19.5<span class="w">   </span><span class="m">172</span>.16.12.108<span class="w">   </span>&lt;none&gt;<span class="w">        </span>CentOS<span class="w"> </span>Linux<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">(</span>Core<span class="o">)</span><span class="w">   </span><span class="m">5</span>.4.219-1.el7.elrepo.x86_64<span class="w">   </span>docker://19.3.11
 </pre></div>
 </div>
 <p>(3) Use the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pod</span> <span class="pre">-A</span></code> command to check whether all the pods in the Kubernetes cluster are Running.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># kubectl get pod -A</span>
-<span class="n">NAMESPACE</span>      <span class="n">NAME</span>                                         <span class="n">READY</span>   <span class="n">STATUS</span>      <span class="n">RESTARTS</span>   <span class="n">AGE</span>
-<span class="n">backup</span>         <span class="n">backup</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mi">0</span>                               <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">3</span>          <span class="mi">7</span><span class="n">h15m</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">calico</span><span class="o">-</span><span class="n">kube</span><span class="o">-</span><span class="n">controllers</span><span class="o">-</span><span class="mi">6</span><span class="n">c89d944d5</span><span class="o">-</span><span class="n">sgspg</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">9</span>          <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">calico</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="mi">442</span><span class="n">p9</span>                            <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">9</span>          <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">calico</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">hqlx4</span>                            <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">7</span>          <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">calico</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">srnvz</span>                            <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">7</span>          <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">coredns</span><span class="o">-</span><span class="mi">59</span><span class="n">c898cd69</span><span class="o">-</span><span class="n">bcf7r</span>                     <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">9</span>          <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">coredns</span><span class="o">-</span><span class="mi">59</span><span class="n">c898cd69</span><span class="o">-</span><span class="n">t97vc</span>                     <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">10</span>         <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">etcd</span><span class="o">-</span><span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span>                          <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">9</span>          <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">kube</span><span class="o">-</span><span class="n">apiserver</span><span class="o">-</span><span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span>                <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">13</span>         <span class="mi">30</span><span class="n">d</span>
-<span class="n">kube</span><span class="o">-</span><span class="n">system</span>    <span class="n">kube</span><span class="o">-</span><span class="n">controller</span><span class="o">-</span><span class="n">manager</span><span class="o">-</span><span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span>       <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>     <span class="mi">76</span>         <span class="mi">30</span><span class="n">d</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@k8s-master-106<span class="w"> </span>~<span class="o">]</span><span class="c1"># kubectl get pod -A</span>
+NAMESPACE<span class="w">      </span>NAME<span class="w">                                         </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
+backup<span class="w">         </span>backup-agent-0<span class="w">                               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">3</span><span class="w">          </span>7h15m
+kube-system<span class="w">    </span>calico-kube-controllers-6c89d944d5-sgspg<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">9</span><span class="w">          </span>30d
+kube-system<span class="w">    </span>calico-node-442p9<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">9</span><span class="w">          </span>30d
+kube-system<span class="w">    </span>calico-node-hqlx4<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">7</span><span class="w">          </span>30d
+kube-system<span class="w">    </span>calico-node-srnvz<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">7</span><span class="w">          </span>30d
+kube-system<span class="w">    </span>coredns-59c898cd69-bcf7r<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">9</span><span class="w">          </span>30d
+kube-system<span class="w">    </span>coredns-59c898cd69-t97vc<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">10</span><span class="w">         </span>30d
+kube-system<span class="w">    </span>etcd-k8s-master-106<span class="w">                          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">9</span><span class="w">          </span>30d
+kube-system<span class="w">    </span>kube-apiserver-k8s-master-106<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">13</span><span class="w">         </span>30d
+kube-system<span class="w">    </span>kube-controller-manager-k8s-master-106<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">76</span><span class="w">         </span>30d
 </pre></div>
 </div>
 <p>(4) Use the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">sc</span></code> command to check whether the corresponding StorageClass of the CSI driver exists and whether the RECLAIMPOLICY of the StorageClass is Delete. If the RECLAIMPOLICY is not Delete, the temporary PV and volumes in Ceph created during backup cannot be deleted after the backup.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># kubectl get sc</span>
-<span class="n">NAME</span>         <span class="n">PROVISIONER</span>        <span class="n">RECLAIMPOLICY</span>   <span class="n">VOLUMEBINDINGMODE</span>   <span class="n">ALLOWVOLUMEEXPANSION</span>   <span class="n">AGE</span>
-<span class="n">csi</span><span class="o">-</span><span class="n">rbd</span><span class="o">-</span><span class="n">sc</span>   <span class="n">rbd</span><span class="o">.</span><span class="n">csi</span><span class="o">.</span><span class="n">ceph</span><span class="o">.</span><span class="n">com</span>   <span class="n">Delete</span>          <span class="n">Immediate</span>           <span class="n">true</span>                   <span class="mi">30</span><span class="n">d</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@k8s-master-106<span class="w"> </span>~<span class="o">]</span><span class="c1"># kubectl get sc</span>
+NAME<span class="w">         </span>PROVISIONER<span class="w">        </span>RECLAIMPOLICY<span class="w">   </span>VOLUMEBINDINGMODE<span class="w">   </span>ALLOWVOLUMEEXPANSION<span class="w">   </span>AGE
+csi-rbd-sc<span class="w">   </span>rbd.csi.ceph.com<span class="w">   </span>Delete<span class="w">          </span>Immediate<span class="w">           </span><span class="nb">true</span><span class="w">                   </span>30d
 </pre></div>
 </div>
 <p>(5) Use the <code class="docutils literal notranslate"><span class="pre">ceph</span> <span class="pre">-s</span></code> command to check whether the Ceph cluster status is normal and ensure that:</p>
@@ -650,24 +649,24 @@ Main PID: 1169 (kubelet)
 <li><p>the Ceph version is later than v14.0</p></li>
 <li><p>the kernel version is later than or equal to 5.1</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="o">~</span><span class="p">]</span><span class="c1"># ceph -s</span>
-  <span class="n">cluster</span><span class="p">:</span>
-  <span class="nb">id</span><span class="p">:</span>     <span class="mi">948</span><span class="n">d9908</span><span class="o">-</span><span class="n">dd20</span><span class="o">-</span><span class="mi">4866</span><span class="o">-</span><span class="n">beea</span><span class="o">-</span><span class="n">e798e82f0252</span>
-  <span class="n">health</span><span class="p">:</span> <span class="n">HEALTH_OK</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@k8s-master-106<span class="w"> </span>~<span class="o">]</span><span class="c1"># ceph -s</span>
+<span class="w">  </span>cluster:
+<span class="w">  </span>id:<span class="w">     </span>948d9908-dd20-4866-beea-e798e82f0252
+<span class="w">  </span>health:<span class="w"> </span>HEALTH_OK
 
-<span class="n">services</span><span class="p">:</span>
-  <span class="n">mon</span><span class="p">:</span> <span class="mi">1</span> <span class="n">daemons</span><span class="p">,</span> <span class="n">quorum</span> <span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span> <span class="p">(</span><span class="n">age</span> <span class="mi">24</span><span class="n">h</span><span class="p">)</span>
-  <span class="n">mgr</span><span class="p">:</span> <span class="n">k8s</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">106</span><span class="p">(</span><span class="n">active</span><span class="p">,</span> <span class="n">since</span> <span class="mi">24</span><span class="n">h</span><span class="p">)</span>
-  <span class="n">osd</span><span class="p">:</span> <span class="mi">3</span> <span class="n">osds</span><span class="p">:</span> <span class="mi">3</span> <span class="n">up</span> <span class="p">(</span><span class="n">since</span> <span class="mi">24</span><span class="n">h</span><span class="p">),</span> <span class="mi">3</span> <span class="ow">in</span> <span class="p">(</span><span class="n">since</span> <span class="mi">5</span><span class="n">d</span><span class="p">)</span>
+services:
+<span class="w">  </span>mon:<span class="w"> </span><span class="m">1</span><span class="w"> </span>daemons,<span class="w"> </span>quorum<span class="w"> </span>k8s-master-106<span class="w"> </span><span class="o">(</span>age<span class="w"> </span>24h<span class="o">)</span>
+<span class="w">  </span>mgr:<span class="w"> </span>k8s-master-106<span class="o">(</span>active,<span class="w"> </span>since<span class="w"> </span>24h<span class="o">)</span>
+<span class="w">  </span>osd:<span class="w"> </span><span class="m">3</span><span class="w"> </span>osds:<span class="w"> </span><span class="m">3</span><span class="w"> </span>up<span class="w"> </span><span class="o">(</span>since<span class="w"> </span>24h<span class="o">)</span>,<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">(</span>since<span class="w"> </span>5d<span class="o">)</span>
 
-<span class="n">data</span><span class="p">:</span>
-  <span class="n">pools</span><span class="p">:</span>   <span class="mi">1</span> <span class="n">pools</span><span class="p">,</span> <span class="mi">128</span> <span class="n">pgs</span>
-  <span class="n">objects</span><span class="p">:</span> <span class="mi">825</span> <span class="n">objects</span><span class="p">,</span> <span class="mf">2.3</span> <span class="n">GiB</span>
-  <span class="n">usage</span><span class="p">:</span>   <span class="mf">9.8</span> <span class="n">GiB</span> <span class="n">used</span><span class="p">,</span> <span class="mi">590</span> <span class="n">GiB</span> <span class="o">/</span> <span class="mi">600</span> <span class="n">GiB</span> <span class="n">avail</span>
-  <span class="n">pgs</span><span class="p">:</span>     <span class="mi">128</span> <span class="n">active</span><span class="o">+</span><span class="n">clean</span>
+data:
+<span class="w">  </span>pools:<span class="w">   </span><span class="m">1</span><span class="w"> </span>pools,<span class="w"> </span><span class="m">128</span><span class="w"> </span>pgs
+<span class="w">  </span>objects:<span class="w"> </span><span class="m">825</span><span class="w"> </span>objects,<span class="w"> </span><span class="m">2</span>.3<span class="w"> </span>GiB
+<span class="w">  </span>usage:<span class="w">   </span><span class="m">9</span>.8<span class="w"> </span>GiB<span class="w"> </span>used,<span class="w"> </span><span class="m">590</span><span class="w"> </span>GiB<span class="w"> </span>/<span class="w"> </span><span class="m">600</span><span class="w"> </span>GiB<span class="w"> </span>avail
+<span class="w">  </span>pgs:<span class="w">     </span><span class="m">128</span><span class="w"> </span>active+clean
 
-<span class="n">io</span><span class="p">:</span>
-  <span class="n">client</span><span class="p">:</span>   <span class="mi">62</span> <span class="n">KiB</span><span class="o">/</span><span class="n">s</span> <span class="n">wr</span><span class="p">,</span> <span class="mi">0</span> <span class="n">op</span><span class="o">/</span><span class="n">s</span> <span class="n">rd</span><span class="p">,</span> <span class="mi">4</span> <span class="n">op</span><span class="o">/</span><span class="n">s</span> <span class="n">wr</span>
+io:
+<span class="w">  </span>client:<span class="w">   </span><span class="m">62</span><span class="w"> </span>KiB/s<span class="w"> </span>wr,<span class="w"> </span><span class="m">0</span><span class="w"> </span>op/s<span class="w"> </span>rd,<span class="w"> </span><span class="m">4</span><span class="w"> </span>op/s<span class="w"> </span>wr
 </pre></div>
 </div>
 </li>

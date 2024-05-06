@@ -121,7 +121,7 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-	```{code-block} python
+	```{code-block} shell
 	root@ubuntu:~# curl -o- "http://192.168.17.90:50305/d2/update/script?modules=hadoop&location=http%3A%2F%2F192.168.17.90%3A50305&access_key=929a401135dc8f06efbc29c3ea86e3f9&rm=yes&tool=curl" | sh
 	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -356,7 +356,7 @@ To create a backup job, do the following:
 
 	Here is an example of using the wildcard `*` in **Filter**. Assume that the backup source includes the following directories and files:
 
-	```{code-block} python
+	```{code-block} shell
 	root@ubuntu:/# tree /backup/
 	/backup/
 	└── test
@@ -547,7 +547,7 @@ To create an instant recovery job, do the following:
 
 	(4) Expand the **Advanced options**. From the **Bridge** list, select whether to use a network bridge or not. **None** is selected by default. You can use the network bridge to export backup sets to avoid conflicts with the NFS service of the operating system.
 
-    ```{note}
+    ````{note}
 	1. To use a network bridge, enter the IP address, subnet mask, and default gateway. The IP address must be a valid address that is not used in this network segment.
 	2. Install `bridge-utils` on the storage server for bridge settings, with which ADPS can recognize the network bridge after it is started. Add the following content to the configuration file `/etc/network/interfaces`:
 		```{code-block}
@@ -562,7 +562,7 @@ To create an instant recovery job, do the following:
 		bridge_hello 2
 		bridge_maxage 12
 		```
-	```
+	````
 
 5. At the **Finish** step, confirm the job information and click **Submit**.
 6. After the submission, you will be redirected to the help page. Mount the files manually according to the procedure. On the **CDM** page, a copy with a mounted state is added below the selected point in time. For more details, see [View a copy](#view-a-copy).

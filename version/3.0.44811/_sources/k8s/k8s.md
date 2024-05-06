@@ -69,19 +69,19 @@ The agent can be installed through images. To install the agent, do the followin
 
 2. Load the image (all nodes require this step).
 
-	```
+	```shell
 	docker load -i agent-k8s-version.tar
 	```
 
 3. Check the image.
 
-	```
+	```shell
 	sudo docker images| grep k8s # Or use the ctr images ls | grep k8s command
 	```
 
 4. Create a namespace and specify the `hostid`.
 
-	```
+	```shell
 	kubectl create ns backup
 
 	uuidgen -r | sed "s/-//g"   # Specify the hostid in the configmap by yourself
@@ -89,7 +89,7 @@ The agent can be installed through images. To install the agent, do the followin
 
 5. Configure the `cluster.yaml` as follows:
 
-	```
+	```shell
 	apiVersion: rbac.authorization.k8s.io/v1
 	kind: ClusterRoleBinding
 	metadata:
@@ -105,12 +105,11 @@ The agent can be installed through images. To install the agent, do the followin
 
 
 	kubectl apply -f cluster.yaml
-
 	```
 
 6. Configure the agent as follows (You can deploy multiple agents to run multiple jobs. Agents can be switched among nodes. When you deploy multiple agents, they may be scheduled to the same node.)
 
-	```
+	```shell
 	apiVersion: apps/v1
 	kind: StatefulSet
 	metadata:
@@ -195,7 +194,7 @@ The agent can be installed through images. To install the agent, do the followin
 
 7. After the installation, use the `kubectl get pod -n backup` command to check whether the agent is running or not (`backup` is an example of the namespace. Change it according to your settings).
 
-	```
+	```shell
 	[root@k8s-master-106 ~]# kubectl get pod -n backup
 	NAME             READY   STATUS    RESTARTS   AGE
 	backup-agent-0   1/1     Running   3          7h46m
@@ -270,7 +269,7 @@ Before you back up and restore Kubernetes, check the following:
 
 	(1) Use the `systemctl status kubelet` command to check whether the kubelet service is active (running).
 
-	```
+	```shell
 	[root@k8s-master-106 ~]# systemctl status kubelet
 	● kubelet.service - kubelet: The Kubernetes Node Agent
 	  Loaded: loaded (/usr/lib/systemd/system/kubelet.service; enabled; vendor preset: disabled)
@@ -287,7 +286,7 @@ Before you back up and restore Kubernetes, check the following:
 
 	(2) Use the `kubectl get nodes -owide` command to check the version of the Kubernetes cluster and whether all nodes are Ready. Ensure that the versions of all nodes are not older than v1.17.0. Otherwise, the CSI driver is not supported.
 
-	```
+	```shell
 	[root@k8s-master-106 ~]# kubectl get nodes -owide
 	NAME             STATUS   ROLES    AGE   VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION                CONTAINER-RUNTIME
 	k8s-master-106   Ready    master   30d   v1.19.5   172.16.12.106   <none>        CentOS Linux 7 (Core)   5.4.219-1.el7.elrepo.x86_64   docker://19.3.11
@@ -297,7 +296,7 @@ Before you back up and restore Kubernetes, check the following:
 
 	(3) Use the `kubectl get pod -A` command to check whether all the pods in the Kubernetes cluster are Running.
 
-	```
+	```shell
 	[root@k8s-master-106 ~]# kubectl get pod -A
 	NAMESPACE      NAME                                         READY   STATUS      RESTARTS   AGE
 	backup         backup-agent-0                               1/1     Running     3          7h15m
@@ -314,7 +313,7 @@ Before you back up and restore Kubernetes, check the following:
 
 	(4) Use the `kubectl get sc` command to check whether the corresponding StorageClass of the CSI driver exists and whether the RECLAIMPOLICY of the StorageClass is Delete. If the RECLAIMPOLICY is not Delete, the temporary PV and volumes in Ceph created during backup cannot be deleted after the backup.
 
-	```
+	```shell
 	[root@k8s-master-106 ~]# kubectl get sc
 	NAME         PROVISIONER        RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 	csi-rbd-sc   rbd.csi.ceph.com   Delete          Immediate           true                   30d
@@ -326,7 +325,7 @@ Before you back up and restore Kubernetes, check the following:
 	- the Ceph version is later than v14.0
 	- the kernel version is later than or equal to 5.1
 
-	```
+	```shell
 	[root@k8s-master-106 ~]# ceph -s
 	  cluster:
 	  id:     948d9908-dd20-4866-beea-e798e82f0252
