@@ -21,7 +21,6 @@ User Guides
    :titlesonly:
    :caption: Management
 
-   administrator/administrator.md
    manager/manager.md
    operator/operator.md
    audit/audit.md

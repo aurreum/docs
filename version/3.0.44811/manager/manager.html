@@ -1,0 +1,2500 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Administrator’s Guide &#8212; ADPS V3.0.44811</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=84d92f63" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=6da122b0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'manager/manager';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for Oracle" href="../oracle/oracle.html" />
+    <link rel="prev" title="Agent Installation Guide" href="../agent_install/agent_install.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ADPS V3.0.44811 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ADPS V3.0.44811 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Management</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Administrator’s Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sybase/sybase.html">User Guide for Sybase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Microsoft Exchange Server</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../k8s/k8s.html">User Guide for Kubernetes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openstack/openstack.html">User Guide for OpenStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Administrator’s Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-component">System component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature">Feature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-roles">User roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-planning">Storage planning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#various-storage-types">Various storage types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flexible-pool-recycling-strategies">Flexible pool recycling strategies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dashboard">Dashboard</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-and-maintenance-o-m-statistics">Operations and maintenance (O&amp;M) statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-storage-capacity-usage">Overall storage capacity usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licensed-storage-space-usage">Licensed storage space usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pool-capacity-usage">Storage pool capacity usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dashboard-toolbar">Dashboard toolbar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-management">User management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-user">Add user</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-user-group">Assign user group</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-management">Storage management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-server">Storage server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pool">Storage pool</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-storage-pool">Add a storage pool</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#add-storage">Add storage</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#add-tape-library-pool">Add tape library pool</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-the-tape">Scan the tape</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Add tape library pool</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#allocate-tapes">Allocate tapes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-storage-pools-storage-and-labels">Modify storage pools, storage and labels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-storage-pool">Delete a storage pool</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pool-replication">Storage pool replication</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-pool-replication">Set up pool replication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-replication-job">Pool replication job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-replication-list">Pool replication list</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-data-network">Add data network</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-storage-pool-replication-network">Add storage pool replication network</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-management-network">Add management network</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scsi-target">SCSI target</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iscsi-target">iSCSI target</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#add">Add</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">Delete</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fc-target">FC target</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Add</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tape-library">Tape library</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tape-controller">Tape controller</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drives">Drives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#media-management">Media management</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#task-management">Task management</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raid-card">RAID card</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-raid">Software RAID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resource">Resource</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent">Install agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-host">Add a host</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ndmp-host">NDMP host</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-cluster">Hadoop cluster</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#object-storage-service">Object storage service</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-hosts-activate-licenses-authorize-licenses">Register hosts/Activate licenses/Authorize licenses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-register-batch-activate-batch-authorize">Batch register/Batch activate/Batch authorize</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-register">Batch register</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-activate">Batch activate</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-binding">Cluster binding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-management">System management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-settings">System settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common">Common</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#server">Server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog">Catalog</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#webhook">Webhook</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approval">Approval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog-backup">Catalog backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disaster-recovery">Disaster recovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#offsite-disaster-recovery">Offsite disaster recovery</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-disaster-recovery">Local disaster recovery</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-and-maintenance-management">Operations and maintenance management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job">Job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alert">Alert</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Alert</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subscription">Subscription</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-log">Download log</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upgrade">Upgrade</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-packages">Upload packages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#view-packages">View packages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-size">Storage size</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#host">Host</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Resource</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#job-status">Job status</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#job-speed">Job speed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#job-duration">Job duration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#export">Export</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report">Report</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-report">Add report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-report">Modify report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-report">Download report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#print-report">Print report</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label">Label</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approvals">Approvals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Storage pool</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job-replication">Job replication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-tenancy">Multi tenancy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Approval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Upgrade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-key">Access key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-package">Installation package</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="administrators-guide">
+<h1>Administrator’s Guide<a class="headerlink" href="#administrators-guide" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This guide introduces how to properly use ADPS as an administrative user.</p>
+</section>
+<section id="system-component">
+<h2>System component<a class="headerlink" href="#system-component" title="Link to this heading">#</a></h2>
+<p>ADPS system components contain Backup Server and Console, Storage Server, and Agent.</p>
+<ul>
+<li><p>Backup Server and Console</p>
+<p>A backup server is a machine on which the ADPS Server is installed. It provides the Backup Console and is responsible for accessing the clients and storage servers, monitoring and managing the business information such as the backup and restore of resources on each client.</p>
+</li>
+<li><p>Storage Server</p>
+<p>A storage server is a machine on which the ADPS Storage is installed. It is responsible for receiving and storing backup data (backup sets, CDP data, etc.) from clients. Storage servers can be used to build distributed deduplication clusters, achieving load balancing of backup storage.</p>
+</li>
+<li><p>Agent</p>
+<p>The agent can be installed on the production server or a separate server (backup host), responsible for receiving the job scheduling from the backup server and performing the backup/restore jobs.</p>
+</li>
+</ul>
+</section>
+<section id="feature">
+<h2>Feature<a class="headerlink" href="#feature" title="Link to this heading">#</a></h2>
+<p>ADPS supports the following features:</p>
+<table class="longtable table" id="id12">
+<caption><span class="caption-text">Feature supported</span><a class="headerlink" href="#id12" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup and restore</p></td>
+<td><p>File backup and restore <br> Database backup and restore <br> Virtual machine backup and restore <br> Cloud platform backup and restore <br> Office software backup and restore <br> Operating system backup and restore</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup and disaster recovery</p></td>
+<td><p>Database replication <br> Continuous log protection <br> Offsite disaster recovery</p></td>
+</tr>
+<tr class="row-even"><td><p>Data management</p></td>
+<td><p>Effective data compression <br> Accurate deduplication <br> Customized backup speed limit within user-defined time intervals <br> Synthetic backups <br> Various copy data management strategies <br> Self-serve BaaS (Backup as a Service) <br> Encryption for data transmission and data storage</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operations and maintenance management</p></td>
+<td><p>Powerful label capabilities <br> Various reports and log export <br> Various user roles and access control permissions <br> Data transfer in weak network environment <br> Distributed multi-level management and unified monitoring <br> Periodic recovery testing <br> Multi-factor authentication</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-roles">
+<h2>User roles<a class="headerlink" href="#user-roles" title="Link to this heading">#</a></h2>
+<p>The ADPS user system consists of multiple roles, including pre-configured users and custom-created users. This system aims to achieve functions such as system management, backup services, unified monitoring, while ensuring isolation and checking and balancing among the different users. Through this design, ADPS ensures that the actions of each user can be supervised and accidents can be traced when they occur.</p>
+<ul>
+<li><p>Pre-configured users</p>
+<p>After the successful installation, the roles of the three pre-configured users are: System Administrator (admin), Audit Administrator (audit), and System Security (security).</p>
+<p>Their privileges are as shown in the following table:</p>
+<table class="longtable table" id="id13">
+<caption><span class="caption-text">Pre-configured users</span><a class="headerlink" href="#id13" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Privilege</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>System Administrator (admin)</p></td>
+<td><p>Responsible for the system configuration, user management, storage management, license management, resource management, operations and maintenance, etc. Default username and password is “admin/admin”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Audit Administrator (audit)</p></td>
+<td><p>Record and manage the logging and retention of user’s operational activities. Default username and password is “audit/audit”.</p></td>
+</tr>
+<tr class="row-even"><td><p>System Security (security)</p></td>
+<td><p>When the Enable security user option is checked, the security user will be responsible for operations such as creating, deleting, modifying, and locking user accounts. Default username and password is “security/security”.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Custom-created users</p>
+<p>The system administrator can create six user roles: administrator, system monitor, monitor, operator, pool replication user, and tenant.</p>
+<p>Their privileges are as shown in the following table:</p>
+<table class="longtable table" id="id14">
+<caption><span class="caption-text">Custom-created users</span><a class="headerlink" href="#id14" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Privilege</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Administrator</p></td>
+<td><p>Responsible for system administration, excluding the management of critical data such as storage servers. Its privilege is second only to the system administrator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>System monitor</p></td>
+<td><p>Responsible for monitoring the system’s operational state. It can monitor all system information, including the system and job state of sub-servers.</p></td>
+</tr>
+<tr class="row-even"><td><p>Monitor</p></td>
+<td><p>Responsible for monitoring the operation system state. All system information can be monitored, but the system and job state of sub-servers are not included.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operator</p></td>
+<td><p>Responsible for managing backup and restore jobs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Pool replication user</p></td>
+<td><p>Responsible for pool replication jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tenant</p></td>
+<td><p>Responsible for managing its own independent resources.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="storage-planning">
+<h2>Storage planning<a class="headerlink" href="#storage-planning" title="Link to this heading">#</a></h2>
+<section id="various-storage-types">
+<h3>Various storage types<a class="headerlink" href="#various-storage-types" title="Link to this heading">#</a></h3>
+<p>ADPS supports popular types of storage media, including disks, tapes, optical discs, and cloud. ADPS allows the creation of different storage pools based on the specific storage media types. In a multi-tenant environment, tenants can add standard storage pools, deduplication storage pools, block device deduplication pools, and object storage service pools.</p>
+<ul>
+<li><p>Disk</p>
+<p>ADPS mounts disks to the operating system on the storage server, formats the file system as XFS/ZFS, and store the backup data on the file system.</p>
+<p>The supported storage pool types of disk storage are as follows:</p>
+</li>
+</ul>
+<table class="longtable table" id="id15">
+<caption><span class="caption-text">Disk-based storage pool</span><a class="headerlink" href="#id15" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Storage pool type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Standard storage pool</p></td>
+<td><p>Used to store the backup data of traditional backup types.</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Local storage pool</p></td>
+<td><p>Used for scenarios where the storage media is the local space on the client.</p></td>
+<td><p>Only users with the administrator and operator privileges can create this kind of pool.</p></td>
+</tr>
+<tr class="row-even"><td><p>Deduplication storage pool</p></td>
+<td><p>Used to store the backup data of traditional backup types. It utilizes source-side deduplication for data sharding and fingerprint calculation, only storing data blocks with different fingerprints.</p></td>
+<td><p>We recommend using the XFS format for the disk’s file system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>File synthetic pool</p></td>
+<td><p>Used to store the backup data of File, Hadoop and OBS synthetic backups. Storage Server mounts the backup sets to Agent via NFS for a instant recovery.</p></td>
+<td><p>Instant recovery requires adps-nfsd module installed</p></td>
+</tr>
+<tr class="row-even"><td><p>Real-time backup pool</p></td>
+<td><p>Used to store the backup data of Oracle and MySQL continuous log backups.</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block device deduplication pool</p></td>
+<td><p>Used for managing and optimizing disk storage. It maximizes the utilization of disk space and improves backup storage efficiency and performance by reclaiming and reusing deleted blocks.</p></td>
+<td><p>We recommend using the XFS format for the disk’s file system. <br> The backup server requires the installation of server module.</p></td>
+</tr>
+<tr class="row-even"><td><p>Data synthetic pool</p></td>
+<td><p>Used to store the backup data of Oracle, SQL Server, MySQL, and VMware synthetic backups. Storage Server provides block devices for Agent via iSCSI/FC Target, takes snapshots of the block devices, and mounts the snapshots directly to Agent for a fast restore.</p></td>
+<td><p>The file system of the disk requires the ZFS format. <br> The installation of adps-storaged-lanfree module is required for instant recovery.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block device synthetic pool</p></td>
+<td><p>Used to combine multiple storage devices into a virtual device, offering greater capacity, improved performance, and data protection.</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>LAN-free pool</p></td>
+<td><p>Used to store the backup data transferring over LAN-free links. Storage Server mounts block devices to the Agent via iSCSI/FC Target to write or read data directly.</p></td>
+<td><p>The file system of the disk requires the ZFS format. <br> Installation of adps-controller module is required</p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Cloud</p>
+<p>Depending on the type of cloud storage, an object storage service pool can be created by inputting parameters such as AK and SK. Backup jobs can then be performed to back up data to the object storage.</p>
+<table class="longtable table" id="id16">
+<caption><span class="caption-text">Cloud-based storage pool</span><a class="headerlink" href="#id16" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Storage pool type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Object storage service pool</p></td>
+<td><p>Used to store the backup data of traditional backup types. The data is backed up directly to the cloud (D2C).</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Tape</p>
+<p>Tape libraries or virtual tape libraries can be used as storage media. After a tape library is connected to a tape controller, a scan can be performed on the ADPS console to identify connected tape libraries, and backup data can be stored in the created tape pools.</p>
+<table class="longtable table" id="id17">
+<caption><span class="caption-text">Tape-based storage pool</span><a class="headerlink" href="#id17" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Storage pool type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tape library pool</p></td>
+<td><p>Used to store backup data from traditional backup types. The data is backed up directly to tape library (D2T).</p></td>
+<td><p>To manager tape libraries, the installation of adps-controller module is required.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Optical disc</p>
+<p>By utilizing the optical disc as a storage media, ADPS can easily manage backup data, perform quick restore and retrieval when needed. Optical disc storage also offers portability, allowing backup data to be conveniently archived and stored.</p>
+<table class="longtable table" id="id18">
+<caption><span class="caption-text">Optical disc storage pool</span><a class="headerlink" href="#id18" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Storage pool type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CD-ROM storage pool</p></td>
+<td><p>Store and manage backup data using CD-ROMs as storage media</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="flexible-pool-recycling-strategies">
+<h3>Flexible pool recycling strategies<a class="headerlink" href="#flexible-pool-recycling-strategies" title="Link to this heading">#</a></h3>
+<p>The data in storage pools have a well-tried life cycle management. You can set the backup set retention policy according to the storage time, space and other conditions to achieve the recycling of storage space effectively.</p>
+<p>Supported backup set retention policies are as the followings:</p>
+<table class="longtable table" id="id19">
+<caption><span class="caption-text">Backup set retention policy</span><a class="headerlink" href="#id19" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Retention policy</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time policy</p></td>
+<td><p>Backup sets retention days</p></td>
+<td><p>Under the condition that each resource has a complete and available backup set, backup sets in the storage pool that exceed the retention period will be marked as expired. <br> The default value is 30 days. 0 means do not use the Backup set retention days rule to delete backup sets.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Space policy</p></td>
+<td><p>Backup sets retention quota</p></td>
+<td><p>If the total size of backup sets in the storage pool exceeds the configured retention quota, the earliest full backup sets, as well as the dependent incremental and log backup sets built upon them, will be marked as expired together. <br> 10 GiB is retained by default. 0 means do not use the Backup set retention quota rule to delete backup sets.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Time and space policy</p></td>
+<td><p>Backup sets retention days, backup sets retention quota</p></td>
+<td><p>If you have set the retention days and retention quota, the backup sets will be marked as expired as long as either set condition is met.</p></td>
+<td><p>The Backup sets retention policy displayed on the Storage pool page depends on the values entered: if both fields are 0, it shows as “Unlimited”; if one field is 0, it displays the entered value; and if values are entered in both fields, it shows as “XX days or XX GiB/PiB” entered.</p></td>
+</tr>
+</tbody>
+</table>
+<p>ADPS also offers multiple options to configure different storage pools with various settings.</p>
+<p><strong>Common options</strong></p>
+<ol class="arabic">
+<li><p>Delay delete backup sets</p>
+<p>You can delay the deletion of expired backup sets by checking this option.</p>
+<ul class="simple">
+<li><p>When the option is checked, the earliest expired backup sets will be deleted to free up space when the disk space usage exceeds 90% (The percentage can be modified in <strong>Storage</strong> &gt; <strong>Storage server</strong> &gt; <strong>Modify</strong>).</p></li>
+<li><p>When the option is unchecked, backup sets in the storage pool will be deleted to free up space when they become expired.</p></li>
+</ul>
+</li>
+<li><p>Min full backups retention</p>
+<p>Set the minimum number of full backup sets retained for each resource in the storage pool. The default minimum is 1. Incremental and differential backup sets that depend on these full backups are retained at the same time. When the number of full backup sets exceeds the set value, the recycling will start according to the configured retention policies of the storage pool.</p>
+</li>
+</ol>
+<p><strong>Advanced option</strong></p>
+<ul class="simple">
+<li><p>Data storage encryption: Enabling encryption for backup set transmission and storage requires the selection of an encryption algorithm, cipher length, and encryption mode.</p></li>
+<li><p>Encryption algorithm: AES and SM4 are available.</p></li>
+<li><p>Cipher Length: The AES encryption algorithm supports cipher lengths of 128, 192, and 256.</p></li>
+<li><p>Encryption Mode: For encryption mode, AES encryption algorithm supports CTR and OFB; SM4 encryption algorithm supports OFB.</p></li>
+<li><p>Specify UUID: Specifies the UUID for the pool. It is used for rebuilding the storage pool in case of accidental deletion.</p></li>
+</ul>
+</section>
+</section>
+<section id="dashboard">
+<h2>Dashboard<a class="headerlink" href="#dashboard" title="Link to this heading">#</a></h2>
+<p>The <strong>Dashboard</strong> provides users with a comprehensive overview of the backup system’s operation state, allowing them to quickly access the overall system information.</p>
+<p>The display modules on the Dashboard include:</p>
+<ul class="simple">
+<li><p>Operations and maintenance (O&amp;M) statistics</p></li>
+<li><p>Overall storage capacity usage</p></li>
+<li><p>Licensed storage capacity usage</p></li>
+<li><p>Storage pool capacity usage</p></li>
+<li><p>Data export</p></li>
+</ul>
+<section id="operations-and-maintenance-o-m-statistics">
+<h3>Operations and maintenance (O&amp;M) statistics<a class="headerlink" href="#operations-and-maintenance-o-m-statistics" title="Link to this heading">#</a></h3>
+<p>This section shows the state of hosts, resources, storage pools, and counts pool replication, jobs, histories, and alert logs.</p>
+<ul>
+<li><p><strong>Hosts</strong>: List the total number of registered hosts including the number of online and offline hosts.</p></li>
+<li><p><strong>Resources</strong>: List the total number of registered host resources including the number of the online and offline resources.</p></li>
+<li><p><strong>Storage pools</strong>: List the total number of storage pools including the number of the online and offline storage pools.</p></li>
+<li><p><strong>Storage pool replication</strong>: List the total number of pool replication jobs including the number of the jobs with the “Success”, “Failure” and “Running” states. The statistics can be counted over a period of 24 hours, 7 days, 30 days, or 90 days.</p></li>
+<li><p><strong>Jobs</strong>: List the total number of backup and restore jobs created including the number of jobs with the “One time”, “Cycle”, and “Running” states.</p></li>
+<li><p><strong>Histories</strong>: List the total number of jobs executed including the number of jobs that ended up with the “Success”, “Failure” and “Cancelled” states. The statistics can be counted over a period of 24 hours, 7 days, 30 days, or 90 days.</p></li>
+<li><p><strong>Alerts</strong>: List the total number of alerts generated by the client, storage pools, and data synchronization including the number of alerts with the “Error” and “Fatal” states. The statistics can be counted over a period of 24 hours, 7 days, 30 days, or 90 days.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users may access the appropriate pages by clicking on the names on the display modules.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="overall-storage-capacity-usage">
+<h3>Overall storage capacity usage<a class="headerlink" href="#overall-storage-capacity-usage" title="Link to this heading">#</a></h3>
+<p>The overall disk storage capacity usage is presented as a pie chart.</p>
+<ul class="simple">
+<li><p>The number in the center shows the total capacity of the disk storage.</p></li>
+<li><p>The red area shows the amount of storage capacity used.</p></li>
+<li><p>The grey area shows the amount of storage capacity free.</p></li>
+</ul>
+</section>
+<section id="licensed-storage-space-usage">
+<h3>Licensed storage space usage<a class="headerlink" href="#licensed-storage-space-usage" title="Link to this heading">#</a></h3>
+<p>Licensed Storage Space refers to the activated storage space, and users can only use the activated storage space. Backup to the storage server is not supported if the activated storage capacity is entirely utilized. To expand the storage space, users are required to reapply for a new license.</p>
+</section>
+<section id="storage-pool-capacity-usage">
+<h3>Storage pool capacity usage<a class="headerlink" href="#storage-pool-capacity-usage" title="Link to this heading">#</a></h3>
+<p>The usage of each disk storage capacity is presented as a pie chart, and the storage pool usage under each disk is presented as a bar graph.</p>
+<p>The progress bars in different colors represent the varying storage capacity utilization of the current storage pools.</p>
+<ul class="simple">
+<li><p>Blue: The pool usage is below 80% of the total pool capacity.</p></li>
+<li><p>Orange: The pool usage is above 80% but below 90%. An alert email will be sent to users.</p></li>
+<li><p>Red: The pool usage is greater than 90% of the total pool capacity. An alert email will be sent to users.</p></li>
+</ul>
+</section>
+<section id="dashboard-toolbar">
+<h3>Dashboard toolbar<a class="headerlink" href="#dashboard-toolbar" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Download</strong>: Dashboard data can be exported to a CSV file. To export these data in CSV format, from the toolbar, click the <strong>Download</strong> icon. The exported data will include the visual data of the current page. Additionally, the <strong>Dashboard</strong> also provides the options to refresh and customize settings.</p></li>
+<li><p><strong>Refresh</strong>: From the toolbar, click the <strong>Refresh</strong> icon to update the entire dashboard data. To avoid frequent refreshing, the icon will be locked for 3 seconds during the refresh process. If the <strong>Automatic refresh</strong> is enabled in the Settings, the icon will spin slowly, and a progress indicator below the icon will indicate the next refresh trigger.</p></li>
+<li><p><strong>Setting</strong>: From the toolbar, click the <strong>Setting</strong> icon.</p>
+<ul>
+<li><p>Automatic refresh: Specifies the auto-refresh frequency for 30 seconds, 1 minute, 3 minutes, or 5 minutes</p></li>
+<li><p>Refresh after page ready: Refreshes the cache data</p></li>
+<li><p>Show/Hide: Choose the desired module to display it on the Dashboard. When a module is hidden, the corresponding data will be excluded from the downloaded CSV file.</p></li>
+<li><p>Enable the number increment animation: Creates a dynamic effect where the statistics of each module gradually increase as you revisit the page.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="user-management">
+<h2>User management<a class="headerlink" href="#user-management" title="Link to this heading">#</a></h2>
+<p>This chapter will introduce how the system administrator (admin) can create users with various roles and assign resource and storage pool permissions to users based on user groups. Contents include:</p>
+<ul class="simple">
+<li><p>Add user</p></li>
+<li><p>Assign user group</p></li>
+</ul>
+<section id="add-user">
+<h3>Add user<a class="headerlink" href="#add-user" title="Link to this heading">#</a></h3>
+<p>System administrator can create users with various roles, including administrator, monitor, system monitor, operator, pool replication user, and tenant. The operator role is responsible for jobs such as backup, restore, and disaster recovery. Therefore, it is essential to create users with the operator role. Users with roles such as administrator, system monitor, monitor, pool replication user, and tenant can be created on demand.</p>
+<p>From the menu, click <strong>User</strong> &gt; <strong>User</strong>. The <strong>User</strong> page appears. On this page, you can view and manage the user information. Users can access the User page to perform operation such as:</p>
+<ul>
+<li><p>Add user roles</p></li>
+<li><p>Modify users</p></li>
+<li><p>Lock/unlock users</p></li>
+<li><p>Delete users</p></li>
+<li><p>Add to IP address blocklist</p></li>
+<li><p>Covert to tenant</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Creating users with tenant and system monitor roles, as well as enabling the conversion to a tenant, requires a multi-tenant environment.</p>
+</div>
+</li>
+</ul>
+<ol class="arabic">
+<li><p>To add the Operator user, do the following:</p>
+<p>(1) From the menu, click <strong>User</strong> &gt; <strong>User</strong>. The <strong>User</strong> page appears.</p>
+<p>(2) From the toolbar, click the <strong>Add</strong> icon. The <strong>Add user</strong> window appears.</p>
+<p>(3) In the <strong>Roles</strong> field, select <strong>Operator</strong>, and fill in the required fields: <strong>Username</strong>, <strong>Password</strong>, <strong>Confirm New Password</strong>. Other fields are optional.</p>
+<p>(4) Set the <strong>User group</strong>. Click <strong>Submit</strong>. The adding of the operator is complete.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps for creating users with other roles are the same.</p>
+</div>
+</li>
+<li><p>To modify users:</p>
+<p>In display area, click <strong>Modify</strong> icon to modify nickname, password, email, telephone and other information.</p>
+</li>
+<li><p>To lock/unlock users:</p>
+<p>In display area, select the user with “Normal” status, and click <strong>Lock</strong> icon to disable the user. The user will be unable to log in to the ADPS console.</p>
+</li>
+<li><p>To delete users:</p>
+<p>In display area, click the <strong>Delete</strong> icon to delete the user account. If you want to batch delete users, click the <strong>Modify</strong> icon from the toolbar, select <strong>Delete all record</strong> to delete all user accounts except system administrator and tenants.</p>
+</li>
+<li><p>Add to IP address blocklist</p>
+<p>In display area, click the <strong>Login IP address blocklist</strong> icon. The Login IP address blocklist window appears. In this window, you can check the IP addresses used and add them to the blocklist. Unless the administrator removes the IP address from the blocklist, the user won’t be able to log in to the account using browsers on the associated IP system.</p>
+<p>To view all blocked IP address, click <strong>Login IP address blocklist</strong> from the toolbar. To remove the blocked IP address, click the <strong>Delete</strong> icon in the display area.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also add or remove IP addresses from the login IP address blocklist in the <strong>Avatar</strong> &gt; <strong>Personal settings</strong>.</p>
+</div>
+</li>
+<li><p>Session management</p>
+<p>From the toolbar, click the <strong>Login IP address blocklist</strong> icon and select <strong>Session management</strong>. The Session management page appears. On this page, you can view the blocked IP addresses and their related information, such as the user and authentication method. You can also delete the blocked IP address.</p>
+</li>
+<li><p>Covert to tenant</p>
+<p>To convert an operator or monitor user into a tenant, select the user you want to convert and click the <strong>Convert to tenant</strong> icon. An verification window appears. Enter the verification code and click OK.</p>
+<p>The conversion to tenant requires the multi-tenant environment.</p>
+</li>
+</ol>
+</section>
+<section id="assign-user-group">
+<h3>Assign user group<a class="headerlink" href="#assign-user-group" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>User</strong> &gt; <strong>User group</strong>. The <strong>User group</strong> page appears. This page allows you to view and manage users within user groups, as well as assign permissions to users for operating resources and storage pools. Supported operations are as follows:</p>
+<ul class="simple">
+<li><p>Add user group</p></li>
+<li><p>Modify user group</p></li>
+<li><p>Delete user group</p></li>
+</ul>
+<ol class="arabic">
+<li><p>To add the user group, do the following:</p>
+<p>(1) From the menu, click <strong>User group</strong> &gt; <strong>User group</strong>. The <strong>User group</strong> page appears.</p>
+<p>(2) From the toolbar, click the <strong>Add</strong> icon. The <strong>Add user group</strong> window appears.</p>
+<p>(3) Set the <strong>Name</strong> for the user group. Select <strong>Users</strong>, <strong>Resources</strong>, and <strong>Storage pools</strong>.</p>
+<p>(4) Click <strong>Submit</strong> to add the user group. Only users within the same user group can access and operate the assigned resources and storage pools.</p>
+</li>
+<li><p>To modify user groups:</p>
+<p>In display area, click <strong>Modify</strong> icon to modify the user group name, and users, resources, and storage pools.</p>
+</li>
+<li><p>To delete user groups:</p>
+<p>In display area, click the <strong>Delete</strong> icon to delete the user group.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="storage-management">
+<h2>Storage management<a class="headerlink" href="#storage-management" title="Link to this heading">#</a></h2>
+<p>This chapter introduces how to manage various types of storage media from different aspects. Storage management include:</p>
+<ul class="simple">
+<li><p>Storage server</p></li>
+<li><p>Storage pool</p></li>
+<li><p>Network</p></li>
+<li><p>Pool replication job</p></li>
+<li><p>SCSI target</p></li>
+<li><p>Tape library</p></li>
+<li><p>RAID card</p></li>
+<li><p>Software RAID</p></li>
+</ul>
+<section id="storage-server">
+<h3>Storage server<a class="headerlink" href="#storage-server" title="Link to this heading">#</a></h3>
+<p>Operations such as configuring networks and adding storage pools can only be performed after the storage server software has been installed and registered.</p>
+<p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage server</strong>. The <strong>Storage server</strong> page appears. Users can access this page to perform operation such as:</p>
+<ul class="simple">
+<li><p>Register/unregister the storage server</p></li>
+<li><p>Add external storage</p></li>
+<li><p>Export storage server data</p></li>
+<li><p>Health check</p></li>
+<li><p>Set deduplication recycling</p></li>
+<li><p>Refresh space</p></li>
+<li><p>Configure network</p></li>
+<li><p>Modify storage server</p></li>
+</ul>
+<ol class="arabic">
+<li><p>Register/unregister the storage server</p>
+<p>(1) Select a storage server, click the <strong>Register</strong> icon.</p>
+<p>(2) After the registration, a pop-up window appears confirming the setup of management network used for the communication between the backup server and storage server. Click <strong>Submit</strong>. The <strong>Add network</strong> window appears.</p>
+<p>(3) Only one Management Network can be created. In the <strong>Add network</strong> window, check <strong>Management network</strong> as the purpose, set the name of the Network, Address, and Port, click <strong>Submit</strong>.</p>
+<p>(4) On the <strong>Storage server</strong> page, the storage server is successfully registered and the state is Online. Click the <strong>Unregister</strong> icon to unregister the storage server. When you unregister a storage server, the backup and restore jobs on this storage server will fail. If the unregistration is an accidental deletion, you can re-register the storage server with the backup server again, and the backup and restore jobs associated with the storage server can continue as usual.</p>
+</li>
+<li><p>Add external storage</p>
+<p>(1) On the <strong>Storage server</strong> page, from the toolbar, click the <strong>Add external storage</strong> icon. The <strong>Add external storage</strong> window appears.</p>
+<p>(2) Set the name, type, storage server, mount point, address, port, user, password for the external storage. Click <strong>Submit</strong>.</p>
+</li>
+<li><p>Export storage server data</p>
+<p>From the toolbar, click the <strong>Download</strong> icon. Select a format and extension to export the data.</p>
+</li>
+<li><p>Health check</p>
+<p>The icon will only be displayed if the storage server is using the ZFS file system and has created a deduplication storage pool. Only the system administrator have the permission to view and configure this.</p>
+<p>(1) In display area, click the <strong>Health check</strong> icon. The Health check page appears.</p>
+<ul class="simple">
+<li><p>When the storage server is using the ZFS file system and has created a data synthetic pool, you can view the Zpool Status. The Zpool status will trigger an alert if there are any abnormalities in the status of the Zpool pool or hosts. The default interval for checking the ZFS status is 2 minutes.</p></li>
+<li><p>When the storage server is using the XFS file system and has created a deduplication storage pool, you can view the deduplication storage pool state. Additionally, you have the option to perform the following operations on the deduplication pool.</p>
+<ul>
+<li><p>Refresh: The state and progress of the deduplication pool can be refreshed by clicking the <strong>Refresh</strong> icon.</p></li>
+<li><p>Reshard: Allows re-sharding of the fingerprint library of the deduplication pool. The number of shards must be a power of 2, with a minimum value of 4. If the input value is not a power of 2, the nearest power of 2 will be automatically selected as the number of shards.</p></li>
+<li><p>Rebuild fingerprint library: Rebuilds the fingerprint library by scanning the data files of the deduplication pool. When there is physical or logical damage to the metadata or data files of the deduplication pool, the fingerprint library can be rebuilt to align the metadata and data files. Only deduplication pools in “Consistent” and “Inconsistent” states are allowed to rebuild the fingerprint library. Rebuilding the fingerprint library does not modify the data files of the deduplication pool.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Set deduplication recycling</p>
+<p>The <strong>Deduplication recycling settings</strong> icon only appears when a deduplication storage pool exists on the storage server. Only the system administrator have the permission to view and configure this.</p>
+<p>(1) In display area, click the <strong>Deduplication recycling settings</strong> icon. The <strong>Deduplication recycling settings</strong> window appears.</p>
+<p>(2) The green button <strong>Run immediately</strong> allows for performing the immediate recycling process. Scheduled recycling policy is also supported.</p>
+<ul class="simple">
+<li><p>Schedule: You can schedule the recycling process to run daily or hourly. For daily scheduling, you need to specify the start time. For hourly scheduling, you need to specify the execution interval, which can be set in hours or minutes. The interval should not exceed 24 hours.</p></li>
+<li><p>Threads: It is recommended that the number of threads not be greater than the number of the storage server CPU logical processors</p></li>
+</ul>
+<p>(3) Submit the configuration.</p>
+</li>
+<li><p>Refresh space</p>
+<p>In display area, click the <strong>Refresh space</strong> icon to refresh the storage server space.</p>
+</li>
+<li><p>Configure network</p>
+<p>In display area, click the <strong>Network</strong> icon. The <strong>Network</strong> page for the corresponding storage server appears.</p>
+</li>
+<li><p>Modify storage server</p>
+<p>In display area, click the <strong>Modify</strong> icon. The <strong>Modify</strong> window appears. In <strong>Modify</strong> window, modifying the storage server name, space usage alert threshold, and reserve space is supported.</p>
+<ul class="simple">
+<li><p>Space usage alert threshold: The value range is 0~99 and 0 means no alert will be sent. When the space usage exceeds the set value, an alert will be sent.</p></li>
+<li><p>Reserve space: The file system should reserve 5~10% space for storage performance. Only appears when the storage server uses the ZFS file system.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be careful when modifying the configuration of the storage server, as it may result in the inability of the agent to connect to the created storage pools.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="storage-pool">
+<h3>Storage pool<a class="headerlink" href="#storage-pool" title="Link to this heading">#</a></h3>
+<p>After the storage server is registered, you can add storage pools and assign them to users to store data. Users can add storage pools according to their needs. See <a class="reference internal" href="#flexible-pool-recycling-strategies">Flexible pool recycling strategies</a> for details.</p>
+<p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage</strong> page appears. On this page, the following operations are provided:</p>
+<ul class="simple">
+<li><p>Add, delete, check and modify storage pool</p></li>
+<li><p>Set up pool replication</p></li>
+<li><p>Space usage chart</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If the storage server supports snapshots, it allows for the creation of synthetic pools, but does not allow for the creation of deduplication storage pools. If the storage server does not support snapshots, it allows for the creation of deduplication storage pools, but does not allow for the creation of synthetic pools (except for file synthetic pools). Other types of storage pools are not affected by this restriction.</p></li>
+<li><p>To determine if a storage server supports snapshots, access the <strong>Storage server</strong> page. In display area, click the <strong>Column</strong> icon and select <strong>Snapshot</strong>. If the storage server supports snapshots, the <strong>Snapshot</strong> column shows “Supported”; if it does not support snapshots, the <strong>Snapshot</strong> column shows “N/A”.</p></li>
+</ul>
+</div>
+<section id="add-a-storage-pool">
+<h4>Add a storage pool<a class="headerlink" href="#add-a-storage-pool" title="Link to this heading">#</a></h4>
+<p>Follow the WEB guidance to create the desired type of storage pool that suits your needs. Here takes the standard storage pool and tape library pool as examples.</p>
+<ol class="arabic">
+<li><p>At the <strong>Select</strong> step, do the following:</p>
+<p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage</strong> page appears.</p>
+<p>(2) From the toolbar, click the <strong>Add</strong> icon. The Add storage pool page appears.</p>
+<p>(3) From the <strong>Type</strong> list, select <strong>Standard storage pool</strong>.</p>
+<p>(4) From the <strong>Storage server</strong> list, select the storage server where the storaged module is installed.</p>
+<p>(5) Select the <strong>Multi-storage</strong> check box as needed.</p>
+<p>(6) Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p><strong>Multi-storage</strong>: The storage pool space can be extended by adding multiple storage. But some virtual machines and Windows OS do not support backup to multiple storage pools.</p></li>
+<li><p><strong>Allocate storage space</strong>: Once the Multi-storage is selected, the <strong>Allocate storage space</strong> will appear. This option is used to specify the amount of storage space allowed for the backup set. If the allocated space has been used up, no further backups can be made to the storage server.</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the storage pool has been successfully created, the configuration for <strong>Multi-storage</strong> and <strong>Allocate storage space</strong> cannot be changed.</p>
+</div>
+<ol class="arabic" start="2">
+<li><p>At the <strong>Configure</strong> step, see <a class="reference internal" href="#flexible-pool-recycling-strategies">Flexible pool recycling strategies</a> for option configuration details. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Submit</strong> step, do the following:</p>
+<p>(1) Set the <strong>Name</strong> for the storage pool.</p>
+<p>(2) Multi-tenant environment requires to set the <strong>Owner</strong> to assign permission to tenants for use. Only the owner of the storage pool and the operators who are subordinate to the owner have permission to use the storage pool.</p>
+<p>(3) From <strong>User group</strong> list, select users to have operational permissions for the pool.</p>
+<p>(4) Click <strong>Submit</strong>.</p>
+</li>
+</ol>
+<section id="add-storage">
+<h5>Add storage<a class="headerlink" href="#add-storage" title="Link to this heading">#</a></h5>
+<p>After creating a standard storage pool with multi-storage enabled, you can add multiple storage to merge the storage capacity and expand the storage pool space.</p>
+<p>On <strong>Storage</strong> page, select the standard storage pool with multi-storage enabled, and click the <strong>Add storage</strong> icon in display area. The Add Storage window appears. In the window, do the following:</p>
+<p>(1) The <strong>Type</strong> selects standard storage pool by default.</p>
+<p>(2) In the <strong>Address</strong> field, set the domain name or IP address for the server where the storaged module is installed.</p>
+<p>(3) Select the <strong>SSL</strong> check box as needed. When SSL is enabled, the storage uses SSL, and data is secured when it is backed up to this pool.</p>
+<p>(4) In the <strong>Port</strong> field, set the port number for the machine. The default port is 50306. If SSL is enabled, the default port is 60306.</p>
+<p>(5) In the <strong>Allocate storage space</strong> field, specify the allowed size of backup sets occupying this storage space. If the allocated space has been used up, no further backups can be made to the storage server. It is recommended that the allocated space be less than the physical free space.</p>
+<p>(6) Click <strong>Submit</strong>.</p>
+</section>
+<section id="add-tape-library-pool">
+<h5>Add tape library pool<a class="headerlink" href="#add-tape-library-pool" title="Link to this heading">#</a></h5>
+<p>Before creating a tape pool, scan the tape first.</p>
+<section id="scan-the-tape">
+<h6>Scan the tape<a class="headerlink" href="#scan-the-tape" title="Link to this heading">#</a></h6>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Storage</strong> &gt; <strong>Tape library</strong>. The <strong>Tape library</strong> page appears.</p></li>
+<li><p>The page displays a prompt saying “Tape controller not initialized! add”. Click <strong>add</strong>. The Add tape controller window appears. In the window, do the following:</p>
+<p>(1) Set the <strong>Name</strong> for the tape controller.</p>
+<p>(2) In the <strong>Address</strong> and <strong>Port</strong> fields, enter the address and port of the server where the adps-controller module is installed and the tape library is connected.</p>
+<p>(3) Select the <strong>SSL</strong> check box as needed.</p>
+<p>(4) Enter the <strong>Remark</strong> as needed.</p>
+<p>(5) Click <strong>Submit</strong>.</p>
+</li>
+<li><p>After submitted, information about the tape libraries attached to the controller is listed.</p></li>
+<li><p>In display area, click <strong>Initialize</strong>. Tape libraries will be initially scanned. The initial scan lasts for a period of time, depending on the tape loading speed of the tape library drives.</p></li>
+</ol>
+</section>
+<section id="id1">
+<h6>Add tape library pool<a class="headerlink" href="#id1" title="Link to this heading">#</a></h6>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Add</strong> icon. The Add storage pool page appears.</p></li>
+<li><p>At the <strong>Select</strong> step, do the following:</p>
+<p>(1) From the <strong>Type</strong> list, select <strong>Tape library pool</strong>.</p>
+<p>(2) From the <strong>Storage server</strong> list, select the storage server where the storaged module is installed and the tape library is connected.</p>
+<p>(3) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Configure</strong> step, see <a class="reference internal" href="#flexible-pool-recycling-strategies">Flexible pool recycling strategies</a> for option configuration details. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Submit</strong> step, do the following:</p>
+<p>(1) Set the <strong>Name</strong> for the storage pool.</p>
+<p>(2) Multi-tenant environment requires to set the <strong>Owner</strong>.</p>
+<p>(3) From <strong>User group</strong> list, select users to have operational permissions for the pool.</p>
+<p>(4) Click <strong>Submit</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="allocate-tapes">
+<h6>Allocate tapes<a class="headerlink" href="#allocate-tapes" title="Link to this heading">#</a></h6>
+<p>Navigate to the <strong>Storage</strong> page after creating a tape library pool. In display area, click the <strong>+</strong> icon to expand the tape library pool information. Then, click the <strong>Allocate tapes</strong> icon. The <strong>Allocate tapes</strong> window appears, allowing you to reallocate tapes for the storage pool.</p>
+</section>
+</section>
+</section>
+<section id="modify-storage-pools-storage-and-labels">
+<h4>Modify storage pools, storage and labels<a class="headerlink" href="#modify-storage-pools-storage-and-labels" title="Link to this heading">#</a></h4>
+<p>The configuration of storage pool includes two part: the pool configuration and the storage configuration. You can modify the relevant configuration by clicking the Modify icon on different areas.</p>
+<ul>
+<li><p>Modify a storage pool</p>
+<p>On the <strong>Storage</strong> page, select a storage pool and click the <strong>Modify</strong> icon in display area. The <strong>Modify</strong> window appears. In this window, you can modify configuration for the pool.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that when modifying the <strong>Backup set retention quota</strong> and <strong>Backup set retention days</strong>, the changes will take effect during the next backup.</p>
+</div>
+<ul>
+<li><p>Modify the storage</p>
+<p>On <strong>Storage</strong> page, click the <strong>+</strong> icon on the left side of a specific storage pool in display area. The storage server information appears. Then, click on the <strong>Modify</strong> icon located on the same row as the storage server to modify the storage configuration.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that you only need to modify the <strong>Address</strong> if the storage server’s IP address has changed. The storage pool’s backup sets will remain accessible even the modification has been made. If the pool has been configured a pool replication, it is advised to modify the source pool’s IP address first before modifying the target pool’s IP address.</p>
+</div>
+<ul>
+<li><p>Modify a storage pool label</p>
+<p>ADPS supports modifying and adding labels for existing storage pools that have been labeled or have not been unlabeled.</p>
+<p>To modify the storage pool labels, do the following:</p>
+<p>(1) From the toolbar, click the <strong>Modify</strong> icon.</p>
+<p>(2) Select one or more storage pools, and click the <strong>Label as</strong> icon from the toolbar. The Label As window appears.</p>
+<p>(3) In the Label As window, modify the pool label. You can also perform label search, adding and management operations in this window.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The system administrator does not have permission to modify the storage pool labels for tenants.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="delete-a-storage-pool">
+<h4>Delete a storage pool<a class="headerlink" href="#delete-a-storage-pool" title="Link to this heading">#</a></h4>
+<p>On <strong>Storage</strong> page, click the <strong>Delete</strong> icon in display area. The selected storage pool will be deleted.</p>
+<ul class="simple">
+<li><p>When a pool replication is configured for storage pools, the pool deletion will fail.</p></li>
+<li><p>When the server of the storage pool is online, the pool will only be deleted after the resource is recycled.</p></li>
+<li><p>When the server of the storage pool is offline, there is a red delete icon providing a forced deletion. The forced deletion may cause part of the authorized space unable to be recycled.</p></li>
+<li><p>If an abnormal service occurs during the deletion, the deletion can be continued after the service restarts.</p></li>
+</ul>
+</section>
+</section>
+<section id="storage-pool-replication">
+<h3>Storage pool replication<a class="headerlink" href="#storage-pool-replication" title="Link to this heading">#</a></h3>
+<p>ADPS supports setting pool-to-pool data replication for storage pools. With pool replication configured for storage pools, the backup set is automatically backed up to the target storage pool; If errors occur in the source pool and the related backup set files are lost, restore the backup sets from the target pool is available.</p>
+<section id="set-up-pool-replication">
+<h4>Set up pool replication<a class="headerlink" href="#set-up-pool-replication" title="Link to this heading">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Pool replication is not available for LAN-free pools and local storage pools.</p></li>
+<li><p>One-to-many pool replication is not available for data synthetic pools, block device synthetic pools, and real-time backup pools.</p></li>
+</ol>
+</div>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage</strong> page appears.</p></li>
+<li><p>In display area, select a storage pool that needs to be used as the source storage pool, and click the <strong>Set up pool replication</strong> icon. The Set up pool replication window appears.</p></li>
+<li><p>In the <strong>Set up pool replication</strong> window, set the <strong>Target storage pool</strong>, and set the advanced options:</p>
+<ul class="simple">
+<li><p><strong>Reconnection time</strong>: The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></li>
+<li><p><strong>Speed limit</strong>: Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s. You can limit the speed in different time intervals.</p></li>
+<li><p><strong>Filter</strong>: By default, no filters are used; all data will be replicated. If filters are supplied, the data that satisfies any of the filter rules will be replicated.
+Filter provides two rules: include and exclude. The previously added filter rules can be changed or removed.</p></li>
+<li><p><strong>Include</strong>: Set the data to be replicated. Include all if not set.</p></li>
+<li><p><strong>Exclude</strong>: Exclude data from the Include conditions (Optional)</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Submit</strong>.</p></li>
+</ol>
+</section>
+<section id="pool-replication-job">
+<h4>Pool replication job<a class="headerlink" href="#pool-replication-job" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Storage</strong> &gt; <strong>Pool replication job</strong>. The <strong>Pool replication job</strong> page appears. On this page, you can view history of storage pool replication jobs, and perform editing, downloading, searching, and deleting operations.</p>
+<ul class="simple">
+<li><p>Edit: From the toolbar, click the <strong>Edit</strong> icon. The page becomes editable. Select one or more pool replication jobs, and select the operation(Start, Pause, Delete) from the <strong>Edit</strong> list.</p></li>
+<li><p>Download: Click the <strong>Download</strong> icon to export the records of the Pool replication job page.</p></li>
+<li><p>Search: From the toolbar, select <strong>Search by job</strong> or <strong>Search by minor resource</strong>, enter the name that you want to search.</p></li>
+</ul>
+</section>
+<section id="pool-replication-list">
+<h4>Pool replication list<a class="headerlink" href="#pool-replication-list" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage</strong> page appears. From the toolbar, click the <strong>Pool replication list</strong> icon. The Pool Replication List page appears. On this page, you can view details of all storage pools configured with pool replication.</p>
+<p>Configure: You can configure the following settings:</p>
+<ul class="simple">
+<li><p>Select <strong>Restore from source storage pool</strong> or <strong>Restore from target storage pool</strong>, both of which can achieve direct data restore from offsite pool.</p></li>
+<li><p>Set the <strong>Reconnection time</strong> and <strong>Speed limit</strong>.</p></li>
+<li><p>Set the <strong>Filter</strong>.</p></li>
+<li><p><strong>Delete</strong>: In display area, click the <strong>Delete</strong> icon. Please be cautious when performing deletion, as it will render you unable to directly recover data from the target storage pool or retrieve backup sets to restore them to the source pool.</p></li>
+<li><p><strong>Download</strong>: From the toolbar, click the <strong>Download</strong> icon to export the records of the page.</p></li>
+<li><p><strong>Pool replication topology diagram</strong>：From the toolbar, click the <strong>Pool replication topology diagram</strong> icon. The “Pool Replication Topology Diagram” page appears. All pool replication relationships can be viewed.</p></li>
+</ul>
+<p><strong>Repair the source pool</strong></p>
+<p>When the source pool host fails, the Catalog data can be modified between the source pool and the target pool.</p>
+<p>(1) Configure the IP address of the source storage pool on a new machine.</p>
+<p>(2) Install the storaged module on the new machine.</p>
+<p>(3) Re-register the source storage pool on the new machine.</p>
+<p>(4) You can restore the connection and synchronization between the source and destination storage pools now.</p>
+<p>(5) Click the <strong>Restore from pool replication target</strong> icon on the Pool Replication Job page. The option allows you to retrieve backup sets from the target storage pool to the source storage pool, and continue the backup and restore jobs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the source pool is an object storage service pool, repairing the source pool is not supported.</p>
+</div>
+</section>
+</section>
+<section id="network">
+<h3>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>Storage</strong> &gt; <strong>Network</strong>. The Network page appears. On this page, you can view all network information on this page. To distinguish the different IP usage in the case of multi-IP storage server, you can create multiple networks to specify the channels between the storage server and the backup server, the backup and restore on agent, and pool replication. You can modify and delete the network configuration after creation.</p>
+<section id="add-data-network">
+<h4>Add data network<a class="headerlink" href="#add-data-network" title="Link to this heading">#</a></h4>
+<p>Data Network is used to transfer data between the agent and storage server during the backup and restore. To create a data network, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the toolbar on the <strong>Network</strong> page, click the <strong>Add</strong> icon. The Add window appears. Enter the name for the network, and select the <strong>Data network</strong> check box. Click <strong>Submit</strong>.</p></li>
+<li><p>In display area, click the <strong>+</strong> icon next to the network. It will expand the information about storage servers and hosts related to the network.</p>
+<ul class="simple">
+<li><p>Click the <strong>Add</strong> icon next to <strong>Storage servers</strong> to add a storage server and set its configuration.</p></li>
+<li><p>Click the <strong>Bind hosts</strong> icon next to <strong>Hosts</strong>, and select one or more hosts from the list. Click <strong>Submit</strong>.</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Submit</strong>. The storage server and agent bind the data network successfully. During the backup and restore, the data network is set to the storage server address.</p></li>
+</ol>
+</section>
+<section id="add-storage-pool-replication-network">
+<h4>Add storage pool replication network<a class="headerlink" href="#add-storage-pool-replication-network" title="Link to this heading">#</a></h4>
+<p>Storage pool replication network is the transfer network during the storage pool replication. To create a storage pool replication network, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the toolbar on the <strong>Network</strong> page, click the <strong>Add</strong> icon. The Add window appears. Enter the name for the network, and select the <strong>Storage pool replication network</strong> check box. Click <strong>Submit</strong>.</p></li>
+<li><p>In display area, click the <strong>+</strong> icon next to the network. It will expand the information about storage servers related to the network. Click the <strong>Add</strong> icon next to <strong>Storage servers</strong>. In the Add window, select the <strong>Addresses</strong> of the storage servers where the source and target storage pools are located.</p></li>
+<li><p>Click <strong>Submit</strong>. The creation of the network for transferring data between storage pools on the storage server has been completed.</p>
+<ul class="simple">
+<li><p>In pool replication, the network for pool replication is determined by the destination pool. For retrieving data, the network for pool replication is determined by the source pool.</p></li>
+<li><p>It is recommended to use the same network label for both the source and destination pool nodes. When configuring pool replication, you should select that network label from the available options.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="add-management-network">
+<h4>Add management network<a class="headerlink" href="#add-management-network" title="Link to this heading">#</a></h4>
+<p>Management network is used to control and manage the backup server and the storage server, as well as to achieve network isolation between the management and the business.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only one management network is allowed. If there is already a management network, click the <strong>Add</strong> icon next to <strong>Storage servers</strong> and add a new storage server in the Add window.</p>
+</div>
+<p>To create a management network, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the toolbar on the <strong>Network</strong> page, click the <strong>Add</strong> icon. The Add window appears. Enter the name for the network, and select the <strong>Management network</strong> check box. Click <strong>Submit</strong>.</p></li>
+<li><p>In display area, click the <strong>+</strong> icon next to the network. It will expand the information about storage servers related to the network.</p>
+<ul class="simple">
+<li><p>Click the <strong>Add</strong> icon next to <strong>Storage servers</strong> to add a storage server, select the <strong>Address</strong> used to communicate with the backup sever, and set its configuration.</p></li>
+<li><p>Click the <strong>Bind hosts</strong> icon next to <strong>Hosts</strong>, and select one or more hosts from the list. Click <strong>Submit</strong>.</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Submit</strong>. The creation of the network for communicating with the backup server has been completed.</p></li>
+</ol>
+</section>
+</section>
+<section id="scsi-target">
+<h3>SCSI target<a class="headerlink" href="#scsi-target" title="Link to this heading">#</a></h3>
+<p>The SCSI target function provides iSCSI target and FC target to the client on the storage server with the storaged-lanfree module installed.</p>
+<p>Add a storage server with the storaged-lanfree module installed to the storage pool before using this function.</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Storage</strong> &gt; <strong>SCSI Target</strong>. The <strong>SCSI Target</strong> page appears.</p></li>
+<li><p>From the <strong>Storage server</strong> list, select a storage server. The display area list “iSCSI” by default. If the storage server has FC HBA card installed, the page will list FC.</p></li>
+</ol>
+<section id="iscsi-target">
+<h4>iSCSI target<a class="headerlink" href="#iscsi-target" title="Link to this heading">#</a></h4>
+<section id="add">
+<h5>Add<a class="headerlink" href="#add" title="Link to this heading">#</a></h5>
+<ol class="arabic simple">
+<li><p>On <strong>SCSI Target</strong> page, click the <strong>Add target</strong> icon next to iSCSI. A pop-up window appears. Modify the name of the iSCSI target in the text field. Click the <strong>Tick</strong> icon to add the iSCSI target.</p></li>
+<li><p>After adding a target, you need to add one or more LUNs for the target. Click the <strong>Add LUN</strong> icon next to the newly added target. A pop-up window appears. Drag the slider control in the pop-up window or enter a value in the text field to set the size of the LUN.</p></li>
+<li><p>Click the <strong>Tick</strong> icon to add the LUN. The newly added LUN will not allocate the corresponding space on the storage server immediately, but will allocate the space according to the actual usage.</p></li>
+<li><p>Click the <strong>Access Control List (ACL)</strong> icon. The ACL window of the LUN appears. In the window, you can add one or more initiators, and only the initiators in the list can access the LUN. When you run a backup to a LAN-free pool or data synthetic pool, you will be prompted to select a storage device and the initiator will be automatically added to the corresponding LUN after your selection.</p></li>
+</ol>
+</section>
+<section id="delete">
+<h5>Delete<a class="headerlink" href="#delete" title="Link to this heading">#</a></h5>
+<p>Click the <strong>Delete</strong> icon next to the LUN on the SCSI Target page to delete the LUN. Deleting a LUN will erase all the data on the LUN. Make sure the LUN is not in use before deleting it.</p>
+</section>
+</section>
+<section id="fc-target">
+<h4>FC target<a class="headerlink" href="#fc-target" title="Link to this heading">#</a></h4>
+<p>To create FC target, install FC HBA card on the storage server first and set the HBA card in target mode. ADPS only supports QLogic HBA card at the moment.</p>
+<section id="id2">
+<h5>Add<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<p>The SCSI Target page lists the FC by default based on the number of interfaces on the HBA card. Create one or more LUNs under the corresponding FC target.</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Storage</strong> &gt; <strong>SCSI target</strong>. The <strong>SCSI target</strong> page appears. Click the <strong>Add</strong> icon next to the target, and drag the slider control in the pop-up window or enter a value to set the size of the LUN.</p></li>
+<li><p>Click the <strong>√</strong> icon to submit the adding. The newly added LUN will not allocate the corresponding space on the storage server immediately, but will allocate the space according to the actual usage.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="tape-library">
+<h3>Tape library<a class="headerlink" href="#tape-library" title="Link to this heading">#</a></h3>
+<p>The <strong>Tape library</strong> is used for querying and managing the tape library. Before using the tape library, you need to scan, initialize the tapes, and add the tape controller.</p>
+<p>To scan and initialize the tapes, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Storage</strong> &gt; <strong>Tape library</strong>. The Tape library page appears.</p></li>
+<li><p>The page prompts “Tape controller not initialized! add”. Click <strong>Add</strong>. The Add tape controller window appears. In the window, do the following:</p>
+<p>(1) Set the <strong>Name</strong> for the controller.</p>
+<p>(2) In the <strong>Address</strong> and <strong>Port</strong> field, enter the IP address and port of the server that has the adps-controller module installed and connected to the tape library.</p>
+<p>(3) Select <strong>SSL</strong> and fill in the <strong>Remark</strong> on demand.</p>
+<p>(4) Click <strong>Submit</strong>.</p>
+</li>
+<li><p>After the submission, the page lists details of the tape library attached to the controller.</p></li>
+<li><p>In display area, click the <strong>Uninitialized</strong> icon to perform an initial scan of the tape library. The scan will last for a period of time, depending on the tape loading speed of the tape drive.</p>
+<p>After scanning and initializing the tapes, the following operations are supported:</p>
+</li>
+</ol>
+<ul>
+<li><p>Controller: From the toolbar, click the <strong>Controller</strong> button to access the <strong>Tape library controller</strong> page.</p></li>
+<li><p>Rescan: In display area, click the <strong>Rescan</strong> icon to rescan the tape library and update the tape library information.</p></li>
+<li><p>Drives: In display area, click the <strong>Drives</strong> icon to access the <strong>Drives</strong> page.</p></li>
+<li><p>Media management: In display area, click the <strong>Media management</strong> icon to access the <strong>Media management</strong> page.</p></li>
+<li><p>Task management: In display area, click the <strong>Task management</strong> icon to access the <strong>Task management</strong> page.</p></li>
+<li><p>Configure: In display area, click the <strong>Configure</strong> icon to access the pop-up window where you can manually configure the tape capacity.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to enable capacity statistics, the tape capacity configuration is only required when ADPS fails to accurately get the tape capacity.</p>
+</div>
+</li>
+</ul>
+<section id="tape-controller">
+<h4>Tape controller<a class="headerlink" href="#tape-controller" title="Link to this heading">#</a></h4>
+<p>To add a tape controller, do the following:</p>
+<ol class="arabic">
+<li><p>After scanning and initializing the tapes, click the <strong>Controller</strong> button from the toolbar. The Tape library controller page appears. In display area on this page, click the <strong>+</strong> icon. It will show the tape controller details. You can see the tape library connected to the controller.</p></li>
+<li><p>From the toolbar, click the <strong>Add tape controller</strong> icon. The Add tape controller window appears. In the window, do the following:</p>
+<p>(1) Set the <strong>Name</strong> for the controller.</p>
+<p>(2) In the <strong>Address</strong> and <strong>Port</strong> field, enter the IP address and port of the server that has the adps-controller module installed and connected to the tape library.</p>
+<p>(3) Select <strong>SSL</strong> and fill in the <strong>Remark</strong> on demand.</p>
+<p>(4) Click <strong>Submit</strong>.</p>
+</li>
+<li><p>After you submit the adding of the controller, the page will list the records of the tape libraries connected the controller. Go to the Tape Library page and initialize the controller.</p></li>
+</ol>
+<p>​	On the <strong>Tape library controller</strong> page, you can refresh, modify and delete the corresponding controller.</p>
+<ul>
+<li><p>Refresh: In display area, click the <strong>Refresh</strong> icon to update records of the tape libraries connected to the controller.</p></li>
+<li><p>Modify: In display area, click the <strong>Modify</strong> icon to access the Modify tape controller window and modify its configuration.</p></li>
+<li><p>Delete: In display area, click the <strong>Delete</strong> icon to delete the controller.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you delete the controller, the corresponding connected tape libraries will be deleted also. Please operate with caution.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="drives">
+<h4>Drives<a class="headerlink" href="#drives" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>On <strong>Tape library</strong> page, click the <strong>Drives</strong> icon in display area. The Drives page appears. You can view the state of the tape drives and information about the media loaded on the drives.</p></li>
+<li><p>When a failed drive is detected, the <strong>Drives</strong> column is shown in red. The drive is unavailable when it is in a failed state.</p></li>
+<li><p>The failed drive shows a red icon in the <strong>State</strong> column, indicating a fault state.</p></li>
+<li><p>Click the <strong>Test</strong> icon to test if the drive can load and unload tape properly.</p></li>
+<li><p>After the test is passed, the drive shows a green icon in the State column, indicating a “Normal” state, and you can use it normally.</p></li>
+</ol>
+</section>
+<section id="media-management">
+<h4>Media management<a class="headerlink" href="#media-management" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>On <strong>Tape library</strong> page, click the <strong>Media management</strong> icon in display area. The Media management page appears. You can view the tape media details. When the tape library state is Current, Full, or Expired, the Actions column shows a red Forced Recycling.</p></li>
+<li><p>From the toolbar, click the <strong>Discover new tape</strong> icon to synchronize the latest slot state of the tapes in the library, and new tapes will be added automatically to the list. If the capacity of the old and new tapes are different, you can set the tape capacity manually.</p></li>
+<li><p>Select the tape media, and click the <strong>Tape out</strong> icon to export the selected tape media.</p></li>
+<li><p>When you click the <strong>Tape out</strong> icon, the Tape Out request is submitted and redirects to the Task Management page. The tape media will be moved automatically to the tape library gateway. The tape out request is successful after the tape is removed.</p></li>
+<li><p>When the tape in the “Blank” or “Clean” state successfully out, the Tape Library Media page will delete the corresponding records; when the tape in the “Current” state successfully out, its state will be changed to the “Offline” state.</p></li>
+<li><p>After the tape is out of the library, the relevant backup sets will be in an offline state. You can perform the Retrieve operation on the offline backup sets.</p></li>
+<li><p>To retrieve the tape, select the backup set and click its <strong>Retrieve</strong> icon. The Retrieve window appears. In the Retrieve window, you can view the tape information related to the backup set. Click the Retrieve button and the tape will be added to the library.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>The Retrieve request will detect the in-library tapes and automatically move the tapes to the slot if the required tapes are in the tape library gateway.</p></li>
+<li><p>Tapes will be checked for expiration when they are retrieved to the library, and the retrieved tapes cannot write data.</p></li>
+</ol>
+</div>
+</li>
+</ol>
+</section>
+<section id="task-management">
+<h4>Task management<a class="headerlink" href="#task-management" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>On <strong>Tape library</strong> page, click the <strong>Task management</strong> icon in display area. The Task management page appears.</p></li>
+<li><p>In display area, click the <strong>Modify</strong> icon to withdraw the tape media. The Withdraw request will refresh the list, and return the tape to the slot.</p></li>
+<li><p>Click the task name to enter the Tape library task detail page where you can Print the page.</p></li>
+</ol>
+</section>
+</section>
+<section id="raid-card">
+<h3>RAID card<a class="headerlink" href="#raid-card" title="Link to this heading">#</a></h3>
+<p>Click <strong>Storage</strong> &gt; <strong>RAID card</strong> to enter the RAID Card page where you can view the RAID card state of storage server, the state of Adaptec and MegaRAID.</p>
+<p>In the <strong>Adapter</strong> section, the basic information about the RAID card can be viewed.</p>
+<p>In the <strong>Virtual drives</strong> section, the basic information about the logical drives can be viewed. Click the “<strong>+</strong>” icon on the left side of the drive, more detailed information will be displayed.</p>
+<p>In the <strong>Physical drives</strong> section, the state and details of the drives on the servers can be viewed.</p>
+<p>In the <strong>Connector</strong> (for Adaptec) or <strong>Battery</strong> (for MegaRAID) section, the information about the connector or the battery can be viewed.</p>
+</section>
+<section id="software-raid">
+<h3>Software RAID<a class="headerlink" href="#software-raid" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Mount disks on the machine where the RAID needs to be created (The machine with the storaged module installed).</p></li>
+<li><p>Log in as the admin. Click <strong>Storage pool</strong> &gt; <strong>RAID card</strong> to enter the Software RAID page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Create a storage pool first before entering the Software RAID page, otherwise the page will show “Unable to get the storage pool!”.</p>
+</div>
+</li>
+<li><p>Click <strong>Initialize software RAID</strong> to access the pop-up window. Select the <strong>RAID devices</strong>, <strong>RAID type</strong>, and <strong>Spare devices</strong> (RAID 1, RAID 5, and RAID 6 support the spare devices).</p></li>
+<li><p>Click <strong>Submit</strong>, wait a few moments for the initialization to complete and then the software RAID will be in the synchronization state.</p></li>
+<li><p>After the software RAID data synchronization is completed, the state on the Software RAID shows “Active”, which indicates the software RAID is successfully created and mounted to the /datakist directory.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure the host has the mdadm tool properly installed before creating the software RAID, otherwise the creation will fail.</p>
+</div>
+</section>
+</section>
+<section id="resource">
+<h2>Resource<a class="headerlink" href="#resource" title="Link to this heading">#</a></h2>
+<p>The Resource menu includes Resource and Cluster. From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears. On this page, the following operations are available：</p>
+<ul class="simple">
+<li><p>Install agent</p></li>
+<li><p>Add a host</p></li>
+<li><p>Register hosts/activate licenses/authorize licenses</p></li>
+<li><p>Batch register/batch activate/batch authorize</p></li>
+<li><p>Bind the cluster</p></li>
+</ul>
+<section id="install-agent">
+<h3>Install agent<a class="headerlink" href="#install-agent" title="Link to this heading">#</a></h3>
+<p>To install the Agent, do the following:</p>
+<ol class="arabic">
+<li><p>From the toolbar on <strong>Resource</strong> page, click the <strong>Install Agent</strong> icon. The Install Agent window appears.</p></li>
+<li><p>From the <strong>Select system</strong> list and <strong>Select file</strong> list, select a system and the package that you want to install. The system selection list includes Windows and Linux.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Select <strong>Remove installation package</strong> if you want to automatically delete the downloaded installation package after installing the agent on a Linux host.</p>
+</div>
+<ul class="simple">
+<li><p>From the <strong>Select system</strong> list, select <strong>Linux</strong>:</p></li>
+</ul>
+<p>(1) The window displays two installation commands (curl and wget) when you select the required modules.</p>
+<p>(2) Select use curl or wget to install the agent, and click the <strong>Copy</strong> icon to copy the installation command.</p>
+<p>(3) Log in to the Linux host as user root. Paste the command in the terminal and press Enter to start the installation.</p>
+<p>(4) Wait for the installation to complete.</p>
+<ul class="simple">
+<li><p>From the <strong>Select system</strong> list, select <strong>Windows</strong>:</p></li>
+</ul>
+<p>(1) From the <strong>Select file</strong> list, select the file starting with adps. Click <strong>Download</strong>.</p>
+<p>(2) Upload the package to the Windows host.</p>
+<p>(3) Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click <strong>Next</strong>.</p>
+<p>(4) At the <strong>Select components</strong> step, select the desired components from component list. Click <strong>Next</strong>.</p>
+<p>(5) Fill in the required information for the backup server.</p>
+<p>(6) Confirm the <strong>Destination folder</strong> or specify another folder. Click <strong>Next</strong>.</p>
+<p>(7) Wait for the installation to complete.</p>
+</li>
+</ol>
+</section>
+<section id="add-a-host">
+<h3>Add a host<a class="headerlink" href="#add-a-host" title="Link to this heading">#</a></h3>
+<section id="ndmp-host">
+<h4>NDMP host<a class="headerlink" href="#ndmp-host" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>From the toolbar, click the <strong>Add</strong> icon, and select <strong>NDMP Host</strong>. The <strong>Add NDMP host</strong> window appears.</p></li>
+<li><p>In the window, do the following:</p>
+<p>(1) Set the <strong>Name</strong> for the NDMP host.</p>
+<p>(2) In the <strong>Address</strong> field, fill in the NDMP host address.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using NetApp Clustered Data ONTAP, the NDMP host address must be the address of the Storage Virtual Machine (SVM).</p>
+</div>
+<p>(3) In the <strong>Port</strong> field, enter the port of the NDMP service on the NAS host.</p>
+<p>(4) From the <strong>Authentication method</strong> list, select an authentication method.</p>
+<ul class="simple">
+<li><p>Select <strong>MD</strong>: Enter the NDMP <strong>User</strong> and <strong>Password</strong>. The password is transmitted in encrypted form.</p></li>
+<li><p>Select <strong>TEXT</strong>: Enter the NDMP <strong>User</strong> and <strong>Password</strong>. The password is transmitted in plain text.</p></li>
+<li><p>Select <strong>NONE</strong>: No user and password entered required.</p></li>
+</ul>
+<p>(5) Select a <strong>Backup host</strong>. Before selecting, you need to install, register, and activate the corresponding NDMP module on the agent host.</p>
+<p>(6) Click <strong>Submit</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="hadoop-cluster">
+<h4>Hadoop cluster<a class="headerlink" href="#hadoop-cluster" title="Link to this heading">#</a></h4>
+<p>ADPS supports two authentication methods for Hadoop clusters: Simple and Kerberos. If you have configured your Hadoop cluster with the Kerberos authentication service, select Kerberos when adding the cluster. If your Hadoop cluster does not have the Kerberos service, you can use the default Simple authentication.</p>
+<ol class="arabic simple">
+<li><p>From the toolbar, click the <strong>Add</strong> icon, and select <strong>Hadoop Cluster</strong>. The Add Hadoop Cluster window appears.</p></li>
+<li><p>Set the <strong>Name</strong> for the cluster.</p></li>
+<li><p>Select a <strong>Backup host</strong>. Before selecting, you need to install, register, and activate the corresponding Hadoop module with the appropriate license.</p></li>
+<li><p>In the <strong>Host</strong> field, enter the IP address or hostname of the NameNode.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the Principal is created using a hostname, the field should be filled with the hostname, and the hosts file of the machine where ADPS is located should also include the IP address of that host along with its corresponding hostname.</p>
+</div>
+<ol class="arabic" start="5">
+<li><p>To use <strong>SSL</strong>, the Hadoop cluster requires HTTPS service to be configured and enabled for use.</p></li>
+<li><p>Enter the <strong>REST API Port</strong> and <strong>RPC API Port</strong>.</p>
+<p>(1) REST API Port: The default value is 50470. If the cluster is set to a different port, then this value needs to be modified according to the actual port.</p>
+<p>(2) RPC API Port: The default value is 8020. If the cluster is set to a different port, then this value needs to be modified according to the actual port.</p>
+</li>
+<li><p>From the <strong>Authentication method</strong> list, select <strong>Simple</strong> or <strong>Kerberos</strong>.</p></li>
+</ol>
+<ul>
+<li><p>Select Simple:</p>
+<p>(1) In the <strong>User</strong> field,  enter the HDFS user.</p>
+<p>(2) core-site.xml File: Upload the cluster’s core-site.xml file. Simple authentication method does not require this.</p>
+<p>(3) hdfs-site.xml File: Upload the cluster’s hdfs-site.xml file. Simple authentication does not require this.</p>
+</li>
+<li><p>Select Kerberos:</p>
+<p>(1) In the <strong>User</strong> field,  select a Hadoop user. Ensure that the user is added to the krb5.keytab file through KDC authentication. Install the <code class="docutils literal notranslate"><span class="pre">krb5-user</span></code> tool locally using the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">krb5-user</span></code>. Use the <code class="docutils literal notranslate"><span class="pre">klist</span> <span class="pre">-kt</span> <span class="pre">krb5.keytab</span></code> command to view the contents of the krb5.keytab file and verify the presence of the user’s credentials.</p>
+<p>(2) <strong>Realm name</strong>: Enter the Realm name used when configuring Kerberos.</p>
+<p>(3) <strong>Realm KDC</strong>: Enter the IP address or hostname of the Realm KDC server.</p>
+<p>(4) <strong>Realm Admin Server</strong>: Enter the IP address or hostname of the Realm admin server.</p>
+<p>(5) Enter the <strong>RPC API Principal</strong> name and <strong>REST API Principal</strong> name.</p>
+<p>(6) In the <strong>UDP preference limit</strong> field, set the maximum value for the UDP transport package. When the data package exceeds this value, TCP will be used for the transport. The default value is 1, with which TCP is used for the transport. Adjust this value according to the parameter in the <code class="docutils literal notranslate"><span class="pre">/etc/krb5.conf</span></code> file of the KDC service.</p>
+<p>(7) For the <strong><code class="docutils literal notranslate"><span class="pre">krb5.keytab</span></code> file</strong> field, get the <code class="docutils literal notranslate"><span class="pre">keytab</span></code> file and copy it to a safe location on the host that has access to the ADPS console. In the <strong><code class="docutils literal notranslate"><span class="pre">core-site.xml</span></code> file</strong> field, upload the <code class="docutils literal notranslate"><span class="pre">core-site.xml</span></code> file of the cluster. In the <strong><code class="docutils literal notranslate"><span class="pre">hdfs-site.xml</span></code> file</strong> field, upload the <code class="docutils literal notranslate"><span class="pre">hdfs-site.xml</span></code> file of the cluster.</p>
+</li>
+</ul>
+</section>
+<section id="object-storage-service">
+<h4>Object storage service<a class="headerlink" href="#object-storage-service" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>From the toolbar, click the <strong>Add</strong> icon, and select <strong>Object Storage Service</strong>. The Add object storage service window appears.</p></li>
+<li><p>Set the <strong>Name</strong> for the object storage service.</p></li>
+<li><p>From the <strong>Vendor</strong> list, select a cloud service provider.</p></li>
+<li><p>From the <strong>Endpoint</strong> list, Select or enter the endpoint address of the cloud server.</p></li>
+<li><p>Select or enter the <strong>Region</strong>.</p></li>
+<li><p>Enable or disable SSL</p></li>
+<li><p>Enter the <strong>Access Key</strong> and <strong>Secret Key</strong>.</p></li>
+<li><p>Select a <strong>Backup host</strong>.</p></li>
+<li><p>Click <strong>Submit</strong>.</p></li>
+</ol>
+<p>For registering hosts for other types of resources, please refer to the relevant user guides. The registration process for hosts may vary depending on the specific resource type. It is recommended to consult the respective user guides or documentation for detailed instructions specific to the resource you are working with. These guides typically provide step-by-step instructions and configuration details to help you register hosts for different types of resources.</p>
+</section>
+</section>
+<section id="register-hosts-activate-licenses-authorize-licenses">
+<h3>Register hosts/Activate licenses/Authorize licenses<a class="headerlink" href="#register-hosts-activate-licenses-authorize-licenses" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>On the <strong>Resource</strong> page, click the <strong>Register Host</strong> icon.</p></li>
+<li><p>Click <strong>Submit</strong> to activate all the resources that meet the requirements.</p></li>
+<li><p>Click <strong>Authorize</strong>. Only the users under the specified user group have permission to operate the resources of this agent.</p></li>
+</ol>
+</section>
+<section id="batch-register-batch-activate-batch-authorize">
+<h3>Batch register/Batch activate/Batch authorize<a class="headerlink" href="#batch-register-batch-activate-batch-authorize" title="Link to this heading">#</a></h3>
+<section id="batch-register">
+<h4>Batch register<a class="headerlink" href="#batch-register" title="Link to this heading">#</a></h4>
+<p>If there are multiple agents to register, click the <strong>Batch register</strong> icon in the upper left corner. Check the agent that needs to be registered in the pop-up <strong>Batch register</strong> window.</p>
+</section>
+<section id="batch-activate">
+<h4>Batch activate<a class="headerlink" href="#batch-activate" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Click the <strong>Batch activation</strong> icon on the upper left corner, and check the resources that need to be activated in the pop-up <strong>Batch activation</strong> window.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the resource module is installed, but there is no corresponding license, the “Activate” link will not be displayed next to the resource module.</p>
+</div>
+</li>
+<li><p>You can assign to the same user group when activating resources. If you need to assign the resources to different user groups, see Assign User Group in this guide for details.</p></li>
+<li><p>The “Unregister” icon is displayed to the right of the registered resource. If there is a change in the resource’s user name or password that ADPS cannot detect in time, the resource cannot be used properly. In this case, you can click the “Unregister” icon to log out and log back in with a new username and password.</p></li>
+</ol>
+</section>
+</section>
+<section id="cluster-binding">
+<h3>Cluster binding<a class="headerlink" href="#cluster-binding" title="Link to this heading">#</a></h3>
+<p>Click <strong>Resource</strong> &gt; <strong>Cluster</strong> to enter the cluster page where you can bind and manage the cluster on the agent.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For specific binding operations of each resource cluster, please refer to the respective resource operation manuals.</p>
+</div>
+</section>
+</section>
+<section id="system-management">
+<h2>System management<a class="headerlink" href="#system-management" title="Link to this heading">#</a></h2>
+<p>From the menu, click <strong>Settings</strong> &gt; <strong>Settings</strong>. The <strong>Settings</strong> page appears. On this page, the following operations are available:</p>
+<ul class="simple">
+<li><p>System settings</p></li>
+<li><p>Webhook settings</p></li>
+<li><p>Approval settings</p></li>
+</ul>
+<section id="system-settings">
+<h3>System settings<a class="headerlink" href="#system-settings" title="Link to this heading">#</a></h3>
+<p>You can configure system settings including common, sever, catalog, security, SMTP, storage, resource, job and LDAP authentication.</p>
+<section id="common">
+<h4>Common<a class="headerlink" href="#common" title="Link to this heading">#</a></h4>
+<p>The <strong>Common</strong> settings include Localization, Agent installation configuration, and License.</p>
+<p>Localization settings include Default language and Relative time.</p>
+<p>(1) <strong>Default language</strong>: Set the default language for the users. The default setting is Automatic. Available languages include Simplified Chinese, English, Traditional Chinese, and Spanish.</p>
+<p>(2) <strong>Relative time</strong>: Set the time display format for pages such as Job, Alert, History, and Report. 3 days is selected by default. None, 1 days, 3 days, 1 week, 1 month and all are available.</p>
+<p>Agent installation configuration includes Package download address and Backup server connection configuration.</p>
+<p>(1) <strong>Package download address</strong>: Set the address to download the agent installation package. The address displayed in the text field is the default address.</p>
+<ul>
+<li><p>To use the default address, you need to upload the agent package by clicking the <strong>Upload packages</strong> icon on the Upgrade page.</p></li>
+<li><p>To use another address, you need to fill in the server address that can be accessed, and save the agent package on the server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can refer to the instructions by clicking on the <strong>Help</strong> icon to set the download address.</p>
+</div>
+</li>
+</ul>
+<p>(2) Backup server connection configuration: To configure the backup server connection, you need to configure the server address, SSL and port.</p>
+<ul class="simple">
+<li><p><strong>Server address</strong>: Set the backup server address.</p></li>
+<li><p><strong>SSL</strong>: Enable or disable SSL for the agent.</p></li>
+<li><p><strong>Port</strong>: Set the port that the agent connects to the backup server. The default value is 50305. When the SSL is enabled, the default port value is 60305.</p></li>
+</ul>
+</section>
+<section id="license">
+<h4>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Automatic activation</strong>: Unselected by default. Enabling Automatic Activation will automatically activate all instances connected to the server when licenses are sufficient.</p></li>
+</ul>
+</section>
+<section id="server">
+<h4>Server<a class="headerlink" href="#server" title="Link to this heading">#</a></h4>
+<p>Server settings include sever and NIC</p>
+<ol class="arabic">
+<li><p>Server</p>
+<p>(1) <strong>Date &amp; Time</strong>: Click the <strong>Modify</strong> icon. The <strong>Time</strong> window appears. Select or enter the date and time.</p>
+<p>(2) Actions include <strong>Reboot</strong> and <strong>Shutdown</strong>.</p>
+<ul class="simple">
+<li><p>Reboot: Click the button to restart the server remotely.</p></li>
+<li><p>Shutdown: Click the button to shut down the server remotely.</p></li>
+</ul>
+</li>
+<li><p>NIC</p>
+<p>In the NIC display area, all the network interfaces bound with all servers are listed.</p>
+<p>Set the connection <strong>Method</strong> of the network interface, <strong>IP address</strong>, <strong>Netmask</strong>, <strong>Default gateway</strong>, <strong>Preferred DNS</strong> and <strong>Alternate DNS</strong> as needed. The modification takes effect immediately after you click <strong>Modify</strong>. Click <strong>Reset</strong> to restore the default value.</p>
+</li>
+</ol>
+</section>
+<section id="catalog">
+<h4>Catalog<a class="headerlink" href="#catalog" title="Link to this heading">#</a></h4>
+<p>Through catalog backup, user, user group, storage pool, and backup set configuration can be retained. Catalog backup is typically used in conjunction with pool replication to facilitate local or remote disaster recovery of backup servers and backup server migration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For specific backup &amp; restore scenarios, see Catalog backup in this guide for details</p>
+</div>
+</section>
+<section id="security">
+<h4>Security<a class="headerlink" href="#security" title="Link to this heading">#</a></h4>
+<p>Security settings include Security options, Password policy and Access Control List.</p>
+<p><strong>Security options</strong></p>
+<p>(1) <strong>No action prompt timeout</strong>: Log out after the specified time of inactivity. The page will show “Your session has expired, please sign in again!”</p>
+<p>(2) <strong>Maximum login attempts</strong>: Set a limit on the number of unsuccessful login attempts that a user can make. Once the limit is exceeded, the IP address of the current user will be blocked or the user will be locked out. The user must contact administrative users to release the IP address from the blocklist.</p>
+<p>(3) <strong>Login failed exceeded limit</strong>: If the maximum number of unsuccessful login is exceeded, you can block the IP address of the current user, or lock the user.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To block the IP address of the current user, or lock the user, see Appendix.</p>
+</div>
+<p>(4) <strong>Lock account after N days of inactivity</strong>: If the user’s number of inactive days exceeds the set number of days, the user will be locked out.</p>
+<p>(5) <strong>Enable audit user</strong>: Audit account login is only available after enabling it.</p>
+<p>(6) <strong>Enable security user</strong>: Transfer the user management permissions (including user modification and user group assignment) of the administrative user to the System Security.</p>
+<p>(7) <strong>Enable hierarchical multi-tenancy</strong>: This option is only available in a multi-tenant environment. When creating a tenant, you can set the parent level, and the tenant can also create users with tenant roles. After enabling it, you can also choose the currency format for the tenant.</p>
+<p>(8) <strong>Enable operating child tenant’s resource</strong>: This option is only available in a multi-tenant environment. You can allocate child tenants’ resource permissions and control their resources.</p>
+<p>(9) <strong>One role per user</strong>: If the option is selected, the creation of multi-role users will not be allowed. When a user is added or modified, only one user role can be selected.</p>
+<p>(10) <strong>Encrypt job definition</strong>: The job definition files on the servers will be encrypted.</p>
+<p>(11) <strong>Enable Upgrade page</strong>: Disabling the Upgrade page will also hide all functions on the Upgrade page and the download function on the login page.</p>
+<p>(12) <strong>Access Key login instance</strong>: When it is enabled, the Access Key authentication will be added to the instance login page, so that you can choose to log in with the Access Key of your current user account if you forget your OS password.</p>
+<p>(13) <strong>Auto login instance</strong>: It appears when the Access Key login instance option is enabled.</p>
+<p>(14) <strong>2-step verification</strong>: Users must enter email OTP when logging in. To ensure the successful sending and receiving of email OTP, SMTP and personal email must be configured properly.</p>
+<p>(15) <strong>Enable restore feature for pool replication user</strong>: When it is enabled, the replication users are allowed to use the restore function.</p>
+<p><strong>Password policy</strong></p>
+<p>The section provides the following option: Password length, password character inclusion requirements, historical password repetition limit, maximum password age.</p>
+</section>
+<section id="webhook">
+<h4>Webhook<a class="headerlink" href="#webhook" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Settings</strong> &gt; <strong>Webhook</strong>. The <strong>Webhook</strong> page appears. On the page, the adding, modifying and deleting of Webhook(s) are supported.</p>
+</section>
+<section id="approval">
+<h4>Approval<a class="headerlink" href="#approval" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Settings</strong> &gt; <strong>Approval</strong>. The <strong>Approval</strong> page appears.</p>
+<p>(1) Approval types include:</p>
+<ul class="simple">
+<li><p>Add job: The adding of a job by the operator needs to be approved by the specified approver before it can be executed.</p></li>
+<li><p>Add credits: Tenant adding credits needs to be approved by the specified approver before it can be executed.</p></li>
+<li><p>Modify storage pool: The modification of a storage pool by the operator needs to be approved by the specified approver before it can be executed.</p></li>
+</ul>
+<p>(2) Approvers: Users can be granted approval permissions.</p>
+<p>(3) Actions: Enable or disable the selected approval types.</p>
+</section>
+</section>
+</section>
+<section id="id3">
+<h2>License<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>From the menu, click <strong>License</strong>. The <strong>License</strong> page appears. It displays the license details including the edition, assignee, module, space and advanced features.</p>
+<ul class="simple">
+<li><p><strong>Request</strong>: Click the <strong>Request</strong> button to request a license.</p></li>
+<li><p><strong>Import</strong>: Import the license file issued by the vendors.</p></li>
+<li><p><strong>Download</strong>: Export the data from the <strong>License</strong> page, with the default format being CSV.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a trial license or resource has expired, click <strong>Request</strong> &gt; <strong>Trial</strong>, you will see Trial License Renewal option. When it is checked, a “Resource” list will be displayed on the module page to automatically list resources available for trial renewal.</p>
+</div>
+</section>
+<section id="catalog-backup">
+<h2>Catalog backup<a class="headerlink" href="#catalog-backup" title="Link to this heading">#</a></h2>
+<p>Through catalog backup, user, user group, storage pool, and backup set configuration can be retained. Catalog backup is typically used in conjunction with pool replication to facilitate local or remote disaster recovery of backup servers and backup server migration.</p>
+<section id="disaster-recovery">
+<h3>Disaster recovery<a class="headerlink" href="#disaster-recovery" title="Link to this heading">#</a></h3>
+<p>Catalog backup can be used for the local and offsite disaster recovery, which requires that the target recovery host and the storage server that stores the catalog backup sets can communicate with each other.</p>
+<section id="offsite-disaster-recovery">
+<h4>Offsite disaster recovery<a class="headerlink" href="#offsite-disaster-recovery" title="Link to this heading">#</a></h4>
+<p>Deploy one server each locally and offsite, the network is made isolated and the servers can communicate with each other. Both servers are installed with the backup server and storage server for recovering the backup sets on the local agent host in offsite.</p>
+<ol class="arabic">
+<li><p>Add two storage pools belonging to local and offsite storage servers respectively, and set a pool replication that replicates from the local host to the offsite host.</p></li>
+<li><p>Set a backup schedule that the Catalog will be backed up periodically to the storage pool on the local host.</p></li>
+<li><p>Create backup jobs to the storage pool on the local host.</p></li>
+<li><p>Recovery</p>
+<ul class="simple">
+<li><p>Log in to the offsite backup server as the system administrator, go to the <strong>Settings</strong> &gt; <strong>Settings</strong> page and click **Catalog **&gt; <strong>Disaster recovery</strong>.</p></li>
+<li><p>If the Catalog backup sets are stored in a standard storage pool, deduplication storage pool, or tape library pool, you can enter the IP address of the offsite storage server (for example, the storage server where the target storage pool is located) and select Restore by Scanning as the Restore Source. When restoring, select a point in time that needs to recover, which is related to the range of backup sets that the resource is allowed to restore. The resource can only restore the backup sets that have been replicated to the target storage pool prior to this point in time.</p></li>
+<li><p>If backup sets are stored in the object storage service pool, you can restore it by selecting Restore by Entering the URL Directly as the Restore Source. When restoring, you need to fill in the s3 object storage path where the Catalog backup sets are located, and enter the Access Key and Secret Key.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the recovery is completed, you need to restart the backup server manually.</p>
+</div>
+</li>
+<li><p>Apply for a license</p>
+<p>The Catalog disaster recovery only keeps licenses for activated resources and does not recover all applied licenses. After registering the agent host on the offsite backup server, you need to apply the license for the resources on the offsite agent host.</p>
+</li>
+<li><p>Deploy an offsite agent host and associate it with an offsite backup server.</p></li>
+<li><p>Set both the local and offsite agent host to the same user group.</p></li>
+<li><p>Create a restore job</p>
+<p>Log in to the backup server as the operator, go to the <strong>Restore</strong> page, select a local agent host, resources, backup sets, restore target and resource on the offsite host, and create the restore job.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For authorized systems, it can be performed on the <strong>Settings</strong> page. For unauthorized systems, it can be performed on the product activation page.</p>
+</div>
+</section>
+<section id="local-disaster-recovery">
+<h4>Local disaster recovery<a class="headerlink" href="#local-disaster-recovery" title="Link to this heading">#</a></h4>
+<p>In case a backup server disaster occurs, deploy a new backup server and create a catalog restore job to restore the system to normal state.</p>
+<ol class="arabic">
+<li><p>Deploy a new backup server</p>
+<p>Set the IP as the IP of the backup server that occurs disaster, and ensure that the new backup server can communicate properly with the target storage pool of the pool replication.</p>
+<p>The IP of the new backup server is different from that of the old backup server. Before repairing the source pool, enter the <strong>Storage</strong> &gt; <strong>Storage pool</strong> page, select the storage pool record of the old storage server (old backup server) and modify its configuration, enter the address of the new server and then repair the storage pool.</p>
+<p>After repairing the source pool, all agents need to be reconfigured to the new backup server before the system resumes normal operation.</p>
+<p>It is recommended that the IP be consistent with the old backup server IP to reduce the loss caused by misoperation.</p>
+</li>
+<li><p>Recovery</p>
+<p>Log in to the backup server as the system administrator, go to the <strong>Settings</strong> &gt; <strong>Settings</strong> page and click <strong>Catalog</strong> &gt; <strong>Disaster recovery</strong>.</p>
+<ul class="simple">
+<li><p>If the Catalog backup sets are stored in a standard storage pool, deduplication storage pool, or tape library pool, you can enter the IP address of the storage server and select <strong>Restore by scanning</strong> as the restore source.</p></li>
+<li><p>If backup sets are stored in the object storage service pool, you can restore it by selecting Restore by Entering the URL Directly as the Restore Source. When restoring, fill in the s3 object storage path where the Catalog backup sets are located, and enter the Access Key and Secret Key.</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the recovery is completed, you need to restart the backup server manually.</p>
+</div>
+<ol class="arabic" start="3">
+<li><p>Repair source pool</p>
+<p>Log in to the backup server as the system administrator, enter the <strong>Storage</strong> &gt; <strong>Storage pool</strong> page, click the <strong>Pool replication list</strong> icon, select the storage pool record of the old storage server (old backup server), click the <strong>Repair source pool</strong> icon to repair the source pool. It is recommended to perform a full backup for all resources after repairing the source pool to ensure the continuity of the backup sets in the future.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Repairing the source pool only restores the database records of the source pool and does not restore the backup sets. Before creating a restore job, it is recommended to replicate the relevant backup sets using pool replication first.</p></li>
+<li><p>If the source pool is not repaired, an alternative approach is to perform a replication job by configuring the restore source to be the target pool. This enables direct retrieval of backup sets from the target pool for the restore.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Apply for a license</p>
+<p>The Catalog disaster recovery only keeps licenses for activated resources and does not recover all applied licenses. After registering the agent host on the offsite backup server, you need to apply the license for the resources on the offsite agent host.</p>
+</li>
+<li><p>After completing the above operations, ADPS will resume normal state.</p></li>
+</ol>
+</section>
+</section>
+<section id="backup">
+<h3>Backup<a class="headerlink" href="#backup" title="Link to this heading">#</a></h3>
+<p>After you configure the backup schedule, click the <strong>Backup</strong> button on the Catalog page, and the top right corner will show “Submission succeeded”, indicating that a Catalog backup is performed immediately to the storage pool configured in the backup schedule. While the backup is in progress, the <strong>Backup</strong> button will show the loading state.</p>
+</section>
+<section id="restore">
+<h3>Restore<a class="headerlink" href="#restore" title="Link to this heading">#</a></h3>
+<p>Restore the catalog backup sets of the current backup server.</p>
+<ol class="arabic simple">
+<li><p>After you configure the schedule, the Catalog page will show the <strong>Restore</strong> button.</p></li>
+<li><p>Click the <strong>Restore</strong> button, you can see the Catalog backup sets of the current backup server.</p></li>
+<li><p>Select a backup set and click <strong>Submit</strong> to restore.</p></li>
+</ol>
+</section>
+</section>
+<section id="operations-and-maintenance-management">
+<h2>Operations and maintenance management<a class="headerlink" href="#operations-and-maintenance-management" title="Link to this heading">#</a></h2>
+<section id="job">
+<h3>Job<a class="headerlink" href="#job" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>Job</strong>. The <strong>Job</strong> page appears. It shows all backup and restore jobs, and supports filtering the displayed information columns.</p>
+<ul class="simple">
+<li><p>Filter: Click the <strong>Columns</strong> icon to customize the displayed content on the page. The available filtering options include job, state, host, resource, and more. Every column also supports filtering.</p></li>
+<li><p>Search: Search by job or host is supported.</p></li>
+<li><p>Job: The column allows users to view backup, restore, or all types of jobs. It also supports sorting the jobs in either ascending or descending order.</p></li>
+<li><p>State: The column allows users to view jobs in a single or all states.</p></li>
+<li><p>Host: The column allows users to view jobs on all hosts or a specific host.</p></li>
+<li><p>Resource: The column allows users to view jobs of all resources or a specific resource.</p></li>
+<li><p>Download: Different formats can be selected to export job page data.</p>
+<ul>
+<li><p>Format: Readable format, raw format</p></li>
+<li><p>Extension: CSV, XML, UOF</p></li>
+</ul>
+</li>
+<li><p>Setting: From the toolbar, click the <strong>Configure</strong> icon. The <strong>Setting</strong> window appears. In this window, the <strong>Show tips for completed jobs</strong> function can be enabled.</p></li>
+</ul>
+</section>
+<section id="history">
+<h3>History<a class="headerlink" href="#history" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>History</strong>. The <strong>History</strong> page appears. It shows all backup and restore job history. The following operations are provided:</p>
+<ul class="simple">
+<li><p>Modify: Click the <strong>Modify</strong> icon to batch delete all or selected job history.</p></li>
+<li><p>Refresh: Click the <strong>Refresh</strong> icon to refresh the page.</p></li>
+<li><p>Filter: Click the <strong>Columns</strong>  icon to filter the content for display. Every column also supports filtering.</p></li>
+<li><p>Download: Click the <strong>Custom download</strong> icon to export the job history. Different formats can be selected to export job history.</p>
+<ul>
+<li><p>Format: Readable format, raw format</p></li>
+<li><p>Extension: CSV, XML, UOF</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>System administrator can export all job histories.</p>
+</div>
+<p>In a multi-tenant environment, the page displays the job history from all users by default.</p>
+</section>
+<section id="alert">
+<h3>Alert<a class="headerlink" href="#alert" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4>Alert<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Alert</strong> &gt; <strong>Alert</strong>. The <strong>Alert</strong> page appears. Alert details including alert level, host, module, alert time, message type, and message can be viewed. The page show the latest job alert by default, and support filtered alerts. The following operations are provided:</p>
+<ul class="simple">
+<li><p>Mark: Alert emails can be marked as read or unread. Unread alerts are shown in bold font.</p></li>
+<li><p>Delete: Click the <strong>Modify</strong> icon to delete all or selected alert records.</p></li>
+<li><p>Filter: Click the <strong>Columns</strong> icon to filter the content for display. Every column also supports filtering.</p></li>
+<li><p>Download: Click the <strong>Download</strong> icon to export alert records. Different formats can be selected to export alert records.</p>
+<ul>
+<li><p>Format: Readable format, raw format</p></li>
+<li><p>Extension: CSV, XML, UOF</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>System administrator and administrative operators can export all alert records.</p>
+</div>
+</section>
+<section id="subscription">
+<h4>Subscription<a class="headerlink" href="#subscription" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Alert</strong> &gt; <strong>Subscription</strong>. The <strong>Subscription</strong> page appears. On the page, alert levels and subscription types of resources and modules can be viewed.</p>
+<ul class="simple">
+<li><p>Subscribe: By selecting one or more records and clicking the <strong>Subscribe</strong> icon from the toolbar, users can subscribe to various levels of alerts for any resources within their authorized permissions. After successful subscription, any generated alerts will be sent to the user’s email address via email notifications.</p></li>
+<li><p>Unsubscribe: By selecting one or more records and clicking the <strong>Unsubscribe</strong> icon from the toolbar, users can unsubscribe the alert notification.</p></li>
+<li><p>Resource: This column displays resources that are within the current user’s permission.</p></li>
+<li><p>Subscription level: Info, Warning, Error, Critical and Fatal are available.</p>
+<ul>
+<li><p>Info: Feedback on the current state of the system.</p></li>
+<li><p>Warning: The system has detected an abnormal state and can perform remedial work to restore the system to a normal state.</p></li>
+<li><p>Error: The system has detected errors and anomalies that prevent it from completing the target operation normally, but it can still perform remedial work to make the target operation complete normally.</p></li>
+<li><p>Critical: The system has detected errors and anomalies that need to be repaired quickly or a fatal problem will occur.</p></li>
+<li><p>Fatal: The system has detected serious errors and anomalies, at this time, the system should be retained as much as possible valid data and stop running.</p></li>
+</ul>
+</li>
+<li><p>Subscription type: Currently, subscribing by mail is only supported.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The subscription requires the use of SMTP server. Successful Alert emails delivery to mailboxes is required to configure SMTP server properly.</p>
+</div>
+</section>
+<section id="download-log">
+<h4>Download log<a class="headerlink" href="#download-log" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Alert</strong> &gt; <strong>Download log</strong>. The <strong>Download log</strong> page appears. Select one or more records, and click the <strong>Download</strong> icon to download logs corresponded to hosts.</p>
+</section>
+<section id="upgrade">
+<h4>Upgrade<a class="headerlink" href="#upgrade" title="Link to this heading">#</a></h4>
+<p>From the menu, click <strong>Upgrade</strong>. The <strong>Upgrade</strong> page appears. It provides information about state, IP address, operating system version of the currently connected agent hosts.</p>
+<p>For upgrade:</p>
+<ul class="simple">
+<li><p>The backup agent supports upgrades on Windows and Linux platforms.</p></li>
+<li><p>Backup Server supports upgrades of the backupd module and the common module on Windows and Linux platforms.</p></li>
+<li><p>Storage Server supports upgrades of storaged modules on Windows and Linux platforms, provided that the backupd module is already installed on the host.</p></li>
+</ul>
+</section>
+<section id="upload-packages">
+<h4>Upload packages<a class="headerlink" href="#upload-packages" title="Link to this heading">#</a></h4>
+<p>From the toolbar, click the <strong>Upload packages</strong> icon. The <strong>Upload packages</strong> window appears. After a successful package upload, the installation package is located in the directory /var/opt/aurreum/adps/backupd/updates/ on the backup server. The audit log provides a record of the upload status for each installation package, allowing users to review the upload details.</p>
+<p>The rpm tool needs to be installed on the Linux server when uploading RPM installation packages. Additionally, the backupd service needs to be restarted. Taking Ubuntu system as an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># sudo apt install gnupg rpm</span>
+<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># sudo systemctl restart adps-backupd</span>
+</pre></div>
+</div>
+</section>
+<section id="view-packages">
+<h4>View packages<a class="headerlink" href="#view-packages" title="Link to this heading">#</a></h4>
+<p>From the toolbar, click the <strong>View packages</strong> icon. The <strong>View packages</strong> page appears.</p>
+<ul class="simple">
+<li><p>Upload packages: From the toolbar, click the <strong>Upload packages</strong> icon. The <strong>Upload packages</strong> window appears.</p></li>
+<li><p>Delete all: From the toolbar, click the <strong>Delete all</strong> icon to delete all packages. Additionally, users can select multiple installation packages and click the <strong>Delete</strong> icon to delete the selected packages.</p></li>
+<li><p>Delete: In display area, click the <strong>Delete</strong> icon to delete the corresponding package.</p></li>
+<li><p>Search: From the toolbar, search by name or file is supported.</p></li>
+</ul>
+</section>
+</section>
+<section id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>Statistics</strong>. The <strong>Statistics</strong> page appears. The system administrator can count the global data of the system. In a multi-tenant environment, the system administrator can perform statistical analysis belonging to a specific tenant by selecting an account. Other users can perform statistical analysis by selecting dimensions including storage size, host, resource, job speed, and job duration. The statistical data is presented to users in the form of a line chart.</p>
+<section id="storage-size">
+<h4>Storage size<a class="headerlink" href="#storage-size" title="Link to this heading">#</a></h4>
+<p>Storage size counts the size of all backup jobs in a certain period, and shows the trend of data storage size in the form of a line chart. In addition to counting the size of all backup jobs, it can also count the original size and the backup sets size of backup jobs. See below:</p>
+</section>
+<section id="host">
+<h4>Host<a class="headerlink" href="#host" title="Link to this heading">#</a></h4>
+<p>Host counts the number of all hosts that have executed jobs in a certain period, and shows the number and trend of active hosts in a line chart. See below:</p>
+</section>
+<section id="id5">
+<h4>Resource<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Resource counts the number of resources that have executed jobs in a certain period, and shows the number and trend of active resources in a line chart. See below:</p>
+</section>
+<section id="job-status">
+<h4>Job status<a class="headerlink" href="#job-status" title="Link to this heading">#</a></h4>
+<p>Job status counts the number of each job per day, the number of executions and the number of successes, and displays the status of each job for that period of time in a bar chart. See below:</p>
+</section>
+<section id="job-speed">
+<h4>Job speed<a class="headerlink" href="#job-speed" title="Link to this heading">#</a></h4>
+<p>Job speed counts the execution speed of each job in a certain period, and shows the speed trend of each job in a line chart. See below:</p>
+</section>
+<section id="job-duration">
+<h4>Job duration<a class="headerlink" href="#job-duration" title="Link to this heading">#</a></h4>
+<p>Job duration counts the execution time of each job over a certain period. See below:</p>
+</section>
+<section id="export">
+<h4>Export<a class="headerlink" href="#export" title="Link to this heading">#</a></h4>
+<p>Export the current statistics in png format.</p>
+</section>
+</section>
+<section id="report">
+<h3>Report<a class="headerlink" href="#report" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>Report</strong>. The <strong>Report</strong> page appears. The report page mainly consists of the functionalities to add reports and manage report jobs. It displays reports based on their name, type, description, and available actions. Users can filter the displayed reports based on their specific requirements.</p>
+<section id="add-report">
+<h4>Add report<a class="headerlink" href="#add-report" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>From the toolbar, click the <strong>Add Report</strong> icon. The <strong>Add Report</strong> page appears. On the page, select the <strong>Report info</strong>, <strong>Custom fields</strong>, <strong>Custom filter</strong> for the new report. Custom sorting is supported.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Report info：The available report types include jobs, Windows OS jobs, VM jobs, job count, job history, backup success rate, alerts, client count, storage billing, storage resources, host storage space usage, storage pool space usage, and storage pool label statistics.</p></li>
+<li><p>Custom fields: Select the fields to be displayed for the job report.</p></li>
+<li><p>Custom filter: Select fields for report filtering.</p></li>
+<li><p>Custom sorting: Sorting the field names by dragging them is supported.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Click the <strong>New</strong> icon to submit the new report. On the <strong>Report</strong> page, click the report name to view the report details.</p></li>
+</ol>
+</section>
+<section id="modify-report">
+<h4>Modify report<a class="headerlink" href="#modify-report" title="Link to this heading">#</a></h4>
+<p>In display area, click the <strong>Modify</strong> icon to enter the <strong>Modify report</strong> page where you can edit the report information, custom fields and custom filters.</p>
+</section>
+<section id="download-report">
+<h4>Download report<a class="headerlink" href="#download-report" title="Link to this heading">#</a></h4>
+<p>In display area, select a report, click the report name, then from the toolbar, click the <strong>Download</strong> icon to select the format to generate, you can choose the format from <strong>CSV</strong>, <strong>XML</strong>, <strong>UOF</strong>.</p>
+<ul class="simple">
+<li><p>Report format: Readable format, raw format</p></li>
+<li><p>Report extension: CSV, XML, UOF</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Readable format: the fields such as <strong>Original size</strong> and <strong>Speed limit</strong> are displayed in the same format as the page shows, while fields like <strong>Start time</strong> and <strong>End time</strong> show specific date and time.</p></li>
+<li><p>Raw format: the fields such as <strong>Original size</strong> and <strong>Speed limit</strong> are displayed in bytes, while fields like <strong>Start time</strong> and <strong>End time</strong> are presented in specific date and time formats.</p></li>
+</ol>
+</div>
+</section>
+<section id="print-report">
+<h4>Print report<a class="headerlink" href="#print-report" title="Link to this heading">#</a></h4>
+<p>The <strong>Report</strong> page and <strong>Print record</strong> page can be printed. If the report has too many fields to print completely, you can set the print layout or modify the print settings.</p>
+</section>
+</section>
+<section id="label">
+<h3>Label<a class="headerlink" href="#label" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>More</strong> &gt; <strong>Label</strong>. The <strong>Label</strong> page appears. This page allows users to perform operations such as adding, deleting, and modifying labels. Once a label is created, it can be assigned to storage pools or hosts on the <strong>Storage pool</strong> page or <strong>Resource</strong> page.</p>
+</section>
+<section id="approvals">
+<h3>Approvals<a class="headerlink" href="#approvals" title="Link to this heading">#</a></h3>
+<p>From the menu, click <strong>More</strong> &gt; <strong>Approval</strong>. The <strong>Approval</strong> page appears. The approval history can be viewed through the page.</p>
+</section>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Storage pool<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id20">
+<caption><span class="caption-text">Storage pool limitations</span><a class="headerlink" href="#id20" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Standard storage pool</p></td>
+<td><p>For standard storage pools with multi-storage, recovery from other host is not supported if the primary host goes down.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deduplication storage pool</p></td>
+<td><p>Recycling frees up space by default.  <br> Do not support sparse file system. For example, in XFS (before Linux 2.6.38), spatial reuse is still used for space reclamation. <br> Supported file system: NTFS, XFS (since Linux 2.6.38), ext4 (since Linux 3.0), Btrfs (since Linux 3.7).</p></td>
+</tr>
+<tr class="row-even"><td><p>Real-time backup pool</p></td>
+<td><p>Only available for Oracle and MySQL continuous log backups</p></td>
+</tr>
+<tr class="row-odd"><td><p>File synthetic pool</p></td>
+<td><p>Only available for storage servers on Linux. <br> File system and kernel version requirements for synthetic backups: XFS(since Linux 2.6.38), ext4(since Linux 3.0).</p></td>
+</tr>
+<tr class="row-even"><td><p>Data synthetic pool</p></td>
+<td><p>Only available for storage servers on Ubuntu. <br> Available for Oracle, SQL Server, MySQL synthetic backup. <br> Data volumes larger than 1T are only supported for level-one pool replication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAN-free pool</p></td>
+<td><p>Only available for storage servers on Ubuntu. <br> Backups to LAN-free pools are not supported in dual-cluster environments. <br> In an Oracle RAC environment, backups to LAN-free pools are not supported. <br> The agent can be installed on Linux (Red Hat 4.0 and above), AIX, and Windows 2008 and above. <br> To use iSCSI, it is required to install iscsi-initiator-utils on the agent first.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="job-replication">
+<h3>Job replication<a class="headerlink" href="#job-replication" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id21">
+<caption><span class="caption-text">Job replication limitations</span><a class="headerlink" href="#id21" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pool replication</p></td>
+<td><p>Pool replication are not available for local storage pool, LAN-free pool, and file synthesis pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Job replication</p></td>
+<td><p>Deleting replication job records is not supported. <br> During replication execution, the corresponding backup points of the target pool cannot be restored. Similarly, during the target pool recovery execution, the replication of the corresponding backup points cannot be performed. <br> Modifying the network in the pool replication settings is not supported for block device deduplication pools.</p></td>
+</tr>
+<tr class="row-even"><td><p>Source pool repair</p></td>
+<td><p>Pool replication with the object storage service pool as the source pool does not support repairing the source pool.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="multi-tenancy">
+<h3>Multi tenancy<a class="headerlink" href="#multi-tenancy" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id22">
+<caption><span class="caption-text">Multi tenancy limitations</span><a class="headerlink" href="#id22" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Storage pool usage</p></td>
+<td><p>Storage pools of the corresponding types can only be used after enabling storage space pricing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage pool creation</p></td>
+<td><p>Users can only create object storage service pools, standard storage pools, deduplication storage pools, and block device storage pools by storage regions.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>Catalog<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id23">
+<caption><span class="caption-text">Catalog limitations</span><a class="headerlink" href="#id23" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>Available for standard storage pools, deduplication storage pools, tape library pools, and object storage service pools.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disaster recovery</p></td>
+<td><p>To restore backup sets to the agent on a remote backup server, it is necessary to restore the catalog first and then associate the agent with the remote backup server. Failure to follow this sequence will result in the failure to restore the backup sets of local resources.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>License<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id24">
+<caption><span class="caption-text">License limitations</span><a class="headerlink" href="#id24" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>System initialization</p></td>
+<td><p>Before system initialization, as the host is not registered yet, if the leased edition is selected, module selection is not available. It is necessary to complete the system initialization first, then associate the agent with the host, and finally authorize the host with the leased edition.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Approval<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id25">
+<caption><span class="caption-text">Approval limitation</span><a class="headerlink" href="#id25" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Job</p></td>
+<td><p>Databases, files, and Linux OS are supported.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>Job<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id26">
+<caption><span class="caption-text">Job limitations</span><a class="headerlink" href="#id26" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Job modification</p></td>
+<td><p>Only support modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to modify jobs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Job stop</p></td>
+<td><p>The Stop Job function is available for Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, GBase, File. For clustered environments (RAC, dual host), all nodes need to be online to stop the job.</p></td>
+</tr>
+<tr class="row-even"><td><p>Job deletion</p></td>
+<td><p>For clustered environments (RAC, dual host), all nodes need to be online to delete jobs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>Upgrade<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id27">
+<caption><span class="caption-text">Upgrade limitations</span><a class="headerlink" href="#id27" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Packages upload</p></td>
+<td><p>The installation package version must be consistent with the backup server’s adps-backupd version. If the backup server’s adps-backupd is upgraded, the uploaded installation package version must match the upgraded version of adps-backupd. <br> To perform a successful upgrade, all installed ADPS modules on the backup server or agent host must have their corresponding installation packages uploaded. <br> For automatic upgrade, adps-storaged should be installed on the same host as adps-backupd or adps-agent. <br> For agents on HP-UX, Solaris, and AIX host, manual upgrade is required as they do not support web-based upgrades.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="access-key">
+<h3>Access key<a class="headerlink" href="#access-key" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id28">
+<caption><span class="caption-text">Access key limitations</span><a class="headerlink" href="#id28" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Resource login</p></td>
+<td><p>Multiple resources including Oracle, DB2, MongoDB, Domino, File, and Linux OS are supported for access key login, but when recovering Oracle to a new instance, access key login to the agent side is not supported.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="installation-package">
+<h3>Installation package<a class="headerlink" href="#installation-package" title="Link to this heading">#</a></h3>
+<table class="longtable table" id="id29">
+<caption><span class="caption-text">Installation packages limitations</span><a class="headerlink" href="#id29" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Windows, AIX, Solaris, HP-UX do not support the installation of Backup Server, Storage Server.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h2>
+<table class="longtable table" id="id30">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id30" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>traditional backup</p></td>
+<td><p>The backup interface of the target application is connected with agent to obtain and protect data on a regular basis, using full backup, incremental backup, log backup and other technology.</p></td>
+</tr>
+<tr class="row-odd"><td><p>pre-configured users</p></td>
+<td><p>Users who are already set up with predefined settings or configurations.</p></td>
+</tr>
+<tr class="row-even"><td><p>custom-created users</p></td>
+<td><p>Users that can be created by the system administrator with the flexibility to customize roles, permissions, access levels, and settings based on specific requirements or preferences.</p></td>
+</tr>
+<tr class="row-odd"><td><p>tape controller</p></td>
+<td><p>The tape controller connects the central processor and the logical control circuit device of the tape drive. The tape controller receives commands from the central processor, analyzes and monitors the execution of the commands.</p></td>
+</tr>
+<tr class="row-even"><td><p>SMTP</p></td>
+<td><p>A protocol that provides reliable and efficient email delivery.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LDAP authentication</p></td>
+<td><p>LDAP can be used for permission authentication and system user management and authentication.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">#</a></h2>
+<p><strong>Login failed exceeded limit</strong></p>
+<p>See the following example to release from the login IP address blocklist for pre-configured users such as System Administrator (admin), Audit Administrator (audit)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Enter the database (Taking MariaDB as an example)</span>
+<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="c1">#mysql -u root -p</span>
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">use</span> <span class="n">adps</span>
+<span class="c1">#Query the blocked ip and id</span>
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">ADPS</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="nb">id</span> <span class="p">,</span> <span class="n">ip</span> <span class="kn">from</span> <span class="nn">user_black_ip</span><span class="p">;</span>
+<span class="o">+----+---------------+</span>
+<span class="o">|</span> <span class="nb">id</span> <span class="o">|</span> <span class="n">ip</span>            <span class="o">|</span>
+<span class="o">+----+---------------+</span>
+<span class="o">|</span>  <span class="mi">2</span> <span class="o">|</span> <span class="mf">192.168.83.51</span> <span class="o">|</span>
+<span class="o">+----+---------------+</span>
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">adps</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">delete</span> <span class="kn">from</span> <span class="nn">user_black_ip</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">adps</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">flush</span> <span class="n">privileges</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Lock period of failed login</strong></p>
+<p>The option is read-only by default. To modify, it is required to be in the background. See the following example to modify the Lock period of failed login and Auto Unlock options.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> - Access the file `/etc/opt/aurreum/adps/backupd/svc.conf.d/00-base.conf` under the backup server. Add `--non-sysuser-auto-unlock` (for custom-created users to unlock automatically) and  `--user-auto-unlock-wait-seconds` (the unlock waiting time. The unit is second) to BACKUPD Service.
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../agent_install/agent_install.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Agent Installation Guide</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../oracle/oracle.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for Oracle</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-component">System component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature">Feature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-roles">User roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-planning">Storage planning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#various-storage-types">Various storage types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flexible-pool-recycling-strategies">Flexible pool recycling strategies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dashboard">Dashboard</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-and-maintenance-o-m-statistics">Operations and maintenance (O&amp;M) statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-storage-capacity-usage">Overall storage capacity usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licensed-storage-space-usage">Licensed storage space usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pool-capacity-usage">Storage pool capacity usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dashboard-toolbar">Dashboard toolbar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-management">User management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-user">Add user</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-user-group">Assign user group</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-management">Storage management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-server">Storage server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pool">Storage pool</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-storage-pool">Add a storage pool</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#add-storage">Add storage</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#add-tape-library-pool">Add tape library pool</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-the-tape">Scan the tape</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Add tape library pool</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#allocate-tapes">Allocate tapes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-storage-pools-storage-and-labels">Modify storage pools, storage and labels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-storage-pool">Delete a storage pool</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pool-replication">Storage pool replication</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-pool-replication">Set up pool replication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-replication-job">Pool replication job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-replication-list">Pool replication list</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-data-network">Add data network</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-storage-pool-replication-network">Add storage pool replication network</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-management-network">Add management network</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scsi-target">SCSI target</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iscsi-target">iSCSI target</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#add">Add</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">Delete</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fc-target">FC target</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Add</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tape-library">Tape library</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tape-controller">Tape controller</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drives">Drives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#media-management">Media management</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#task-management">Task management</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raid-card">RAID card</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-raid">Software RAID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resource">Resource</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-agent">Install agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-host">Add a host</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ndmp-host">NDMP host</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-cluster">Hadoop cluster</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#object-storage-service">Object storage service</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-hosts-activate-licenses-authorize-licenses">Register hosts/Activate licenses/Authorize licenses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-register-batch-activate-batch-authorize">Batch register/Batch activate/Batch authorize</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-register">Batch register</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-activate">Batch activate</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-binding">Cluster binding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-management">System management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-settings">System settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common">Common</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#server">Server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog">Catalog</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#webhook">Webhook</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approval">Approval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog-backup">Catalog backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disaster-recovery">Disaster recovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#offsite-disaster-recovery">Offsite disaster recovery</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-disaster-recovery">Local disaster recovery</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-and-maintenance-management">Operations and maintenance management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job">Job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alert">Alert</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Alert</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subscription">Subscription</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-log">Download log</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upgrade">Upgrade</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-packages">Upload packages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#view-packages">View packages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-size">Storage size</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#host">Host</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Resource</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#job-status">Job status</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#job-speed">Job speed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#job-duration">Job duration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#export">Export</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report">Report</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-report">Add report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-report">Modify report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-report">Download report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#print-report">Print report</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label">Label</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approvals">Approvals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Storage pool</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job-replication">Job replication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-tenancy">Multi tenancy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Approval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Upgrade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-key">Access key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-package">Installation package</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2022-2024 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
