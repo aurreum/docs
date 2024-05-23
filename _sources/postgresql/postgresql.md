@@ -525,7 +525,7 @@ class: longtable
 ---
 |Option |Description|Limitations|
 | --- | --- | --- |
-|Channels|It can improve backup efficiency. The default value is 1. The maximum value for the range should not exceed the maximum number of channels set in the selected backup set.|Only available for point-in-time restore jobs.|
+|Channels|It can improve restore efficiency. The default value is 1. The maximum value for the range should not exceed the maximum number of channels set in the selected backup set.|Only available for point-in-time restore jobs.|
 |Open database after restore|After this option is enabled, the database will automatically start upon successful recovery. It is checked by default.|Only available for point-in-time restore jobs.|
 |Restore database|Leave the field blank to overwrite the original database. To restore to a new database, enter the new database name.|Only available for logical recovery jobs.|
 |Archive log destination|Set the restore directory for archive logs.|Only available for log restore jobs.|

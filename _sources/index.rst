@@ -22,6 +22,8 @@ User Guides
    :caption: Management
 
    manager/manager.md
+   dedup/dedup.md
+   backup_domain/backup_domain.md
    operator/operator.md
    audit/audit.md
    monitor/monitor.md
@@ -43,21 +45,23 @@ User Guides
    gaussdb/gaussdb.md
    dmdb/dmdb.md
    db2/db2.md
-   sybase/sybase.md
+   sap_ase/sap_ase.md
+   sap_iq/sap_iq.md
    informix/informix.md
    postgresql/postgresql.md
    cachedb/cachedb.md
+   iris/iris.md
    hana/hana.md
    goldendb/goldendb.md
    opengauss/opengauss.md
    mariadb/mariadb.md
-   kingbase/kingbase.md
+   kingbase_es/kingbase_es.md
    shentong/shentong.md
    highgo/highgo.md
    uxdb/uxdb.md
    antdb_for_mysql/antdb_for_mysql.md
    antdb_for_pg/antdb_for_pg.md
-   tdsql_for_mysql/tdsql_for_mysql.md
+   tdsql/tdsql.md
    hotdb_for_mysql/hotdb_for_mysql.md
    fusiondb/fusiondb.md
    gbase8a_mpp/gbase8a_mpp.md
@@ -67,7 +71,13 @@ User Guides
    seaboxsql/seaboxsql.md
    vastbase/vastbase.md
    sg_rdb_pg/sg_rdb_pg.md
+   tbase/tbase.md
+   oceanbase/oceanbase.md
+   atlasdb/atlasdb.md
    database_replication/database_replication.md
+   panweidb/panweidb.md
+   sequoiadb/sequoiadb.md
+
 
 .. toctree::
    :titlesonly:
@@ -117,6 +127,12 @@ User Guides
 
    vmware/vmware.md
    openstack/openstack.md
+   hcs/hcs.md
    fusioncompute/fusioncompute.md
    h3c/h3c.md
+   h3c_cloudos/h3c_cloudos.md
    hyper_v/hyper_v.md
+   incloudsphere/incloudsphere.md
+   smartx/smartx.md
+
+

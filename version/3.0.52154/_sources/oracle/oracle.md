@@ -700,7 +700,7 @@ To create a table restore job, do the following:
 
 	````{note}
 	- Oracle 10g does not support importing the exported tables into the database. You need to use the `impdp` command to import the exported tables into the database. One job for Oracle 10g can only restore mutiple tables of one user.
-
+	
 		Example:
 		```shell
 		# Create an export directory in the database. In this example, dir is the export directory.
@@ -710,8 +710,8 @@ To create a table restore job, do the following:
 		```
 
  	- Oracle 11g supports renaming the table and importing it into the database. You need to select the user that the tables belong to. In the **Restore source** field, enter the source table name in the left field and enter the target name in the right field.
-  	- Oracle 12c supports renaming the source table and importing it into the database. You need to select the PDB and user that the tables belong to. In the **Restore source** field, enter the source table name in the left field and enter the target name in the right field. Only the tables in the user tablespace can be restored.
-  	````
+ 	- Oracle 12c supports renaming the source table and importing it into the database. You need to select the PDB and user that the tables belong to. In the **Restore source** field, enter the source table name in the left field and enter the target name in the right field. Only the tables in the user tablespace can be restored.
+ 	````
 
 4. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
@@ -1149,7 +1149,7 @@ class: longtable
 ---
 |Option|Description|Limitations|
 | --- | --- | --- |
-|Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 255.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.|Not available for logical import jobs.|
+|Channels|It can improve restore efficiency. The default value is 1 and the value ranges from 1 to 255.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.|Not available for logical import jobs.|
 |Reset logs|Enable this option to open the database with the RESETLOG option to READ WRITE after the restore.|Not available for logical import and logical recovery testing jobs.|
 |Archive log destination|The location of archive logs.{{ br }}Instant recovery and instant recovery testing:{{ br }}- Separate volume: Suitable for situations when the local storage is not enough or the backup device has a good performance.{{ br }}- Same volume as database copy: Suitable for the situation when archive logs require little space.{{ br }}- Local directory: Suitable for the situation when the local storage has a good performance and its space is enough for storing archive logs.|Not available for logical import and logical recovery testing jobs.|
 |Auxiliary directory|Stores data including auxiliary data file sets. The space should be larger than the total size of the restored tablespace.|Available for tablespaces, table, and PDB restore jobs.|

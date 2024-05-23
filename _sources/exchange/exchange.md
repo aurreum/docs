@@ -147,7 +147,7 @@ ADPS provides four backup types for Exchange Server: full backup, incremental ba
 
 - Mailbox backup (EWS mailbox backup and MAPI mailbox backup).
 
-	EWS email backup only backs up the folders visible in Outlook Top of Information Store, while MAPI email backup can back up the entire mailbox directory.
+	EWS mailbox backup only backs up the folders visible in Outlook Top of Information Store, while MAPI mailbox backup can back up the entire mailbox directory.
 
 ### Backup policies
 
