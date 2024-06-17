@@ -84,23 +84,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-	```{code-block} python
-    linux-hana:~ # curl -o- "http://192.168.20.106:50305/d2/update/script?modules=hana&location=http%3A%2F%2F192.168.20.106%3A50305&access_key=3ccaaff015c4401b9e0136e1cc1dbce9&rm=&tool=curl" | sh
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-    100  9206    0  9206    0     0  1023k      0 --:--:-- --:--:-- --:--:-- 1123k
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 68.6M  100 68.6M    0     0  6848k      0  0:00:10  0:00:10 --:--:-- 7218k
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 7884k  100 7884k    0     0  6394k      0  0:00:01  0:00:01 --:--:-- 7153k
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 3919k  100 3919k    0     0  6700k      0 --:--:-- --:--:-- --:--:-- 7212k
+	```{code-block} shell
+    curl "http://IP:50305/d2/update/script?modules=hana&location=http%3A%2F%2FIP%3A50305&access_key=3ccaaff015c4401b9e0136e1cc1dbce9&rm=&tool=curl" | sh
 	```
 
 7. Wait for the installation to complete.
@@ -180,7 +165,7 @@ Before you back up and restore SAP HANA, check the following:
 
     Open the terminal and use the `sapcontrol -nr 00 -function GetProcessList` command to check the SAP HANA service status. The status should be "Running" for the backup and restore.
 
-	```{code-block} python
+	```{code-block} shell
 	hdbadm@linux-hana:/usr/sap/HDB/HDB00> sapcontrol -nr 00 -function GetProcessList
 
     18.05.2023 14:00:18

@@ -139,23 +139,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-  ```{code-block} python
-  root@ubuntu:~# curl -o- "http://192.168.20.192:50305/d2/update/script?modules=postgres&location=http%3A%2F%2F192.168.20.192%3A50305&access_key=acaa24b49fbf2655de1a5dae72a4b56e&rm=&tool=curl" | sh
-  	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-  	100  9210    0  9210    0     0  1697k      0 --:--:-- --:--:-- --:--:-- 2998k
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-      100 68.7M  100 68.7M    0     0  80.7M      0 --:--:-- --:--:-- --:--:-- 71.7M
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-      100 7890k  100 7890k    0     0  60.2M      0 --:--:-- --:--:-- --:--:-- 60.2M
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-      100 5913k  100 5913k    0     0  60.2M      0 --:--:-- --:--:-- --:--:-- 60.2M
+  ```{code-block} shell
+  curl "http://IP:50305/d2/update/script?modules=postgres&location=http%3A%2F%2FIP%3A50305&access_key=acaa24b49fbf2655de1a5dae72a4b56e&rm=&tool=curl" | sh
   ```
 
 7. Wait for the installation to complete.

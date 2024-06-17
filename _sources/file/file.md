@@ -153,7 +153,7 @@ To install the agent online, do the following:
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
 	```{code-block} shell
-	root@ubuntu:~# curl -o- "http://192.168.17.31:50305/d2/update/script?modules=file&location=http%3A%2F%2F192.168.17.31%3A50305&access_key=572bd4dbb395fd320a30fe9729a21db8&rm=&tool=curl" | sh
+	root@ubuntu:~# curl "http://192.168.17.31:50305/d2/update/script?modules=file&location=http%3A%2F%2F192.168.17.31%3A50305&access_key=572bd4dbb395fd320a30fe9729a21db8&rm=&tool=curl" | sh
 	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 	                                 Dload  Upload   Total   Spent    Left  Speed
 	100  9204    0  9204    0     0  2247k      0 --:--:-- --:--:-- --:--:-- 2996k

@@ -754,12 +754,12 @@ document.write(`
 <p>To install the agent on CentOS &amp; Red Hat, do the following:</p>
 <ol class="arabic">
 <li><p>Install the dependent and base packages.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-ivh<span class="w"> </span>adps-common-version.x86_64.rpm<span class="w"> </span>adps-agent-version_x86_64.rpm
 </pre></div>
 </div>
 </li>
 <li><p>Install packages for resource backups and restores according to your needs. Add the corresponding packages in the following command. Take the file resource as an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_x86_64</span><span class="o">.</span><span class="n">rpm</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-ivh<span class="w"> </span>adps-agent-file-version_x86_64.rpm
 </pre></div>
 </div>
 </li>
@@ -773,15 +773,7 @@ document.write(`
 <li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
 </ol>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/init.d/adps-agent config</span>
-<span class="n">Please</span> <span class="nb">input</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">host</span><span class="p">[]:</span> <span class="mf">192.168.18.110</span>
-<span class="n">Please</span> <span class="nb">input</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">port</span><span class="p">[</span><span class="mi">50305</span><span class="p">]:</span>
-<span class="n">Does</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">enable</span> <span class="n">SSL</span> <span class="n">protocol</span><span class="err">?</span> <span class="p">[</span><span class="n">N</span><span class="p">]:</span>
-<span class="n">Please</span> <span class="nb">input</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">access</span> <span class="n">key</span><span class="p">[]:</span>
-<span class="n">Saving</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span>                               <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
-<span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="err">?</span> <span class="p">[</span><span class="n">Y</span><span class="p">]:</span>
-<span class="n">Stopping</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span>                                    <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
-<span class="n">Starting</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span>                                    <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/etc/init.d/adps-agent<span class="w"> </span>config
 </pre></div>
 </div>
 </li>
@@ -793,12 +785,12 @@ document.write(`
 <p>To install the agent on Ubuntu &amp; Debian, do the following:</p>
 <ol class="arabic">
 <li><p>Install the dependent and base packages.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dpkg<span class="w"> </span>-i<span class="w"> </span>adps-common-version_amd64.deb<span class="w"> </span>adps-agent-version_amd64.deb
 </pre></div>
 </div>
 </li>
 <li><p>Install packages for resource backups and restores according to your needs. Add the corresponding packages behind the following command. Take the file resource as an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">version_amd64</span><span class="o">.</span><span class="n">deb</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dpkg<span class="w"> </span>-i<span class="w"> </span>adps-agent-file-version_amd64.deb
 </pre></div>
 </div>
 </li>
@@ -812,15 +804,7 @@ document.write(`
 <li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
 </ol>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo /etc/init.d/adps-agent config</span>
-<span class="c1"># /etc/init.d/adps-agent config</span>
-<span class="n">Please</span> <span class="nb">input</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">host</span><span class="p">[</span><span class="mf">192.168.18.110</span><span class="p">]:</span> <span class="mf">192.168.18.110</span>
-<span class="n">Please</span> <span class="nb">input</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">port</span><span class="p">[</span><span class="mi">50305</span><span class="p">]:</span>
-<span class="n">Does</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">enable</span> <span class="n">SSL</span> <span class="n">protocol</span><span class="err">?</span> <span class="p">[</span><span class="n">N</span><span class="p">]:</span>
-<span class="n">Please</span> <span class="nb">input</span> <span class="n">Aurreum</span> <span class="n">Data</span> <span class="n">Protection</span> <span class="n">Suite</span> <span class="n">Backup</span> <span class="n">Server</span> <span class="n">access</span> <span class="n">key</span><span class="p">[]:</span>
-<span class="n">Saving</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="n">config</span>                               <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
-<span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span><span class="err">?</span> <span class="p">[</span><span class="n">Y</span><span class="p">]:</span>
-<span class="n">Restarting</span> <span class="n">adps</span><span class="o">-</span><span class="n">agent</span> <span class="p">(</span><span class="n">via</span> <span class="n">systemctl</span><span class="p">):</span>                 <span class="p">[</span>  <span class="n">OK</span>  <span class="p">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/etc/init.d/adps-agent<span class="w"> </span>config
 </pre></div>
 </div>
 </li>
@@ -843,7 +827,7 @@ document.write(`
 </li>
 <li><p>Click the <strong>Copy</strong> icon to copy the <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> command.</p></li>
 <li><p>Log in to the Linux host as user <em>root</em>. Paste the command in the terminal and press Enter to start the installation. Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@rhel69</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.18.20:50305/d2/update/seript?modules=oracle&amp;location=http83A82F82F192.168.18.20%3A50305&amp;accesskey=22446ab0094d412£84fcc6bf3bd8fele&amp;xm=&amp;tool=curl&quot; | sh</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span><span class="s2">&quot;http://IP:50305/d2/update/seript?modules=oracle&amp;location=http83A82F82FIP%3A50305&amp;accesskey=22446ab0094d412£84fcc6bf3bd8fele&amp;xm=&amp;tool=curl&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </pre></div>
 </div>
 </li>

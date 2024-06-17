@@ -119,24 +119,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation.
 
-	```{code-block} python
-	root@ubuntu:~# curl -o- "http://192.168.18.112:50305/d2/update/script?modules=openstack&location=http%3A%2F%2F192.168.18.112%3A50305&access_key=61861596d3988682cc2ac008caa9a46c&rm=&tool=curl" | sh
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   100  9211    0  9211    0     0   817k      0 --:--:-- --:--:-- --:--:--  899k
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 52.2M  100 52.2M    0     0  43.3M      0  0:00:01  0:00:01 --:--:-- 93.9M
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 5730k  100 5730k    0     0  38.3M      0 --:--:-- --:--:-- --:--:-- 38.3M
-   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-   100 5137k  100 5137k    0     0  34.3M      0 --:--:-- --:--:-- --:--:-- 34.3M
-
+	```{code-block} shell
+	curl "http://IP:50305/d2/update/script?modules=openstack&location=http%3A%2F%2FIP%3A50305&access_key=61861596d3988682cc2ac008caa9a46c&rm=&tool=curl" | sh
    ```
 
 7. Wait for the installation to complete.

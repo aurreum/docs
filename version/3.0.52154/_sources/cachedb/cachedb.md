@@ -136,8 +136,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-  ```{code-block} python
-  [root@cache148 ~]# curl -o- "http://192.168.19.59:80/d2/update/script?modules=cachedb&ignore_ssl_error=&access_key=5858ae1abb59f2c5f4ee5e2c4a36ffcf&rm=&tool=curl" | sh
+  ```{code-block} shell
+  curl "http://IP:80/d2/update/script?modules=cachedb&ignore_ssl_error=&access_key=5858ae1abb59f2c5f4ee5e2c4a36ffcf&rm=&tool=curl" | sh
   ```
 
 7. Wait for the installation to complete.
@@ -222,7 +222,7 @@ Before you back up and restore Caché, check the following:
 
 	Open the terminal on the host and use the `ccontrol list` command to check the Caché instance status.
 
-```{code-block} python
+```{code-block} shell
 [root@cache148 ~]# ccontrol list
 Configuration 'CACHE2016'
     directory: /home/cache2016

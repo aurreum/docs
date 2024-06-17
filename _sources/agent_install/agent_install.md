@@ -427,13 +427,13 @@ To install the agent on CentOS & Red Hat, do the following:
 
 1. Install the dependent and base packages.
 
-   ```{code-block} python
+   ```{code-block} shell
    rpm -ivh adps-common-version.x86_64.rpm adps-agent-version_x86_64.rpm
    ```
 
 2. Install packages for resource backups and restores according to your needs. Add the corresponding packages in the following command. Take the file resource as an example:
 
-   ```{code-block} python
+   ```{code-block} shell
    rpm -ivh adps-agent-file-version_x86_64.rpm
    ```
 
@@ -446,16 +446,8 @@ To install the agent on CentOS & Red Hat, do the following:
 	3. On the **Preference** tab, click **View** to get the access key of the current user/tenant.
 	```
 
-   ```{code-block} python
-   # /etc/init.d/adps-agent config
-   Please input Aurreum Data Protection Suite Backup Server host[]: 192.168.18.110
-   Please input Aurreum Data Protection Suite Backup Server port[50305]:
-   Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
-   Please input Aurreum Data Protection Suite Backup Server access key[]:
-   Saving adps-agent config                               [  OK  ]
-   Do you want to restart adps-agent? [Y]:
-   Stopping adps-agent                                    [  OK  ]
-   Starting adps-agent                                    [  OK  ]
+   ```{code-block} shell
+   /etc/init.d/adps-agent config
    ```
 
 4. After the configuration, log in to the ADPS console as *admin*. The host appears on the **Resource** page.
@@ -466,13 +458,13 @@ To install the agent on Ubuntu & Debian, do the following:
 
 1. Install the dependent and base packages.
 
-   ```{code-block} python
+   ```{code-block} shell
    dpkg -i adps-common-version_amd64.deb adps-agent-version_amd64.deb
    ```
 
 2. Install packages for resource backups and restores according to your needs. Add the corresponding packages behind the following command. Take the file resource as an example:
 
-   ```{code-block} python
+   ```{code-block} shell
    dpkg -i adps-agent-file-version_amd64.deb
    ```
 
@@ -485,16 +477,8 @@ To install the agent on Ubuntu & Debian, do the following:
 	3. On the **Preference** tab, click **View** to get the access key of the current user/tenant.
 	```
 
-   ```{code-block} python
-   # sudo /etc/init.d/adps-agent config
-   # /etc/init.d/adps-agent config
-   Please input Aurreum Data Protection Suite Backup Server host[192.168.18.110]: 192.168.18.110
-   Please input Aurreum Data Protection Suite Backup Server port[50305]:
-   Does Aurreum Data Protection Suite Backup Server enable SSL protocol? [N]:
-   Please input Aurreum Data Protection Suite Backup Server access key[]:
-   Saving adps-agent config                               [  OK  ]
-   Do you want to restart adps-agent? [Y]:
-   Restarting adps-agent (via systemctl):                 [  OK  ]
+   ```{code-block} shell
+   /etc/init.d/adps-agent config
    ```
 
 4. After the configuration, log in to the ADPS console as *admin*. The host appears on the **Resource** page.
@@ -523,8 +507,8 @@ To install the agent online, do the following:
 
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-   ```{code-block} python
-   [root@rhel69 ~]# curl -o- "http://192.168.18.20:50305/d2/update/seript?modules=oracle&location=http83A82F82F192.168.18.20%3A50305&accesskey=22446ab0094d412£84fcc6bf3bd8fele&xm=&tool=curl" | sh
+   ```{code-block} shell
+   curl "http://IP:50305/d2/update/seript?modules=oracle&location=http83A82F82FIP%3A50305&accesskey=22446ab0094d412£84fcc6bf3bd8fele&xm=&tool=curl" | sh
    ```
 
 #### Optional configuration

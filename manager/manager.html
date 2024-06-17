@@ -1890,8 +1890,8 @@ Filter provides two rules: include and exclude. The previously added filter rule
 <h4>Upload packages<a class="headerlink" href="#upload-packages" title="Link to this heading">#</a></h4>
 <p>From the toolbar, click the <strong>Upload packages</strong> icon. The <strong>Upload packages</strong> window appears. After a successful package upload, the installation package is located in the directory /var/opt/aurreum/adps/backupd/updates/ on the backup server. The audit log provides a record of the upload status for each installation package, allowing users to review the upload details.</p>
 <p>The rpm tool needs to be installed on the Linux server when uploading RPM installation packages. Additionally, the backupd service needs to be restarted. Taking Ubuntu system as an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># sudo apt install gnupg rpm</span>
-<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># sudo systemctl restart adps-backupd</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>root@ubuntu:~#<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gnupg<span class="w"> </span>rpm
+root@ubuntu:~#<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>adps-backupd
 </pre></div>
 </div>
 </section>
@@ -2220,18 +2220,18 @@ Filter provides two rules: include and exclude. The previously added filter rule
 <h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">#</a></h2>
 <p><strong>Login failed exceeded limit</strong></p>
 <p>See the following example to release from the login IP address blocklist for pre-configured users such as System Administrator (admin), Audit Administrator (audit)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Enter the database (Taking MariaDB as an example)</span>
-<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="c1">#mysql -u root -p</span>
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">use</span> <span class="n">adps</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#Enter the database (Taking MariaDB as an example)</span>
+root@ubuntu:/#mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>use<span class="w"> </span>adps
 <span class="c1">#Query the blocked ip and id</span>
-<span class="n">MariaDB</span> <span class="p">[</span><span class="n">ADPS</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="nb">id</span> <span class="p">,</span> <span class="n">ip</span> <span class="kn">from</span> <span class="nn">user_black_ip</span><span class="p">;</span>
-<span class="o">+----+---------------+</span>
-<span class="o">|</span> <span class="nb">id</span> <span class="o">|</span> <span class="n">ip</span>            <span class="o">|</span>
-<span class="o">+----+---------------+</span>
-<span class="o">|</span>  <span class="mi">2</span> <span class="o">|</span> <span class="mf">192.168.83.51</span> <span class="o">|</span>
-<span class="o">+----+---------------+</span>
-<span class="n">MariaDB</span> <span class="p">[</span><span class="n">adps</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">delete</span> <span class="kn">from</span> <span class="nn">user_black_ip</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">MariaDB</span> <span class="p">[</span><span class="n">adps</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">flush</span> <span class="n">privileges</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[</span>ADPS<span class="o">]</span>&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>id<span class="w"> </span>,<span class="w"> </span>ip<span class="w"> </span>from<span class="w"> </span>user_black_ip<span class="p">;</span>
++----+-----------------+
+<span class="p">|</span><span class="w"> </span>id<span class="w"> </span><span class="p">|</span><span class="w"> </span>ip<span class="w">              </span><span class="p">|</span>
++----+-----------------+
+<span class="p">|</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">192</span>.168.xxx.xxx<span class="w"> </span><span class="p">|</span>
++----+-----------------+
+MariaDB<span class="w"> </span><span class="o">[</span>adps<span class="o">]</span>&gt;<span class="w"> </span>delete<span class="w"> </span>from<span class="w"> </span>user_black_ip<span class="w"> </span>where<span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="m">2</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[</span>adps<span class="o">]</span>&gt;<span class="w"> </span>flush<span class="w"> </span>privileges<span class="p">;</span>
 </pre></div>
 </div>
 <p><strong>Lock period of failed login</strong></p>

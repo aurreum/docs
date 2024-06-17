@@ -110,22 +110,7 @@ To install the agent online, do the following:
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
 	```{code-block} shell
-	root@ubuntu1804:/home# curl -o- "http://192.168.20.85:50305/d2/update/script?modules=obs&location=http%3A%2F%2F192.168.20.85%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
-	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-									Dload  Upload   Total   Spent    Left  Speed
-	100  7903    0  7903    0     0   593k      0 --:--:-- --:--:-- --:--:--  593k
-	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-									Dload  Upload   Total   Spent    Left  Speed
-	0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 47.0M  100 47.0M    0     0  15.5M      0  0:00:03  0:00:03 --:--:-- 19.3M
-	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-									Dload  Upload   Total   Spent    Left  Speed
-	0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-	100 5702k  100 5702k    0     0  3962k      0  0:00:01  0:00:01 --:--:-- 15.1M
-	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-									Dload  Upload   Total   Spent    Left  Speed
-	0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100  828k  100  828k    0     0  5020k      0 --:--:-- --:--:-- --:--:-- 5020k
+	curl "http://IP:50305/d2/update/script?modules=obs&location=http%3A%2F%2FIP%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
 	```
 
 7. Wait for the installation to complete.

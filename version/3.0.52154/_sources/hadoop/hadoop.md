@@ -122,7 +122,7 @@ To install the agent online, do the following:
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
 	```{code-block} shell
-	root@ubuntu:~# curl -o- "http://192.168.17.90:50305/d2/update/script?modules=hadoop&location=http%3A%2F%2F192.168.17.90%3A50305&access_key=929a401135dc8f06efbc29c3ea86e3f9&rm=yes&tool=curl" | sh
+	root@ubuntu:~# curl "http://192.168.17.90:50305/d2/update/script?modules=hadoop&location=http%3A%2F%2F192.168.17.90%3A50305&access_key=929a401135dc8f06efbc29c3ea86e3f9&rm=yes&tool=curl" | sh
 	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 	100  9205    0  9205    0     0  1797k      0 --:--:-- --:--:-- --:--:-- 2247k

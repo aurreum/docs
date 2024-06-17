@@ -92,23 +92,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-  ```{code-block} python
-  root@ubuntu:~# curl -o- "http://192.168.17.31:50305/d2/update/script?modules=sybase&location=http%3A%2F%2F192.168.17.31%3A50305&access_key=572bd4dbb395fd320a30fe9729a21db8&rm=&tool=curl" | sh
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-  100  9204    0  9204    0     0  2247k      0 --:--:-- --:--:-- --:--:-- 2996k
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  100 51.1M  100 51.1M    0     0   141M      0 --:--:-- --:--:-- --:--:--  141M
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  100 5684k  100 5684k    0     0  48.6M      0 --:--:-- --:--:-- --:--:-- 99.0M
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  100  733k  100  733k    0     0  11.5M      0 --:--:-- --:--:-- --:--:-- 11.5M
+  ```{code-block} shell
+  curl "http://IP:50305/d2/update/script?modules=sybase&location=http%3A%2F%2FIP%3A50305&access_key=572bd4dbb395fd320a30fe9729a21db8&rm=&tool=curl" | sh
   ```
 
 7. Wait for the installation to complete.

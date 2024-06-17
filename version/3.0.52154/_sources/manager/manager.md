@@ -1487,7 +1487,7 @@ From the toolbar, click the **Upload packages** icon. The **Upload packages** wi
 
 The rpm tool needs to be installed on the Linux server when uploading RPM installation packages. Additionally, the backupd service needs to be restarted. Taking Ubuntu system as an example:
 
- ```{code-block} python
+ ```{code-block} shell
  root@ubuntu:~# sudo apt install gnupg rpm
  root@ubuntu:~# sudo systemctl restart adps-backupd
  ```
@@ -1743,17 +1743,17 @@ class: longtable
 
 See the following example to release from the login IP address blocklist for pre-configured users such as System Administrator (admin), Audit Administrator (audit)
 
-```{code-block} python
+```{code-block} shell
 #Enter the database (Taking MariaDB as an example)
 root@ubuntu:/#mysql -u root -p
 MariaDB [(none)]> use adps
 #Query the blocked ip and id
 MariaDB [ADPS]> select id , ip from user_black_ip;
-+----+---------------+
-| id | ip            |
-+----+---------------+
-|  2 | 192.168.83.51 |
-+----+---------------+
++----+-----------------+
+| id | ip              |
++----+-----------------+
+|  2 | 192.168.xxx.xxx |
++----+-----------------+
 MariaDB [adps]> delete from user_black_ip where id =2;
 MariaDB [adps]> flush privileges;
 ```

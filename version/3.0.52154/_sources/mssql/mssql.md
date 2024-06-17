@@ -130,23 +130,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-	```{code-block} python
-	[root@localhost ~]# curl -o- "http://192.168.20.85:50305/d2/update/script?modules=mssql&location=http%3A%2F%2F192.168.20.85%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
-	  % Total    % Received % Xferd  Average Speed   Time    Time     	Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	100  7905    0  7905    0     0  23844      0 --:--:-- --:--:-- --:--:-- 44661
-	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 58.7M  100 58.7M    0     0  1804k      0  0:00:33  0:00:33 --:--:-- 4859k
-	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 6728k  100 6728k    0     0  1900k      0  0:00:03  0:00:03 --:--:-- 1874k
-	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-	                                Dload  Upload   Total   Spent    Left  Speed
-	  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-	100 3879k  100 3879k    0     0  5703k      0 --:--:-- --:--:-- --:--:-- 6247k
+	```{code-block} shell
+	curl "http://IP:50305/d2/update/script?modules=mssql&location=http%3A%2F%2FIP%3A50305&access_key=2042288d749dba47e963d1ab09a6472b&rm=&tool=curl" | sh
 	```
 
 7. Wait for the installation to complete.

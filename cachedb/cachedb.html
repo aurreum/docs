@@ -468,7 +468,7 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <li><p>Click the <strong>Copy</strong> icon to copy the <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> command.</p></li>
 <li><p>Log in to the Linux host as user <em>root</em>. Paste the command in the terminal and press Enter to start the installation. Example:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@cache148</span> <span class="o">~</span><span class="p">]</span><span class="c1"># curl -o- &quot;http://192.168.19.59:80/d2/update/script?modules=cachedb&amp;ignore_ssl_error=&amp;access_key=5858ae1abb59f2c5f4ee5e2c4a36ffcf&amp;rm=&amp;tool=curl&quot; | sh</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span><span class="s2">&quot;http://IP:80/d2/update/script?modules=cachedb&amp;ignore_ssl_error=&amp;access_key=5858ae1abb59f2c5f4ee5e2c4a36ffcf&amp;rm=&amp;tool=curl&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
@@ -555,13 +555,13 @@ See <a class="reference internal" href="../agent_install/agent_install.html#offl
 <p>Open the terminal on the host and use the <code class="docutils literal notranslate"><span class="pre">ccontrol</span> <span class="pre">list</span></code> command to check the Caché instance status.</p>
 </li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@cache148</span> <span class="o">~</span><span class="p">]</span><span class="c1"># ccontrol list</span>
-<span class="n">Configuration</span> <span class="s1">&#39;CACHE2016&#39;</span>
-    <span class="n">directory</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">cache2016</span>
-    <span class="n">versionid</span><span class="p">:</span> <span class="mf">2016.2.0.736.0</span>
-    <span class="n">conf</span> <span class="n">file</span><span class="p">:</span> <span class="n">cache</span><span class="o">.</span><span class="n">cpf</span>  <span class="p">(</span><span class="n">SuperServer</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">1972</span><span class="p">,</span> <span class="n">WebServer</span> <span class="o">=</span> <span class="mi">57772</span><span class="p">)</span>
-    <span class="n">status</span><span class="p">:</span>    <span class="n">running</span><span class="p">,</span> <span class="n">since</span> <span class="n">Thu</span> <span class="n">May</span> <span class="mi">18</span> <span class="mi">11</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mi">34</span> <span class="mi">2023</span>
-    <span class="n">state</span><span class="p">:</span>     <span class="n">ok</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@cache148<span class="w"> </span>~<span class="o">]</span><span class="c1"># ccontrol list</span>
+Configuration<span class="w"> </span><span class="s1">&#39;CACHE2016&#39;</span>
+<span class="w">    </span>directory:<span class="w"> </span>/home/cache2016
+<span class="w">    </span>versionid:<span class="w"> </span><span class="m">2016</span>.2.0.736.0
+<span class="w">    </span>conf<span class="w"> </span>file:<span class="w"> </span>cache.cpf<span class="w">  </span><span class="o">(</span>SuperServer<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1972</span>,<span class="w"> </span><span class="nv">WebServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">57772</span><span class="o">)</span>
+<span class="w">    </span>status:<span class="w">    </span>running,<span class="w"> </span>since<span class="w"> </span>Thu<span class="w"> </span>May<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">11</span>:27:34<span class="w"> </span><span class="m">2023</span>
+<span class="w">    </span>state:<span class="w">     </span>ok
 </pre></div>
 </div>
 <ol class="arabic" start="2">

@@ -55,8 +55,8 @@ Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install 
 
 2. Paste the command on the command line, and press Enter to execute the installation.
 
-```
-# curl -o- "http://192.168.20.133:50305/d2/update/script?modules=bmr&location=http%3A%2F%2F192.168.20.133%3A50305&access_key=3545f35aea7e512e12ab517230a46270&rm=&tool=curl" | sh
+```{code-block} shell
+curl "http://IP:50305/d2/update/script?modules=bmr&location=http%3A%2F%2FIP%3A50305&access_key=3545f35aea7e512e12ab517230a46270&rm=&tool=curl" | sh
 ```
 
 

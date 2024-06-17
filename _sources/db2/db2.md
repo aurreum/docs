@@ -132,8 +132,8 @@ To install the agent online, do the following:
 5. Click the **Copy** icon to copy the `curl` or `wget` command.
 6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
 
-  ```{code-block} python
-    [root@localhost ~]# curl -o- "http://192.168.18.57:50305/d2/update/script?modules=db2&location=http%3A%2F%2F192.168.18.57%3A50305&access_key=b448e47a5e5ae07c5a4a77bf97c383f5&rm=&tool=curl" | sh
+  ```{code-block} shell
+    curl "http://IP:50305/d2/update/script?modules=db2&location=http%3A%2F%2FIP%3A50305&access_key=b448e47a5e5ae07c5a4a77bf97c383f5&rm=&tool=curl" | sh
   ```
 
 7. Wait for the installation to complete.
