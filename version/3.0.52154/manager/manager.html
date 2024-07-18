@@ -155,6 +155,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../install/install.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_initialization/system_initialization.html">System Initialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Management</span></p>
@@ -198,6 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows_os/windows_os.html">User Guide for Windows OS</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Containers</span></p>
 <ul class="nav bd-sidenav">
@@ -2033,7 +2035,7 @@ root@ubuntu:~#<span class="w"> </span>sudo<span class="w"> </span>systemctl<span
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Pool replication</p></td>
-<td><p>Pool replication are not available for local storage pool, LAN-free pool, and file synthesis pool.</p></td>
+<td><p>Pool replication are not available for local storage pools, LAN-free pools, and file synthetic pools.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Job replication</p></td>
 <td><p>Deleting replication job records is not supported. <br> During replication execution, the corresponding backup points of the target pool cannot be restored. Similarly, during the target pool recovery execution, the replication of the corresponding backup points cannot be performed. <br> Modifying the network in the pool replication settings is not supported for block device deduplication pools.</p></td>
@@ -2055,7 +2057,7 @@ root@ubuntu:~#<span class="w"> </span>sudo<span class="w"> </span>systemctl<span
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Storage pool usage</p></td>
-<td><p>Storage pools of the corresponding types can only be used after enabling storage space pricing.</p></td>
+<td><p>Storage pools of the corresponding types can only be used after storage space pricing is enabled.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Storage pool creation</p></td>
 <td><p>Users can only create object storage service pools, standard storage pools, deduplication storage pools, and block device storage pools by storage regions.</p></td>
@@ -2125,10 +2127,10 @@ root@ubuntu:~#<span class="w"> </span>sudo<span class="w"> </span>systemctl<span
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Job modification</p></td>
-<td><p>Only support modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to modify jobs.</p></td>
+<td><p>Only support modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, two-node), all nodes need to be online in order to modify jobs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Job stop</p></td>
-<td><p>The Stop Job function is available for Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, GBase, File. For clustered environments (RAC, dual host), all nodes need to be online to stop the job.</p></td>
+<td><p>The Stop Job function is available for Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, File. For clustered environments (RAC, dual host), all nodes need to be online to stop the job.</p></td>
 </tr>
 <tr class="row-even"><td><p>Job deletion</p></td>
 <td><p>For clustered environments (RAC, dual host), all nodes need to be online to delete jobs.</p></td>

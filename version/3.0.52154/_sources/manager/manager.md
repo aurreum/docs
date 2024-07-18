@@ -1606,7 +1606,7 @@ class: longtable
 ---
 |Function|Limitations|
 | --- | --- |
-|Pool replication|Pool replication are not available for local storage pool, LAN-free pool, and file synthesis pool.|
+|Pool replication|Pool replication are not available for local storage pools, LAN-free pools, and file synthetic pools.|
 |Job replication|Deleting replication job records is not supported.{{ br }}During replication execution, the corresponding backup points of the target pool cannot be restored. Similarly, during the target pool recovery execution, the replication of the corresponding backup points cannot be performed.{{ br }}Modifying the network in the pool replication settings is not supported for block device deduplication pools.|
 |Source pool repair|Pool replication with the object storage service pool as the source pool does not support repairing the source pool.|
 ```
@@ -1621,7 +1621,7 @@ class: longtable
 ---
 |Function|Limitations|
 | --- | --- |
-|Storage pool usage|Storage pools of the corresponding types can only be used after enabling storage space pricing.|
+|Storage pool usage|Storage pools of the corresponding types can only be used after storage space pricing is enabled.|
 |Storage pool creation|Users can only create object storage service pools, standard storage pools, deduplication storage pools, and block device storage pools by storage regions.|
 ```
 
@@ -1675,8 +1675,8 @@ class: longtable
 ---
 |Function|Limitations|
 | --- | --- |
-|Job modification|Only support modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, dual cluster), all nodes need to be online in order to modify jobs.|
-|Job stop|The Stop Job function is available for Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, GBase, File. For clustered environments (RAC, dual host), all nodes need to be online to stop the job.|
+|Job modification|Only support modifying the backup content of file backup jobs and Linux OS backup jobs. For clustered environments (RAC, two-node), all nodes need to be online in order to modify jobs.|
+|Job stop|The Stop Job function is available for Oracle, SQL Server, MySQL, MongoDB, DB2, Informix, File. For clustered environments (RAC, dual host), all nodes need to be online to stop the job.|
 |Job deletion|For clustered environments (RAC, dual host), all nodes need to be online to delete jobs.|
 ```
 

@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>System Initialization &#8212; ADPS V3.0.52154</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=84d92f63" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=e9194e41"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'system_initialization/system_initialization';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Agent Installation Guide" href="../agent_install/agent_install.html" />
+    <link rel="prev" title="Installation Guide" href="../install/install.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ADPS V3.0.52154 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ADPS V3.0.52154 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html">Installation Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">System Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Management</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../manager/manager.html">Administrator’s Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sap_ase/sap_ase.html">User Guide for SAP ASE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sap_iq/sap_iq.html">User Guide for SAP IQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Microsoft Exchange Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange_online/exchange_online.html">User Guide for Microsoft Exchange Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharepoint/sharepoint.html">User Guide for SharePoint</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows_os/windows_os.html">User Guide for Windows OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../k8s/k8s.html">User Guide for Kubernetes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openstack/openstack.html">User Guide for OpenStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>System Initialization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-system">Initialize the system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-for-a-license">Apply for a license</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-license">Import a license</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-system">Log in to the system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-guides">Initialization guides</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-user">Add user</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-storage-server">Register storage server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-storage-pool">Add storage pool</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-resource">Activate resource</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-catalog">Backup catalog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="system-initialization">
+<h1>System Initialization<a class="headerlink" href="#system-initialization" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This document provides a quick start guide for users to help them quickly understand the basic operations and functions of ADPS.</p>
+</section>
+<section id="initialize-the-system">
+<h2>Initialize the system<a class="headerlink" href="#initialize-the-system" title="Link to this heading">#</a></h2>
+<p>When you first access the ADPS console, the license request page appears. After importing the license, log in to ADPS and follow the guides to initialize the system. The guides provide a series of initialization operations, such as configuring license, registering storage servers, creating users and user groups, and setting up storage pools.</p>
+<p>To access the ADPS console, enter the IP or domain name of the backup server in the browser address bar to access the login page. ADPS supports multiple browsers, including:</p>
+<ul class="simple">
+<li><p>Edge 80 above</p></li>
+<li><p>Firefox 60 above</p></li>
+<li><p>Chrome 60 above</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the system administrator (admin) can access the initialization guides; other users have no permissions to access it.</p>
+</div>
+<section id="apply-for-a-license">
+<h3>Apply for a license<a class="headerlink" href="#apply-for-a-license" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select Aurreum Aurreum Data Protection Suite to activate ADPS. Click <strong>Next</strong>.</p></li>
+<li><p>Select the license edition: Trial, Official, Lease, and Channel. Click <strong>Next</strong>. The <strong>Options</strong> page appears.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Trial: You can try the software for 30 days. To continue the use, purchase the Official edition.</p></li>
+<li><p>Official: You can use the software permanently and enjoy free upgrade service during the software maintenance period.</p></li>
+<li><p>Lease: You can use the software during the lease period and upgrade it to the official edition.</p></li>
+<li><p>Channel: For small and medium companies. You can use the software permanently and enjoy free upgrade service during the software maintenance period</p>
+</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Set the license options. Click <strong>Next</strong>. The <strong>Modules</strong> page appears.</p></li>
+</ol>
+<p>​	(1) Options for the Trial license:</p>
+<ul class="simple">
+<li><p>Trial license renewal: By requesting the trial license renewal when the license expires or will expire in 7 days, you can keep using ADPS. When the option is enabled, the setting page shows expired resources. You need to bind the expired resource to the license that requires a renewal. The license renewal won’t be valid if you remove the default loaded expired resource and replace it by adding a module.</p></li>
+<li><p>Trial days: The trial period is 30 days by default. After the expiration, you can’t continue using the software. To continue the use, apply for the trial license renewal or purchase the officially licensed editions.</p></li>
+<li><p>Number of each module: The number of licenses required for each resource module. 5 is selected by default. The option only appears when the <strong>Trial license renewal</strong> option is disabled.</p>
+<ul>
+<li><p>Custom: The default number is 5, but you can increase or decrease the number as needed.</p></li>
+<li><p>Unactivated: ADPS will automatically list all associated items.</p></li>
+</ul>
+</li>
+</ul>
+<p>​	(2) Options for the Official license:</p>
+<ul class="simple">
+<li><p>Licensing mode: You can choose to license by module or by storage space.</p>
+<ul>
+<li><p>If you choose <strong>By module</strong>, re-request the license after the module has been used before you may add another module.</p></li>
+<li><p>If you choose <strong>By storage space</strong>, the use of modules will not be restricted. When the storage space is used up, you need to reapply for storage space before the Operator can continue to back up data.</p></li>
+</ul>
+</li>
+<li><p>Maintenance time: You can choose the maintenance time including six months, one year, two years, three years and five years.</p>
+<ul>
+<li><p>Duration: The default duration is 12 months, but you can increase or decrease the duration as needed.</p></li>
+<li><p>Support: Select <strong>All Time (7 x 24)</strong> or <strong>Work Time (5 x 8)</strong>.</p></li>
+</ul>
+</li>
+<li><p>Number of each module: The number of licenses required for each resource module. 5 is selected by default.</p>
+<ul>
+<li><p>Custom: The default number is 5, but you can increase or decrease the number as needed.</p></li>
+<li><p>Unactivated: ADPS will automatically list all associated items.</p></li>
+</ul>
+</li>
+<li><p>Storage space: The activated storage space for users. When the activated storage space is used up, the Operator cannot back up data to the storage server. To expand the storage space, apply for a new license. Storage space unit includes GiB, TiB, and PiB.</p>
+<ul>
+<li><p>Disk storage: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-free pool.</p></li>
+<li><p>Object storage: Used for object storage service pool.</p></li>
+<li><p>Tape storage: Used for tape storage pool.</p></li>
+<li><p>CD storage: Used for CD-ROM tower storage pool.</p></li>
+</ul>
+</li>
+</ul>
+<p>​	(3) Options for the Lease license:</p>
+<ul class="simple">
+<li><p>Licensing mode: You can choose to license by module or by storage space.</p>
+<ul>
+<li><p>If you choose <strong>By module</strong>, re-request the license after the module has been used before you may add another module.</p></li>
+<li><p>If you choose <strong>By storage space</strong>, the use of modules will not be restricted. When the storage space is used up, you need to reapply for storage space before the Operator can continue to back up data.</p></li>
+</ul>
+</li>
+<li><p>Lease duration: The lease term of the authorized use.</p></li>
+<li><p>Number of each module: The number of licenses required for each resource module. 5 is selected by default.</p>
+<ul>
+<li><p>Custom: The default number is 5, but you can increase or decrease the number as needed.</p></li>
+<li><p>Unactivated: ADPS will automatically list all associated items.</p></li>
+</ul>
+</li>
+<li><p>Storage space: The activated storage space for users. When the activated storage space is used up, the Operator cannot back up data to the storage server. To expand the storage space, apply for a new license. Storage space unit includes GiB, TiB, and PiB.</p>
+<ul>
+<li><p>Disk storage: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.</p></li>
+<li><p>Object storage: Used for object storage service pool.</p></li>
+<li><p>Tape storage: Used for tape storage pool.</p></li>
+<li><p>CD storage: Used for CD-ROM tower storage pool.</p></li>
+</ul>
+</li>
+</ul>
+<p>​	(4) Options for the Channel license:</p>
+<ul class="simple">
+<li><p>Maintenance time: You can choose the maintenance time including six months, one year, two years, three years and five years.</p>
+<ul>
+<li><p>Duration: The default duration is 12 months, but you can increase or decrease the duration as needed.</p></li>
+<li><p>Support: Select <strong>All Time (7 x 24)</strong> or <strong>Work Time (5 x 8)</strong>.</p></li>
+</ul>
+</li>
+<li><p>Number of each module: The number of licenses required for each resource module. 5 is selected by default.</p>
+<ul>
+<li><p>Custom: The default number is 5, but you can increase or decrease the number as needed.</p></li>
+<li><p>Unactivated: ADPS will automatically list all associated items.</p></li>
+</ul>
+</li>
+<li><p>Storage space: The activated storage space for users. When the activated storage space is used up, the Operator cannot back up data to the storage server. To expand the storage space, apply for a new license. Storage space unit includes GiB, TiB, and PiB.</p>
+<ul>
+<li><p>Disk storage: Used for local storage pool, standard storage pool, de-duplication storage pool, file synthetic pool, real-time backup pool, block device de-duplication pool, database synthetic pool, block device copy pool, and LAN-Free pool.</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>On the <strong>Modules</strong> page, select the modules, the number of modules, and the OS architectures and resource types based on the agent. Click <strong>Next</strong>. The <strong>Advanced</strong> page appears.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>On the <strong>Advanced</strong> page, choose the relevant options to enable the corresponding advanced features. If your edition is a Trial license, apply again when the advanced features expire. No application of the advanced features for the officially licensed editions is required once the advanced features are enabled.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multi-tenant advanced feature: ADPS establishes an account mechanism for enterprises and organizations. Each account is a tenant, and a private backup and restore system is provided for each tenant in a shared backup environment. You can use the Multi-Tenant option to provide individual service for each tenant, and configure independent data storage space to achieve data isolation via the separate management mechanism.</p>
+</div>
+</section>
+<section id="import-a-license">
+<h3>Import a license<a class="headerlink" href="#import-a-license" title="Link to this heading">#</a></h3>
+<p>Click <strong>Import license</strong> to upload the acquired license. When the upload is successful, the license page will show details about the uploaded license.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The license is for one-time use only, and it is required to correspond to the last generated license request file. If you upload the license generated from the old request file, the license-related operation will fail.</p>
+</div>
+</section>
+<section id="log-in-to-the-system">
+<h3>Log in to the system<a class="headerlink" href="#log-in-to-the-system" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Enter <strong>Username</strong> and <strong>Password</strong>, both of which are “admin” by default. Click <strong>Login</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a user repeatedly enters the error password, the browser IP address will be added to the Login IP Address Blocklist. The user must apply to the system administrator for a release from the Login IP Address Blocklist.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The <strong>Modify password</strong> window displays. The first login involves a mandatory password change. Click <strong>Submit</strong>.</p></li>
+<li><p>Successfully logged into ADPS and accessed the <strong>Guides</strong> page for initialization configuration.</p></li>
+</ol>
+</section>
+<section id="initialization-guides">
+<h3>Initialization guides<a class="headerlink" href="#initialization-guides" title="Link to this heading">#</a></h3>
+<p>This section helps you to use the initialization guides for a quick configuration.</p>
+<p>Configurations include:</p>
+<ul class="simple">
+<li><p>Add user</p></li>
+<li><p>Register storage server</p></li>
+<li><p>Add storage pool</p></li>
+<li><p>Activate resource</p></li>
+<li><p>Backup catalog</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the system administrator can access the initialization guides; other users has no permission to access it.</p>
+</div>
+<section id="add-user">
+<h4>Add user<a class="headerlink" href="#add-user" title="Link to this heading">#</a></h4>
+<p>Some functions including backup, restore, and disaster recovery are executed by the operator, hence a user with the operator role must be created. Users with the administrative privilege, or other users with system monitor, monitor, and pool replication user roles can be created as needed.</p>
+<p>To create a user with the operator role, do the following:</p>
+<ol class="arabic">
+<li><p>On the <strong>Add user</strong> page, enter the required fields: <strong>Username</strong>, <strong>Password</strong>, and <strong>Confirm password</strong>. The fields for the <strong>Organization</strong>, <strong>Department</strong>, <strong>Nickname</strong>, <strong>Email</strong>, and <strong>Telephone</strong> are optional. You can choose whether to enable the <strong>Maximum password age</strong> option.</p>
+</li>
+<li><p>In the <strong>Roles</strong> section, select <strong>Operator</strong>. From the <strong>User group</strong> list, the <strong>Create user group with same name</strong> is selected by default. Click <strong>Submit</strong>.</p></li>
+<li><p>After the user role is successfully added, click <strong>Next</strong>. The <strong>Register storage server</strong> page appears.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add more users, add them on the <strong>User</strong> page. For details, see <a class="reference internal" href="../manager/manager.html#user-management"><span class="std std-ref">User management</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="register-storage-server">
+<h4>Register storage server<a class="headerlink" href="#register-storage-server" title="Link to this heading">#</a></h4>
+<p>After the storage server is installed and registered, you can add a storage pool, set up network, and execute other operations.</p>
+<ol class="arabic">
+<li><p>On the <strong>Register storage server</strong> page, select a storage server, click <strong>Register</strong>. A pop-up windows appears. Click <strong>OK</strong>.</p>
+</li>
+<li><p>After the registration, a pop-up window appears confirming the setup of management network, which is used for the control and management between backup server and storage server. Click <strong>OK</strong>. An <strong>Add network</strong> window appears.</p></li>
+<li><p>The <strong>Network</strong> option selects <strong>New</strong> by default. Set the <strong>Name</strong> of the network, select <strong>Management Network</strong> as <strong>Purposes</strong>, set the <strong>Address</strong>, <strong>SSL</strong>, and <strong>Port</strong> of the network between the storage server and the backup server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add more networks, add them on the <strong>Storage</strong> &gt; <strong>Network</strong> page. For details, see <a class="reference internal" href="../manager/manager.html#network"><span class="std std-ref">Network</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</div>
+</li>
+<li><p>The storage server is successfully registered and the status is “Online”. Click <strong>Next</strong>. The <strong>Add storage pool</strong> page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add more storage servers, add them on the <strong>Storage</strong> &gt; <strong>Storage Server</strong> page. For details, see <a class="reference internal" href="../manager/manager.html#storage-management"><span class="std std-ref">Storage management</span></a> in Aurreum Data Protection Suite Administrator’s Guide. See Storage Server in this guide.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="add-storage-pool">
+<h4>Add storage pool<a class="headerlink" href="#add-storage-pool" title="Link to this heading">#</a></h4>
+<p>After you register the storage server, it is necessary to create storage pools and assign them to users for storing data.</p>
+<p>Taking the standard storage pool as an example, to create a storage pool, do the following:</p>
+<ol class="arabic">
+<li><p>On <strong>Add storage pool</strong> page, from the <strong>Type</strong> list, select <strong>Standard storage pool</strong>. Select a storage server. Enable <strong>Multi-storage</strong> as needed. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Multi-storage: The storage pool space can be extended by adding storage devices.</p></li>
+<li><p>Allocate storage space: If the <strong>Multi-storage</strong> option is enabled, it is required to allocate storage space to the storage pool. Specify the maximum storage capacity that backup sets can utilize. Once the allocated storage space is fully utilized, further backups to that storage will not be possible.</p></li>
+</ul>
+</li>
+<li><p>Configure the backup set retention policy and encryption-related options. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Backup set retention policy:</p></li>
+</ul>
+<table class="longtable table" id="id1">
+<caption><span class="caption-text">Backup set retention policy</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Retention policy</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time policy</p></td>
+<td><p>Backup sets retention days</p></td>
+<td><p>Under the condition that each resource has a complete and available backup set, backup sets in the storage pool that exceed the retention period will be marked as expired. <br> The default value is 30 days. 0 means do not use the Backup set retention days rule to delete backup sets.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Space policy</p></td>
+<td><p>Backup sets retention quota</p></td>
+<td><p>If the total size of backup sets in the storage pool exceeds the configured retention quota, the earliest full backup sets, as well as the dependent incremental and log backup sets created upon them, will be marked as expired together. <br> 10 GiB is retained by default. 0 means do not use the Backup set retention quota rule to delete backup sets.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Time and space policy</p></td>
+<td><p>Backup sets retention days, backup sets retention quota</p></td>
+<td><p>If you have set the retention days and retention quota, the backup sets will be marked as expired as long as either set condition is met.</p></td>
+<td><p>The Backup sets retention policy displayed on the Storage pool page depends on the values entered: If both fields are 0, it shows as “Unlimited”; If either the retention days or retention quota parameter is set to 0, the retention policy will display the non-zero value; If values are entered in both fields, it shows as “XX days or XX GiB/PiB” entered.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options：</p>
+<ul>
+<li><p>Data storage encryption: If the option is enabled, select <strong>Encryption algorithm</strong>, <strong>Cipher length</strong>, and <strong>Encryption mode</strong>.</p></li>
+<li><p>Specify UUID: You can specify the UUID for the pool you add. This option is for rebuilding the storage pool in case of accidental deletion.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add more storage pools, add them on the <strong>Storage</strong> &gt; <strong>Storage pool</strong> page. For details, see <a class="reference internal" href="../manager/manager.html#storage-management"><span class="std std-ref">Storage management</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</div>
+</li>
+<li><p>After the options are configured successfully, click <strong>Next</strong>. The <strong>Activate resource</strong> page appears.</p></li>
+</ol>
+</section>
+<section id="activate-resource">
+<h4>Activate resource<a class="headerlink" href="#activate-resource" title="Link to this heading">#</a></h4>
+<p>After the agent is installed and registered, activate the license and authorize users before the authorized users can perform the backup and restore.</p>
+<ol class="arabic">
+<li><p>On the <strong>Activate resource</strong> page, click <strong>Register</strong> next to the host to register the host.</p></li>
+<li><p>In the pop-up <strong>Activate</strong> window, click <strong>Submit</strong> to activate resources.</p></li>
+<li><p>Click <strong>Authorize</strong> to authorize users under the user group before they have permissions to operate the resources on this agent.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To register and activate more resources and hosts, register and license in batches on the <strong>Resources</strong> page. For details, see <a class="reference internal" href="../manager/manager.html#batch-register-batch-activate-batch-authorize"><span class="std std-ref">Batch register/Batch activate/Batch authorize</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</div>
+</li>
+<li><p>After the authorization is successful, click <strong>Next</strong>. The <strong>Backup catalog</strong> page appears.</p></li>
+</ol>
+</section>
+<section id="backup-catalog">
+<h4>Backup catalog<a class="headerlink" href="#backup-catalog" title="Link to this heading">#</a></h4>
+<p>The backup server can be self-protected by backing up catalogs. With backed up catalogs, it can be used with storage pool replication for scenarios like backup server on-premises or offsite disaster recovery and migration. You can use the disaster recovery to reduce the loss when users misoperate, the backup server is abnormal or reinstalled.</p>
+<ol class="arabic simple">
+<li><p>On the <strong>Backup catalog</strong> page, set the <strong>Name</strong> of the catalog backup job, <strong>Storage pool</strong>, <strong>Retention days</strong>, <strong>Start time</strong> and <strong>Execution interval</strong>.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Click <strong>Next</strong>. The system initialization is complete.</p>
+</li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../install/install.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installation Guide</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../agent_install/agent_install.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Agent Installation Guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-system">Initialize the system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-for-a-license">Apply for a license</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-license">Import a license</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-system">Log in to the system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-guides">Initialization guides</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-user">Add user</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-storage-server">Register storage server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-storage-pool">Add storage pool</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-resource">Activate resource</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-catalog">Backup catalog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2022-2024 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

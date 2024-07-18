@@ -1,0 +1,1006 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User Guide for Windows OS &#8212; ADPS V3.0.52154</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=84d92f63" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=e9194e41"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'windows_os/windows_os';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide for Kubernetes" href="../k8s/k8s.html" />
+    <link rel="prev" title="User Guide for Linux OS" href="../linux_os/linux_os.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-US"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ADPS V3.0.52154 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ADPS V3.0.52154 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_initialization/system_initialization.html">System Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agent_install/agent_install.html">Agent Installation Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Management</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../manager/manager.html">Administrator’s Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oracle/oracle.html">User Guide for Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/mysql.html">User Guide for MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mssql/mssql.html">User Guide for Microsoft SQL Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db2/db2.html">User Guide for DB2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sap_ase/sap_ase.html">User Guide for SAP ASE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sap_iq/sap_iq.html">User Guide for SAP IQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informix/informix.html">User Guide for Informix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgresql/postgresql.html">User Guide for PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cachedb/cachedb.html">User Guide for Caché</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hana/hana.html">User Guide for SAP HANA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mariadb/mariadb.html">User Guide for MariaDB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../file/file.html">User Guide for File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndmp/ndmp.html">User Guide for NDMP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Big Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mongodb/mongodb.html">User Guide for MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hadoop/hadoop.html">User Guide for Hadoop</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Storage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obs/obs.html">User Guide for Object Storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exchange/exchange.html">User Guide for Microsoft Exchange Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange_online/exchange_online.html">User Guide for Microsoft Exchange Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharepoint/sharepoint.html">User Guide for SharePoint</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Operating Systems</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linux_os/linux_os.html">User Guide for Linux OS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User Guide for Windows OS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../k8s/k8s.html">User Guide for Kubernetes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Virtualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vmware/vmware.html">User Guide for VMware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openstack/openstack.html">User Guide for OpenStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyper_v/hyper_v.html">User Guide for Hyper-V</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>User Guide for Windows OS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-instance">Log in to the instance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-types">Restore types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-a-restore-target">Configure a restore target</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-windows-os-point-in-time-restore-job">Create a Windows OS point-in-time restore job</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="user-guide-for-windows-os">
+<h1>User Guide for Windows OS<a class="headerlink" href="#user-guide-for-windows-os" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This guide introduces how to install and configure the ADPS agent and how to properly use ADPS to back up and restore Windows OS.</p>
+<p>The backup and restore features supported by ADPS include:</p>
+<ul>
+<li><p>Backup sources</p>
+<p>Single or multiple disks</p>
+</li>
+<li><p>Backup types</p>
+<p>Full backup</p>
+</li>
+<li><p>Backup targets</p>
+<p>Standard storage pool, deduplication storage pool, tape library pool, and object storage service pool</p>
+</li>
+<li><p>Backup schedules</p>
+<p>Immediate, one-time, hourly, daily, weekly, and monthly.</p>
+</li>
+<li><p>Data processing</p>
+<p>Data compression, data encryption, reconnection, speed limit, and replication</p>
+</li>
+<li><p>Restore types</p>
+<p>Point-in-time restore (OS-level)</p>
+</li>
+<li><p>Restore targets</p>
+<p>Original host and different host</p>
+</li>
+</ul>
+</section>
+<section id="planning-and-preparation">
+<h2>Planning and preparation<a class="headerlink" href="#planning-and-preparation" title="Link to this heading">#</a></h2>
+<p>Before you install the agent, check the following prerequisites:</p>
+<ol class="arabic simple">
+<li><p>You have already installed and configured other backup components, including the backup server and the storage server.</p></li>
+<li><p>You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).</p>
+</div>
+</section>
+<section id="install-and-configure-the-agent">
+<h2>Install and configure the agent<a class="headerlink" href="#install-and-configure-the-agent" title="Link to this heading">#</a></h2>
+<p>To back up and restore Windows OS, first install the ADPS agent on the host where Windows OS resides.</p>
+<section id="verify-the-compatibility">
+<h3>Verify the compatibility<a class="headerlink" href="#verify-the-compatibility" title="Link to this heading">#</a></h3>
+<p>Before you install the agent, ensure that the environment of the host where Windows OS resides is on the Aurreum Data Protection Suite’s compatibility lists.</p>
+<p>ADPS supports the backup and restore of Windows OS. Supported Windows OS include:</p>
+<ul class="simple">
+<li><p>Windows 7/8/8.1/10/11/2003/2003 R2/2008/2008 R2/2012/2012 R2/2016/2019/2022</p></li>
+</ul>
+</section>
+<section id="install-the-agent">
+<h3>Install the agent<a class="headerlink" href="#install-the-agent" title="Link to this heading">#</a></h3>
+<p>To install the agent, do the following:</p>
+<ol class="arabic">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the toolbar, click the <strong>Install agent</strong> icon. The <strong>Install agent</strong> window appears.</p></li>
+<li><p>In the <strong>Install agent</strong> window, do the following:</p>
+<p>(1) From the <strong>Select system</strong> list, select <strong>Windows</strong>.</p>
+<p>(2) From the <strong>Select file</strong> list, select the package that you want to install.</p>
+<p>(3) Click <strong>Download</strong>.</p>
+</li>
+<li><p>Upload the package to the Windows host.</p></li>
+<li><p>Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Select components</strong> step, select <strong>OS</strong> from the component list. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Configure Aurreum Data Protection Suite agent</strong> step, enter the following:</p>
+<p>(1) In the <strong>Backup server address</strong> field, enter the IP or domain name of the backup server.</p>
+<p>(2) In the <strong>Backup server port</strong> field, enter the port number. The default value is 50305. If you enable the <strong>Use SSL secure connection</strong> option, enter 60305 in the <strong>Backup server port</strong> field.</p>
+<p>(3) The <strong>Access key</strong> field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.</p>
+<p>(4) Click <strong>Next</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the access key of the user/tenant:</p>
+<ol class="arabic simple">
+<li><p>Log in to the ADPS console.</p></li>
+<li><p>On the upper right corner, click your avatar, and go to <strong>Personal settings</strong> &gt; <strong>Account settings</strong>.</p></li>
+<li><p>On the <strong>Preference</strong> tab, click <strong>View</strong> to get the access key of the current user/tenant.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Confirm the <strong>Destination folder</strong> or specify another folder. Click <strong>Next</strong>.</p></li>
+<li><p>Wait for the installation to complete.</p></li>
+</ol>
+</section>
+</section>
+<section id="activate-licenses-and-authorize-users">
+<h2>Activate licenses and authorize users<a class="headerlink" href="#activate-licenses-and-authorize-users" title="Link to this heading">#</a></h2>
+<p>After the agent installation, go back to the <strong>Resource</strong> page. The host with the agent installed appears on the page. Before you back up and restore Windows OS, register the host, activate the backup license, and authorize users.</p>
+<p>To activate licenses and authorize users, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>On the <strong>Resource</strong> page, select the host where Windows OS resides. Click the <strong>Register</strong> icon. After the registration, the <strong>Activate</strong> window appears.</p></li>
+<li><p>In the <strong>Activate</strong> window, select the Windows OS backup license, and click <strong>Submit</strong>. After the activation, the <strong>Authorize</strong> window appears.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are prompted with “No enough licenses”, contact the administrator to add licenses.</p>
+</div>
+</li>
+<li><p>In the <strong>Authorize</strong> window, select user groups to authorize access to the resource. Click <strong>Submit</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With many agents, install them first, then <strong>batch register</strong>, <strong>batch activate</strong>, and <strong>batch authorize</strong> the agents and resources for convenience. For details, see <a class="reference internal" href="../manager/manager.html#batch-register-batch-activate-batch-authorize"><span class="std std-ref">Batch register/Batch activate/Batch authorize</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</div>
+</section>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Link to this heading">#</a></h2>
+<section id="backup-types">
+<h3>Backup types<a class="headerlink" href="#backup-types" title="Link to this heading">#</a></h3>
+<p>ADPS provides full backup for Windows OS.</p>
+<ul>
+<li><p>Full backup</p>
+<p>Backs up the disk partition data of the operating system.</p>
+</li>
+</ul>
+</section>
+<section id="backup-policies">
+<h3>Backup policies<a class="headerlink" href="#backup-policies" title="Link to this heading">#</a></h3>
+<p>ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.</p>
+<ul class="simple">
+<li><p>Immediate: ADPS will immediately start the job after it is created.</p></li>
+<li><p>One-time: ADPS will perform the job at the specified time once only.</p></li>
+<li><p>Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.</p></li>
+<li><p>Daily: ADPS will perform the job periodically at the specified time and day intervals.</p></li>
+<li><p>Weekly: ADPS will perform the job periodically at the specified time and week intervals.</p></li>
+<li><p>Monthly: ADPS will perform the job periodically at the specified dates and times.</p></li>
+</ul>
+<p>You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:</p>
+<ol class="arabic simple">
+<li><p>Perform a <strong>full backup</strong> once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.</p></li>
+</ol>
+</section>
+<section id="before-you-begin">
+<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
+<p>Before you back up and restore Windows OS, check the following:</p>
+<ol class="arabic">
+<li><p>Check the host status.</p></li>
+<li><p>Check the resuorce status. On the <strong>Resource</strong> page, the host and Windows OS should be <strong>Online</strong>.</p></li>
+<li><p>Check storage pools.</p>
+<p>(1) From the menu, click <strong>Storage</strong> &gt; <strong>Storage pool</strong>. The <strong>Storage pool</strong> page appears.</p>
+<p>(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see <a class="reference internal" href="../manager/manager.html#add-a-storage-pool"><span class="std std-ref">Add a storage pool</span></a> in Aurreum Data Protection Suite Administrator’s Guide.</p>
+</li>
+</ol>
+</section>
+<section id="log-in-to-the-instance">
+<h3>Log in to the instance<a class="headerlink" href="#log-in-to-the-instance" title="Link to this heading">#</a></h3>
+<p>Before you create a backup or restore job, log in to the Windows OS instance on the console. ADPS provides two authentication methods for Windows OS:</p>
+<ul>
+<li><p>OS authentication</p>
+<p>Use a Windows OS user to log in the resource.</p>
+</li>
+<li><p>Access key</p>
+<p>You can use the access key of the current ADPS user to log in to the resource. This method is suitable for the following scenarios:</p>
+<ul class="simple">
+<li><p>You cannot get the OS user’s username and password.</p></li>
+<li><p>The user’s password changes frequently.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Access key authentication is not enabled by default. To enable this feature, log in to the ADPS console, go to <strong>Settings</strong>, open the <strong>Security</strong> tab, and select the <strong>Access key login instance</strong> checkbox.</p></li>
+<li><p>To get the access key, log in to the console, click <strong>Personal settings</strong> &gt; <strong>Account settings</strong> on the upper right corner, find <strong>Access key</strong> on the <strong>Preferences</strong> tab, and click <strong>View</strong>.</p></li>
+</ol>
+</div>
+</li>
+</ul>
+<p>To log in to the resource, do the following:</p>
+<ol class="arabic simple">
+<li><p>From the menu, click <strong>Resource</strong> &gt; <strong>Resource</strong>. The <strong>Resource</strong> page appears.</p></li>
+<li><p>From the host list, find the host where the Windows OS resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.</p></li>
+<li><p>Click <strong>Login</strong> beside the resource. The <strong>Login</strong> window appears.</p>
+</li>
+<li><p>In the <strong>Login</strong> window, select an authentication method according to your needs.</p>
+<ul class="simple">
+<li><p>Select <strong>OS authentication</strong>, enter the <strong>Username</strong> and <strong>Password</strong> of the OS user, and click <strong>Login</strong>.</p></li>
+<li><p>Select <strong>Access key</strong>, enter the access key of the current ADPS user, and click <strong>Login</strong>.</p></li>
+</ul>
+</li>
+<li><p>If your information is correct, you will be prompted that you have logged in to the resource successfully.</p></li>
+</ol>
+</section>
+</section>
+<section id="create-a-backup-job">
+<h2>Create a backup job<a class="headerlink" href="#create-a-backup-job" title="Link to this heading">#</a></h2>
+<p>To create a backup job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Backup</strong>. The backup job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where Windows OS resides and select the resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup source</strong> step, do the following:</p>
+<p>(1) From the <strong>Backup type</strong> list, select a backup type.</p>
+<p>(2) In the <strong>Backup source</strong> section, select the disk partitions that you want to back up.</p>
+</li>
+<li><p>At the <strong>Backup target</strong> step, select a storage pool. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Backup schedule</strong> step, set the job schedule. For details, see <a class="reference internal" href="#backup-policies">Backup policies</a>. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS performs the job immediately after it is created.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+<li><p>Select <strong>Hourly</strong>. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).</p></li>
+<li><p>Select <strong>Daily</strong>. Set the start time and enter the time interval for job execution. The unit is day(s).</p></li>
+<li><p>Select <strong>Weekly</strong>. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.</p></li>
+<li><p>Select <strong>Monthly</strong>. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Backup options</strong> step, set the common and advanced options according to your needs. For details, see <a class="reference internal" href="#backup-options">Backup options</a>. Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page automatically. On this page, you can start, modify, and delete the job.</p></li>
+</ol>
+<section id="backup-options">
+<h3>Backup options<a class="headerlink" href="#backup-options" title="Link to this heading">#</a></h3>
+<p>ADPS provides the following backup options for Windows OS:</p>
+<ul class="simple">
+<li><p>Common options</p></li>
+</ul>
+<table class="longtable table" id="id2">
+<caption><span class="caption-text">Backup common options</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Compression</p></td>
+<td><p>Fast is enabled by default. <br> - None: No compression during the backup job. <br> - Tunable: Customizes the compression level. The Advanced Compression license is required.  <br> - Fast: Uses the fast compression algorithms to compress data during the backup job.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Channels</p></td>
+<td><p>It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 64. <br> We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Backup allocated blocks only</p></td>
+<td><p>Only the actual occupied storage data on the disk partition will be backed up each time a job is performed.</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block size to read from the block device</p></td>
+<td><p>The smallest unit of storage space allocated to the file system by the operating system. 64KiB, 128KiB, 256KiB, 512KiB, 1MiB, or 2MiB can be selected. Generally, the larger the block size of the read block device, the faster the backup speed will be.</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options</p></li>
+</ul>
+<table class="longtable table" id="id3">
+<caption><span class="caption-text">Backup advanced options</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Shadow copy provider</p></td>
+<td><p>File share shadow and software shadow are provided.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Link to this heading">#</a></h2>
+<section id="restore-types">
+<h3>Restore types<a class="headerlink" href="#restore-types" title="Link to this heading">#</a></h3>
+<p>ADPS provides an OS-level point-in-time restore for Windows OS.</p>
+</section>
+<section id="configure-a-restore-target">
+<h3>Configure a restore target<a class="headerlink" href="#configure-a-restore-target" title="Link to this heading">#</a></h3>
+<p>Configure a restore target first before creating an OS-level point-in-time restore job. To configure a restore target, do the following:</p>
+<ol class="arabic simple">
+<li><p>Select an ISO file and use a burning software to burn the ISO file to a media such as CD or DVD.</p></li>
+</ol>
+<ul class="simple">
+<li><p>For Windows 2003/Windows 2003R2 data sets, select adps_bootable_recovery-version~nt52.amd64.iso</p></li>
+<li><p>For Windows 2003/Windows 2003R2, select adps_bootable_recovery-version~nt.amd64.iso</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Insert the recovery media into the restore target, and boot the restore target from the disc. The WinPE configuration window appears.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For virtual machines in Hyper-V, it is recommended to have memory larger than 700M, otherwise the virtual machine may fail to start after the restore job is complete.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Backup server</strong> and set <strong>Server IP</strong> and <strong>Server port</strong>. The default server port is 50305. If <strong>SSL</strong> is enabled, the server port is 60305.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Access key</strong> is optional. When the backup server is a multi-tenant enviroment, configuring a tennat’s access key is required.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Apply</strong> and <strong>Start</strong>. Then the restore target can communicate with the backup server. The restore target is a WinPE host now.</p></li>
+<li><p>If the WinPE host fails to acquire a dynamic IPv4 address, you can click <strong>IPv4</strong> in the WinPE configuration window and manually configure a static IPv4 address.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><p>Click <strong>Driver tools</strong> &gt; <strong>IP configuration - Show</strong> to check the network status.</p></li>
+<li><p>If a network connection error appears, it may be due to a missing NIC driver. You can manually add the NIC driver.</p></li>
+<li><p>To add the NIC driver by WinPE configuration windows, do the following:</p>
+<p>(1) Mount the corresponding NIC driver to the restore machine using a USB flash drive.</p>
+<p>(2) In the WinPE configuration window, click <strong>Driver tools</strong> &gt; <strong>Command prompt - Open</strong>. The command prompt appears.</p>
+<p>(3) On the command prompt, enter the corresponding driver directory, then use the command <code class="docutils literal notranslate"><span class="pre">drvload</span> <span class="pre">vmxnet.inf</span> <span class="pre">(driver</span> <span class="pre">name)</span></code> to add the driver.</p>
+</li>
+</ul>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>If the network type is IPv6, click <strong>IPv6</strong> to configure the network.</p></li>
+<li><p>Go to ADPS console, and click <strong>Resource</strong>. The <strong>Resource</strong> page appears. On the <strong>Resource</strong> page, the WinPE host appears. Before you create a restore job, register the WinPE host, activate the backup license, and authorize users.</p></li>
+<li><p>After the successful authorization, you can <a class="reference internal" href="#create-a-windows-os-point-in-time-restore-job">create a Windows OS point-in-time restore job</a>.</p></li>
+<li><p>After a restore job is executed successfully, click <strong>Driver tools</strong> &gt; <strong>Windows system - Reboot</strong> in the the WinPE configuration window to reboot the system.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>After a restore job is executed successfully, if the WinPE host cannot start or the WinPE configuration window cannot recognize the system driver, you can manually add the driver in the window or from the command prompt. Before loading the system drivers, you need to copy the corresponding NIC drivers to another device (such as a USB drive or optical disc), insert the device to the WinPE host, and then load the system drivers. After the system driver loading is complete, connect the WinPE host to the agent and perform a point-in-time restore job.</p></li>
+</ul>
+<p>To add the drivers, select one of the methods:</p>
+<ul class="simple">
+<li><p>In the WinPE configuration window, click <strong>Driver tools</strong> &gt; <strong>Driver update</strong>, select <strong>Driver folder</strong> or <strong>Single driver</strong> to add the driver. Click <strong>Add</strong> to find the desired driver to add. You can click <strong>Get</strong> to check whether the driver is added successfully.</p>
+<ul>
+<li><p>Driver folder: for selecting the desired driver directory.</p></li>
+<li><p>Single driver: for selecting the corresponding driver file in the driver directory.</p></li>
+</ul>
+</li>
+<li><p>Enter to command prompt. On the command prompt, enter the corresponding driver directory, then use the <code class="docutils literal notranslate"><span class="pre">dism</span></code> command (dism + system disk + /add-driver + [XXX.inf file path]) to add the driver. For example: <code class="docutils literal notranslate"><span class="pre">dism</span> <span class="pre">/image:E:\</span> <span class="pre">/add-driver</span> <span class="pre">/driver:X:\drivers\2k12R2\amd64\viostor\viostor.inf</span></code></p></li>
+</ul>
+</div>
+</section>
+<section id="create-a-windows-os-point-in-time-restore-job">
+<h3>Create a Windows OS point-in-time restore job<a class="headerlink" href="#create-a-windows-os-point-in-time-restore-job" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>Before you begin<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>To restore the Windows OS to a different host, install the agent on that host, activate the licenses, and authorize user access to the resource.</p>
+<p>To create a point-in-time restore job, do the following:</p>
+<ol class="arabic">
+<li><p>From the menu, click <strong>Restore</strong>. The restore job wizard appears.</p></li>
+<li><p>At the <strong>Hosts and resources</strong> step, select the host where the operating system resides and select the resource. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Backup sets</strong> step, do the following:</p>
+<p>(1) From the <strong>Storage pool</strong> list, select a storage pool with backup sets, including the source and target pools with pool replication relation. <strong>Default</strong> refers to the one where the selected backup sets reside.</p>
+<p>(2) From the <strong>Restore type</strong> list, select <strong>Point-in-time restore</strong>.</p>
+<p>(3) In the <strong>Restore source</strong> section, select a point in time for the restore job.</p>
+<p>(4) In the <strong>Partition</strong> section, select disks for the restore job.</p>
+<p>(5) Click <strong>Next</strong>.</p>
+</li>
+<li><p>At the <strong>Restore target</strong> step, select a host and resource as the target. The wizard goes to the next step automatically.</p></li>
+<li><p>At the <strong>Restore schedule</strong> step, set the job schedule. Click <strong>Next</strong>.</p>
+<ul class="simple">
+<li><p>Select <strong>Immediate</strong>. ADPS will perform the job immediately after its creation.</p></li>
+<li><p>Select <strong>One time</strong> and set the start time for the job.</p></li>
+</ul>
+</li>
+<li><p>At the <strong>Restore options</strong> step, set the options according to your needs. See <a class="reference internal" href="#restore-options">Restore options</a>. Click <strong>Next</strong>.</p></li>
+<li><p>At the <strong>Finish</strong> step, set the job name and confirm the job information. Click <strong>Submit</strong>.</p></li>
+<li><p>After the submission, you will be redirected to the <strong>Job</strong> page. You can start, modify, and delete the job.</p></li>
+<li><p>When a restore job encounters issues (for example, system disk data is restored but the <code class="docutils literal notranslate"><span class="pre">bcdedit</span></code> command cannot be executed, or the restore job fails), it is necessary to rebuild the partition. To restart the partition, do the following:</p>
+<p>(1) In the WinPE configuration window, click <strong>Driver tools</strong> &gt; <strong>Command prompt - Open</strong>. The command prompt appears. In the command prompt, enter the <code class="docutils literal notranslate"><span class="pre">diskpart</span></code> command.</p>
+<p>(2) Enter <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">disk</span></code>. The disk information will be listed.</p>
+<p>(3) Select the system disk that requires the partition rebuilding, and enter the command <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">disk</span> <span class="pre">xx</span></code> (where “xx” is the actual disk index number).</p>
+<p>(4) Enter <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">part</span></code> to check the partition information, and confirm that the boot and system partitions exist.</p>
+<p>(5) Enter <code class="docutils literal notranslate"><span class="pre">detail</span> <span class="pre">part</span></code> to check the file system type and the hidden property.</p>
+<p>(6) Execute the following commands to restart the WinPE host.</p>
+</li>
+</ol>
+<ul>
+<li><p>If the ISO file contains the boot partition, and the file system type can be viewed, modify the start configuration. See the example:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>bcdedit /store \?\Globalroot\Device\Harddisk0\Partition1\Boot\BCD /set {bootmgr} device partition=\Device\Harddisk0\Partition1 (The boot partition path should be filled in based on the actual situation. In this example, it is on disk 0, partition 1.)</p></li>
+<li><p>bcdedit /store \?\Globalroot\Device\Harddisk0\Partition1\Boot\BCD /set {default} device partition=\Device\Harddisk0\Partition2 (The boot partition path should be filled in based on the actual situation. In this example, it is on disk 0, partition 1.)</p></li>
+<li><p>bcdedit /store \?\Globalroot\Device\Harddisk0\Partition1\Boot\BCD /set {default} osdevice partition=\Device\Harddisk0\Partition2 (The system partition path should be filled in based on the actual situation. In this example, it is on disk 0, partition 1.)</p></li>
+</ul>
+</div>
+</li>
+<li><p>If the ISO file does not contain the boot partition, the hidden property is Yes, and the file system type cannot be viewed, use <code class="docutils literal notranslate"><span class="pre">bcdboot</span></code> command to configure the boot information. To configure the boot information, do the following:</p>
+<p>(1) In the WinPE configuration window, click <strong>Driver tools</strong> &gt; <strong>Command prompt - Open</strong>. The command prompt appears. On the command prompt, enter the <code class="docutils literal notranslate"><span class="pre">diskpart</span></code> command.</p>
+<p>(2) Enter <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">partition</span> <span class="pre">primary</span> <span class="pre">size=350</span> <span class="pre">id=7</span></code> to create the boot partiton whose size is 350MB. The specific size can be modified according to the actual situation.</p>
+<p>(3) Enter <code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">fs=ntfs</span></code> command to format the partition.</p>
+<p>(4) Assign the corresponding drive letter. For example: set the letter to drive K: using the command <code class="docutils literal notranslate"><span class="pre">assign</span> <span class="pre">letter=K</span></code>.</p>
+<p>(5) Enter <code class="docutils literal notranslate"><span class="pre">active</span></code> command to active the partition.</p>
+<p>(6) Enter <code class="docutils literal notranslate"><span class="pre">bcdboot</span></code> command to create a new BIOS-bootable boot partition. For example: <code class="docutils literal notranslate"><span class="pre">bcdboot</span> <span class="pre">C:\Windows</span> <span class="pre">/s</span> <span class="pre">K:</span> <span class="pre">/f</span> <span class="pre">BIOS</span> <span class="pre">/l</span> <span class="pre">en-us</span></code></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>If you are unable to enter the system after restarting the WinPE host, you can create a restore job again with the <strong>Automatic driver update</strong> option enabled in <a class="reference internal" href="#restore_options"><span class="xref myst">Restore options</span></a>, then rebuild the boot partition.</p></li>
+<li><p>After rebuilding the boot partition, run the <code class="docutils literal notranslate"><span class="pre">bcdedit</span></code> command to check if there is any output. If there is output, restart the WinPE host. If there is no output, use the <code class="docutils literal notranslate"><span class="pre">bcdedit</span></code> command again to modify the boot configuration, and then restart.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="restore-options">
+<h3>Restore options<a class="headerlink" href="#restore-options" title="Link to this heading">#</a></h3>
+<p>ADPS provides the following restore options for Windows OS:</p>
+<ul class="simple">
+<li><p>Common options:</p></li>
+</ul>
+<table class="longtable table" id="id4">
+<caption><span class="caption-text">Restore common options</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Automatic driver update</p></td>
+<td><p>Enabling the option will update the NIC driver.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Partition rebuild mode</p></td>
+<td><p>The <strong>Full rebuild</strong> mode restores the whole partition table in the backup host, while the <strong>Partial rebuild</strong> mode only creates the partitions selected for the restore job.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Block size to write to the block device</p></td>
+<td><p>The smallest unit of storage space allocated to the file system by the operating system. 64KiB, 128KiB, 256KiB, 512KiB, 1MiB, and 2MiB can be selected. 256KiB is selected by default. Generally speaking, the larger the block size of the read block device, the faster the backup speed will be.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Advanced options:</p></li>
+</ul>
+<table class="longtable table" id="id5">
+<caption><span class="caption-text">Restore advanced options</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reconnection time</p></td>
+<td><p>The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumption buffer size</p></td>
+<td><p>Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Speed limit</p></td>
+<td><p>Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precondition</p></td>
+<td><p>Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-/Post-script</p></td>
+<td><p>The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
+<table class="longtable table" id="id6">
+<caption><span class="caption-text">Limitations</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>- Windows 2000, Windows XP, Windows XP Service Pack 1, Windows XP Service Pack 2, and Windows XP Service Pack 3 are not supported. <br> - The system disk must reserve a certain amount of space in order to create a snapshot, otherwise the backup will fail. <br> - Windows 2008, Windows 2008 R2, Windows 2012, Windows 7, Windows 8, Windows 2003, and Windows 2003 R2 cannot back up and restore NVMe system disks. <br> - Dynamic disks of the Windows OS are not supported for backup and restore. <br> - LAN-free pools and local storage pools are not supported for backup.  <br> - If the drive letter changes, the backup job may fail. In this case, you need to recreate the backup job.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restore</p></td>
+<td><p>- Windows 2003 and Windows 2003 R2 cannot back up and restore SATA and NVMe disks. <br> - Windows 2003 and Windows 2003 R2 can only restore IDE disks to IDE disks, and SCSI disks to SCSI disks. <br> - Backup sets of Windows OS booted with BIOS cannot be restored to Windows OS booted with UEFI, and vice versa. <br> - During restore in a KVM environment, automatic driver updates are supported for KVM-Virtio, but not for Windows 2003, Windows 2003 R2, and Windows 2008 systems. <br> - If the drive letter changes, the restore job may fail. In this case, you need to recreate the restore job.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h2>
+<table class="longtable table" id="id7">
+<caption><span class="caption-text">Glossary</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fast compression</p></td>
+<td><p>A compression method that uses fast compression algorithms to compress data during the backup job.</p></td>
+</tr>
+<tr class="row-odd"><td><p>block size</p></td>
+<td><p>The minimum unit of storage space allocated by the operating system to the file system.</p></td>
+</tr>
+<tr class="row-even"><td><p>snapshot</p></td>
+<td><p>The snapshot of the operating system is a read-only static view of the Windows OS.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../linux_os/linux_os.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guide for Linux OS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../k8s/k8s.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User Guide for Kubernetes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-and-preparation">Planning and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-configure-the-agent">Install and configure the agent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-compatibility">Verify the compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-agent">Install the agent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-licenses-and-authorize-users">Activate licenses and authorize users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backup">Backup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-types">Backup types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-policies">Backup policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-in-to-the-instance">Log in to the instance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-backup-job">Create a backup job</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-options">Backup options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">Restore</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-types">Restore types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-a-restore-target">Configure a restore target</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-windows-os-point-in-time-restore-job">Create a Windows OS point-in-time restore job</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before you begin</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore-options">Restore options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aurreum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2022-2024 Aurreum
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

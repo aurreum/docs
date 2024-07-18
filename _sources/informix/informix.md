@@ -1,425 +1,589 @@
 # User Guide for Informix
 
-## Introduction
-Aurreum Data Protection Suite (ADPS) provides the capability for the backup and restore of Informix databases. This guide introduces how to properly use ADPS to back up and restore Informix databases.
+## Overview
 
-## Features
-```{tabularcolumns} |\Y{0.28}|\Y{0.72}|
+This guide introduces how to install and configure the ADPS agent and how to properly use ADPS to back up and restore Informix.
+
+The backup and restore features supported by ADPS include:
+
+- Backup sources
+
+	Database, log
+
+- Backup types
+
+	Full backup, cumulative incremental backup, incremental backup, log backup, and log backup (on demand)
+
+- Backup targets
+
+	Standard storage pool, deduplication storage pool, local storage pool, data synthetic pool, tape library pool, object storage service pool, and LAN-free pool
+
+- Backup schedules
+
+	Immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Data processing
+
+	Data compression, data encryption, multiple channels, reconnection, speed limit, retry and backup taillog
+
+- Restore types
+
+	Point-in-time restore, mixed restore, full recovery testing, and continuous log recovery testing
+
+- Restore targets
+
+	Original host and different host
+
+## Planning and preparation
+
+Before you install the agent, check the following prerequisites:
+
+1. You have already installed and configured other backup components, including the backup server and the storage server.
+2. You have created a user with roles of operator and administrator on the ADPS console. Log in to the console with this user to back up and restore the resource.
+
+```{note}
+The administrator role can install and configure agents, activate licenses, and authorize users. The operator role can create backup/restore jobs and conduct copy data management (CDM).
 ```
-```{table} Features
+
+## Install and configure the agent
+
+To back up and restore Informix, first install the ADPS agent on the host where Informix resides.
+
+### Verify the compatibility
+
+Before you install the agent, ensure that the environment of the host where Informix resides is on the Aurreum Data Protection Suite's compatibility lists.
+
+Supported Informix versions include:
+
+- Informix 11.50/11.70/12.10/14.10
+
+### Install the agent
+
+The ADPS agent can be installed on Windows and Linux. You can select the installation method according to your environment.
+
+The ADPS agent supports two methods to connect to Informix: ODBC and DBACCESS. See [Configure connection method](#configure-connection-method) for the specific configuration.
+
+- If Informix CSDK (Client Software Development Kit) is installed, use ODBC. 
+- If Informix CSDK (Client Software Development Kit) is not installed, use DBACCESS. 
+
+#### Windows
+
+To install the agent, do the following:
+
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
+
+	(1) From the **Select system** list, select **Windows**.
+
+	(2) From the **Select file** list, select the package that you want to install.
+
+	(3) Click **Download**.
+
+5. Upload the package to the Windows host.
+6. Log in to the Windows host as a user with administrative privileges. Double-click the package and open the installation wizard. Click **Next**.
+7. At the **Select components** step, select **Informix** from the component list. Click **Next**.
+8. At the **Configure Aurreum Data Protection Suite agent** step, enter the following:
+
+	```{only} scutech
+	![](../images/Common/windows_install.png)
+	```
+
+	(1) In the **Backup server address** field, enter the IP or domain name of the backup server.
+
+	(2) In the **Backup server port** field, enter the port number. The default value is 50305. If you enable the **Use SSL secure connection** option, enter 60305 in the **Backup server port** field.
+
+	(3) The **Access key** field is optional and blank by default. If your backup server adopts multi-tenancy, you must enter the access key of the tenant for the agent.
+
+	(4) Click **Next**.
+
+	```{note}
+	To get the access key of the user/tenant:
+	1. Log in to the ADPS console.
+	2. On the upper right corner, click your avatar, and go to **Personal settings** > **Account settings**.
+	3. On the **Preference** tab, click **View** to get the access key of the current user/tenant.
+	```
+
+9. Confirm the **Destination folder** or specify another folder. Click **Next**.
+10. Wait for the installation to complete.
+
+#### Linux
+
+For Linux OS, ADPS agent supports online and offline installation. We recommend online installation.
+
+1. Online installation:
+	ADPS provides `curl` and `wget` commands for installation.
+2. Offline installation:
+	See [Offline installation](../agent_install/agent_install.md#offline-installation) in Aurreum Data Protection Suite Agent Installation Guide.
+
+To install the agent online, do the following:
+
+1. Log in to the ADPS console.
+2. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+3. From the toolbar, click the **Install agent** icon. The **Install agent** window appears.
+4. In the **Install agent** window, do the following:
+
+	(1) From the **Select system** list, select **Linux**.
+
+	(2) From the **Component** list, select **Informix**. The `curl` and `wget` commands appear in the window.
+
+	(3) If you want to delete the downloaded package automatically after the installation, select the **Delete installation package** checkbox.
+
+	(4) If you enable **Ignore SSL errors**, the installation will ignore certificate errors and so on. If you disable the option, the installation will prompt you to enter Y/N to continue or discontinue the process when an error occurs.
+
+5. Click the **Copy** icon to copy the `curl` or `wget` command.
+6. Log in to the Linux host as user *root*. Paste the command in the terminal and press Enter to start the installation. Example:
+
+	```{code-block} python
+	[root@cache148 ~]#curl -o- "http://192.168.18.252:80/d2/update/script?modules=Informix&ignore_ssl_error=&access_key=7dc57757b7e675f2ec5495180f90ac70&rm=&tool=curl" | sh
+	```
+
+7. Wait for the installation to complete.
+
+## Activate licenses and authorize users
+
+After the agent installation, go back to the **Resource** page. The host with the agent installed appears on the page. Before you back up and restore Informix, register the host, activate the backup license, and authorize users.
+
+To activate licenses and authorize users, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+2. On the **Resource** page, select the host where Informix resides. Click the **Register** icon. After the registration, the **Activate** window appears.
+
+3. In the **Activate** window, select the Informix backup license, and click **Submit**. After the activation, the **Authorize** window appears.
+
+	```{note}
+	If you are prompted with "No enough licenses", contact the administrator to add licenses.
+	```
+
+4. In the **Authorize** window, select user groups to authorize access to the resource. Click **Submit**.
+
+```{note}
+With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
+```
+
+## Backup
+
+### Backup types
+
+ADPS provides five common backup types for Informix.
+
+- Full backup
+
+  Backs up the entire instance, including all online, non-temporary storage spaces and the used logical logs, as well as configuration files such as `onconfig`, `sqlhosts`, `ixbar`, and `oncfg`. This backup type corresponds to the Informix level-0 backup.
+
+- Cumulative incremental backup
+
+  Backs up all online, non-temporary storage spaces and the used logical logs, as well as configuration files such as `onconfig`, `sqlhosts`, `ixbar`, and `oncfg` that have changed since the last full backup with a full backup as the baseline. This backup type corresponds to the Informix level-1 backup.
+
+- Incremental backup
+
+	Backs up all online, non-temporary storage spaces and the used logical logs, as well as configuration files such as `onconfig`, `sqlhosts`, `ixbar`, and `oncfg` that have changed since the last backup. This backup type corresponds to the Informix level-2 backup.
+
+- Log backup
+
+	Backs up the current logical logs and other full logical logs.
+
+- Log backup (on demand)
+
+	When logical logs are full or when you manually execute log switch command, a log backup (on demand) job will be automatically executed to back up the current logical logs.
+
+
+### Backup policies
+
+ADPS provides six backup schedule types: immediate, one-time, hourly, daily, weekly, and monthly.
+
+- Immediate: ADPS will immediately start the job after it is created.
+- One-time: ADPS will perform the job at the specified time once only.
+- Hourly: ADPS will perform the job periodically at the specified hour/minute intervals within the time range according to the setting.
+- Daily: ADPS will perform the job periodically at the specified time and day intervals.
+- Weekly: ADPS will perform the job periodically at the specified time and week intervals.
+- Monthly: ADPS will perform the job periodically at the specified dates and times.
+
+You can set an appropriate backup policy based on your situation and requirements. Usually, we recommend the following common backup policy:
+
+1. Perform a **full backup** once a week when the application traffic is relatively small (Example: on the weekend) to ensure that you have a recoverable point in time every week.
+2. Perform a **cumulative incremental backup** or **incremental backup** every day when the application traffic is relatively small (Example: at 2 a.m.) to ensure that you have a recoverable point in time every day, which can save storage space and backup time.
+3. Perform a **log backup** hourly if your database supports log backups to achieve the precise point-in-time restore and ensure that the restore granularity can reach the second level.
+
+### Before you begin
+
+Before you back up and restore Informix, check the following:
+
+1. Check the Informix instance status.
+
+	- Windows
+
+	Log in to the host and open the service list. Check whether the Informix service status is Started or not.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Informix/informix_database_01.png)
+	```
+
+	- Linux
+
+	Open the terminal on the host and use the `onstat -` command to check the Informix service status. The service status should be "On-Line".
+
+	```{code-block} shell
+	[informix@redhat6 ~]$ onstat -
+	Your evaluation license will expire on 2023-10-02 00:00:00
+	
+	IBM Informix Dynamic Server Version 12.10.FC4TL -- On-Line -- Up 00:45:15 -- 208516 Kbytes
+	```
+	
+2. Check storage pools.
+
+	(1) From the menu, click **Storage** > **Storage pool**. The **Storage pool** page appears.
+
+	(2) Check whether the display area has any storage pools. If no, create a storage pool and authorize it for the current user. For details, see [Add a storage pool](../manager/manager.md#add-a-storage-pool) in Aurreum Data Protection Suite Administrator's Guide.
+
+
+### Log in to the instance
+
+Before you create a backup or restore job, log in to the Informix instance on the console. ADPS provides two authentication methods for Informix:
+
+- Database authentication
+
+	The Informix user should have the following privileges: `Connect`, `Resource`, and `DBA`. 
+
+- Access Key
+
+	You can use the access key of the ADPS user who is authorized with access to the resource. This method is suitable for the following scenarios:
+
+	- You cannot get the OS user's username and password.
+	- The user's password changes frequently.
+
+	```{note}
+	1. Access key authentication is not enabled by default. To enable this feature, log in to the ADPS console, go to **Settings**, open the **Security** tab, and select the **Access key login instance** checkbox.
+	2. To get the access key, log in to the console, click **Personal settings** > **Account settings** on the upper right corner, find **Access key** on the **Preferences** tab, and click **View**.
+	```
+
+To log in to the resource, do the following:
+
+1. From the menu, click **Resource** > **Resource**. The **Resource** page appears.
+
+2. From the host list, find the host where Informix resides. If you have many hosts, use the search bar to find the host quickly. Click the host to expand its resource list.
+
+3. Click **Login** beside the resource. The **Login** window appears.
+
+4. In the **Login** window, select an authentication method according to your needs.
+
+	- Select **Database authentication**, enter the **Username** and **Password**, and click **Login**.
+	- Select **Access key**, enter the access key of the current ADPS user, and click **Login**.
+	
+5. If your information is correct, you will be prompted that you have logged in to the resource successfully.
+
+```{note}
+If you use ODBC to access Informix 12.10 on Windows, follow the configuration steps below before you log in.
+
+1. Modify the file `C:\Program Files\IBM Informix Software Bundle\etc\sqlhosts` as the follow:
+	- Change the "HostName" of the instance “ol_informix1210” to "127.0.0.1".
+
+2. Launch Setnet32, click "Server Information" and fill in the display options according to the `sqlhosts` file. See below:
+	- IMB Informix Server: ol_informix1210 (Instance name)
+	- HostName: ‘\*’127.0.0.1 (The ‘\*’ sign cannot be missing.)
+	- Protocolname: olsoctcp
+	- Service Name: ol_informix1210
+
+3. After the modification, click "Make Default Server".
+4. Restart the Informix instance service.
+5. Open Windows Start menu, select "IBM Informix Client SDK" program, and click "ConnectTest Demo" to test if the connection is successful.
+```
+
+## Create a backup job
+
+To create a backup job, do the following:
+
+1. From the menu, click **Backup**. The backup job wizard appears.
+2. At the **Hosts and resources** step, select the host where Informix resides and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup source** step, do the following:
+
+	(1) From the **Backup type** list, select a backup type.
+
+	(2) In the **Backup source** section, select the databases that you want to back up.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Informix/informix_backup_01.png)
+	```
+
+4. At the **Backup target** step, select a storage pool. Click **Next**.
+
+	```{note}
+	Cumulative incremental backups, incremental backups, log backups, and log backups (on demand) must have the same backup target as their baseline backups.
+	```
+
+5. At the **Backup schedule** step, set the job schedule. For details, see [Backup policies](#backup-policies). Click **Next**.
+
+	- Select **Immediate**. ADPS performs the job immediately after it is created.
+	- Select **One time** and set the start time for the job.
+	- Select **Hourly**. Set the start time, end time, and time interval for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
+
+```{note}
+	No **Backup schedule** configuration is required for the log backup (on demand) job, as the job will be automatically triggered upon a database log switch event.
+```
+
+6. At the **Backup options** step, set the common and advanced options according to your needs. For details, see [Backup options](#backup-options). Click **Next**.
+
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Informix/informix_backup_02.png)
+	```
+
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+
+```{note}
+- If the database has never been fully backed up, or has not been fully backed up after the restore, run a full backup job before the log backup (on demand) job.
+- One database cannot have a periodical log backup job and a log backup (on demand) job at the same time. If one type of job already exists, creating the other type will fail.
+- When a log backup (on demand) job for Informix 11.50 is created, ADPS checks the ALARMPROGRAM setting for the database instance. If the ALARMPROGRAM is not set to the 'alarmprogram' script, ADPS will reset the ALARMPROGRAM and then restart the database instance to ensure a successful execution of the backup job.
+```
+
+8. After the submission, you will be redirected to the **Job** page automatically. On this page, you can start, modify, and delete the job.
+
+### Backup options
+
+ADPS provides the following backup options for Informix:
+
+- Common options
+
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Backup common options
 ---
 class: longtable
 ---
-| Feature                             | Description                                                  |
-|------|------|
-|Backup source|Database, log|
-|Backup type|Full backup: Back up all online and non-temporary storage spaces and logical logs, including onconfig, sqlhosts, ixbar, and oncfg ﬁles. It is a level 0 backup.{{ br }}Cumulative incremental backup: Back up all blocks changed after the last full backup. It is a level 1 backup.{{ br }}Incremental backup: Back up all blocks changed after the last backup. It is a level 2 backup.{{ br }}Log backup: Back up logical logs.{{ br }}Automatic archiving log backup: It is performed automatically when the logical logs are full or when you manually execute a log switch command.|
-|Backup target|Standard storage pool, de-duplication storage pool, local storage pool, tape library pool, object storage service pool, LAN-Free pool |
-|Backup compression |None, fast, tunable|
-| Channels                            | A positive integer between 1-255                            |
-| Backup schedule                     | Immediate, one-time, minutely, hourly, daily, weekly, monthly |
-|Backup Tail-Log|Back up logical log files from disks to storage media before a restore job is executed|
-|Restore type| Timepoint restore: Restore the database to a specific point-in-time state.{{ br }}Full recovery testing: Recover the most recent backup set of the source host, without selecting a backup set point in time.{{ br }}Continuous recovery testing: Recover the latest logical logs of the Informix host to the specified target host. |
-|Restore location|Original path, different host|
-|Restore granularity| Entire instance |
-|Restore to different hosts| Restoring to a different host requires the same operating system version, same database version, and same instance name. |
-|Pre/Post action |The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.|
-|Speed limit |Limit data transfer speed or disk read and write speed within different periods|
-|Reconnection time| The job continues after the abnormal reset occurs in the network within the set time. The set time is 10 minutes by default. |
-| Stop jobs                           | Stop the backup and restore jobs                      |
-|Storage pool replication| Replicate backup sets from the source storage pool to another pool |
-|Restore from target pools |Restore backup sets from the target storage pool|
-|D2C| Back up data directly to object storage |
-|D2T |Back up data directly to tape library|
-|LAN-Free |Back up to and restore from LAN-Free storage pools|
-| Modify the backup source and target | Modify the backup source and backup target of a job          |
-| IPv6                                | Transfer and manage data over IPv6 network                   |
+|Option|Description|Limitations|
+| --- | --- | --- |
+|Compression|Fast is enabled by default.{{ br }}- None: No compression during the backup job.{{ br }}- Tunable: Customizes the compression level. The Advanced Compression license is required. {{ br }}- Fast: Uses the fast compression algorithms to compress data during the backup job.||
+|Channels|It can improve backup efficiency. The default value is 1 and the value ranges from 1 to 64.{{ br }}We recommend a value the same as the number of CPU cores. If the value exceeds the core number, the efficiency improvement will not be obvious.||
+| ON-Bar | - The option only appears for the fist-time backup job creation. {{ br }}- If your Informix version is lower than 12.10, the database will be shut down and restarted during the ON-Bar configuration, and it is recommended that you schedule job execution in idle business time. {{ br }}- Configuring ON-Bar will modify the following values in `$INFORMIXDIR/etc/onconfig` file: `BAR_BSALIB_PATH`, `BAR_MAX_BACKUP`, and `LTAPEDEV`. | |
+| Failover log archive path | Specify an existing local directory for path failover. The database user must have read and write permissions on the path. When the primary archive path fails, the specified path will be used to archive the log files temporarily. When the primary path becomes available, the logs will be moved to the primary path from the specified path. |Only available for log back (on demand) jobs. |
 ```
-## Install and Configure Agent
 
-### Verify Compatibility
-ADPS supports the backup and restore of Informix single instance. Before deploying the agent, check whether the operating system (OS) and database version are supported. See the followings for supported database versions:
-- Informix 11.50/11.70/12.10/14.10
+- Advanced options
 
-### Download Agent Package
-Open a browser and log in to ADPS as the admin. Click **Resource** -> **Install Agent** icon. You can download the installation packages according to your needs.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Backup advanced options
+---
+class: longtable
+---
+|Option|Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is backed up. The post-script is executed after the resource is backed up.||
+```
 
-![informix_agent01](../images/01-agent/informix/informix_agent01.png)
+## Restore
 
-### Install and Configure Agent on Windows
+### Restore types
 
-#### Download Windows Installation Package
+For different needs, ADPS provides several restore types for Informix, including:
 
-Select **Windows** and click **Download Windows agent**.
+- Point-in-time restore
 
-![](../images/01-agent/informix/informix_agent02.png)
+	When a disaster occurs in an Informix database, you can perform a point-in-time restore job to restore the database to a specified point-in-time state. You can restore to the original or a different host.
 
-#### Install Agent on Windows
+- Mixed restore
 
- 1. Upload the installation package to the target host.
+	A mixed restore is a cold restore for critical dbspaces followed by a warm restore for the remaining dbspaces. Compared with a cold restore for all dbspaces, it makes critical data available and the database online soon.
 
- 2. Double-click the package to install it according to the setup wizard and click **Next**.
+- Full recovery testing
 
- 3. This installation package is a collection of components. It checks the database resources, files, or applications installed on the host by default. Select the **Informix** component and click **Next**.
+	With the hourly, daily, weekly, or monthly schedule, a full recovery testing job can recover the latest Informix backup set to the specified target host to verify that the backup set is available.
 
-    ![](../images/01-agent/informix/informix_agent03.png)
+- Continuous log recovery testing
 
- 4. Set the **Backup Server Host**, **Backup Server Port**, and **Access Key**. Click **Next**.
+	A continuous log recovery testing job allows you to create periodic log recovery testing jobs that apply the latest logical log files from the Informix host to the target instance synchronously.
 
-    ![](../images/01-agent/informix/informix_agent04.png)
+### Before you begin
 
- 5. Select **Destination Folder** and click **Next** to install the software. Wait for the installation to complete.
+To restore Informix to a different host, install the agent on that host, activate the licenses, and authorize user access to the resource.
 
-###  Install and Configure Agent on Linux
+### Create a point-in-time restore job
 
-1. Select **Linux** as the system and **Informix** as the module. Copy an installation command.
+To create a point-in-time restore job, do the following:
 
-![](../images/01-agent/informix/informix_agent05.png)
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-2. Paste the command on the command line and press Enter to execute the installation.
+2. At the **Hosts and resources** step, select the host where Informix resides and select the resource. The wizard goes to the next step automatically.
 
-   ![](../images/01-agent/informix/informix_agent06.png)
+3. At the **Backup sets** step, do the following:
 
-### Check Successful Installation
+	```{only} scutech
+	![](../images/Backup_Restore/DBackup3/Informix/informix_timepoint_restore_01.png)
+	```
 
-After the successful installation, log in to ADPS as the admin and see that the host is on the **Resource** list.
+	(1) From the **Restore type** list, select **Point-in-time restore**.
 
-![](../images/02-license/informix/informix_license01.png)
+	(2) In the **Restore to point in time** section, select a point in time for the restore job.
 
-## Activate License and Assign Authorization
+	(3) In the **Restore source** section, specify a restore source.
 
-This chapter is applicable to configuring one agent. If you have multiple agents, you can deploy them first and then carry out activation and authorization in batches. See *Batch Activate* from *Administrator's Guide* for more details.
+	(4) Click **Next**.
 
-### Register Host
 
-Log in to ADPS as the admin, go to **Resource**, and select the host that you need to activate. Click **Register** icon.
+```{note}
+If you need to modify the path where the chunk files are located, click **Modify the path of the diretory where the chunk file is located** to select a path. It only supports modifying the path where the chunk files are located. It does not allow changing the path of individual chunk files, nor does it support modifying the paths of the `onconfig` and `sqlhosts` configuration files.
+```
 
-![](../images/02-license/informix/informix_license02.png)
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-### Activate License
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-In the pop-up **Active informix** window, select the resource you want to activate. Click **Submit**.
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-![](../images/02-license/informix/informix_license03.png)
+### Create a mixed restore job
 
-### Assign Authorization
+To create a mixed restore job, do the following:
 
-After the successful activation, you can authorize users to operate the resource in the pop-up **Authorize** window.
+1. From the menu, click **Restore**. The restore job wizard appears.
 
-![](../images/02-license/informix/informix_license04.png)
+2. At the **Hosts and resources** step, select the host where Informix resides and select the resource. The wizard goes to the next step automatically.
 
-## Before You Begin
+3. At the **Backup sets** step, do the following:
 
-### Check Database State
+	(1) From the **Restore type** list, select **Mixed restore**.
 
-Check the Informix instance state. The Informix instance should be in the "On-Line"  state for backup and restore.
+	(2) From the **Restore to point in time** list, select a point in time for the restore job.
 
-![](../images/03-informix/informix_database01.png)
+	(3) In the **Restore source** section, select folders or files that you want to restore.
 
-### Check Resource
+	(4) Click **Next**.
 
-Log in to ADPS as the operator and go to **Resource**. You can see the activated and authorized resource on the list and its state is "Online". If the resource is not available, please check *Activate License and Assign Authorization*.
+```{note}
+- In the **Restore source** section, if the `onconfig` and `sqlhosts` files are unchecked, the files will still be restored to their original directory, but they will be named as `file.restore` instead of overwriting the original configuration files.
 
-![](../images/03-informix/informix_login01.png)
+- If you need to modify the path where the chunk files are located, click **Modify the path of the diretory where the chunk file is located** to select a path. It only supports modifying the path where the chunk files are located. It does not allow changing the path of individual chunk files, nor does it support modifying the paths of the `onconfig` and `sqlhosts` configuration files.
+```
 
-### Check Storage Pool
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step.
 
-Log in to ADPS as the operator, go to **Storage Pool**, and verify there is any storage pool available. If a storage pool is not present, please contact the admin to create one and assign permissions to the operator.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-![](../images/03-informix/informix_storaged01.png)
+	- Select **Immediate**. ADPS will perform the job immediately after its creation.
+	- Select **One time** and set the start time for the job.
 
-## First Time Login
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
 
-1. Before creating the first Informix backup and restore, you need to **Login** to Informix first.
+  ```{only} scutech
+    ![](../images/Backup_Restore/DBackup3/Informix/informix_mixed_restore_02.png)
+  ```
 
-![](../images/03-informix/informix_login02.png)
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
-2. You must have the privileges of CONNECT, RESOURCE, and DBA to log in to Informix. You will need to log in to Informix again if the password is changed; otherwise, the jobs will fail.
+8. After the instant recovery, go to the **CDM** page. A mounted copy is added below the full copy. See [View a copy](#view-a-copy).
 
-3. The Agent supports using ODBC or DBACCESS to access Informix databases:
+### Create a full recovery testing job
 
-   - If you have installed Informix CSDK (Client Software Development Kit), use ODBC access mode. See *Configure the Agent Access Mode* for the specific configuration.
+To create a full recovery testing job, do the following:
 
-   - If Informix CSDK (Client Software Development Kit) is not installed, you can use the DBACCESS access mode. See *Configure the Agent Access Mode* for the specific configuration.
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the host where Informix resides and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
-3. Enter the **User** and **Password**. Click **Login**.
+	(1) From the **Restore type** list, select **Full recovery testing**.
 
-![](../images/03-informix/informix_login03.png)
+	(2) Click **Next**.
 
-> Note:
->
-> - Informix must be online for successful login; otherwise, the login will fail even if the username and password are correct.
->
-> - If you use ODBC to access Informix 12.10 on Windows, follow the configuration steps below before you log in.
->
->   1. Modify the file in C:\Program Files\IBM Informix Software Bundle\etc\sqlhosts as the follow:
->
->   - Change the HostName of the instance “ol_informix1210” to 127.0.0.1
->
->   2. Launch Setnet32, click the **Server Information** tab and fill in the display options according to the sqlhosts file. See below:
->
->   - Informix Server: ol_informix1210 (Instance name)
->   - Host Name: '\*'127.0.0.1 (The '\*' sign cannot be missing.)
->   - Protocol Name: olsoctcp
->   - Service Name: ol_informix1210
->
->   3. After the modification, click **Make Default Server**.
->
->   4. Restart the Informix instance service.
->
->   5. Open Windows Start meun, select IBM Informix Client SDK program, and click ConnectTest Demo to test the successful connection.
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The restore target supports other instances on the original or a different host.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-## Create Backup Jobs
+	- Select **Hourly**. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
 
-This chapter introduces how to back up the Informix databases.
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-### Prerequisites
+### Create a continuous log recovery testing job
 
-- You have installed the agent. For installation, please refer to *Install and Configure Agent*.
-- You have activated the agent and assigned the authorization. For details about the activation and authorization, see *Activate License and Assign Authorization*.
-- Log in to ADPS as the *operator*.
+To create a continuous log recovery testing job, do the following:
 
-### Create Full Backup Jobs
+1. From the menu, click **Restore**. The restore job wizard appears.
+2. At the **Hosts and resources** step, select the host where Informix resides and select the resource. The wizard goes to the next step automatically.
+3. At the **Backup sets** step, do the following:
 
-Informix full backup allows for database instance backup but not a single database backup. It backs up all online, non-temporary storage space and logical logs, as well as onconfig, sqlhosts, ixbar, and oncfg ﬁles. Informix full backup corresponds to the Level-0 backup.
+	(1) From the **Restore type** list, select **Continuous log recovery testing**.
 
-(1) Click **Backup**. Select the Informix host and instance.
+	(2) Click **Next**.
 
-(2) Select **Full Backup** as the **Backup Type**. Select the databases.
+4. At the **Restore target** step, select a restore target. The wizard automatically goes to the next step. The restore target supports other instances on the original or a different host.
+5. At the **Restore schedule** step, set the job schedule. Click **Next**.
 
-![](../images/03-informix/informix_backup01.png)
+	- Select **Hourly**. Set the start time, end time, and time interval to specify the time range for job execution. The unit can be hour(s) or minute(s).
+	- Select **Daily**. Set the start time and enter the time interval for job execution. The unit is day(s).
+	- Select **Weekly**. Set the start time, enter the time interval, and select the specific dates in a week for job execution. The unit is week.
+	- Select **Monthly**. Set the start time and months for job execution. You can select the natural dates in one month or select the specific dates in one week.
 
-(3) Select **Backup Target**. You can choose standard storage pools, de-duplication storage pools, tape library pools, object storage service pools and LAN-Free pools.
+6. At the **Restore options** step, set the options according to your needs. See [Restore options](#restore-options). Click **Next**.
+7. At the **Finish** step, set the job name and confirm the job information. Click **Submit**.
 
->  Note:
->
->  - It is not supported to store full backups, incremental backups/cumulative incremental backups and log backups in different storage pools.
->  - Perform a full backup to the storage pool before using it for Informix backups.
+```{note}
+A continuous log recovery testing job will set the target database to the "fast recovery" state. In this state, the database will be unable to be connected for query operations. To restore the target database to the "On-Line" state, you can disable the continuous log recovery testing job.
+```
 
-(4) Go to **Backup Schedule** to set the execution time of the backup job. For details, see *Backup Schedule Operation*. It is generally recommended to run a full backup on a weekly basis.
+8. After the submission, you will be redirected to the **Job** page. You can start, modify, and delete the job.
 
-(5) Set **Backup Options**, including common options and advanced options.
+### Restore options
 
-- **Common options**:
+ADPS provides the following restore options for Informix:
 
-![](../images/03-informix/informix_backup02.png)
+- Commom options:
 
-**Compression**: **Fast** is enabled by default.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Restore common options
+---
+class: longtable
+---
+|Option |Description|Limitations|
+| --- | --- | --- |
+|Backup tail-log|With tail-log backups, the database can be restored to the state when the disaster occurred. Tail-log backup depends on full backup. If a full backup is not performed after recovery, do not perform the tail-log backup.|Only available for point-in-time restore jobs.|
+|Apply tail log|Enabling the option only if you want to restore the database to the latest point in time by applying the logical logs that have not been backed up.|Only available for mixed restore jobs.|
+```
 
-- None: No compression during the backup.
-- Tunable: You can customize the compression level. This option requires an activated feature of Advanced Compression.
-- Fast: Use the fast compression algorithms during the backup.
+- Advanced options:
 
-**On-Bar**: When you run an Informix backup job for the first time, On-Bar will be configured by default and a full backup job will be executed. Configuring On-Bar is an one-time operation that is only required for the first backup. If your Informix version is lower than 12.10, the database will be shut down and be restarted during the On-Bar configuration, and it is recommended that you schedule job execution in idle business time. On-Bar configuration modifies the following values in $INFORMIXDIR/etc/onconfig file: BAR_BSALIB_PATH, BAR_MAX_BACKUP, and LTAPEDEV.
+```{tabularcolumns} |\Y{0.2}|\Y{0.5}|\Y{0.30}|
+```
+```{table} Restore advanced options
+---
+class: longtable
+---
+|Option |Description|Limitations|
+| --- | --- | --- |
+|Reconnection time|The value ranges from 1 to 60 minutes. The job continues after the abnormal reset occurs in the network within the set time.||
+|Resumption buffer size|Specifies the resumption buffer size. The default value is 10 MiB. The bigger the resumption buffer size is, the more physical storage will be consumed. However, a bigger resumption buffer size can prevent data loss when the throughput of the business system is high.||
+|Speed limit|Limits data transfer speed or disk read/write speed for different time periods. The unit can be KiB/s, MiB/s, and GiB/s.||
+|Precondition|Checked before the job starts. The job execution will be aborted and the job state will be idle when the precondition is invalid.||
+|Pre-/Post-script|The pre-script is executed after the job starts and before the resource is restored. The post-script is executed after the resource is restored.||
+|Serial restore|Set BAR_MAX_BACKUP=1 to spawn one thread each time when restoring the instance. Use serial restore in case parallel restore fails.|Only available for point-in-time restore and mixed restore jobs.|
+```
 
-**Channels**: Used to improve backup efficiency. The default value of Channels is 1 and the range is 1 to 255. For details, refer to *Channel Number Configuration*.
+## Configure connection method
 
-- **Advanced options**:
+The ADPS agent supports two methods to connect to an Informix database: ODBC and DBACCESS. 
 
-![](../images/03-informix/informix_backup03.png)
+- If Informix CSDK (Client Software Development Kit) is installed, use ODBC. 
 
-**Reconnection time**: The job continues after the abnormal reset occurs in the network within the set time. The value can be 1 to 60. The unit is minute(s).
+- If Informix CSDK (Client Software Development Kit) is not installed, use DBACCESS. 
 
-**Speed limit**: Set the limit for data transfer speed or disk read and write speed. The unit can be MiB/s or KiB/s. Click the ‘’+‘’ icon to add limits at different times.
+### Linux
 
-**Precondition**: The precondition is checked before the job starts. The job execution is aborted when the precondition is invalid.
+(1) Configure DBACCESS.
 
-**Pre/Post action**: The pre action is executed after the job starts and before the resource is backed up or restored. The post action is executed after the resource is backed up or restored.
-
-(6) Set **Job Name**, check whether the job information is correct. Click **Submit**.
-
-### Create Incremental Backup Jobs
-
-An incremental backup is created based on a full backup. It only backs up data that has changed since the last backup, including all online, non-temporary storage space and logical logs, as well as onconfig, sqlhosts, ixbar, and oncfg ﬁles. Informix incremental backup corresponds to the Level-2 backup. It is recommended to create full backup jobs regularly (such as weekly), or create incremental backup jobs at short intervals (such as daily).
-
-- Creating an incremental backup job is the same as creating a full backup job. Select **Incremental Backup** as the backup type.
-
-  ![](../images/03-informix/informix_ib01.png)
-
-> Note:
->
-> - If the database has never been fully backed up, or has not been fully backed up after the restore, the first incremental backup will be run as a full backup by default.
-
-### Create Cumulative Incremental Backup Jobs
-
-A cumulative incremental backup is created based on a full backup. It only backs up data that has changed since the last full backup, including all online, non-temporary storage space and logical logs, as well as onconfig, sqlhosts, ixbar, and oncfg ﬁles. Informix cumulative incremental backup corresponds to the Level-1 backup. It is recommended to create full backup jobs regularly (such as weekly), or create cumulative incremental backup jobs at short intervals (such as daily).
-
-- Creating a cumulative incremental backup job is the same as creating a full backup job. Select **Cumulative Incremental Backup** as the backup type.
-
-  ![](../images/03-informix/informix_cib01.png)
-> Note:
->
-> - If the database has never been fully backed up, or has not been fully backed up after restore, the first cumulative incremental backup will be run as a full backup by default.
-
-### Create Log Backup Jobs
-
-Informix log backup is created based on a full backup. It backs up the current logical logs and other full logical logs.
-
-- Creating a log backup job is the same as creating a full backup job. Select **Log** as the backup type.
-
-  ![](../images/03-informix/informix_log01.png)
-
- > Note:
- > - If the database has never been fully backed up, or has not been fully backed up after the restore, run a full backup job before the log backup job.
- > - To perform the restore job successfully, it is required that full backups and log backups are in the same storage pool.
- > - When a log backup job is running,  the Agent modifies onconfig file parameter LTAPEDEV to a value other than /dev/null.
- > - When a single logical log file is full, this log file will not be automatically marked as backed up. When all logical logs are full and no log backup has been performed since the last backup, the database will hang and become inaccessible. It is recommended that you set the log backup execution cycle according to the speed at which logical logs are generated to avoid database from crashing.
-
-### Create Automatic Archiving Log Backup Jobs
-
-When logical logs are full or when you manually execute log switch command, automatic archiving log backups are performed automatically to back up the current logical logs.
-
-- Creating an automatic archiving log backup job is the same as creating a full backup job. Select **On Demand** as the backup type.
-
-  ![](../images/03-informix/informix_log_od01.png)
-
-  > Note:
-  >
-  > - Run a full backup job before the first automatic archiving log backup job.
-  > - It is not supported to run an automatic archiving log backup job and a log backup job on the same instance.
-  > - Informix version 11.50 configures On-Bar and restarts the instance when the automatic archiving log backup job is running.
-
-## Create Restore Jobs
-
-This chapter introduces how to restore Informix databases. ADPS provides a variety of restore types including timepoint restore, full recovery testing, and continuous recovery testing.
-
-### Prerequisites
-
-- A backup job has been completed. See *Create Backup Jobs*.
-- To restore to another host, it is required to install the agent on that host, activate its license and assign the authorization.
-
-### Create Timepoint Restore Jobs
-
-When a logical error or a disaster occurs in an Informix database, you can use timepoint restore to restore the database to a specified point-in-time state. Informix timepoint restore supports restoring to the source host or a different host.
-
-(1) Select the Informix database host and instance, and click **Next**.
-
-(2) Select **Timepoint Restore** as the restore type, select the backup set and the specific point in time by dragging the slider control.
-
-![](../images/03-informix/informix_restore01.png)
-
-(3) Set **Restore Target**. You can select the source host or a different host as the restore target. Click **Next**.
-
-- **Source host**: The Restore Target page selects the source host by default.
-
-- **Different host**: You can restore to a different host, which requires the same informix version, same instance name, and same path.
-
-(4) Set **Restore Schedule**. It only supports immediate and one-time restore schedules.
-
-(5) Set **Restore Options**. You can set backup tail-log in the common options, and set reconnection time, resumption buffer size, speed limit, precondition, pre action, post action and serial restore in the advanced options.
-
-- **Backup tail-log**: Backup tail-log is the process of backing up logical log files from disks to storage media before a restore job is executed.
-   - In case the database instance fails and some logical log data have not yet been backed up to the storage media, it is necessary to enable this option to back up the logical log data if you restore the instance to the point in time of failure.
-   - Log backup is based on a full backup. If you have not executed a full backup job after the restore is completed, disable this option when you execute a restore operation again.
-- **Serial restore**: Set BAR_MAX_BACKUP=1 to start only one thread at each restore. When a restore job requires multiple backup sets that use different channel number, the restore job has the possibility to fail. In this case it is recommended to enable Serial Restore.
-
-(6) Confirm the job information. Click **Submit**.
-
-### Create Full Recovery Testing Jobs
-
-With the hourly, daily, weekly, or monthly schedule, you can use full recovery testing to recover the latest Informix backup set to the specified target host and and verify that the backup set is available.
-
-(1) Select the Informix database host and instance. Click **Next**.
-
-(2) Select **Full Recovery Testing** as the restore type. This restore type does not require selecting a backup set point in time, because it will restore the latest backup set of the source host when it is executed.
-
-![](../images/03-informix/informix_restore02.png)
-
-(3) Select **Restore Target**. The source instance cannot be selected as the restore target. The selected restore target requires that the database version, instance name, and storage path are consistent with those of the source database. Click **Next**.
-
-(4) Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
-
-(5) Set **Restore Options** including reconnection time, speed limit, pre action, and post action. Click **Next**.
-
-(6) Confirm the job information. Click **Submit**.
-
-### Create Continuous Log Recovery Testing Jobs
-
-Continuous recovery testing allows you to create periodic log recovery testing jobs that apply the latest logical log files from the Informix host to the target instance synchronously.
-
-(1) Select the Informix database host and instance, and click **Next**.
-
-(2) Select **Continuous Recovery Testing** as the restore type. This restore type does not require selecting a backup set point in time, because it will restore the latest backup set of the source host when it is executed.
-
-![](../images/03-informix/informix_restore03.png)
-
-(3) Select **Restore Target**. The source instance cannot be selected as the restore target. The selected restore target requires that the database version, instance name, and storage path are consistent with those of the source database. Click **Next**.
-
-(4) Set **Restore Schedule**. It supports hourly, daily, weekly, and monthly schedule types. Click **Next**.
-
-(5) Set **Restore Options** including reconnection time, speed limit, pre action, and post action. Click **Next**.
-
-(6) Confirm the job information. Click **Submit**.
-
-> Note:
->
-> - When you submit a continuous log recovery testing job, the page will pop up a window to confirm your submission. See below:
->
->   ![](../images/03-informix/informix_restore04.png)
->
-> - When you restore the latest logical log backup set from the Informix host to the specified target host, database on the target host will be in a "Fast Recovery" state, which prevents the database from querying data. In this case you can restore the database on the target host to an "On-Line" state by disabling the continuous log recovery testing.
-
-## Manage Jobs
-
-On the **Job** interface, you can view the backup and restore job information of all agents, start, modify, clone, and delete the jobs.
-
-![](../images/03-informix/informix_job01.png)
-
-- Start: Click ![](../images/03-informix/informix_job02.png) to start the job immediately.
-- Modify: Click ![](../images/03-informix/informix_job03.png) to modify the basic job information, the backup/restore schedule, and the backup/restore options.
-- Clone: Click ![](../images/03-informix/informix_job04.png) to create multiple similar backup jobs.
-- Delete: Click ![](../images/03-informix/informix_job05.png) to access the confirmation window. Click **OK** to delete the job.
-
-## Backup Protection Strategy
-
-###  Backup Schedule Operation
-
-ADPS provides six types of backup schedules. The schedule type selected is only valid for the currently created job.
-
-![](../images/03-informix/informix_time01.png)
-
-- Immediate: The job immediately starts to run after it is submitted.
-- One time: After the job is created, it will be in an idle state and start to run when the specified Start time is reached.
-- Hourly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of hours/minutes within the time range according to the setting. If the unit is Hour, then you can set the value from 1 to 24. If you select the Minute as the unit, then you can set the value from 1 to 60.
-- Daily: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of days according to the setting. The value is an integer between 1 and 5.
-- Weekly: After the job is created, the first run will be initiated at the specified Start Time. The next run will be executed after a specified number of weeks according to the setting. You can specify which day of the week to run the job.
-- Monthly: The job runs on the specified days of some months at the specified time. For example, you can set the job to run on January 1 and June 1 at 20:00. Or you can set it to run on the first Monday of every month at 20:00.
-
->  **Example: Perform the job every two weeks on Friday at 18:00**
-
-> ![](../images/03-informix/informix_time02.png)
-
-> **The actual execution time is:**
->
->  - If the current time is Friday 17:00, the run time is Friday 18:00 (the current day).
->   - If the current time is Thursday 17:00, the run time is Friday 18:00 (the next day).
->   - If the current time is Saturday 17:00, the run time will be next Friday 18:00.
->   - After the first run is completed, the job will start automatically at 18:00 on Friday every two weeks.
-
-### Backup Strategy Advice
-
-There are six methods to back up Informix: full backup, incremental backup, cumulative incremental backup, log backup, and automatic archiving log backup. Full backup, incremental backup, cumulative incremental backup, and log backup can be used together. It is recommended to formulate the following backup strategy according to different situations such as network bandwidth, business data volume, security requirements, and the amount of lost data that you can tolerate.
-
-1. When the application traffic is relatively small, run a **Full Backup** once a week to ensure that you have at least one recoverable RTO every week.
-2. After that, you can run an **Cumulative Incremental Backup** every day to reduce the backup time and ensure that you have at least one recoverable RPO every day.
-3. It's recommended that you set the cycle of log backup jobs based on the speed at which logical logs are generated.
-
-> Note:
->
-> - Avoid using the strategies of all full backups or a full backup followed by cumulative incremental or log backups.
-
-## Configure the Agent Access Mode
-
-The Agent supports using ODBC and DBACCESS to access the databases.
-
-- If you have installed Informix CSDK (Client Software Development Kit), ODBC access mode will be used by default.
-- If Informix CSDK (Client Software Development Kit) is not installed, you can use the DBACCESS access mode.
-
-Refer to the following steps to configure DBACCESS for different OS.
-
-1. Configure DBACCESS on Linux
-
-   ```shell
+```shell
    > /etc/init.d/adps-agent config informix
    Detected Informix home:
    /opt/informix
@@ -427,57 +591,51 @@ Refer to the following steps to configure DBACCESS for different OS.
    Enter access mode (ODBC or DBACCESS):DBACCESS
    Stopping adps-agent                                    [  OK  ]
    Starting adps-agent                                    [  OK  ]
-   ```
+```
+(2) Verify the successful configuration.
 
-   Verify the successful configuration:
-
-   ```shell
+```shell
    > cat /etc/opt/aurreum/adps/agent/conf.d/informix.conf
    INFORMIX_DIR=/opt/informix
    INFORMIX_LD_LIBRARY_PATH=/opt/informix/lib
    # mode: DBACCESS or ODBC
    INFORMIX_ACCESS_MODE=DBACCESS
-   ```
+```
 
-2. Configure DBACCESS on Windows
+### Windows
 
-   If CSDK is not installed, DBACCESS will be used automatically. The corresponding InformixAccess registry entries are as follows:
+If CSDK is not installed, DBACCESS will be used automatically. The corresponding InformixAccess registry entries are as follows:
 
-   ```shell
+```shell
    ## Add Registry
    HKEY_LOCAL_MACHINE\SOFTWARE\aurreum\adps\agent\InformixAccess
    #String value DBACCESS
-   ```
+```
 
-## Channel Number Configuration
-
-- Channel number for backup jobs
-
-  Informix supports up to 255 channels. You can set the number of channels for backup and restore jobs according to the actual environment. A reasonable number can improve job performance. On-Bar backs up dbspace. If the channel number exceeds the dbspace number, the exceeded channel number will not take effect.
-
-- Channel number for restore jobs
-
-  The channel number for a restore job is the same as that for the backup job. The restore page does not have the Channel option by default.
 
 ## Limitations
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
 ```
-```{table} Limitation
+```{table} Limitations
 ---
 class: longtable
 ---
-| Function | Limitations                                       |
-| -------- | ------------------------------------------------------------ |
-| Restore  | The target database version number, instance name, and data storage path are required to be the same as those of the source database.{{ br }}Backup tail-log option only backs up data, not new tables. |
+|Feature|Limitations|
+| --- | --- |
+|Restore|The database version number, instance name, and data storage path of the restore target are required to be the same as those of the source database.|
+| Backup tail-log |Only backs up data, not new tables. |
 ```
+
 ## Glossary
-```{tabularcolumns} |\Y{0.3}|\Y{0.7}|
+
+```{tabularcolumns} |\Y{0.20}|\Y{0.80}|
 ```
 ```{table} Glossary
 ---
 class: longtable
 ---
-| Term             | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
-| Fast compression | Compress data during backup using fast compression algorithms. |
+|Term|Description|
+| --- | --- |
+|fast compression|A compression method that uses fast compression algorithms to compress data during the backup job.|
 ```

@@ -167,12 +167,13 @@ To activate licenses and authorize users, do the following:
 
     ```{only} scutech
 	![](../images/Backup_Restore/DBackup3/Hadoop/configure_hadoop_proxy.png)
-  	```
 
-	```{note}
-	1. If you are prompted with "No enough licenses", contact the administrator to add licenses.
-	2. With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
-	```
+  	```
+  	
+  	```{note}
+  	1. If you are prompted with "No enough licenses", contact the administrator to add licenses.
+  	2. With many agents, install them first, then **batch register**, **batch activate**, and **batch authorize** the agents and resources for convenience. For details, see [Batch register/Batch activate/Batch authorize](../manager/manager.md#batch-registerbatch-activatebatch-authorize) in Aurreum Data Protection Suite Administrator's Guide.
+  	```
 
 ## Add and activate a Hadoop cluster
 
@@ -562,7 +563,7 @@ To create an instant recovery job, do the following:
 		bridge_hello 2
 		bridge_maxage 12
 		```
-	````
+	 ````
 
 5. At the **Finish** step, confirm the job information and click **Submit**.
 6. After the submission, you will be redirected to the help page. Mount the files manually according to the procedure. On the **CDM** page, a copy with a mounted state is added below the selected point in time. For more details, see [View a copy](#view-a-copy).
@@ -717,7 +718,7 @@ class: longtable
 |Feature|Limitations|
 | --- | --- |
 |Point-in-time restore|Hadoop backup sets cannot be restored to Windows and vice versa.|
-|instant recovery|Only Linux storage server supports instant recovery. {{ br }}It supports standard storage pools with neither **Data storage encryption** nor **Multi-storage** enabled.{{ br }}It supports file synthetic pools.|
+|Instant recovery|Only Linux storage server supports instant recovery. {{ br }}It supports standard storage pools with neither **Data storage encryption** nor **Multi-storage** enabled.{{ br }}It supports file synthetic pools.|
 |Recovery testing|It does not support recovering Hadoop backup sets to Windows.{{ br }}It does not support recovering Hadoop backup sets to object storage.|
 ```
 
